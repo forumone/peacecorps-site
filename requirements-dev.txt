@@ -1,0 +1,4 @@
+# Used as helpful in dev
+flake8
+django-debug-toolbar
+ipython
