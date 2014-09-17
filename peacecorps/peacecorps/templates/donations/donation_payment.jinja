@@ -1,0 +1,12 @@
+<html lang='en'>
+<head>
+    <title></title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p() }}
+        <input type="submit" value="Confirm Information" />
+    </form>
+</body>
+</html>
