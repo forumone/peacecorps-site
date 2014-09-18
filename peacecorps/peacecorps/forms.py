@@ -54,14 +54,15 @@ class DonationPaymentForm(forms.Form):
         widget=forms.Textarea(attrs={'rows':4}))
 
     # User consents to stay informed about the Peace Corps. 
-    email_consent = forms.BooleanField(initial=True)
+    email_consent = forms.BooleanField(initial=True, required=False)
 
     # True if there might be a possible conflict of interest. 
-    interest_conflict = forms.BooleanField(initial=False)
+    interest_conflict = forms.BooleanField(initial=False, required=False)
 
     #Dedication related fields
-    dedication = forms.BooleanField(initial=False)
-    dedication_name = forms.CharField(label="Name", max_length=40)
+    dedication = forms.BooleanField(initial=False, required=False)
+    dedication_name = forms.CharField(
+        label="Name", max_length=40, required=False)
 
     dedication_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DEDICATION_TYPE_CHOICES,
