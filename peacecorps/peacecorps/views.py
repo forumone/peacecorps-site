@@ -9,7 +9,7 @@ def donation_payment_us(request):
     if request.method == 'POST':
         form = USDonationPaymentForm(request.POST)
         if form.is_valid():
-            pass
+            return HttpResponseRedirect('/donations/review/')
     else:
         form = USDonationPaymentForm()
     return render(request, 'donations/donation_payment.jinja', {'form': form})
