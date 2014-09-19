@@ -1,6 +1,7 @@
 from django.test import TestCase
 from peacecorps.forms import DonationPaymentForm
 
+
 class DonationPaymentTests(TestCase):
     def test_us_donation_required(self):
         form_data = {

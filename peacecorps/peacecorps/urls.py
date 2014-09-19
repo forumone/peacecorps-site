@@ -3,7 +3,8 @@ from django.contrib import admin
 
 from peacecorps.views import donation_payment_us
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/', include(admin.site.urls)),
     url(
         r'^donations/contribute/us$',
