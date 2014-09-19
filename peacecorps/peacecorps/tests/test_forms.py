@@ -4,6 +4,7 @@ from peacecorps.forms import DonationPaymentForm
 
 class DonationPaymentTests(TestCase):
     def test_us_donation_required(self):
+        """ Check the minimum required data.  """
         form_data = {
             'donor_type': 'Individual',
             'name': 'William Williams',
@@ -16,4 +17,4 @@ class DonationPaymentTests(TestCase):
         }
         form = DonationPaymentForm(data=form_data)
         form_validity = form.is_valid()
-        self.assertEqual(form.is_valid(), True)
+        self.assertTrue(form.is_valid())
