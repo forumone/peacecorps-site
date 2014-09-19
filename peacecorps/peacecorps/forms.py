@@ -40,6 +40,10 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
         initial='Individual')
     name = forms.CharField(label="Name *", max_length=100)
+    organization_name = forms.CharField(
+        label='Organization Name *', max_length=40, required=False)
+    organization_contact = forms.CharField(
+        label='Contact Person *', max_length=100, required=False)
     email = forms.EmailField(required=False)
     street_address = forms.CharField(label="Street Address *", max_length=80)
     city = forms.CharField(label="City *", max_length=40)

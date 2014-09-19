@@ -19,19 +19,30 @@
         </div>
 
         <div>
+            {{form.organization_name.errors}}
+            <label for="id_organization_name">Organization Name *</label>
+            {{form.organization_name}}
+        </div>
+
+        <div>
+            {{form.organization_contact.errors}}
+            <label for="id_organization_contact">Organization Contact*</label>
+            {{form.organization_contact}}
+        </div>
+        <div>
             {{form.street_address.errors}}
-            <label for="id_name">Street Address *</label>
+            <label for="id_street_address">Street Address *</label>
             {{form.street_address}}
         </div>
 
         <div>
             {{form.city.errors}}
-            <label for="id_name">City *</label>
+            <label for="id_city">City *</label>
             {{form.city}}
         </div>
         <div>
             {{form.state.errors}}
-            <label for="id_name">State *</label>
+            <label for="id_state">State *</label>
             {{form.state}}
         </div>
         <div>
