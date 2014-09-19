@@ -1,5 +1,5 @@
 from django.test import TestCase
-from peacecorps.forms import USDonationPaymentForm
+from peacecorps.forms import DonationPaymentForm
 
 class DonationPaymentTests(TestCase):
     def test_us_donation_required(self):
@@ -13,7 +13,6 @@ class DonationPaymentTests(TestCase):
             'payment_type': 'credit-card',
             'information_consent': 'vol-consent-yes'
         }
-        form = USDonationPaymentForm(data=form_data)
+        form = DonationPaymentForm(data=form_data)
         form_validity = form.is_valid()
-        print(form.errors)
         self.assertEqual(form.is_valid(), True)
