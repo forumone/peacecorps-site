@@ -1,0 +1,162 @@
+<html lang='en'>
+<head>
+    <title></title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div>
+            {{form.donor_type.errors}}
+            <label for="id_donor_type">Type of donor<label>
+            {{form.donor_type}}
+        </div>
+
+        <div>
+            {{form.name.errors}}
+            <label for="id_name">Name *</label>
+            {{form.name}}
+        </div>
+
+        <div>
+            {{form.street_address.errors}}
+            <label for="id_name">Street Address *</label>
+            {{form.street_address}}
+        </div>
+
+        <div>
+            {{form.city.errors}}
+            <label for="id_name">City *</label>
+            {{form.city}}
+        </div>
+        <div>
+            {{form.state.errors}}
+            <label for="id_name">State *</label>
+            {{form.state}}
+        </div>
+        <div>
+            {{form.zip_code.errors}}
+            <label for="id_zip_code">Zip Code *</label>
+            {{form.zip_code}}
+        </div>
+        <div>
+            {{form.phone_number.errors}}
+            <label for="id_phone_number">Phone*</label>
+            {{form.phone_number}}
+        </div>
+
+        <div>
+            {{form.email_consent.errors}}
+            <label for="id_email_consent">
+            {{form.email_consent}} Yes, I would like to stay informed of
+            exciting Volunteer stories from the field and upcoming
+            opportunities to partner with the Peace Corps. Peace Corps will not
+            share your information  with outside organizations. 
+            </label>
+        </div>
+
+        <div>
+            {{form.payment_type.errors}}
+            <label for='id_payment_type'>Payment Type *</label>
+            {{form.payment_type}}
+        </div>
+
+        <div>
+            {{form.comments.errors}}
+            <label for='id_comments'>Comments (special instructions regarding your donation or comments for the Volunteer.)</label>
+            {{form.comments}}
+        </div>
+
+        <div>
+            {{form.dedication.errors}}
+            <label for='id_dedication'>
+            {{form.dedication}} I wish to donate in honor or in memory of someone.
+            </label>
+        </div>
+
+        <div id='dedication_details'>
+            
+            <div>
+                {{form.dedication_name.errors}}
+                <label for='id_dedication_name'>Name</label>
+                {{form.dedication_name}}
+            </div>
+
+            <div>
+                {{form.dedication_type.errors}}
+                {{form.dedication_type}}
+            </div>
+
+            <p> Send the honoree a letter so they know you were thinking of them: </p>
+
+            <div>
+                {{form.dedication_email.errors}}
+                <label for='id_dedication_email'>Email</label>
+                {{form.dedication_email}}
+            </div>
+
+            <div>
+                {{form.dedication_address.errors}}
+                <label for='id_dedication_address'>Mailing address</label>
+                {{form.dedication_address}}
+            </div>
+
+            <div>
+                {{form.card_dedication.errors}}
+                <label for='id_card_dedication'>Message</label>
+                {{form.card_dedication}}
+            </div>
+
+            <div>
+                {{form.dedication_consent.errors}}
+                <label for='id_dedication_consent'>Information Consent</label>
+
+                <ul id="id_dedication_consent">
+                <li><label for="id_dedication_consent_0">
+                    <input checked="checked" id="id_dedication_consent_0" name="dedication_consent" type="radio" value="yes-dedication-consent" />
+                    I authorize the Peace Corps to make my name and contact information available to the honoree.
+                    </label>
+                </li>
+                <li><label for="id_dedication_consent_1">
+                    <input id="id_dedication_consent_1" name="dedication_consent" type="radio" value="no-dedication-consent" />
+                    I do not authorize the Peace Corps to make my name and contact information available to the honoree.
+                    </label>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            {{form.interest_conflict.errors}}
+            <label for id='id_interest_conflict'>
+
+            {{form.interest_conflict}} If you, your business, your employer, or
+            an immediate family member is currently doing business, or seeking
+            to do business with Peace Corps, or otherwise have business or
+            financial interests that may be affected by Peace Corps please
+            check the box above and contact the Peace Corps Partnership Program
+            at 202.692.2170 or donate@peacecorps.gov. Note: Serving as a Peace
+            Corps Volunteer is not a business or financial interest.
+            </label>
+        </div>
+
+        <div>
+            {{form.information_consent.errors}}
+            <ul id="id_information_consent">
+                <li><label for="id_information_consent_0">
+                    <input checked="checked" id="id_information_consent_0" name="information_consent" type="radio" value="vol-consent-yes" />
+                    I authorize the Peace Corps to make my name and contact information available to the honoree.
+                    </label>
+                </li>
+                <li><label for="id_information_consent_1">
+                    <input id="id_information_consent_1" name="information_consent" type="radio" value="vol-consent-no" />
+                    I do not authorize the Peace Corps to make my name and contact information available to the honoree.
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <input type="submit" value="Confirm Information" />
+    </form>
+</body>
+</html>

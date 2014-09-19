@@ -52,3 +52,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Application
+local_settings.py
+
+*.swp
