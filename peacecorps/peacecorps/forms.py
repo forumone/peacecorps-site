@@ -1,6 +1,6 @@
 from django import forms
-from localflavor.us.forms import USPhoneNumberField, USStateField
-from localflavor.us.forms import USZipCodeField, USStateSelect
+from localflavor.us.forms import USStateField
+from localflavor.us.forms import USStateSelect
 
 
 class DonationPaymentForm(forms.Form):
