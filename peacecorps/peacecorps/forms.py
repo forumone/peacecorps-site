@@ -44,6 +44,9 @@ class DonationPaymentForm(forms.Form):
     email = forms.EmailField(required=False)
     street_address = forms.CharField(label="Street Address *", max_length=80)
     city = forms.CharField(label="City *", max_length=40)
+    state = USStateField(label="State *", widget=USStateSelect, required=False)
+    zip_code = forms.CharField(required=False)
+    phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT_TYPE_CHOICES, 
         initial="credit-card",
@@ -59,6 +62,10 @@ class DonationPaymentForm(forms.Form):
     # True if there might be a possible conflict of interest. 
     interest_conflict = forms.BooleanField(initial=False, required=False)
 
+    information_consent = forms.ChoiceField(
+        widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
+        initial='vol-consent-yes')
+
     #Dedication related fields
     dedication = forms.BooleanField(initial=False, required=False)
     dedication_name = forms.CharField(
@@ -66,22 +73,11 @@ class DonationPaymentForm(forms.Form):
 
     dedication_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DEDICATION_TYPE_CHOICES,
-        initial='in-honor')
+        initial='in-honor', required=False)
     dedication_email = forms.EmailField(label="Email", required=False)
     dedication_address = forms.CharField(
         label="Mailing Address", max_length=255, required=False)
     card_dedication = forms.CharField(max_length=150, required=False)
     dedication_consent = forms.ChoiceField(
         widget=forms.RadioSelect, initial='yes-dedication-consent',
-        choices=DEDICATION_CONSENT_CHOICES)
-    information_consent = forms.ChoiceField(
-        widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
-        initial='vol-consent-yes')
-
-class USDonationPaymentForm(DonationPaymentForm):
-    """ A US address specific donation payment form. Since most of the donors
-    will likely reside in the United States, this makes sense. """
-
-    state = USStateField(label="State *", widget=USStateSelect)
-    zip_code = USZipCodeField()
-    phone_number = USPhoneNumberField(required=False)
+        choices=DEDICATION_CONSENT_CHOICES, required=False)
