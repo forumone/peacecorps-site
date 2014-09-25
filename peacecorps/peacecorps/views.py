@@ -12,7 +12,9 @@ def donation_payment_individual(request):
         dedication_form = DedicationForm(request.POST)
 
         if form.is_valid():
-            return HttpResponseRedirect('/donations/review/')
+            for k,v in form.cleaned_data.items():
+                request.session[k] = v
+            return HttpResponseRedirect('/donations/review')
     else:
         form = IndividualDonationForm()
         dedication_form = DedicationForm()
@@ -35,3 +37,12 @@ def donation_payment_organization(request):
             'organization': True,
             'dedication_form': dedication_form 
         })
+
+def donation_payment_review(request):
+    data = {}
+    for k,v in request.session.items():
+        data[k] = v
+    return render(
+        request,
+        'donations/review_payment.jinja',
+        {'data': data})

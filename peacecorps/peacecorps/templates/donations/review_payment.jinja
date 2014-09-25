@@ -1,0 +1,33 @@
+<html lang='en'>
+<head>
+    <title>Review</title>
+</head>
+<body>
+    <h1> Review Your Contribution Information </h1>
+
+    <p> Please note: Upon submitting this form, you will be redirect to the
+    Pay.gov website to complete the payment transaction. Pay.Gov is the secure
+    payment portal of the United States Department of the Treasury. </p>
+
+    <p> {{data.name}} </p>
+
+    <p>
+        {{data.street_address}} <br />
+        {{data.city}}, {{data.state}} {{data.zip_code}}<br />
+        {{data.country}} <br />
+    </p>
+
+    <p>
+        {{data.phone_number}} <br />
+        {% if data.email %}
+            {{data.email}}
+        {% endif %}
+    </p>
+
+
+    <form action="" method="POST">
+        <input type="submit" value="Enter Payment Information" />
+    </form>
+</body>
+</html>
+
