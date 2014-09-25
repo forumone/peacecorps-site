@@ -56,6 +56,12 @@
             {{form.zip_code}}
         </div>
         <div>
+            {{form.country.errors}}
+            <label for="id_country">Country *</label>
+            {{form.country}}
+        </div>
+
+        <div>
             {{form.phone_number.errors}}
             <label for="id_phone_number">Phone*</label>
             {{form.phone_number}}
