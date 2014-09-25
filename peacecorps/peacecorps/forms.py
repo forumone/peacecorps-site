@@ -1,6 +1,10 @@
 from django import forms
+
 from localflavor.us.forms import USStateField
 from localflavor.us.forms import USStateSelect
+from django_countries.widgets import CountrySelectWidget
+
+from .countries import COUNTRY_OPTIONS
 
 class DedicationForm(forms.Form):
     DEDICATION_TYPE_CHOICES = (
@@ -51,6 +55,8 @@ class DonationPaymentForm(forms.Form):
         ('vol-consent-no', "Don't share with Volunteer")
     )
 
+    COUNTRY_CHOICES = COUNTRY_OPTIONS
+
     donor_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
         initial='Individual')
@@ -58,6 +64,7 @@ class DonationPaymentForm(forms.Form):
     street_address = forms.CharField(label="Street Address *", max_length=80)
     city = forms.CharField(label="City *", max_length=40)
     state = USStateField(label="State *", widget=USStateSelect, required=False)
+    country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
     zip_code = forms.CharField(required=False)
     phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
