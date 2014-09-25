@@ -12,12 +12,8 @@
             {{form.donor_type}}
         </div>
 
-        <div>
-            {{form.name.errors}}
-            <label for="id_name">Name *</label>
-            {{form.name}}
-        </div>
-
+        
+        {% if organization %}
         <div>
             {{form.organization_name.errors}}
             <label for="id_organization_name">Organization Name *</label>
@@ -29,6 +25,15 @@
             <label for="id_organization_contact">Organization Contact*</label>
             {{form.organization_contact}}
         </div>
+        {% else %}
+        <div>
+            {{form.name.errors}}
+            <label for="id_name">Name *</label>
+            {{form.name}}
+        </div>
+
+        {% endif %}
+
         <div>
             {{form.street_address.errors}}
             <label for="id_street_address">Street Address *</label>
@@ -88,38 +93,38 @@
         <div id='dedication_details'>
             
             <div>
-                {{form.dedication_name.errors}}
+                {{dedication_form.dedication_name.errors}}
                 <label for='id_dedication_name'>Name</label>
-                {{form.dedication_name}}
+                {{dedication_form.dedication_name}}
             </div>
 
             <div>
-                {{form.dedication_type.errors}}
-                {{form.dedication_type}}
+                {{dedication_form.dedication_type.errors}}
+                {{dedication_form.dedication_type}}
             </div>
 
             <p> Send the honoree a letter so they know you were thinking of them: </p>
 
             <div>
-                {{form.dedication_email.errors}}
+                {{dedication_form.dedication_email.errors}}
                 <label for='id_dedication_email'>Email</label>
-                {{form.dedication_email}}
+                {{dedication_form.dedication_email}}
             </div>
 
             <div>
-                {{form.dedication_address.errors}}
+                {{dedication_form.dedication_address.errors}}
                 <label for='id_dedication_address'>Mailing address</label>
-                {{form.dedication_address}}
+                {{dedication_form.dedication_address}}
             </div>
 
             <div>
-                {{form.card_dedication.errors}}
+                {{dedication_form.card_dedication.errors}}
                 <label for='id_card_dedication'>Message</label>
-                {{form.card_dedication}}
+                {{dedication_form.card_dedication}}
             </div>
 
             <div>
-                {{form.dedication_consent.errors}}
+                {{dedication_form.dedication_consent.errors}}
                 <label for='id_dedication_consent'>Information Consent</label>
 
                 <ul id="id_dedication_consent">
