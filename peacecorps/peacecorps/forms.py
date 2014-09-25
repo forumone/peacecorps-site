@@ -94,24 +94,6 @@ class IndividualDonationForm(DonationPaymentForm):
 
 class OrganizationDonationForm(DonationPaymentForm):
     organization_name = forms.CharField(
-        label='Organization Name *', max_length=40, required=False)
+        label='Organization Name *', max_length=40)
     organization_contact = forms.CharField(
-        label='Contact Person *', max_length=100, required=False)
-
-    #def clean(self):
-    #    """ Validation for fields that depend on each other. """
-
-    #    cleaned_data = super(DonationPaymentForm, self).clean()
-    #    donor_type = cleaned_data.get('donor_type')
-
-    #    if donor_type == 'Organization':
-    #       org_name = cleaned_data.get('organization_name')
-    #        org_contact = cleaned_data.get('organization_contact')
-
-    #        if org_name is None or org_name == '':
-    #            raise forms.ValidationError(
-    #                'Organization name is required.')
-                    
-    #        if org_contact is None or org_contact == '':
-    #            raise forms.ValidationError(
-    #                'Organization contact name is required.')
+        label='Contact Person *', max_length=100)
