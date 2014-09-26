@@ -1,6 +1,7 @@
 from django.test import TestCase
 from peacecorps.forms import IndividualDonationForm, OrganizationDonationForm
 
+
 class DonationPaymentTests(TestCase):
     def test_individual_donation_required(self):
         """ Check the minimum required data.  """
@@ -36,4 +37,3 @@ class DonationPaymentTests(TestCase):
         form = OrganizationDonationForm(data=form_data)
         print(form.errors)
         self.assertTrue(form.is_valid())
-

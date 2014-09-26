@@ -6,7 +6,11 @@ from django_countries.widgets import CountrySelectWidget
 
 from .countries import COUNTRY_OPTIONS
 
+
 class DedicationForm(forms.Form):
+    """ If the donation is being dedicated to someone, we use this form to
+    validate and process """
+
     DEDICATION_TYPE_CHOICES = (
         ('in-honor', 'In Honor'),
         ('in-memory', 'In Memory')
@@ -23,10 +27,8 @@ class DedicationForm(forms.Form):
         ('no-dedication-consent', ded_no),
     )
 
-
     dedication_name = forms.CharField(
         label="Name", max_length=40, required=False)
-
     dedication_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DEDICATION_TYPE_CHOICES,
         initial='in-honor', required=False)
@@ -38,7 +40,10 @@ class DedicationForm(forms.Form):
         widget=forms.RadioSelect, initial='yes-dedication-consent',
         choices=DEDICATION_CONSENT_CHOICES, required=False)
 
+
 class DonationPaymentForm(forms.Form):
+    """ The base donation form. This contains fields common to both the
+    individual and organization varities. """
 
     DONOR_TYPE_CHOICES = (
         ('Individual', 'Individual'),
@@ -89,10 +94,15 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
+
 class IndividualDonationForm(DonationPaymentForm):
+    """ An actual donation form. This one is for individuals. """
+
     name = forms.CharField(label="Name *", max_length=100)
 
+
 class OrganizationDonationForm(DonationPaymentForm):
+    """ An actual organization form. This one is for organizations. """
     organization_name = forms.CharField(
         label='Organization Name *', max_length=40)
     organization_contact = forms.CharField(

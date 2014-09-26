@@ -16,16 +16,20 @@ def donation_payment_individual(request):
         dedication_form = DedicationForm(request.POST)
 
         if form.is_valid():
-            for k,v in form.cleaned_data.items():
+            for k, v in form.cleaned_data.items():
                 request.session[k] = v
             return HttpResponseRedirect('/donations/review')
     else:
         form = IndividualDonationForm()
         dedication_form = DedicationForm()
-    return render(request, 'donations/donation_payment.jinja',
+    return render(
+        request, 'donations/donation_payment.jinja',
         {'form': form, 'dedication_form': dedication_form})
 
+
 def donation_payment_organization(request):
+    """ If the user is representing an organization, this is the relevant
+    view. It uses an organization specific form. """
     if request.method == 'POST':
         form = OrganizationDonationForm(request.POST)
         dedication_form = DedicationForm(request.POST)
@@ -33,14 +37,16 @@ def donation_payment_organization(request):
         if form.is_valid():
             return HttpResponseRedirect('/donations/review')
     else:
-        form = OrganizationDonationForm(initial={'donor_type':'Organization'})
+        form = OrganizationDonationForm(initial={'donor_type': 'Organization'})
         dedication_form = DedicationForm()
-    return render(request, 'donations/donation_payment.jinja',
-        {   
+    return render(
+        request, 'donations/donation_payment.jinja',
+        {
             'form': form,
             'organization': True,
-            'dedication_form': dedication_form 
+            'dedication_form': dedication_form
         })
+
 
 def generate_agency_tracking_id():
     """ Generate an agency tracking ID for the transaction that has some random
@@ -49,26 +55,28 @@ def generate_agency_tracking_id():
 
     random = str(uuid4()).replace('-', '')
     today = datetime.now().strftime("%m%d")
-    return 'PCOCI%s%s' % (today, random[0:6]) 
+    return 'PCOCI%s%s' % (today, random[0:6])
+
 
 def generate_agency_memo(data):
     """ This currently returns a faked agency memo. Later we'll replace this.
     """
-
     phone = '()'
     if 'phone_number' in data:
         phone = '(%s)' % data['phone_number']
 
-    memo = '()(14-491-001, $10.00/)' 
+    memo = '()(14-491-001, $10.00/)'
     memo += phone
-    memo += '(yes)(no)(yes)' 
+    memo += '(yes)(no)(yes)'
     return memo
 
+
 def donation_payment_review(request):
+    """ This view is for a simple donation payment review page. """
     data = {}
-    for k,v in request.session.items():
+    for k, v in request.session.items():
         data[k] = v
-    
+
     return render(
         request,
         'donations/review_payment.jinja',
