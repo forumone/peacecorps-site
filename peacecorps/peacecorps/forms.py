@@ -2,7 +2,6 @@ from django import forms
 
 from localflavor.us.forms import USStateField
 from localflavor.us.forms import USStateSelect
-from django_countries.widgets import CountrySelectWidget
 
 from .countries import COUNTRY_OPTIONS
 
