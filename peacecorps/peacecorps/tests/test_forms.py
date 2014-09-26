@@ -35,5 +35,4 @@ class DonationPaymentTests(TestCase):
             'information_consent': 'vol-consent-yes'
         }
         form = OrganizationDonationForm(data=form_data)
-        print(form.errors)
         self.assertTrue(form.is_valid())
