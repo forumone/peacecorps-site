@@ -1,5 +1,5 @@
 from django.test import TestCase
-from peacecorps.forms import IndividualDonationForm
+from peacecorps.forms import IndividualDonationForm, OrganizationDonationForm
 
 class DonationPaymentTests(TestCase):
     def test_individual_donation_required(self):
@@ -16,5 +16,24 @@ class DonationPaymentTests(TestCase):
             'information_consent': 'vol-consent-yes'
         }
         form = IndividualDonationForm(data=form_data)
-        form_validity = form.is_valid()
         self.assertTrue(form.is_valid())
+
+    def test_organization_donation_required(self):
+        """ Check the minimum required data for the organization form. """
+
+        form_data = {
+            'donor_type': 'Organization',
+            'organization_name': 'Big Corporation',
+            'organization_contact': 'Mr A. Suit',
+            'street_address': '1 Main Street',
+            'city': 'Anytown',
+            'country': 'USA',
+            'state': 'MD',
+            'zip_code': '20852',
+            'payment_type': 'credit-card',
+            'information_consent': 'vol-consent-yes'
+        }
+        form = OrganizationDonationForm(data=form_data)
+        print(form.errors)
+        self.assertTrue(form.is_valid())
+

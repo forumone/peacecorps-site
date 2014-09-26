@@ -49,13 +49,20 @@ def generate_agency_tracking_id():
 
     random = str(uuid4()).replace('-', '')
     today = datetime.now().strftime("%m%d")
-    return 'PCIOCI%s%s' % (today, random[0:6]) 
+    return 'PCOCI%s%s' % (today, random[0:6]) 
 
 def generate_agency_memo(data):
     """ This currently returns a faked agency memo. Later we'll replace this.
     """
 
-    return '()(14-491-001, $10.00/)(%s)(yes)(no)(yes)' % data['phone_number']
+    phone = '()'
+    if 'phone_number' in data:
+        phone = '(%s)' % data['phone_number']
+
+    memo = '()(14-491-001, $10.00/)' 
+    memo += phone
+    memo += '(yes)(no)(yes)' 
+    return memo
 
 def donation_payment_review(request):
     data = {}
