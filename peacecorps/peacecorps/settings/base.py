@@ -61,3 +61,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
+
+# APP_SPECIFIC_VALUES
+
+# The agency id assigned by pay.gov
+PAY_GOV_AGENCY_ID = '1247'
+
+# The name of the agency application in pay.gov
+PAY_GOV_APP_NAME = 'DONORPAGES'
+
+# The URL for the pay.gov payment service. 
+PAY_GOV_OCI_URL = 'mockpay'
+
+
