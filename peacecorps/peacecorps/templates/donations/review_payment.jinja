@@ -25,7 +25,12 @@
     </p>
 
 
-    <form action="" method="POST">
+    <form action="{{oci_servlet_url}}" method="POST">
+        <input type="hidden" name="agency_memo" value="{{agency_memo}}"/>
+        <input type="hidden" name="agency_id" value="{{agency_id}}"/>
+        <input type="hidden" name="agency_tracking_id" value="{{tracking_id}}"/>
+        <input type="hidden" name="app_name" value="{{app_name}}"/>
+        <input type="hidden" name="senddata" value=""/>
         <input type="submit" value="Enter Payment Information" />
     </form>
 </body>
