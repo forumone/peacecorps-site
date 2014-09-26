@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.test import TestCase
 
-from peacecorps.views import generate_agency_tracking_id
+from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 
 class DonationsTests(TestCase):
     def test_generate_agency_tracking_id(self):
@@ -25,3 +25,7 @@ class DonationsTests(TestCase):
         self.assertTrue('PCOCI' in content)
         self.assertTrue('app_name' in content)
         self.assertTrue('agency_memo' in content)
+
+    def test_generate_agency_memo(self):
+        agency_memo = generate_agency_memo({'phone_number': '5555555'})
+        self.assertTrue('5555555' in agency_memo)
