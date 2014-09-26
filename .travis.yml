@@ -1,8 +1,7 @@
 language: python
 python:
     - "3.4"
-    install:
-        - pip install -r requirements.txt --use-mirrors
-    script:
-        - python manage.py test --settings=peacecorps.settings.test
-    
+install:
+    - pip install -r requirements.txt --use-mirrors
+script:
+    - python manage.py test --settings=peacecorps.settings.test
