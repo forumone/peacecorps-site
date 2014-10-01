@@ -1,0 +1,44 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+form {
+  @include outer-container; 
+
+  & > div {
+    @include span-columns(12);
+  }
+
+  div > label {
+    @include span-columns(2);
+  }
+  div > .value {
+    @include span-columns(10);
+  }
+
+  div > .checkbox {
+    @include span-columns(1);
+  }
+  .checkbox + label {
+    @include span-columns(11);
+  }
+
+  #dedication_details {
+    @include shift(1);
+    @include span-columns(11);
+    border: solid 1px #000;
+    padding: 0.5em;
+
+    & > div, p {
+      @include span-columns(12);
+    }
+    #id_dedication_consent {
+      @include span-columns(10);
+    }
+  }
+
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+

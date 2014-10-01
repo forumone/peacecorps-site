@@ -60,3 +60,36 @@ configurations. Up-and-running defaults (using sqlite) can be found in the
 test.py configuration.  See the Django settings
 [documentation](https://docs.djangoproject.com/dev/ref/django-admin/) for
 details. 
+
+### Front-end Dev Environment
+
+We use SASS, Bourbon, and Neat for our front-end stack. To set them up, you
+will need ruby (and gem) installed. On a Debian/Linux box, this can be
+accomplished via:
+
+```bash
+sudo apt-get install ruby
+```
+
+You next need to install the appropriate ruby libraries. In this example, we
+will install them system wide, though you may prefer bundler, etc.
+
+```bash
+sudo gem install neat sass bourbon
+```
+
+You will then need to pull down the appropriate sass libraries for bourbon and
+neat:
+
+```bash
+cd peacecorps/peacecorps/static/peacecorps/sass
+bourbon install
+neat install
+```
+
+Finally, run the "watch" script, which will recompile CSS as you make SASS
+changes. From within the sass directory:
+
+```bash
+sass --watch .:../css
+```
