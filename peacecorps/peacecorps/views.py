@@ -59,15 +59,27 @@ def generate_agency_tracking_id():
 
 
 def generate_agency_memo(data):
-    """ This currently returns a faked agency memo. Later we'll replace this.
-    """
-    phone = '()'
-    if 'phone_number' in data:
-        phone = '(%s)' % data['phone_number']
+    """Build the memo field from selections on the form"""
+    memo = ''
+    memo += '(' + data.get('comments', '').strip() + ')'
+    memo += '(' + data.get('phone_number', '').strip() + ')'
 
-    memo = '()(14-491-001, $10.00/)'
-    memo += phone
-    memo += '(yes)(no)(yes)'
+    memo += '()'        # @todo: 'projects' isn't defined yet
+
+    if data.get('information_consent', '') == 'vol-consent-yes':
+        memo += '(yes)'
+    else:
+        memo += '(no)'
+
+    if data.get('interest_conflict'):
+        memo += '(yes)'
+    else:
+        memo += '(no)'
+    if data.get('email_consent'):
+        memo += '(yes)'
+    else:
+        memo += '(no)'
+
     return memo
 
 

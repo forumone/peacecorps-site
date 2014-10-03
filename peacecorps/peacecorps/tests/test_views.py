@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.test import TestCase
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
@@ -34,8 +32,16 @@ class DonationsTests(TestCase):
         self.assertTrue('agency_memo' in content)
 
     def test_generate_agency_memo(self):
+        """The data dictionary should be serialized in the predictable way.
+        Allow all fields to be optional"""
         """ This is really a placeholder test for when we have a better
         agency memo generator function. Currently, we check to see if the
         phone number is included. """
-        agency_memo = generate_agency_memo({'phone_number': '5555555'})
-        self.assertTrue('5555555' in agency_memo)
+        data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
+                'information_consent': 'vol-consent-yes',
+                'interest_conflict': True, 'email_consent': True}
+        memo = generate_agency_memo(data)
+        self.assertEqual("(CCCCCC)(5555555555)()(yes)(yes)(yes)", memo)
+
+        memo = generate_agency_memo({})
+        self.assertEqual("()()()(no)(no)(no)", memo)
