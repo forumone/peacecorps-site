@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
+from peacecorps.views import generate_custom_fields
 
 
 class DonationsTests(TestCase):
@@ -34,9 +35,6 @@ class DonationsTests(TestCase):
     def test_generate_agency_memo(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
-        """ This is really a placeholder test for when we have a better
-        agency memo generator function. Currently, we check to see if the
-        phone number is included. """
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
                 'information_consent': 'vol-consent-yes',
                 'interest_conflict': True, 'email_consent': True}
@@ -45,3 +43,35 @@ class DonationsTests(TestCase):
 
         memo = generate_agency_memo({})
         self.assertEqual("()()()(no)(no)(no)", memo)
+
+    def test_generate_custom_fields(self):
+        """The data dictionary should be serialized in the predictable way.
+        Allow all fields to be optional"""
+        data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
+                'street_address': 'stttt', 'city': 'ccc', 'state': 'ST',
+                'zip_code': '90210', 'organization_name': 'OOO',
+                'dedication_name': 'Bob', 'dedication_contact': 'Patty',
+                'dedication_email': 'family@example.com',
+                'dedication_type': 'in-memory',
+                'dedication_consent': 'no-dedication-consent',
+                'card_dedication': 'Good Jorb',
+                'dedication_address': '111 Somewhere'}
+
+        self.assertEqual(generate_custom_fields(data), {
+            'custom_field_1': '(1112223333)(aaa@example.com)',
+            'custom_field_2': '(stttt)',
+            'custom_field_3': '(ccc)(ST)(90210)',
+            'custom_field_4': '(OOO)',
+            'custom_field_5': '(Bob)(Patty)(family@example.com)',
+            'custom_field_6': '(Memory)(no)(Good Jorb)',
+            'custom_field_7': '(111 Somewhere)'
+        })
+        self.assertEqual(generate_custom_fields({}), {
+            'custom_field_1': '()()',
+            'custom_field_2': '()',
+            'custom_field_3': '()()()',
+            'custom_field_4': '()',
+            'custom_field_5': '()()()',
+            'custom_field_6': '(Honor)(yes)()',
+            'custom_field_7': '()'
+        })
