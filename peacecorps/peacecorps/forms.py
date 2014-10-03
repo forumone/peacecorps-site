@@ -93,6 +93,9 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
+    donation_amount = forms.IntegerField(widget=forms.HiddenInput())
+    project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
+
 
 class IndividualDonationForm(DonationPaymentForm):
     """ An actual donation form. This one is for individuals. """

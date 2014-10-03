@@ -9,8 +9,24 @@ from peacecorps.forms import DedicationForm, IndividualDonationForm
 from peacecorps.forms import OrganizationDonationForm
 
 
+def humanize_amount(amount_cents):
+    """ Return a string that presents the donation amount in a humanized
+    format. """
+
+    amount_dollars = amount_cents/100.0
+    return "$%.2f" % (amount_dollars)
+
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
+
+    amount = int(request.GET.get('amount', None))
+    project_code = request.GET.get('project', None)
+
+    if amount is None or project_code is None:
+        return HttpResponseRedirect('/')
+
+    readable_amount = humanize_amount(amount)
+
     if request.method == 'POST':
         form = IndividualDonationForm(request.POST)
         dedication_form = DedicationForm(request.POST)
@@ -20,11 +36,18 @@ def donation_payment_individual(request):
                 request.session[k] = v
             return HttpResponseRedirect('/donations/review')
     else:
-        form = IndividualDonationForm()
+        data = {'donation_amount': amount, 'project_code': project_code}
+        form = IndividualDonationForm(initial=data)
         dedication_form = DedicationForm()
+
     return render(
         request, 'donations/donation_payment.jinja',
-        {'form': form, 'dedication_form': dedication_form})
+        {
+            'form': form,
+            'dedication_form': dedication_form,
+            'amount': readable_amount,
+            'project_code': project_code
+        })
 
 
 def donation_payment_organization(request):
