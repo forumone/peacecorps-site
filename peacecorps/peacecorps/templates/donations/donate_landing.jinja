@@ -1,0 +1,29 @@
+<html lang='en'>
+<head>
+    <title>Peace Corps - Donate</title>
+</head>
+<body>
+
+<h1>Peace Corps - Donate</h1>
+
+<div>{{featuredissue.tagline}}
+{{featuredissue.call}}
+<a href="donate/issue/{{featuredissue.slug}}"><img src="{{featuredissue.featured_image.url()}}", alt="{{featuredissue.featured_image.description}}"></a></div>
+
+<h2>Issues</h2>
+{% for issue in issues %}
+<div><a href="donate/issue/{{issue.slug}}"><img src="{{issue.icon.url}}"></a>
+{{issue.name}}</div>
+{% endfor %}
+
+<h2>Featured Projects</h2>
+{% for project in featuredprojects %}
+<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.featured_image.url()}}"></a></div>
+{% endfor %}
+
+<h2>All Projects</h2>
+{% for project in projects %}
+<div><a href="donate/project/{{project.slug}}">{{project.title}}</a></div>
+{% endfor %}
+</body>
+</html>

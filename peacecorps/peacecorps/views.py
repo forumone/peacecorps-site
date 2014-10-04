@@ -8,6 +8,9 @@ from django.http import HttpResponseRedirect
 from peacecorps.forms import DedicationForm, IndividualDonationForm
 from peacecorps.forms import OrganizationDonationForm
 
+from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
+from peacecorps.models import Project
+
 
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
@@ -88,3 +91,50 @@ def donation_payment_review(request):
             'app_name': settings.PAY_GOV_APP_NAME,
             'oci_servlet_url': settings.PAY_GOV_OCI_URL,
         })
+
+
+def donate_landing(request):
+
+    featuredprojects = [x.project for x in FeaturedProjectFrontPage.objects.all()]
+
+    return render(
+        request,
+        'donations/donate_landing.jinja',
+        {
+            'featuredissue': FeaturedIssue.objects.get(id=1).issue,
+            'issues': Issue.objects.all(),
+            'featuredprojects': featuredprojects,
+            'projects': Project.objects.all(),
+        })
+
+def donate_issue(request, slug):
+
+    issue = Issue.objects.get(slug=slug)
+    featured = Project.objects.filter(issue=issue, issue_feature=True)
+    projects = Project.objects.filter(issue=issue)
+
+    return render(
+        request,
+        'donations/donate_issue.jinja',
+        {
+            'issue': issue,
+            'featured': featured,
+            'projects': projects,
+        })
+
+def donate_project(request, slug):
+
+    project = Project.objects.get(slug=slug)
+    # Passing this in separately to prevent multiple DB queries.
+    volunteer = project.volunteer
+
+    return render(
+        request,
+        'donations/donate_project.jinja',
+        {
+            'project': project,
+            'volunteer': volunteer,
+        })
+
+
+

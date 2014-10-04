@@ -1,0 +1,22 @@
+<html lang='en'>
+<head>
+    <title>{{issue.name}}</title>
+</head>
+<body>
+
+{% for project in featured %}
+<div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url()}}"></a></div>
+{% endfor %}
+
+<h3>{{projects.count()}} active projects</h3>
+
+<p>{{issue.fundcurrent / 100}} out of {{issue.fundgoal / 100}}. {{issue.percent_funded()}}%</p>
+
+<h3>Project Field Reports</h3>
+
+{% for project in projects %}
+<div><a href="/donate/project/{{project.slug}}">{{project.title}}</a></div>
+{% endfor %}
+
+</body>
+</html>
