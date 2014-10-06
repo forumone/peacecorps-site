@@ -88,7 +88,9 @@ def generate_agency_memo(data):
     if 'phone_number' in data:
         phone = '(%s)' % data['phone_number']
 
-    memo = '()(14-491-001, $10.00/)'
+    amount = humanize_amount(data['donation_amount'])
+
+    memo = '()(%s, %s/)' % (data[project_code], amount)
     memo += phone
     memo += '(yes)(no)(yes)'
     return memo
