@@ -74,7 +74,7 @@ class Issue(models.Model):
         return '%s' % (self.name)
 
     def percent_funded(self):
-        return percentfunded(fundcurrent, fundgoal)
+        return percentfunded(self.fundcurrent, self.fundgoal)
 
 
 class Media(models.Model):
@@ -143,7 +143,7 @@ class Project(models.Model):
             return False
 
     def percent_funded(self):
-        return percentfunded(fundcurrent, fundgoal)
+        return percentfunded(self.fundcurrent, self.fundgoal)
 
     def __str__(self):
         return self.title
