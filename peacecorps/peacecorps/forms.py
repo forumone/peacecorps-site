@@ -31,6 +31,7 @@ class DedicationForm(forms.Form):
     dedication_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DEDICATION_TYPE_CHOICES,
         initial='in-honor', required=False)
+    #   @todo dedication_contact (present if "in memory")
     dedication_email = forms.EmailField(label="Email", required=False)
     dedication_address = forms.CharField(
         label="Mailing Address", max_length=255, required=False)
