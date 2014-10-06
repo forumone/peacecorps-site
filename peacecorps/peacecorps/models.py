@@ -60,7 +60,7 @@ class Issue(models.Model):
         max_length=140, help_text="a short phrase for banners (140 characters)")
     call = models.CharField(
         max_length=40, help_text="call to action for buttons (40 characters)")
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField()
     slug = models.CharField(
         help_text="used for the issue page url.",
         max_length=100, unique=True)
