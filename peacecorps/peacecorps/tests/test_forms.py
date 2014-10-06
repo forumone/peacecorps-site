@@ -14,6 +14,8 @@ class DonationPaymentTests(TestCase):
             'state': 'MD',
             'zip_code': '20852',
             'payment_type': 'credit-card',
+            'project_code': '15-4FF',
+            'donation_amount': '3000',
             'information_consent': 'vol-consent-yes'
         }
         form = IndividualDonationForm(data=form_data)
@@ -31,6 +33,8 @@ class DonationPaymentTests(TestCase):
             'country': 'USA',
             'state': 'MD',
             'zip_code': '20852',
+            'project_code': '15-4FF',
+            'donation_amount': '3000',
             'payment_type': 'credit-card',
             'information_consent': 'vol-consent-yes'
         }

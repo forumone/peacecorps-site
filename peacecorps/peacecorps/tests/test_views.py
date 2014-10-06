@@ -1,10 +1,22 @@
 from django.test import TestCase
+from django.test.client import Client
+from django.conf import settings
+from django.utils.importlib import import_module
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields
 
+class SessionTestCase(TestCase):
+    def setUp(self):
+        settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+        engine = import_module(settings.SESSION_ENGINE)
+        store = engine.SessionStore()
+        store.save()
+        self.session = store
+        self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
 
-class DonationsTests(TestCase):
+class DonationsTests(SessionTestCase):
+
     def test_generate_agency_tracking_id(self):
         """ This just tests the start of a generated tracking id, which is
         currently the only piece we're sure of. """
@@ -16,13 +28,16 @@ class DonationsTests(TestCase):
         """ Test that the donation review page renders with the required
         elements. """
 
-        session = self.client.session
+        session = self.session
         session['name'] = 'William Williams'
         session['street_address'] = '1 Main Street'
         session['city'] = 'Anytown'
         session['state'] = 'MD'
         session['zip_code'] = '20852'
         session['country'] = 'USA'
+        session['donation_amount'] = 2000
+        session['project_code'] = 'PC-SEC01'
+        session.save()
 
         response = self.client.get('/donations/review')
         content = response.content.decode('utf-8')
@@ -37,12 +52,15 @@ class DonationsTests(TestCase):
         Allow all fields to be optional"""
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
                 'information_consent': 'vol-consent-yes',
+                'donation_amount': 2000, 'project_code': '14-54FF',
                 'interest_conflict': True, 'email_consent': True}
         memo = generate_agency_memo(data)
-        self.assertEqual("(CCCCCC)(5555555555)()(yes)(yes)(yes)", memo)
+        self.assertEqual(
+            "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
 
-        memo = generate_agency_memo({})
-        self.assertEqual("()()()(no)(no)(no)", memo)
+        memo = generate_agency_memo({
+            'donation_amount': 2000, 'project_code': '14-54FF'})
+        self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
 
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
