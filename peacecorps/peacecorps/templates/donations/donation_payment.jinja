@@ -113,7 +113,12 @@
                 <div class="value" id="dedication_type">{{dedication_form.dedication_type}}</div>
             </div>
 
-            <p> Send the honoree a letter so they know you were thinking of them: </p>
+            <p class="honoree_swap">Send the honoree a letter so they know you were thinking of them: </p>
+            <div id="dedication_contact_wrapper">
+                {{dedication_form.dedication_contact.errors}}
+                <label for='id_dedication_contact'>Family Contact</label>
+                <div class="value">{{dedication_form.dedication_contact}}</div>
+            </div>
 
             <div>
                 {{dedication_form.dedication_email.errors}}
@@ -139,12 +144,12 @@
                 <label for='id_dedication_consent'>Information Consent</label>
 
                 <ul id="id_dedication_consent">
-                <li><label for="id_dedication_consent_0">
+                <li><label for="id_dedication_consent_0" class="honoree_swap">
                     <input checked="checked" id="id_dedication_consent_0" name="dedication_consent" type="radio" value="yes-dedication-consent" />
                     I authorize the Peace Corps to make my name and contact information available to the honoree.
                     </label>
                 </li>
-                <li><label for="id_dedication_consent_1">
+                <li><label for="id_dedication_consent_1" class="honoree_swap">
                     <input id="id_dedication_consent_1" name="dedication_consent" type="radio" value="no-dedication-consent" />
                     I do not authorize the Peace Corps to make my name and contact information available to the honoree.
                     </label>
