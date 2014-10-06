@@ -88,7 +88,7 @@ def generate_agency_memo(data):
     memo += '(' + data.get('phone_number', '').strip() + ')'
 
     amount = humanize_amount(data['donation_amount'])
-    memo += '(%s, %s)' % (data[project_code], amount)
+    memo += '(%s, %s)' % (data['project_code'], amount)
 
     if data.get('information_consent', '') == 'vol-consent-yes':
         memo += '(yes)'
