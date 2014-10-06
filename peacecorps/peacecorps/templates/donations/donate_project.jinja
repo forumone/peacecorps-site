@@ -20,7 +20,7 @@
 {% if project.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
 
 <div>
-    {{project.description}}
+    {{project.description|safe}}
 </div>
 
 
