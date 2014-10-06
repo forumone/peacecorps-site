@@ -61,7 +61,7 @@ class Issue(models.Model):
     call = models.CharField(
         max_length=40, help_text="call to action for buttons (40 characters)")
     description = models.TextField()
-    slug = models.CharField(
+    slug = models.SlugField(
         help_text="used for the issue page url.",
         max_length=100, unique=True)
     icon = models.FileField(blank=True, null=True) #TODO: Configure
@@ -119,7 +119,7 @@ class Project(models.Model):
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.")
     volunteer = models.ForeignKey('Volunteer')
-    slug = models.CharField(max_length=100, help_text="for the project url.")
+    slug = models.SlugField(max_length=100, help_text="for the project url.")
     description = models.TextField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     issue = models.ForeignKey('Issue', related_name="projects")
