@@ -2,6 +2,12 @@ from django.db import models
 from localflavor.us.models import USPostalCodeField
 
 
+def percentfunded(current, goal):
+    try:
+        return "{0:.2f}".format((current/goal)*100)
+    except ZeroDivisionError:
+        return "0"
+
 class Country(models.Model):
     code = models.CharField(max_length=5)
     name = models.CharField(max_length=50)
@@ -11,8 +17,8 @@ class Country(models.Model):
 
 class CountryFund(models.Model):
     country = models.ForeignKey('Country', related_name="fund")
-    fundcurrent = models.IntegerField(blank=True, null=True, default=0)
-    fundtotal = models.IntegerField(blank=True, null=True, default=10000)
+    fundcurrent = models.IntegerField(default=0)
+    fundgoal = models.IntegerField()
 
 
 class FeaturedIssue(models.Model): 
@@ -41,8 +47,8 @@ class Fund(models.Model):
     description = description = models.TextField(blank=True, null=True)
     featured_image = models.ForeignKey('Media',
         help_text="A large landscape image for use in banners, headers, etc")
-    fundcurrent = models.IntegerField(blank=True, null=True, default=0)
-    fundtotal = models.IntegerField(blank=True, null=True, default=10000)
+    fundcurrent = models.IntegerField(default=0)
+    fundgoal = models.IntegerField()
 
     def __str__(self):
         return '%s' % (self.name)
@@ -61,14 +67,14 @@ class Issue(models.Model):
     icon = models.FileField(blank=True, null=True) #TODO: Configure
     featured_image = models.ForeignKey('Media',
         help_text="A large landscape image for use in banners, headers, etc")
-    fundcurrent = models.IntegerField(blank=True, null=True, default=0)
-    fundgoal = models.IntegerField(blank=True, null=True, default=10000)
+    fundcurrent = models.IntegerField(default=0)
+    fundgoal = models.IntegerField()
 
     def __str__(self):
         return '%s' % (self.name)
 
     def percent_funded(self):
-        return "{0:.2f}".format((self.fundcurrent/self.fundgoal)*100)
+        return percentfunded(fundcurrent, fundgoal)
 
 
 class Media(models.Model):
@@ -125,19 +131,19 @@ class Project(models.Model):
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    fundcurrent = models.IntegerField(blank=True, null=True, default=0)
-    fundtotal = models.IntegerField(blank=True, null=True, default=10000)
+    fundcurrent = models.IntegerField(default=0)
+    fundgoal = models.IntegerField()
     #This one can't be its own table because Django doesn't do OneToMany.
     issue_feature=models.BooleanField(default=False)
 
     def funded(self):
-        if self.fundcurrent >= self.fundtotal:
+        if self.fundcurrent >= self.fundgoal:
             return True
         else:
             return False
 
     def percent_funded(self):
-        return "{0:.2f}".format((self.fundcurrent/self.fundtotal)*100)
+        return percentfunded(fundcurrent, fundgoal)
 
     def __str__(self):
         return self.title
