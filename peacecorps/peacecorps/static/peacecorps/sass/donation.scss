@@ -40,6 +40,9 @@ form {
       @include span-columns(10);
     }
   }
+  .shown-with-organization {
+    display: none;  /* Initially hidden */
+  }
 
   ul {
     margin-top: 0;

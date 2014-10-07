@@ -74,6 +74,9 @@ form {
       width: 82.94039%; }
       form #dedication_details #id_dedication_consent:last-child {
         margin-right: 0; }
+  form .shown-with-organization {
+    display: none;
+    /* Initially hidden */ }
   form ul {
     margin-top: 0;
     margin-bottom: 0; }
