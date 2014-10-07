@@ -151,7 +151,7 @@ def donate_landing(request):
         request,
         'donations/donate_landing.jinja',
         {
-            'featuredissue': FeaturedIssue.objects.get(id=1).issue,
+            'featuredissue': featuredissue,
             'issues': Issue.objects.all(),
             'featuredprojects': featuredprojects,
             'projects': Project.objects.all(),
