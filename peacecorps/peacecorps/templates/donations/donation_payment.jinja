@@ -14,22 +14,23 @@
         </div>
 
         
+        {# @todo allow organization to be chosen on the fly #}
         {% if organization %}
         <div>
             {{form.organization_name.errors}}
-            <label for="id_organization_name">Organization Name *</label>
+            <label for="id_organization_name" class="required">Organization Name</label>
             <div class="value">{{form.organization_name}}</div>
         </div>
 
         <div>
             {{form.organization_contact.errors}}
-            <label for="id_organization_contact">Organization Contact*</label>
+            <label for="id_organization_contact" class="required">Organization Contact</label>
             <div class="value">{{form.organization_contact}}</div>
         </div>
         {% else %}
         <div>
             {{form.name.errors}}
-            <label for="id_name">Name *</label>
+            <label for="id_name" class="required">Name</label>
             <div class="value">{{form.name}}</div>
         </div>
 
@@ -37,34 +38,34 @@
 
         <div>
             {{form.street_address.errors}}
-            <label for="id_street_address">Street Address *</label>
+            <label for="id_street_address" class="required">Street Address</label>
             <div class="value">{{form.street_address}}</div>
         </div>
 
         <div>
             {{form.city.errors}}
-            <label for="id_city">City *</label>
+            <label for="id_city" class="required">City</label>
             <div class="value">{{form.city}}</div>
         </div>
         <div>
             {{form.state.errors}}
-            <label for="id_state">State *</label>
+            <label for="id_state" class="required">State</label>
             <div class="value">{{form.state}}</div>
         </div>
         <div>
             {{form.zip_code.errors}}
-            <label for="id_zip_code">Zip Code *</label>
+            <label for="id_zip_code" class="required">Zip Code</label>
             <div class="value">{{form.zip_code}}</div>
         </div>
         <div>
             {{form.country.errors}}
-            <label for="id_country">Country *</label>
+            <label for="id_country" class="required">Country</label>
             <div class="value">{{form.country}}</div>
         </div>
 
         <div>
             {{form.phone_number.errors}}
-            <label for="id_phone_number">Phone*</label>
+            <label for="id_phone_number" class="required">Phone</label>
             <div class="value">{{form.phone_number}}</div>
         </div>
 
@@ -81,7 +82,7 @@
 
         <div>
             {{form.payment_type.errors}}
-            <label for='id_payment_type'>Payment Type *</label>
+            <label for='id_payment_type' class="required">Payment Type</label>
             <div class="value">{{form.payment_type}}</div>
         </div>
 
@@ -112,7 +113,12 @@
                 <div class="value" id="dedication_type">{{dedication_form.dedication_type}}</div>
             </div>
 
-            <p> Send the honoree a letter so they know you were thinking of them: </p>
+            <p class="honoree_swap">Send the honoree a letter so they know you were thinking of them: </p>
+            <div id="dedication_contact_wrapper">
+                {{dedication_form.dedication_contact.errors}}
+                <label for='id_dedication_contact'>Family Contact</label>
+                <div class="value">{{dedication_form.dedication_contact}}</div>
+            </div>
 
             <div>
                 {{dedication_form.dedication_email.errors}}
@@ -138,12 +144,12 @@
                 <label for='id_dedication_consent'>Information Consent</label>
 
                 <ul id="id_dedication_consent">
-                <li><label for="id_dedication_consent_0">
+                <li><label for="id_dedication_consent_0" class="honoree_swap">
                     <input checked="checked" id="id_dedication_consent_0" name="dedication_consent" type="radio" value="yes-dedication-consent" />
                     I authorize the Peace Corps to make my name and contact information available to the honoree.
                     </label>
                 </li>
-                <li><label for="id_dedication_consent_1">
+                <li><label for="id_dedication_consent_1" class="honoree_swap">
                     <input id="id_dedication_consent_1" name="dedication_consent" type="radio" value="no-dedication-consent" />
                     I do not authorize the Peace Corps to make my name and contact information available to the honoree.
                     </label>
@@ -184,5 +190,7 @@
 
         <div><input type="submit" value="Confirm Information" /></div>
     </form>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
 </body>
 </html>
