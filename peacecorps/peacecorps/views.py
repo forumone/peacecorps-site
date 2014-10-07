@@ -16,6 +16,7 @@ def humanize_amount(amount_cents):
     amount_dollars = amount_cents/100.0
     return "$%.2f" % (amount_dollars)
 
+
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
 

@@ -6,6 +6,7 @@ from django.utils.importlib import import_module
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields, humanize_amount
 
+
 class SessionTestCase(TestCase):
     def setUp(self):
         settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
@@ -14,6 +15,7 @@ class SessionTestCase(TestCase):
         store.save()
         self.session = store
         self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
+
 
 class DonationsTests(SessionTestCase):
 
@@ -27,15 +29,15 @@ class DonationsTests(SessionTestCase):
     def test_contribution_parameters(self):
         """ To get to the page where name, address are filled out before being
         shunted to pay.gov we need to pass the donation amount and project code
-        as GET parameters. This makes sure they show up on the payment page. """
+        as GET parameters. This makes sure they show up on the payment page.
+        """
 
         response = self.client.get(
             '/donations/contribute/individual?amount=2000&project=14-532-001')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
-        self.assertTrue('$20.00' in content) 
+        self.assertTrue('$20.00' in content)
         self.assertTrue('14-532-001')
-
 
     def test_review_page(self):
         """ Test that the donation review page renders with the required
@@ -108,8 +110,7 @@ class DonationsTests(SessionTestCase):
         })
 
     def test_humanize_amount(self):
-        """ The humanize_amount function converts an amount in cents into 
+        """ The humanize_amount function converts an amount in cents into
         something that's human readable. """
         self.assertEqual(humanize_amount(1520), '$15.20')
         self.assertEqual(humanize_amount(0), '$0.00')
-        
