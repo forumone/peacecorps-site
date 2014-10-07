@@ -6,9 +6,11 @@
 
 <h1>Peace Corps - Donate</h1>
 
+{% if featuredissue %}
 <div>{{featuredissue.tagline}}
 {{featuredissue.call}}
 <a href="donate/issue/{{featuredissue.slug}}"><img src="{{featuredissue.featured_image.url()}}", alt="{{featuredissue.featured_image.description}}"></a></div>
+{% endif %}
 
 <h2>Issues</h2>
 {% for issue in issues %}

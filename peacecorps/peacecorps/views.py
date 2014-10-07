@@ -142,6 +142,10 @@ def donation_payment_review(request):
 def donate_landing(request):
 
     featuredprojects = [x.project for x in FeaturedProjectFrontPage.objects.all()]
+    try:
+        featuredissue = FeaturedIssue.objects.get(id=1).issue
+    except FeaturedIssue.DoesNotExist:
+        featuredissue = None
 
     return render(
         request,
