@@ -1,0 +1,570 @@
+- fields: {code: USA, name: United States}
+  model: peacecorps.country
+  pk: 1
+- fields: {code: AFG, name: Afghanistan}
+  model: peacecorps.country
+  pk: 2
+- fields: {code: ALB, name: Albania}
+  model: peacecorps.country
+  pk: 3
+- fields: {code: ALG, name: Algeria}
+  model: peacecorps.country
+  pk: 4
+- fields: {code: AND, name: Andorra}
+  model: peacecorps.country
+  pk: 5
+- fields: {code: ANG, name: Angola}
+  model: peacecorps.country
+  pk: 6
+- fields: {code: ANT, name: Antigua and Barbuda}
+  model: peacecorps.country
+  pk: 7
+- fields: {code: ARG, name: Argentina}
+  model: peacecorps.country
+  pk: 8
+- fields: {code: ARM, name: Armenia}
+  model: peacecorps.country
+  pk: 9
+- fields: {code: AUS, name: Australia}
+  model: peacecorps.country
+  pk: 10
+- fields: {code: AUT, name: Austria}
+  model: peacecorps.country
+  pk: 11
+- fields: {code: AZE, name: Azerbaijan}
+  model: peacecorps.country
+  pk: 12
+- fields: {code: BAH, name: Bahamas}
+  model: peacecorps.country
+  pk: 13
+- fields: {code: BAI, name: Bahrain}
+  model: peacecorps.country
+  pk: 14
+- fields: {code: BAN, name: Bangladesh}
+  model: peacecorps.country
+  pk: 15
+- fields: {code: BAR, name: Barbados}
+  model: peacecorps.country
+  pk: 16
+- fields: {code: BES, name: Belarus}
+  model: peacecorps.country
+  pk: 17
+- fields: {code: BEL, name: Belgium}
+  model: peacecorps.country
+  pk: 18
+- fields: {code: BEM, name: Belize}
+  model: peacecorps.country
+  pk: 19
+- fields: {code: BEN, name: Benin}
+  model: peacecorps.country
+  pk: 20
+- fields: {code: BHU, name: Bhutan}
+  model: peacecorps.country
+  pk: 21
+- fields: {code: BOL, name: Bolivia}
+  model: peacecorps.country
+  pk: 22
+- fields: {code: BOS, name: Bosnia and Herzegovina}
+  model: peacecorps.country
+  pk: 23
+- fields: {code: BOT, name: Botswana}
+  model: peacecorps.country
+  pk: 24
+- fields: {code: BRA, name: Brazil}
+  model: peacecorps.country
+  pk: 25
+- fields: {code: BRU, name: Brunei}
+  model: peacecorps.country
+  pk: 26
+- fields: {code: BUL, name: Bulgaria}
+  model: peacecorps.country
+  pk: 27
+- fields: {code: BUK, name: Burkina Faso}
+  model: peacecorps.country
+  pk: 28
+- fields: {code: BUR, name: Burma}
+  model: peacecorps.country
+  pk: 29
+- fields: {code: BUU, name: Burundi}
+  model: peacecorps.country
+  pk: 30
+- fields: {code: CAN, name: Canada}
+  model: peacecorps.country
+  pk: 31
+- fields: {code: CAB, name: Cambodia}
+  model: peacecorps.country
+  pk: 32
+- fields: {code: CAM, name: Cameroon}
+  model: peacecorps.country
+  pk: 33
+- fields: {code: CAP, name: Cape Verde}
+  model: peacecorps.country
+  pk: 34
+- fields: {code: CAE, name: Central African Republic}
+  model: peacecorps.country
+  pk: 35
+- fields: {code: CHA, name: Chad}
+  model: peacecorps.country
+  pk: 36
+- fields: {code: CHL, name: Chile}
+  model: peacecorps.country
+  pk: 37
+- fields: {code: CHN, name: China}
+  model: peacecorps.country
+  pk: 38
+- fields: {code: COL, name: Colombia}
+  model: peacecorps.country
+  pk: 39
+- fields: {code: COM, name: Comoros}
+  model: peacecorps.country
+  pk: 40
+- fields: {code: RCB, name: Congo Brazzaville}
+  model: peacecorps.country
+  pk: 41
+- fields: {code: CON, name: Congo Kinshasa}
+  model: peacecorps.country
+  pk: 42
+- fields: {code: COS, name: Costa Rica}
+  model: peacecorps.country
+  pk: 43
+- fields: {code: IVO, name: Cote D&#39; Ivoire}
+  model: peacecorps.country
+  pk: 44
+- fields: {code: CRO, name: Croatia}
+  model: peacecorps.country
+  pk: 45
+- fields: {code: CYP, name: Cyprus}
+  model: peacecorps.country
+  pk: 46
+- fields: {code: CZE, name: Czech Republic}
+  model: peacecorps.country
+  pk: 47
+- fields: {code: DEN, name: Denmark}
+  model: peacecorps.country
+  pk: 48
+- fields: {code: DJI, name: Djibouti}
+  model: peacecorps.country
+  pk: 49
+- fields: {code: DON, name: Dominica}
+  model: peacecorps.country
+  pk: 50
+- fields: {code: DOM, name: Dominican Republic}
+  model: peacecorps.country
+  pk: 51
+- fields: {code: ETM, name: East Timor}
+  model: peacecorps.country
+  pk: 52
+- fields: {code: ECU, name: Ecuador}
+  model: peacecorps.country
+  pk: 53
+- fields: {code: EGY, name: Egypt}
+  model: peacecorps.country
+  pk: 54
+- fields: {code: ELS, name: El Salvador}
+  model: peacecorps.country
+  pk: 55
+- fields: {code: EQU, name: Equatorial Guinea}
+  model: peacecorps.country
+  pk: 56
+- fields: {code: ERI, name: Eritrea}
+  model: peacecorps.country
+  pk: 57
+- fields: {code: EST, name: Estonia}
+  model: peacecorps.country
+  pk: 58
+- fields: {code: ETH, name: Ethiopia}
+  model: peacecorps.country
+  pk: 59
+- fields: {code: FIJ, name: Fiji}
+  model: peacecorps.country
+  pk: 60
+- fields: {code: FIN, name: Finland}
+  model: peacecorps.country
+  pk: 61
+- fields: {code: FRA, name: France}
+  model: peacecorps.country
+  pk: 62
+- fields: {code: GAB, name: Gabon}
+  model: peacecorps.country
+  pk: 63
+- fields: {code: GEO, name: Georgia}
+  model: peacecorps.country
+  pk: 64
+- fields: {code: GER, name: Germany}
+  model: peacecorps.country
+  pk: 65
+- fields: {code: GHA, name: Ghana}
+  model: peacecorps.country
+  pk: 66
+- fields: {code: GRE, name: Greece}
+  model: peacecorps.country
+  pk: 67
+- fields: {code: GRN, name: Grenada}
+  model: peacecorps.country
+  pk: 68
+- fields: {code: GUA, name: Guatemala}
+  model: peacecorps.country
+  pk: 69
+- fields: {code: GUI, name: Guinea}
+  model: peacecorps.country
+  pk: 70
+- fields: {code: GUU, name: Guinea-Bissau}
+  model: peacecorps.country
+  pk: 71
+- fields: {code: GUY, name: Guyana}
+  model: peacecorps.country
+  pk: 72
+- fields: {code: HAI, name: Haiti}
+  model: peacecorps.country
+  pk: 73
+- fields: {code: VAT, name: Holy See}
+  model: peacecorps.country
+  pk: 74
+- fields: {code: HND, name: Honduras}
+  model: peacecorps.country
+  pk: 75
+- fields: {code: HUN, name: Hungary}
+  model: peacecorps.country
+  pk: 76
+- fields: {code: ICE, name: Iceland}
+  model: peacecorps.country
+  pk: 77
+- fields: {code: IND, name: India}
+  model: peacecorps.country
+  pk: 78
+- fields: {code: INS, name: Indonesia}
+  model: peacecorps.country
+  pk: 79
+- fields: {code: IRC, name: Iraq}
+  model: peacecorps.country
+  pk: 80
+- fields: {code: IRE, name: Ireland}
+  model: peacecorps.country
+  pk: 81
+- fields: {code: ISR, name: Israel}
+  model: peacecorps.country
+  pk: 82
+- fields: {code: ITA, name: Italy}
+  model: peacecorps.country
+  pk: 83
+- fields: {code: JAM, name: Jamaica}
+  model: peacecorps.country
+  pk: 84
+- fields: {code: JPN, name: Japan}
+  model: peacecorps.country
+  pk: 85
+- fields: {code: JOR, name: Jordan}
+  model: peacecorps.country
+  pk: 86
+- fields: {code: KAZ, name: Kazakhstan}
+  model: peacecorps.country
+  pk: 87
+- fields: {code: KEN, name: Kenya}
+  model: peacecorps.country
+  pk: 88
+- fields: {code: KIR, name: Kiribati}
+  model: peacecorps.country
+  pk: 89
+- fields: {code: KUW, name: Kuwait}
+  model: peacecorps.country
+  pk: 90
+- fields: {code: KYR, name: Kyrgyzstan}
+  model: peacecorps.country
+  pk: 91
+- fields: {code: LAS, name: Laos}
+  model: peacecorps.country
+  pk: 92
+- fields: {code: LAT, name: Latvia}
+  model: peacecorps.country
+  pk: 93
+- fields: {code: LEB, name: Lebanon}
+  model: peacecorps.country
+  pk: 94
+- fields: {code: LES, name: Lesotho}
+  model: peacecorps.country
+  pk: 95
+- fields: {code: LIB, name: Liberia}
+  model: peacecorps.country
+  pk: 96
+- fields: {code: LIY, name: Libya}
+  model: peacecorps.country
+  pk: 97
+- fields: {code: LIE, name: Liechtenstein}
+  model: peacecorps.country
+  pk: 98
+- fields: {code: LIT, name: Lithuania}
+  model: peacecorps.country
+  pk: 99
+- fields: {code: LUX, name: Luxembourg}
+  model: peacecorps.country
+  pk: 100
+- fields: {code: MAE, name: Macedonia}
+  model: peacecorps.country
+  pk: 101
+- fields: {code: MDG, name: Madagascar}
+  model: peacecorps.country
+  pk: 102
+- fields: {code: MAI, name: Malawi}
+  model: peacecorps.country
+  pk: 103
+- fields: {code: MAL, name: Malaysia}
+  model: peacecorps.country
+  pk: 104
+- fields: {code: MAM, name: Maldives}
+  model: peacecorps.country
+  pk: 105
+- fields: {code: MAN, name: Mali}
+  model: peacecorps.country
+  pk: 106
+- fields: {code: MAT, name: Malta}
+  model: peacecorps.country
+  pk: 107
+- fields: {code: MHL, name: Marshall Islands}
+  model: peacecorps.country
+  pk: 108
+- fields: {code: MAU, name: Mauritania}
+  model: peacecorps.country
+  pk: 109
+- fields: {code: MAV, name: Mauritius}
+  model: peacecorps.country
+  pk: 110
+- fields: {code: MEX, name: Mexico}
+  model: peacecorps.country
+  pk: 111
+- fields: {code: FSM, name: Micronesia}
+  model: peacecorps.country
+  pk: 112
+- fields: {code: MOL, name: Moldova}
+  model: peacecorps.country
+  pk: 113
+- fields: {code: MOC, name: Monaco}
+  model: peacecorps.country
+  pk: 114
+- fields: {code: MNE, name: Montenegro}
+  model: peacecorps.country
+  pk: 115
+- fields: {code: MON, name: Mongolia}
+  model: peacecorps.country
+  pk: 116
+- fields: {code: MOR, name: Morocco}
+  model: peacecorps.country
+  pk: 117
+- fields: {code: MOZ, name: Mozambique}
+  model: peacecorps.country
+  pk: 118
+- fields: {code: NAM, name: Namibia}
+  model: peacecorps.country
+  pk: 119
+- fields: {code: NAU, name: Nauru}
+  model: peacecorps.country
+  pk: 120
+- fields: {code: NEP, name: Nepal}
+  model: peacecorps.country
+  pk: 121
+- fields: {code: NEA, name: Netherlands Antilles}
+  model: peacecorps.country
+  pk: 122
+- fields: {code: NET, name: Netherlands}
+  model: peacecorps.country
+  pk: 123
+- fields: {code: NEW, name: New Zealand}
+  model: peacecorps.country
+  pk: 124
+- fields: {code: NIC, name: Nicaragua}
+  model: peacecorps.country
+  pk: 125
+- fields: {code: NIE, name: Niger}
+  model: peacecorps.country
+  pk: 126
+- fields: {code: NIG, name: Nigeria}
+  model: peacecorps.country
+  pk: 127
+- fields: {code: NKO, name: North Korea}
+  model: peacecorps.country
+  pk: 128
+- fields: {code: NOR, name: Norway}
+  model: peacecorps.country
+  pk: 129
+- fields: {code: OMA, name: Oman}
+  model: peacecorps.country
+  pk: 130
+- fields: {code: PAK, name: Pakistan}
+  model: peacecorps.country
+  pk: 131
+- fields: {code: PLW, name: Palau}
+  model: peacecorps.country
+  pk: 132
+- fields: {code: PAN, name: Panama}
+  model: peacecorps.country
+  pk: 133
+- fields: {code: PAP, name: Papua New Guinea}
+  model: peacecorps.country
+  pk: 134
+- fields: {code: PAR, name: Paraguay}
+  model: peacecorps.country
+  pk: 135
+- fields: {code: PER, name: Peru}
+  model: peacecorps.country
+  pk: 136
+- fields: {code: PHI, name: Philippines}
+  model: peacecorps.country
+  pk: 137
+- fields: {code: POL, name: Poland}
+  model: peacecorps.country
+  pk: 138
+- fields: {code: POR, name: Portugal}
+  model: peacecorps.country
+  pk: 139
+- fields: {code: QAT, name: Qatar}
+  model: peacecorps.country
+  pk: 140
+- fields: {code: ROM, name: Romania}
+  model: peacecorps.country
+  pk: 141
+- fields: {code: RUS, name: Russia}
+  model: peacecorps.country
+  pk: 142
+- fields: {code: RWA, name: Rwanda}
+  model: peacecorps.country
+  pk: 143
+- fields: {code: SKA, name: Saint Kitts and Nevis}
+  model: peacecorps.country
+  pk: 144
+- fields: {code: SLU, name: Saint Lucia}
+  model: peacecorps.country
+  pk: 145
+- fields: {code: STV, name: Saint Vincent and the Grenadines}
+  model: peacecorps.country
+  pk: 146
+- fields: {code: WSM, name: Samoa}
+  model: peacecorps.country
+  pk: 147
+- fields: {code: SMA, name: San Marino}
+  model: peacecorps.country
+  pk: 148
+- fields: {code: SAO, name: Sao Tome Principe}
+  model: peacecorps.country
+  pk: 149
+- fields: {code: SAU, name: Saudi Arabia}
+  model: peacecorps.country
+  pk: 150
+- fields: {code: SEN, name: Senegal}
+  model: peacecorps.country
+  pk: 151
+- fields: {code: SER, name: Serbia}
+  model: peacecorps.country
+  pk: 152
+- fields: {code: SEY, name: Seychelles}
+  model: peacecorps.country
+  pk: 153
+- fields: {code: SIE, name: Sierra Leone}
+  model: peacecorps.country
+  pk: 154
+- fields: {code: SIN, name: Singapore}
+  model: peacecorps.country
+  pk: 155
+- fields: {code: SLA, name: Slovakia}
+  model: peacecorps.country
+  pk: 156
+- fields: {code: SLO, name: Slovenia}
+  model: peacecorps.country
+  pk: 157
+- fields: {code: SOL, name: Solomon Islands}
+  model: peacecorps.country
+  pk: 158
+- fields: {code: SOM, name: Somalia}
+  model: peacecorps.country
+  pk: 159
+- fields: {code: SOR, name: South Africa}
+  model: peacecorps.country
+  pk: 160
+- fields: {code: SKO, name: South Korea}
+  model: peacecorps.country
+  pk: 161
+- fields: {code: SPA, name: Spain}
+  model: peacecorps.country
+  pk: 162
+- fields: {code: SRI, name: Sri Lanka}
+  model: peacecorps.country
+  pk: 163
+- fields: {code: SUR, name: Suriname}
+  model: peacecorps.country
+  pk: 164
+- fields: {code: SWA, name: Swaziland}
+  model: peacecorps.country
+  pk: 165
+- fields: {code: SWE, name: Sweden}
+  model: peacecorps.country
+  pk: 166
+- fields: {code: SWI, name: Switzerland}
+  model: peacecorps.country
+  pk: 167
+- fields: {code: SYR, name: Syria}
+  model: peacecorps.country
+  pk: 168
+- fields: {code: TAJ, name: Tajikistan}
+  model: peacecorps.country
+  pk: 169
+- fields: {code: TAN, name: Tanzania}
+  model: peacecorps.country
+  pk: 170
+- fields: {code: THA, name: Thailand}
+  model: peacecorps.country
+  pk: 171
+- fields: {code: TOG, name: Togo}
+  model: peacecorps.country
+  pk: 172
+- fields: {code: TON, name: Tonga}
+  model: peacecorps.country
+  pk: 173
+- fields: {code: TRI, name: Trinidad and Tobago}
+  model: peacecorps.country
+  pk: 174
+- fields: {code: TUN, name: Tunisia}
+  model: peacecorps.country
+  pk: 175
+- fields: {code: TUR, name: Turkey}
+  model: peacecorps.country
+  pk: 176
+- fields: {code: TUM, name: Turkmenistan}
+  model: peacecorps.country
+  pk: 177
+- fields: {code: TUV, name: Tuvalo}
+  model: peacecorps.country
+  pk: 178
+- fields: {code: UGA, name: Uganda}
+  model: peacecorps.country
+  pk: 179
+- fields: {code: UKR, name: Ukraine}
+  model: peacecorps.country
+  pk: 180
+- fields: {code: UAE, name: United Arab Emirates}
+  model: peacecorps.country
+  pk: 181
+- fields: {code: GBR, name: United Kingdom}
+  model: peacecorps.country
+  pk: 182
+- fields: {code: URN, name: Uruguay}
+  model: peacecorps.country
+  pk: 183
+- fields: {code: UZB, name: Uzbekistan}
+  model: peacecorps.country
+  pk: 184
+- fields: {code: VAN, name: Vanuatu}
+  model: peacecorps.country
+  pk: 185
+- fields: {code: VEN, name: Venezuela}
+  model: peacecorps.country
+  pk: 186
+- fields: {code: VIE, name: Vietnam}
+  model: peacecorps.country
+  pk: 187
+- fields: {code: YEM, name: Yemen}
+  model: peacecorps.country
+  pk: 188
+- fields: {code: ZAM, name: Zambia}
+  model: peacecorps.country
+  pk: 189
+- fields: {code: ZIM, name: Zimbabwe}
+  model: peacecorps.country
+  pk: 190
