@@ -33,7 +33,7 @@ class DonationsTests(SessionTestCase):
         """
 
         response = self.client.get(
-            '/donations/contribute/individual?amount=2000&project=14-532-001')
+            '/donations/contribute/?amount=2000&project=14-532-001')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.00' in content)
