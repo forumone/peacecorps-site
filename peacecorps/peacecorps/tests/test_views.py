@@ -1,10 +1,24 @@
 from django.test import TestCase
+from django.test.client import Client
+from django.conf import settings
+from django.utils.importlib import import_module
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
-from peacecorps.views import generate_custom_fields
+from peacecorps.views import generate_custom_fields, humanize_amount
 
 
-class DonationsTests(TestCase):
+class SessionTestCase(TestCase):
+    def setUp(self):
+        settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+        engine = import_module(settings.SESSION_ENGINE)
+        store = engine.SessionStore()
+        store.save()
+        self.session = store
+        self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
+
+
+class DonationsTests(SessionTestCase):
+
     def test_generate_agency_tracking_id(self):
         """ This just tests the start of a generated tracking id, which is
         currently the only piece we're sure of. """
@@ -12,17 +26,33 @@ class DonationsTests(TestCase):
         tracking_id = generate_agency_tracking_id()
         self.assertTrue(tracking_id.startswith('PCOCI'))
 
+    def test_contribution_parameters(self):
+        """ To get to the page where name, address are filled out before being
+        shunted to pay.gov we need to pass the donation amount and project code
+        as GET parameters. This makes sure they show up on the payment page.
+        """
+
+        response = self.client.get(
+            '/donations/contribute/?amount=2000&project=14-532-001')
+        content = response.content.decode('utf-8')
+        self.assertEqual(200, response.status_code)
+        self.assertTrue('$20.00' in content)
+        self.assertTrue('14-532-001')
+
     def test_review_page(self):
         """ Test that the donation review page renders with the required
         elements. """
 
-        session = self.client.session
+        session = self.session
         session['name'] = 'William Williams'
         session['street_address'] = '1 Main Street'
         session['city'] = 'Anytown'
         session['state'] = 'MD'
         session['zip_code'] = '20852'
         session['country'] = 'USA'
+        session['donation_amount'] = 2000
+        session['project_code'] = 'PC-SEC01'
+        session.save()
 
         response = self.client.get('/donations/review')
         content = response.content.decode('utf-8')
@@ -37,12 +67,15 @@ class DonationsTests(TestCase):
         Allow all fields to be optional"""
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
                 'information_consent': 'vol-consent-yes',
+                'donation_amount': 2000, 'project_code': '14-54FF',
                 'interest_conflict': True, 'email_consent': True}
         memo = generate_agency_memo(data)
-        self.assertEqual("(CCCCCC)(5555555555)()(yes)(yes)(yes)", memo)
+        self.assertEqual(
+            "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
 
-        memo = generate_agency_memo({})
-        self.assertEqual("()()()(no)(no)(no)", memo)
+        memo = generate_agency_memo({
+            'donation_amount': 2000, 'project_code': '14-54FF'})
+        self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
 
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
@@ -75,3 +108,23 @@ class DonationsTests(TestCase):
             'custom_field_6': '(Honor)(yes)()',
             'custom_field_7': '()'
         })
+
+    def test_humanize_amount(self):
+        """ The humanize_amount function converts an amount in cents into
+        something that's human readable. """
+        self.assertEqual(humanize_amount(1520), '$15.20')
+        self.assertEqual(humanize_amount(0), '$0.00')
+
+    def test_bad_request_donations(self):
+        """ The donation information page should 400 if donation amount and
+        project code aren't included. """
+        response = self.client.get('/donations/contribute')
+        self.assertEqual(response.status_code, 400)
+
+    def test_bad_amount(self):
+        """ If a non-integer amount is entered, the donations/contribute page
+        should 400. """
+
+        response = self.client.get(
+            '/donations/contribute/?amount=aaa&project_code=154')
+        self.assertEqual(response.status_code, 400)

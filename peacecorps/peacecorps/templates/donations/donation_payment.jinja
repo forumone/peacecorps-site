@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
 </head>
 <body>
+    <p> Project Code: {{project_code }} </p>
+    <p> Amount: {{amount}} </p>
+
     <form action="" method="post">
         {% csrf_token %}
 
@@ -183,6 +186,10 @@
                 </li>
             </ul>
         </div>
+
+        {% for hidden in form.hidden_fields() %}
+            {{hidden}}
+        {% endfor %}
 
         <div><input type="submit" value="Confirm Information" /></div>
     </form>

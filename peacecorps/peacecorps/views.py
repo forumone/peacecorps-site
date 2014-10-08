@@ -3,13 +3,40 @@ from datetime import datetime
 
 from django.conf import settings
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseBadRequest
 
 from peacecorps.forms import DonationPaymentForm
 
 
+def humanize_amount(amount_cents):
+    """ Return a string that presents the donation amount in a humanized
+    format. """
+
+    amount_dollars = amount_cents/100.0
+    return "$%.2f" % (amount_dollars)
+
+
+def donation_payment_individual(request):
+    """ This is the view for the donations contact information form. """
+
+
 def donation_payment(request):
     """ Collect donor contact information. """
+
+
+    amount = request.GET.get('amount', None)
+    project_code = request.GET.get('project', None)
+
+    if amount is None or project_code is None:
+        return HttpResponseBadRequest(
+            'amount and project_code must be provided.')
+    try:
+        amount = int(amount)
+    except ValueError:
+        return HttpResponseBadRequest('amount must be an integer value')
+
+    readable_amount = humanize_amount(amount)
+
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
 
@@ -19,9 +46,16 @@ def donation_payment(request):
                 request.session[k] = v
             return HttpResponseRedirect('/donations/review')
     else:
-        form = DonationPaymentForm()
+        data = {'donation_amount': amount, 'project_code': project_code}
+        form = DonationPaymentForm(initial=data)
+
     return render(
-        request, 'donations/donation_payment.jinja', {'form': form})
+        request, 'donations/donation_payment.jinja',
+        {
+            'form': form,
+            'amount': readable_amount,
+            'project_code': project_code
+        })
 
 
 def generate_agency_tracking_id():
@@ -40,7 +74,8 @@ def generate_agency_memo(data):
     memo += '(' + data.get('comments', '').strip() + ')'
     memo += '(' + data.get('phone_number', '').strip() + ')'
 
-    memo += '()'        # @todo: 'projects' isn't defined yet
+    amount = humanize_amount(data['donation_amount'])
+    memo += '(%s, %s)' % (data['project_code'], amount)
 
     if data.get('information_consent', '') == 'vol-consent-yes':
         memo += '(yes)'
@@ -51,6 +86,7 @@ def generate_agency_memo(data):
         memo += '(yes)'
     else:
         memo += '(no)'
+
     if data.get('email_consent'):
         memo += '(yes)'
     else:

@@ -94,6 +94,9 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
+    donation_amount = forms.IntegerField(widget=forms.HiddenInput())
+    project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
+
     def required_when(self, guard_field, guard_value, check_field):
         """Raises a validation error when both the field with name guard_field
         is equal to guard_value and the field with name check_field is
