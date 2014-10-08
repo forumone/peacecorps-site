@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields
@@ -75,3 +75,28 @@ class DonationsTests(TestCase):
             'custom_field_6': '(Honor)(yes)()',
             'custom_field_7': '()'
         })
+
+class DonatePagesTests(TestCase):
+    
+    fixtures = ['tests.yaml']
+
+    def setUp(self):
+        self.client = Client()
+
+    # Do the pages load without error?
+    def test_pages_rendering(self):
+        response = self.client.get('/donate')
+        self.assertEqual(response.status_code, 200)
+
+    def test_issue_rendering(self):
+        response = self.client.get('/donate/issue/innovation')
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_rendering(self):
+        response = self.client.get('/donate/project/test-project')
+        self.assertEqual(response.status_code, 200)
+
+
+
+
+
