@@ -5,8 +5,7 @@ from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from peacecorps.forms import DedicationForm, IndividualDonationForm
-from peacecorps.forms import OrganizationDonationForm
+from peacecorps.forms import DonationPaymentForm
 
 
 def humanize_amount(amount_cents):
@@ -20,6 +19,10 @@ def humanize_amount(amount_cents):
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
 
+
+def donation_payment(request):
+    """ Collect donor contact information. """
+
     amount = int(request.GET.get('amount', None))
     project_code = request.GET.get('project', None)
 
@@ -29,46 +32,23 @@ def donation_payment_individual(request):
     readable_amount = humanize_amount(amount)
 
     if request.method == 'POST':
-        form = IndividualDonationForm(request.POST)
-        dedication_form = DedicationForm(request.POST)
+        form = DonationPaymentForm(request.POST)
 
         if form.is_valid():
             for k, v in form.cleaned_data.items():
+                #   @todo - need to remove the reliance on sessions
                 request.session[k] = v
             return HttpResponseRedirect('/donations/review')
     else:
         data = {'donation_amount': amount, 'project_code': project_code}
-        form = IndividualDonationForm(initial=data)
-        dedication_form = DedicationForm()
+        form = DonationPaymentForm(initial=data)
 
     return render(
         request, 'donations/donation_payment.jinja',
         {
             'form': form,
-            'dedication_form': dedication_form,
             'amount': readable_amount,
             'project_code': project_code
-        })
-
-
-def donation_payment_organization(request):
-    """ If the user is representing an organization, this is the relevant
-    view. It uses an organization specific form. """
-    if request.method == 'POST':
-        form = OrganizationDonationForm(request.POST)
-        dedication_form = DedicationForm(request.POST)
-
-        if form.is_valid():
-            return HttpResponseRedirect('/donations/review')
-    else:
-        form = OrganizationDonationForm(initial={'donor_type': 'Organization'})
-        dedication_form = DedicationForm()
-    return render(
-        request, 'donations/donation_payment.jinja',
-        {
-            'form': form,
-            'organization': True,
-            'dedication_form': dedication_form
         })
 
 
