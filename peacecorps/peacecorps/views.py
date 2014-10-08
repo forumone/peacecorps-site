@@ -5,47 +5,23 @@ from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from peacecorps.forms import DedicationForm, IndividualDonationForm
-from peacecorps.forms import OrganizationDonationForm
+from peacecorps.forms import DonationPaymentForm
 
 
-def donation_payment_individual(request):
-    """ This is the view for the donations contact information form. """
+def donation_payment(request):
+    """ Collect donor contact information. """
     if request.method == 'POST':
-        form = IndividualDonationForm(request.POST)
-        dedication_form = DedicationForm(request.POST)
+        form = DonationPaymentForm(request.POST)
 
         if form.is_valid():
             for k, v in form.cleaned_data.items():
+                #   @todo - need to remove the reliance on sessions
                 request.session[k] = v
             return HttpResponseRedirect('/donations/review')
     else:
-        form = IndividualDonationForm()
-        dedication_form = DedicationForm()
+        form = DonationPaymentForm()
     return render(
-        request, 'donations/donation_payment.jinja',
-        {'form': form, 'dedication_form': dedication_form})
-
-
-def donation_payment_organization(request):
-    """ If the user is representing an organization, this is the relevant
-    view. It uses an organization specific form. """
-    if request.method == 'POST':
-        form = OrganizationDonationForm(request.POST)
-        dedication_form = DedicationForm(request.POST)
-
-        if form.is_valid():
-            return HttpResponseRedirect('/donations/review')
-    else:
-        form = OrganizationDonationForm(initial={'donor_type': 'Organization'})
-        dedication_form = DedicationForm()
-    return render(
-        request, 'donations/donation_payment.jinja',
-        {
-            'form': form,
-            'organization': True,
-            'dedication_form': dedication_form
-        })
+        request, 'donations/donation_payment.jinja', {'form': form})
 
 
 def generate_agency_tracking_id():

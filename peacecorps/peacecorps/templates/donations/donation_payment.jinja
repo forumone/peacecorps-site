@@ -14,27 +14,23 @@
         </div>
 
         
-        {# @todo allow organization to be chosen on the fly #}
-        {% if organization %}
-        <div>
+        <div class="shown-with-organization">
             {{form.organization_name.errors}}
             <label for="id_organization_name" class="required">Organization Name</label>
             <div class="value">{{form.organization_name}}</div>
         </div>
 
-        <div>
+        <div class="shown-with-organization">
             {{form.organization_contact.errors}}
             <label for="id_organization_contact" class="required">Organization Contact</label>
             <div class="value">{{form.organization_contact}}</div>
         </div>
-        {% else %}
-        <div>
+
+        <div class="shown-with-individual">
             {{form.name.errors}}
             <label for="id_name" class="required">Name</label>
             <div class="value">{{form.name}}</div>
         </div>
-
-        {% endif %}
 
         <div>
             {{form.street_address.errors}}
@@ -103,44 +99,44 @@
         <div id='dedication_details'>
             
             <div>
-                {{dedication_form.dedication_name.errors}}
+                {{form.dedication_name.errors}}
                 <label for='id_dedication_name'>Name</label>
-                <div class="value">{{dedication_form.dedication_name}}</div>
+                <div class="value">{{form.dedication_name}}</div>
             </div>
 
             <div>
-                {{dedication_form.dedication_type.errors}}
-                <div class="value" id="dedication_type">{{dedication_form.dedication_type}}</div>
+                {{form.dedication_type.errors}}
+                <div class="value" id="dedication_type">{{form.dedication_type}}</div>
             </div>
 
             <p class="honoree_swap">Send the honoree a letter so they know you were thinking of them: </p>
             <div id="dedication_contact_wrapper">
-                {{dedication_form.dedication_contact.errors}}
+                {{form.dedication_contact.errors}}
                 <label for='id_dedication_contact'>Family Contact</label>
-                <div class="value">{{dedication_form.dedication_contact}}</div>
+                <div class="value">{{form.dedication_contact}}</div>
             </div>
 
             <div>
-                {{dedication_form.dedication_email.errors}}
+                {{form.dedication_email.errors}}
                 <label for='id_dedication_email'>Email</label>
-                <div class="value">{{dedication_form.dedication_email}}</div>
+                <div class="value">{{form.dedication_email}}</div>
             </div>
 
             <div>
-                {{dedication_form.dedication_address.errors}}
+                {{form.dedication_address.errors}}
                 <label for='id_dedication_address'>Mailing address</label>
                 <div
-                class="value">{{dedication_form.dedication_address}}</div>
+                class="value">{{form.dedication_address}}</div>
             </div>
 
             <div>
-                {{dedication_form.card_dedication.errors}}
+                {{form.card_dedication.errors}}
                 <label for='id_card_dedication'>Message</label>
-                <div class="value">{{dedication_form.card_dedication}}</div>
+                <div class="value">{{form.card_dedication}}</div>
             </div>
 
             <div>
-                {{dedication_form.dedication_consent.errors}}
+                {{form.dedication_consent.errors}}
                 <label for='id_dedication_consent'>Information Consent</label>
 
                 <ul id="id_dedication_consent">
