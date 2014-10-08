@@ -114,3 +114,17 @@ class DonationsTests(SessionTestCase):
         something that's human readable. """
         self.assertEqual(humanize_amount(1520), '$15.20')
         self.assertEqual(humanize_amount(0), '$0.00')
+
+    def test_bad_request_donations(self):
+        """ The donation information page should 400 if donation amount and
+        project code aren't included. """
+        response = self.client.get('/donations/contribute')
+        self.assertEqual(response.status_code, 400)
+
+    def test_bad_amount(self):
+        """ If a non-integer amount is entered, the donations/contribute page
+        should 400. """
+
+        response = self.client.get(
+            '/donations/contribute/?amount=aaa&project_code=154')
+        self.assertEqual(response.status_code, 400)

@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseBadRequest
 
 from peacecorps.forms import DonationPaymentForm
 
@@ -23,11 +23,17 @@ def donation_payment_individual(request):
 def donation_payment(request):
     """ Collect donor contact information. """
 
-    amount = int(request.GET.get('amount', None))
+
+    amount = request.GET.get('amount', None)
     project_code = request.GET.get('project', None)
 
     if amount is None or project_code is None:
-        return HttpResponseRedirect('/')
+        return HttpResponseBadRequest(
+            'amount and project_code must be provided.')
+    try:
+        amount = int(amount)
+    except ValueError:
+        return HttpResponseBadRequest('amount must be an integer value')
 
     readable_amount = humanize_amount(amount)
 
