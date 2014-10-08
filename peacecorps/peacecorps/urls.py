@@ -1,8 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from peacecorps.views import donation_payment_individual
-from peacecorps.views import donation_payment_organization
+from peacecorps.views import donation_payment
 from peacecorps.views import donation_payment_review
 
 from peacecorps.views import donate_landing
@@ -18,12 +17,9 @@ urlpatterns = patterns(
     url(r'^donate/project/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_project, name='donate project'),
     url(
-        r'^donations/contribute/individual$',
-        donation_payment_individual, name='donations_individual'),
+        r'^donations/contribute/?$',
+        donation_payment, name='donations_payment'),
     url(
-        r'^donations/contribute/organization$',
-        donation_payment_organization, name='donations_organization'),
-    url(
-        r'^donations/review$',
+        r'^donations/review/?$',
         donation_payment_review, name='donations_review'),
 )
