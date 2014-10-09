@@ -1,0 +1,21 @@
+<html lang='en'>
+<head>
+    <title>{% block title %}Peace Corps{% endblock %}</title>
+    <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
+</head>
+<body>
+<div id="wrapper">
+<h1>{% block header %}Peace Corps{% endblock %}</h1>
+
+{% block navigation %}{% endblock %}
+
+<div id="{% block content_id %}{% endblock %}">
+{% block content %}{% endblock %}
+</div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</div>
+{% block custom_js %}{% endblock %}
+</body>
+</html>
+

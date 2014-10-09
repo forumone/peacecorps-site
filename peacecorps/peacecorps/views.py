@@ -2,10 +2,12 @@ from uuid import uuid4
 from datetime import datetime
 
 from django.conf import settings
-from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
+from django.shortcuts import render
 
 from peacecorps.forms import DonationPaymentForm
+from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
+from peacecorps.models import Project
 
 
 def humanize_amount(amount_cents):
@@ -15,9 +17,6 @@ def humanize_amount(amount_cents):
     amount_dollars = amount_cents/100.0
     return "$%.2f" % (amount_dollars)
 
-from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
-from peacecorps.models import Project
-
 
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
@@ -26,13 +25,12 @@ def donation_payment_individual(request):
 def donation_payment(request):
     """ Collect donor contact information. """
 
-
     amount = request.GET.get('amount', None)
     project_code = request.GET.get('project', None)
 
     if amount is None or project_code is None:
         return HttpResponseBadRequest(
-            'amount and project_code must be provided.')
+            'amount and project must be provided.')
     try:
         amount = int(amount)
     except ValueError:
