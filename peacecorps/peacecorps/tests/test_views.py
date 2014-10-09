@@ -39,28 +39,33 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('$20.00' in content)
         self.assertTrue('14-532-001')
 
+
     def test_review_page(self):
         """ Test that the donation review page renders with the required
         elements. """
 
-        session = self.session
-        session['name'] = 'William Williams'
-        session['street_address'] = '1 Main Street'
-        session['city'] = 'Anytown'
-        session['state'] = 'MD'
-        session['zip_code'] = '20852'
-        session['country'] = 'USA'
-        session['donation_amount'] = 2000
-        session['project_code'] = 'PC-SEC01'
-        session.save()
+        form_data = {
+            'name': 'William Williams',
+            'street_address':  '1 Main Street',
+            'city': 'Anytown',
+            'state': 'MD',
+            'zip_code':  '20852',
+            'country': 'USA',
+            'donation_amount': 2000,
+            'project_code': 'PC-SEC01',
+            'donor_type': 'Individual',
+            'payment_type': 'credit-card',
+            'information_consent': 'vol-consent-yes'}
 
-        response = self.client.get('/donations/review')
+        response = self.client.post(
+            '/donations/contribute/?amount=2000&project=14-532-001', form_data)
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
+        memo = generate_agency_memo(form_data)
+        self.assertTrue(memo in content)
         self.assertTrue('agency_tracking_id' in content)
-        self.assertTrue('PCOCI' in content)
-        self.assertTrue('app_name' in content)
-        self.assertTrue('agency_memo' in content)
+        self.assertTrue('agency_id' in content)
+
 
     def test_generate_agency_memo(self):
         """The data dictionary should be serialized in the predictable way.
