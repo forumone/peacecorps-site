@@ -1,0 +1,28 @@
+<html lang='en'>
+<head>
+    <title>{{project.title}}</title>
+</head>
+<body>
+
+<h1>{{project.title}}</h1>
+<p>{{project.tagline}}</p>
+
+<img src="{{project.featured_image.url()}}" alt="{{project.featured_image.description}}">
+{{project.featured_image.caption}}
+
+{% if volunteer.profile_image %}<img src="{{volunteer.profile_image.url()}}" img alt="{{volunteer.profile_image.description}}">{% endif %}
+
+<p><strong>{{volunteer.name}}</strong> from <strong>{{volunteer.homecity}}, {{volunteer.homestate}}</strong></p>
+
+<p>Funds sought: {{project.fundgoal}}</p>
+<p>Current Funds: {{project.fundcurrent}}</p>
+
+{% if project.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
+
+<div>
+    {{project.description|safe}}
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,916 @@
+- fields: {code: USA, name: United States}
+  model: peacecorps.country
+  pk: 1
+- fields: {code: AFG, name: Afghanistan}
+  model: peacecorps.country
+  pk: 2
+- fields: {code: ALB, name: Albania}
+  model: peacecorps.country
+  pk: 3
+- fields: {code: ALG, name: Algeria}
+  model: peacecorps.country
+  pk: 4
+- fields: {code: AND, name: Andorra}
+  model: peacecorps.country
+  pk: 5
+- fields: {code: ANG, name: Angola}
+  model: peacecorps.country
+  pk: 6
+- fields: {code: ANT, name: Antigua and Barbuda}
+  model: peacecorps.country
+  pk: 7
+- fields: {code: ARG, name: Argentina}
+  model: peacecorps.country
+  pk: 8
+- fields: {code: ARM, name: Armenia}
+  model: peacecorps.country
+  pk: 9
+- fields: {code: AUS, name: Australia}
+  model: peacecorps.country
+  pk: 10
+- fields: {code: AUT, name: Austria}
+  model: peacecorps.country
+  pk: 11
+- fields: {code: AZE, name: Azerbaijan}
+  model: peacecorps.country
+  pk: 12
+- fields: {code: BAH, name: Bahamas}
+  model: peacecorps.country
+  pk: 13
+- fields: {code: BAI, name: Bahrain}
+  model: peacecorps.country
+  pk: 14
+- fields: {code: BAN, name: Bangladesh}
+  model: peacecorps.country
+  pk: 15
+- fields: {code: BAR, name: Barbados}
+  model: peacecorps.country
+  pk: 16
+- fields: {code: BES, name: Belarus}
+  model: peacecorps.country
+  pk: 17
+- fields: {code: BEL, name: Belgium}
+  model: peacecorps.country
+  pk: 18
+- fields: {code: BEM, name: Belize}
+  model: peacecorps.country
+  pk: 19
+- fields: {code: BEN, name: Benin}
+  model: peacecorps.country
+  pk: 20
+- fields: {code: BHU, name: Bhutan}
+  model: peacecorps.country
+  pk: 21
+- fields: {code: BOL, name: Bolivia}
+  model: peacecorps.country
+  pk: 22
+- fields: {code: BOS, name: Bosnia and Herzegovina}
+  model: peacecorps.country
+  pk: 23
+- fields: {code: BOT, name: Botswana}
+  model: peacecorps.country
+  pk: 24
+- fields: {code: BRA, name: Brazil}
+  model: peacecorps.country
+  pk: 25
+- fields: {code: BRU, name: Brunei}
+  model: peacecorps.country
+  pk: 26
+- fields: {code: BUL, name: Bulgaria}
+  model: peacecorps.country
+  pk: 27
+- fields: {code: BUK, name: Burkina Faso}
+  model: peacecorps.country
+  pk: 28
+- fields: {code: BUR, name: Burma}
+  model: peacecorps.country
+  pk: 29
+- fields: {code: BUU, name: Burundi}
+  model: peacecorps.country
+  pk: 30
+- fields: {code: CAN, name: Canada}
+  model: peacecorps.country
+  pk: 31
+- fields: {code: CAB, name: Cambodia}
+  model: peacecorps.country
+  pk: 32
+- fields: {code: CAM, name: Cameroon}
+  model: peacecorps.country
+  pk: 33
+- fields: {code: CAP, name: Cape Verde}
+  model: peacecorps.country
+  pk: 34
+- fields: {code: CAE, name: Central African Republic}
+  model: peacecorps.country
+  pk: 35
+- fields: {code: CHA, name: Chad}
+  model: peacecorps.country
+  pk: 36
+- fields: {code: CHL, name: Chile}
+  model: peacecorps.country
+  pk: 37
+- fields: {code: CHN, name: China}
+  model: peacecorps.country
+  pk: 38
+- fields: {code: COL, name: Colombia}
+  model: peacecorps.country
+  pk: 39
+- fields: {code: COM, name: Comoros}
+  model: peacecorps.country
+  pk: 40
+- fields: {code: RCB, name: Congo Brazzaville}
+  model: peacecorps.country
+  pk: 41
+- fields: {code: CON, name: Congo Kinshasa}
+  model: peacecorps.country
+  pk: 42
+- fields: {code: COS, name: Costa Rica}
+  model: peacecorps.country
+  pk: 43
+- fields: {code: IVO, name: Cote D&#39; Ivoire}
+  model: peacecorps.country
+  pk: 44
+- fields: {code: CRO, name: Croatia}
+  model: peacecorps.country
+  pk: 45
+- fields: {code: CYP, name: Cyprus}
+  model: peacecorps.country
+  pk: 46
+- fields: {code: CZE, name: Czech Republic}
+  model: peacecorps.country
+  pk: 47
+- fields: {code: DEN, name: Denmark}
+  model: peacecorps.country
+  pk: 48
+- fields: {code: DJI, name: Djibouti}
+  model: peacecorps.country
+  pk: 49
+- fields: {code: DON, name: Dominica}
+  model: peacecorps.country
+  pk: 50
+- fields: {code: DOM, name: Dominican Republic}
+  model: peacecorps.country
+  pk: 51
+- fields: {code: ETM, name: East Timor}
+  model: peacecorps.country
+  pk: 52
+- fields: {code: ECU, name: Ecuador}
+  model: peacecorps.country
+  pk: 53
+- fields: {code: EGY, name: Egypt}
+  model: peacecorps.country
+  pk: 54
+- fields: {code: ELS, name: El Salvador}
+  model: peacecorps.country
+  pk: 55
+- fields: {code: EQU, name: Equatorial Guinea}
+  model: peacecorps.country
+  pk: 56
+- fields: {code: ERI, name: Eritrea}
+  model: peacecorps.country
+  pk: 57
+- fields: {code: EST, name: Estonia}
+  model: peacecorps.country
+  pk: 58
+- fields: {code: ETH, name: Ethiopia}
+  model: peacecorps.country
+  pk: 59
+- fields: {code: FIJ, name: Fiji}
+  model: peacecorps.country
+  pk: 60
+- fields: {code: FIN, name: Finland}
+  model: peacecorps.country
+  pk: 61
+- fields: {code: FRA, name: France}
+  model: peacecorps.country
+  pk: 62
+- fields: {code: GAB, name: Gabon}
+  model: peacecorps.country
+  pk: 63
+- fields: {code: GEO, name: Georgia}
+  model: peacecorps.country
+  pk: 64
+- fields: {code: GER, name: Germany}
+  model: peacecorps.country
+  pk: 65
+- fields: {code: GHA, name: Ghana}
+  model: peacecorps.country
+  pk: 66
+- fields: {code: GRE, name: Greece}
+  model: peacecorps.country
+  pk: 67
+- fields: {code: GRN, name: Grenada}
+  model: peacecorps.country
+  pk: 68
+- fields: {code: GUA, name: Guatemala}
+  model: peacecorps.country
+  pk: 69
+- fields: {code: GUI, name: Guinea}
+  model: peacecorps.country
+  pk: 70
+- fields: {code: GUU, name: Guinea-Bissau}
+  model: peacecorps.country
+  pk: 71
+- fields: {code: GUY, name: Guyana}
+  model: peacecorps.country
+  pk: 72
+- fields: {code: HAI, name: Haiti}
+  model: peacecorps.country
+  pk: 73
+- fields: {code: VAT, name: Holy See}
+  model: peacecorps.country
+  pk: 74
+- fields: {code: HND, name: Honduras}
+  model: peacecorps.country
+  pk: 75
+- fields: {code: HUN, name: Hungary}
+  model: peacecorps.country
+  pk: 76
+- fields: {code: ICE, name: Iceland}
+  model: peacecorps.country
+  pk: 77
+- fields: {code: IND, name: India}
+  model: peacecorps.country
+  pk: 78
+- fields: {code: INS, name: Indonesia}
+  model: peacecorps.country
+  pk: 79
+- fields: {code: IRC, name: Iraq}
+  model: peacecorps.country
+  pk: 80
+- fields: {code: IRE, name: Ireland}
+  model: peacecorps.country
+  pk: 81
+- fields: {code: ISR, name: Israel}
+  model: peacecorps.country
+  pk: 82
+- fields: {code: ITA, name: Italy}
+  model: peacecorps.country
+  pk: 83
+- fields: {code: JAM, name: Jamaica}
+  model: peacecorps.country
+  pk: 84
+- fields: {code: JPN, name: Japan}
+  model: peacecorps.country
+  pk: 85
+- fields: {code: JOR, name: Jordan}
+  model: peacecorps.country
+  pk: 86
+- fields: {code: KAZ, name: Kazakhstan}
+  model: peacecorps.country
+  pk: 87
+- fields: {code: KEN, name: Kenya}
+  model: peacecorps.country
+  pk: 88
+- fields: {code: KIR, name: Kiribati}
+  model: peacecorps.country
+  pk: 89
+- fields: {code: KUW, name: Kuwait}
+  model: peacecorps.country
+  pk: 90
+- fields: {code: KYR, name: Kyrgyzstan}
+  model: peacecorps.country
+  pk: 91
+- fields: {code: LAS, name: Laos}
+  model: peacecorps.country
+  pk: 92
+- fields: {code: LAT, name: Latvia}
+  model: peacecorps.country
+  pk: 93
+- fields: {code: LEB, name: Lebanon}
+  model: peacecorps.country
+  pk: 94
+- fields: {code: LES, name: Lesotho}
+  model: peacecorps.country
+  pk: 95
+- fields: {code: LIB, name: Liberia}
+  model: peacecorps.country
+  pk: 96
+- fields: {code: LIY, name: Libya}
+  model: peacecorps.country
+  pk: 97
+- fields: {code: LIE, name: Liechtenstein}
+  model: peacecorps.country
+  pk: 98
+- fields: {code: LIT, name: Lithuania}
+  model: peacecorps.country
+  pk: 99
+- fields: {code: LUX, name: Luxembourg}
+  model: peacecorps.country
+  pk: 100
+- fields: {code: MAE, name: Macedonia}
+  model: peacecorps.country
+  pk: 101
+- fields: {code: MDG, name: Madagascar}
+  model: peacecorps.country
+  pk: 102
+- fields: {code: MAI, name: Malawi}
+  model: peacecorps.country
+  pk: 103
+- fields: {code: MAL, name: Malaysia}
+  model: peacecorps.country
+  pk: 104
+- fields: {code: MAM, name: Maldives}
+  model: peacecorps.country
+  pk: 105
+- fields: {code: MAN, name: Mali}
+  model: peacecorps.country
+  pk: 106
+- fields: {code: MAT, name: Malta}
+  model: peacecorps.country
+  pk: 107
+- fields: {code: MHL, name: Marshall Islands}
+  model: peacecorps.country
+  pk: 108
+- fields: {code: MAU, name: Mauritania}
+  model: peacecorps.country
+  pk: 109
+- fields: {code: MAV, name: Mauritius}
+  model: peacecorps.country
+  pk: 110
+- fields: {code: MEX, name: Mexico}
+  model: peacecorps.country
+  pk: 111
+- fields: {code: FSM, name: Micronesia}
+  model: peacecorps.country
+  pk: 112
+- fields: {code: MOL, name: Moldova}
+  model: peacecorps.country
+  pk: 113
+- fields: {code: MOC, name: Monaco}
+  model: peacecorps.country
+  pk: 114
+- fields: {code: MNE, name: Montenegro}
+  model: peacecorps.country
+  pk: 115
+- fields: {code: MON, name: Mongolia}
+  model: peacecorps.country
+  pk: 116
+- fields: {code: MOR, name: Morocco}
+  model: peacecorps.country
+  pk: 117
+- fields: {code: MOZ, name: Mozambique}
+  model: peacecorps.country
+  pk: 118
+- fields: {code: NAM, name: Namibia}
+  model: peacecorps.country
+  pk: 119
+- fields: {code: NAU, name: Nauru}
+  model: peacecorps.country
+  pk: 120
+- fields: {code: NEP, name: Nepal}
+  model: peacecorps.country
+  pk: 121
+- fields: {code: NEA, name: Netherlands Antilles}
+  model: peacecorps.country
+  pk: 122
+- fields: {code: NET, name: Netherlands}
+  model: peacecorps.country
+  pk: 123
+- fields: {code: NEW, name: New Zealand}
+  model: peacecorps.country
+  pk: 124
+- fields: {code: NIC, name: Nicaragua}
+  model: peacecorps.country
+  pk: 125
+- fields: {code: NIE, name: Niger}
+  model: peacecorps.country
+  pk: 126
+- fields: {code: NIG, name: Nigeria}
+  model: peacecorps.country
+  pk: 127
+- fields: {code: NKO, name: North Korea}
+  model: peacecorps.country
+  pk: 128
+- fields: {code: NOR, name: Norway}
+  model: peacecorps.country
+  pk: 129
+- fields: {code: OMA, name: Oman}
+  model: peacecorps.country
+  pk: 130
+- fields: {code: PAK, name: Pakistan}
+  model: peacecorps.country
+  pk: 131
+- fields: {code: PLW, name: Palau}
+  model: peacecorps.country
+  pk: 132
+- fields: {code: PAN, name: Panama}
+  model: peacecorps.country
+  pk: 133
+- fields: {code: PAP, name: Papua New Guinea}
+  model: peacecorps.country
+  pk: 134
+- fields: {code: PAR, name: Paraguay}
+  model: peacecorps.country
+  pk: 135
+- fields: {code: PER, name: Peru}
+  model: peacecorps.country
+  pk: 136
+- fields: {code: PHI, name: Philippines}
+  model: peacecorps.country
+  pk: 137
+- fields: {code: POL, name: Poland}
+  model: peacecorps.country
+  pk: 138
+- fields: {code: POR, name: Portugal}
+  model: peacecorps.country
+  pk: 139
+- fields: {code: QAT, name: Qatar}
+  model: peacecorps.country
+  pk: 140
+- fields: {code: ROM, name: Romania}
+  model: peacecorps.country
+  pk: 141
+- fields: {code: RUS, name: Russia}
+  model: peacecorps.country
+  pk: 142
+- fields: {code: RWA, name: Rwanda}
+  model: peacecorps.country
+  pk: 143
+- fields: {code: SKA, name: Saint Kitts and Nevis}
+  model: peacecorps.country
+  pk: 144
+- fields: {code: SLU, name: Saint Lucia}
+  model: peacecorps.country
+  pk: 145
+- fields: {code: STV, name: Saint Vincent and the Grenadines}
+  model: peacecorps.country
+  pk: 146
+- fields: {code: WSM, name: Samoa}
+  model: peacecorps.country
+  pk: 147
+- fields: {code: SMA, name: San Marino}
+  model: peacecorps.country
+  pk: 148
+- fields: {code: SAO, name: Sao Tome Principe}
+  model: peacecorps.country
+  pk: 149
+- fields: {code: SAU, name: Saudi Arabia}
+  model: peacecorps.country
+  pk: 150
+- fields: {code: SEN, name: Senegal}
+  model: peacecorps.country
+  pk: 151
+- fields: {code: SER, name: Serbia}
+  model: peacecorps.country
+  pk: 152
+- fields: {code: SEY, name: Seychelles}
+  model: peacecorps.country
+  pk: 153
+- fields: {code: SIE, name: Sierra Leone}
+  model: peacecorps.country
+  pk: 154
+- fields: {code: SIN, name: Singapore}
+  model: peacecorps.country
+  pk: 155
+- fields: {code: SLA, name: Slovakia}
+  model: peacecorps.country
+  pk: 156
+- fields: {code: SLO, name: Slovenia}
+  model: peacecorps.country
+  pk: 157
+- fields: {code: SOL, name: Solomon Islands}
+  model: peacecorps.country
+  pk: 158
+- fields: {code: SOM, name: Somalia}
+  model: peacecorps.country
+  pk: 159
+- fields: {code: SOR, name: South Africa}
+  model: peacecorps.country
+  pk: 160
+- fields: {code: SKO, name: South Korea}
+  model: peacecorps.country
+  pk: 161
+- fields: {code: SPA, name: Spain}
+  model: peacecorps.country
+  pk: 162
+- fields: {code: SRI, name: Sri Lanka}
+  model: peacecorps.country
+  pk: 163
+- fields: {code: SUR, name: Suriname}
+  model: peacecorps.country
+  pk: 164
+- fields: {code: SWA, name: Swaziland}
+  model: peacecorps.country
+  pk: 165
+- fields: {code: SWE, name: Sweden}
+  model: peacecorps.country
+  pk: 166
+- fields: {code: SWI, name: Switzerland}
+  model: peacecorps.country
+  pk: 167
+- fields: {code: SYR, name: Syria}
+  model: peacecorps.country
+  pk: 168
+- fields: {code: TAJ, name: Tajikistan}
+  model: peacecorps.country
+  pk: 169
+- fields: {code: TAN, name: Tanzania}
+  model: peacecorps.country
+  pk: 170
+- fields: {code: THA, name: Thailand}
+  model: peacecorps.country
+  pk: 171
+- fields: {code: TOG, name: Togo}
+  model: peacecorps.country
+  pk: 172
+- fields: {code: TON, name: Tonga}
+  model: peacecorps.country
+  pk: 173
+- fields: {code: TRI, name: Trinidad and Tobago}
+  model: peacecorps.country
+  pk: 174
+- fields: {code: TUN, name: Tunisia}
+  model: peacecorps.country
+  pk: 175
+- fields: {code: TUR, name: Turkey}
+  model: peacecorps.country
+  pk: 176
+- fields: {code: TUM, name: Turkmenistan}
+  model: peacecorps.country
+  pk: 177
+- fields: {code: TUV, name: Tuvalo}
+  model: peacecorps.country
+  pk: 178
+- fields: {code: UGA, name: Uganda}
+  model: peacecorps.country
+  pk: 179
+- fields: {code: UKR, name: Ukraine}
+  model: peacecorps.country
+  pk: 180
+- fields: {code: UAE, name: United Arab Emirates}
+  model: peacecorps.country
+  pk: 181
+- fields: {code: GBR, name: United Kingdom}
+  model: peacecorps.country
+  pk: 182
+- fields: {code: URN, name: Uruguay}
+  model: peacecorps.country
+  pk: 183
+- fields: {code: UZB, name: Uzbekistan}
+  model: peacecorps.country
+  pk: 184
+- fields: {code: VAN, name: Vanuatu}
+  model: peacecorps.country
+  pk: 185
+- fields: {code: VEN, name: Venezuela}
+  model: peacecorps.country
+  pk: 186
+- fields: {code: VIE, name: Vietnam}
+  model: peacecorps.country
+  pk: 187
+- fields: {code: YEM, name: Yemen}
+  model: peacecorps.country
+  pk: 188
+- fields: {code: ZAM, name: Zambia}
+  model: peacecorps.country
+  pk: 189
+- fields: {code: ZIM, name: Zimbabwe}
+  model: peacecorps.country
+  pk: 190
+- fields: {issue: 2}
+  model: peacecorps.featuredissue
+  pk: 1
+- fields: {project: 1}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 2
+- fields: {project: 2}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 3
+- fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit. Nunc sagittis libero diam, vitae cursus odio
+      aliquam at. Sed convallis volutpat libero nec ultricies. Nulla blandit diam
+      vel ex vestibulum, in sollicitudin justo convallis. Ut lobortis commodo luctus.
+      Sed molestie lectus a ex gravida, eu tincidunt lorem molestie. Proin efficitur
+      urna id massa cursus condimentum. Donec laoreet, quam a interdum semper, neque
+      lorem pulvinar velit, eget pellentesque leo elit sit amet lorem. Duis commodo
+      tortor quis velit euismod, sit amet tristique tortor bibendum.', featured_image: 1,
+    fundcurrent: 7200, fundgoal: 50000, icon: ./lightbulb.png, name: Innovation, slug: innovation,
+    tagline: Two out of three illiterate people are women.}
+  model: peacecorps.issue
+  pk: 1
+- fields: {call: Donate to girls' education, description: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Fusce quis eros eleifend nunc lobortis eleifend.
+      Aliquam id nisi id dui egestas faucibus et id mauris. Cras posuere eu dolor
+      ac dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+      per inceptos himenaeos. Vivamus id nisi faucibus, pulvinar risus a, finibus
+      lacus. Nullam porttitor elit vitae pellentesque placerat. Phasellus in auctor
+      enim. Nulla facilisi.', featured_image: 2, fundcurrent: 260000, fundgoal: 300000,
+    icon: ./peopleicon_QK6SN51.png, name: Women, slug: women, tagline: Two out of
+      three illiterate people are women.}
+  model: peacecorps.issue
+  pk: 2
+- fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit. Nam lacinia metus metus, a finibus libero
+      imperdiet eu. Mauris at laoreet felis, vel condimentum leo. Nam eu cursus nisi,
+      eget egestas massa. Nam commodo turpis ac mollis pulvinar. Phasellus eu eleifend
+      lacus. Integer posuere, est non aliquet pharetra, eros ligula ultricies dolor,
+      non efficitur sem ipsum eu orci. Curabitur finibus nulla at dui consequat pellentesque.
+      Nullam euismod odio eros, vehicula vestibulum velit finibus ac. Vestibulum ut
+      dui arcu. Nullam ac est elit. Duis maximus pulvinar urna ut iaculis.', featured_image: 2,
+    fundcurrent: 30000, fundgoal: 100000, icon: ./house_SO2rcUg.png, name: Education,
+    slug: education, tagline: Two out of three illiterate people are women.}
+  model: peacecorps.issue
+  pk: 3
+- fields: {call: Donate to world hunger., description: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Etiam vel mi ex. Cras pellentesque pulvinar pulvinar.
+      Sed consequat varius sem quis volutpat. Fusce aliquet velit quis dignissim commodo.
+      Praesent pretium dictum velit vitae ultricies. Donec eget tortor ut tellus bibendum
+      pharetra quis mattis risus. Morbi non convallis ligula. Curabitur vel finibus
+      ipsum, sit amet sagittis turpis.', featured_image: 1, fundcurrent: 50000, fundgoal: 130000,
+    icon: ./globeicon.png, name: Hunger, slug: hunger, tagline: 925 million people
+      do not have enough to eat.}
+  model: peacecorps.issue
+  pk: 4
+- fields: {call: donate to world health, description: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Quisque suscipit efficitur orci, ut pellentesque
+      nisi tempor at. Phasellus tincidunt quis tellus ut facilisis. Morbi eu risus
+      ultricies, cursus nunc vitae, euismod mauris. Nunc finibus nisi a dolor luctus,
+      at suscipit diam rutrum. Class aptent taciti sociosqu ad litora torquent per
+      conubia nostra, per inceptos himenaeos. Maecenas feugiat feugiat ullamcorper.
+      Phasellus ut enim nisl. Etiam porta vulputate metus, eget accumsan nunc maximus
+      sit amet. Donec molestie pharetra ultricies. Cum sociis natoque penatibus et
+      magnis dis parturient montes, nascetur ridiculus mus. Praesent sed semper turpis.
+      Integer scelerisque congue arcu non molestie.', featured_image: 3, fundcurrent: 1000,
+    fundgoal: 100000, icon: ./peopleicon.png, name: Health, slug: health, tagline: 925
+      million people do not have enough to eat}
+  model: peacecorps.issue
+  pk: 5
+- fields: {call: Donate to safe housing for all., description: 'Vivamus sit amet magna
+      id purus aliquet sodales. Mauris porttitor lacus neque, pellentesque rutrum
+      est scelerisque egestas. Curabitur tempus justo justo, ac egestas purus consequat
+      eu. Nunc risus leo, interdum ac lacus id, malesuada consequat risus. Integer
+      porttitor, eros aliquam bibendum sollicitudin, ante ipsum molestie ipsum, consequat
+      imperdiet lacus nibh ut lorem. Suspendisse mollis ex justo, a aliquam purus
+      sagittis sed. Pellentesque purus enim, viverra vitae aliquet a, elementum non
+      augue. Curabitur sed diam libero. Mauris pellentesque luctus accumsan. Nulla
+      nunc est, egestas a feugiat blandit, congue eu mauris. Nam ornare commodo magna
+      quis mollis. Sed blandit in est ut eleifend. Sed in vehicula lorem, ac consectetur
+      eros. Sed sagittis ligula ipsum, vel tempus ante laoreet eu. In malesuada hendrerit
+      vehicula.', featured_image: 4, fundcurrent: 150000, fundgoal: 240000, icon: ./house.png,
+    name: Housing, slug: housing, tagline: Sub-Saharan Africa today has a slum population
+      of 199.5 million representing 61.7 percent of its urban population.}
+  model: peacecorps.issue
+  pk: 6
+- fields: {author: null, caption: A treadle-powered Singer sewing machine., country: null,
+    description: A treadle-powered Singer sewing machine., file: ./sewing-machine-flickr-usr-82473742N02.jpg,
+    mediatype: IMG, title: Sewing Machine, transcript: ''}
+  model: peacecorps.media
+  pk: 1
+- fields: {author: 3, caption: Colored Pencils., country: 1, description: A group
+      of colored pencils., file: ./colored_pencils_2-wallpaper-2560x1600.jpg, mediatype: IMG,
+    title: Colored Pencils, transcript: ''}
+  model: peacecorps.media
+  pk: 2
+- fields: {author: 1, caption: Photo courtesy Batgirl., country: 1, description: A
+      cat smelling a flower., file: ./cat_smelling_flower-wallpaper-2560x1600.jpg,
+    mediatype: IMG, title: Cat Smelling A Flower, transcript: ''}
+  model: peacecorps.media
+  pk: 3
+- fields: {author: null, caption: 'Sewing Machine, by flickr user Chiotsrun', country: 25,
+    description: A picture of an old industrial sewing machine., file: ./sewing-machine-flickr-usr-chiotsrun.jpg,
+    mediatype: IMG, title: Industrial Sewing Machine, transcript: ''}
+  model: peacecorps.media
+  pk: 4
+- fields: {author: 2, caption: Cherry Blossom Wallpaper, country: 1, description: A
+      photo of cherry blossoms on a branch., file: ./cherry_blossom_3-wallpaper-2560x1600.jpg,
+    mediatype: IMG, title: Cherry Blossoms, transcript: ''}
+  model: peacecorps.media
+  pk: 5
+- fields:
+    country: 1
+    description: "<p>Nam in lobortis erat, non fringilla lectus. Donec et turpis id
+      justo rhoncus ultrices. Vestibulum id tincidunt nulla. Nullam condimentum interdum
+      lobortis. Fusce tempus quis augue eget pretium. Proin neque nunc, volutpat eget
+      laoreet ut, posuere non felis. Aliquam erat volutpat. Vestibulum id neque at
+      odio venenatis gravida at in ligula. Pellentesque et urna ante. Nam pretium
+      ipsum sit amet nunc maximus, nec finibus erat dignissim. Mauris mollis, orci
+      at semper rutrum, nibh diam maximus turpis, quis imperdiet justo augue nec ipsum.
+      Nunc sagittis maximus aliquet. Mauris lorem lectus, rutrum vel aliquam et, feugiat
+      eget metus. In velit enim, convallis at tempus ac, feugiat non quam. Integer
+      mattis odio in eros maximus, consectetur ultrices lectus tristique.\r\n</p><p>\r\nVestibulum
+      faucibus finibus ipsum sit amet congue. Suspendisse facilisis mauris non varius
+      ultrices. Proin viverra, nibh at bibendum tristique, tortor sapien placerat
+      nibh, quis hendrerit velit sapien sed dolor. Proin convallis tincidunt dolor
+      nec cursus. Vivamus ac risus quis lectus mollis pellentesque. Nulla tristique
+      libero nec quam egestas pulvinar. Phasellus vulputate arcu at eros lobortis
+      tempus. Curabitur laoreet ligula ut tellus ornare dignissim. Ut finibus purus
+      vel sapien eleifend cursus. Nunc nec maximus tortor, ac sagittis est. Nullam
+      ut tortor dapibus nibh mattis pretium ut quis lorem. Pellentesque in nulla ut
+      magna accumsan fermentum. Integer pellentesque diam sem, vel placerat erat vulputate
+      sit amet. Sed vestibulum risus quis arcu mollis, ac iaculis lectus interdum.
+      In dui mi, facilisis sit amet malesuada non, tempus suscipit ante.\r\n</p><p>\r\nCras
+      eu metus lacus. Quisque ultrices dolor massa, ac commodo elit rutrum eu. Praesent
+      in facilisis leo, eget dapibus mauris. Vivamus porta posuere purus, sed vestibulum
+      tortor fringilla commodo. Interdum et malesuada fames ac ante ipsum primis in
+      faucibus. Mauris fringilla, felis nec volutpat maximus, mi nibh vulputate mauris,
+      ut egestas mauris lacus in nibh. Praesent ut eleifend urna. Sed porta risus
+      hendrerit finibus semper.\r\n</p><p>\r\nDonec suscipit urna sem, ac pretium
+      lacus egestas nec. Nulla facilisi. Cras sagittis nisi a justo aliquet venenatis.
+      Cras non enim pretium, hendrerit dui id, tempor orci. Vivamus eu augue sapien.
+      Donec aliquam lacus et magna suscipit, quis dictum urna egestas. Quisque nec
+      massa vitae ex consequat fermentum. Suspendisse potenti. Aenean gravida, mi
+      quis mollis ultrices, elit massa efficitur lacus, ac vehicula justo massa eget
+      lectus. Quisque hendrerit justo nec metus eleifend, sit amet venenatis purus
+      tempus. Proin eros ante, fringilla nec mi sed, vehicula rhoncus ligula. In porta
+      hendrerit nisi sed euismod. Ut vitae auctor tellus, vel tristique ante.</p>"
+    featured_image: 2
+    fundcurrent: 0
+    fundgoal: 100000
+    issue: 2
+    issue_feature: true
+    issues_related: [3]
+    media: []
+    slug: gifted-girls-superhero-school
+    tagline: Superhero school is expensive. Everyone should have a chance to join
+      the justice league.
+    title: Send Gifted Girls To Superhero School
+    volunteer: 2
+  model: peacecorps.project
+  pk: 1
+- fields:
+    country: 25
+    description: "<p>Integer elementum ex id lobortis ultricies. Quisque in lorem
+      commodo enim tincidunt vestibulum et eu nulla. Curabitur sit amet mauris lacinia,
+      ornare dui id, pretium sapien. Donec suscipit eros vitae leo consectetur iaculis.
+      Aliquam posuere, dolor ut tincidunt pellentesque, nulla orci porttitor ipsum,
+      id fermentum nisi leo cursus risus. Etiam tempor, erat eu pretium rutrum, eros
+      lorem egestas diam, id aliquam lectus turpis eu orci. Donec nec mauris nec lectus
+      tincidunt finibus ac ut purus. Maecenas bibendum, tortor nec porta blandit,
+      ex erat imperdiet diam, nec laoreet mi nibh ut ipsum. Sed fermentum porttitor
+      massa, et imperdiet erat viverra et. Cum sociis natoque penatibus et magnis
+      dis parturient montes, nascetur ridiculus mus. Proin sit amet urna vitae felis
+      consequat bibendum vel at risus. In diam metus, dapibus varius nisi ac, malesuada
+      ornare neque. Duis sed fermentum tellus, non dapibus elit.\r\n</p><p>\r\nNulla
+      elementum porttitor metus, eu malesuada est pulvinar eget. Aliquam odio lacus,
+      lacinia sit amet nibh et, congue convallis dui. Praesent et ipsum sem. Proin
+      eu molestie lacus. Mauris vel sem a odio lobortis condimentum eget consequat
+      tellus. Nunc at magna lacus. Vestibulum ante ipsum primis in faucibus orci luctus
+      et ultrices posuere cubilia Curae; Proin non vestibulum felis, in suscipit nibh.
+      Etiam bibendum tortor nec volutpat ornare.\r\n</p><p>\r\nNullam lobortis egestas
+      lectus, nec ullamcorper libero feugiat sed. Ut sit amet sagittis orci. Ut nec
+      magna vitae justo imperdiet luctus. Duis vel placerat mauris. Sed convallis
+      leo sit amet elit faucibus maximus. Nunc ornare risus ac posuere laoreet. Fusce
+      ex erat, convallis nec hendrerit sit amet, gravida non nunc. Aenean quis tortor
+      et erat vehicula suscipit. In libero elit, pellentesque nec vestibulum nec,
+      ultricies id mi. Donec in metus nisl. Nam dapibus ut nisl vel sagittis. In efficitur
+      elit sed nunc aliquet sagittis. Nullam vestibulum congue turpis sit amet lacinia.\r\n</p><p>\r\nIn
+      hac habitasse platea dictumst. Vivamus in elit nec ipsum accumsan egestas quis
+      vitae lorem. Aliquam id risus nisl. Nulla accumsan velit sit amet ullamcorper
+      scelerisque. Vivamus ac rutrum nibh. Pellentesque lobortis sit amet quam vel
+      suscipit. Aenean lobortis, massa ac aliquet fermentum, neque elit volutpat mi,
+      viverra faucibus nulla ante nec tellus. Donec venenatis in diam ut lobortis.
+      Fusce maximus porta metus, eu efficitur ipsum. Nunc bibendum tincidunt arcu,
+      a dignissim massa accumsan ut. Pellentesque ac nunc vitae est dignissim lobortis.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+      turpis egestas.</p>"
+    featured_image: 3
+    fundcurrent: 1000000
+    fundgoal: 100000
+    issue: 2
+    issue_feature: true
+    issues_related: [5]
+    media: []
+    slug: womens-heath-center
+    tagline: 'Integer elementum ex id lobortis ultricies. '
+    title: Build A Super-Woman's Health Center
+    volunteer: 1
+  model: peacecorps.project
+  pk: 2
+- fields:
+    country: 25
+    description: "<p>Curabitur pulvinar, ex eget cursus lacinia, lectus magna porttitor
+      eros, sed tempus elit dolor et ipsum. Sed vel consequat magna, non dapibus urna.
+      Praesent scelerisque justo ac velit malesuada, non euismod dui mollis. Nam neque
+      turpis, tempor quis odio ac, lacinia faucibus felis. Nunc efficitur nisi augue,
+      vitae lacinia sem pulvinar non. Nam sed nisi sed nisl blandit luctus. Nam lorem
+      mi, accumsan mattis rhoncus sit amet, vulputate vitae enim. Etiam egestas egestas
+      elementum. Sed fermentum pharetra mattis. Aenean pellentesque id ligula vitae
+      maximus.\r\n</p><p>\r\nClass aptent taciti sociosqu ad litora torquent per conubia
+      nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci
+      luctus et ultrices posuere cubilia Curae; Aenean id mi vel est fringilla laoreet.
+      Morbi mattis hendrerit enim vitae scelerisque. Suspendisse potenti. Nulla purus
+      ipsum, aliquam pulvinar leo et, egestas auctor lorem. Quisque sapien est, auctor
+      pharetra luctus a, viverra porta sapien. Pellentesque ut libero sed diam rhoncus
+      ultrices vel vitae massa. Donec dui urna, elementum et cursus sit amet, posuere
+      id purus. Quisque tristique turpis eu tellus commodo, nec dictum mi sollicitudin.
+      Pellentesque sit amet posuere magna. Integer consectetur tempus lorem, eu mollis
+      augue aliquet a. Proin malesuada orci eu neque aliquam, nec lacinia tellus blandit.
+      Pellentesque ac mauris quis nulla malesuada finibus non quis sapien.\r\n</p><p>\r\nInteger
+      eget nisi sed felis finibus vulputate. Pellentesque elementum porttitor lorem,
+      non ultricies risus tincidunt vel. Morbi hendrerit mauris posuere, imperdiet
+      urna at, euismod tortor. Sed eget sapien volutpat purus mollis semper. Etiam
+      varius quis mauris eu ornare. Donec ultricies pulvinar lacus at tincidunt. Nulla
+      sagittis leo quis finibus congue. Mauris suscipit, augue sed pharetra luctus,
+      arcu purus ultricies nulla, sed sodales orci elit vitae nibh. Proin eleifend
+      vulputate laoreet. Aenean at mi tempor, ullamcorper massa ut, laoreet erat.
+      Nulla pharetra nulla mi, vitae lacinia eros varius eu. Cras consequat ante id
+      mi consectetur vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit
+      ac libero. Vestibulum feugiat consequat cursus.\r\n</p>"
+    featured_image: 1
+    fundcurrent: 0
+    fundgoal: 100000
+    issue: 2
+    issue_feature: false
+    issues_related: [3]
+    media: []
+    slug: superhero-costumes
+    tagline: Women need superhero costumes to fight crime.
+    title: Teach Women How To Make Superhero Costumes
+    volunteer: 4
+  model: peacecorps.project
+  pk: 3
+- fields:
+    country: 1
+    description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+      per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus
+      et ultrices posuere cubilia Curae; Aenean id mi vel est fringilla laoreet. Morbi
+      mattis hendrerit enim vitae scelerisque. Suspendisse potenti. Nulla purus ipsum,
+      aliquam pulvinar leo et, egestas auctor lorem. Quisque sapien est, auctor pharetra
+      luctus a, viverra porta sapien. Pellentesque ut libero sed diam rhoncus ultrices
+      vel vitae massa. Donec dui urna, elementum et cursus sit amet, posuere id purus.
+      Quisque tristique turpis eu tellus commodo, nec dictum mi sollicitudin. Pellentesque
+      sit amet posuere magna. Integer consectetur tempus lorem, eu mollis augue aliquet
+      a. Proin malesuada orci eu neque aliquam, nec lacinia tellus blandit. Pellentesque
+      ac mauris quis nulla malesuada finibus non quis sapien.\r\n\r\nInteger eget
+      nisi sed felis finibus vulputate. Pellentesque elementum porttitor lorem, non
+      ultricies risus tincidunt vel. Morbi hendrerit mauris posuere, imperdiet urna
+      at, euismod tortor. Sed eget sapien volutpat purus mollis semper. Etiam varius
+      quis mauris eu ornare. Donec ultricies pulvinar lacus at tincidunt. Nulla sagittis
+      leo quis finibus congue. Mauris suscipit, augue sed pharetra luctus, arcu purus
+      ultricies nulla, sed sodales orci elit vitae nibh. Proin eleifend vulputate
+      laoreet. Aenean at mi tempor, ullamcorper massa ut, laoreet erat. Nulla pharetra
+      nulla mi, vitae lacinia eros varius eu. Cras consequat ante id mi consectetur
+      vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit ac libero.
+      Vestibulum feugiat consequat cursus."
+    featured_image: 5
+    fundcurrent: 0
+    fundgoal: 100000
+    issue: 5
+    issue_feature: false
+    issues_related: [2, 3]
+    media: []
+    slug: catch-the-joker
+    tagline: He's running loose on the mean streets of Gotham
+    title: Apprehend the Joker
+    volunteer: 1
+  model: peacecorps.project
+  pk: 4
+- fields:
+    country: 1
+    description: "<p>Donec nec quam libero. Vestibulum condimentum libero ut consectetur
+      posuere. Integer sodales dapibus quam quis eleifend. Morbi nec mi vel nisl dictum
+      imperdiet. Etiam turpis velit, accumsan nec dui non, auctor pellentesque nulla.
+      Donec eu purus sed ipsum sollicitudin faucibus in nec felis. Nam pellentesque
+      sit amet magna vel condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Nulla faucibus lorem in metus fermentum, vitae vestibulum leo rutrum.
+      Ut id molestie felis. Morbi at augue porttitor, malesuada mi non, blandit nisl.
+      Ut ut metus aliquam, congue ex vel, venenatis turpis. Vestibulum posuere hendrerit
+      nisi, dictum dictum elit lacinia eget. Etiam eget scelerisque elit. Maecenas
+      sollicitudin non felis id venenatis.</p><p>\r\n\r\nDuis finibus libero eu aliquet
+      interdum. Nunc viverra elit luctus, finibus tortor vel, aliquam enim. Suspendisse
+      finibus urna eu purus aliquam aliquam. Quisque sit amet rutrum neque, sed pulvinar
+      neque. Donec at porttitor nunc, et ultrices mauris. Vivamus tempus leo auctor
+      consectetur pulvinar. Praesent arcu nibh, consequat in neque at, commodo pellentesque
+      urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+      ridiculus mus. Suspendisse non volutpat justo, a sagittis augue. Cras odio diam,
+      ultricies eget augue a, accumsan tempus nibh. Pellentesque efficitur, mauris
+      non imperdiet tincidunt, orci mi faucibus est, id accumsan ex mi nec justo.
+      Integer condimentum turpis non facilisis porta. Morbi in urna felis. In eu ultricies
+      quam.</p><p>\r\n\r\nInteger euismod placerat massa ut sodales. Aliquam porttitor
+      tempor lacus et sollicitudin. Nam cursus suscipit blandit. Sed eget pellentesque
+      velit, ac egestas lacus. Vivamus mi lectus, rhoncus vitae enim ut, auctor vestibulum
+      tellus. Sed id ante sed nunc rhoncus rhoncus. Fusce cursus in purus non vulputate.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+      turpis egestas. Cras augue orci, ullamcorper nec eleifend sed, scelerisque a
+      neque. Praesent ornare, ante eget egestas cursus, sapien massa sollicitudin
+      leo, ac semper lorem quam sed libero. Cras sed vehicula ipsum. Ut tellus velit,
+      pellentesque sed magna ac, luctus egestas dolor.</p>"
+    featured_image: 3
+    fundcurrent: 10000
+    fundgoal: 300000
+    issue: 1
+    issue_feature: false
+    issues_related: [3]
+    media: []
+    slug: test-project
+    tagline: This is a Serious Project. This is a Serious Test.
+    title: Test Project
+    volunteer: 3
+  model: peacecorps.project
+  pk: 5
+- fields: {homecity: Gotham, homestate: NY, name: Batgirl, profile_image: null, pronouns: T}
+  model: peacecorps.volunteer
+  pk: 1
+- fields: {homecity: Themyscira, homestate: VI, name: Wonder Woman, profile_image: null,
+    pronouns: S}
+  model: peacecorps.volunteer
+  pk: 2
+- fields: {homecity: Happy Harbor, homestate: RI, name: Miss Martian, profile_image: null,
+    pronouns: S}
+  model: peacecorps.volunteer
+  pk: 3
+- fields: {homecity: Star City, homestate: MD, name: Black Canary, profile_image: null,
+    pronouns: S}
+  model: peacecorps.volunteer
+  pk: 4

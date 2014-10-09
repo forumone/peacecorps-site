@@ -15,6 +15,9 @@ def humanize_amount(amount_cents):
     amount_dollars = amount_cents/100.0
     return "$%.2f" % (amount_dollars)
 
+from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
+from peacecorps.models import Project
+
 
 def donation_payment_individual(request):
     """ This is the view for the donations contact information form. """
@@ -146,3 +149,54 @@ def donation_payment_review(request):
             'app_name': settings.PAY_GOV_APP_NAME,
             'oci_servlet_url': settings.PAY_GOV_OCI_URL,
         })
+
+
+def donate_landing(request):
+
+    featuredprojects = [x.project for x in FeaturedProjectFrontPage.objects.all()]
+    try:
+        featuredissue = FeaturedIssue.objects.get(id=1).issue
+    except FeaturedIssue.DoesNotExist:
+        featuredissue = None
+
+    return render(
+        request,
+        'donations/donate_landing.jinja',
+        {
+            'featuredissue': featuredissue,
+            'issues': Issue.objects.all(),
+            'featuredprojects': featuredprojects,
+            'projects': Project.objects.all(),
+        })
+
+def donate_issue(request, slug):
+
+    issue = Issue.objects.get(slug=slug)
+    featured = Project.objects.filter(issue=issue, issue_feature=True)
+    projects = Project.objects.filter(issue=issue)
+
+    return render(
+        request,
+        'donations/donate_issue.jinja',
+        {
+            'issue': issue,
+            'featured': featured,
+            'projects': projects,
+        })
+
+def donate_project(request, slug):
+
+    project = Project.objects.get(slug=slug)
+    # Passing this in separately to prevent multiple DB queries.
+    volunteer = project.volunteer
+
+    return render(
+        request,
+        'donations/donate_project.jinja',
+        {
+            'project': project,
+            'volunteer': volunteer,
+        })
+
+
+

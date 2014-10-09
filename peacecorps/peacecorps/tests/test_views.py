@@ -128,3 +128,24 @@ class DonationsTests(SessionTestCase):
         response = self.client.get(
             '/donations/contribute/?amount=aaa&project_code=154')
         self.assertEqual(response.status_code, 400)
+
+
+class DonatePagesTests(TestCase):
+    
+    fixtures = ['tests.yaml']
+
+    def setUp(self):
+        self.client = Client()
+
+    # Do the pages load without error?
+    def test_pages_rendering(self):
+        response = self.client.get('/donate')
+        self.assertEqual(response.status_code, 200)
+
+    def test_issue_rendering(self):
+        response = self.client.get('/donate/issue/innovation')
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_rendering(self):
+        response = self.client.get('/donate/project/test-project')
+        self.assertEqual(response.status_code, 200)
