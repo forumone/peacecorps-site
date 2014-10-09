@@ -10,9 +10,9 @@
 <img src="{{project.featured_image.url()}}" alt="{{project.featured_image.description}}">
 {{project.featured_image.caption}}
 
-{% if volunteer.profile_image %}<img src="{{volunteer.profile_image.url()}}" img alt="{{volunteer.profile_image.description}}">{% endif %}
+{% if project.volunteer.profile_image %}<img src="{{project.volunteer.profile_image.url()}}" img alt="{{project.volunteer.profile_image.description}}">{% endif %}
 
-<p><strong>{{volunteer.name}}</strong> from <strong>{{volunteer.homecity}}, {{volunteer.homestate}}</strong></p>
+<p><strong>{{project.volunteer.name}}</strong> from <strong>{{project.volunteer.homecity}}, {{project.volunteer.homestate}}</strong></p>
 
 <p>Funds sought: {{project.fundgoal}}</p>
 <p>Current Funds: {{project.fundcurrent}}</p>

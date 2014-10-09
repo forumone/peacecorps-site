@@ -153,7 +153,7 @@ def donation_payment_review(request):
 
 def donate_landing(request):
 
-    featuredprojects = [x.project for x in FeaturedProjectFrontPage.objects.all()]
+    featuredprojects = FeaturedProjectFrontPage.objects.select_related('project__featured_image').all()
     try:
         featuredissue = FeaturedIssue.objects.get(id=1).issue
     except FeaturedIssue.DoesNotExist:
@@ -186,16 +186,13 @@ def donate_issue(request, slug):
 
 def donate_project(request, slug):
 
-    project = Project.objects.get(slug=slug)
-    # Passing this in separately to prevent multiple DB queries.
-    volunteer = project.volunteer
+    project = Project.objects.select_related('volunteer__profile_image', 'featured_image').get(slug=slug)
 
     return render(
         request,
         'donations/donate_project.jinja',
         {
             'project': project,
-            'volunteer': volunteer,
         })
 
 

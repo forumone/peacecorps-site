@@ -20,7 +20,7 @@
 
 <h2>Featured Projects</h2>
 {% for project in featuredprojects %}
-<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.featured_image.url()}}"></a></div>
+<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.project.featured_image.url()}}"></a></div>
 {% endfor %}
 
 <h2>All Projects</h2>
