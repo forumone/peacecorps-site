@@ -19,13 +19,8 @@ from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
 from peacecorps.models import Project
 
 
-def donation_payment_individual(request):
-    """ This is the view for the donations contact information form. """
-
-
 def donation_payment(request):
     """ Collect donor contact information. """
-
 
     amount = request.GET.get('amount', None)
     project_code = request.GET.get('project', None)
@@ -44,10 +39,10 @@ def donation_payment(request):
         form = DonationPaymentForm(request.POST)
 
         if form.is_valid():
+            data = {}
             for k, v in form.cleaned_data.items():
-                #   @todo - need to remove the reliance on sessions
-                request.session[k] = v
-            return HttpResponseRedirect('/donations/review')
+                data[k] = v
+            return donation_payment_review(request, data)
     else:
         data = {'donation_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
@@ -128,14 +123,8 @@ def generate_custom_fields(data):
     return custom
 
 
-def donation_payment_review(request):
+def donation_payment_review(request, data):
     """ This view is for a simple donation payment review page. """
-    data = {}
-    for k, v in request.session.items():
-        data[k] = v
-
-    #   We'd save the custom fields somewhere here. Right now we'll just
-    #   generate and throw away
     generate_custom_fields(data)
 
     return render(
@@ -153,7 +142,9 @@ def donation_payment_review(request):
 
 def donate_landing(request):
 
-    featuredprojects = FeaturedProjectFrontPage.objects.select_related('project__featured_image').all()
+    featuredprojects = FeaturedProjectFrontPage.objects.select_related(
+        'project__featured_image').all()
+
     try:
         featuredissue = FeaturedIssue.objects.get(id=1).issue
     except FeaturedIssue.DoesNotExist:
@@ -168,6 +159,7 @@ def donate_landing(request):
             'featuredprojects': featuredprojects,
             'projects': Project.objects.all(),
         })
+
 
 def donate_issue(request, slug):
 
@@ -184,9 +176,11 @@ def donate_issue(request, slug):
             'projects': projects,
         })
 
+
 def donate_project(request, slug):
 
-    project = Project.objects.select_related('volunteer__profile_image', 'featured_image').get(slug=slug)
+    project = Project.objects.select_related(
+        'volunteer__profile_image', 'featured_image').get(slug=slug)
 
     return render(
         request,
@@ -194,6 +188,3 @@ def donate_project(request, slug):
         {
             'project': project,
         })
-
-
-
