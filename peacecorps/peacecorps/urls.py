@@ -1,4 +1,6 @@
-from django.conf.urls import patterns, include, url
+from django.conf import settings
+from django.conf.urls import include, patterns, url
+from django.conf.urls.static import static
 from django.contrib import admin
 
 from peacecorps.views import donation_payment
@@ -23,3 +25,8 @@ urlpatterns = patterns(
         r'^donations/review/?$',
         donation_payment_review, name='donations_review'),
 )
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
