@@ -39,7 +39,6 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('$20.00' in content)
         self.assertTrue('14-532-001')
 
-
     def test_review_page(self):
         """ Test that the donation review page renders with the required
         elements. """
@@ -65,7 +64,6 @@ class DonationsTests(SessionTestCase):
         self.assertTrue(memo in content)
         self.assertTrue('agency_tracking_id' in content)
         self.assertTrue('agency_id' in content)
-
 
     def test_generate_agency_memo(self):
         """The data dictionary should be serialized in the predictable way.
@@ -136,7 +134,7 @@ class DonationsTests(SessionTestCase):
 
 
 class DonatePagesTests(TestCase):
-    
+
     fixtures = ['tests.yaml']
 
     def setUp(self):

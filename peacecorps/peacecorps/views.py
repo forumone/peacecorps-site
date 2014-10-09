@@ -125,7 +125,7 @@ def generate_custom_fields(data):
 
 def donation_payment_review(request, data):
     """ This view is for a simple donation payment review page. """
-    #generate_custom_fields(data)
+    generate_custom_fields(data)
 
     return render(
         request,
@@ -142,7 +142,9 @@ def donation_payment_review(request, data):
 
 def donate_landing(request):
 
-    featuredprojects = FeaturedProjectFrontPage.objects.select_related('project__featured_image').all()
+    featuredprojects = FeaturedProjectFrontPage.objects.select_related(
+        'project__featured_image').all()
+
     try:
         featuredissue = FeaturedIssue.objects.get(id=1).issue
     except FeaturedIssue.DoesNotExist:
@@ -157,6 +159,7 @@ def donate_landing(request):
             'featuredprojects': featuredprojects,
             'projects': Project.objects.all(),
         })
+
 
 def donate_issue(request, slug):
 
@@ -173,9 +176,11 @@ def donate_issue(request, slug):
             'projects': projects,
         })
 
+
 def donate_project(request, slug):
 
-    project = Project.objects.select_related('volunteer__profile_image', 'featured_image').get(slug=slug)
+    project = Project.objects.select_related(
+        'volunteer__profile_image', 'featured_image').get(slug=slug)
 
     return render(
         request,
@@ -183,6 +188,3 @@ def donate_project(request, slug):
         {
             'project': project,
         })
-
-
-
