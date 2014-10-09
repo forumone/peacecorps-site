@@ -21,9 +21,6 @@ urlpatterns = patterns(
     url(
         r'^donations/contribute/?$',
         donation_payment, name='donations_payment'),
-    url(
-        r'^donations/review/?$',
-        donation_payment_review, name='donations_review'),
 )
 
 

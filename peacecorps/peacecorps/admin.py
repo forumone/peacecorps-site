@@ -2,8 +2,10 @@ from django.contrib import admin
 
 from peacecorps import models
 
+
 class IssueAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
+
 
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
