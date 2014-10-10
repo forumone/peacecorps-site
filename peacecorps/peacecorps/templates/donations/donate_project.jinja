@@ -1,28 +1,44 @@
-<html lang='en'>
-<head>
-    <title>{{project.title}}</title>
-</head>
-<body>
+{% extends "donations/base.jinja" %}
 
-<h1>{{project.title}}</h1>
-<p>{{project.tagline}}</p>
+{% block title %}Peace Corps - Donate{% endblock %}
+{% block header %}Peace Corps - Donate{% endblock %}
+{% block content_id %}project{% endblock %}
 
-<img src="{{project.featured_image.url()}}" alt="{{project.featured_image.description}}">
-{{project.featured_image.caption}}
+{% block navigation %}
+<h2><a class="back" href="{{ url("donate issue", slug=project.issue.slug) }}">&lt;</a> {{project.title}}</h2>
+{% endblock %}
 
-{% if project.volunteer.profile_image %}<img src="{{project.volunteer.profile_image.url()}}" img alt="{{project.volunteer.profile_image.description}}">{% endif %}
+{% block content %}
+<p id="tagline">{{project.tagline}}</p>
 
-<p><strong>{{project.volunteer.name}}</strong> from <strong>{{project.volunteer.homecity}}, {{project.volunteer.homestate}}</strong></p>
-
-<p>Funds sought: {{project.fundgoal}}</p>
-<p>Current Funds: {{project.fundcurrent}}</p>
-
-{% if project.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
-
-<div>
-    {{project.description|safe}}
+<div id="featured-image">
+  <img src="{{project.featured_image.url}}" alt="{{project.featured_image.description}}">
+  <figcaption>{{project.featured_image.caption}}</figcaption>
 </div>
 
+<div id="donation-stats">
+  {% if project.volunteer.profile_image %}
+    <div id="volunteer-image">
+      <img src="{{project.volunteer.profile_image.url}}"
+           alt="{{project.volunteer.profile_image.description}}">
+    </div>
+  {% endif %}
+  <div id="volunteer-info">
+    <p><strong>{{project.volunteer.name}}</strong> from <strong>{{project.volunteer.homecity}}, {{project.volunteer.homestate}}</strong></p>
+    {% set funded_percent = project.fundcurrent * 100 / project.fundgoal %}
+    <div id="funded-chart">
+      <div id="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
+      <div id="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
+    </div>
+    <p>Funds sought: <strong>${{project.fundgoal/100}}</strong></p>
 
-</body>
-</html>
+    <div id="donate-container"><button>
+    {% if project.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
+    </button></div>
+  </div>
+</div>
+
+<div id="description">
+    {{project.description|safe}}
+</div>
+{% endblock %}

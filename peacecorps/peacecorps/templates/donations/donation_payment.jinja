@@ -1,9 +1,11 @@
-<html lang='en'>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
-</head>
-<body>
+{% extends "donations/base.jinja" %}
+
+{% block content_id %}donate-form{% endblock %}
+{% block custom_js %}
+<script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
+{% endblock %}
+
+{% block content %}
     <p> Project Code: {{project_code }} </p>
     <p> Amount: {{amount}} </p>
 
@@ -193,7 +195,4 @@
 
         <div><input type="submit" value="Confirm Information" /></div>
     </form>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
-</body>
-</html>
+{% endblock %}
