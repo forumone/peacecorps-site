@@ -114,6 +114,7 @@ class Media(models.Model):
     def __str__(self):
         return '%s' % (self.title)
 
+    @property
     def url(self):
         return self.file.url
 

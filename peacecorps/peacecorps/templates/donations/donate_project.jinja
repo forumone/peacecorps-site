@@ -12,14 +12,14 @@
 <p id="tagline">{{project.tagline}}</p>
 
 <div id="featured-image">
-  <img src="{{project.featured_image.url()}}" alt="{{project.featured_image.description}}">
+  <img src="{{project.featured_image.url}}" alt="{{project.featured_image.description}}">
   <figcaption>{{project.featured_image.caption}}</figcaption>
 </div>
 
 <div id="donation-stats">
   {% if project.volunteer.profile_image %}
     <div id="volunteer-image">
-      <img src="{{project.volunteer.profile_image.url()}}"
+      <img src="{{project.volunteer.profile_image.url}}"
            alt="{{project.volunteer.profile_image.description}}">
     </div>
   {% endif %}
