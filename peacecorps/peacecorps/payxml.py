@@ -25,7 +25,7 @@ def generate_collection_request(data):
     SubElement(account_data, 'payer_name', {'value': data['name']})
     SubElement(
         account_data, 'billing_address', {'value': data['billing_address']})
-    SubElement(account_data, 'billing_city', {'value': data['city']})
+    SubElement(account_data, 'billing_city', {'value': data['billing_city']})
     SubElement(account_data, 'billing_state', {'value': data['state']})
     SubElement(account_data, 'billing_zip', {'value': data['zip_code']})
 
@@ -38,5 +38,4 @@ def generate_collection_request(data):
     SubElement(optional_fields, 'custom_field_6', {'value': data['custom_field_6']})
     SubElement(optional_fields, 'custom_field_7', {'value': data['custom_field_7']})
 
-    print(tostring(root))
     return root

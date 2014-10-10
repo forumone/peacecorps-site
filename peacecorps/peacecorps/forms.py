@@ -40,7 +40,7 @@ class DonationPaymentForm(forms.Form):
 
     email = forms.EmailField(required=False)
     billing_address = forms.CharField(label="Street Address", max_length=80)
-    city = forms.CharField(label="City", max_length=40)
+    billing_city = forms.CharField(label="City", max_length=40)
     state = USStateField(label="State", widget=USStateSelect, required=False)
     country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
     zip_code = forms.CharField(required=False)

@@ -11,7 +11,7 @@ from xml.etree.ElementTree import tostring
 
 def donor_custom_fields():
     data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
-            'billing_address': 'stttt', 'city': 'ccc', 'state': 'ST',
+            'billing_address': 'stttt', 'billing_city': 'ccc', 'state': 'ST',
             'zip_code': '90210', 'organization_name': 'OOO',
             'dedication_name': 'Bob', 'dedication_contact': 'Patty',
             'dedication_email': 'family@example.com',
@@ -71,7 +71,7 @@ class DonationsTests(SessionTestCase):
         form_data = {
             'name': 'William Williams',
             'billing_address':  '1 Main Street',
-            'city': 'Anytown',
+            'billing_city': 'Anytown',
             'state': 'MD',
             'zip_code':  '20852',
             'country': 'USA',
@@ -90,6 +90,9 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('agency_tracking_id' in content)
         self.assertTrue('agency_id' in content)
         self.assertTrue('1 Main Street' in content)
+        self.assertTrue('Anytown' in content)
+        self.assertTrue('MD' in content)
+        self.assertTrue('20852' in content)
 
     def test_generate_agency_memo(self):
         """The data dictionary should be serialized in the predictable way.
@@ -183,7 +186,7 @@ class PayXMLGenerationTests(TestCase):
             'payment_type': 'CreditCard',
             'name': 'William Williams',
             'billing_address': '1 Main St',
-            'city': 'Anytown', 
+            'billing_city': 'Anytown', 
             'state': 'MD', 
             'zip_code': '20852'
         }

@@ -9,7 +9,7 @@ class DonationPaymentTests(TestCase):
             'donor_type': 'Individual',
             'name': 'William Williams',
             'billing_address': '1 Main Street',
-            'city': 'Anytown',
+            'billing_city': 'Anytown',
             'country': 'USA',
             'state': 'MD',
             'zip_code': '20852',
