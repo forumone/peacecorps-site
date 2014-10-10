@@ -11,8 +11,8 @@ class DonationPaymentTests(TestCase):
             'billing_address': '1 Main Street',
             'billing_city': 'Anytown',
             'country': 'USA',
-            'state': 'MD',
-            'zip_code': '20852',
+            'billing_state': 'MD',
+            'billing_zip': '20852',
             'payment_type': 'CreditCard',
             'project_code': '15-4FF',
             'donation_amount': '3000',
@@ -79,7 +79,7 @@ class DonationPaymentTests(TestCase):
 
     def test_zip_state_requirements(self):
         """Zip code and state are only required when the country is the US"""
-        form_data = self.form_data(clear=['state', 'zip_code'])
+        form_data = self.form_data(clear=['billing_state', 'billing_zip'])
         form = DonationPaymentForm(data=form_data)
         self.assertFalse(form.is_valid())
 

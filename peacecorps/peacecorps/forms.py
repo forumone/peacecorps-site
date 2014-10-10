@@ -41,9 +41,9 @@ class DonationPaymentForm(forms.Form):
     email = forms.EmailField(required=False)
     billing_address = forms.CharField(label="Street Address", max_length=80)
     billing_city = forms.CharField(label="City", max_length=40)
-    state = USStateField(label="State", widget=USStateSelect, required=False)
+    billing_state = USStateField(label="State", widget=USStateSelect, required=False)
     country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
-    zip_code = forms.CharField(required=False)
+    billing_zip = forms.CharField(required=False)
     phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT_TYPE_CHOICES,
@@ -117,11 +117,11 @@ class DonationPaymentForm(forms.Form):
         return self.required_when('donor_type', 'Organization',
                                   'organization_contact')
 
-    def clean_state(self):
-        return self.required_when('country', 'USA', 'state')
+    def clean_billing_state(self):
+        return self.required_when('country', 'USA', 'billing_state')
 
-    def clean_zip_code(self):
-        return self.required_when('country', 'USA', 'zip_code')
+    def clean_billing_zip(self):
+        return self.required_when('country', 'USA', 'billing_zip')
 
     def clean(self):
         """Only one of the organization/individual set of fields should be

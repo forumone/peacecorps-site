@@ -11,8 +11,9 @@ from xml.etree.ElementTree import tostring
 
 def donor_custom_fields():
     data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
-            'billing_address': 'stttt', 'billing_city': 'ccc', 'state': 'ST',
-            'zip_code': '90210', 'organization_name': 'OOO',
+            'billing_address': 'stttt', 'billing_city': 'ccc',
+            'billing_state': 'ST',
+            'billing_zip': '90210', 'organization_name': 'OOO',
             'dedication_name': 'Bob', 'dedication_contact': 'Patty',
             'dedication_email': 'family@example.com',
             'dedication_type': 'in-memory',
@@ -72,8 +73,8 @@ class DonationsTests(SessionTestCase):
             'name': 'William Williams',
             'billing_address':  '1 Main Street',
             'billing_city': 'Anytown',
-            'state': 'MD',
-            'zip_code':  '20852',
+            'billing_state': 'MD',
+            'billing_zip':  '20852',
             'country': 'USA',
             'donation_amount': 2000,
             'project_code': 'PC-SEC01',

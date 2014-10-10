@@ -101,8 +101,8 @@ def generate_custom_fields(data):
     custom['custom_field_2'] = '(' + data.get('billing_address', '') + ')'
 
     custom['custom_field_3'] = '(' + data.get('billing_city', '') + ')'
-    custom['custom_field_3'] += '(' + data.get('state', '') + ')'
-    custom['custom_field_3'] += '(' + data.get('zip_code', '') + ')'
+    custom['custom_field_3'] += '(' + data.get('billing_state', '') + ')'
+    custom['custom_field_3'] += '(' + data.get('billing_zip', '') + ')'
     custom['custom_field_4'] = '(' + data.get('organization_name', '') + ')'
 
     custom['custom_field_5'] = '(' + data.get('dedication_name', '') + ')'
