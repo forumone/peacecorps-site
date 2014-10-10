@@ -60,5 +60,6 @@ peacecorps/*/static/*/sass/neat
 
 # Application
 local_settings.py
+peacecorps/media
 
 *.swp
