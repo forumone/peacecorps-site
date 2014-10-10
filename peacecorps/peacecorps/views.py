@@ -99,7 +99,7 @@ def generate_custom_fields(data):
     custom = {}
     custom['custom_field_1'] = '(' + data.get('phone_number', '') + ')'
     custom['custom_field_1'] += '(' + data.get('email', '') + ')'
-    custom['custom_field_2'] = '(' + data.get('street_address', '') + ')'
+    custom['custom_field_2'] = '(' + data.get('billing_address', '') + ')'
 
     custom['custom_field_3'] = '(' + data.get('city', '') + ')'
     custom['custom_field_3'] += '(' + data.get('state', '') + ')'

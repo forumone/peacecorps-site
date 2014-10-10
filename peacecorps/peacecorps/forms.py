@@ -39,7 +39,7 @@ class DonationPaymentForm(forms.Form):
         label='Contact Person', max_length=100, required=False)
 
     email = forms.EmailField(required=False)
-    street_address = forms.CharField(label="Street Address", max_length=80)
+    billing_address = forms.CharField(label="Street Address", max_length=80)
     city = forms.CharField(label="City", max_length=40)
     state = USStateField(label="State", widget=USStateSelect, required=False)
     country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')

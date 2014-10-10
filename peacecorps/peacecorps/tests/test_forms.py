@@ -8,7 +8,7 @@ class DonationPaymentTests(TestCase):
         form_data = {
             'donor_type': 'Individual',
             'name': 'William Williams',
-            'street_address': '1 Main Street',
+            'billing_address': '1 Main Street',
             'city': 'Anytown',
             'country': 'USA',
             'state': 'MD',

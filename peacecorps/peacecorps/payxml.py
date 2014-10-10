@@ -24,7 +24,7 @@ def generate_collection_request(data):
     SubElement(account_data, 'payment_type', {'value': data['payment_type']})
     SubElement(account_data, 'payer_name', {'value': data['name']})
     SubElement(
-        account_data, 'billing_address', {'value': data['street_address']})
+        account_data, 'billing_address', {'value': data['billing_address']})
     SubElement(account_data, 'billing_city', {'value': data['city']})
     SubElement(account_data, 'billing_state', {'value': data['state']})
     SubElement(account_data, 'billing_zip', {'value': data['zip_code']})
