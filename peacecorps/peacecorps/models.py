@@ -8,6 +8,7 @@ def percentfunded(current, goal):
     except ZeroDivisionError:
         return "0"
 
+
 class Country(models.Model):
     code = models.CharField(max_length=5)
     name = models.CharField(max_length=50)
@@ -15,13 +16,14 @@ class Country(models.Model):
     def __str__(self):
         return '%s (%s)' % (self.name, self.code)
 
+
 class CountryFund(models.Model):
     country = models.ForeignKey('Country', related_name="fund")
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField()
 
 
-class FeaturedIssue(models.Model): 
+class FeaturedIssue(models.Model):
     issue = models.ForeignKey('Issue')
 
     # Much like the Highlander, there can be only one.
@@ -45,7 +47,8 @@ class FeaturedProjectFrontPage(models.Model):
 class Fund(models.Model):
     name = models.CharField(max_length=120)
     description = description = models.TextField(blank=True, null=True)
-    featured_image = models.ForeignKey('Media',
+    featured_image = models.ForeignKey(
+        'Media',
         help_text="A large landscape image for use in banners, headers, etc")
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField()
@@ -57,15 +60,17 @@ class Fund(models.Model):
 class Issue(models.Model):
     name = models.CharField(max_length=100)
     tagline = models.CharField(
-        max_length=140, help_text="a short phrase for banners (140 characters)")
+        max_length=140,
+        help_text="a short phrase for banners (140 characters)")
     call = models.CharField(
         max_length=40, help_text="call to action for buttons (40 characters)")
     description = models.TextField()
     slug = models.SlugField(
         help_text="used for the issue page url.",
         max_length=100, unique=True)
-    icon = models.FileField(blank=True, null=True) #TODO: Configure
-    featured_image = models.ForeignKey('Media',
+    icon = models.FileField(blank=True, null=True)  # TODO: Configure
+    featured_image = models.ForeignKey(
+        'Media',
         help_text="A large landscape image for use in banners, headers, etc")
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField()
@@ -90,7 +95,7 @@ class Media(models.Model):
     )
 
     title = models.CharField(max_length=100)
-    file = models.FileField() #TODO: Configure
+    file = models.FileField()  # TODO: Configure
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
     caption = models.TextField(blank=True, null=True)
@@ -110,7 +115,7 @@ class Media(models.Model):
         return '%s' % (self.title)
 
     def url(self):
-        #TODO: map this to the actual url once images are being stored right.
+        # TODO: map this to the actual url once images are being stored right.
         return 'path/to/image.jpg'
 
 
@@ -133,8 +138,8 @@ class Project(models.Model):
         'Media', related_name="projects", blank=True, null=True)
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField()
-    #This one can't be its own table because Django doesn't do OneToMany.
-    issue_feature=models.BooleanField(default=False)
+    # This one can't be its own table because Django doesn't do OneToMany.
+    issue_feature = models.BooleanField(default=False)
 
     def funded(self):
         if self.fundcurrent >= self.fundgoal:
@@ -147,6 +152,7 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Volunteer(models.Model):
     HE = "H"
