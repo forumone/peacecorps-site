@@ -53,6 +53,17 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('$20.00' in content)
         self.assertTrue('14-532-001')
 
+    def test_payment_type(self):
+        """Check that the payment type values are rendered correctly."""
+
+        response = self.client.get(
+            '/donations/contribute/?amount=2000&project=14-532-001')
+        content = response.content.decode('utf-8')
+        self.assertTrue('id_payment_type_0' in content)
+        self.assertTrue('id_payment_type_1' in content)
+        self.assertTrue('CreditCard' in content)
+        self.assertTrue('CreditACH' in content)
+
     def test_review_page(self):
         """ Test that the donation review page renders with the required
         elements. """
@@ -67,7 +78,7 @@ class DonationsTests(SessionTestCase):
             'donation_amount': 2000,
             'project_code': 'PC-SEC01',
             'donor_type': 'Individual',
-            'payment_type': 'credit-card',
+            'payment_type': 'CreditCard',
             'information_consent': 'vol-consent-yes'}
 
         response = self.client.post(

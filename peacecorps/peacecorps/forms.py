@@ -16,8 +16,8 @@ class DonationPaymentForm(forms.Form):
     )
 
     PAYMENT_TYPE_CHOICES = (
-        ('credit-card', 'Credit Card'),
-        ('ach-bank-check', 'ACH Bank Check'),
+        ('CreditCard', 'Credit Card'),
+        ('CreditACH', 'ACH Bank Check'),
     )
 
     VOLUNTEER_CONSENT_CHOICES = (
@@ -47,7 +47,7 @@ class DonationPaymentForm(forms.Form):
     phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT_TYPE_CHOICES,
-        initial="credit-card",
+        initial="CreditCard",
     )
     comments = forms.CharField(
         max_length=150,

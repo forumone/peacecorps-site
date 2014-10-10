@@ -13,7 +13,7 @@ class DonationPaymentTests(TestCase):
             'country': 'USA',
             'state': 'MD',
             'zip_code': '20852',
-            'payment_type': 'credit-card',
+            'payment_type': 'CreditCard',
             'project_code': '15-4FF',
             'donation_amount': '3000',
             'information_consent': 'vol-consent-yes'
@@ -27,6 +27,13 @@ class DonationPaymentTests(TestCase):
     def test_individual_donation_required(self):
         """ Check the minimum required data.  """
         form_data = self.form_data()
+        form = DonationPaymentForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_individual_ACH(self):
+        """" Set the payment_type to ACH and check validation. """
+        form_data = self.form_data()
+        form_data['payment_type'] = 'CreditACH'
         form = DonationPaymentForm(data=form_data)
         self.assertTrue(form.is_valid())
 
