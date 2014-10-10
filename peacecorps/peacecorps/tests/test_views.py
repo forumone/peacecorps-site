@@ -5,7 +5,21 @@ from django.utils.importlib import import_module
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields, humanize_amount
+from peacecorps.payxml import generate_collection_request
 
+from xml.etree.ElementTree import tostring
+
+def donor_custom_fields():
+    data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
+            'street_address': 'stttt', 'city': 'ccc', 'state': 'ST',
+            'zip_code': '90210', 'organization_name': 'OOO',
+            'dedication_name': 'Bob', 'dedication_contact': 'Patty',
+            'dedication_email': 'family@example.com',
+            'dedication_type': 'in-memory',
+            'dedication_consent': 'no-dedication-consent',
+            'card_dedication': 'Good Jorb',
+            'dedication_address': '111 Somewhere'}
+    return data
 
 class SessionTestCase(TestCase):
     def setUp(self):
@@ -80,18 +94,11 @@ class DonationsTests(SessionTestCase):
             'donation_amount': 2000, 'project_code': '14-54FF'})
         self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
 
+
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
-        data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
-                'street_address': 'stttt', 'city': 'ccc', 'state': 'ST',
-                'zip_code': '90210', 'organization_name': 'OOO',
-                'dedication_name': 'Bob', 'dedication_contact': 'Patty',
-                'dedication_email': 'family@example.com',
-                'dedication_type': 'in-memory',
-                'dedication_consent': 'no-dedication-consent',
-                'card_dedication': 'Good Jorb',
-                'dedication_address': '111 Somewhere'}
+        data = donor_custom_fields()
 
         self.assertEqual(generate_custom_fields(data), {
             'custom_field_1': '(1112223333)(aaa@example.com)',
@@ -152,3 +159,30 @@ class DonatePagesTests(TestCase):
     def test_project_rendering(self):
         response = self.client.get('/donate/project/test-project')
         self.assertEqual(response.status_code, 200)
+
+
+class PayXMLGenerationTests(TestCase):
+    def test_xml(self):
+        data = {
+            'agency_tracking_id': 'PCIOCI1234',
+            'agency_memo': '()(5555555)',
+            'form_id': 'DONORFORM',
+            'donation_amount': '20.00',
+            'payment_type': 'CreditCard',
+            'name': 'William Williams',
+            'street_address': '1 Main St',
+            'city': 'Anytown', 
+            'state': 'MD', 
+            'zip_code': '20852'
+        }
+
+        data.update(generate_custom_fields(donor_custom_fields()))
+        
+        collection_request = generate_collection_request(data)
+        self.assertEqual('collection_request', collection_request.tag)
+        protocol_versions = collection_request.findall('.//protocol_version')
+        self.assertEqual(len(protocol_versions), 1)
+        response_message = collection_request.findall('.//response_message')[0]
+        self.assertEqual(response_message.attrib['value'], 'Success')
+        action = collection_request.findall('.//action')[0]
+        self.assertEqual(action.attrib['value'], 'SubmitCollectionInteractive')
