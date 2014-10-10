@@ -70,7 +70,7 @@ class DonationsTests(SessionTestCase):
         elements. """
 
         form_data = {
-            'name': 'William Williams',
+            'payer_name': 'William Williams',
             'billing_address':  '1 Main Street',
             'billing_city': 'Anytown',
             'billing_state': 'MD',

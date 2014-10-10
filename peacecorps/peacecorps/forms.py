@@ -31,7 +31,7 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
         initial='Individual')
     #   Will be hidden if "Organization" is selected
-    name = forms.CharField(label="Name", max_length=100, required=False)
+    payer_name = forms.CharField(label="Name", max_length=100, required=False)
     #   Will be hidden in "Individual is selected"
     organization_name = forms.CharField(
         label='Organization Name', max_length=40, required=False)
@@ -106,8 +106,8 @@ class DonationPaymentForm(forms.Form):
             raise ValidationError('This field is required.')
         return self.cleaned_data.get(check_field)
 
-    def clean_name(self):
-        return self.required_when('donor_type', 'Individual', 'name')
+    def clean_payer_name(self):
+        return self.required_when('donor_type', 'Individual', 'payer_name')
 
     def clean_organization_name(self):
         return self.required_when('donor_type', 'Organization',
@@ -127,7 +127,7 @@ class DonationPaymentForm(forms.Form):
         """Only one of the organization/individual set of fields should be
         present. Blank out the other"""
         if self.cleaned_data.get('donor_type') == 'Organization':
-            del self.cleaned_data['name']
+            del self.cleaned_data['payer_name']
         else:
             del self.cleaned_data['organization_name']
             del self.cleaned_data['organization_contact']
