@@ -15,7 +15,7 @@ class DonationPaymentTests(TestCase):
             'billing_zip': '20852',
             'payment_type': 'CreditCard',
             'project_code': '15-4FF',
-            'donation_amount': '3000',
+            'payment_amount': '3000',
             'information_consent': 'vol-consent-yes'
         }
         for key in clear:

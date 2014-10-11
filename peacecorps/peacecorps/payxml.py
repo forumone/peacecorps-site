@@ -1,5 +1,12 @@
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 
+
+def add_subelements(parent, data, elements):
+    for element in elements:
+        SubElement(parent, element, {'value': data[element]})
+    return parent
+
+
 def generate_collection_request(data):
     """ Generate the collection_request XML required by Pay.gov. """
 
@@ -12,30 +19,20 @@ def generate_collection_request(data):
     SubElement(interactive, 'allow_account_data_change', {'value':'True'})
 
     collection_auth = SubElement(interactive, 'collection_auth')
-    SubElement(
-        collection_auth, 'agency_tracking_id',
-        {'value': data['agency_tracking_id']})
-    SubElement(collection_auth, 'agency_memo', {'value': data['agency_memo']})
-    SubElement(collection_auth, 'form_id', {'value': data['form_id']})
-    SubElement(
-        collection_auth, 'payment_amount', {'value': data['donation_amount']})
-
-    account_data = SubElement(collection_auth, 'account_data') 
-    SubElement(account_data, 'payment_type', {'value': data['payment_type']})
-    SubElement(account_data, 'payer_name', {'value': data['name']})
-    SubElement(
-        account_data, 'billing_address', {'value': data['billing_address']})
-    SubElement(account_data, 'billing_city', {'value': data['billing_city']})
-    SubElement(account_data, 'billing_state', {'value': data['state']})
-    SubElement(account_data, 'billing_zip', {'value': data['zip_code']})
+    collection_fields = [
+        'agency_tracking_id', 'agency_memo', 'form_id', 'payment_amount']
+    add_subelements(collection_auth, data, collection_fields)
+   
+    account_data = SubElement(collection_auth, 'account_data')
+    account_fields = [
+        'payment_type', 'payer_name', 'billing_address', 'billing_city',
+        'billing_state', 'billing_zip']
+    add_subelements(account_data, data, account_fields)
 
     optional_fields = SubElement(collection_auth, 'OptionalFieldsGroup')
-    SubElement(optional_fields, 'custom_field_1', {'value': data['custom_field_1']})
-    SubElement(optional_fields, 'custom_field_2', {'value': data['custom_field_2']})
-    SubElement(optional_fields, 'custom_field_3', {'value': data['custom_field_3']})
-    SubElement(optional_fields, 'custom_field_4', {'value': data['custom_field_4']})
-    SubElement(optional_fields, 'custom_field_5', {'value': data['custom_field_5']})
-    SubElement(optional_fields, 'custom_field_6', {'value': data['custom_field_6']})
-    SubElement(optional_fields, 'custom_field_7', {'value': data['custom_field_7']})
-
+    custom_fields = [
+        'custom_field_1', 'custom_field_2', 'custom_field_3', 'custom_field_4',
+        'custom_field_5', 'custom_field_6', 'custom_field_7']
+    add_subelements(optional_fields, data, custom_fields)
+    print(tostring(root))
     return root

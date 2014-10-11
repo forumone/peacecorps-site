@@ -76,7 +76,7 @@ class DonationsTests(SessionTestCase):
             'billing_state': 'MD',
             'billing_zip':  '20852',
             'country': 'USA',
-            'donation_amount': 2000,
+            'payment_amount': 2000,
             'project_code': 'PC-SEC01',
             'donor_type': 'Individual',
             'payment_type': 'CreditCard',
@@ -100,14 +100,14 @@ class DonationsTests(SessionTestCase):
         Allow all fields to be optional"""
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
                 'information_consent': 'vol-consent-yes',
-                'donation_amount': 2000, 'project_code': '14-54FF',
+                'payment_amount': 2000, 'project_code': '14-54FF',
                 'interest_conflict': True, 'email_consent': True}
         memo = generate_agency_memo(data)
         self.assertEqual(
             "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
 
         memo = generate_agency_memo({
-            'donation_amount': 2000, 'project_code': '14-54FF'})
+            'payment_amount': 2000, 'project_code': '14-54FF'})
         self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
 
 
@@ -183,13 +183,13 @@ class PayXMLGenerationTests(TestCase):
             'agency_tracking_id': 'PCIOCI1234',
             'agency_memo': '()(5555555)',
             'form_id': 'DONORFORM',
-            'donation_amount': '20.00',
+            'payment_amount': '20.00',
             'payment_type': 'CreditCard',
-            'name': 'William Williams',
+            'payer_name': 'William Williams',
             'billing_address': '1 Main St',
             'billing_city': 'Anytown', 
-            'state': 'MD', 
-            'zip_code': '20852'
+            'billing_state': 'MD', 
+            'billing_zip': '20852'
         }
 
         data.update(generate_custom_fields(donor_custom_fields()))

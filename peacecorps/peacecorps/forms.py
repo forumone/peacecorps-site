@@ -94,7 +94,7 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
-    donation_amount = forms.IntegerField(widget=forms.HiddenInput())
+    payment_amount  = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
 
     def required_when(self, guard_field, guard_value, check_field):
