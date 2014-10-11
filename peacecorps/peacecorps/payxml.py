@@ -34,5 +34,4 @@ def generate_collection_request(data):
         'custom_field_1', 'custom_field_2', 'custom_field_3', 'custom_field_4',
         'custom_field_5', 'custom_field_6', 'custom_field_7']
     add_subelements(optional_fields, data, custom_fields)
-    print(tostring(root))
     return root

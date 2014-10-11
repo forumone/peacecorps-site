@@ -5,7 +5,6 @@ from django.utils.importlib import import_module
 
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields, humanize_amount
-from peacecorps.payxml import generate_collection_request
 
 from xml.etree.ElementTree import tostring
 
@@ -175,30 +174,3 @@ class DonatePagesTests(TestCase):
     def test_project_rendering(self):
         response = self.client.get('/donate/project/test-project')
         self.assertEqual(response.status_code, 200)
-
-
-class PayXMLGenerationTests(TestCase):
-    def test_xml(self):
-        data = {
-            'agency_tracking_id': 'PCIOCI1234',
-            'agency_memo': '()(5555555)',
-            'form_id': 'DONORFORM',
-            'payment_amount': '20.00',
-            'payment_type': 'CreditCard',
-            'payer_name': 'William Williams',
-            'billing_address': '1 Main St',
-            'billing_city': 'Anytown', 
-            'billing_state': 'MD', 
-            'billing_zip': '20852'
-        }
-
-        data.update(generate_custom_fields(donor_custom_fields()))
-        
-        collection_request = generate_collection_request(data)
-        self.assertEqual('collection_request', collection_request.tag)
-        protocol_versions = collection_request.findall('.//protocol_version')
-        self.assertEqual(len(protocol_versions), 1)
-        response_message = collection_request.findall('.//response_message')[0]
-        self.assertEqual(response_message.attrib['value'], 'Success')
-        action = collection_request.findall('.//action')[0]
-        self.assertEqual(action.attrib['value'], 'SubmitCollectionInteractive')
