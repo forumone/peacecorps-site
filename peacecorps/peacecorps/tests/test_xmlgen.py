@@ -5,6 +5,7 @@ from peacecorps.payxml import generate_collection_request
 from .test_views import donor_custom_fields
 from xml.etree.ElementTree import tostring
 
+
 class PayXMLGenerationTests(TestCase):
     def test_xml(self):
         data = {
@@ -15,13 +16,13 @@ class PayXMLGenerationTests(TestCase):
             'payment_type': 'CreditCard',
             'payer_name': 'William Williams',
             'billing_address': '1 Main St',
-            'billing_city': 'Anytown', 
-            'billing_state': 'MD', 
+            'billing_city': 'Anytown',
+            'billing_state': 'MD',
             'billing_zip': '20852'
         }
 
         data.update(generate_custom_fields(donor_custom_fields()))
-        
+
         collection_request = generate_collection_request(data)
         self.assertEqual('collection_request', collection_request.tag)
         protocol_versions = collection_request.findall('./protocol_version')
@@ -36,9 +37,9 @@ class PayXMLGenerationTests(TestCase):
         account_data = collection_request.findall(
             './interactive_request/collection_auth/account_data')[0]
         account_xml = '<account_data><payment_type value="CreditCard" />'
-        account_xml += '<payer_name value="William Williams" />' 
+        account_xml += '<payer_name value="William Williams" />'
         account_xml += '<billing_address value="1 Main St" />'
-        account_xml += '<billing_city value="Anytown" />' 
+        account_xml += '<billing_city value="Anytown" />'
         account_xml += '<billing_state value="MD" />'
         account_xml += '<billing_zip value="20852" /></account_data>'
 
@@ -62,5 +63,3 @@ class PayXMLGenerationTests(TestCase):
         optg += '</OptionalFieldsGroup>'
 
         self.assertEqual(optg, tostring(optional_fields).decode('utf-8'))
-
-

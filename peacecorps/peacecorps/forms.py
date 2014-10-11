@@ -41,7 +41,8 @@ class DonationPaymentForm(forms.Form):
     email = forms.EmailField(required=False)
     billing_address = forms.CharField(label="Street Address", max_length=80)
     billing_city = forms.CharField(label="City", max_length=40)
-    billing_state = USStateField(label="State", widget=USStateSelect, required=False)
+    billing_state = USStateField(
+        label="State", widget=USStateSelect, required=False)
     country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
     billing_zip = forms.CharField(required=False)
     phone_number = forms.CharField(required=False, max_length=15)
@@ -94,7 +95,7 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
-    payment_amount  = forms.IntegerField(widget=forms.HiddenInput())
+    payment_amount = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
 
     def required_when(self, guard_field, guard_value, check_field):

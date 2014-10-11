@@ -8,6 +8,7 @@ from peacecorps.views import generate_custom_fields, humanize_amount
 
 from xml.etree.ElementTree import tostring
 
+
 def donor_custom_fields():
     data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
             'billing_address': 'stttt', 'billing_city': 'ccc',
@@ -20,6 +21,7 @@ def donor_custom_fields():
             'card_dedication': 'Good Jorb',
             'dedication_address': '111 Somewhere'}
     return data
+
 
 class SessionTestCase(TestCase):
     def setUp(self):
@@ -108,7 +110,6 @@ class DonationsTests(SessionTestCase):
         memo = generate_agency_memo({
             'payment_amount': 2000, 'project_code': '14-54FF'})
         self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
-
 
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.

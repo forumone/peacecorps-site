@@ -16,13 +16,13 @@ def generate_collection_request(data):
     SubElement(root, 'action', {'value': 'SubmitCollectionInteractive'})
 
     interactive = SubElement(root, 'interactive_request')
-    SubElement(interactive, 'allow_account_data_change', {'value':'True'})
+    SubElement(interactive, 'allow_account_data_change', {'value': 'True'})
 
     collection_auth = SubElement(interactive, 'collection_auth')
     collection_fields = [
         'agency_tracking_id', 'agency_memo', 'form_id', 'payment_amount']
     add_subelements(collection_auth, data, collection_fields)
-   
+
     account_data = SubElement(collection_auth, 'account_data')
     account_fields = [
         'payment_type', 'payer_name', 'billing_address', 'billing_city',
