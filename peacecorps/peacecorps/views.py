@@ -43,7 +43,7 @@ def donation_payment(request):
                 data[k] = v
             return donation_payment_review(request, data)
     else:
-        data = {'donation_amount': amount, 'project_code': project_code}
+        data = {'payment_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
 
     return render(
@@ -71,7 +71,7 @@ def generate_agency_memo(data):
     memo += '(' + data.get('comments', '').strip() + ')'
     memo += '(' + data.get('phone_number', '').strip() + ')'
 
-    amount = humanize_amount(data['donation_amount'])
+    amount = humanize_amount(data['payment_amount'])
     memo += '(%s, %s)' % (data['project_code'], amount)
 
     if data.get('information_consent', '') == 'vol-consent-yes':
@@ -98,11 +98,11 @@ def generate_custom_fields(data):
     custom = {}
     custom['custom_field_1'] = '(' + data.get('phone_number', '') + ')'
     custom['custom_field_1'] += '(' + data.get('email', '') + ')'
-    custom['custom_field_2'] = '(' + data.get('street_address', '') + ')'
+    custom['custom_field_2'] = '(' + data.get('billing_address', '') + ')'
 
-    custom['custom_field_3'] = '(' + data.get('city', '') + ')'
-    custom['custom_field_3'] += '(' + data.get('state', '') + ')'
-    custom['custom_field_3'] += '(' + data.get('zip_code', '') + ')'
+    custom['custom_field_3'] = '(' + data.get('billing_city', '') + ')'
+    custom['custom_field_3'] += '(' + data.get('billing_state', '') + ')'
+    custom['custom_field_3'] += '(' + data.get('billing_zip', '') + ')'
     custom['custom_field_4'] = '(' + data.get('organization_name', '') + ')'
 
     custom['custom_field_5'] = '(' + data.get('dedication_name', '') + ')'

@@ -6,6 +6,22 @@ from django.utils.importlib import import_module
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields, humanize_amount
 
+from xml.etree.ElementTree import tostring
+
+
+def donor_custom_fields():
+    data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
+            'billing_address': 'stttt', 'billing_city': 'ccc',
+            'billing_state': 'ST',
+            'billing_zip': '90210', 'organization_name': 'OOO',
+            'dedication_name': 'Bob', 'dedication_contact': 'Patty',
+            'dedication_email': 'family@example.com',
+            'dedication_type': 'in-memory',
+            'dedication_consent': 'no-dedication-consent',
+            'card_dedication': 'Good Jorb',
+            'dedication_address': '111 Somewhere'}
+    return data
+
 
 class SessionTestCase(TestCase):
     def setUp(self):
@@ -39,21 +55,32 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('$20.00' in content)
         self.assertTrue('14-532-001')
 
+    def test_payment_type(self):
+        """Check that the payment type values are rendered correctly."""
+
+        response = self.client.get(
+            '/donations/contribute/?amount=2000&project=14-532-001')
+        content = response.content.decode('utf-8')
+        self.assertTrue('id_payment_type_0' in content)
+        self.assertTrue('id_payment_type_1' in content)
+        self.assertTrue('CreditCard' in content)
+        self.assertTrue('CreditACH' in content)
+
     def test_review_page(self):
         """ Test that the donation review page renders with the required
         elements. """
 
         form_data = {
-            'name': 'William Williams',
-            'street_address':  '1 Main Street',
-            'city': 'Anytown',
-            'state': 'MD',
-            'zip_code':  '20852',
+            'payer_name': 'William Williams',
+            'billing_address':  '1 Main Street',
+            'billing_city': 'Anytown',
+            'billing_state': 'MD',
+            'billing_zip':  '20852',
             'country': 'USA',
-            'donation_amount': 2000,
+            'payment_amount': 2000,
             'project_code': 'PC-SEC01',
             'donor_type': 'Individual',
-            'payment_type': 'credit-card',
+            'payment_type': 'CreditCard',
             'information_consent': 'vol-consent-yes'}
 
         response = self.client.post(
@@ -64,34 +91,30 @@ class DonationsTests(SessionTestCase):
         self.assertTrue(memo in content)
         self.assertTrue('agency_tracking_id' in content)
         self.assertTrue('agency_id' in content)
+        self.assertTrue('1 Main Street' in content)
+        self.assertTrue('Anytown' in content)
+        self.assertTrue('MD' in content)
+        self.assertTrue('20852' in content)
 
     def test_generate_agency_memo(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
                 'information_consent': 'vol-consent-yes',
-                'donation_amount': 2000, 'project_code': '14-54FF',
+                'payment_amount': 2000, 'project_code': '14-54FF',
                 'interest_conflict': True, 'email_consent': True}
         memo = generate_agency_memo(data)
         self.assertEqual(
             "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
 
         memo = generate_agency_memo({
-            'donation_amount': 2000, 'project_code': '14-54FF'})
+            'payment_amount': 2000, 'project_code': '14-54FF'})
         self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
 
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
-        data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
-                'street_address': 'stttt', 'city': 'ccc', 'state': 'ST',
-                'zip_code': '90210', 'organization_name': 'OOO',
-                'dedication_name': 'Bob', 'dedication_contact': 'Patty',
-                'dedication_email': 'family@example.com',
-                'dedication_type': 'in-memory',
-                'dedication_consent': 'no-dedication-consent',
-                'card_dedication': 'Good Jorb',
-                'dedication_address': '111 Somewhere'}
+        data = donor_custom_fields()
 
         self.assertEqual(generate_custom_fields(data), {
             'custom_field_1': '(1112223333)(aaa@example.com)',

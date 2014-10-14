@@ -32,31 +32,31 @@
         </div>
 
         <div class="shown-with-individual">
-            {{form.name.errors}}
-            <label for="id_name" class="required">Name</label>
-            <div class="value">{{form.name}}</div>
+            {{form.payer_name.errors}}
+            <label for="id_payer_name" class="required">Name</label>
+            <div class="value">{{form.payer_name}}</div>
         </div>
 
         <div>
-            {{form.street_address.errors}}
-            <label for="id_street_address" class="required">Street Address</label>
-            <div class="value">{{form.street_address}}</div>
+            {{form.billing_address.errors}}
+            <label for="id_billing_address" class="required">Street Address</label>
+            <div class="value">{{form.billing_address}}</div>
         </div>
 
         <div>
-            {{form.city.errors}}
-            <label for="id_city" class="required">City</label>
-            <div class="value">{{form.city}}</div>
+            {{form.billing_city.errors}}
+            <label for="id_billing_city" class="required">City</label>
+            <div class="value">{{form.billing_city}}</div>
         </div>
         <div>
-            {{form.state.errors}}
-            <label for="id_state" class="required">State</label>
-            <div class="value">{{form.state}}</div>
+            {{form.billing_state.errors}}
+            <label for="id_billing_state" class="required">State</label>
+            <div class="value">{{form.billing_state}}</div>
         </div>
         <div>
-            {{form.zip_code.errors}}
-            <label for="id_zip_code" class="required">Zip Code</label>
-            <div class="value">{{form.zip_code}}</div>
+            {{form.billing_zip.errors}}
+            <label for="id_billing_zip" class="required">Zip Code</label>
+            <div class="value">{{form.billing_zip}}</div>
         </div>
         <div>
             {{form.country.errors}}
