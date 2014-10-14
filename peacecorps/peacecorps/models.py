@@ -114,9 +114,9 @@ class Media(models.Model):
     def __str__(self):
         return '%s' % (self.title)
 
+    @property
     def url(self):
-        # TODO: map this to the actual url once images are being stored right.
-        return 'path/to/image.jpg'
+        return self.file.url
 
 
 class Project(models.Model):

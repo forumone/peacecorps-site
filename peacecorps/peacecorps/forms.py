@@ -16,8 +16,8 @@ class DonationPaymentForm(forms.Form):
     )
 
     PAYMENT_TYPE_CHOICES = (
-        ('credit-card', 'Credit Card'),
-        ('ach-bank-check', 'ACH Bank Check'),
+        ('CreditCard', 'Credit Card'),
+        ('CreditACH', 'ACH Bank Check'),
     )
 
     VOLUNTEER_CONSENT_CHOICES = (
@@ -31,7 +31,7 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
         initial='Individual')
     #   Will be hidden if "Organization" is selected
-    name = forms.CharField(label="Name", max_length=100, required=False)
+    payer_name = forms.CharField(label="Name", max_length=100, required=False)
     #   Will be hidden in "Individual is selected"
     organization_name = forms.CharField(
         label='Organization Name', max_length=40, required=False)
@@ -39,15 +39,16 @@ class DonationPaymentForm(forms.Form):
         label='Contact Person', max_length=100, required=False)
 
     email = forms.EmailField(required=False)
-    street_address = forms.CharField(label="Street Address", max_length=80)
-    city = forms.CharField(label="City", max_length=40)
-    state = USStateField(label="State", widget=USStateSelect, required=False)
+    billing_address = forms.CharField(label="Street Address", max_length=80)
+    billing_city = forms.CharField(label="City", max_length=40)
+    billing_state = USStateField(
+        label="State", widget=USStateSelect, required=False)
     country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
-    zip_code = forms.CharField(required=False)
+    billing_zip = forms.CharField(required=False)
     phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT_TYPE_CHOICES,
-        initial="credit-card",
+        initial="CreditCard",
     )
     comments = forms.CharField(
         max_length=150,
@@ -94,7 +95,7 @@ class DonationPaymentForm(forms.Form):
         widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
         initial='vol-consent-yes')
 
-    donation_amount = forms.IntegerField(widget=forms.HiddenInput())
+    payment_amount = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
 
     def required_when(self, guard_field, guard_value, check_field):
@@ -106,8 +107,8 @@ class DonationPaymentForm(forms.Form):
             raise ValidationError('This field is required.')
         return self.cleaned_data.get(check_field)
 
-    def clean_name(self):
-        return self.required_when('donor_type', 'Individual', 'name')
+    def clean_payer_name(self):
+        return self.required_when('donor_type', 'Individual', 'payer_name')
 
     def clean_organization_name(self):
         return self.required_when('donor_type', 'Organization',
@@ -117,17 +118,17 @@ class DonationPaymentForm(forms.Form):
         return self.required_when('donor_type', 'Organization',
                                   'organization_contact')
 
-    def clean_state(self):
-        return self.required_when('country', 'USA', 'state')
+    def clean_billing_state(self):
+        return self.required_when('country', 'USA', 'billing_state')
 
-    def clean_zip_code(self):
-        return self.required_when('country', 'USA', 'zip_code')
+    def clean_billing_zip(self):
+        return self.required_when('country', 'USA', 'billing_zip')
 
     def clean(self):
         """Only one of the organization/individual set of fields should be
         present. Blank out the other"""
         if self.cleaned_data.get('donor_type') == 'Organization':
-            del self.cleaned_data['name']
+            del self.cleaned_data['payer_name']
         else:
             del self.cleaned_data['organization_name']
             del self.cleaned_data['organization_contact']

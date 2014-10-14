@@ -5,7 +5,7 @@
 <body>
 
 {% for project in featured %}
-<div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url()}}"></a></div>
+<div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url}}"></a></div>
 {% endfor %}
 
 <h3>{{projects.count()}} active projects</h3>

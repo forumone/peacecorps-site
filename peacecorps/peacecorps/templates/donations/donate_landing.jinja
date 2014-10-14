@@ -9,7 +9,7 @@
 {% if featuredissue %}
 <div>{{featuredissue.tagline}}
 {{featuredissue.call}}
-<a href="donate/issue/{{featuredissue.slug}}"><img src="{{featuredissue.featured_image.url()}}", alt="{{featuredissue.featured_image.description}}"></a></div>
+<a href="donate/issue/{{featuredissue.slug}}"><img src="{{featuredissue.featured_image.url}}", alt="{{featuredissue.featured_image.description}}"></a></div>
 {% endif %}
 
 <h2>Issues</h2>
@@ -20,7 +20,7 @@
 
 <h2>Featured Projects</h2>
 {% for project in featuredprojects %}
-<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.project.featured_image.url()}}"></a></div>
+<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.project.featured_image.url}}"></a></div>
 {% endfor %}
 
 <h2>All Projects</h2>
