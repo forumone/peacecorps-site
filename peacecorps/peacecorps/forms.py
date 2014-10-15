@@ -165,6 +165,8 @@ class DonationAmountForm(forms.Form):
                 raise ValidationError('Missing fund')
             else:
                 remaining_amount = self.fund.fundgoal - self.fund.fundcurrent
+                # We're circumventing the normal bounds checks, so we must
+                # enforce them here
                 if remaining_amount < 100:  # cents
                     raise ValidationError('Must be >= 1.00')
                 elif remaining_amount > 1000000:
