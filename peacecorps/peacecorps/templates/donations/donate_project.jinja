@@ -25,15 +25,15 @@
   {% endif %}
   <div id="volunteer-info">
     <p><strong>{{project.volunteer.name}}</strong> from <strong>{{project.volunteer.homecity}}, {{project.volunteer.homestate}}</strong></p>
-    {% set funded_percent = project.fundcurrent * 100 / project.fundgoal %}
+    {% set funded_percent = project.fund.percent_funded() %}
     <div id="funded-chart">
       <div id="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
       <div id="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
     </div>
-    <p>Funds sought: <strong>${{project.fundgoal/100}}</strong></p>
+    <p>Funds sought: <strong>${{project.fund.fundgoal/100}}</strong></p>
 
     <div id="donate-container"><button>
-    {% if project.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
+    {% if project.fund.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
     </button></div>
   </div>
 </div>

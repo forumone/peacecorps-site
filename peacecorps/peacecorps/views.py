@@ -162,7 +162,7 @@ def donate_landing(request):
 
 def donate_issue(request, slug):
 
-    issue = Issue.objects.get(slug=slug)
+    issue = Issue.objects.select_related('fund').get(slug=slug)
     featured = Project.objects.filter(issue=issue, issue_feature=True)
     projects = Project.objects.filter(issue=issue)
 
@@ -179,7 +179,7 @@ def donate_issue(request, slug):
 def donate_project(request, slug):
 
     project = Project.objects.select_related(
-        'volunteer__profile_image', 'featured_image').get(slug=slug)
+        'volunteer__profile_image', 'featured_image', 'fund').get(slug=slug)
 
     return render(
         request,
