@@ -4,9 +4,9 @@ from localflavor.us.models import USPostalCodeField
 
 def percentfunded(current, goal):
     try:
-        return "{0:.2f}".format((current/goal)*100)
+        return round((current/goal)*100,2)
     except ZeroDivisionError:
-        return "0"
+        return 0
 
 
 class Country(models.Model):

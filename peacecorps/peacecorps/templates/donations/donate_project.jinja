@@ -28,7 +28,7 @@
     {% set funded_percent = project.fund.percent_funded() %}
     <div id="funded-chart">
       <div id="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
-      <div id="funded-amount-text">{{ funded_percent|int|round }}% funded</div>
+      <div id="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
     </div>
     <p>Funds sought: <strong>${{project.fund.fundgoal/100}}</strong></p>
 
