@@ -38,6 +38,26 @@
   </div>
 </div>
 
+<form method="post">
+  {% csrf_token %}
+  <div id="radio-container">
+    {{form.payment_amount.errors}}
+    {% for radio in form.presets %}
+      <div>
+        {{ radio.tag() }}
+        {% if radio.choice_value == 'custom' %}
+          {{ form.payment_amount }}
+        {% else %}
+          <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div id="button-container">
+    <input type="submit" value="Donate" />
+  </div>
+</form>
+
 <div id="description">
     {{project.description|safe}}
 </div>

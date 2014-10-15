@@ -1,5 +1,9 @@
+from decimal import Decimal
+
 from django.test import TestCase
-from peacecorps.forms import DonationPaymentForm
+
+from peacecorps.models import Fund
+from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 
 
 class DonationPaymentTests(TestCase):
@@ -86,3 +90,34 @@ class DonationPaymentTests(TestCase):
         form_data['country'] = 'CAN'
         form = DonationPaymentForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+
+class DonationAmountTests(TestCase):
+    def test_preset_25(self):
+        """Selecting a preset should set the correct value in
+        payment_amount"""
+        data = {'presets': 'preset-25'}
+        form = DonationAmountForm(data=data)
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['payment_amount'], Decimal(25))
+
+    def test_preset_all(self):
+        """Selecting 'preset-all' should be equivalent to a payment amount of
+        the remaining balance"""
+        fund = Fund(fundgoal=9876, fundcurrent=1234)
+        data = {'presets': 'preset-all'}
+        form = DonationAmountForm(data=data, fund=fund)
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data['payment_amount'], Decimal(86.42))
+
+    def test_preset_all_bounds(self):
+        """Selecting 'preset-all' won't work if the remaining balance is out
+        of bounds"""
+        fund = Fund(fundgoal=1000001, fundcurrent=0)
+        data = {'presets': 'preset-all'}
+        form = DonationAmountForm(data=data, fund=fund)
+        self.assertFalse(form.is_valid())
+
+        fund.fundcurrent = 1000000
+        form = DonationAmountForm(data=data, fund=fund)
+        self.assertFalse(form.is_valid())

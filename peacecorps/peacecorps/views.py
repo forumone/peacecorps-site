@@ -1,11 +1,13 @@
-from uuid import uuid4
 from datetime import datetime
+from urllib.parse import urlencode
+from uuid import uuid4
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from peacecorps.forms import DonationPaymentForm
+from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
 from peacecorps.models import Project
 
@@ -177,13 +179,25 @@ def donate_issue(request, slug):
 
 
 def donate_project(request, slug):
-
-    project = Project.objects.select_related(
-        'volunteer__profile_image', 'featured_image', 'fund').get(slug=slug)
+    """A profile for each project. Also includes a donation form"""
+    project = get_object_or_404(
+        Project.objects.select_related('volunteer__profile_image',
+                                       'featured_image', 'fund'),
+        slug=slug)
+    if request.method == 'POST':
+        form = DonationAmountForm(data=request.POST, fund=project.fund)
+        if form.is_valid():
+            params = {'project': project.fund.fundcode,
+                      # convert back into cents
+                      'amount': 100*form.cleaned_data['payment_amount']}
+            return HttpResponseRedirect(
+                reverse('donations_payment') + '?' + urlencode(params))
+    else:
+        form = DonationAmountForm(fund=project.fund)
 
     return render(
         request,
         'donations/donate_project.jinja',
         {
-            'project': project,
+            'project': project, 'form': form
         })

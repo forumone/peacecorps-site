@@ -1,6 +1,7 @@
+from decimal import Decimal
+
 from django import forms
 from django.core.exceptions import ValidationError
-
 from localflavor.us.forms import USStateField
 from localflavor.us.forms import USStateSelect
 
@@ -133,3 +134,41 @@ class DonationPaymentForm(forms.Form):
             del self.cleaned_data['organization_name']
             del self.cleaned_data['organization_contact']
         return self.cleaned_data
+
+
+class DonationAmountForm(forms.Form):
+    """Validation of donation amounts."""
+    presets = forms.ChoiceField(
+        widget=forms.RadioSelect, initial='preset-25',
+        choices=(('preset-10', '10.00'),
+                 ('preset-25', '25.00'),
+                 ('preset-50', '50.00'),
+                 ('custom', 'Custom'),
+                 ('preset-all', 'Fund the remaining amount')))
+    # required if "custom" is selected above
+    payment_amount = forms.DecimalField(max_value=10000, min_value=1,
+                                        decimal_places=2, required=False)
+
+    def __init__(self, fund=None, *args, **kwargs):
+        """We need a fund to set payment amount when preset-all is
+        selected"""
+        super(DonationAmountForm, self).__init__(*args, **kwargs)
+        self.fund = fund
+
+    def clean_payment_amount(self):
+        """Selecting a preset is identical to typing the exact amount"""
+        for amt in (10, 25, 50):
+            if self.cleaned_data.get('presets') == 'preset-' + str(amt):
+                return Decimal(amt)
+        if self.cleaned_data.get('presets') == 'preset-all':
+            if not self.fund:
+                raise ValidationError('Missing fund')
+            else:
+                remaining_amount = self.fund.fundgoal - self.fund.fundcurrent
+                if remaining_amount < 100:  # cents
+                    raise ValidationError('Must be >= 1.00')
+                elif remaining_amount > 1000000:
+                    raise ValidationError('Must be <= 10,000.00')
+                return Decimal(remaining_amount / 100.00)  # user sees dollars
+
+        raise ValidationError('This field is required.')
