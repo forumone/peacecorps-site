@@ -19,8 +19,14 @@ class Country(models.Model):
 
 class CountryFund(models.Model):
     country = models.ForeignKey('Country', related_name="fund")
-    fundcurrent = models.IntegerField(default=0)
-    fundgoal = models.IntegerField()
+    fund = models.ForeignKey('Fund', unique=True)
+    featured_image = models.ForeignKey(
+        'Media',
+        help_text="A large landscape image for use in banners, headers, etc",
+        blank=True, null=True)
+
+    def __str__(self):
+        return self.country.name
 
 
 class FeaturedIssue(models.Model):
@@ -45,16 +51,38 @@ class FeaturedProjectFrontPage(models.Model):
 
 
 class Fund(models.Model):
+    COUNTRY = 'coun'
+    MEMORIAL = 'mem'
+    OTHER = 'oth'
+    PROJECT = 'proj'
+    SECTOR = 'sec'
+    FUNDTYPE_CHOICES=(
+        (COUNTRY, 'Country'),
+        (SECTOR, 'Sector'),
+        (MEMORIAL, 'Memorial'),
+        (OTHER, 'Other'),
+        (PROJECT,'Project'),
+    )
+
     name = models.CharField(max_length=120)
-    description = description = models.TextField(blank=True, null=True)
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc")
+    fundcode = models.CharField(max_length=25)
     fundcurrent = models.IntegerField(default=0)
-    fundgoal = models.IntegerField()
+    fundgoal = models.IntegerField(blank=True, null=True)
+    community_contribution = models.IntegerField(blank=True, null=True)
+    fundtype = models.CharField(
+        max_length=10, choices=FUNDTYPE_CHOICES)
 
     def __str__(self):
         return '%s' % (self.name)
+
+    def percent_funded(self):
+        return percentfunded(self.fundcurrent, self.fundgoal)
+
+    def funded(self):
+        if self.fundcurrent >= self.fundgoal:
+            return True
+        else:
+            return False
 
 
 class Issue(models.Model):
@@ -72,14 +100,10 @@ class Issue(models.Model):
     featured_image = models.ForeignKey(
         'Media',
         help_text="A large landscape image for use in banners, headers, etc")
-    fundcurrent = models.IntegerField(default=0)
-    fundgoal = models.IntegerField()
+    fund = models.ForeignKey('Fund', unique=True)
 
     def __str__(self):
         return '%s' % (self.name)
-
-    def percent_funded(self):
-        return percentfunded(self.fundcurrent, self.fundgoal)
 
 
 class Media(models.Model):
@@ -136,19 +160,9 @@ class Project(models.Model):
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    fundcurrent = models.IntegerField(default=0)
-    fundgoal = models.IntegerField()
+    fund = models.ForeignKey('Fund', unique=True)
     # This one can't be its own table because Django doesn't do OneToMany.
     issue_feature = models.BooleanField(default=False)
-
-    def funded(self):
-        if self.fundcurrent >= self.fundgoal:
-            return True
-        else:
-            return False
-
-    def percent_funded(self):
-        return percentfunded(self.fundcurrent, self.fundgoal)
 
     def __str__(self):
         return self.title
