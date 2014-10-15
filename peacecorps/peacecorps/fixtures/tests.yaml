@@ -577,6 +577,50 @@
 - fields: {project: 2}
   model: peacecorps.featuredprojectfrontpage
   pk: 3
+- fields: {community_contribution: 10, fundcode: hou-01, fundcurrent: 0, fundgoal: 240000,
+    fundtype: sec, name: Housing}
+  model: peacecorps.fund
+  pk: 1
+- fields: {community_contribution: 6000, fundcode: HEA-01, fundcurrent: 0, fundgoal: 300000,
+    fundtype: sec, name: Health}
+  model: peacecorps.fund
+  pk: 2
+- fields: {community_contribution: 30000, fundcode: hun-01, fundcurrent: 0, fundgoal: 500000,
+    fundtype: sec, name: Hunger}
+  model: peacecorps.fund
+  pk: 3
+- fields: {community_contribution: 0, fundcode: edu-01, fundcurrent: 30000, fundgoal: 1000000,
+    fundtype: sec, name: Education}
+  model: peacecorps.fund
+  pk: 4
+- fields: {community_contribution: 0, fundcode: wom-01, fundcurrent: 30000, fundgoal: 0,
+    fundtype: sec, name: Women}
+  model: peacecorps.fund
+  pk: 6
+- fields: {community_contribution: 0, fundcode: inn-01, fundcurrent: 0, fundgoal: 0,
+    fundtype: sec, name: Innovation}
+  model: peacecorps.fund
+  pk: 7
+- fields: {community_contribution: 20000, fundcode: test-01, fundcurrent: 0, fundgoal: 500000,
+    fundtype: proj, name: Test Project}
+  model: peacecorps.fund
+  pk: 8
+- fields: {community_contribution: 0, fundcode: bat-01, fundcurrent: 50000, fundgoal: 1000000,
+    fundtype: proj, name: Apprehend Joker}
+  model: peacecorps.fund
+  pk: 9
+- fields: {community_contribution: 50000, fundcode: jla-02, fundcurrent: 0, fundgoal: 500000,
+    fundtype: proj, name: Teach Women Costumes}
+  model: peacecorps.fund
+  pk: 10
+- fields: {community_contribution: 10000, fundcode: jla-03, fundcurrent: 0, fundgoal: 500000,
+    fundtype: proj, name: Super Health Center}
+  model: peacecorps.fund
+  pk: 11
+- fields: {community_contribution: 150000, fundcode: jla-04, fundcurrent: 1000000,
+    fundgoal: 150000, fundtype: proj, name: Superhero School Scholarships}
+  model: peacecorps.fund
+  pk: 12
 - fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
       amet, consectetur adipiscing elit. Nunc sagittis libero diam, vitae cursus odio
       aliquam at. Sed convallis volutpat libero nec ultricies. Nulla blandit diam
@@ -585,8 +629,8 @@
       urna id massa cursus condimentum. Donec laoreet, quam a interdum semper, neque
       lorem pulvinar velit, eget pellentesque leo elit sit amet lorem. Duis commodo
       tortor quis velit euismod, sit amet tristique tortor bibendum.', featured_image: 1,
-    fundcurrent: 7200, fundgoal: 50000, icon: ./lightbulb.png, name: Innovation, slug: innovation,
-    tagline: Two out of three illiterate people are women.}
+    fund: 7, icon: ./lightbulb.png, name: Innovation, slug: innovation, tagline: Two
+      out of three illiterate people are women.}
   model: peacecorps.issue
   pk: 1
 - fields: {call: Donate to girls' education, description: 'Lorem ipsum dolor sit amet,
@@ -595,9 +639,8 @@
       ac dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
       per inceptos himenaeos. Vivamus id nisi faucibus, pulvinar risus a, finibus
       lacus. Nullam porttitor elit vitae pellentesque placerat. Phasellus in auctor
-      enim. Nulla facilisi.', featured_image: 2, fundcurrent: 260000, fundgoal: 300000,
-    icon: ./peopleicon_QK6SN51.png, name: Women, slug: women, tagline: Two out of
-      three illiterate people are women.}
+      enim. Nulla facilisi.', featured_image: 2, fund: 6, icon: ./peopleicon_QK6SN51.png,
+    name: Women, slug: women, tagline: Two out of three illiterate people are women.}
   model: peacecorps.issue
   pk: 2
 - fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
@@ -608,8 +651,8 @@
       non efficitur sem ipsum eu orci. Curabitur finibus nulla at dui consequat pellentesque.
       Nullam euismod odio eros, vehicula vestibulum velit finibus ac. Vestibulum ut
       dui arcu. Nullam ac est elit. Duis maximus pulvinar urna ut iaculis.', featured_image: 2,
-    fundcurrent: 30000, fundgoal: 100000, icon: ./house_SO2rcUg.png, name: Education,
-    slug: education, tagline: Two out of three illiterate people are women.}
+    fund: 4, icon: ./house_SO2rcUg.png, name: Education, slug: education, tagline: Two
+      out of three illiterate people are women.}
   model: peacecorps.issue
   pk: 3
 - fields: {call: Donate to world hunger., description: 'Lorem ipsum dolor sit amet,
@@ -617,9 +660,9 @@
       Sed consequat varius sem quis volutpat. Fusce aliquet velit quis dignissim commodo.
       Praesent pretium dictum velit vitae ultricies. Donec eget tortor ut tellus bibendum
       pharetra quis mattis risus. Morbi non convallis ligula. Curabitur vel finibus
-      ipsum, sit amet sagittis turpis.', featured_image: 1, fundcurrent: 50000, fundgoal: 130000,
-    icon: ./globeicon.png, name: Hunger, slug: hunger, tagline: 925 million people
-      do not have enough to eat.}
+      ipsum, sit amet sagittis turpis.', featured_image: 1, fund: 3, icon: ./globeicon.png,
+    name: Hunger, slug: hunger, tagline: 925 million people do not have enough to
+      eat.}
   model: peacecorps.issue
   pk: 4
 - fields: {call: donate to world health, description: 'Lorem ipsum dolor sit amet,
@@ -631,9 +674,9 @@
       Phasellus ut enim nisl. Etiam porta vulputate metus, eget accumsan nunc maximus
       sit amet. Donec molestie pharetra ultricies. Cum sociis natoque penatibus et
       magnis dis parturient montes, nascetur ridiculus mus. Praesent sed semper turpis.
-      Integer scelerisque congue arcu non molestie.', featured_image: 3, fundcurrent: 1000,
-    fundgoal: 100000, icon: ./peopleicon.png, name: Health, slug: health, tagline: 925
-      million people do not have enough to eat}
+      Integer scelerisque congue arcu non molestie.', featured_image: 3, fund: 2,
+    icon: ./peopleicon.png, name: Health, slug: health, tagline: 925 million people
+      do not have enough to eat}
   model: peacecorps.issue
   pk: 5
 - fields: {call: Donate to safe housing for all., description: 'Vivamus sit amet magna
@@ -647,9 +690,9 @@
       nunc est, egestas a feugiat blandit, congue eu mauris. Nam ornare commodo magna
       quis mollis. Sed blandit in est ut eleifend. Sed in vehicula lorem, ac consectetur
       eros. Sed sagittis ligula ipsum, vel tempus ante laoreet eu. In malesuada hendrerit
-      vehicula.', featured_image: 4, fundcurrent: 150000, fundgoal: 240000, icon: ./house.png,
-    name: Housing, slug: housing, tagline: Sub-Saharan Africa today has a slum population
-      of 199.5 million representing 61.7 percent of its urban population.}
+      vehicula.', featured_image: 4, fund: 1, icon: ./house.png, name: Housing, slug: housing,
+    tagline: Sub-Saharan Africa today has a slum population of 199.5 million representing
+      61.7 percent of its urban population.}
   model: peacecorps.issue
   pk: 6
 - fields: {author: null, caption: A treadle-powered Singer sewing machine., country: null,
@@ -677,6 +720,11 @@
     mediatype: IMG, title: Cherry Blossoms, transcript: ''}
   model: peacecorps.media
   pk: 5
+- fields: {author: 3, caption: 'Miss Martian, from "Young Justice."', country: 1,
+    description: A headshot of Miss Martian., file: ./missmartian-headshot.png, mediatype: IMG,
+    title: Miss Martian, transcript: ''}
+  model: peacecorps.media
+  pk: 6
 - fields:
     country: 1
     description: "<p>Nam in lobortis erat, non fringilla lectus. Donec et turpis id
@@ -715,8 +763,7 @@
       tempus. Proin eros ante, fringilla nec mi sed, vehicula rhoncus ligula. In porta
       hendrerit nisi sed euismod. Ut vitae auctor tellus, vel tristique ante.</p>"
     featured_image: 2
-    fundcurrent: 0
-    fundgoal: 100000
+    fund: 12
     issue: 2
     issue_feature: true
     issues_related: [3]
@@ -765,8 +812,7 @@
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
       turpis egestas.</p>"
     featured_image: 3
-    fundcurrent: 1000000
-    fundgoal: 100000
+    fund: 11
     issue: 2
     issue_feature: true
     issues_related: [5]
@@ -808,8 +854,7 @@
       mi consectetur vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit
       ac libero. Vestibulum feugiat consequat cursus.\r\n</p>"
     featured_image: 1
-    fundcurrent: 0
-    fundgoal: 100000
+    fund: 10
     issue: 2
     issue_feature: false
     issues_related: [3]
@@ -817,7 +862,7 @@
     slug: superhero-costumes
     tagline: Women need superhero costumes to fight crime.
     title: Teach Women How To Make Superhero Costumes
-    volunteer: 4
+    volunteer: 3
   model: peacecorps.project
   pk: 3
 - fields:
@@ -844,11 +889,10 @@
       vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit ac libero.
       Vestibulum feugiat consequat cursus."
     featured_image: 5
-    fundcurrent: 0
-    fundgoal: 100000
+    fund: 9
     issue: 5
     issue_feature: false
-    issues_related: [2, 3]
+    issues_related: [3, 2]
     media: []
     slug: catch-the-joker
     tagline: He's running loose on the mean streets of Gotham
@@ -887,8 +931,7 @@
       leo, ac semper lorem quam sed libero. Cras sed vehicula ipsum. Ut tellus velit,
       pellentesque sed magna ac, luctus egestas dolor.</p>"
     featured_image: 3
-    fundcurrent: 10000
-    fundgoal: 300000
+    fund: 8
     issue: 1
     issue_feature: false
     issues_related: [3]
@@ -906,7 +949,7 @@
     pronouns: S}
   model: peacecorps.volunteer
   pk: 2
-- fields: {homecity: Happy Harbor, homestate: RI, name: Miss Martian, profile_image: null,
+- fields: {homecity: Happy Harbor, homestate: RI, name: Miss Martian, profile_image: 6,
     pronouns: S}
   model: peacecorps.volunteer
   pk: 3
