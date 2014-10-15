@@ -113,11 +113,11 @@ class DonationAmountTests(TestCase):
     def test_preset_all_bounds(self):
         """Selecting 'preset-all' won't work if the remaining balance is out
         of bounds"""
-        fund = Fund(fundgoal=1000001, fundcurrent=0)
+        fund = Fund(fundgoal=1000000, fundcurrent=0)
         data = {'presets': 'preset-all'}
         form = DonationAmountForm(data=data, fund=fund)
         self.assertFalse(form.is_valid())
 
-        fund.fundcurrent = 1000000
+        fund.fundcurrent = 999999
         form = DonationAmountForm(data=data, fund=fund)
         self.assertFalse(form.is_valid())

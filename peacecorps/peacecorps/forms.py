@@ -147,8 +147,8 @@ class DonationAmountForm(forms.Form):
                  ('preset-all', 'Fund the remaining amount')))
     # required if "custom" is selected above. Min value of $1, as anything
     # lower than that will cost too much money to process. Max value of
-    # $10,000, as anything above that can't be processed by pay.gov
-    payment_amount = forms.DecimalField(max_value=10000, min_value=1,
+    # $9,999.99, as anything above that can't be processed by pay.gov
+    payment_amount = forms.DecimalField(max_value=9999.99, min_value=1,
                                         decimal_places=2, required=False)
 
     def __init__(self, fund=None, *args, **kwargs):
@@ -171,8 +171,8 @@ class DonationAmountForm(forms.Form):
                 # enforce them here
                 if remaining_amount < 100:  # cents
                     raise ValidationError('Must be >= 1.00')
-                elif remaining_amount > 1000000:
-                    raise ValidationError('Must be <= 10,000.00')
+                elif remaining_amount >= 1000000:
+                    raise ValidationError('Must be < 10,000.00')
                 return Decimal(remaining_amount / 100.00)  # user sees dollars
 
         raise ValidationError('This field is required.')
