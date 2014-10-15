@@ -145,7 +145,9 @@ class DonationAmountForm(forms.Form):
                  ('preset-50', '50.00'),
                  ('custom', 'Custom'),
                  ('preset-all', 'Fund the remaining amount')))
-    # required if "custom" is selected above
+    # required if "custom" is selected above. Min value of $1, as anything
+    # lower than that will cost too much money to process. Max value of
+    # $10,000, as anything above that can't be processed by pay.gov
     payment_amount = forms.DecimalField(max_value=10000, min_value=1,
                                         decimal_places=2, required=False)
 
