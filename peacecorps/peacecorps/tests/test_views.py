@@ -175,3 +175,11 @@ class DonatePagesTests(TestCase):
     def test_project_rendering(self):
         response = self.client.get('/donate/project/test-project')
         self.assertEqual(response.status_code, 200)
+
+    def test_country_rendering(self):
+        response = self.client.get('/donate/country/cameroon')
+        self.assertEqual(response.status_code, 200)
+
+    def test_countries_rendering(self):
+        response = self.client.get('/donate/countries')
+        self.assertEqual(response.status_code, 200)

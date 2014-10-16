@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 from peacecorps.forms import DonationPaymentForm
 from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
-from peacecorps.models import Project
+from peacecorps.models import Project, CountryFund
 
 
 def humanize_amount(amount_cents):
@@ -187,3 +187,28 @@ def donate_project(request, slug):
         {
             'project': project,
         })
+
+def donate_country(request, slug):
+    country = CountryFund.objects.select_related(
+        'featured_image', 'fund').get(slug=slug)
+    projects = Project.objects.filter(country=country.country)
+
+    return render(
+        request,
+        'donations/donate_country.jinja',
+        {
+            'country': country,
+            'projects': projects,
+        })
+
+def donate_countries(request):
+    countries = CountryFund.objects.select_related(
+        'featured_image', 'fund').all()
+
+    return render(
+        request,
+        'donations/donate_countries.jinja',
+        {
+            'countries': countries,
+        })
+
