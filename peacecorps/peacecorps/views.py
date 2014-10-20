@@ -25,7 +25,7 @@ def donation_payment(request):
     except ValueError:
         return HttpResponseBadRequest('amount must be an integer value')
 
-    fund = Fund.objects.get(fundcode=project_code)
+    fund = Fund.objects.filter(fundcode=project_code).first()
     if not fund:
         return HttpResponseBadRequest('Invalid project')
 
