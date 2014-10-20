@@ -73,3 +73,6 @@ PAY_GOV_APP_NAME = 'DONORPAGES'
 
 # The URL for the pay.gov payment service.
 PAY_GOV_OCI_URL = 'mockpay'
+
+# This id is also provided by pay.gov
+PAY_GOV_FORM_ID = 'TODO'
