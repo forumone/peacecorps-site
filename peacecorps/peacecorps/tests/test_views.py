@@ -154,33 +154,6 @@ class DonationsTests(SessionTestCase):
             '/donations/contribute/?amount=aaa&project_code=154')
         self.assertEqual(response.status_code, 400)
 
-    def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
-                                    {'presets': 'custom',
-                                     'payment_amount': ''})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
-                                    {'presets': 'custom',
-                                     'payment_amount': '0.99'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
-                                    {'presets': 'custom',
-                                     'payment_amount': '10000.01'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_redirect(self):
-        response = self.client.post('/donate/project/catch-the-joker',
-                                    {'presets': 'preset-all'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("950000" in response['Location'])
-        fundcode = Project.objects.get(slug='catch-the-joker').fund.fundcode
-        self.assertTrue(fundcode)
-        self.assertTrue(fundcode in response['Location'])
-
 
 class DonatePagesTests(TestCase):
 
@@ -209,3 +182,30 @@ class DonatePagesTests(TestCase):
     def test_countries_rendering(self):
         response = self.client.get('/donate/countries')
         self.assertEqual(response.status_code, 200)
+
+    def test_project_form_empty_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': ''})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_low_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': '0.99'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_high_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': '10000.01'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_redirect(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'preset-all'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("950000" in response['Location'])
+        fundcode = Project.objects.get(slug='catch-the-joker').fund.fundcode
+        self.assertTrue(fundcode)
+        self.assertTrue(fundcode in response['Location'])
