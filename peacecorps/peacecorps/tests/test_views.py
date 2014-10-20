@@ -1,12 +1,11 @@
+from django.conf import settings
 from django.test import TestCase
 from django.test.client import Client
-from django.conf import settings
 from django.utils.importlib import import_module
 
+from peacecorps.models import Project
 from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
 from peacecorps.views import generate_custom_fields, humanize_amount
-
-from xml.etree.ElementTree import tostring
 
 
 def donor_custom_fields():
@@ -154,6 +153,33 @@ class DonationsTests(SessionTestCase):
         response = self.client.get(
             '/donations/contribute/?amount=aaa&project_code=154')
         self.assertEqual(response.status_code, 400)
+
+    def test_project_form_empty_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': ''})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_low_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': '0.99'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_high_amount(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'custom',
+                                     'payment_amount': '10000.01'})
+        self.assertEqual(response.status_code, 200)
+
+    def test_project_form_redirect(self):
+        response = self.client.post('/donate/project/catch-the-joker',
+                                    {'presets': 'preset-all'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("950000" in response['Location'])
+        fundcode = Project.objects.get(slug='catch-the-joker').fund.fundcode
+        self.assertTrue(fundcode)
+        self.assertTrue(fundcode in response['Location'])
 
 
 class DonatePagesTests(TestCase):
