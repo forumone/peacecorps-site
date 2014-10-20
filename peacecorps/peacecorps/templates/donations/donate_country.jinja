@@ -1,0 +1,33 @@
+{% extends "donations/base.jinja" %}
+
+{% block title %}Peace Corps - Donate{% endblock %}
+{% block header %}Peace Corps - Donate{% endblock %}
+{% block content_id %}project{% endblock %}
+
+{% block navigation %}
+<h2>{{country.name}}</h2>
+{% endblock %}
+
+{% block content %}
+<div id="featured-image">
+  <img src="{{country.featured_image.url}}" alt="{{country.featured_image.description}}">
+  <figcaption>{{country.featured_image.caption}}</figcaption>
+</div>
+
+<div id="donation-stats">
+  <div id="volunteer-info">
+    <div id="donate-container"><button>
+    Support Peace Corps Projects in {{ country.country.name }}
+    </button></div>
+  </div>
+</div>
+
+<div id="description">
+    {{country.description|safe}}
+</div>
+
+<h3>Current Projects</h3>
+{% for project in projects %}
+<div><a href="/donate/project/{{project.slug}}">{{project.title}}</a></div>
+{% endfor %}
+{% endblock %}

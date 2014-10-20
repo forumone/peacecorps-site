@@ -1,6 +1,8 @@
 from django.db import models
 from localflavor.us.models import USPostalCodeField
 
+from django.utils.text import slugify
+
 
 def percentfunded(current, goal):
     try:
@@ -32,6 +34,22 @@ class CountryFund(models.Model):
         'Media',
         help_text="A large landscape image for use in banners, headers, etc",
         blank=True, null=True)
+    slug = models.SlugField(
+        help_text="used for the fund page url.",
+        max_length=100, unique=True)
+    description = models.TextField()
+
+    def save(self):
+        # can't prepopulate slugfields from foreignkeys in the admin.
+        self.slug = slugify(self.country.name)
+
+        # avoid error on non-unique
+        if CountryFund.objects.filter(slug=self.slug)\
+            .exclude(id=self.id).exists():
+
+            self.slug = self.country.code + '-' + self.country.name
+
+        super(CountryFund, self).save()
 
     def __str__(self):
         return self.country.name
