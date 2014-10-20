@@ -78,6 +78,10 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('MD' in content)
         self.assertTrue('20852' in content)
 
+        #   Refetch the fund so we can lookup its donorinfo
+        fund = Fund.objects.get(pk=self.fund.pk)
+        self.assertEqual(1, len(fund.donorinfos.all()))
+
     def test_humanize_amount(self):
         """ The humanize_amount function converts an amount in cents into
         something that's human readable. """
