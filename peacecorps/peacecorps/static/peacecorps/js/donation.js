@@ -19,7 +19,7 @@ var Init = {
   //  State/Zip are only marked "required" if country == USA
   countryRequirements: function() {
     var country = $('#id_country'),
-        countryReqLabels = $('label[for=id_state], label[for=id_zip_code]');
+        countryReqLabels = $('label[for=id_billing_state], label[for=id_billing_zip]');
 
     country.change(function() {
       countryReqLabels.toggleClass('required', country.val() === 'USA');
@@ -42,7 +42,7 @@ var Init = {
 
     $('input[name=dedication_type]').change(function() {
       //  "this" refers to the *selected* radio button
-      var isMemory = ($('input[name=dedication_type]:checked').val()
+      var inMemory = ($('input[name=dedication_type]:checked').val()
                       === 'in-memory');
 
       $('#dedication_contact_wrapper').toggle(inMemory);
