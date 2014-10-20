@@ -1,10 +1,10 @@
+from django.apps import apps
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
 from peacecorps.views import donation_payment
-from peacecorps.views import donation_payment_review
 
 from peacecorps.views import donate_landing
 from peacecorps.views import donate_issue
@@ -27,3 +27,7 @@ urlpatterns = patterns(
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
+if apps.is_installed('paygov'):
+    urlpatterns += patterns(
+        '', url(r'^callback/', include('paygov.urls', namespace='paygov')))
