@@ -203,6 +203,11 @@ def donate_project(request, slug):
         })
 
 def donate_country(request, slug):
+    """
+    The page for the individual countries in which the Peace Corps operates.
+    Users can donate to the country fund and see the list of active projects in
+    that country.
+    """
     country = CountryFund.objects.select_related(
         'featured_image', 'fund').get(slug=slug)
     projects = Project.objects.filter(country=country.country)
@@ -216,6 +221,10 @@ def donate_country(request, slug):
         })
 
 def donate_countries(request):
+    """
+    Page listing all of the countries in which the Peace Corps is active, with
+    links to country pages.
+    """
     countries = CountryFund.objects.select_related(
         'featured_image', 'fund').all()
 
