@@ -27,7 +27,7 @@ class CountryFund(models.Model):
         help_text="A large landscape image for use in banners, headers, etc",
         blank=True, null=True)
     slug = models.SlugField(
-        help_text="used for the issue page url.",
+        help_text="used for the fund page url.",
         max_length=100, unique=True)
     description = models.TextField()
 
