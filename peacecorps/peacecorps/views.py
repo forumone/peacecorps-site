@@ -7,8 +7,9 @@ from django.shortcuts import get_object_or_404, render
 
 from paygov.payxml import convert_to_paygov
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Fund
-from peacecorps.models import humanize_amount, Issue, Project
+from peacecorps.models import CountryFund, FeaturedIssue
+from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
+from peacecorps.models import Issue, Project
 
 
 def donation_payment(request):
@@ -25,7 +26,7 @@ def donation_payment(request):
     except ValueError:
         return HttpResponseBadRequest('amount must be an integer value')
 
-    fund = Fund.objects.get(fundcode=project_code)
+    fund = Fund.objects.filter(fundcode=project_code).first()
     if not fund:
         return HttpResponseBadRequest('Invalid project')
 
@@ -129,4 +130,39 @@ def donate_project(request, slug):
         'donations/donate_project.jinja',
         {
             'project': project, 'form': form
+        })
+
+
+def donate_country(request, slug):
+    """
+    The page for the individual countries in which the Peace Corps operates.
+    Users can donate to the country fund and see the list of active projects in
+    that country.
+    """
+    country = CountryFund.objects.select_related(
+        'featured_image', 'fund').get(slug=slug)
+    projects = Project.objects.filter(country=country.country)
+
+    return render(
+        request,
+        'donations/donate_country.jinja',
+        {
+            'country': country,
+            'projects': projects,
+        })
+
+
+def donate_countries(request):
+    """
+    Page listing all of the countries in which the Peace Corps is active, with
+    links to country pages.
+    """
+    countries = CountryFund.objects.select_related(
+        'featured_image', 'fund').all()
+
+    return render(
+        request,
+        'donations/donate_countries.jinja',
+        {
+            'countries': countries,
         })

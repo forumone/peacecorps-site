@@ -10,8 +10,11 @@ class IssueAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
+class CountryFundAdmin(admin.ModelAdmin):
+    readonly_fields = ('slug',)
+
 admin.site.register(models.Country)
-admin.site.register(models.CountryFund)
+admin.site.register(models.CountryFund, CountryFundAdmin)
 admin.site.register(models.FeaturedIssue)
 admin.site.register(models.FeaturedProjectFrontPage)
 admin.site.register(models.Fund)
