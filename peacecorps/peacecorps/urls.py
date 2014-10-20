@@ -9,6 +9,8 @@ from peacecorps.views import donation_payment_review
 from peacecorps.views import donate_landing
 from peacecorps.views import donate_issue
 from peacecorps.views import donate_project
+from peacecorps.views import donate_country
+from peacecorps.views import donate_countries
 
 urlpatterns = patterns(
     '',
@@ -18,6 +20,10 @@ urlpatterns = patterns(
         donate_issue, name='donate issue'),
     url(r'^donate/project/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_project, name='donate project'),
+    url(r'^donate/country/(?P<slug>[a-zA-Z0-9_-]*)/?$',
+        donate_country, name='donate country'),
+    url(r'^donate/countries',
+        donate_countries, name='donate countries'),
     url(
         r'^donations/contribute/?$',
         donation_payment, name='donations_payment'),

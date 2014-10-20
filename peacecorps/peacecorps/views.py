@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import FeaturedIssue, FeaturedProjectFrontPage, Issue
-from peacecorps.models import Project
+from peacecorps.models import Project, CountryFund
 
 
 def humanize_amount(amount_cents):
@@ -201,3 +201,37 @@ def donate_project(request, slug):
         {
             'project': project, 'form': form
         })
+
+def donate_country(request, slug):
+    """
+    The page for the individual countries in which the Peace Corps operates.
+    Users can donate to the country fund and see the list of active projects in
+    that country.
+    """
+    country = CountryFund.objects.select_related(
+        'featured_image', 'fund').get(slug=slug)
+    projects = Project.objects.filter(country=country.country)
+
+    return render(
+        request,
+        'donations/donate_country.jinja',
+        {
+            'country': country,
+            'projects': projects,
+        })
+
+def donate_countries(request):
+    """
+    Page listing all of the countries in which the Peace Corps is active, with
+    links to country pages.
+    """
+    countries = CountryFund.objects.select_related(
+        'featured_image', 'fund').all()
+
+    return render(
+        request,
+        'donations/donate_countries.jinja',
+        {
+            'countries': countries,
+        })
+
