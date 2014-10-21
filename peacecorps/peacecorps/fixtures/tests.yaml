@@ -621,6 +621,18 @@
     fundgoal: 150000, fundtype: proj, name: Superhero School Scholarships}
   model: peacecorps.fund
   pk: 12
+- fields: {community_contribution: null, fundcode: canada-01, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Canada}
+  model: peacecorps.fund
+  pk: 13
+- fields: {community_contribution: null, fundcode: japan-01, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Japan}
+  model: peacecorps.fund
+  pk: 14
+- fields: {community_contribution: null, fundcode: country-cameroon, fundcurrent: 0,
+    fundgoal: null, fundtype: coun, name: Cameroon}
+  model: peacecorps.fund
+  pk: 15
 - fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
       amet, consectetur adipiscing elit. Nunc sagittis libero diam, vitae cursus odio
       aliquam at. Sed convallis volutpat libero nec ultricies. Nulla blandit diam
