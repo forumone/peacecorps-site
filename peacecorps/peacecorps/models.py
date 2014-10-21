@@ -1,7 +1,10 @@
-from django.db import models
-from localflavor.us.models import USPostalCodeField
+from datetime import timedelta
 
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
+from localflavor.us.models import USPostalCodeField
 
 
 def percentfunded(current, goal):
@@ -44,8 +47,8 @@ class CountryFund(models.Model):
         self.slug = slugify(self.country.name)
 
         # avoid error on non-unique
-        if CountryFund.objects.filter(slug=self.slug)\
-            .exclude(id=self.id).exists():
+        if CountryFund.objects.filter(
+                slug=self.slug).exclude(id=self.id).exists():
 
             self.slug = self.country.code + '-' + self.country.name
 
@@ -214,3 +217,16 @@ class Volunteer(models.Model):
 
     def __str__(self):
         return '%s - %s, %s' % (self.name, self.homecity, self.homestate)
+
+
+def default_expire_time():
+    return timezone.now() + timedelta(minutes=settings.DONOR_EXPIRE_AFTER)
+
+
+class DonorInfo(models.Model):
+    """Represents a blob of donor information which will be requested by
+    pay.gov. We need to limit accessibility as it contains PII"""
+    agency_tracking_id = models.CharField(max_length=21, primary_key=True)
+    fund = models.ForeignKey(Fund, related_name='donorinfos')
+    xml = models.TextField()    # @todo: encrypt
+    expires_at = models.DateTimeField(default=default_expire_time)

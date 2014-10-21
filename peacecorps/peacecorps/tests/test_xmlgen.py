@@ -1,7 +1,8 @@
+from xml.etree.ElementTree import tostring
+
 from django.test import TestCase
 
-from paygov import payxml
-from xml.etree.ElementTree import tostring
+from peacecorps import payxml
 
 
 def donor_custom_fields():

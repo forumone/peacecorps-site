@@ -5,11 +5,11 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
-from paygov.payxml import convert_to_paygov
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import CountryFund, FeaturedIssue
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
 from peacecorps.models import Issue, Project
+from peacecorps.payxml import convert_to_paygov
 
 
 def donation_payment(request):
