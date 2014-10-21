@@ -2,6 +2,7 @@ import logging
 
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import HttpResponseNotAllowed
+from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
 from paygov.models import DonorInfo
@@ -16,9 +17,6 @@ def data(request):
     if not request.POST.get('agency_tracking_id'):
         return HttpResponseBadRequest('Missing agency_tracking_id')
     else:
-        info = DonorInfo.objects.filter(
-            pk=request.POST.get('agency_tracking_id')).first()
-        if not info:
-            return HttpResponseBadRequest('Bad agency_tracking_id')
-        else:
-            return HttpResponse(info.xml)
+        info = get_object_or_404(
+            DonorInfo, pk=request.POST.get('agency_tracking_id'))
+        return HttpResponse(info.xml, content_type='text/xml')

@@ -27,9 +27,10 @@ class DataTests(TestCase):
 
         result = self.client.post(reverse('paygov:data'),
                                   data={'agency_tracking_id': 'BAD'})
-        self.assertEqual(result.status_code, 400)
+        self.assertEqual(result.status_code, 404)
 
     def test_success(self):
         result = self.client.post(reverse('paygov:data'),
                                   data={'agency_tracking_id': 'TRACK'})
         self.assertEqual(result.content, b'XML')
+        self.assertEqual(result['Content-Type'], 'text/xml')
