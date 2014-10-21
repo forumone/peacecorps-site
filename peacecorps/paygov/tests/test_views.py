@@ -97,3 +97,4 @@ class ResultsTests(TestCase):
         self.assertEqual(1, len(fund.donations.all()))
         donation = fund.donations.all()[0]
         self.assertEqual(donation.amount, 12500)
+        self.assertEqual(0, len(fund.donorinfos.all()))
