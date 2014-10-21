@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import models as tinymce_models
 from localflavor.us.models import USPostalCodeField
 
 from django.utils.text import slugify
@@ -29,7 +30,7 @@ class CountryFund(models.Model):
     slug = models.SlugField(
         help_text="used for the fund page url.",
         max_length=100, unique=True)
-    description = models.TextField()
+    description = tinymce_models.HTMLField()
 
     def save(self):
         # can't prepopulate slugfields from foreignkeys in the admin.
