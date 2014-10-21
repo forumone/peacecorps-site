@@ -6,9 +6,17 @@ from django.utils.text import slugify
 
 def percentfunded(current, goal):
     try:
-        return round((current/goal)*100,2)
+        return round((current/goal)*100, 2)
     except ZeroDivisionError:
         return 0
+
+
+def humanize_amount(amount_cents):
+    """ Return a string that presents the donation amount in a humanized
+    format. """
+
+    amount_dollars = amount_cents/100.0
+    return "$%.2f" % (amount_dollars)
 
 
 class Country(models.Model):
@@ -74,12 +82,12 @@ class Fund(models.Model):
     OTHER = 'oth'
     PROJECT = 'proj'
     SECTOR = 'sec'
-    FUNDTYPE_CHOICES=(
+    FUNDTYPE_CHOICES = (
         (COUNTRY, 'Country'),
         (SECTOR, 'Sector'),
         (MEMORIAL, 'Memorial'),
         (OTHER, 'Other'),
-        (PROJECT,'Project'),
+        (PROJECT, 'Project'),
     )
 
     name = models.CharField(max_length=120)

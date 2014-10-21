@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'peacecorps',
+    'paygov',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,3 +73,9 @@ PAY_GOV_APP_NAME = 'DONORPAGES'
 
 # The URL for the pay.gov payment service.
 PAY_GOV_OCI_URL = 'mockpay'
+
+# This id is also provided by pay.gov
+PAY_GOV_FORM_ID = 'TODO'
+
+# DonorInfo objects expire after a set period of time
+DONOR_EXPIRE_AFTER = 30      # minutes
