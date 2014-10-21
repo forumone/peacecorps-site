@@ -568,6 +568,55 @@
 - fields: {code: ZIM, name: Zimbabwe}
   model: peacecorps.country
   pk: 190
+- fields: {country: 31, description: '<p>Donec feugiat enim sed dignissim accumsan.
+      Sed scelerisque iaculis quam, sed mollis lacus blandit sit amet. Pellentesque
+      nisl velit, sollicitudin malesuada libero elementum, rutrum porta turpis. Cras
+      suscipit, nunc eu tempus venenatis, sem lectus hendrerit felis, vel bibendum
+      ipsum ipsum sit amet dolor. Vestibulum ante ipsum primis in faucibus orci luctus
+      et ultrices posuere cubilia Curae; Aenean ultrices ex eu venenatis venenatis.
+      Integer eleifend ligula vitae tortor scelerisque, faucibus cursus elit posuere.
+      Aliquam erat volutpat. Pellentesque eleifend tortor a nulla sodales vestibulum.
+      Aliquam bibendum leo eu purus bibendum, sit amet blandit est facilisis. Maecenas
+      ut dui eget lectus rhoncus consectetur. Aenean laoreet eget lectus nec congue.
+      Phasellus nulla nulla, viverra sed lacus non, viverra laoreet lacus.</p>', featured_image: 7,
+    fund: 13, slug: canada}
+  model: peacecorps.countryfund
+  pk: 1
+- fields: {country: 85, description: "<p>Proin at sem vel lorem tincidunt lobortis
+      viverra a urna. Praesent at congue mi, sed dignissim arcu. Quisque quis facilisis
+      ligula. Pellentesque dictum est nulla. In sagittis arcu in purus vulputate imperdiet.
+      Proin nec risus lacinia, dignissim felis nec, porta sem. Etiam tortor magna,
+      porta eget dui ut, consequat aliquet dui. Morbi varius laoreet risus, ac auctor
+      magna semper ac. Vestibulum libero dui, tristique non ex sed, condimentum pharetra
+      ex. Nam quis lorem tempor, luctus sapien nec, congue lorem. Nulla elementum
+      vel tortor euismod convallis. Vestibulum aliquet pulvinar lacus id sagittis.
+      Aenean ornare diam ac odio eleifend, vitae fermentum nisl malesuada.</p>\r\n\r\n<p>Duis
+      vitae ullamcorper sem, at vehicula orci. Donec dapibus, enim a posuere tincidunt,
+      turpis arcu tristique odio, sed vestibulum mi ante nec leo. Curabitur hendrerit
+      lacinia ultrices. Aliquam eget lacinia quam. Proin mattis massa massa, vitae
+      vestibulum quam facilisis a. Morbi dolor quam, tempor sit amet scelerisque nec,
+      auctor id eros. Aliquam pharetra odio eget varius laoreet. Morbi sit amet gravida
+      ipsum, in venenatis lacus. Morbi vestibulum libero quis placerat ultricies.
+      Aenean ornare fringilla libero, ac ultrices lacus pellentesque id.</p>", featured_image: 5,
+    fund: 14, slug: japan}
+  model: peacecorps.countryfund
+  pk: 2
+- fields: {country: 33, description: "Cameroon is the best. Michelle was in Cameroon.
+      She taught english and raised money to build a computer lab at the school.\r\n\r\nLorem
+      ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut nisi ac nulla consequat
+      ultrices vel et erat. Nulla eget cursus nulla, a tincidunt nisl. Proin nec consequat
+      arcu. Vivamus finibus in mauris sed luctus. Morbi blandit cursus erat, sed finibus
+      ipsum. Nam turpis arcu, mollis iaculis sem et, finibus aliquet velit. Sed et
+      libero at tellus gravida mattis. Etiam pretium luctus justo, id pretium nisl
+      dapibus nec. Vestibulum laoreet scelerisque est.\r\n\r\nQuisque eu sem ipsum.
+      Integer sit amet diam id ex auctor consectetur id quis metus. Phasellus condimentum
+      turpis a cursus vulputate. Suspendisse nec eleifend arcu, at placerat nunc.
+      Nullam efficitur justo nec mi laoreet, in eleifend sapien consequat. Nunc et
+      tincidunt elit, eu sodales odio. Praesent iaculis nisl eget tellus feugiat,
+      vulputate sagittis libero rhoncus. Aliquam placerat urna arcu, laoreet euismod
+      massa faucibus luctus.", featured_image: 2, fund: 15, slug: cameroon}
+  model: peacecorps.countryfund
+  pk: 3
 - fields: {issue: 2}
   model: peacecorps.featuredissue
   pk: 1
@@ -737,6 +786,11 @@
     title: Miss Martian, transcript: ''}
   model: peacecorps.media
   pk: 6
+- fields: {author: 2, caption: Bird photo from flickr, country: 31, description: A
+      photo of an open book with a bird illumination at the bottom of the page., file: ./bird_tale-wallpaper-2560x1600.jpg,
+    mediatype: IMG, title: Bird Illumination, transcript: ''}
+  model: peacecorps.media
+  pk: 7
 - fields:
     country: 1
     description: "<p>Nam in lobortis erat, non fringilla lectus. Donec et turpis id
