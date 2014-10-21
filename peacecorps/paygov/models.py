@@ -1,11 +1,12 @@
 from datetime import timedelta
 
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
 
 def default_expire_time():
-    return timezone.now() + timedelta(minutes=20)
+    return timezone.now() + timedelta(minutes=settings.DONOR_EXPIRE_AFTER)
 
 
 class DonorInfo(models.Model):

@@ -76,3 +76,6 @@ PAY_GOV_OCI_URL = 'mockpay'
 
 # This id is also provided by pay.gov
 PAY_GOV_FORM_ID = 'TODO'
+
+# DonorInfo objects expire after a set period of time
+DONOR_EXPIRE_AFTER = 30      # minutes
