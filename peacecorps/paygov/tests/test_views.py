@@ -1,8 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from paygov.models import DonorInfo
-from peacecorps.models import Fund
+from peacecorps.models import DonorInfo, Fund
 
 
 class DataTests(TestCase):

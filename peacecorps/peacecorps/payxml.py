@@ -4,8 +4,7 @@ from uuid import uuid4
 
 from django.conf import settings
 
-from paygov.models import DonorInfo
-from peacecorps.models import humanize_amount
+from peacecorps.models import DonorInfo, humanize_amount
 
 
 def add_subelements(parent, data, elements):

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import paygov.models
+import peacecorps
 
 
 class Migration(migrations.Migration):
@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='donorinfo',
             name='expires_at',
-            field=models.DateTimeField(default=paygov.models.default_expire_time),
+            field=models.DateTimeField(default=peacecorps.models.default_expire_time),
             preserve_default=True,
         ),
         migrations.AlterField(
