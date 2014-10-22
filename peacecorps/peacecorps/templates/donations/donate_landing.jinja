@@ -1,34 +1,50 @@
-<html lang='en'>
-<head>
-    <title>Peace Corps - Donate</title>
-</head>
-<body>
+{% extends "donations/base.jinja" %}
 
-<h1>Peace Corps - Donate</h1>
+{% block title %}PEACECORPS{% endblock %}
+{% block header %}PEACECORPS{% endblock %}
+{% block content_id %}landing{% endblock %}
+
+{% block content %}
 
 {% if featuredissue %}
-<div>{{featuredissue.tagline}}
-{{featuredissue.call}}
-<a href="donate/issue/{{featuredissue.slug}}"><img src="{{featuredissue.featured_image.url}}", alt="{{featuredissue.featured_image.description}}"></a></div>
+<div id="featured">
+  <img src="{{featuredissue.featured_image.url}}"
+       alt="{{featuredissue.featured_image.description}}" />
+  <div id="featured-tagline">{{featuredissue.tagline}}</div>
+  <div id="featured-call">
+    <a href="{{url("donate issue", slug=featuredissue.slug)}}"
+       class="button-link">{{featuredissue.call}}</a></div>
+</div>
 {% endif %}
 
 <h2>Issues</h2>
+<div id="issues">
 {% for issue in issues %}
-<div><a href="donate/issue/{{issue.slug}}"><img src="{{issue.icon.url}}"></a>
-{{issue.name}}</div>
+  <div>
+    <a href="{{url("donate issue", slug=issue.slug)}}"><img
+       src="{{issue.icon.url}}" /></a>
+    <span>{{issue.name}}</span>
+  </div>
 {% endfor %}
+</div>
 
 <h2>Featured Projects</h2>
 {% for project in featuredprojects %}
-<div>{{project.title}}<a href="donate/project/{{project.slug}}"><img src="{{project.project.featured_image.url}}"></a></div>
+  <div class="featured-project">
+    <img src="{{project.project.featured_image.url}}" />
+    <div class="project-tagline">{{project.tagline}}</div>
+    <div class="project-call">
+      <a href="{{url("donate project", slug=project.slug)}}"
+         class="button-link">Read the Field Report</a></div>
+  </div>
 {% endfor %}
 
-<h2>All Projects</h2>
+<h2>More Projects</h2>
+<ul id="more-projects">
 {% for project in projects %}
-<div><a href="donate/project/{{project.slug}}">{{project.title}}</a></div>
+<li><a href="{{url("donate project", slug=project.slug)}}"
+       >{{project.title}}</a></li>
 {% endfor %}
+</ul>
 
-<h2>Countries</h2>
-<div><a href="donate/countries">Countries Page</a></div>
-</body>
-</html>
+{% endblock %}
