@@ -1,14 +1,29 @@
 from django.db import models
+from tinymce import models as tinymce_models
 from localflavor.us.models import USPostalCodeField
 
+from datetime import timedelta
+
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
+from localflavor.us.models import USPostalCodeField
 
 
 def percentfunded(current, goal):
     try:
-        return round((current/goal)*100,2)
+        return round((current/goal)*100, 2)
     except ZeroDivisionError:
         return 0
+
+
+def humanize_amount(amount_cents):
+    """ Return a string that presents the donation amount in a humanized
+    format. """
+
+    amount_dollars = amount_cents/100.0
+    return "$%.2f" % (amount_dollars)
 
 
 class Country(models.Model):
@@ -29,15 +44,15 @@ class CountryFund(models.Model):
     slug = models.SlugField(
         help_text="used for the fund page url.",
         max_length=100, unique=True)
-    description = models.TextField()
+    description = tinymce_models.HTMLField()
 
     def save(self):
         # can't prepopulate slugfields from foreignkeys in the admin.
         self.slug = slugify(self.country.name)
 
         # avoid error on non-unique
-        if CountryFund.objects.filter(slug=self.slug)\
-            .exclude(id=self.id).exists():
+        if CountryFund.objects.filter(
+                slug=self.slug).exclude(id=self.id).exists():
 
             self.slug = self.country.code + '-' + self.country.name
 
@@ -74,12 +89,12 @@ class Fund(models.Model):
     OTHER = 'oth'
     PROJECT = 'proj'
     SECTOR = 'sec'
-    FUNDTYPE_CHOICES=(
+    FUNDTYPE_CHOICES = (
         (COUNTRY, 'Country'),
         (SECTOR, 'Sector'),
         (MEMORIAL, 'Memorial'),
         (OTHER, 'Other'),
-        (PROJECT,'Project'),
+        (PROJECT, 'Project'),
     )
 
     name = models.CharField(max_length=120)
@@ -141,8 +156,6 @@ class Media(models.Model):
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
     caption = models.TextField(blank=True, null=True)
-    author = models.ForeignKey(
-        'Volunteer', related_name="media", blank=True, null=True)
     country = models.ForeignKey('Country', blank=True, null=True)
     description = models.TextField(
         help_text="Provide an image description for users with screenreaders. \
@@ -165,14 +178,14 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.")
-    volunteer = models.ForeignKey('Volunteer')
     slug = models.SlugField(max_length=100, help_text="for the project url.")
-    description = models.TextField(help_text="the full description.")
+    description = tinymce_models.HTMLField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     issue = models.ForeignKey('Issue', related_name="projects")
     issues_related = models.ManyToManyField(
         'Issue', related_name="related_projects",
-        help_text="other issues this project relates to.")
+        help_text="other issues this project relates to.",
+        blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media',
         help_text="A large landscape image for use in banners, headers, etc")
@@ -181,28 +194,31 @@ class Project(models.Model):
     fund = models.ForeignKey('Fund', unique=True)
     # This one can't be its own table because Django doesn't do OneToMany.
     issue_feature = models.BooleanField(default=False)
+    volunteername = models.CharField(max_length=100)
+    volunteerpicture = models.ForeignKey(
+        'Media', related_name="volunteer", blank=True, null=True)
+    volunteerhomestate = USPostalCodeField(blank=True, null=True)
+    volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
 
     def __str__(self):
         return self.title
 
 
-class Volunteer(models.Model):
-    HE = "H"
-    SHE = "S"
-    THEY = "T"
-    PRONOUN_CHOICES = (
-        (HE, 'He'),
-        (SHE, 'She'),
-        (THEY, 'They'),
-    )
+def default_expire_time():
+    return timezone.now() + timedelta(minutes=settings.DONOR_EXPIRE_AFTER)
 
-    name = models.CharField(max_length=100)
-    pronouns = models.CharField(
-        max_length=2, choices=PRONOUN_CHOICES, default=THEY)
-    profile_image = models.ForeignKey(
-        'Media', related_name="volunteer", blank=True, null=True)
-    homestate = USPostalCodeField(blank=True, null=True)
-    homecity = models.CharField(max_length=120, blank=True, null=True)
 
-    def __str__(self):
-        return '%s - %s, %s' % (self.name, self.homecity, self.homestate)
+class DonorInfo(models.Model):
+    """Represents a blob of donor information which will be requested by
+    pay.gov. We need to limit accessibility as it contains PII"""
+    agency_tracking_id = models.CharField(max_length=21, primary_key=True)
+    fund = models.ForeignKey(Fund, related_name='donorinfos')
+    xml = models.TextField()    # @todo: encrypt
+    expires_at = models.DateTimeField(default=default_expire_time)
+
+
+class Donation(models.Model):
+    """Log donation amounts as received from pay.gov"""
+    fund = models.ForeignKey(Fund, related_name='donations')
+    amount = models.PositiveIntegerField()
+    time = models.DateTimeField(auto_now=True)

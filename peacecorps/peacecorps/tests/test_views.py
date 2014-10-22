@@ -3,23 +3,8 @@ from django.test import TestCase
 from django.test.client import Client
 from django.utils.importlib import import_module
 
-from peacecorps.models import Project
-from peacecorps.views import generate_agency_tracking_id, generate_agency_memo
-from peacecorps.views import generate_custom_fields, humanize_amount
-
-
-def donor_custom_fields():
-    data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
-            'billing_address': 'stttt', 'billing_city': 'ccc',
-            'billing_state': 'ST',
-            'billing_zip': '90210', 'organization_name': 'OOO',
-            'dedication_name': 'Bob', 'dedication_contact': 'Patty',
-            'dedication_email': 'family@example.com',
-            'dedication_type': 'in-memory',
-            'dedication_consent': 'no-dedication-consent',
-            'card_dedication': 'Good Jorb',
-            'dedication_address': '111 Somewhere'}
-    return data
+from peacecorps.models import Fund, Project
+from peacecorps.views import humanize_amount
 
 
 class SessionTestCase(TestCase):
@@ -33,13 +18,11 @@ class SessionTestCase(TestCase):
 
 
 class DonationsTests(SessionTestCase):
+    def setUp(self):
+        self.fund = Fund.objects.create(fundcode='FUNDFUND')
 
-    def test_generate_agency_tracking_id(self):
-        """ This just tests the start of a generated tracking id, which is
-        currently the only piece we're sure of. """
-
-        tracking_id = generate_agency_tracking_id()
-        self.assertTrue(tracking_id.startswith('PCOCI'))
+    def tearDown(self):
+        self.fund.delete()
 
     def test_contribution_parameters(self):
         """ To get to the page where name, address are filled out before being
@@ -48,17 +31,18 @@ class DonationsTests(SessionTestCase):
         """
 
         response = self.client.get(
-            '/donations/contribute/?amount=2000&project=14-532-001')
+            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode)
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.00' in content)
-        self.assertTrue('14-532-001')
+        self.assertTrue(self.fund.fundcode)     # Check that this is nonempty
+        self.assertTrue(self.fund.fundcode in content)
 
     def test_payment_type(self):
         """Check that the payment type values are rendered correctly."""
 
         response = self.client.get(
-            '/donations/contribute/?amount=2000&project=14-532-001')
+            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode)
         content = response.content.decode('utf-8')
         self.assertTrue('id_payment_type_0' in content)
         self.assertTrue('id_payment_type_1' in content)
@@ -83,11 +67,10 @@ class DonationsTests(SessionTestCase):
             'information_consent': 'vol-consent-yes'}
 
         response = self.client.post(
-            '/donations/contribute/?amount=2000&project=14-532-001', form_data)
+            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode,
+            form_data)
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
-        memo = generate_agency_memo(form_data)
-        self.assertTrue(memo in content)
         self.assertTrue('agency_tracking_id' in content)
         self.assertTrue('agency_id' in content)
         self.assertTrue('1 Main Street' in content)
@@ -95,44 +78,9 @@ class DonationsTests(SessionTestCase):
         self.assertTrue('MD' in content)
         self.assertTrue('20852' in content)
 
-    def test_generate_agency_memo(self):
-        """The data dictionary should be serialized in the predictable way.
-        Allow all fields to be optional"""
-        data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
-                'information_consent': 'vol-consent-yes',
-                'payment_amount': 2000, 'project_code': '14-54FF',
-                'interest_conflict': True, 'email_consent': True}
-        memo = generate_agency_memo(data)
-        self.assertEqual(
-            "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
-
-        memo = generate_agency_memo({
-            'payment_amount': 2000, 'project_code': '14-54FF'})
-        self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
-
-    def test_generate_custom_fields(self):
-        """The data dictionary should be serialized in the predictable way.
-        Allow all fields to be optional"""
-        data = donor_custom_fields()
-
-        self.assertEqual(generate_custom_fields(data), {
-            'custom_field_1': '(1112223333)(aaa@example.com)',
-            'custom_field_2': '(stttt)',
-            'custom_field_3': '(ccc)(ST)(90210)',
-            'custom_field_4': '(OOO)',
-            'custom_field_5': '(Bob)(Patty)(family@example.com)',
-            'custom_field_6': '(Memory)(no)(Good Jorb)',
-            'custom_field_7': '(111 Somewhere)'
-        })
-        self.assertEqual(generate_custom_fields({}), {
-            'custom_field_1': '()()',
-            'custom_field_2': '()',
-            'custom_field_3': '()()()',
-            'custom_field_4': '()',
-            'custom_field_5': '()()()',
-            'custom_field_6': '(Honor)(yes)()',
-            'custom_field_7': '()'
-        })
+        #   Refetch the fund so we can lookup its donorinfo
+        fund = Fund.objects.get(pk=self.fund.pk)
+        self.assertEqual(1, len(fund.donorinfos.all()))
 
     def test_humanize_amount(self):
         """ The humanize_amount function converts an amount in cents into
@@ -168,11 +116,11 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_issue_rendering(self):
-        response = self.client.get('/donate/issue/innovation')
+        response = self.client.get('/donate/issue/health')
         self.assertEqual(response.status_code, 200)
 
     def test_project_rendering(self):
-        response = self.client.get('/donate/project/test-project')
+        response = self.client.get('/donate/project/brick-oven-bakery')
         self.assertEqual(response.status_code, 200)
 
     def test_country_rendering(self):
@@ -184,28 +132,28 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': ''})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': '0.99'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': '10000.01'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_redirect(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'preset-all'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("950000" in response['Location'])
-        fundcode = Project.objects.get(slug='catch-the-joker').fund.fundcode
+        self.assertTrue("220000" in response['Location'])
+        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
         self.assertTrue(fundcode)
         self.assertTrue(fundcode in response['Location'])
