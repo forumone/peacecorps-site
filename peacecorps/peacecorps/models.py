@@ -235,3 +235,10 @@ class DonorInfo(models.Model):
     fund = models.ForeignKey(Fund, related_name='donorinfos')
     xml = models.TextField()    # @todo: encrypt
     expires_at = models.DateTimeField(default=default_expire_time)
+
+
+class Donation(models.Model):
+    """Log donation amounts as received from pay.gov"""
+    fund = models.ForeignKey(Fund, related_name='donations')
+    amount = models.PositiveIntegerField()
+    time = models.DateTimeField(auto_now=True)
