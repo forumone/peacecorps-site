@@ -17,14 +17,14 @@
 </div>
 
 <div id="donation-stats">
-  {% if project.volunteer.profile_image %}
+  {% if project.volunteerpicture %}
     <div id="volunteer-image">
-      <img src="{{project.volunteer.profile_image.url}}"
-           alt="{{project.volunteer.profile_image.description}}">
+      <img src="{{project.volunteerpicture.url}}"
+           alt="{{project.volunteerpicture.description}}">
     </div>
   {% endif %}
   <div id="volunteer-info">
-    <p><strong>{{project.volunteer.name}}</strong> from <strong>{{project.volunteer.homecity}}, {{project.volunteer.homestate}}</strong></p>
+    <p><strong>{{project.volunteername}}</strong> from <strong>{{project.volunteerhomecity}}, {{project.volunteerhomestate}}</strong></p>
     {% set funded_percent = project.fund.percent_funded() %}
     <div id="funded-chart">
       <div id="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
