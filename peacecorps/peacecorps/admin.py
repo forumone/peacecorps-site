@@ -21,4 +21,4 @@ admin.site.register(models.Fund)
 admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.Media)
 admin.site.register(models.Project, ProjectAdmin)
-admin.site.register(models.Volunteer)
+
