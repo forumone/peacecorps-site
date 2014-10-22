@@ -12,3 +12,5 @@ DATABASES = {
 }
 
 STATIC_ROOT = '/static/'
+
+INSTALLED_APPS += ('paygov',)
