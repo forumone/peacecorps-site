@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
 from django.utils.importlib import import_module
@@ -101,6 +102,14 @@ class DonationsTests(SessionTestCase):
         response = self.client.get(
             '/donations/contribute/?amount=aaa&project_code=154')
         self.assertEqual(response.status_code, 400)
+
+    def test_completed_success(self):
+        response = self.client.get(reverse('donation success'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_completed_failure(self):
+        response = self.client.get(reverse('donation failure'))
+        self.assertEqual(response.status_code, 200)
 
 
 class DonatePagesTests(TestCase):
