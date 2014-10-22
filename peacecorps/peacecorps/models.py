@@ -156,8 +156,6 @@ class Media(models.Model):
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
     caption = models.TextField(blank=True, null=True)
-    author = models.ForeignKey(
-        'Volunteer', related_name="media", blank=True, null=True)
     country = models.ForeignKey('Country', blank=True, null=True)
     description = models.TextField(
         help_text="Provide an image description for users with screenreaders. \
@@ -180,7 +178,6 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.")
-    volunteer = models.ForeignKey('Volunteer')
     slug = models.SlugField(max_length=100, help_text="for the project url.")
     description = tinymce_models.HTMLField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
@@ -197,31 +194,14 @@ class Project(models.Model):
     fund = models.ForeignKey('Fund', unique=True)
     # This one can't be its own table because Django doesn't do OneToMany.
     issue_feature = models.BooleanField(default=False)
+    volunteername = models.CharField(max_length=100)
+    volunteerpicture = models.ForeignKey(
+        'Media', related_name="volunteer", blank=True, null=True)
+    volunteerhomestate = USPostalCodeField(blank=True, null=True)
+    volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
 
     def __str__(self):
         return self.title
-
-
-class Volunteer(models.Model):
-    HE = "H"
-    SHE = "S"
-    THEY = "T"
-    PRONOUN_CHOICES = (
-        (HE, 'He'),
-        (SHE, 'She'),
-        (THEY, 'They'),
-    )
-
-    name = models.CharField(max_length=100)
-    pronouns = models.CharField(
-        max_length=2, choices=PRONOUN_CHOICES, default=THEY)
-    profile_image = models.ForeignKey(
-        'Media', related_name="volunteer", blank=True, null=True)
-    homestate = USPostalCodeField(blank=True, null=True)
-    homecity = models.CharField(max_length=120, blank=True, null=True)
-
-    def __str__(self):
-        return '%s - %s, %s' % (self.name, self.homecity, self.homestate)
 
 
 def default_expire_time():
