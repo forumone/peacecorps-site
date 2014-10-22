@@ -116,11 +116,11 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_issue_rendering(self):
-        response = self.client.get('/donate/issue/innovation')
+        response = self.client.get('/donate/issue/health')
         self.assertEqual(response.status_code, 200)
 
     def test_project_rendering(self):
-        response = self.client.get('/donate/project/test-project')
+        response = self.client.get('/donate/project/brick-oven-bakery')
         self.assertEqual(response.status_code, 200)
 
     def test_country_rendering(self):
@@ -132,28 +132,28 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': ''})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': '0.99'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'custom',
                                      'payment_amount': '10000.01'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_redirect(self):
-        response = self.client.post('/donate/project/catch-the-joker',
+        response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'presets': 'preset-all'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("950000" in response['Location'])
-        fundcode = Project.objects.get(slug='catch-the-joker').fund.fundcode
+        self.assertTrue("220000" in response['Location'])
+        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
         self.assertTrue(fundcode)
         self.assertTrue(fundcode in response['Location'])

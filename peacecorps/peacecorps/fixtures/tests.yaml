@@ -568,458 +568,1134 @@
 - fields: {code: ZIM, name: Zimbabwe}
   model: peacecorps.country
   pk: 190
-- fields: {country: 31, description: '<p>Donec feugiat enim sed dignissim accumsan.
-      Sed scelerisque iaculis quam, sed mollis lacus blandit sit amet. Pellentesque
-      nisl velit, sollicitudin malesuada libero elementum, rutrum porta turpis. Cras
-      suscipit, nunc eu tempus venenatis, sem lectus hendrerit felis, vel bibendum
-      ipsum ipsum sit amet dolor. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia Curae; Aenean ultrices ex eu venenatis venenatis.
-      Integer eleifend ligula vitae tortor scelerisque, faucibus cursus elit posuere.
-      Aliquam erat volutpat. Pellentesque eleifend tortor a nulla sodales vestibulum.
-      Aliquam bibendum leo eu purus bibendum, sit amet blandit est facilisis. Maecenas
-      ut dui eget lectus rhoncus consectetur. Aenean laoreet eget lectus nec congue.
-      Phasellus nulla nulla, viverra sed lacus non, viverra laoreet lacus.</p>', featured_image: 7,
-    fund: 13, slug: canada}
+- fields: {code: GAM, name: Gambia}
+  model: peacecorps.country
+  pk: 191
+- fields: {country: 3, description: 'Contributions to the Albania Country Fund will
+      support Volunteer and community projects that will take place in Albania. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 20, slug: albania}
   model: peacecorps.countryfund
-  pk: 1
-- fields: {country: 85, description: "<p>Proin at sem vel lorem tincidunt lobortis
-      viverra a urna. Praesent at congue mi, sed dignissim arcu. Quisque quis facilisis
-      ligula. Pellentesque dictum est nulla. In sagittis arcu in purus vulputate imperdiet.
-      Proin nec risus lacinia, dignissim felis nec, porta sem. Etiam tortor magna,
-      porta eget dui ut, consequat aliquet dui. Morbi varius laoreet risus, ac auctor
-      magna semper ac. Vestibulum libero dui, tristique non ex sed, condimentum pharetra
-      ex. Nam quis lorem tempor, luctus sapien nec, congue lorem. Nulla elementum
-      vel tortor euismod convallis. Vestibulum aliquet pulvinar lacus id sagittis.
-      Aenean ornare diam ac odio eleifend, vitae fermentum nisl malesuada.</p>\r\n\r\n<p>Duis
-      vitae ullamcorper sem, at vehicula orci. Donec dapibus, enim a posuere tincidunt,
-      turpis arcu tristique odio, sed vestibulum mi ante nec leo. Curabitur hendrerit
-      lacinia ultrices. Aliquam eget lacinia quam. Proin mattis massa massa, vitae
-      vestibulum quam facilisis a. Morbi dolor quam, tempor sit amet scelerisque nec,
-      auctor id eros. Aliquam pharetra odio eget varius laoreet. Morbi sit amet gravida
-      ipsum, in venenatis lacus. Morbi vestibulum libero quis placerat ultricies.
-      Aenean ornare fringilla libero, ac ultrices lacus pellentesque id.</p>", featured_image: 5,
-    fund: 14, slug: japan}
+  pk: 8
+- fields: {country: 9, description: 'Contributions to the Armenia Country Fund will
+      support Volunteer and community projects that will take place in Armenia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 21, slug: armenia}
   model: peacecorps.countryfund
-  pk: 2
-- fields: {country: 33, description: "Cameroon is the best. Michelle was in Cameroon.
-      She taught english and raised money to build a computer lab at the school.\r\n\r\nLorem
-      ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut nisi ac nulla consequat
-      ultrices vel et erat. Nulla eget cursus nulla, a tincidunt nisl. Proin nec consequat
-      arcu. Vivamus finibus in mauris sed luctus. Morbi blandit cursus erat, sed finibus
-      ipsum. Nam turpis arcu, mollis iaculis sem et, finibus aliquet velit. Sed et
-      libero at tellus gravida mattis. Etiam pretium luctus justo, id pretium nisl
-      dapibus nec. Vestibulum laoreet scelerisque est.\r\n\r\nQuisque eu sem ipsum.
-      Integer sit amet diam id ex auctor consectetur id quis metus. Phasellus condimentum
-      turpis a cursus vulputate. Suspendisse nec eleifend arcu, at placerat nunc.
-      Nullam efficitur justo nec mi laoreet, in eleifend sapien consequat. Nunc et
-      tincidunt elit, eu sodales odio. Praesent iaculis nisl eget tellus feugiat,
-      vulputate sagittis libero rhoncus. Aliquam placerat urna arcu, laoreet euismod
-      massa faucibus luctus.", featured_image: 2, fund: 15, slug: cameroon}
+  pk: 9
+- fields: {country: 12, description: 'Contributions to the Azerbaijan Country Fund
+      will support Volunteer and community projects that will take place in Azerbaijan.
+      These projects often focus on developing the skills of youth, but may also cover
+      other pressing needs determined by the community.', featured_image: null, fund: 22,
+    slug: azerbaijan}
   model: peacecorps.countryfund
-  pk: 3
-- fields: {issue: 2}
-  model: peacecorps.featuredissue
-  pk: 1
-- fields: {project: 1}
-  model: peacecorps.featuredprojectfrontpage
-  pk: 2
-- fields: {project: 2}
-  model: peacecorps.featuredprojectfrontpage
-  pk: 3
-- fields: {community_contribution: 10, fundcode: hou-01, fundcurrent: 0, fundgoal: 240000,
-    fundtype: sec, name: Housing}
+  pk: 10
+- fields: {country: 19, description: 'Contributions to the Belize Country Fund will
+      support Volunteer and community projects that will take place in Belize. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 23, slug: belize}
+  model: peacecorps.countryfund
+  pk: 11
+- fields: {country: 20, description: 'Contributions to the Benin Country Fund will
+      support Volunteer and community projects in education, health, environment and
+      small business. The fund also supports initiatives, such as Gender and Development
+      (GAD), which cover all sectors. You can earmark your contribution to support
+      girls'' empowerment camps and/or girls'' scholarships and other GAD activities.',
+    featured_image: null, fund: 24, slug: benin}
+  model: peacecorps.countryfund
+  pk: 12
+- fields: {country: 24, description: Contributions to the Botswana Country Fund will
+      support Volunteer and community projects that will take place in Botswana. These
+      projects support reducing transmission of HIV and minimizing the impact of HIV
+      and AIDS on individuals and communities., featured_image: null, fund: 25, slug: botswana}
+  model: peacecorps.countryfund
+  pk: 13
+- fields: {country: 28, description: 'Contributions to the Burkina Faso Country Fund
+      will support Volunteer and community projects that will take place in Burkina
+      Faso. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 26, slug: burkina-faso}
+  model: peacecorps.countryfund
+  pk: 14
+- fields: {country: 32, description: 'Contributions to the Cambodia Country Fund will
+      support Volunteer and community projects that will take place in Cambodia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 27, slug: cambodia}
+  model: peacecorps.countryfund
+  pk: 15
+- fields: {country: 33, description: 'Contributions to the Cameroon Country Fund will
+      support Volunteer and community projects that will take place in Cameroon. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 28, slug: cameroon}
+  model: peacecorps.countryfund
+  pk: 16
+- fields: {country: 38, description: 'Contributions to the China Country Fund will
+      support Volunteer and community projects that will take place in China. These
+      projects are largely built around the volunteer''s assignment teaching English
+      on university campuses. Volunteer project activities include creating or expanding
+      English Language Resource rooms, programs to develop critical thinking skills,
+      and teacher training workshops. Volunteers also develop projects with focal
+      areas that fall under Peace Corps initiatives such as women in development and
+      HIV/AIDS awareness.', featured_image: null, fund: 29, slug: china}
+  model: peacecorps.countryfund
+  pk: 17
+- fields: {country: 39, description: 'Contributions to the Colombia Country Fund will
+      support Volunteer and community projects that will take place in Colombia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 30, slug: colombia}
+  model: peacecorps.countryfund
+  pk: 18
+- fields: {country: 43, description: 'Contributions made to the Costa Rica Country
+      Fund will support Volunteers and their community partners with Children, Youth
+      and Family; Community Economic Development; and Rural Community Development
+      projects. The types of projects for which Volunteers and their communities solicit
+      vary based on the unique needs and priorities of their communities. Common Costa
+      Rica projects include: sports development camps and equipment, HIV/AIDS awareness
+      and prevention workshops, public infrastructure development including clinics
+      and school playgrounds, classrooms, sports fields, libraries, and computer labs;
+      and capacity building activities that develop knowledge and skills in one or
+      more of the following areas: youth development, gender empowerment, business,
+      fine arts, performing arts, music, English, information and communications technology,
+      and life skills.', featured_image: null, fund: 31, slug: costa-rica}
+  model: peacecorps.countryfund
+  pk: 19
+- fields: {country: 51, description: 'Contributions to the Dominican Republic Country
+      Fund will support Volunteer and community projects that will take place in Dominican
+      Republic. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 32, slug: dominican-republic}
+  model: peacecorps.countryfund
+  pk: 20
+- fields: {country: 53, description: 'Contributions to the Ecuador Country Fund will
+      support Volunteer and community projects that will take place in Ecuador. These
+      projects support our program work in Community Health, Natural Resources Conservation,
+      Teaching English as a Foreign Language (TEFL), and Youth & Families Development.',
+    featured_image: null, fund: 33, slug: ecuador}
+  model: peacecorps.countryfund
+  pk: 21
+- fields: {country: 55, description: 'Contributions to the El Salvador Country Fund
+      will support Volunteer and community projects that will take place in El Salvador.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 34, slug: el-salvador}
+  model: peacecorps.countryfund
+  pk: 22
+- fields: {country: 59, description: 'Contributions to the Ethiopia Country Fund will
+      support Volunteer and community projects that will take place in Ethiopia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 35, slug: ethiopia}
+  model: peacecorps.countryfund
+  pk: 23
+- fields: {country: 60, description: 'Contributions to the Fiji Country Fund will
+      support Volunteer and community projects that will take place in Fiji. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 36, slug: fiji}
+  model: peacecorps.countryfund
+  pk: 24
+- fields: {country: 64, description: 'Contributions to the Georgia Country Fund will
+      support Volunteer and community projects that will take place in Georgia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 37, slug: georgia}
+  model: peacecorps.countryfund
+  pk: 25
+- fields: {country: 66, description: 'Contributions to the Ghana Country Fund will
+      support Volunteer and community projects that will take place in Ghana. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 38, slug: ghana}
+  model: peacecorps.countryfund
+  pk: 26
+- fields: {country: 69, description: 'Contributions to the Guatemala Country Fund
+      will support Volunteer and community projects that will take place in Guatemala.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 39, slug: guatemala}
+  model: peacecorps.countryfund
+  pk: 27
+- fields: {country: 70, description: 'Contributions to the Guinea Country Fund will
+      support Volunteer and community projects that will take place in Guinea. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 40, slug: guinea}
+  model: peacecorps.countryfund
+  pk: 28
+- fields: {country: 72, description: 'Contributions to the Guyana Country Fund will
+      support Volunteer and community projects that will take place in Guyana. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 41, slug: guyana}
+  model: peacecorps.countryfund
+  pk: 29
+- fields: {country: 79, description: Contributions to the Indonesia Country Fund will
+      support Volunteer and community projects that will take place in Indonesia.
+      These projects will focus on English education and other pressing needs determined
+      by the community., featured_image: null, fund: 42, slug: indonesia}
+  model: peacecorps.countryfund
+  pk: 30
+- fields: {country: 84, description: 'Contributions to the Jamaica Country Fund will
+      support Volunteer and community projects that will take place in Jamaica. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 43, slug: jamaica}
+  model: peacecorps.countryfund
+  pk: 31
+- fields: {country: 86, description: 'Contributions to the Jordan Country Fund will
+      support Volunteer and community projects that will take place in Jordan. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 44, slug: jordan}
+  model: peacecorps.countryfund
+  pk: 32
+- fields: {country: 88, description: "<p>Contributions to the Kenya Country Fund will
+      support Volunteer Community projects in Kenya. The scope of projects to be funded
+      would likely fall within education, water/sanitation, health, agriculture, youth
+      development, vocational/special education and income-generating activities.&nbsp;</p>\r\n<p>Peace
+      Corps supports Kenya's goals of poverty eradication and industrialization as
+      well as Kenya's commitment to fight HIV/AIDS and malaria. Peace Corps Kenya's
+      current programs include Education (including Deaf Education), Public Health
+      and Small Enterprise Development/Information and Communications Technology.&nbsp;</p>\r\n<p>Insecurity,
+      poor infrastructure, access to clean water especially in rural areas, and adverse
+      poverty continues to be Kenya's major challenges. Changes in weather patterns
+      and high farming costs have compromised farmers' ability to plant and grow adequate
+      food, resulting in shortages of food and hunger in some parts of Kenya. The
+      demand for food continues to increase household poverty levels with more than
+      half of Kenyans (56%) living below the poverty level.&nbsp;</p>\r\n<p>HIV/AIDS
+      is another major social, economic and health problem in Kenya. Many young and
+      productive Kenyans die daily as a result of AIDS. Much productive time and resources
+      are spent in care and treatment for AIDS patients. The situation is worsened
+      when the patient is the household breadwinner.&nbsp;</p>\r\n<p>In addressing
+      these prevalent Kenya community needs, Peace Corps volunteers work hand in hand
+      with their Kenyan community counterparts in engaging the community to identify
+      their priority needs and possible interventions. The community also identifies
+      local resources and gaps within which external assistance is required.</p>",
+    featured_image: null, fund: 45, slug: kenya}
+  model: peacecorps.countryfund
+  pk: 33
+- fields: {country: 95, description: 'Contributions to the Lesotho Country Fund will
+      support Volunteer and community projects that will take place in Lesotho. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 46, slug: lesotho}
+  model: peacecorps.countryfund
+  pk: 34
+- fields: {country: 96, description: Contributions to the Liberia Country Fund will
+      support Volunteer and community projects that will take place in Liberia. These
+      projects include secondary education and HIV/AIDS prevention and education programs.,
+    featured_image: null, fund: 47, slug: liberia}
+  model: peacecorps.countryfund
+  pk: 35
+- fields: {country: 101, description: 'Contributions to the Macedonia Country Fund
+      will support Volunteer and community projects that will take place in Macedonia.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 48, slug: macedonia}
+  model: peacecorps.countryfund
+  pk: 36
+- fields: {country: 102, description: 'Contributions to the Madagascar Country Fund
+      will support Volunteer and community projects that will take place in Madagascar.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 49, slug: madagascar}
+  model: peacecorps.countryfund
+  pk: 37
+- fields: {country: 103, description: 'Contributions to the Malawi Country Fund will
+      support many varied Volunteer projects in Malawi. Malawi is one of the poorest
+      countries in the world. Malawi is one of the poorest countries in the world.
+      Apart from poverty, Malawi is also heavily hit by HIV/AIDS. Typical projects
+      include water and sanitation, agricultural development, Income Generation Activities,
+      youth and HIV/AIDS related programs. Many such projects fail to materialise
+      or be implemented better due to lack of resources or the time/effort it takes
+      to get them. You can make a big difference for both the work of the volunteers
+      and people of Malawi by contributions to the Malawi Country Fund, which is designed
+      for faster response to the Volunteers and their communities. An example of country
+      fund use was funding a local mini-camp for a Volunteer''s community, using resources
+      and people that were trained at one of the national camps, like Camp GLOW or
+      Camp Sky. These can happen frequently as $300 - $800 is above easy Volunteer
+      fund raising, but it goes a long way in developing motivation/skills of a local
+      group of 30 young women or youth.', featured_image: null, fund: 50, slug: malawi}
+  model: peacecorps.countryfund
+  pk: 38
+- fields: {country: 111, description: 'Contributions to the Mexico Country Fund will
+      support Volunteer and community projects that will take place in Mexico. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 51, slug: mexico}
+  model: peacecorps.countryfund
+  pk: 39
+- fields: {country: 112, description: 'Contributions to the Micronesia Country Fund
+      will support Volunteer and community projects that will take place in Micronesia.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 52, slug: micronesia}
+  model: peacecorps.countryfund
+  pk: 40
+- fields: {country: 113, description: 'Contributions to the Moldova Country Fund will
+      support Volunteer and community projects that will take place in Moldova. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 53, slug: moldova}
+  model: peacecorps.countryfund
+  pk: 41
+- fields: {country: 116, description: 'Contributions to the Mongolia Country Fund
+      will support Volunteer and community projects that will take place in Mongolia.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 54, slug: mongolia}
+  model: peacecorps.countryfund
+  pk: 42
+- fields: {country: 117, description: 'Contributions to the Morocco Country Fund will
+      support Volunteer and community projects that will take place in Morocco. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 55, slug: morocco}
+  model: peacecorps.countryfund
+  pk: 43
+- fields: {country: 118, description: 'Contributions to the Mozambique Country Fund
+      will support Volunteer and community projects that will take place in Mozambique.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 56, slug: mozambique}
+  model: peacecorps.countryfund
+  pk: 44
+- fields: {country: 119, description: 'Contributions to the Namibia Country Fund will
+      support Volunteer and community projects that will take place in Namibia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 57, slug: namibia}
+  model: peacecorps.countryfund
+  pk: 45
+- fields: {country: 121, description: 'Contributions to the Nepal Country Fund will
+      support approved Volunteer and community PCPP projects that will take place
+      in Nepal. Volunteer projects typically focus on food security components like
+      nutrition, health, agriculture, water sanitation and hygiene and income generation,
+      but may also address other important needs as determined by the community.',
+    featured_image: null, fund: 58, slug: nepal}
+  model: peacecorps.countryfund
+  pk: 46
+- fields: {country: 125, description: 'Contributions to the Nicaragua Country Fund
+      will support Volunteer and community projects that will take place in Nicaragua.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 59, slug: nicaragua}
+  model: peacecorps.countryfund
+  pk: 47
+- fields: {country: 133, description: 'Contributions to the Panama Country Fund will
+      support Volunteers and their community partners to implement on-going development
+      projects in one of our 5 programs: Sustainable Agriculture, Environmental Conservation,
+      Tourism and English Advising, Economic Development and Environmental Health.
+      Within these projects, Peace Corps Partnership Program supported activities
+      and workshops focus on critical areas of leadership development, project management,
+      HIIV/AIDS awareness, business plan design, and youth development. With your
+      help, Volunteers and community counterparts from all over the country are able
+      to come together to share and develop best practices for use in their own communities.',
+    featured_image: null, fund: 60, slug: panama}
+  model: peacecorps.countryfund
+  pk: 48
+- fields: {country: 135, description: 'Contributions to the Paraguay Country Fund
+      will support Volunteer and community projects that will take place in Paraguay.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 61, slug: paraguay}
+  model: peacecorps.countryfund
+  pk: 49
+- fields: {country: 136, description: 'Contributions to the Peru Country Fund will
+      support Volunteer and community projects that will take place in Peru. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 62, slug: peru}
+  model: peacecorps.countryfund
+  pk: 50
+- fields: {country: 137, description: 'Contributions to the Philippines Country Fund
+      will support Volunteer and community projects in the Philippines.These development
+      projects include, but are not limited to the following: English language and
+      basic education, library development, alternative livelihood, HIV/AIDS and health,
+      environmental education, coastal resources development, capacity building, life
+      skills, and youth empowerment.', featured_image: null, fund: 63, slug: philippines}
+  model: peacecorps.countryfund
+  pk: 51
+- fields: {country: 143, description: 'Contributions to the Rwanda Country Fund will
+      support Volunteer and community projects that will take place in Rwanda. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 64, slug: rwanda}
+  model: peacecorps.countryfund
+  pk: 52
+- fields: {country: 147, description: 'Contributions to the Samoa Country Fund will
+      support Volunteer and community projects that will take place in Samoa. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 65, slug: samoa}
+  model: peacecorps.countryfund
+  pk: 53
+- fields: {country: 151, description: 'Contributions to the Senegal Country Fund will
+      support Volunteer and community projects that will take place in Senegal. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 66, slug: senegal}
+  model: peacecorps.countryfund
+  pk: 54
+- fields: {country: 154, description: Contributions to the Sierra Leone Country Fund
+      will support Volunteer and community projects that will take place in Sierra
+      Leone. These projects will focus on English education and other pressing needs
+      determined by the community., featured_image: null, fund: 67, slug: sierra-leone}
+  model: peacecorps.countryfund
+  pk: 55
+- fields: {country: 160, description: 'Contributions to the South Africa Country Fund
+      will support Volunteer and community projects that will take place in South
+      Africa. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 68, slug: south-africa}
+  model: peacecorps.countryfund
+  pk: 56
+- fields: {country: 165, description: 'Contributions to the Swaziland Country Fund
+      will support Volunteer and community projects that will take place in Swaziland.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 69, slug: swaziland}
+  model: peacecorps.countryfund
+  pk: 57
+- fields: {country: 170, description: 'Contributions to the Tanzania Country Fund
+      will support Volunteer and community projects that will take place in Tanzania.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 70, slug: tanzania}
+  model: peacecorps.countryfund
+  pk: 58
+- fields: {country: 171, description: 'Contributions to the Thailand Country Fund
+      will support Volunteer and community projects that will take place in Thailand.
+      These projects include water and sanitation, agricultural development, and youth
+      programs.', featured_image: null, fund: 71, slug: thailand}
+  model: peacecorps.countryfund
+  pk: 59
+- fields: {country: 172, description: 'Contributions to the Togo Country Fund will
+      support Volunteer and community projects that will take place in Togo. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 72, slug: togo}
+  model: peacecorps.countryfund
+  pk: 60
+- fields: {country: 173, description: 'Contributions to the Tonga Country Fund will
+      support Volunteer and community projects that will take place in Tonga.These
+      projects include youth development, school library development, environmental
+      education, public health and IT education.', featured_image: null, fund: 73,
+    slug: tonga}
+  model: peacecorps.countryfund
+  pk: 61
+- fields: {country: 179, description: 'Contributions to the Uganda Country Fund will
+      support Volunteer and community projects that will take place in Uganda. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 74, slug: uganda}
+  model: peacecorps.countryfund
+  pk: 62
+- fields: {country: 180, description: 'Contributions to the Ukraine Country Fund will
+      support Volunteer and community projects that will take place in Ukraine. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 75, slug: ukraine}
+  model: peacecorps.countryfund
+  pk: 63
+- fields: {country: 185, description: 'Contributions to the Vanuatu Country Fund will
+      support Volunteer and community projects that will take place in Vanuatu. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 76, slug: vanuatu}
+  model: peacecorps.countryfund
+  pk: 64
+- fields: {country: 189, description: 'Contributions to the Zambia Country Fund will
+      support Volunteer and community projects that will take place in Zambia. These
+      projects include water and sanitation, agricultural development, and youth programs.',
+    featured_image: null, fund: 77, slug: zambia}
+  model: peacecorps.countryfund
+  pk: 65
+- fields: {community_contribution: null, fundcode: 305-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Albania}
   model: peacecorps.fund
-  pk: 1
-- fields: {community_contribution: 6000, fundcode: HEA-01, fundcurrent: 0, fundgoal: 300000,
-    fundtype: sec, name: Health}
+  pk: 20
+- fields: {community_contribution: null, fundcode: 306-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Armenia}
   model: peacecorps.fund
-  pk: 2
-- fields: {community_contribution: 30000, fundcode: hun-01, fundcurrent: 0, fundgoal: 500000,
-    fundtype: sec, name: Hunger}
+  pk: 21
+- fields: {community_contribution: null, fundcode: 307-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Azerbaijan}
   model: peacecorps.fund
-  pk: 3
-- fields: {community_contribution: 0, fundcode: edu-01, fundcurrent: 30000, fundgoal: 1000000,
+  pk: 22
+- fields: {community_contribution: null, fundcode: 308-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Belize}
+  model: peacecorps.fund
+  pk: 23
+- fields: {community_contribution: null, fundcode: 309-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Benin}
+  model: peacecorps.fund
+  pk: 24
+- fields: {community_contribution: null, fundcode: 310-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Botswana}
+  model: peacecorps.fund
+  pk: 25
+- fields: {community_contribution: null, fundcode: 311-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Burkina Faso}
+  model: peacecorps.fund
+  pk: 26
+- fields: {community_contribution: null, fundcode: 312-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Cambodia}
+  model: peacecorps.fund
+  pk: 27
+- fields: {community_contribution: null, fundcode: 313-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Cameroon}
+  model: peacecorps.fund
+  pk: 28
+- fields: {community_contribution: null, fundcode: 314-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: China}
+  model: peacecorps.fund
+  pk: 29
+- fields: {community_contribution: null, fundcode: 315-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Colombia}
+  model: peacecorps.fund
+  pk: 30
+- fields: {community_contribution: null, fundcode: 316-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Costa Rica}
+  model: peacecorps.fund
+  pk: 31
+- fields: {community_contribution: null, fundcode: 317-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Dominican Republic}
+  model: peacecorps.fund
+  pk: 32
+- fields: {community_contribution: null, fundcode: 318-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Ecuador}
+  model: peacecorps.fund
+  pk: 33
+- fields: {community_contribution: null, fundcode: 319-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: El Salvador}
+  model: peacecorps.fund
+  pk: 34
+- fields: {community_contribution: null, fundcode: 320-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Ethiopia}
+  model: peacecorps.fund
+  pk: 35
+- fields: {community_contribution: null, fundcode: 321-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Fiji}
+  model: peacecorps.fund
+  pk: 36
+- fields: {community_contribution: null, fundcode: 322-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Georgia}
+  model: peacecorps.fund
+  pk: 37
+- fields: {community_contribution: null, fundcode: 323-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Ghana}
+  model: peacecorps.fund
+  pk: 38
+- fields: {community_contribution: null, fundcode: 324-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Guatemala}
+  model: peacecorps.fund
+  pk: 39
+- fields: {community_contribution: null, fundcode: 325-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Guinea}
+  model: peacecorps.fund
+  pk: 40
+- fields: {community_contribution: null, fundcode: 326-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Guyana}
+  model: peacecorps.fund
+  pk: 41
+- fields: {community_contribution: null, fundcode: 327-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Indonesia}
+  model: peacecorps.fund
+  pk: 42
+- fields: {community_contribution: null, fundcode: 328-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Jamaica}
+  model: peacecorps.fund
+  pk: 43
+- fields: {community_contribution: null, fundcode: 329-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Jordan}
+  model: peacecorps.fund
+  pk: 44
+- fields: {community_contribution: null, fundcode: 330-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Kenya}
+  model: peacecorps.fund
+  pk: 45
+- fields: {community_contribution: null, fundcode: 331-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Lesotho}
+  model: peacecorps.fund
+  pk: 46
+- fields: {community_contribution: null, fundcode: 332-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Liberia}
+  model: peacecorps.fund
+  pk: 47
+- fields: {community_contribution: null, fundcode: 333-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Macedonia}
+  model: peacecorps.fund
+  pk: 48
+- fields: {community_contribution: null, fundcode: 334-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Madagascar}
+  model: peacecorps.fund
+  pk: 49
+- fields: {community_contribution: null, fundcode: 335-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Malawi}
+  model: peacecorps.fund
+  pk: 50
+- fields: {community_contribution: null, fundcode: 336-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Mexico}
+  model: peacecorps.fund
+  pk: 51
+- fields: {community_contribution: null, fundcode: 337-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Micronesia}
+  model: peacecorps.fund
+  pk: 52
+- fields: {community_contribution: null, fundcode: 338-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Moldova}
+  model: peacecorps.fund
+  pk: 53
+- fields: {community_contribution: null, fundcode: 339-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Mongolia}
+  model: peacecorps.fund
+  pk: 54
+- fields: {community_contribution: null, fundcode: 340-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Morocco}
+  model: peacecorps.fund
+  pk: 55
+- fields: {community_contribution: null, fundcode: 341-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Mozambique}
+  model: peacecorps.fund
+  pk: 56
+- fields: {community_contribution: null, fundcode: 342-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Namibia}
+  model: peacecorps.fund
+  pk: 57
+- fields: {community_contribution: null, fundcode: 343-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Nepal}
+  model: peacecorps.fund
+  pk: 58
+- fields: {community_contribution: null, fundcode: 344-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Nicaragua}
+  model: peacecorps.fund
+  pk: 59
+- fields: {community_contribution: null, fundcode: 345-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Panama}
+  model: peacecorps.fund
+  pk: 60
+- fields: {community_contribution: null, fundcode: 346-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Paraguay}
+  model: peacecorps.fund
+  pk: 61
+- fields: {community_contribution: null, fundcode: 347-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Peru}
+  model: peacecorps.fund
+  pk: 62
+- fields: {community_contribution: null, fundcode: 348-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Philippines}
+  model: peacecorps.fund
+  pk: 63
+- fields: {community_contribution: null, fundcode: 349-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Rwanda}
+  model: peacecorps.fund
+  pk: 64
+- fields: {community_contribution: null, fundcode: 350-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Samoa}
+  model: peacecorps.fund
+  pk: 65
+- fields: {community_contribution: null, fundcode: 351-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Senegal}
+  model: peacecorps.fund
+  pk: 66
+- fields: {community_contribution: null, fundcode: 352-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Sierra Leone}
+  model: peacecorps.fund
+  pk: 67
+- fields: {community_contribution: null, fundcode: 353-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: South Africa}
+  model: peacecorps.fund
+  pk: 68
+- fields: {community_contribution: null, fundcode: 354-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Swaziland}
+  model: peacecorps.fund
+  pk: 69
+- fields: {community_contribution: null, fundcode: 355-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Tanzania}
+  model: peacecorps.fund
+  pk: 70
+- fields: {community_contribution: null, fundcode: 356-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Thailand}
+  model: peacecorps.fund
+  pk: 71
+- fields: {community_contribution: null, fundcode: 357-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Togo}
+  model: peacecorps.fund
+  pk: 72
+- fields: {community_contribution: null, fundcode: 358-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Tonga}
+  model: peacecorps.fund
+  pk: 73
+- fields: {community_contribution: null, fundcode: 359-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Uganda}
+  model: peacecorps.fund
+  pk: 74
+- fields: {community_contribution: null, fundcode: 360-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Ukraine}
+  model: peacecorps.fund
+  pk: 75
+- fields: {community_contribution: null, fundcode: 361-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Vanuatu}
+  model: peacecorps.fund
+  pk: 76
+- fields: {community_contribution: null, fundcode: 362-CFD, fundcurrent: 0, fundgoal: null,
+    fundtype: coun, name: Zambia}
+  model: peacecorps.fund
+  pk: 77
+- fields: {community_contribution: null, fundcode: SPF-AGG, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Agriculture}
+  model: peacecorps.fund
+  pk: 78
+- fields: {community_contribution: null, fundcode: SPF-BUS, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Business Development}
+  model: peacecorps.fund
+  pk: 79
+- fields: {community_contribution: null, fundcode: SPF-WAT, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Water and Sanitation}
+  model: peacecorps.fund
+  pk: 80
+- fields: {community_contribution: null, fundcode: SPF-EDU, fundcurrent: 0, fundgoal: null,
     fundtype: sec, name: Education}
   model: peacecorps.fund
-  pk: 4
-- fields: {community_contribution: 0, fundcode: wom-01, fundcurrent: 30000, fundgoal: 0,
-    fundtype: sec, name: Women}
+  pk: 81
+- fields: {community_contribution: null, fundcode: SPF-ENV, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Environment}
   model: peacecorps.fund
-  pk: 6
-- fields: {community_contribution: 0, fundcode: inn-01, fundcurrent: 0, fundgoal: 0,
-    fundtype: sec, name: Innovation}
+  pk: 82
+- fields: {community_contribution: null, fundcode: SPF-HHA, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Health}
   model: peacecorps.fund
+  pk: 83
+- fields: {community_contribution: null, fundcode: SPF-ICT, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Information Technology}
+  model: peacecorps.fund
+  pk: 84
+- fields: {community_contribution: null, fundcode: SPF-YTH, fundcurrent: 0, fundgoal: null,
+    fundtype: sec, name: Youth}
+  model: peacecorps.fund
+  pk: 85
+- fields: {community_contribution: 771459, fundcode: 14-680-030, fundcurrent: 30000,
+    fundgoal: 1242300, fundtype: proj, name: Computer Lab for Agricultural School}
+  model: peacecorps.fund
+  pk: 86
+- fields: {community_contribution: 231000, fundcode: 14-524-007, fundcurrent: 0, fundgoal: 612000,
+    fundtype: proj, name: Ultrasound Machine}
+  model: peacecorps.fund
+  pk: 87
+- fields: {community_contribution: 473823, fundcode: 14-635-002, fundcurrent: 241471,
+    fundgoal: 411471, fundtype: proj, name: HIV Bike Trek}
+  model: peacecorps.fund
+  pk: 88
+- fields: {community_contribution: 117872, fundcode: 14-497-004, fundcurrent: 214340,
+    fundgoal: 347643, fundtype: proj, name: Man library}
+  model: peacecorps.fund
+  pk: 89
+- fields: {community_contribution: 120273, fundcode: 14-532-001, fundcurrent: 142500,
+    fundgoal: 360163, fundtype: proj, name: Fencing the Ball Court}
+  model: peacecorps.fund
+  pk: 90
+- fields: {community_contribution: 105000, fundcode: 14-684-020, fundcurrent: 200000,
+    fundgoal: 420000, fundtype: proj, name: Brick Oven Bakery}
+  model: peacecorps.fund
+  pk: 91
+- fields: {community_contribution: 305279, fundcode: 15-527-002, fundcurrent: 215130,
+    fundgoal: 661555, fundtype: proj, name: Build Bathrooms}
+  model: peacecorps.fund
+  pk: 92
+- fields: {call: Support Agriculture Projects, description: "Contributions to the
+      Agriculture Fund support one of the most basic needs of communities worldwide:
+      safe and sustainable food production. Agriculture projects target areas such
+      as community food production systems, pesticide safety, crop production, animal
+      husbandry, apiculture, agriculture marketing, farm economics, and formation
+      of agricultural cooperatives. As food security continues to be a global concern,
+      it is imperative to support communities' agricultural development.\r\n", featured_image: 8,
+    fund: 78, icon: ./globeicon_VgCu5XF.png, name: Agriculture, slug: agriculture,
+    tagline: Safe and sustainable food production is one of the most basic needs of
+      communities worldwide.}
+  model: peacecorps.issue
   pk: 7
-- fields: {community_contribution: 20000, fundcode: test-01, fundcurrent: 0, fundgoal: 500000,
-    fundtype: proj, name: Test Project}
-  model: peacecorps.fund
+- fields: {call: Support Business Development Projects, description: 'Volunteers are
+      posted throughout the developing world to help local businesses thrive in ways
+      they never thought possible. Increasing the opportunities presented to local
+      businesses promotes a sense of empowerment that can truly change a community.
+      Contributions to this fund will support Volunteer and community projects such
+      as microfinance, agribusiness, business education, and artisan collectives.',
+    featured_image: 9, fund: 79, icon: ./peopleicon_hVFkEE4.png, name: Business Development,
+    slug: business-development, tagline: Increasing opportunities for local businesses
+      promotes a sense of empowerment that can transform a community.}
+  model: peacecorps.issue
   pk: 8
-- fields: {community_contribution: 0, fundcode: bat-01, fundcurrent: 50000, fundgoal: 1000000,
-    fundtype: proj, name: Apprehend Joker}
-  model: peacecorps.fund
+- fields: {call: Support Water Projects, description: 'The very basic needs of clean
+      water and accessible sanitation are absent from many communities around the
+      world. This often leads to severe community health problems. Volunteers work
+      with their communities to design locally appropriate solutions to provide safe,
+      affordable, and sustainable water and sanitation. Contributions to this fund
+      will help Volunteer and community projects such as latrines, aqueducts and wells,
+      and basic sanitation training.', featured_image: 10, fund: 80, icon: ./globeicon_zig5Du4.png,
+    name: Drinking Water and Sanitation Fund, slug: drinking-water-and-sanitation-fund,
+    tagline: 'Safe, affordable, and sustainable water and sanitation are vital to
+      communities worldwide.'}
+  model: peacecorps.issue
   pk: 9
-- fields: {community_contribution: 50000, fundcode: jla-02, fundcurrent: 0, fundgoal: 500000,
-    fundtype: proj, name: Teach Women Costumes}
-  model: peacecorps.fund
+- fields: {call: Support Education Projects, description: 'Throughout the developing
+      world, Peace Corps Volunteers are working in their communities to share the
+      precious gift of education. Often Volunteers'' dedication to teaching is matched
+      by a severe lack of supplies and facilities in which to help. Contributions
+      to this fund will help Volunteer and community projects such as school construction,
+      English language training, school and library material, and adult literacy.',
+    featured_image: 11, fund: 81, icon: ./house_fvkzTpA.png, name: Education, slug: education,
+    tagline: Peace Corps Volunteers are working in their communities to share the
+      precious gift of education.}
+  model: peacecorps.issue
   pk: 10
-- fields: {community_contribution: 10000, fundcode: jla-03, fundcurrent: 0, fundgoal: 500000,
-    fundtype: proj, name: Super Health Center}
-  model: peacecorps.fund
+- fields: {call: Support Environmental Projects, description: 'Communities around
+      the world are challenged by the need to improve their development in an environmentally
+      sustainable way. Peace Corps Volunteers are working with their communities to
+      show that sustainable environmental management is not only good stewardship,
+      but can be an engine of future economic growth. Contributions to this fund will
+      help Volunteer and community projects such as environmental conservation and
+      ecotourism.', featured_image: 12, fund: 82, icon: ./globeicon_0FohJQL.png, name: Environment
+      Fund, slug: environment-fund, tagline: 'Environmental stewardship spurs economic
+      growth. '}
+  model: peacecorps.issue
   pk: 11
-- fields: {community_contribution: 150000, fundcode: jla-04, fundcurrent: 1000000,
-    fundgoal: 150000, fundtype: proj, name: Superhero School Scholarships}
-  model: peacecorps.fund
+- fields: {call: Support Health Projects, description: 'Donations to the Health and
+      HIV/AIDS Fund will help combat global health issues such as poor nutrition,
+      the spread of infectious diseases, and the devastating social and economic impact
+      of HIV/AIDS. In order to help alleviate these problems, Volunteers and their
+      host communities are planning and implementing projects which focus on preventative
+      health care, nutrition, and disease prevention and mitigation. The range of
+      activities includes immunizations; nutrition and growth monitoring; promotion
+      of breast-feeding; access to prenatal and postnatal care; training health workers;
+      development of public awareness material; and culturally appropriate education
+      strategies.', featured_image: 13, fund: 83, icon: ./peopleicon_ibNFs8k.png,
+    name: Health, slug: health, tagline: 'Combat global health issues such as poor
+      nutrition, the spread of infectious diseases, and the devastating impact of
+      HIV/AIDS.'}
+  model: peacecorps.issue
   pk: 12
-- fields: {community_contribution: null, fundcode: canada-01, fundcurrent: 0, fundgoal: null,
-    fundtype: coun, name: Canada}
-  model: peacecorps.fund
+- fields: {call: Support Technology Projects, description: 'Peace Corps Volunteers
+      are working with men and women in communities throughout the developing world
+      to help them gain access to information technology skills and resources. Consistent
+      with all Peace Corps volunteer work, their efforts are aimed at the promotion
+      of social and economic development and the reduction of poverty. To this aim,
+      volunteers are using IT to enhance existing small, local entrepreneurial efforts,
+      in order to allow once isolated communities to link to the world and find and
+      capitalize on opportunities once completely out of their reach. Contributions
+      to this fund will support Community and Volunteer projects such as creating
+      school and public computer labs and teaching computer skills.', featured_image: 14,
+    fund: 84, icon: ./lightbulb_58d8rNj.png, name: Technology, slug: technology, tagline: 'Enhance
+      existing local entrepreneurial efforts, create school and public computer labs,
+      and teaching computer skills.'}
+  model: peacecorps.issue
   pk: 13
-- fields: {community_contribution: null, fundcode: japan-01, fundcurrent: 0, fundgoal: null,
-    fundtype: coun, name: Japan}
-  model: peacecorps.fund
+- fields: {call: Support Youth Projects, description: 'In communities that face very
+      basic struggles, the specific needs of children and young adults often go unaddressed.
+      Peace Corps Volunteers work with local youths to improve their education opportunities,
+      make them aware of health and cultural issues they will face, and engage them
+      in activities that will help them grow. Contributions to this fund will help
+      Volunteer and community projects such as camps, recreation centers, and after
+      school clubs and sports.', featured_image: 11, fund: 85, icon: ./peopleicon_hReIhXA.png,
+    name: Youth, slug: youth, tagline: Improve education and health for children and
+      youth around the world.}
+  model: peacecorps.issue
   pk: 14
-- fields: {community_contribution: null, fundcode: country-cameroon, fundcurrent: 0,
-    fundgoal: null, fundtype: coun, name: Cameroon}
-  model: peacecorps.fund
+- fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
+      user Merbabu, CC-BY-SA 3.0', country: 79, description: A picture of water buffalo
+      pulling a plow., file: ./Agriculture-wikipedia-user-merbabu-cc-by-sa-3_7YSiKdb.jpg,
+    mediatype: IMG, title: Agriculture, transcript: ''}
+  model: peacecorps.media
+  pk: 8
+- fields: {caption: 'A meeting to discuss microfinance in Tzaneen, South Africa. Picture
+      by GiveWell, CC-BY.', country: 160, description: 'Women sitting on a blanket
+      and discussing microfinance on a patio in Tzaneen, South Africa.', file: ./Tzaneen-South-Africa-Microfinance-Meeting-by-GiveWell-CC-BY_cmNs9HB.jpg,
+    mediatype: IMG, title: 'Microfinance Meeting, Tzaneen, South Africa', transcript: ''}
+  model: peacecorps.media
+  pk: 9
+- fields: {caption: 'An iceberg near Upernavik, Greenland. Photo by Kim Hansen, CC-BY-SA',
+    country: 77, description: An iceberg in a large body of water., file: ./Iceburg-near-Upernavik-Greenland-by-Kim-Hansen-CC-BY-SA_OIniaGq.jpg,
+    mediatype: IMG, title: 'Iceberg near Upernavik, Greenland', transcript: ''}
+  model: peacecorps.media
+  pk: 10
+- fields: {caption: 'Schoolgirls sitting in the shade on a patio in Bamozai, Afghanistan.
+      Photo by Capt. John Severns, U.S. Air Force (Public Domain)', country: 2, description: 'Schoolgirls
+      sitting on a patio in Bamozai, Afghanistan.', file: ./Schoolgirls-in-Bamozai-Afghanistan-by-Capt-John-Severns-PD_H1uTeVI.jpg,
+    mediatype: IMG, title: Schoolgirls in Bamozai Afghanistan, transcript: ''}
+  model: peacecorps.media
+  pk: 11
+- fields: {caption: A woman in Guatamala holds a bunch of radishes in this photo by
+      a Peace Corps volunteer., country: 69, description: A woman stands in a public
+      square in Guatamala with a bunch of radishes., file: ./Guatamala-by-peacecorps_rjEzPlj.jpg,
+    mediatype: IMG, title: Guatamala Radishes, transcript: ''}
+  model: peacecorps.media
+  pk: 12
+- fields: {caption: Health volunteers sworn in in Gambia., country: null, description: A
+      group of Peace Corps health volunteers in Gambia., file: ./Gambia-Health-Volunteers-by-peacecorps_clKq7bT.jpg,
+    mediatype: IMG, title: Health Volunteers in Gambia, transcript: ''}
+  model: peacecorps.media
+  pk: 13
+- fields: {caption: 'Peace Corps volunteer Sam teaching reading in El Progreso, El
+      Salvador', country: 55, description: A peace corps volunteer helping a Salvadoran
+      girl with a computer program., file: ./Rubidia-learns-to-read-by-Lee-Shaver-CC-BY-SA_HbFr3ik.jpg,
+    mediatype: IMG, title: Rubidia Learns To Read, transcript: ''}
+  model: peacecorps.media
+  pk: 14
+- fields: {caption: 'Ultrasound Machine. Photo by Clark Maxwell, CC-BY-NC-ND', country: 125,
+    description: A photo of an ultrasound machine's controls., file: ./Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC_F9glVHj.jpg,
+    mediatype: IMG, title: Ultrasound Machine, transcript: ''}
+  model: peacecorps.media
   pk: 15
-- fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Nunc sagittis libero diam, vitae cursus odio
-      aliquam at. Sed convallis volutpat libero nec ultricies. Nulla blandit diam
-      vel ex vestibulum, in sollicitudin justo convallis. Ut lobortis commodo luctus.
-      Sed molestie lectus a ex gravida, eu tincidunt lorem molestie. Proin efficitur
-      urna id massa cursus condimentum. Donec laoreet, quam a interdum semper, neque
-      lorem pulvinar velit, eget pellentesque leo elit sit amet lorem. Duis commodo
-      tortor quis velit euismod, sit amet tristique tortor bibendum.', featured_image: 1,
-    fund: 7, icon: ./lightbulb.png, name: Innovation, slug: innovation, tagline: Two
-      out of three illiterate people are women.}
-  model: peacecorps.issue
-  pk: 1
-- fields: {call: Donate to girls' education, description: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Fusce quis eros eleifend nunc lobortis eleifend.
-      Aliquam id nisi id dui egestas faucibus et id mauris. Cras posuere eu dolor
-      ac dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-      per inceptos himenaeos. Vivamus id nisi faucibus, pulvinar risus a, finibus
-      lacus. Nullam porttitor elit vitae pellentesque placerat. Phasellus in auctor
-      enim. Nulla facilisi.', featured_image: 2, fund: 6, icon: ./peopleicon_QK6SN51.png,
-    name: Women, slug: women, tagline: Two out of three illiterate people are women.}
-  model: peacecorps.issue
-  pk: 2
-- fields: {call: donate to girl's education., description: 'Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Nam lacinia metus metus, a finibus libero
-      imperdiet eu. Mauris at laoreet felis, vel condimentum leo. Nam eu cursus nisi,
-      eget egestas massa. Nam commodo turpis ac mollis pulvinar. Phasellus eu eleifend
-      lacus. Integer posuere, est non aliquet pharetra, eros ligula ultricies dolor,
-      non efficitur sem ipsum eu orci. Curabitur finibus nulla at dui consequat pellentesque.
-      Nullam euismod odio eros, vehicula vestibulum velit finibus ac. Vestibulum ut
-      dui arcu. Nullam ac est elit. Duis maximus pulvinar urna ut iaculis.', featured_image: 2,
-    fund: 4, icon: ./house_SO2rcUg.png, name: Education, slug: education, tagline: Two
-      out of three illiterate people are women.}
-  model: peacecorps.issue
-  pk: 3
-- fields: {call: Donate to world hunger., description: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Etiam vel mi ex. Cras pellentesque pulvinar pulvinar.
-      Sed consequat varius sem quis volutpat. Fusce aliquet velit quis dignissim commodo.
-      Praesent pretium dictum velit vitae ultricies. Donec eget tortor ut tellus bibendum
-      pharetra quis mattis risus. Morbi non convallis ligula. Curabitur vel finibus
-      ipsum, sit amet sagittis turpis.', featured_image: 1, fund: 3, icon: ./globeicon.png,
-    name: Hunger, slug: hunger, tagline: 925 million people do not have enough to
-      eat.}
-  model: peacecorps.issue
-  pk: 4
-- fields: {call: donate to world health, description: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Quisque suscipit efficitur orci, ut pellentesque
-      nisi tempor at. Phasellus tincidunt quis tellus ut facilisis. Morbi eu risus
-      ultricies, cursus nunc vitae, euismod mauris. Nunc finibus nisi a dolor luctus,
-      at suscipit diam rutrum. Class aptent taciti sociosqu ad litora torquent per
-      conubia nostra, per inceptos himenaeos. Maecenas feugiat feugiat ullamcorper.
-      Phasellus ut enim nisl. Etiam porta vulputate metus, eget accumsan nunc maximus
-      sit amet. Donec molestie pharetra ultricies. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Praesent sed semper turpis.
-      Integer scelerisque congue arcu non molestie.', featured_image: 3, fund: 2,
-    icon: ./peopleicon.png, name: Health, slug: health, tagline: 925 million people
-      do not have enough to eat}
-  model: peacecorps.issue
-  pk: 5
-- fields: {call: Donate to safe housing for all., description: 'Vivamus sit amet magna
-      id purus aliquet sodales. Mauris porttitor lacus neque, pellentesque rutrum
-      est scelerisque egestas. Curabitur tempus justo justo, ac egestas purus consequat
-      eu. Nunc risus leo, interdum ac lacus id, malesuada consequat risus. Integer
-      porttitor, eros aliquam bibendum sollicitudin, ante ipsum molestie ipsum, consequat
-      imperdiet lacus nibh ut lorem. Suspendisse mollis ex justo, a aliquam purus
-      sagittis sed. Pellentesque purus enim, viverra vitae aliquet a, elementum non
-      augue. Curabitur sed diam libero. Mauris pellentesque luctus accumsan. Nulla
-      nunc est, egestas a feugiat blandit, congue eu mauris. Nam ornare commodo magna
-      quis mollis. Sed blandit in est ut eleifend. Sed in vehicula lorem, ac consectetur
-      eros. Sed sagittis ligula ipsum, vel tempus ante laoreet eu. In malesuada hendrerit
-      vehicula.', featured_image: 4, fund: 1, icon: ./house.png, name: Housing, slug: housing,
-    tagline: Sub-Saharan Africa today has a slum population of 199.5 million representing
-      61.7 percent of its urban population.}
-  model: peacecorps.issue
+- fields: {caption: 'Photo by Kyle Saric, CC-BY-ND-NC 2.0', country: 191, description: A
+      photo of a bicycle locked to a tree, file: ./Bike-by-Kyle-Saric-CC-BY-NC-ND-2_adB9xI0.jpg,
+    mediatype: IMG, title: Bike, transcript: ''}
+  model: peacecorps.media
+  pk: 16
+- fields: {caption: 'The library and reading room at the Rand club in Johannesburg,
+      South Africa. Photo by Andrew Moore, CC-BY-SA', country: 160, description: A
+      photo of a row of bookcases and reading chairs., file: ./Library-Rand-Club-by-Andrew-Moore-CC-BY-SA_O3szAqH.jpg,
+    mediatype: IMG, title: Library and Reading Room, transcript: ''}
+  model: peacecorps.media
+  pk: 17
+- fields: {caption: 'Photo by Leon Rice-Whetton, CC-BY-NC-SA 2.0.', country: 84, description: photo
+      of a tennis ball on the ground., file: ./Tennis-Ball-by-Leon-Rice-Whetton-CC-BY-NC-SA2_z7qg9Mx.jpg,
+    mediatype: IMG, title: Tennis Ball, transcript: ''}
+  model: peacecorps.media
+  pk: 18
+- fields: {caption: 'Brick Oven at Fort Warren in Quincy, MA by Eric Kilby, CC-BY-SA',
+    country: null, description: A photo of a large brick oven., file: ./Brick-Oven-Fort-Warren-by-Eric-Kilby-CC-BY-SA_qaOVX7U.jpg,
+    mediatype: IMG, title: Brick Oven, transcript: ''}
+  model: peacecorps.media
+  pk: 19
+- fields: {caption: 'A public composting toilet, photographed by Wolfgang Berger,
+      CC-BY', country: 65, description: A photo of a public composting toilet in Germany,
+    file: ./public-toilet-by-Wolfgang-Berger-CC-BY_rV1IBhI.jpg, mediatype: IMG, title: Public
+      Toilet, transcript: ''}
+  model: peacecorps.media
+  pk: 20
+- fields:
+    country: 20
+    description: <p>Students at the agricultural secondary school, spend their days
+      accumulating knowledge and practice time with books and a variety of agricultural
+      techniques. However, they have very little opportunity to connect with places
+      that are not their own or to research beyond their experiences. This project
+      aims to transform one of the classrooms into a well-equipped, permanent computer
+      lab containing 10 computers with internet access, a photocopy machine, and a
+      printer. Students will be able to use this computer lab to receive adequate
+      hands-on exposure to practice the material they are learning. Through the improved
+      classes, students will be able to hone their skills with common programs such
+      as Microsoft Word, Excel, and Power Point, among others. They will also learn
+      how to navigate using the internet in order to conduct research, communicate
+      with others, and gain a much broader view of the world. The computer lab will
+      be operational year-round; open to students after normal classroom hours and
+      to the general public during weekends and school breaks. In addition, free or
+      low-cost training will be available to students unable to continue their studies
+      and peoples of low income. This project will be realized and sustained through
+      a partnership between the group STG Informatique and the school administration.
+      STG Informatique will help equip the computer lab with necessary accommodations
+      such as ceiling fans, networking cables, internet router, etc., and they will
+      oversee the functionality of the lab throughout the year. The school administration
+      will reserve a portion of its annual budget to provide for the overall maintenance
+      and upkeep of the computer lab, and it will create a new, full-time employment
+      for a computer lab assistant. In addition to this, profits from computer lab
+      services such as photocopies, printed documents, and navigation time will go
+      towards the growth of the computer lab, as well as towards additional campus
+      development projects. Donations to this project will help provide the students
+      with the proper means to develop their computer skills, and will go directly
+      towards the purchase of the computers, photocopy machine, and printer of the
+      new computer lab.</p>
+    featured_image: 14
+    fund: 86
+    issue: 10
+    issue_feature: false
+    issues_related: [13, 7]
+    media: []
+    slug: computer-lab-agricultural-secondary-school
+    tagline: Transform a classroom and help students gain a broader view of the world.
+    title: Computer Lab for Agricultural Secondary School
+    volunteerhomecity: Smallville
+    volunteerhomestate: KS
+    volunteername: Clark K
+    volunteerpicture: null
+  model: peacecorps.project
   pk: 6
-- fields: {author: null, caption: A treadle-powered Singer sewing machine., country: null,
-    description: A treadle-powered Singer sewing machine., file: ./sewing-machine-flickr-usr-82473742N02.jpg,
-    mediatype: IMG, title: Sewing Machine, transcript: ''}
-  model: peacecorps.media
-  pk: 1
-- fields: {author: 3, caption: Colored Pencils., country: 1, description: A group
-      of colored pencils., file: ./colored_pencils_2-wallpaper-2560x1600.jpg, mediatype: IMG,
-    title: Colored Pencils, transcript: ''}
-  model: peacecorps.media
-  pk: 2
-- fields: {author: 1, caption: Photo courtesy Batgirl., country: 1, description: A
-      cat smelling a flower., file: ./cat_smelling_flower-wallpaper-2560x1600.jpg,
-    mediatype: IMG, title: Cat Smelling A Flower, transcript: ''}
-  model: peacecorps.media
-  pk: 3
-- fields: {author: null, caption: 'Sewing Machine, by flickr user Chiotsrun', country: 25,
-    description: A picture of an old industrial sewing machine., file: ./sewing-machine-flickr-usr-chiotsrun.jpg,
-    mediatype: IMG, title: Industrial Sewing Machine, transcript: ''}
-  model: peacecorps.media
-  pk: 4
-- fields: {author: 2, caption: Cherry Blossom Wallpaper, country: 1, description: A
-      photo of cherry blossoms on a branch., file: ./cherry_blossom_3-wallpaper-2560x1600.jpg,
-    mediatype: IMG, title: Cherry Blossoms, transcript: ''}
-  model: peacecorps.media
-  pk: 5
-- fields: {author: 3, caption: 'Miss Martian, from "Young Justice."', country: 1,
-    description: A headshot of Miss Martian., file: ./missmartian-headshot.png, mediatype: IMG,
-    title: Miss Martian, transcript: ''}
-  model: peacecorps.media
-  pk: 6
-- fields: {author: 2, caption: Bird photo from flickr, country: 31, description: A
-      photo of an open book with a bird illumination at the bottom of the page., file: ./bird_tale-wallpaper-2560x1600.jpg,
-    mediatype: IMG, title: Bird Illumination, transcript: ''}
-  model: peacecorps.media
+- fields:
+    country: 125
+    description: "<p>This grant will assist my community in procuring a Portable Ultrasound
+      Machine for the health center. The apparatus will be used in antenatal care
+      to reduce still-births and neonatal deaths and to increase preparedness for
+      complications such as: risky fetal presentation (e.g. breach, transverse), position
+      of the placenta, quantity of amniotic fluid, any congenital diseases that make
+      survival of the fetus impossible after birth, etc. It will also serve to confirm
+      gestational age, which aids greatly in providing appropriate care.The community
+      contribution will be made in several parts.&nbsp;</p>\r\n<p>Part 1: The health
+      center will arrange and pay for the training of a permanent doctor in an intensive
+      8-week course in obstetric ultrasound technology at the regional hospital.&nbsp;</p>\r\n<p>Part
+      2: The director of the health center and I will have a one-time training for
+      85 doctors, nurses, and volunteer health workers to promote the sonogram in
+      the communities, and better patient - doctor communication.&nbsp;</p>\r\n<p>Part
+      3: A voltage stabilizer will be bought by the health center to help control
+      the sporadic nature of the electricity.&nbsp;</p>\r\n<p>Part 4: The health center
+      will pay for the transportation of the machine from the Capitol to the community
+      and for the gas needed to transport the apparatus to each of the three outlying
+      health posts at least once per month.&nbsp;</p>\r\n<p>Part 5: A cash contribution
+      of $1030 towards purchasing the ultrasound will be made by the mayor's office.</p>"
+    featured_image: 15
+    fund: 87
+    issue: 12
+    issue_feature: false
+    issues_related: [13]
+    media: []
+    slug: local-ultrasound-machine
+    tagline: Reduce stillbirths and newborn deaths in Nicaragua
+    title: Local Ultrasound Machine
+    volunteerhomecity: Star City
+    volunteerhomestate: CA
+    volunteername: Dinah L
+    volunteerpicture: null
+  model: peacecorps.project
   pk: 7
 - fields:
-    country: 1
-    description: "<p>Nam in lobortis erat, non fringilla lectus. Donec et turpis id
-      justo rhoncus ultrices. Vestibulum id tincidunt nulla. Nullam condimentum interdum
-      lobortis. Fusce tempus quis augue eget pretium. Proin neque nunc, volutpat eget
-      laoreet ut, posuere non felis. Aliquam erat volutpat. Vestibulum id neque at
-      odio venenatis gravida at in ligula. Pellentesque et urna ante. Nam pretium
-      ipsum sit amet nunc maximus, nec finibus erat dignissim. Mauris mollis, orci
-      at semper rutrum, nibh diam maximus turpis, quis imperdiet justo augue nec ipsum.
-      Nunc sagittis maximus aliquet. Mauris lorem lectus, rutrum vel aliquam et, feugiat
-      eget metus. In velit enim, convallis at tempus ac, feugiat non quam. Integer
-      mattis odio in eros maximus, consectetur ultrices lectus tristique.\r\n</p><p>\r\nVestibulum
-      faucibus finibus ipsum sit amet congue. Suspendisse facilisis mauris non varius
-      ultrices. Proin viverra, nibh at bibendum tristique, tortor sapien placerat
-      nibh, quis hendrerit velit sapien sed dolor. Proin convallis tincidunt dolor
-      nec cursus. Vivamus ac risus quis lectus mollis pellentesque. Nulla tristique
-      libero nec quam egestas pulvinar. Phasellus vulputate arcu at eros lobortis
-      tempus. Curabitur laoreet ligula ut tellus ornare dignissim. Ut finibus purus
-      vel sapien eleifend cursus. Nunc nec maximus tortor, ac sagittis est. Nullam
-      ut tortor dapibus nibh mattis pretium ut quis lorem. Pellentesque in nulla ut
-      magna accumsan fermentum. Integer pellentesque diam sem, vel placerat erat vulputate
-      sit amet. Sed vestibulum risus quis arcu mollis, ac iaculis lectus interdum.
-      In dui mi, facilisis sit amet malesuada non, tempus suscipit ante.\r\n</p><p>\r\nCras
-      eu metus lacus. Quisque ultrices dolor massa, ac commodo elit rutrum eu. Praesent
-      in facilisis leo, eget dapibus mauris. Vivamus porta posuere purus, sed vestibulum
-      tortor fringilla commodo. Interdum et malesuada fames ac ante ipsum primis in
-      faucibus. Mauris fringilla, felis nec volutpat maximus, mi nibh vulputate mauris,
-      ut egestas mauris lacus in nibh. Praesent ut eleifend urna. Sed porta risus
-      hendrerit finibus semper.\r\n</p><p>\r\nDonec suscipit urna sem, ac pretium
-      lacus egestas nec. Nulla facilisi. Cras sagittis nisi a justo aliquet venenatis.
-      Cras non enim pretium, hendrerit dui id, tempor orci. Vivamus eu augue sapien.
-      Donec aliquam lacus et magna suscipit, quis dictum urna egestas. Quisque nec
-      massa vitae ex consequat fermentum. Suspendisse potenti. Aenean gravida, mi
-      quis mollis ultrices, elit massa efficitur lacus, ac vehicula justo massa eget
-      lectus. Quisque hendrerit justo nec metus eleifend, sit amet venenatis purus
-      tempus. Proin eros ante, fringilla nec mi sed, vehicula rhoncus ligula. In porta
-      hendrerit nisi sed euismod. Ut vitae auctor tellus, vel tristique ante.</p>"
-    featured_image: 2
-    fund: 12
-    issue: 2
-    issue_feature: true
-    issues_related: [3]
-    media: []
-    slug: gifted-girls-superhero-school
-    tagline: Superhero school is expensive. Everyone should have a chance to join
-      the justice league.
-    title: Send Gifted Girls To Superhero School
-    volunteer: 2
-  model: peacecorps.project
-  pk: 1
-- fields:
-    country: 25
-    description: "<p>Integer elementum ex id lobortis ultricies. Quisque in lorem
-      commodo enim tincidunt vestibulum et eu nulla. Curabitur sit amet mauris lacinia,
-      ornare dui id, pretium sapien. Donec suscipit eros vitae leo consectetur iaculis.
-      Aliquam posuere, dolor ut tincidunt pellentesque, nulla orci porttitor ipsum,
-      id fermentum nisi leo cursus risus. Etiam tempor, erat eu pretium rutrum, eros
-      lorem egestas diam, id aliquam lectus turpis eu orci. Donec nec mauris nec lectus
-      tincidunt finibus ac ut purus. Maecenas bibendum, tortor nec porta blandit,
-      ex erat imperdiet diam, nec laoreet mi nibh ut ipsum. Sed fermentum porttitor
-      massa, et imperdiet erat viverra et. Cum sociis natoque penatibus et magnis
-      dis parturient montes, nascetur ridiculus mus. Proin sit amet urna vitae felis
-      consequat bibendum vel at risus. In diam metus, dapibus varius nisi ac, malesuada
-      ornare neque. Duis sed fermentum tellus, non dapibus elit.\r\n</p><p>\r\nNulla
-      elementum porttitor metus, eu malesuada est pulvinar eget. Aliquam odio lacus,
-      lacinia sit amet nibh et, congue convallis dui. Praesent et ipsum sem. Proin
-      eu molestie lacus. Mauris vel sem a odio lobortis condimentum eget consequat
-      tellus. Nunc at magna lacus. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia Curae; Proin non vestibulum felis, in suscipit nibh.
-      Etiam bibendum tortor nec volutpat ornare.\r\n</p><p>\r\nNullam lobortis egestas
-      lectus, nec ullamcorper libero feugiat sed. Ut sit amet sagittis orci. Ut nec
-      magna vitae justo imperdiet luctus. Duis vel placerat mauris. Sed convallis
-      leo sit amet elit faucibus maximus. Nunc ornare risus ac posuere laoreet. Fusce
-      ex erat, convallis nec hendrerit sit amet, gravida non nunc. Aenean quis tortor
-      et erat vehicula suscipit. In libero elit, pellentesque nec vestibulum nec,
-      ultricies id mi. Donec in metus nisl. Nam dapibus ut nisl vel sagittis. In efficitur
-      elit sed nunc aliquet sagittis. Nullam vestibulum congue turpis sit amet lacinia.\r\n</p><p>\r\nIn
-      hac habitasse platea dictumst. Vivamus in elit nec ipsum accumsan egestas quis
-      vitae lorem. Aliquam id risus nisl. Nulla accumsan velit sit amet ullamcorper
-      scelerisque. Vivamus ac rutrum nibh. Pellentesque lobortis sit amet quam vel
-      suscipit. Aenean lobortis, massa ac aliquet fermentum, neque elit volutpat mi,
-      viverra faucibus nulla ante nec tellus. Donec venenatis in diam ut lobortis.
-      Fusce maximus porta metus, eu efficitur ipsum. Nunc bibendum tincidunt arcu,
-      a dignissim massa accumsan ut. Pellentesque ac nunc vitae est dignissim lobortis.
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-      turpis egestas.</p>"
-    featured_image: 3
-    fund: 11
-    issue: 2
-    issue_feature: true
-    issues_related: [5]
-    media: []
-    slug: womens-heath-center
-    tagline: 'Integer elementum ex id lobortis ultricies. '
-    title: Build A Super-Woman's Health Center
-    volunteer: 1
-  model: peacecorps.project
-  pk: 2
-- fields:
-    country: 25
-    description: "<p>Curabitur pulvinar, ex eget cursus lacinia, lectus magna porttitor
-      eros, sed tempus elit dolor et ipsum. Sed vel consequat magna, non dapibus urna.
-      Praesent scelerisque justo ac velit malesuada, non euismod dui mollis. Nam neque
-      turpis, tempor quis odio ac, lacinia faucibus felis. Nunc efficitur nisi augue,
-      vitae lacinia sem pulvinar non. Nam sed nisi sed nisl blandit luctus. Nam lorem
-      mi, accumsan mattis rhoncus sit amet, vulputate vitae enim. Etiam egestas egestas
-      elementum. Sed fermentum pharetra mattis. Aenean pellentesque id ligula vitae
-      maximus.\r\n</p><p>\r\nClass aptent taciti sociosqu ad litora torquent per conubia
-      nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci
-      luctus et ultrices posuere cubilia Curae; Aenean id mi vel est fringilla laoreet.
-      Morbi mattis hendrerit enim vitae scelerisque. Suspendisse potenti. Nulla purus
-      ipsum, aliquam pulvinar leo et, egestas auctor lorem. Quisque sapien est, auctor
-      pharetra luctus a, viverra porta sapien. Pellentesque ut libero sed diam rhoncus
-      ultrices vel vitae massa. Donec dui urna, elementum et cursus sit amet, posuere
-      id purus. Quisque tristique turpis eu tellus commodo, nec dictum mi sollicitudin.
-      Pellentesque sit amet posuere magna. Integer consectetur tempus lorem, eu mollis
-      augue aliquet a. Proin malesuada orci eu neque aliquam, nec lacinia tellus blandit.
-      Pellentesque ac mauris quis nulla malesuada finibus non quis sapien.\r\n</p><p>\r\nInteger
-      eget nisi sed felis finibus vulputate. Pellentesque elementum porttitor lorem,
-      non ultricies risus tincidunt vel. Morbi hendrerit mauris posuere, imperdiet
-      urna at, euismod tortor. Sed eget sapien volutpat purus mollis semper. Etiam
-      varius quis mauris eu ornare. Donec ultricies pulvinar lacus at tincidunt. Nulla
-      sagittis leo quis finibus congue. Mauris suscipit, augue sed pharetra luctus,
-      arcu purus ultricies nulla, sed sodales orci elit vitae nibh. Proin eleifend
-      vulputate laoreet. Aenean at mi tempor, ullamcorper massa ut, laoreet erat.
-      Nulla pharetra nulla mi, vitae lacinia eros varius eu. Cras consequat ante id
-      mi consectetur vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit
-      ac libero. Vestibulum feugiat consequat cursus.\r\n</p>"
-    featured_image: 1
-    fund: 10
-    issue: 2
+    country: 191
+    description: "<p>The smallest country in Africa, The Gambia, is a young developing
+      nation with a high percentage of its population under the age of 14. Currently,
+      the official rate of HIV/AIDS remains relatively low in comparison to other
+      sub-Saharan countries. However, The Gambia possesses several high risk factors
+      which make the nation vulnerable to increased rates of infection; these include
+      an active transnational shipping route, active sex trade, little or no sex education
+      in the classroom along with high levels of illiteracy, access to media in general,
+      and polygamy. In order to combat these risk factors and rising rates of infection,
+      Peace Corps partnered with National Aids Secretariat (NAS) and a Gambian association
+      in 2010 for the first HIV Bike Trek. Due to success and impact of HIV Bike Trek
+      2010, Peace Corps Volunteers organized subsequent HIV Bike Treks in 2011, 2012,
+      and 2013, and is now organizing a trek for 2014.&nbsp;</p>\r\n<p>The ultimate
+      goals of HIV Bike Trek are: to educate and empower 808 Gambian youths with the
+      knowledge and confidence to protect themselves and their loved ones from HIV.
+      The Trek entails PCVs and Gambian counterparts biking across West Coast Region
+      and Lower River Region, to four Upper Basic Schools to teach Grade 8 or 9 students
+      about HIV/AIDS. Through a two-day intensive training, the students will learn
+      about the epidemiology of HIV/AIDS and the life skills to promote speaking out
+      and combating stigma and discrimination. By educating Gambian youths about HIV/AIDS
+      before they become sexual active, this project hopes to reduce new infections
+      rates and prevent HIV/AIDS from becoming a national epidemic.</p>"
+    featured_image: 16
+    fund: 88
+    issue: 12
     issue_feature: false
-    issues_related: [3]
+    issues_related: [14]
     media: []
-    slug: superhero-costumes
-    tagline: Women need superhero costumes to fight crime.
-    title: Teach Women How To Make Superhero Costumes
-    volunteer: 3
+    slug: hiv-bike-trek
+    tagline: Empower Gambian youth to protect themselves and their loved ones from
+      HIV.
+    title: HIV Bike Trek
+    volunteerhomecity: Gotham
+    volunteerhomestate: NY
+    volunteername: Barbara G
+    volunteerpicture: null
   model: peacecorps.project
-  pk: 3
+  pk: 8
 - fields:
-    country: 1
-    description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-      per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus
-      et ultrices posuere cubilia Curae; Aenean id mi vel est fringilla laoreet. Morbi
-      mattis hendrerit enim vitae scelerisque. Suspendisse potenti. Nulla purus ipsum,
-      aliquam pulvinar leo et, egestas auctor lorem. Quisque sapien est, auctor pharetra
-      luctus a, viverra porta sapien. Pellentesque ut libero sed diam rhoncus ultrices
-      vel vitae massa. Donec dui urna, elementum et cursus sit amet, posuere id purus.
-      Quisque tristique turpis eu tellus commodo, nec dictum mi sollicitudin. Pellentesque
-      sit amet posuere magna. Integer consectetur tempus lorem, eu mollis augue aliquet
-      a. Proin malesuada orci eu neque aliquam, nec lacinia tellus blandit. Pellentesque
-      ac mauris quis nulla malesuada finibus non quis sapien.\r\n\r\nInteger eget
-      nisi sed felis finibus vulputate. Pellentesque elementum porttitor lorem, non
-      ultricies risus tincidunt vel. Morbi hendrerit mauris posuere, imperdiet urna
-      at, euismod tortor. Sed eget sapien volutpat purus mollis semper. Etiam varius
-      quis mauris eu ornare. Donec ultricies pulvinar lacus at tincidunt. Nulla sagittis
-      leo quis finibus congue. Mauris suscipit, augue sed pharetra luctus, arcu purus
-      ultricies nulla, sed sodales orci elit vitae nibh. Proin eleifend vulputate
-      laoreet. Aenean at mi tempor, ullamcorper massa ut, laoreet erat. Nulla pharetra
-      nulla mi, vitae lacinia eros varius eu. Cras consequat ante id mi consectetur
-      vestibulum. In urna lectus, malesuada et gravida sit amet, suscipit ac libero.
-      Vestibulum feugiat consequat cursus."
-    featured_image: 5
-    fund: 9
-    issue: 5
+    country: 79
+    description: "<p>The high school where I work in East Java, Indonesia currently
+      has a tiny library that is used to store old textbooks. We plan to expand the
+      existing structure, build shelves, buy relevant, engaging and age appropriate
+      resources, install an LCD projector and create an organized cataloging system
+      for students and teachers to check out books. We hope to promote learning in
+      a community where education is not the top priority, increase English engagement
+      through books, listening resources and games, and enrich general knowledge through
+      international resources such as the National Geographic magazine. We hope this
+      library will become a comfortable study space where we can hold workshops on
+      topics such as good study skills, how to write an essay and how to apply to
+      college. We also live in a community where very little reading is done outside
+      of class, so we would like to encourage reading for fun.&nbsp;</p>\r\n<p>My
+      school, MAN, has already set aside a computer for the new library and is planning
+      to build the additional shelves needed to house the new books and resources.
+      As part of their end of the year projects, students made bilingual, English-Indonesian,
+      posters which will be hung in the library to give inspiration and make the library
+      a friendly and inviting place to time.</p>"
+    featured_image: 17
+    fund: 89
+    issue: 10
     issue_feature: false
-    issues_related: [3, 2]
+    issues_related: [13, 14]
     media: []
-    slug: catch-the-joker
-    tagline: He's running loose on the mean streets of Gotham
-    title: Apprehend the Joker
-    volunteer: 1
+    slug: man-library
+    tagline: Build a school library in East Java, Indonesia
+    title: MAN Library
+    volunteerhomecity: Salem Center
+    volunteerhomestate: NY
+    volunteername: Ororo M
+    volunteerpicture: null
   model: peacecorps.project
-  pk: 4
+  pk: 9
 - fields:
-    country: 1
-    description: "<p>Donec nec quam libero. Vestibulum condimentum libero ut consectetur
-      posuere. Integer sodales dapibus quam quis eleifend. Morbi nec mi vel nisl dictum
-      imperdiet. Etiam turpis velit, accumsan nec dui non, auctor pellentesque nulla.
-      Donec eu purus sed ipsum sollicitudin faucibus in nec felis. Nam pellentesque
-      sit amet magna vel condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Nulla faucibus lorem in metus fermentum, vitae vestibulum leo rutrum.
-      Ut id molestie felis. Morbi at augue porttitor, malesuada mi non, blandit nisl.
-      Ut ut metus aliquam, congue ex vel, venenatis turpis. Vestibulum posuere hendrerit
-      nisi, dictum dictum elit lacinia eget. Etiam eget scelerisque elit. Maecenas
-      sollicitudin non felis id venenatis.</p><p>\r\n\r\nDuis finibus libero eu aliquet
-      interdum. Nunc viverra elit luctus, finibus tortor vel, aliquam enim. Suspendisse
-      finibus urna eu purus aliquam aliquam. Quisque sit amet rutrum neque, sed pulvinar
-      neque. Donec at porttitor nunc, et ultrices mauris. Vivamus tempus leo auctor
-      consectetur pulvinar. Praesent arcu nibh, consequat in neque at, commodo pellentesque
-      urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-      ridiculus mus. Suspendisse non volutpat justo, a sagittis augue. Cras odio diam,
-      ultricies eget augue a, accumsan tempus nibh. Pellentesque efficitur, mauris
-      non imperdiet tincidunt, orci mi faucibus est, id accumsan ex mi nec justo.
-      Integer condimentum turpis non facilisis porta. Morbi in urna felis. In eu ultricies
-      quam.</p><p>\r\n\r\nInteger euismod placerat massa ut sodales. Aliquam porttitor
-      tempor lacus et sollicitudin. Nam cursus suscipit blandit. Sed eget pellentesque
-      velit, ac egestas lacus. Vivamus mi lectus, rhoncus vitae enim ut, auctor vestibulum
-      tellus. Sed id ante sed nunc rhoncus rhoncus. Fusce cursus in purus non vulputate.
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-      turpis egestas. Cras augue orci, ullamcorper nec eleifend sed, scelerisque a
-      neque. Praesent ornare, ante eget egestas cursus, sapien massa sollicitudin
-      leo, ac semper lorem quam sed libero. Cras sed vehicula ipsum. Ut tellus velit,
-      pellentesque sed magna ac, luctus egestas dolor.</p>"
-    featured_image: 3
-    fund: 8
-    issue: 1
+    country: 84
+    description: <p>In April 2014, a primary school in Jamaica partnered with a non-profit
+      organization to build a multi-purpose court. Previously, the community and primary
+      school relied on a a small green field and a hard court at the high school for
+      sports and recreation. Now with the new multi-purpose court, another more functional
+      area is available for more of the community's residents and youth to participate
+      in recreational activities. However, in constructing the court, retaining walls
+      were built from the ground on three sides, to create a level plane, but also
+      created an unsafe precipice. The community has not been able to completely maximize
+      the use of the court, for fear of safety for the children, and the possibility
+      of balls/equipment falling over. This project proposal will fund the erection
+      of a perimeter fence around the multi-purpose court to keep the participants
+      and equipment within the court boundaries. The community's aim is to create
+      a safe recreational area for students and community members to develop healthy
+      lifestyle choices through sports. A fence will allow for increased access to
+      the court, resulting in positive community relationships and sportsmanship through
+      recreational activity. The beneficiaries are the school students, community
+      sports teams (netball, basketball) and the community members who are interested
+      in recreational play. The community will be fundraising to assist in the costs
+      of the fence, and will also be stakeholders in using and maintaining the fence
+      and court area.</p>
+    featured_image: 18
+    fund: 90
+    issue: 14
     issue_feature: false
-    issues_related: [3]
+    issues_related: [12]
     media: []
-    slug: test-project
-    tagline: This is a Serious Project. This is a Serious Test.
-    title: Test Project
-    volunteer: 3
+    slug: fencing-ball-court
+    tagline: Build a fence to protect kids from a dangerous drop at the end of a ball
+      court
+    title: Fencing a Ball Court
+    volunteerhomecity: Gotham
+    volunteerhomestate: NY
+    volunteername: Bruce W
+    volunteerpicture: null
   model: peacecorps.project
-  pk: 5
-- fields: {homecity: Gotham, homestate: NY, name: Batgirl, profile_image: null, pronouns: T}
-  model: peacecorps.volunteer
-  pk: 1
-- fields: {homecity: Themyscira, homestate: VI, name: Wonder Woman, profile_image: null,
-    pronouns: S}
-  model: peacecorps.volunteer
-  pk: 2
-- fields: {homecity: Happy Harbor, homestate: RI, name: Miss Martian, profile_image: 6,
-    pronouns: S}
-  model: peacecorps.volunteer
-  pk: 3
-- fields: {homecity: Star City, homestate: MD, name: Black Canary, profile_image: null,
-    pronouns: S}
-  model: peacecorps.volunteer
-  pk: 4
+  pk: 10
+- fields:
+    country: 102
+    description: <p>My villiage is the second most visited park in Madagascar. There
+      is a great opportunity for income generating activities with the number of tourists
+      and guides visiting the area. Bread is available in the village, but it is low-quality
+      and is only delivered every few weeks. The plan would be to work with local
+      people to develop a small-scale business. They would be trained in basic business
+      skills like pricing, marketing, and branding as well as accounting. The initial
+      product would be a baguette. However, the location of the oven will be in close
+      proximity to a few hotels and could be rented out for events to make pizza.
+      Currently, there is only one hotel in town that makes pizza and the times offered
+      and selection is limited. This business would allow for custom orders, but the
+      primary focus would be baking bread. A trained baker/chef would come and do
+      a 1-2 day training on french style. The community would provide some of the
+      building materials as well as meals and lodging for the various trainers.</p>
+    featured_image: 19
+    fund: 91
+    issue: 8
+    issue_feature: false
+    issues_related: []
+    media: []
+    slug: brick-oven-bakery
+    tagline: Developing a small business at a popular park in Madagascar
+    title: Brick Oven Bakery
+    volunteerhomecity: Themyscira
+    volunteerhomestate: FM
+    volunteername: Diana T
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 11
+- fields:
+    country: 136
+    description: "<p>Our community does not have a basic sanitation system which forces
+      the 22 households to use their farmlands for defecation. Open defecation is
+      not only harmful for the environment, including the town's water, but also for
+      the health of the individual. In addition, the community is affected each year
+      by strong winds and heavy rains. The main objectives of this project revolve
+      around reducing risk in our community, which includes environmental, health,
+      and natural disasters risks.&nbsp;</p>\r\n<p>Through various education sessions
+      held in the community by the Volunteer, representatives from the municipality,
+      and the health post, each family will gain knowledge about hygiene practices,
+      global climate change, encouraging recycling and environmental consciousness,
+      preparing and reducing risk of natural disasters in their houses. Once the family
+      has attended four education sessions, they will work with the Volunteer and
+      local masons to build a bathroom for their household. In addition, the residents
+      will work together to build two bathrooms for the local elementary school which
+      has 21 students. The Volunteer and a representative of the health post will
+      teach the students about hand washing and maintain their new bathroom. The execution
+      of the project will result in better hygienic practices by the community members,
+      healthier farmlands free of open defecation, increased knowledge about climate
+      change, higher participation of recycling, and better preparation for future
+      strong winds and heavy rains.</p>\r\n<p>&nbsp;</p>"
+    featured_image: 20
+    fund: 92
+    issue: 9
+    issue_feature: false
+    issues_related: [12]
+    media: []
+    slug: build-bathrooms-peru
+    tagline: Bathrooms in homes and schools will greatly improve health and safety
+      in this community.
+    title: Build Bathrooms in Peru
+    volunteerhomecity: Jersey City
+    volunteerhomestate: NJ
+    volunteername: Kamala K
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 12
