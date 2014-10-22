@@ -1,3 +1,7 @@
+from django.db import models
+from tinymce import models as tinymce_models
+from localflavor.us.models import USPostalCodeField
+
 from datetime import timedelta
 
 from django.conf import settings
@@ -40,7 +44,7 @@ class CountryFund(models.Model):
     slug = models.SlugField(
         help_text="used for the fund page url.",
         max_length=100, unique=True)
-    description = models.TextField()
+    description = tinymce_models.HTMLField()
 
     def save(self):
         # can't prepopulate slugfields from foreignkeys in the admin.
@@ -178,12 +182,13 @@ class Project(models.Model):
         max_length=240, help_text="a short description for subheadings.")
     volunteer = models.ForeignKey('Volunteer')
     slug = models.SlugField(max_length=100, help_text="for the project url.")
-    description = models.TextField(help_text="the full description.")
+    description = tinymce_models.HTMLField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     issue = models.ForeignKey('Issue', related_name="projects")
     issues_related = models.ManyToManyField(
         'Issue', related_name="related_projects",
-        help_text="other issues this project relates to.")
+        help_text="other issues this project relates to.",
+        blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media',
         help_text="A large landscape image for use in banners, headers, etc")

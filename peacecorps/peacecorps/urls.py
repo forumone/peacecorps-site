@@ -14,6 +14,7 @@ from peacecorps.views import donate_countries
 
 urlpatterns = patterns(
     '',
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^donate/?$', donate_landing, name='donate landing'),
     url(r'^donate/issue/(?P<slug>[a-zA-Z0-9_-]*)/?$',
