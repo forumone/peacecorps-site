@@ -63,3 +63,6 @@ local_settings.py
 peacecorps/media
 
 *.swp
+
+# Database
+*.sqlite3
