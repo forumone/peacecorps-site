@@ -121,3 +121,15 @@ class DonationAmountTests(TestCase):
         fund.fundcurrent = 999999
         form = DonationAmountForm(data=data, fund=fund)
         self.assertFalse(form.is_valid())
+
+    def test_preset_custom(self):
+        """Entering no value will result in an error. Entering a custom amount
+        will resolve"""
+        fund = Fund(fundgoal=1000000, fundcurrent=0)
+        data = {'presets': 'custom'}
+        form = DonationAmountForm(data=data, fund=fund)
+        self.assertFalse(form.is_valid())
+
+        data['payment_amount'] = 1250
+        form = DonationAmountForm(data=data, fund=fund)
+        self.assertTrue(form.is_valid())

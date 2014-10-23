@@ -119,7 +119,7 @@ def donate_project(request, slug):
         if form.is_valid():
             params = {'project': project.fund.fundcode,
                       # convert back into cents
-                      'amount': 100*form.cleaned_data['payment_amount']}
+                      'amount': int(100*form.cleaned_data['payment_amount'])}
             return HttpResponseRedirect(
                 reverse('donations_payment') + '?' + urlencode(params))
     else:
@@ -166,3 +166,15 @@ def donate_countries(request):
         {
             'countries': countries,
         })
+
+
+def donation_success(request):
+    """User returns here on a successful donation. Can be extended to lookup
+    the project and redirect if needed."""
+    return render(request, 'donations/success.jinja')
+
+
+def donation_failure(request):
+    """User returns here on a failed donation. Can be extended to lookup
+    the project and redirect if needed."""
+    return render(request, 'donations/failure.jinja')

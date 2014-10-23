@@ -976,6 +976,18 @@
     featured_image: null, fund: 77, slug: zambia}
   model: peacecorps.countryfund
   pk: 65
+- fields: {issue: 12}
+  model: peacecorps.featuredissue
+  pk: 1
+- fields: {project: 11}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 4
+- fields: {project: 12}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 5
+- fields: {project: 7}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 6
 - fields: {community_contribution: null, fundcode: 305-CFD, fundcurrent: 0, fundgoal: null,
     fundtype: coun, name: Albania}
   model: peacecorps.fund
@@ -1508,7 +1520,7 @@
     featured_image: 15
     fund: 87
     issue: 12
-    issue_feature: false
+    issue_feature: true
     issues_related: [13]
     media: []
     slug: local-ultrasound-machine
@@ -1581,7 +1593,7 @@
     featured_image: 17
     fund: 89
     issue: 10
-    issue_feature: false
+    issue_feature: true
     issues_related: [13, 14]
     media: []
     slug: man-library
@@ -1618,7 +1630,7 @@
     featured_image: 18
     fund: 90
     issue: 14
-    issue_feature: false
+    issue_feature: true
     issues_related: [12]
     media: []
     slug: fencing-ball-court
@@ -1686,7 +1698,7 @@
     featured_image: 20
     fund: 92
     issue: 9
-    issue_feature: false
+    issue_feature: true
     issues_related: [12]
     media: []
     slug: build-bathrooms-peru
