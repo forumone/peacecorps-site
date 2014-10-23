@@ -3,6 +3,9 @@
 {% block title %}PEACECORPS{% endblock %}
 {% block header %}PEACECORPS{% endblock %}
 {% block content_class %}landing{% endblock %}
+{% block custom_js %}
+<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
+{% endblock %}
 
 {% block content %}
 
@@ -40,11 +43,21 @@
 {% endfor %}
 
 <h2>More Projects</h2>
-<ul class="more-projects">
+<div class="more-projects">
 {% for project in projects %}
-<li><a href="{{url("donate project", slug=project.slug)}}"
-       >{{project.title}}</a></li>
+  <div class="project-row" tabindex="0">
+    <div class="project-name">{{project.title}}</div>
+    <div class="project-country">{{project.country.name}}</div>
+    <div class="project-expanded">
+      <div class="volunteer">{{project.volunteername}} from
+      {{project.volunteerhomestate}}</div>
+      <div class="remaining">{{humanize_amount(project.fund.remaining())}}
+        until funded</div>
+      <div class="short-desc">{{project.tagline}}</div>
+      <div><a href="{{url("donate project", slug=project.slug)}}"
+         >Fund this project or read more</a></div>
+    </div>
+  </div>
 {% endfor %}
-</ul>
 
 {% endblock %}

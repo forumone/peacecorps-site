@@ -104,5 +104,46 @@
   width: 100%; }
   .landing .more-projects:last-child {
     margin-right: 0; }
+  .landing .more-projects .project-row {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    border-bottom: solid 1px #979797;
+    padding: 1em 0; }
+    .landing .more-projects .project-row:last-child {
+      margin-right: 0; }
+    .landing .more-projects .project-row .project-name {
+      margin-left: 17.05961%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      font-size: larger;
+      font-weight: bold; }
+      .landing .more-projects .project-row .project-name:last-child {
+        margin-right: 0; }
+    .landing .more-projects .project-row .project-country {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 14.70196%;
+      margin-right: 0;
+      font-size: larger; }
+      .landing .more-projects .project-row .project-country:last-child {
+        margin-right: 0; }
+    .landing .more-projects .project-row .project-expanded {
+      margin-left: 17.05961%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      margin-right: 0;
+      display: none;
+      /* Initially hidden */ }
+      .landing .more-projects .project-row .project-expanded:last-child {
+        margin-right: 0; }
+      .landing .more-projects .project-row .project-expanded > * {
+        padding-top: .5em; }
 
 /*# sourceMappingURL=landing.css.map */
