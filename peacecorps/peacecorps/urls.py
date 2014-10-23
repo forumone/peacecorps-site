@@ -4,7 +4,8 @@ from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from peacecorps.views import donation_payment
+from peacecorps.views import donation_failure, donation_payment
+from peacecorps.views import donation_success
 
 from peacecorps.views import donate_landing
 from peacecorps.views import donate_issue
@@ -28,6 +29,8 @@ urlpatterns = patterns(
     url(
         r'^donations/contribute/?$',
         donation_payment, name='donations_payment'),
+    url(r'^success/?$', donation_success, name='donation success'),
+    url(r'^failure/?$', donation_failure, name='donation failure')
 )
 
 
