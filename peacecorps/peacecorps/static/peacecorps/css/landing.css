@@ -3,7 +3,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-#landing a.button-link {
+.landing a.button-link {
   text-size: x-large;
   color: #fff;
   background-color: #333;
@@ -11,62 +11,62 @@
   text-decoration: none;
   text-transform: uppercase;
   padding: 1em 2em; }
-#landing #featured {
+.landing .featured {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
   position: relative; }
-  #landing #featured:last-child {
+  .landing .featured:last-child {
     margin-right: 0; }
-  #landing #featured img {
+  .landing .featured img {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
     max-height: 600px; }
-    #landing #featured img:last-child {
+    .landing .featured img:last-child {
       margin-right: 0; }
-  #landing #featured div {
+  .landing .featured div {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
     position: absolute;
     text-align: center; }
-    #landing #featured div:last-child {
+    .landing .featured div:last-child {
       margin-right: 0; }
-  #landing #featured #featured-tagline {
+  .landing .featured .featured-tagline {
     text-size: x-large;
     top: 4em; }
-  #landing #featured #featured-call {
+  .landing .featured .featured-call {
     bottom: 4em; }
-#landing #issues {
+.landing .issues {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
-  #landing #issues:last-child {
+  .landing .issues:last-child {
     margin-right: 0; }
-  #landing #issues div {
+  .landing .issues div {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 23.23176%;
     text-align: center;
     padding-top: 1em; }
-    #landing #issues div:last-child {
+    .landing .issues div:last-child {
       margin-right: 0; }
-    #landing #issues div:nth-child(4n) {
+    .landing .issues div:nth-child(4n) {
       margin-right: 0; }
-    #landing #issues div:nth-child(4n+1) {
+    .landing .issues div:nth-child(4n+1) {
       clear: left; }
-    #landing #issues div img {
+    .landing .issues div img {
       width: 80px;
       height: 80px; }
-    #landing #issues div span {
+    .landing .issues div span {
       display: block; }
-#landing .featured-project {
+.landing .featured-project {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -74,35 +74,35 @@
   margin-left: 17.05961%;
   position: relative;
   padding-top: 1em; }
-  #landing .featured-project:last-child {
+  .landing .featured-project:last-child {
     margin-right: 0; }
-  #landing .featured-project img {
+  .landing .featured-project img {
     float: left;
     display: block;
     margin-right: 3.57866%;
     width: 100%;
     max-height: 200px; }
-    #landing .featured-project img:last-child {
+    .landing .featured-project img:last-child {
       margin-right: 0; }
-  #landing .featured-project div {
+  .landing .featured-project div {
     float: left;
     display: block;
     margin-right: 3.57866%;
     width: 100%;
     position: absolute;
     text-align: center; }
-    #landing .featured-project div:last-child {
+    .landing .featured-project div:last-child {
       margin-right: 0; }
-  #landing .featured-project .project-tagline {
+  .landing .featured-project .project-tagline {
     top: 1em; }
-  #landing .featured-project .project-call {
+  .landing .featured-project .project-call {
     bottom: 2em; }
-#landing #more-projects {
+.landing .more-projects {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
-  #landing #more-projects:last-child {
+  .landing .more-projects:last-child {
     margin-right: 0; }
 
 /*# sourceMappingURL=landing.css.map */

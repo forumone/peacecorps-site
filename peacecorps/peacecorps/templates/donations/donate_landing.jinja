@@ -2,23 +2,23 @@
 
 {% block title %}PEACECORPS{% endblock %}
 {% block header %}PEACECORPS{% endblock %}
-{% block content_id %}landing{% endblock %}
+{% block content_class %}landing{% endblock %}
 
 {% block content %}
 
 {% if featuredissue %}
-<div id="featured">
+<div class="featured">
   <img src="{{featuredissue.featured_image.url}}"
        alt="{{featuredissue.featured_image.description}}" />
-  <div id="featured-tagline">{{featuredissue.tagline}}</div>
-  <div id="featured-call">
+  <div class="featured-tagline">{{featuredissue.tagline}}</div>
+  <div class="featured-call">
     <a href="{{url("donate issue", slug=featuredissue.slug)}}"
        class="button-link">{{featuredissue.call}}</a></div>
 </div>
 {% endif %}
 
 <h2>Issues</h2>
-<div id="issues">
+<div class="issues">
 {% for issue in issues %}
   <div>
     <a href="{{url("donate issue", slug=issue.slug)}}"><img
@@ -40,7 +40,7 @@
 {% endfor %}
 
 <h2>More Projects</h2>
-<ul id="more-projects">
+<ul class="more-projects">
 {% for project in projects %}
 <li><a href="{{url("donate project", slug=project.slug)}}"
        >{{project.title}}</a></li>

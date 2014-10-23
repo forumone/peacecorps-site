@@ -1,7 +1,7 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-#donate-form form {
+.donate-form form {
   @include outer-container; 
 
   & > div {
@@ -26,7 +26,7 @@
     content: ' *';
   }
 
-  #dedication_details {
+  .dedication_details {
     @include shift(1);
     @include span-columns(11);
     border: solid 1px #000;

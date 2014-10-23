@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
 </head>
 <body>
-<div id="wrapper">
+<div class="wrapper">
 <h1>{% block header %}Peace Corps{% endblock %}</h1>
 
 {% block navigation %}{% endblock %}
 
-<div id="{% block content_id %}{% endblock %}">
+<div class="{% block content_class %}{% endblock %}">
 {% block content %}{% endblock %}
 </div>
 

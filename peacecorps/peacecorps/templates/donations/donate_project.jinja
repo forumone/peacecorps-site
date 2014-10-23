@@ -2,37 +2,37 @@
 
 {% block title %}Peace Corps - Donate{% endblock %}
 {% block header %}Peace Corps - Donate{% endblock %}
-{% block content_id %}project{% endblock %}
+{% block content_class %}project{% endblock %}
 
 {% block navigation %}
 <h2><a class="back" href="{{ url("donate issue", slug=project.issue.slug) }}">&lt;</a> {{project.title}}</h2>
 {% endblock %}
 
 {% block content %}
-<p id="tagline">{{project.tagline}}</p>
+<p class="tagline">{{project.tagline}}</p>
 
-<div id="featured-image">
+<div class="featured-image">
   <img src="{{project.featured_image.url}}" alt="{{project.featured_image.description}}">
   <figcaption>{{project.featured_image.caption}}</figcaption>
 </div>
 
-<div id="donation-stats">
+<div class="donation-stats">
   {% if project.volunteerpicture %}
-    <div id="volunteer-image">
+    <div class="volunteer-image">
       <img src="{{project.volunteerpicture.url}}"
            alt="{{project.volunteerpicture.description}}">
     </div>
   {% endif %}
-  <div id="volunteer-info">
+  <div class="volunteer-info">
     <p><strong>{{project.volunteername}}</strong> from <strong>{{project.volunteerhomecity}}, {{project.volunteerhomestate}}</strong></p>
     {% set funded_percent = project.fund.percent_funded() %}
-    <div id="funded-chart">
-      <div id="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
-      <div id="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
+    <div class="funded-chart">
+      <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
+      <div class="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
     </div>
     <p>Funds sought: <strong>${{project.fund.fundgoal/100}}</strong></p>
 
-    <div id="donate-container"><button>
+    <div class="donate-container"><button>
     {% if project.fund.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
     </button></div>
   </div>
@@ -40,7 +40,7 @@
 
 <form method="post">
   {% csrf_token %}
-  <div id="radio-container">
+  <div class="radio-container">
     {{form.payment_amount.errors}}
     {% for radio in form.presets %}
       <div>
@@ -53,12 +53,12 @@
       </div>
     {% endfor %}
   </div>
-  <div id="button-container">
+  <div class="button-container">
     <input type="submit" value="Donate" />
   </div>
 </form>
 
-<div id="description">
+<div class="description">
     {{project.description|safe}}
 </div>
 {% endblock %}

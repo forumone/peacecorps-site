@@ -4,7 +4,7 @@
 @import "donation-form";
 @import "landing";
 
-#wrapper {
+.wrapper {
   @include outer-container; 
   h1, h2 {
     @include span-columns(12);

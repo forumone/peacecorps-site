@@ -1,6 +1,6 @@
 {% extends "donations/base.jinja" %}
 
-{% block content_id %}donate-form{% endblock %}
+{% block content_class %}donate-form{% endblock %}
 {% block custom_js %}
 <script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
 {% endblock %}
@@ -101,7 +101,7 @@
             </label>
         </div>
 
-        <div id='dedication_details'>
+        <div class='dedication_details'>
             
             <div>
                 {{form.dedication_name.errors}}
