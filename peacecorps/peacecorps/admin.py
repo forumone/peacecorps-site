@@ -3,7 +3,9 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import (UserCreationForm,
     AdminPasswordChangeForm)
 from django.contrib.auth.models import User
-from django.forms import ValidationError
+
+from django import forms
+from django.utils.translation import ugettext, ugettext_lazy as _
 
 
 from peacecorps import models
@@ -35,6 +37,9 @@ def password_validator(password):
 
 
 class StrictUserCreationForm(UserCreationForm):
+    password1 = forms.CharField(label=_("Password"),
+        widget=forms.PasswordInput, help_text=_("Enter a password. Requirements include: at least 20 characters, at least one uppercase letter, at least one lowercase letter, at least one number, and at least one special character."))
+
     def clean_password1(self):
         """Adds to the default password validation routine in order to enforce stronger passwords"""
         password = self.cleaned_data['password1']
@@ -42,7 +47,7 @@ class StrictUserCreationForm(UserCreationForm):
 
         # If password_validator returns errors, raise an error, else proceed.
         if errors:
-            raise ValidationError('\n'.join(errors))
+            raise forms.ValidationError('\n'.join(errors))
         else:
             return password
 
@@ -54,7 +59,7 @@ class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
 
         # If password_validator returns errors, raise an error, else proceed.
         if errors:
-            raise ValidationError('\n'.join(errors))
+            raise forms.ValidationError('\n'.join(errors))
         else:
             return password
 
