@@ -12,7 +12,8 @@ from peacecorps import models
 
 # Password length requirements
 def password_validator(password):
-    """Validates a given string against required password params. This is required in order to maintain FISMA compliance."""
+    """Validates a given string against required password params. This is
+    required in order to maintain FISMA compliance."""
     # Set up an errors array to capture things we find
     errors = []
 
@@ -38,10 +39,15 @@ def password_validator(password):
 
 class StrictUserCreationForm(UserCreationForm):
     password1 = forms.CharField(label=_("Password"),
-        widget=forms.PasswordInput, help_text=_("Enter a password. Requirements include: at least 20 characters, at least one uppercase letter, at least one lowercase letter, at least one number, and at least one special character."))
+        widget=forms.PasswordInput, help_text=_("""
+            Enter a password.Requirements include: at least 20 characters,
+            at least one uppercase letter, at least one lowercase letter, at
+            least one number, and at least one special character.
+            """))
 
     def clean_password1(self):
-        """Adds to the default password validation routine in order to enforce stronger passwords"""
+        """Adds to the default password validation routine in order to enforce 
+        stronger passwords"""
         password = self.cleaned_data['password1']
         errors = password_validator(password)
 
@@ -53,7 +59,8 @@ class StrictUserCreationForm(UserCreationForm):
 
 class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
     def clean_password1(self):
-        """Adds to the default password validation routine in order to enforce stronger passwords"""
+        """Adds to the default password validation routine in order to enforce 
+        stronger passwords"""
         password = self.cleaned_data['password1']
         errors = password_validator(password)
 

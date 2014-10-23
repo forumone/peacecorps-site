@@ -2,7 +2,8 @@ from django.contrib.auth.models import User
 
 from django.test import TestCase
 
-from peacecorps.admin import StrictUserCreationForm, StrictAdminPasswordChangeForm
+from peacecorps.admin import (StrictUserCreationForm,
+StrictAdminPasswordChangeForm)
 
 
 class StrictUserCreationTest(TestCase):
@@ -95,7 +96,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': '',
             'password2': ''
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_match(self):
@@ -104,7 +106,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'q*A9x=^2hg&v7u?u9tg?u',
             'password2': 'A=r7-%=K?K@B^!9Q8=C+'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_uppercase(self):
@@ -113,7 +116,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'q*9x=^2hg&v7u?u9tg?u',
             'password2': 'q*9x=^2hg&v7u?u9tg?u'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_lowercase(self):
@@ -122,7 +126,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'A=R7-%=K?K@B^!9Q8=C+',
             'password2': 'A=R7-%=K?K@B^!9Q8=C+'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_number(self):
@@ -131,7 +136,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'CDr=cpz&Z&a!cuP-nAQe',
             'password2': 'CDr=cpz&Z&a!cuP-nAQe'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_specialchar(self):
@@ -140,7 +146,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'vNzwXpzKJyTshvHsuULn',
             'password2': 'vNzwXpzKJyTshvHsuULn'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
 
     def test_length(self):
@@ -149,5 +156,6 @@ class StrictAdminPasswordChangeFormTest(TestCase):
             'password1': 'c897B$eH@',
             'password2': 'c897B$eH@'
         }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=User.objects.get(username='testuser'))
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
