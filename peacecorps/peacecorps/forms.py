@@ -174,5 +174,6 @@ class DonationAmountForm(forms.Form):
                 elif remaining_amount >= 1000000:
                     raise ValidationError('Must be < 10,000.00')
                 return Decimal(remaining_amount / 100.00)  # user sees dollars
-
+        if self.cleaned_data.get('payment_amount'):
+            return self.cleaned_data.get('payment_amount')
         raise ValidationError('This field is required.')
