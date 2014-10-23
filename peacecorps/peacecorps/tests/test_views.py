@@ -1,24 +1,12 @@
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
-from django.utils.importlib import import_module
 
 from peacecorps.models import Fund, Project
 from peacecorps.views import humanize_amount
 
 
-class SessionTestCase(TestCase):
-    def setUp(self):
-        settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
-        engine = import_module(settings.SESSION_ENGINE)
-        store = engine.SessionStore()
-        store.save()
-        self.session = store
-        self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
-
-
-class DonationsTests(SessionTestCase):
+class DonationsTests(TestCase):
     def setUp(self):
         self.fund = Fund.objects.create(fundcode='FUNDFUND')
 
