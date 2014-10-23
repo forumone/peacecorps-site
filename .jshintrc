@@ -16,6 +16,7 @@
   "globalstrict": true,
   "sub": true,
   "globals": {
-    "$": true
+    "$": true,
+    "_": true
   }
 }

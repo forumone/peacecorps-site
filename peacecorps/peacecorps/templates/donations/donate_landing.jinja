@@ -4,6 +4,7 @@
 {% block header %}PEACECORPS{% endblock %}
 {% block content_class %}landing{% endblock %}
 {% block custom_js %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
 {% endblock %}
 
@@ -44,6 +45,9 @@
 
 <h2>More Projects</h2>
 <div class="more-projects">
+  <div class="search-space">
+    <input type="text" placeholder="Search for volunteer or project" />
+  </div>
 {% for project in projects %}
   <div class="project-row" tabindex="0">
     <div class="project-name">{{project.title}}</div>
