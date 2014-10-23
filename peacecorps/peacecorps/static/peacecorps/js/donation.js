@@ -29,7 +29,7 @@ var Init = {
   //  Donations in dedication to someone have additional fields
   dedicationFields: function() {
     var dedication = $('#id_dedication'),
-        dedicationDiv = $('#dedication_details');
+        dedicationDiv = $('.dedication_details');
 
     dedication.change(function() {
       dedicationDiv.toggle(dedication.is(':checked'));

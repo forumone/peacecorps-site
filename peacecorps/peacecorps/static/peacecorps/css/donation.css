@@ -18,49 +18,49 @@
 #project img {
   max-height: 100%;
   max-width: 100%; }
-#project #featured-image {
+#project .featured-image {
   text-align: center;
   max-height: 200px; }
-#project #donation-stats {
+#project .donation-stats {
   max-height: 150px; }
-  #project #donation-stats #volunteer-image {
+  #project .donation-stats .volunteer-image {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
     text-align: center; }
-    #project #donation-stats #volunteer-image:last-child {
+    #project .donation-stats .volunteer-image:last-child {
       margin-right: 0; }
-  #project #donation-stats #volunteer-info {
+  #project .donation-stats .volunteer-info {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 57.35098%;
     margin-left: 34.11922%;
     margin-right: 0; }
-    #project #donation-stats #volunteer-info:last-child {
+    #project .donation-stats .volunteer-info:last-child {
       margin-right: 0; }
-    #project #donation-stats #volunteer-info > * {
+    #project .donation-stats .volunteer-info > * {
       float: left;
       display: block;
       margin-right: 4.11092%;
       width: 100%; }
-      #project #donation-stats #volunteer-info > *:last-child {
+      #project .donation-stats .volunteer-info > *:last-child {
         margin-right: 0; }
-    #project #donation-stats #volunteer-info #funded-chart {
+    #project .donation-stats .volunteer-info .funded-chart {
       margin-right: 0;
       position: relative;
       border: 1px solid #000; }
-      #project #donation-stats #volunteer-info #funded-chart #funded-amount-bar {
+      #project .donation-stats .volunteer-info .funded-chart .funded-amount-bar {
         background-color: #aaa;
         width: 100%; }
-      #project #donation-stats #volunteer-info #funded-chart #funded-amount-text {
+      #project .donation-stats .volunteer-info .funded-chart .funded-amount-text {
         position: absolute;
         top: 0;
         left: 1em; }
-    #project #donation-stats #volunteer-info #donate-container {
+    #project .donation-stats .volunteer-info .donate-container {
       text-align: right; }
-  #project #donation-stats #volunteer-image + #volunteer-info {
+  #project .donation-stats .volunteer-image + .volunteer-info {
     margin-left: 0%; }
 
 * {
@@ -68,52 +68,52 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-#donate-form form {
+.donate-form form {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  #donate-form form:after {
+  .donate-form form:after {
     content: "";
     display: table;
     clear: both; }
-  #donate-form form > div {
+  .donate-form form > div {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
-    #donate-form form > div:last-child {
+    .donate-form form > div:last-child {
       margin-right: 0; }
-  #donate-form form div > label {
+  .donate-form form div > label {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%; }
-    #donate-form form div > label:last-child {
+    .donate-form form div > label:last-child {
       margin-right: 0; }
-  #donate-form form div > .value {
+  .donate-form form div > .value {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 82.94039%; }
-    #donate-form form div > .value:last-child {
+    .donate-form form div > .value:last-child {
       margin-right: 0; }
-  #donate-form form div > .checkbox {
+  .donate-form form div > .checkbox {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 6.17215%; }
-    #donate-form form div > .checkbox:last-child {
+    .donate-form form div > .checkbox:last-child {
       margin-right: 0; }
-  #donate-form form .checkbox + label {
+  .donate-form form .checkbox + label {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 91.4702%; }
-    #donate-form form .checkbox + label:last-child {
+    .donate-form form .checkbox + label:last-child {
       margin-right: 0; }
-  #donate-form form label.required::after {
+  .donate-form form label.required::after {
     content: ' *'; }
-  #donate-form form #dedication_details {
+  .donate-form form .dedication_details {
     margin-left: 8.5298%;
     float: left;
     display: block;
@@ -123,49 +123,156 @@
     padding: 0.5em;
     display: none;
     /* Initially hidden */ }
-    #donate-form form #dedication_details:last-child {
+    .donate-form form .dedication_details:last-child {
       margin-right: 0; }
-    #donate-form form #dedication_details > div, #donate-form form #dedication_details p {
+    .donate-form form .dedication_details > div, .donate-form form .dedication_details p {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%; }
-      #donate-form form #dedication_details > div:last-child, #donate-form form #dedication_details p:last-child {
+      .donate-form form .dedication_details > div:last-child, .donate-form form .dedication_details p:last-child {
         margin-right: 0; }
-    #donate-form form #dedication_details #id_dedication_consent {
+    .donate-form form .dedication_details #id_dedication_consent {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 82.94039%; }
-      #donate-form form #dedication_details #id_dedication_consent:last-child {
+      .donate-form form .dedication_details #id_dedication_consent:last-child {
         margin-right: 0; }
-  #donate-form form .shown-with-organization {
+  .donate-form form .shown-with-organization {
     display: none;
     /* Initially hidden */ }
-  #donate-form form ul {
+  .donate-form form ul {
     margin-top: 0;
     margin-bottom: 0; }
 
-#wrapper {
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.landing a.button-link {
+  text-size: x-large;
+  color: #fff;
+  background-color: #333;
+  border: solid 1px #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1em 2em; }
+.landing .featured {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  position: relative; }
+  .landing .featured:last-child {
+    margin-right: 0; }
+  .landing .featured img {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    max-height: 600px; }
+    .landing .featured img:last-child {
+      margin-right: 0; }
+  .landing .featured div {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    position: absolute;
+    text-align: center; }
+    .landing .featured div:last-child {
+      margin-right: 0; }
+  .landing .featured .featured-tagline {
+    text-size: x-large;
+    top: 4em; }
+  .landing .featured .featured-call {
+    bottom: 4em; }
+.landing .issues {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .landing .issues:last-child {
+    margin-right: 0; }
+  .landing .issues div {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    text-align: center;
+    padding-top: 1em; }
+    .landing .issues div:last-child {
+      margin-right: 0; }
+    .landing .issues div:nth-child(4n) {
+      margin-right: 0; }
+    .landing .issues div:nth-child(4n+1) {
+      clear: left; }
+    .landing .issues div img {
+      width: 80px;
+      height: 80px; }
+    .landing .issues div span {
+      display: block; }
+.landing .featured-project {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  position: relative;
+  padding-top: 1em; }
+  .landing .featured-project:last-child {
+    margin-right: 0; }
+  .landing .featured-project img {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    max-height: 200px; }
+    .landing .featured-project img:last-child {
+      margin-right: 0; }
+  .landing .featured-project div {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    position: absolute;
+    text-align: center; }
+    .landing .featured-project div:last-child {
+      margin-right: 0; }
+  .landing .featured-project .project-tagline {
+    top: 1em; }
+  .landing .featured-project .project-call {
+    bottom: 2em; }
+.landing .more-projects {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .landing .more-projects:last-child {
+    margin-right: 0; }
+
+.wrapper {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  #wrapper:after {
+  .wrapper:after {
     content: "";
     display: table;
     clear: both; }
-  #wrapper h1, #wrapper h2 {
+  .wrapper h1, .wrapper h2 {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
     text-align: center; }
-    #wrapper h1:last-child, #wrapper h2:last-child {
+    .wrapper h1:last-child, .wrapper h2:last-child {
       margin-right: 0; }
-  #wrapper h2 {
+  .wrapper h2 {
     border: 1px solid black;
     position: relative; }
-    #wrapper h2 a.back {
+    .wrapper h2 a.back {
       position: absolute;
       left: 1em; }
 

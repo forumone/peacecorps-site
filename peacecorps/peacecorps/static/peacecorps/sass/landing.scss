@@ -1,0 +1,80 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+.landing {
+  a.button-link {
+    text-size: x-large;
+    color: #fff;
+    background-color: #333;
+    border: solid 1px #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1em 2em;
+  }
+
+  .featured {
+    @include span-columns(12);
+    position: relative;
+
+    img {
+      @include span-columns(12);
+      max-height: 600px;
+    }
+    div {
+      @include span-columns(12);
+      position: absolute;
+      text-align: center;
+    }
+    .featured-tagline {
+      text-size: x-large;
+      top: 4em;
+    }
+    .featured-call {
+      bottom: 4em;
+    }
+
+  }
+  .issues {
+    @include span-columns(12);
+
+    div {
+      @include span-columns(3);
+      @include omega(4n);
+      text-align: center;
+      padding-top: 1em;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+  .featured-project {
+    @include span-columns(8);
+    @include shift(2);
+    position: relative;
+    padding-top: 1em;
+
+    img {
+      @include span-columns(8 of 8);
+      max-height: 200px;
+    }
+    div {
+      @include span-columns(8 of 8);
+      position: absolute;
+      text-align: center;
+    }
+    .project-tagline {
+      top: 1em;
+    }
+    .project-call {
+      bottom: 2em;
+    }
+  }
+  .more-projects {
+    @include span-columns(12);
+  }
+}
