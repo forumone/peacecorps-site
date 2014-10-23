@@ -36,7 +36,7 @@ def password_validator(password):
 
 class StrictUserCreationForm(UserCreationForm):
     def clean_password1(self):
-        """Overwrites the default password validation routine in favor of something stronger"""
+        """Adds to the default password validation routine in order to enforce stronger passwords"""
         password = self.cleaned_data['password1']
         errors = password_validator(password)
 
@@ -48,7 +48,7 @@ class StrictUserCreationForm(UserCreationForm):
 
 class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
     def clean_password1(self):
-        """Overwrites the default password validation routine in favor of something stronger"""
+        """Adds to the default password validation routine in order to enforce stronger passwords"""
         password = self.cleaned_data['password1']
         errors = password_validator(password)
 
