@@ -40,7 +40,7 @@ def password_validator(password):
 class StrictUserCreationForm(UserCreationForm):
     password1 = forms.CharField(label=_("Password"),
         widget=forms.PasswordInput, help_text=_("""
-            Enter a password.Requirements include: at least 20 characters,
+            Enter a password. Requirements include: at least 20 characters,
             at least one uppercase letter, at least one lowercase letter, at
             least one number, and at least one special character.
             """))
@@ -58,6 +58,13 @@ class StrictUserCreationForm(UserCreationForm):
             return password
 
 class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
+    password1 = forms.CharField(label=_("Password"),
+        widget=forms.PasswordInput, help_text=_("""
+            Enter a password. Requirements include: at least 20 characters,
+            at least one uppercase letter, at least one lowercase letter, at
+            least one number, and at least one special character.
+            """))
+    
     def clean_password1(self):
         """Adds to the default password validation routine in order to enforce 
         stronger passwords"""
