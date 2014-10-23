@@ -1,9 +1,21 @@
 from .base import *
 
+from django.utils.crypto import get_random_string
+
 DEBUG = True
 TEMPLATE_DEBUG = True
 
 INTERNAL_IPS = ('127.0.0.1',)
+SECRET_KEY = get_random_string(50)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+INSTALLED_APPS += ('paygov',)
 
 LOGGING = {
     'version': 1,
