@@ -10,7 +10,7 @@ from peacecorps import models
 
 # Password length requirements
 def password_validator(password):
-    """Validates a given string against required password params"""
+    """Validates a given string against required password params. This is required in order to maintain FISMA compliance."""
     # Set up an errors array to capture things we find
     errors = []
 
