@@ -77,6 +77,16 @@ class StrictUserCreationTest(TestCase):
         form = StrictUserCreationForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+    def test_passwordsuccess(self):
+        """ Check to ensure the password, when proper, is successful."""
+        form_data = {
+            'username': 'testuser',
+            'password1': '2$n5[]$nnA5Y}2}}^gba',
+            'password2': '2$n5[]$nnA5Y}2}}^gba'
+        }
+        form = StrictUserCreationForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
 class StrictAdminPasswordChangeFormTest(TestCase):
     def setUp(self):
         username = 'testuser'
@@ -159,3 +169,13 @@ class StrictAdminPasswordChangeFormTest(TestCase):
         form = StrictAdminPasswordChangeForm(data=form_data,
             user=User.objects.get(username='testuser'))
         self.assertFalse(form.is_valid())
+
+    def test_passwordsuccess(self):
+        """ Check to ensure the password, when proper, is successful."""
+        form_data = {
+            'password1': '2$n5[]$nnA5Y}2}}^gba',
+            'password2': '2$n5[]$nnA5Y}2}}^gba'
+        }
+        form = StrictAdminPasswordChangeForm(data=form_data,
+            user=User.objects.get(username='testuser'))
+        self.assertTrue(form.is_valid())
