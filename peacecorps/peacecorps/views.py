@@ -75,6 +75,7 @@ def donate_landing(request):
 
     featuredprojects = FeaturedProjectFrontPage.objects.select_related(
         'project__featured_image').all()
+    projects = Project.objects.select_related('country', 'fund')
 
     try:
         featuredissue = FeaturedIssue.objects.get(id=1).issue
@@ -88,7 +89,8 @@ def donate_landing(request):
             'featuredissue': featuredissue,
             'issues': Issue.objects.all(),
             'featuredprojects': featuredprojects,
-            'projects': Project.objects.all(),
+            'projects': projects,
+            'humanize_amount': humanize_amount,
         })
 
 

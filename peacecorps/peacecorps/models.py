@@ -5,10 +5,8 @@ from localflavor.us.models import USPostalCodeField
 from datetime import timedelta
 
 from django.conf import settings
-from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
-from localflavor.us.models import USPostalCodeField
 
 
 def percentfunded(current, goal):
@@ -23,7 +21,7 @@ def humanize_amount(amount_cents):
     format. """
 
     amount_dollars = amount_cents/100.0
-    return "$%.2f" % (amount_dollars)
+    return "${:,.2f}".format(amount_dollars)
 
 
 class Country(models.Model):
@@ -116,6 +114,11 @@ class Fund(models.Model):
             return True
         else:
             return False
+
+    def remaining(self):
+        """This will be expanded later, and may involve more complicated
+        calculations. As such, we don't want it to be a property"""
+        return self.fundgoal - self.fundcurrent
 
 
 class Issue(models.Model):

@@ -3,22 +3,26 @@
 {% block title %}PEACECORPS{% endblock %}
 {% block header %}PEACECORPS{% endblock %}
 {% block content_class %}landing{% endblock %}
+{% block custom_js %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
+{% endblock %}
 
 {% block content %}
 
 {% if featuredissue %}
-<div class="featured">
+<section class="featured">
   <img src="{{featuredissue.featured_image.url}}"
        alt="{{featuredissue.featured_image.description}}" />
   <div class="featured-tagline">{{featuredissue.tagline}}</div>
   <div class="featured-call">
     <a href="{{url("donate issue", slug=featuredissue.slug)}}"
        class="button-link">{{featuredissue.call}}</a></div>
-</div>
+</section>
 {% endif %}
 
 <h2>Issues</h2>
-<div class="issues">
+<section class="issues">
 {% for issue in issues %}
   <div>
     <a href="{{url("donate issue", slug=issue.slug)}}"><img
@@ -26,7 +30,7 @@
     <span>{{issue.name}}</span>
   </div>
 {% endfor %}
-</div>
+</section>
 
 <h2>Featured Projects</h2>
 {% for project in featuredprojects %}
@@ -40,11 +44,25 @@
 {% endfor %}
 
 <h2>More Projects</h2>
-<ul class="more-projects">
+<section class="more-projects">
+  <div class="search-space">
+    <input type="text" placeholder="Search for volunteer or project" />
+  </div>
 {% for project in projects %}
-<li><a href="{{url("donate project", slug=project.slug)}}"
-       >{{project.title}}</a></li>
+  <div class="project-row" tabindex="0">
+    <div class="project-name">{{project.title}}</div>
+    <div class="project-country">{{project.country.name}}</div>
+    <div class="project-expanded">
+      <div class="volunteer">{{project.volunteername}} from
+      {{project.volunteerhomestate}}</div>
+      <div class="remaining">{{humanize_amount(project.fund.remaining())}}
+        until funded</div>
+      <div class="short-desc">{{project.tagline}}</div>
+      <div><a href="{{url("donate project", slug=project.slug)}}"
+         >Fund this project or read more</a></div>
+    </div>
+  </div>
 {% endfor %}
-</ul>
+</section>
 
 {% endblock %}
