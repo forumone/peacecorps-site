@@ -36,11 +36,11 @@
     text-align: center; }
     .landing .featured div:last-child {
       margin-right: 0; }
-  .landing .featured .featured-tagline {
-    text-size: x-large;
-    top: 4em; }
-  .landing .featured .featured-call {
-    bottom: 4em; }
+.landing .featured-tagline {
+  text-size: x-large;
+  top: 4em; }
+.landing .featured-call {
+  bottom: 4em; }
 .landing .issues {
   float: left;
   display: block;
@@ -93,10 +93,10 @@
     text-align: center; }
     .landing .featured-project div:last-child {
       margin-right: 0; }
-  .landing .featured-project .project-tagline {
-    top: 1em; }
-  .landing .featured-project .project-call {
-    bottom: 2em; }
+.landing .project-tagline {
+  top: 1em; }
+.landing .project-call {
+  bottom: 2em; }
 .landing .more-projects {
   float: left;
   display: block;
@@ -104,65 +104,65 @@
   width: 100%; }
   .landing .more-projects:last-child {
     margin-right: 0; }
-  .landing .more-projects .search-space {
+.landing .search-space {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  display: none;
+  /* Defaults hidden for non-JS users */ }
+  .landing .search-space:last-child {
+    margin-right: 0; }
+  .landing .search-space input {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
-    display: none;
-    /* Defaults hidden for non-JS users */ }
-    .landing .more-projects .search-space:last-child {
+    height: 2em;
+    font-size: large;
+    padding: 1em 4em; }
+    .landing .search-space input:last-child {
       margin-right: 0; }
-    .landing .more-projects .search-space input {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      height: 2em;
-      font-size: large;
-      padding: 1em 4em; }
-      .landing .more-projects .search-space input:last-child {
-        margin-right: 0; }
-  .landing .more-projects .project-row {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    border-bottom: solid 1px #979797;
-    padding: 1em 0; }
-    .landing .more-projects .project-row:last-child {
-      margin-right: 0; }
-    .landing .more-projects .project-row .project-name {
-      margin-left: 17.05961%;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
-      font-size: larger;
-      font-weight: bold; }
-      .landing .more-projects .project-row .project-name:last-child {
-        margin-right: 0; }
-    .landing .more-projects .project-row .project-country {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 14.70196%;
-      margin-right: 0;
-      font-size: larger; }
-      .landing .more-projects .project-row .project-country:last-child {
-        margin-right: 0; }
-    .landing .more-projects .project-row .project-expanded {
-      margin-left: 17.05961%;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 65.88078%;
-      margin-right: 0;
-      display: none;
-      /* Initially hidden */ }
-      .landing .more-projects .project-row .project-expanded:last-child {
-        margin-right: 0; }
-      .landing .more-projects .project-row .project-expanded > * {
-        padding-top: .5em; }
+.landing .project-row {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  border-bottom: solid 1px #979797;
+  padding: 1em 0; }
+  .landing .project-row:last-child {
+    margin-right: 0; }
+.landing .project-name {
+  margin-left: 17.05961%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  font-size: larger;
+  font-weight: bold; }
+  .landing .project-name:last-child {
+    margin-right: 0; }
+.landing .project-country {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-right: 0;
+  font-size: larger; }
+  .landing .project-country:last-child {
+    margin-right: 0; }
+.landing .project-expanded {
+  margin-left: 17.05961%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-right: 0;
+  display: none;
+  /* Initially hidden */ }
+  .landing .project-expanded:last-child {
+    margin-right: 0; }
+  .landing .project-expanded > * {
+    padding-top: .5em; }
 
 /*# sourceMappingURL=landing.css.map */
