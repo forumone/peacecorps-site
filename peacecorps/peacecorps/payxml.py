@@ -122,4 +122,4 @@ def convert_to_paygov(data, fund):
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
     return DonorInfo(agency_tracking_id=tracking_id, fund=fund,
-                     xml=tostring(xml))
+                     xml=tostring(xml).decode('utf-8'))

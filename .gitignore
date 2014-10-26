@@ -61,6 +61,7 @@ peacecorps/*/static/*/sass/neat
 # Application
 local_settings.py
 peacecorps/media
+peacecorps/peacecorps/tests/gpg/random_seed
 
 *.swp
 

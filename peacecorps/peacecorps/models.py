@@ -1,12 +1,13 @@
-from django.db import models
-from tinymce import models as tinymce_models
-from localflavor.us.models import USPostalCodeField
-
 from datetime import timedelta
 
 from django.conf import settings
+from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
+from localflavor.us.models import USPostalCodeField
+from tinymce import models as tinymce_models
+
+from peacecorps.fields import GPGField
 
 
 def percentfunded(current, goal):
@@ -216,7 +217,7 @@ class DonorInfo(models.Model):
     pay.gov. We need to limit accessibility as it contains PII"""
     agency_tracking_id = models.CharField(max_length=21, primary_key=True)
     fund = models.ForeignKey(Fund, related_name='donorinfos')
-    xml = models.TextField()    # @todo: encrypt
+    xml = GPGField()
     expires_at = models.DateTimeField(default=default_expire_time)
 
 

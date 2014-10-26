@@ -4,3 +4,4 @@ django-jinja==1.0.4
 django-localflavor
 django-tinymce
 pyyaml
+python-gnupg
