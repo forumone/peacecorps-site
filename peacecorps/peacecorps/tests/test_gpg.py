@@ -24,6 +24,9 @@ class GPGTests(TestCase):
             #   Was saved in plain text in the DB
             values = DonorInfo.objects.filter(pk=di.pk).values_list('xml')
             byte_str = values[0][0]
+            if isinstance(byte_str, memoryview):
+                byte_str = byte_str.tobytes()
+
             self.assertEqual(byte_str.decode('utf-8'), 'Plain Text')
 
             #   Decodes correctly
