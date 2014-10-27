@@ -1,0 +1,16 @@
+/*
+ * Full background image
+ *
+ * To use, set the class and apply a background image url and height with 
+ * inline css.
+ */
+
+@import "globals";
+
+.full_bg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $z_index-bg;
+}
