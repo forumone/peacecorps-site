@@ -130,25 +130,51 @@ class DonatePagesTests(TestCase):
 
     def test_project_form_empty_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery',
-                                    {'presets': 'custom',
-                                     'payment_amount': ''})
+                                    {'top-presets': 'custom',
+                                     'top-payment_amount': ''})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_low_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery',
-                                    {'presets': 'custom',
-                                     'payment_amount': '0.99'})
+                                    {'top-presets': 'custom',
+                                     'top-payment_amount': '0.99'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_high_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery',
-                                    {'presets': 'custom',
-                                     'payment_amount': '10000.01'})
+                                    {'top-presets': 'custom',
+                                     'top-payment_amount': '10000.00'})
         self.assertEqual(response.status_code, 200)
 
-    def test_project_form_redirect(self):
+    def test_project_form_redirect_all(self):
+        """When selecting the fund-remaining-amount option, everything should
+        work"""
         response = self.client.post('/donate/project/brick-oven-bakery',
-                                    {'presets': 'preset-all'})
+                                    {'top-presets': 'preset-all'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("220000" in response['Location'])
+        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
+        self.assertTrue(fundcode)
+        self.assertTrue(fundcode in response['Location'])
+
+    def test_project_form_redirect_custom(self):
+        """When selecting the fund-a-custom-amount option, everything should
+        work"""
+        response = self.client.post('/donate/project/brick-oven-bakery',
+                                    {'top-presets': 'custom',
+                                     'top-payment_amount': '123.45'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("12345" in response['Location'])
+        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
+        self.assertTrue(fundcode)
+        self.assertTrue(fundcode in response['Location'])
+
+    def test_project_form_redirect_bottom(self):
+        """Despite the top form being invalid, if the bottom is, we should
+        still redirect"""
+        response = self.client.post('/donate/project/brick-oven-bakery',
+                                    {'top-presets': 'custom',
+                                     'bottom-presets': 'preset-all'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("220000" in response['Location'])
         fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
