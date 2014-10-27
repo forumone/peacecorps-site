@@ -87,6 +87,10 @@ class DonationPaymentTests(TestCase):
         form = DonationPaymentForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+        form_data = self.form_data(billing_state='')
+        form = DonationPaymentForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
         form_data = self.form_data(clear=['billing_zip'])
         form = DonationPaymentForm(data=form_data)
         self.assertFalse(form.is_valid())
