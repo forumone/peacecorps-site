@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import CountryFund, FeaturedIssue
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
-from peacecorps.models import Issue, Project
+from peacecorps.models import Issue, Project, MemorialFund, FundDisplay
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -175,6 +175,36 @@ def donate_countries(request):
         'donations/donate_countries.jinja',
         {
             'countries': countries,
+        })
+
+
+def donate_memorial(request, slug):
+    """
+    The page for individual memorial funds.
+    """
+    memfund = get_object_or_404(MemorialFund.objects.select_related(
+        'featured_image', 'headshot', 'fund'), slug=slug)
+
+    return render(
+        request,
+        'donations/donate_memorial.jinja',
+        {
+            'memfund': memfund,
+        })
+
+
+def donate_general(request, slug):
+    """
+    The page for the general fund.
+    """
+    general = get_object_or_404(FundDisplay.objects.select_related('fund'),
+        slug=slug)
+
+    return render(
+        request,
+        'donations/donate_general.jinja',
+        {
+            'general': general,
         })
 
 

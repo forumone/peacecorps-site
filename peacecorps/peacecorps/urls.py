@@ -12,6 +12,8 @@ from peacecorps.views import donate_issue
 from peacecorps.views import donate_project
 from peacecorps.views import donate_country
 from peacecorps.views import donate_countries
+from peacecorps.views import donate_memorial
+from peacecorps.views import donate_general
 
 urlpatterns = patterns(
     '',
@@ -26,6 +28,11 @@ urlpatterns = patterns(
         donate_country, name='donate country'),
     url(r'^donate/countries',
         donate_countries, name='donate countries'),
+    url(r'^donate/memorial/(?P<slug>[a-zA-Z0-9_-]*)/?$',
+        donate_memorial, name='donate memorial'),
+    # this needs to be below other donate urls.
+    url(r'^donate/(?P<slug>[a-zA-Z0-9_-]*)/?$',
+        donate_general, name='donate general'),
     url(
         r'^donations/contribute/?$',
         donation_payment, name='donations_payment'),

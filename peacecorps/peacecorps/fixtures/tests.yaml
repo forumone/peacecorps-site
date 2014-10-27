@@ -571,6 +571,9 @@
 - fields: {code: GAM, name: Gambia}
   model: peacecorps.country
   pk: 191
+- fields: {code: IRN, name: Iran}
+  model: peacecorps.country
+  pk: 192
 - fields: {country: 3, description: 'Contributions to the Albania Country Fund will
       support Volunteer and community projects that will take place in Albania. These
       projects include water and sanitation, agricultural development, and youth programs.',
@@ -1280,6 +1283,27 @@
     fundgoal: 661555, fundtype: proj, name: Build Bathrooms}
   model: peacecorps.fund
   pk: 92
+- fields: {community_contribution: null, fundcode: pc-general, fundcurrent: 576000,
+    fundgoal: null, fundtype: oth, name: General}
+  model: peacecorps.fund
+  pk: 93
+- fields: {community_contribution: null, fundcode: DCC-0123, fundcurrent: 0, fundgoal: null,
+    fundtype: mem, name: Stephanie Brown}
+  model: peacecorps.fund
+  pk: 94
+- fields: {description: "<p>This is a terrific opportunity to make a donation to the
+      Peace Corps and receive a collectible work of art by American contemporary artist
+      Shepard Fairey. This artwork depicts a Peace Corps agricultural Volunteer working
+      with a young person in Senegal. Fairey was inspired by his sister who served
+      in West Africa. Not only is this a great gift for family and friends, but your
+      donation supports the Peace Corps&rsquo; mission. First come, first served,
+      for this artwork so make your donation today!</p>\r\n<p>Why support our work?
+      One hundred percent of your contribution is tax-deductible and will advance
+      the Peace Corps mission of peace and friendship around the globe. Additionally,
+      you can donate in honor or in memory of a loved one.</p>", featured_image: null,
+    fund: 93, name: Peace Corps, slug: peace-corps}
+  model: peacecorps.funddisplay
+  pk: 1
 - fields: {call: Support Agriculture Projects, description: "Contributions to the
       Agriculture Fund support one of the most basic needs of communities worldwide:
       safe and sustainable food production. Agriculture projects target areas such
@@ -1380,76 +1404,93 @@
   pk: 14
 - fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
       user Merbabu, CC-BY-SA 3.0', country: 79, description: A picture of water buffalo
-      pulling a plow., file: ./Agriculture-wikipedia-user-merbabu-cc-by-sa-3_7YSiKdb.jpg,
+      pulling a plow., file: ./Agriculture-wikipedia-user-merbabu-cc-by-sa-3.jpg,
     mediatype: IMG, title: Agriculture, transcript: ''}
   model: peacecorps.media
   pk: 8
 - fields: {caption: 'A meeting to discuss microfinance in Tzaneen, South Africa. Picture
       by GiveWell, CC-BY.', country: 160, description: 'Women sitting on a blanket
-      and discussing microfinance on a patio in Tzaneen, South Africa.', file: ./Tzaneen-South-Africa-Microfinance-Meeting-by-GiveWell-CC-BY_cmNs9HB.jpg,
+      and discussing microfinance on a patio in Tzaneen, South Africa.', file: ./Tzaneen-South-Africa-Microfinance-Meeting-by-GiveWell-CC-BY.jpg,
     mediatype: IMG, title: 'Microfinance Meeting, Tzaneen, South Africa', transcript: ''}
   model: peacecorps.media
   pk: 9
 - fields: {caption: 'An iceberg near Upernavik, Greenland. Photo by Kim Hansen, CC-BY-SA',
-    country: 77, description: An iceberg in a large body of water., file: ./Iceburg-near-Upernavik-Greenland-by-Kim-Hansen-CC-BY-SA_OIniaGq.jpg,
+    country: 77, description: An iceberg in a large body of water., file: ./Iceburg-near-Upernavik-Greenland-by-Kim-Hansen-CC-BY-SA.jpg,
     mediatype: IMG, title: 'Iceberg near Upernavik, Greenland', transcript: ''}
   model: peacecorps.media
   pk: 10
 - fields: {caption: 'Schoolgirls sitting in the shade on a patio in Bamozai, Afghanistan.
       Photo by Capt. John Severns, U.S. Air Force (Public Domain)', country: 2, description: 'Schoolgirls
-      sitting on a patio in Bamozai, Afghanistan.', file: ./Schoolgirls-in-Bamozai-Afghanistan-by-Capt-John-Severns-PD_H1uTeVI.jpg,
+      sitting on a patio in Bamozai, Afghanistan.', file: ./Schoolgirls-in-Bamozai-Afghanistan-by-Capt-John-Severns-PD.jpg,
     mediatype: IMG, title: Schoolgirls in Bamozai Afghanistan, transcript: ''}
   model: peacecorps.media
   pk: 11
 - fields: {caption: A woman in Guatamala holds a bunch of radishes in this photo by
       a Peace Corps volunteer., country: 69, description: A woman stands in a public
-      square in Guatamala with a bunch of radishes., file: ./Guatamala-by-peacecorps_rjEzPlj.jpg,
+      square in Guatamala with a bunch of radishes., file: ./Guatamala-by-peacecorps.jpg,
     mediatype: IMG, title: Guatamala Radishes, transcript: ''}
   model: peacecorps.media
   pk: 12
 - fields: {caption: Health volunteers sworn in in Gambia., country: null, description: A
-      group of Peace Corps health volunteers in Gambia., file: ./Gambia-Health-Volunteers-by-peacecorps_clKq7bT.jpg,
+      group of Peace Corps health volunteers in Gambia., file: ./Gambia-Health-Volunteers-by-peacecorps.jpg,
     mediatype: IMG, title: Health Volunteers in Gambia, transcript: ''}
   model: peacecorps.media
   pk: 13
 - fields: {caption: 'Peace Corps volunteer Sam teaching reading in El Progreso, El
       Salvador', country: 55, description: A peace corps volunteer helping a Salvadoran
-      girl with a computer program., file: ./Rubidia-learns-to-read-by-Lee-Shaver-CC-BY-SA_HbFr3ik.jpg,
+      girl with a computer program., file: ./Rubidia-learns-to-read-by-Lee-Shaver-CC-BY-SA.jpg,
     mediatype: IMG, title: Rubidia Learns To Read, transcript: ''}
   model: peacecorps.media
   pk: 14
 - fields: {caption: 'Ultrasound Machine. Photo by Clark Maxwell, CC-BY-NC-ND', country: 125,
-    description: A photo of an ultrasound machine's controls., file: ./Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC_F9glVHj.jpg,
+    description: A photo of an ultrasound machine's controls., file: ./Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg,
     mediatype: IMG, title: Ultrasound Machine, transcript: ''}
   model: peacecorps.media
   pk: 15
 - fields: {caption: 'Photo by Kyle Saric, CC-BY-ND-NC 2.0', country: 191, description: A
-      photo of a bicycle locked to a tree, file: ./Bike-by-Kyle-Saric-CC-BY-NC-ND-2_adB9xI0.jpg,
+      photo of a bicycle locked to a tree, file: ./Bike-by-Kyle-Saric-CC-BY-NC-ND-2.jpg,
     mediatype: IMG, title: Bike, transcript: ''}
   model: peacecorps.media
   pk: 16
 - fields: {caption: 'The library and reading room at the Rand club in Johannesburg,
       South Africa. Photo by Andrew Moore, CC-BY-SA', country: 160, description: A
-      photo of a row of bookcases and reading chairs., file: ./Library-Rand-Club-by-Andrew-Moore-CC-BY-SA_O3szAqH.jpg,
+      photo of a row of bookcases and reading chairs., file: ./Library-Rand-Club-by-Andrew-Moore-CC-BY-SA.jpg,
     mediatype: IMG, title: Library and Reading Room, transcript: ''}
   model: peacecorps.media
   pk: 17
 - fields: {caption: 'Photo by Leon Rice-Whetton, CC-BY-NC-SA 2.0.', country: 84, description: photo
-      of a tennis ball on the ground., file: ./Tennis-Ball-by-Leon-Rice-Whetton-CC-BY-NC-SA2_z7qg9Mx.jpg,
+      of a tennis ball on the ground., file: ./Tennis-Ball-by-Leon-Rice-Whetton-CC-BY-NC-SA2.jpg,
     mediatype: IMG, title: Tennis Ball, transcript: ''}
   model: peacecorps.media
   pk: 18
 - fields: {caption: 'Brick Oven at Fort Warren in Quincy, MA by Eric Kilby, CC-BY-SA',
-    country: null, description: A photo of a large brick oven., file: ./Brick-Oven-Fort-Warren-by-Eric-Kilby-CC-BY-SA_qaOVX7U.jpg,
+    country: null, description: A photo of a large brick oven., file: ./Brick-Oven-Fort-Warren-by-Eric-Kilby-CC-BY-SA.jpg,
     mediatype: IMG, title: Brick Oven, transcript: ''}
   model: peacecorps.media
   pk: 19
 - fields: {caption: 'A public composting toilet, photographed by Wolfgang Berger,
       CC-BY', country: 65, description: A photo of a public composting toilet in Germany,
-    file: ./public-toilet-by-Wolfgang-Berger-CC-BY_rV1IBhI.jpg, mediatype: IMG, title: Public
+    file: ./public-toilet-by-Wolfgang-Berger-CC-BY.jpg, mediatype: IMG, title: Public
       Toilet, transcript: ''}
   model: peacecorps.media
   pk: 20
+- fields: {caption: 'Photo by Otabi kitahachi, CC-BY-NC-SA', country: 192, description: A
+      picture of an Iranian woman smiling., file: ./Woman-Smiling-by-Otabi-kitahachi-CC-BY-NC-SA.jpg,
+    mediatype: IMG, title: Stephanie Brown, transcript: ''}
+  model: peacecorps.media
+  pk: 21
+- fields: {description: "<p>The Stephanie Brown Memorial Fund was established to honor
+      the memory and service of Stephanie Brown, who volunteered with the Peace Corps
+      for two years in Cameroon before returning to New York. This fund, established
+      with a generous grant from the Thomas and Martha Wayne Foundation, enables those
+      inspired by Stephanie's story to contribute to ongoing work in her memory.</p>\r\n<p>All
+      contributions to the Stephanie Brown Memorial Fund go towards community-initiated
+      and volunteer-led projects that support women, such as establishing women's
+      cooperatives, increasing women's access to resources and services, exploring
+      gender roles, building shelters, and increasing training programs.&nbsp;</p>",
+    featured_image: 11, fund: 94, headshot: 21, name: Stephanie Brown, slug: stephanie-brown}
+  model: peacecorps.memorialfund
+  pk: 1
 - fields:
     country: 20
     description: <p>Students at the agricultural secondary school, spend their days

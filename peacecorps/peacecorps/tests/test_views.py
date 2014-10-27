@@ -128,6 +128,14 @@ class DonatePagesTests(TestCase):
         response = self.client.get('/donate/countries')
         self.assertEqual(response.status_code, 200)
 
+    def test_memorial_rendering(self):
+        response = self.client.get('/donate/memorial/stephanie-brown')
+        self.assertEqual(response.status_code, 200)
+
+    def test_general_rendering(self):
+        response = self.client.get('/donate/peace-corps')
+        self.assertEqual(response.status_code, 200)
+
     def test_project_form_empty_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery',
                                     {'top-presets': 'custom',
