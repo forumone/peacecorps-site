@@ -5,7 +5,28 @@
 </head>
 <body>
 <div class="wrapper">
-<h1>{% block header %}Peace Corps{% endblock %}</h1>
+    <header>
+        <h1>{% block header %}Peace Corps{% endblock %}</h1>
+        <nav>
+            <ul class="main_nav">
+                <li class="main_nav__link">
+                  <a href="/">Home</a>
+                </li>
+                <li class="main_nav__link">
+                  <a href="/about">About</a>
+                </li>
+                <li class="main_nav__link">
+                  <a href="http://passport.peacecorps.gov/">Blog</a>
+                </li>
+                <li class="main_nav__link">
+                  <a href="/volunteer">Volunteer</a>
+                </li>
+                <li class="main_nav__link">
+                  <a href="/donate">Donate</a>
+                </li>
+            </ul>
+        </nav>
+    <header>
 
 {% block navigation %}{% endblock %}
 

@@ -1,0 +1,26 @@
+/*
+ * Main nav module.
+ *
+ * The main nav is a horizontal row of links, which collapses to a centered
+ * vertical row for smaller screens.
+ */
+
+@import "components/inline_text";
+@import "util";
+
+.main_nav {
+  @include u-unmarked_list;
+  @include inline_text--centered;
+  width: 100%;
+
+  .main_nav__link {
+    @include span_columns(2);
+    @include inline_text__ele--centered;
+    text-transform: uppercase;
+
+    a {
+      color: white;
+    }
+  }
+
+}

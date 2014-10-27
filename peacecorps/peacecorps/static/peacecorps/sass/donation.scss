@@ -4,8 +4,17 @@
 @import "donation-form";
 @import "landing";
 
+// TODO add "sass-globbing" to allow globbing here
+@import "components/inline_text";
+@import "components/main_nav";
+
+body {
+  // TODO remove
+  background: #0081dd;
+}
+
 .wrapper {
-  @include outer-container; 
+  @include outer-container;
   h1, h2 {
     @include span-columns(12);
     text-align: center;
