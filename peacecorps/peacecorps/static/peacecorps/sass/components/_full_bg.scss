@@ -1,0 +1,13 @@
+/*
+ * Full background image
+ */
+
+@import "globals";
+
+.full_bg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $z_index-bg;
+}

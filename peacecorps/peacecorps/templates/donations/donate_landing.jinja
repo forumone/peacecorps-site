@@ -11,6 +11,11 @@
 {% block content %}
 
 {% if featuredissue %}
+<div class="full_bg" style="
+    background-image: url('http://lorempixel.com/1920/1200/people');
+    height: 46em;
+  ">
+</div>
 <section class="featured">
   <img src="{{featuredissue.featured_image.url}}"
        alt="{{featuredissue.featured_image.description}}" />
