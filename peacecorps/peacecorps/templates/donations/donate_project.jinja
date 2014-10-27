@@ -32,21 +32,18 @@
     </div>
     <p>Funds sought: <strong>${{project.fund.fundgoal/100}}</strong></p>
 
-    <div class="donate-container"><button>
-    {% if project.fund.funded() %}Donate to help similar projects {% else %}Donate{% endif %}
-    </button></div>
   </div>
 </div>
 
 <form method="post">
   {% csrf_token %}
   <div class="radio-container">
-    {{form.payment_amount.errors}}
-    {% for radio in form.presets %}
+    {{top_form.payment_amount.errors}}
+    {% for radio in top_form.presets %}
       <div>
         {{ radio.tag() }}
         {% if radio.choice_value == 'custom' %}
-          {{ form.payment_amount }}
+          {{ top_form.payment_amount }}
         {% else %}
           <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
         {% endif %}
@@ -61,4 +58,24 @@
 <div class="description">
     {{project.description|safe}}
 </div>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="radio-container">
+    {{bottom_form.payment_amount.errors}}
+    {% for radio in bottom_form.presets %}
+      <div>
+        {{ radio.tag() }}
+        {% if radio.choice_value == 'custom' %}
+          {{ bottom_form.payment_amount }}
+        {% else %}
+          <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="button-container">
+    <input type="submit" value="Donate" />
+  </div>
+</form>
 {% endblock %}
