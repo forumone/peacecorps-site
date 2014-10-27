@@ -2,8 +2,7 @@ from decimal import Decimal
 
 from django import forms
 from django.core.exceptions import ValidationError
-from localflavor.us.forms import USStateField
-from localflavor.us.forms import USStateSelect
+from localflavor.us.us_states import STATE_CHOICES
 
 from .countries import COUNTRY_OPTIONS
 
@@ -40,11 +39,12 @@ class DonationPaymentForm(forms.Form):
         label='Contact Person', max_length=100, required=False)
 
     email = forms.EmailField(required=False)
+    # Be sure that country is processed before billing_state/zip
+    country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
     billing_address = forms.CharField(label="Street Address", max_length=80)
     billing_city = forms.CharField(label="City", max_length=40)
-    billing_state = USStateField(
-        label="State", widget=USStateSelect, required=False)
-    country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
+    billing_state = forms.ChoiceField(
+        label="State", choices=((('', ''),) + STATE_CHOICES), required=False)
     billing_zip = forms.CharField(required=False)
     phone_number = forms.CharField(required=False, max_length=15)
     payment_type = forms.ChoiceField(
