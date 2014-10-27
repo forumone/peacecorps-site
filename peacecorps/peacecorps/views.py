@@ -193,12 +193,12 @@ def donate_memorial(request, slug):
         })
 
 
-def donate_general(request):
+def donate_general(request, slug):
     """
     The page for the general fund.
     """
     general = get_object_or_404(FundDisplay.objects.select_related('fund'),
-        fund__name__iexact="general")
+        slug=slug)
 
     return render(
         request,

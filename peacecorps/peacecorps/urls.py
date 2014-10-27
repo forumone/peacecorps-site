@@ -30,7 +30,8 @@ urlpatterns = patterns(
         donate_countries, name='donate countries'),
     url(r'^donate/memorial/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_memorial, name='donate memorial'),
-    url(r'^donate/peace-corps/?$',
+    # this needs to be below other donate urls.
+    url(r'^donate/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_general, name='donate general'),
     url(
         r'^donations/contribute/?$',
