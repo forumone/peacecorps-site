@@ -7,12 +7,12 @@
 
 @import "bourbon/bourbon";
 @import "neat/neat";
-@import "globals/_grid-settings";
+@import "globals";
 
 // Inline text
 @mixin inline_text {
   @include span-columns(1);
-  @include media($mobile) {
+  @include media($sm) {
     @include span-columns(4);
     text-align: center;
   }

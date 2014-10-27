@@ -5,6 +5,7 @@
  * vertical row for smaller screens.
  */
 
+@import "base/type";
 @import "components/inline_text";
 @import "util";
 
@@ -16,10 +17,9 @@
   .main_nav__link {
     @include span_columns(2);
     @include inline_text__ele--centered;
-    text-transform: uppercase;
 
     a {
-      color: white;
+      @include t-heading--white;
     }
   }
 

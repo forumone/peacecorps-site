@@ -1,0 +1,32 @@
+/*
+ * Global variables
+ */
+
+@import "neat/neat-helpers";
+
+/*
+ * Color
+ */
+$black: #222;
+$white: #fff;
+$primary: #A12122; // Darkish red
+$primary_support: #C94112; // Darkish orange
+$primary_support_lite: #F68B1F; // Light orange
+$secondary: #05888C; // Teal
+
+/*
+ * Type
+ */
+
+
+/*
+ * Grid
+ */
+$grid-columns: 12;
+
+/*
+ * Breakpoint
+ */
+// TODO change these breakpoints to not be decide specific.
+$tablet: new-breakpoint(max-width 768px 8);
+$sm: new-breakpoint(max-width 480px 4);
