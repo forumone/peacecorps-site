@@ -96,7 +96,7 @@ class Fund(models.Model):
         (PROJECT, 'Project'),
     )
 
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     fundcode = models.CharField(max_length=25)
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField(blank=True, null=True)
@@ -120,6 +120,25 @@ class Fund(models.Model):
         """This will be expanded later, and may involve more complicated
         calculations. As such, we don't want it to be a property"""
         return self.fundgoal - self.fundcurrent
+
+
+class FundDisplay(models.Model):
+    """
+    Non-monetary info associated with a fund. Used for special & general funds.
+    """
+    name = models.CharField(max_length=200)
+    fund = models.ForeignKey('Fund', unique=True)
+    featured_image = models.ForeignKey(
+        'Media',
+        help_text="A large landscape image for use in banners, headers, etc",
+        blank=True, null=True)
+    slug = models.SlugField(
+        help_text="used for the fund page url.",
+        max_length=100, unique=True)
+    description = tinymce_models.HTMLField()
+
+    def __str__(self):
+        return '%s' % (self.name)
 
 
 class Issue(models.Model):
@@ -177,6 +196,25 @@ class Media(models.Model):
     def url(self):
         return self.file.url
 
+class MemorialFund(models.Model):
+    name = models.CharField(max_length=200)
+    fund = models.ForeignKey('Fund', unique=True)
+    featured_image = models.ForeignKey(
+        'Media',
+        help_text="A large landscape image for use in banners, headers, etc",
+        blank=True, null=True)
+    headshot = models.ForeignKey(
+        'Media',
+        help_text="A picture of the memorialized person",
+        related_name="memorial_headshot",
+        blank=True, null=True)
+    slug = models.SlugField(
+        help_text="used for the fund page url.",
+        max_length=100, unique=True)
+    description = tinymce_models.HTMLField()
+
+    def __str__(self):
+        return '%s' % (self.name)
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
