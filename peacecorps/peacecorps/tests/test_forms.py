@@ -83,10 +83,15 @@ class DonationPaymentTests(TestCase):
 
     def test_zip_state_requirements(self):
         """Zip code and state are only required when the country is the US"""
-        form_data = self.form_data(clear=['billing_state', 'billing_zip'])
+        form_data = self.form_data(clear=['billing_state'])
         form = DonationPaymentForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+        form_data = self.form_data(clear=['billing_zip'])
+        form = DonationPaymentForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
+        form_data = self.form_data(clear=['billing_state', 'billing_zip'])
         form_data['country'] = 'CAN'
         form = DonationPaymentForm(data=form_data)
         self.assertTrue(form.is_valid())
