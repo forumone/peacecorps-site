@@ -152,7 +152,10 @@ class Issue(models.Model):
     slug = models.SlugField(
         help_text="used for the issue page url.",
         max_length=100, unique=True)
-    icon = models.FileField(blank=True, null=True)  # TODO: Configure
+    icon = models.ForeignKey(
+        'Media',
+        related_name="iconissues",
+        help_text="A small icon to represent the issue on the landing page.")
     featured_image = models.ForeignKey(
         'Media',
         help_text="A large landscape image for use in banners, headers, etc")
