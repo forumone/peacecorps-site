@@ -1,0 +1,25 @@
+/*
+ * Type styles.
+ */
+
+@import "globals";
+
+@mixin t-heading {
+  font-family: "museo-sans",sans-serif;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.t-heading {
+  @include t-heading;
+}
+
+@mixin t-heading--white {
+  @include t-heading;
+  color: $white;
+}
+.t-heading--white {
+  @include t-heading--white;
+}
