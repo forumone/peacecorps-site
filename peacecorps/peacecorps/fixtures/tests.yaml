@@ -979,7 +979,7 @@
     featured_image: null, fund: 77, slug: zambia}
   model: peacecorps.countryfund
   pk: 65
-- fields: {issue: 12}
+- fields: {issue: 10}
   model: peacecorps.featuredissue
   pk: 1
 - fields: {project: 11}
