@@ -1,12 +1,30 @@
-* {
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-* {
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
 #project > * {
   float: left;
@@ -63,10 +81,19 @@
 #project .volunteer-image + .volunteer-info {
   margin-left: 0%; }
 
-* {
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
 .donate-form form {
   max-width: 68em;
@@ -146,10 +173,19 @@
     margin-top: 0;
     margin-bottom: 0; }
 
-* {
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
 .landing a.button-link {
   text-size: x-large;
@@ -312,6 +348,215 @@
     margin-right: 0; }
   .landing .project-expanded > * {
     padding-top: .5em; }
+
+/*
+ * Inline text module
+ *
+ * The inline text module helps style text inline. It has separate styles for
+ * centered inline text.
+ */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+.inline_text {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%; }
+  .inline_text:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 480px) {
+    .inline_text {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      text-align: center; }
+      .inline_text:last-child {
+        margin-right: 0; } }
+
+.inline_text--centered {
+  text-align: center; }
+  .inline_text--centered .inline_text__ele {
+    display: inline-block;
+    float: none; }
+
+/*
+ * Main nav module.
+ *
+ * The main nav is a horizontal row of links, which collapses to a centered
+ * vertical row for smaller screens.
+ */
+/*
+ * Types styles.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+.t-heading {
+  font-family: "museo-sans",sans-serif;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.t-heading--white {
+  font-family: "museo-sans",sans-serif;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff; }
+
+/*
+ * Inline text module
+ *
+ * The inline text module helps style text inline. It has separate styles for
+ * centered inline text.
+ */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+.inline_text {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%; }
+  .inline_text:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 480px) {
+    .inline_text {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      text-align: center; }
+      .inline_text:last-child {
+        margin-right: 0; } }
+
+.inline_text--centered {
+  text-align: center; }
+  .inline_text--centered .inline_text__ele {
+    display: inline-block;
+    float: none; }
+
+/*
+ * Contains all sass utilities such as floats, clears, etc.
+ */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+.u-unmarked_list {
+  padding: 0; }
+  .u-unmarked_list li {
+    list-style: none; }
+
+.main_nav {
+  padding: 0;
+  text-align: center;
+  width: 100%; }
+  .main_nav li {
+    list-style: none; }
+  .main_nav .main_nav__link {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%;
+    display: inline-block;
+    float: none; }
+    .main_nav .main_nav__link:last-child {
+      margin-right: 0; }
+    .main_nav .main_nav__link a {
+      font-family: "museo-sans",sans-serif;
+      font-size: .8em;
+      font-style: normal;
+      font-weight: 300;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff; }
+
+body {
+  background: #0081dd; }
 
 .wrapper {
   max-width: 68em;
