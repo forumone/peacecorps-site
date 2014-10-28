@@ -979,7 +979,7 @@
     featured_image: null, fund: 77, slug: zambia}
   model: peacecorps.countryfund
   pk: 65
-- fields: {issue: 12}
+- fields: {issue: 10}
   model: peacecorps.featuredissue
   pk: 1
 - fields: {project: 11}
@@ -1311,9 +1311,8 @@
       husbandry, apiculture, agriculture marketing, farm economics, and formation
       of agricultural cooperatives. As food security continues to be a global concern,
       it is imperative to support communities' agricultural development.\r\n", featured_image: 8,
-    fund: 78, icon: ./globeicon_VgCu5XF.png, name: Agriculture, slug: agriculture,
-    tagline: Safe and sustainable food production is one of the most basic needs of
-      communities worldwide.}
+    fund: 78, icon: 29, name: Agriculture, slug: agriculture, tagline: Safe and sustainable
+      food production is one of the most basic needs of communities worldwide.}
   model: peacecorps.issue
   pk: 7
 - fields: {call: Support Business Development Projects, description: 'Volunteers are
@@ -1322,9 +1321,9 @@
       businesses promotes a sense of empowerment that can truly change a community.
       Contributions to this fund will support Volunteer and community projects such
       as microfinance, agribusiness, business education, and artisan collectives.',
-    featured_image: 9, fund: 79, icon: ./peopleicon_hVFkEE4.png, name: Business Development,
-    slug: business-development, tagline: Increasing opportunities for local businesses
-      promotes a sense of empowerment that can transform a community.}
+    featured_image: 9, fund: 79, icon: 28, name: Business Development, slug: business-development,
+    tagline: Increasing opportunities for local businesses promotes a sense of empowerment
+      that can transform a community.}
   model: peacecorps.issue
   pk: 8
 - fields: {call: Support Water Projects, description: 'The very basic needs of clean
@@ -1333,10 +1332,9 @@
       with their communities to design locally appropriate solutions to provide safe,
       affordable, and sustainable water and sanitation. Contributions to this fund
       will help Volunteer and community projects such as latrines, aqueducts and wells,
-      and basic sanitation training.', featured_image: 10, fund: 80, icon: ./globeicon_zig5Du4.png,
-    name: Drinking Water and Sanitation Fund, slug: drinking-water-and-sanitation-fund,
-    tagline: 'Safe, affordable, and sustainable water and sanitation are vital to
-      communities worldwide.'}
+      and basic sanitation training.', featured_image: 10, fund: 80, icon: 27, name: Drinking
+      Water and Sanitation Fund, slug: drinking-water-and-sanitation-fund, tagline: 'Safe,
+      affordable, and sustainable water and sanitation are vital to communities worldwide.'}
   model: peacecorps.issue
   pk: 9
 - fields: {call: Support Education Projects, description: 'Throughout the developing
@@ -1345,9 +1343,9 @@
       by a severe lack of supplies and facilities in which to help. Contributions
       to this fund will help Volunteer and community projects such as school construction,
       English language training, school and library material, and adult literacy.',
-    featured_image: 11, fund: 81, icon: ./house_fvkzTpA.png, name: Education, slug: education,
-    tagline: Peace Corps Volunteers are working in their communities to share the
-      precious gift of education.}
+    featured_image: 11, fund: 81, icon: 26, name: Education, slug: education, tagline: Peace
+      Corps Volunteers are working in their communities to share the precious gift
+      of education.}
   model: peacecorps.issue
   pk: 10
 - fields: {call: Support Environmental Projects, description: 'Communities around
@@ -1356,9 +1354,8 @@
       show that sustainable environmental management is not only good stewardship,
       but can be an engine of future economic growth. Contributions to this fund will
       help Volunteer and community projects such as environmental conservation and
-      ecotourism.', featured_image: 12, fund: 82, icon: ./globeicon_0FohJQL.png, name: Environment
-      Fund, slug: environment-fund, tagline: 'Environmental stewardship spurs economic
-      growth. '}
+      ecotourism.', featured_image: 12, fund: 82, icon: 25, name: Environment Fund,
+    slug: environment-fund, tagline: 'Environmental stewardship spurs economic growth. '}
   model: peacecorps.issue
   pk: 11
 - fields: {call: Support Health Projects, description: 'Donations to the Health and
@@ -1370,10 +1367,9 @@
       activities includes immunizations; nutrition and growth monitoring; promotion
       of breast-feeding; access to prenatal and postnatal care; training health workers;
       development of public awareness material; and culturally appropriate education
-      strategies.', featured_image: 13, fund: 83, icon: ./peopleicon_ibNFs8k.png,
-    name: Health, slug: health, tagline: 'Combat global health issues such as poor
-      nutrition, the spread of infectious diseases, and the devastating impact of
-      HIV/AIDS.'}
+      strategies.', featured_image: 13, fund: 83, icon: 24, name: Health, slug: health,
+    tagline: 'Combat global health issues such as poor nutrition, the spread of infectious
+      diseases, and the devastating impact of HIV/AIDS.'}
   model: peacecorps.issue
   pk: 12
 - fields: {call: Support Technology Projects, description: 'Peace Corps Volunteers
@@ -1386,9 +1382,9 @@
       capitalize on opportunities once completely out of their reach. Contributions
       to this fund will support Community and Volunteer projects such as creating
       school and public computer labs and teaching computer skills.', featured_image: 14,
-    fund: 84, icon: ./lightbulb_58d8rNj.png, name: Technology, slug: technology, tagline: 'Enhance
-      existing local entrepreneurial efforts, create school and public computer labs,
-      and teaching computer skills.'}
+    fund: 84, icon: 23, name: Technology, slug: technology, tagline: 'Enhance existing
+      local entrepreneurial efforts, create school and public computer labs, and teaching
+      computer skills.'}
   model: peacecorps.issue
   pk: 13
 - fields: {call: Support Youth Projects, description: 'In communities that face very
@@ -1397,9 +1393,9 @@
       make them aware of health and cultural issues they will face, and engage them
       in activities that will help them grow. Contributions to this fund will help
       Volunteer and community projects such as camps, recreation centers, and after
-      school clubs and sports.', featured_image: 11, fund: 85, icon: ./peopleicon_hReIhXA.png,
-    name: Youth, slug: youth, tagline: Improve education and health for children and
-      youth around the world.}
+      school clubs and sports.', featured_image: 11, fund: 85, icon: 22, name: Youth,
+    slug: youth, tagline: Improve education and health for children and youth around
+      the world.}
   model: peacecorps.issue
   pk: 14
 - fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
@@ -1479,6 +1475,48 @@
     mediatype: IMG, title: Stephanie Brown, transcript: ''}
   model: peacecorps.media
   pk: 21
+- fields: {caption: Children by Sarah Rudkin., country: null, description: an icon
+      of children holding hands., file: ./Children-by-Sarah-Rudkin-CC-BY-3.png, mediatype: IMG,
+    title: Children Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 22
+- fields: {caption: image by Marwa Boukarim., country: null, description: Simple graphic
+      of a phone., file: ./Cell-Phone-Icon-By-Marwa-Boukarim-CC-BY.png, mediatype: IMG,
+    title: Cell Phone Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 23
+- fields: {caption: 'Health by Christopher Holm-Hansen, CC-BY', country: null, description: Icon
+      of a heart with a heartbeat line, file: ./Health-by-Christopher-Holm-Hansen-CC-BY.png,
+    mediatype: IMG, title: Health Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 24
+- fields: {caption: 'World icon by Ana Maria Lora Macias, CC-BY', country: null, description: An
+      icon of the globe., file: ./World-by-Ana-Maria-Lora-Macias.png, mediatype: IMG,
+    title: World Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 25
+- fields: {caption: 'Book Icon by Dmitry Baranovskiy, CC-BY', country: null, description: An
+      icon of a pair of books, file: ./Book-by-Dmitry-Baranovskiy-CC-BY.png, mediatype: IMG,
+    title: Book Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 26
+- fields: {caption: Water by Monika Ciapala, country: null, description: An icon of
+      a water droplet., file: ./Water-by-Monika-Ciapala-CC-BY.png, mediatype: IMG,
+    title: Water icon, transcript: ''}
+  model: peacecorps.media
+  pk: 27
+- fields: {caption: 'Livelihood, by OCHA Visual Information Unit. This work of the
+      United Nations Secretariat is in the public domain.', country: null, description: an
+      icon of a bowl with a wheat stalk in it in front of a bag of money., file: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png,
+    mediatype: IMG, title: Livelihood Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 28
+- fields: {caption: Agriculture by the OCHA Visual Information Unit. This work of
+      the United Nations Secretariat is in the public domain., country: null, description: An
+      icon of two stalks of wheat., file: ./Agriculture-by-OCHA-Visual-Information-Unit-PD.png,
+    mediatype: IMG, title: Agriculture Icon, transcript: ''}
+  model: peacecorps.media
+  pk: 29
 - fields: {description: "<p>The Stephanie Brown Memorial Fund was established to honor
       the memory and service of Stephanie Brown, who volunteered with the Peace Corps
       for two years in Cameroon before returning to New York. This fund, established
@@ -1635,7 +1673,7 @@
     fund: 89
     issue: 10
     issue_feature: true
-    issues_related: [13, 14]
+    issues_related: [14, 13]
     media: []
     slug: man-library
     tagline: Build a school library in East Java, Indonesia
