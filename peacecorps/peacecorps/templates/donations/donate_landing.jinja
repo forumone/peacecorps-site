@@ -20,8 +20,11 @@
     style="margin-top: 15em;">
   <div class="showcase showcase--shift_sm">
     <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
-    <a href="{{url("donate issue", slug=featuredissue.slug)}}"
-       class="button-link">{{featuredissue.call}}</a>
+    <a  style="margin-bottom: -1.5em"
+        href="{{url("donate issue", slug=featuredissue.slug)}}"
+       class="button button--secondary">
+     {{featuredissue.call}}
+    </a>
   </div>
 </section>
 {% endif %}

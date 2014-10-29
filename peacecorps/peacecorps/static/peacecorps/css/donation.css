@@ -187,16 +187,6 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-.landing a.button-link {
-  text-size: x-large;
-  color: #fff;
-  display: inline-block;
-  background-color: #333;
-  border: solid 1px #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-bottom: -2em;
-  padding: 1em 2em; }
 .landing .issues {
   float: left;
   display: block;
@@ -322,6 +312,119 @@ html {
     padding-top: .5em; }
 
 /*
+ * Buttons styles.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+/*
+ * Type styles.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+.t-heading {
+  font-family: "museo-sans",sans-serif;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.t-heading--white {
+  color: #fff; }
+
+.t-heading_lg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
+
+h2 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
+
+.t-heading_md {
+  font-family: "museo-sans",sans-serif;
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase; }
+
+.button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "museo-sans",sans-serif;
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: 0;
+  display: inline-block;
+  padding: .6em 1.4em;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: baseline;
+  white-space: nowrap;
+  zoom: 1; }
+
+.button--is_disabled {
+  cursor: not-allowed;
+  opacity: .4; }
+
+.button--is_active, .button:active {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset, 0 -3px 6px 1px rgba(0, 0, 0, 0.1) inset; }
+
+.button--is_hovered, .button:hover {
+  position: relative; }
+  .button--is_hovered:before, .button:hover:before {
+    background-color: rgba(255, 255, 255, 0.12);
+    content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    top: 0; }
+
+.button--primary {
+  background-color: #A12122;
+  color: #fff; }
+
+.button--secondary {
+  background-color: #fff;
+  color: #C94112; }
+
+/*
  * All base rules concerning elements
  */
 html, body {
@@ -434,6 +537,13 @@ h2 {
   font-style: normal;
   font-weight: 100;
   line-height: 1.8em; }
+
+.t-heading_md {
+  font-family: "museo-sans",sans-serif;
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase; }
 
 /*
  * Inline text module
