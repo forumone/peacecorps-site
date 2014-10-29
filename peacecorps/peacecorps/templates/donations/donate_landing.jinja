@@ -11,19 +11,19 @@
 {% block content %}
 
 {% if featuredissue %}
-<section class="full_bg" style="
+<div class="full_bg" style="
     background-image: url('{{featuredissue.featured_image.url}}');
     height: 46em;
   ">
-</section>
-<div class="full_banner full_banner--support_color"
+</div>
+<section class="full_banner full_banner--support_color"
     style="margin-top: 15em;">
   <div class="showcase showcase--shift_sm">
     <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
     <a href="{{url("donate issue", slug=featuredissue.slug)}}"
        class="button-link">{{featuredissue.call}}</a>
   </div>
-</div>
+</section>
 {% endif %}
 
 <h2>Issues</h2>
