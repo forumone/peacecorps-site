@@ -143,6 +143,7 @@ def donate_project(request, slug):
         })
 
 
+#   @TODO - need PCPP connection to campaign first
 def donate_country(request, slug):
     """
     The page for the individual countries in which the Peace Corps operates.
@@ -167,8 +168,8 @@ def donate_countries(request):
     Page listing all of the countries in which the Peace Corps is active, with
     links to country pages.
     """
-    countries = CountryFund.objects.select_related(
-        'featured_image', 'fund').all()
+    countries = Campaign.objects.select_related(
+        'featured_image', 'fund').filter(campaigntype=Campaign.COUNTRY).all()
 
     return render(
         request,
