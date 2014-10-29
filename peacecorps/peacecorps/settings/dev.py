@@ -15,7 +15,24 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS += ('paygov',)
+INSTALLED_APPS += (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'tinymce',
+    'paygov'
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
 
 LOGGING = {
     'version': 1,
@@ -38,7 +55,6 @@ LOGGING = {
 
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/static/'
 
 try:
     from .local_settings import *
