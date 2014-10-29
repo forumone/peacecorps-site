@@ -87,7 +87,8 @@ def donate_landing(request):
         'donations/donate_landing.jinja',
         {
             'featuredcampaign': featuredcampaign,
-            'campaigns': Campaign.objects.all(),
+            'sectors': Campaign.objects.filter(
+                campaigntype=Campaign.SECTOR).order_by('name'),
             'featuredprojects': featuredprojects,
             'projects': projects,
             'humanize_amount': humanize_amount,
@@ -113,7 +114,7 @@ def donate_campaign(request, slug):
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
-        Project.objects.select_related('volunteer__profile_image',
+        Project.objects.select_related('volunteerpicture',
                                        'featured_image', 'fund'),
         slug=slug)
     if request.method == 'POST':
