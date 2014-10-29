@@ -24,6 +24,58 @@ def humanize_amount(amount_cents):
     amount_dollars = amount_cents/100.0
     return "${:,.2f}".format(amount_dollars)
 
+class Campaign(models.Model):
+    """
+    A campaign is any fundraising effort. Campaigns can collect donations
+    to a separate account that can be distributed to projects (sector, country,
+    special, and memorial funds, the general fund), or they can exist simply to
+    group related projects to highlight them to interested parties.
+    """
+    COUNTRY = 'coun'
+    GENERAL = 'gen'
+    MEMORIAL = 'mem'
+    OTHER = 'oth'
+    SECTOR = 'sec'
+    TAG = 'tag' # a group of campaigns that doesn't have an account attached.
+    CAMPAIGNTYPE_CHOICES = (
+        (COUNTRY, 'Country'),
+        (GENERAL, 'General'),
+        (SECTOR, 'Sector'),
+        (MEMORIAL, 'Memorial'),
+        (OTHER, 'Other'),
+        (TAG, 'Tag')
+    )
+
+    name = models.CharField(max_length=120)
+    fund = models.ForeignKey('Fund', unique=True, blank=True, null=True)
+    campaigntype = models.CharField(
+        max_length=10, choices=CAMPAIGNTYPE_CHOICES)
+    icon = models.ForeignKey(
+        'Media',
+        related_name="campaign-icon",
+        help_text="A small icon to represent the issue on the landing page.",
+        blank=True, null=True)
+    featured_image = models.ForeignKey(
+        'Media',
+        help_text="A large landscape image for use in banners, headers, etc",
+        blank=True, null=True)
+    tagline = models.CharField(
+        max_length=140,
+        help_text="a short phrase for banners (140 characters)",
+        blank=True, null=True)
+    call = models.CharField(
+        max_length=50, help_text="call to action for buttons (50 characters)",
+        blank=True, null=True)
+    slug = models.SlugField(
+        help_text="used for the fund page url.",
+        max_length=100, unique=True)
+    description = tinymce_models.HTMLField()
+
+    def __str__(self):
+        return self.name
+
+    # TODO: slugify in admin, override save to preserve unique on general?
+
 
 class Country(models.Model):
     code = models.CharField(max_length=5)

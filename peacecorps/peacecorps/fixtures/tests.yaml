@@ -1,3 +1,588 @@
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Azerbaijan
+      Country Fund will support Volunteer and community projects that will take place
+      in Azerbaijan. These projects often focus on developing the skills of youth,
+      but may also cover other pressing needs determined by the community.', featured_image: null,
+    fund: 22, icon: null, name: Azerbaijan, slug: azerbaijan, tagline: null}
+  model: peacecorps.campaign
+  pk: 1
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Belize
+      Country Fund will support Volunteer and community projects that will take place
+      in Belize. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 23, icon: null, name: Belize,
+    slug: belize, tagline: null}
+  model: peacecorps.campaign
+  pk: 2
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Benin
+      Country Fund will support Volunteer and community projects in education, health,
+      environment and small business. The fund also supports initiatives, such as
+      Gender and Development (GAD), which cover all sectors. You can earmark your
+      contribution to support girls'' empowerment camps and/or girls'' scholarships
+      and other GAD activities.', featured_image: null, fund: 24, icon: null, name: Benin,
+    slug: benin, tagline: null}
+  model: peacecorps.campaign
+  pk: 3
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Albania
+      Country Fund will support Volunteer and community projects that will take place
+      in Albania. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 20, icon: null, name: Albania,
+    slug: albania, tagline: null}
+  model: peacecorps.campaign
+  pk: 4
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Armenia
+      Country Fund will support Volunteer and community projects that will take place
+      in Armenia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 21, icon: null, name: Armenia,
+    slug: armenia, tagline: null}
+  model: peacecorps.campaign
+  pk: 5
+- fields: {call: null, campaigntype: coun, description: Contributions to the Botswana
+      Country Fund will support Volunteer and community projects that will take place
+      in Botswana. These projects support reducing transmission of HIV and minimizing
+      the impact of HIV and AIDS on individuals and communities., featured_image: null,
+    fund: 25, icon: null, name: Botswana, slug: botswana, tagline: null}
+  model: peacecorps.campaign
+  pk: 6
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Burkina
+      Faso Country Fund will support Volunteer and community projects that will take
+      place in Burkina Faso. These projects include water and sanitation, agricultural
+      development, and youth programs.', featured_image: null, fund: 26, icon: null,
+    name: Burkina Faso, slug: burkina-faso, tagline: null}
+  model: peacecorps.campaign
+  pk: 7
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Cambodia
+      Country Fund will support Volunteer and community projects that will take place
+      in Cambodia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 27, icon: null, name: Cambodia,
+    slug: cambodia, tagline: null}
+  model: peacecorps.campaign
+  pk: 8
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Cameroon
+      Country Fund will support Volunteer and community projects that will take place
+      in Cameroon. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 28, icon: null, name: Cameroon,
+    slug: cameroon, tagline: null}
+  model: peacecorps.campaign
+  pk: 9
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the China
+      Country Fund will support Volunteer and community projects that will take place
+      in China. These projects are largely built around the volunteer''s assignment
+      teaching English on university campuses. Volunteer project activities include
+      creating or expanding English Language Resource rooms, programs to develop critical
+      thinking skills, and teacher training workshops. Volunteers also develop projects
+      with focal areas that fall under Peace Corps initiatives such as women in development
+      and HIV/AIDS awareness.', featured_image: null, fund: 29, icon: null, name: China,
+    slug: china, tagline: null}
+  model: peacecorps.campaign
+  pk: 10
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Colombia
+      Country Fund will support Volunteer and community projects that will take place
+      in Colombia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 30, icon: null, name: Colombia,
+    slug: colombia, tagline: null}
+  model: peacecorps.campaign
+  pk: 11
+- fields: {call: null, campaigntype: coun, description: 'Contributions made to the
+      Costa Rica Country Fund will support Volunteers and their community partners
+      with Children, Youth and Family; Community Economic Development; and Rural Community
+      Development projects. The types of projects for which Volunteers and their communities
+      solicit vary based on the unique needs and priorities of their communities.
+      Common Costa Rica projects include: sports development camps and equipment,
+      HIV/AIDS awareness and prevention workshops, public infrastructure development
+      including clinics and school playgrounds, classrooms, sports fields, libraries,
+      and computer labs; and capacity building activities that develop knowledge and
+      skills in one or more of the following areas: youth development, gender empowerment,
+      business, fine arts, performing arts, music, English, information and communications
+      technology, and life skills.', featured_image: null, fund: 31, icon: null, name: Costa
+      Rica, slug: costa-rica, tagline: null}
+  model: peacecorps.campaign
+  pk: 12
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Dominican
+      Republic Country Fund will support Volunteer and community projects that will
+      take place in Dominican Republic. These projects include water and sanitation,
+      agricultural development, and youth programs.', featured_image: null, fund: 32,
+    icon: null, name: Dominican Republic, slug: dominican-republic, tagline: null}
+  model: peacecorps.campaign
+  pk: 13
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Ecuador
+      Country Fund will support Volunteer and community projects that will take place
+      in Ecuador. These projects support our program work in Community Health, Natural
+      Resources Conservation, Teaching English as a Foreign Language (TEFL), and Youth
+      & Families Development.', featured_image: null, fund: 33, icon: null, name: Ecuador,
+    slug: ecuador, tagline: null}
+  model: peacecorps.campaign
+  pk: 14
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the El Salvador
+      Country Fund will support Volunteer and community projects that will take place
+      in El Salvador. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 34, icon: null, name: El Salvador,
+    slug: el-salvador, tagline: null}
+  model: peacecorps.campaign
+  pk: 15
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Ethiopia
+      Country Fund will support Volunteer and community projects that will take place
+      in Ethiopia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 35, icon: null, name: Ethiopia,
+    slug: ethiopia, tagline: null}
+  model: peacecorps.campaign
+  pk: 16
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Fiji
+      Country Fund will support Volunteer and community projects that will take place
+      in Fiji. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 36, icon: null, name: Fiji,
+    slug: fiji, tagline: null}
+  model: peacecorps.campaign
+  pk: 17
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Georgia
+      Country Fund will support Volunteer and community projects that will take place
+      in Georgia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 37, icon: null, name: Georgia,
+    slug: georgia, tagline: null}
+  model: peacecorps.campaign
+  pk: 18
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Ghana
+      Country Fund will support Volunteer and community projects that will take place
+      in Ghana. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 38, icon: null, name: Ghana,
+    slug: ghana, tagline: null}
+  model: peacecorps.campaign
+  pk: 19
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Guatemala
+      Country Fund will support Volunteer and community projects that will take place
+      in Guatemala. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 39, icon: null, name: Guatemala,
+    slug: guatemala, tagline: null}
+  model: peacecorps.campaign
+  pk: 20
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Guinea
+      Country Fund will support Volunteer and community projects that will take place
+      in Guinea. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 40, icon: null, name: Guinea,
+    slug: guinea, tagline: null}
+  model: peacecorps.campaign
+  pk: 21
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Guyana
+      Country Fund will support Volunteer and community projects that will take place
+      in Guyana. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 41, icon: null, name: Guyana,
+    slug: guyana, tagline: null}
+  model: peacecorps.campaign
+  pk: 22
+- fields: {call: null, campaigntype: coun, description: Contributions to the Indonesia
+      Country Fund will support Volunteer and community projects that will take place
+      in Indonesia. These projects will focus on English education and other pressing
+      needs determined by the community., featured_image: null, fund: 42, icon: null,
+    name: Indonesia, slug: indonesia, tagline: null}
+  model: peacecorps.campaign
+  pk: 23
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Jamaica
+      Country Fund will support Volunteer and community projects that will take place
+      in Jamaica. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 43, icon: null, name: Jamaica,
+    slug: jamaica, tagline: null}
+  model: peacecorps.campaign
+  pk: 24
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Jordan
+      Country Fund will support Volunteer and community projects that will take place
+      in Jordan. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 44, icon: null, name: Jordan,
+    slug: jordan, tagline: null}
+  model: peacecorps.campaign
+  pk: 25
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Lesotho
+      Country Fund will support Volunteer and community projects that will take place
+      in Lesotho. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 46, icon: null, name: Lesotho,
+    slug: lesotho, tagline: null}
+  model: peacecorps.campaign
+  pk: 26
+- fields: {call: null, campaigntype: coun, description: Contributions to the Liberia
+      Country Fund will support Volunteer and community projects that will take place
+      in Liberia. These projects include secondary education and HIV/AIDS prevention
+      and education programs., featured_image: null, fund: 47, icon: null, name: Liberia,
+    slug: liberia, tagline: null}
+  model: peacecorps.campaign
+  pk: 27
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Macedonia
+      Country Fund will support Volunteer and community projects that will take place
+      in Macedonia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 48, icon: null, name: Macedonia,
+    slug: macedonia, tagline: null}
+  model: peacecorps.campaign
+  pk: 28
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Madagascar
+      Country Fund will support Volunteer and community projects that will take place
+      in Madagascar. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 49, icon: null, name: Madagascar,
+    slug: madagascar, tagline: null}
+  model: peacecorps.campaign
+  pk: 29
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Malawi
+      Country Fund will support many varied Volunteer projects in Malawi. Malawi is
+      one of the poorest countries in the world. Malawi is one of the poorest countries
+      in the world. Apart from poverty, Malawi is also heavily hit by HIV/AIDS. Typical
+      projects include water and sanitation, agricultural development, Income Generation
+      Activities, youth and HIV/AIDS related programs. Many such projects fail to
+      materialise or be implemented better due to lack of resources or the time/effort
+      it takes to get them. You can make a big difference for both the work of the
+      volunteers and people of Malawi by contributions to the Malawi Country Fund,
+      which is designed for faster response to the Volunteers and their communities.
+      An example of country fund use was funding a local mini-camp for a Volunteer''s
+      community, using resources and people that were trained at one of the national
+      camps, like Camp GLOW or Camp Sky. These can happen frequently as $300 - $800
+      is above easy Volunteer fund raising, but it goes a long way in developing motivation/skills
+      of a local group of 30 young women or youth.', featured_image: null, fund: 50,
+    icon: null, name: Malawi, slug: malawi, tagline: null}
+  model: peacecorps.campaign
+  pk: 30
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Mexico
+      Country Fund will support Volunteer and community projects that will take place
+      in Mexico. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 51, icon: null, name: Mexico,
+    slug: mexico, tagline: null}
+  model: peacecorps.campaign
+  pk: 31
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Micronesia
+      Country Fund will support Volunteer and community projects that will take place
+      in Micronesia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 52, icon: null, name: Micronesia,
+    slug: micronesia, tagline: null}
+  model: peacecorps.campaign
+  pk: 32
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Moldova
+      Country Fund will support Volunteer and community projects that will take place
+      in Moldova. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 53, icon: null, name: Moldova,
+    slug: moldova, tagline: null}
+  model: peacecorps.campaign
+  pk: 33
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Mongolia
+      Country Fund will support Volunteer and community projects that will take place
+      in Mongolia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 54, icon: null, name: Mongolia,
+    slug: mongolia, tagline: null}
+  model: peacecorps.campaign
+  pk: 34
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Morocco
+      Country Fund will support Volunteer and community projects that will take place
+      in Morocco. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 55, icon: null, name: Morocco,
+    slug: morocco, tagline: null}
+  model: peacecorps.campaign
+  pk: 35
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Mozambique
+      Country Fund will support Volunteer and community projects that will take place
+      in Mozambique. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 56, icon: null, name: Mozambique,
+    slug: mozambique, tagline: null}
+  model: peacecorps.campaign
+  pk: 36
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Namibia
+      Country Fund will support Volunteer and community projects that will take place
+      in Namibia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 57, icon: null, name: Namibia,
+    slug: namibia, tagline: null}
+  model: peacecorps.campaign
+  pk: 37
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Nepal
+      Country Fund will support approved Volunteer and community PCPP projects that
+      will take place in Nepal. Volunteer projects typically focus on food security
+      components like nutrition, health, agriculture, water sanitation and hygiene
+      and income generation, but may also address other important needs as determined
+      by the community.', featured_image: null, fund: 58, icon: null, name: Nepal,
+    slug: nepal, tagline: null}
+  model: peacecorps.campaign
+  pk: 38
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Nicaragua
+      Country Fund will support Volunteer and community projects that will take place
+      in Nicaragua. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 59, icon: null, name: Nicaragua,
+    slug: nicaragua, tagline: null}
+  model: peacecorps.campaign
+  pk: 39
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Panama
+      Country Fund will support Volunteers and their community partners to implement
+      on-going development projects in one of our 5 programs: Sustainable Agriculture,
+      Environmental Conservation, Tourism and English Advising, Economic Development
+      and Environmental Health. Within these projects, Peace Corps Partnership Program
+      supported activities and workshops focus on critical areas of leadership development,
+      project management, HIIV/AIDS awareness, business plan design, and youth development.
+      With your help, Volunteers and community counterparts from all over the country
+      are able to come together to share and develop best practices for use in their
+      own communities.', featured_image: null, fund: 60, icon: null, name: Panama,
+    slug: panama, tagline: null}
+  model: peacecorps.campaign
+  pk: 40
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Paraguay
+      Country Fund will support Volunteer and community projects that will take place
+      in Paraguay. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 61, icon: null, name: Paraguay,
+    slug: paraguay, tagline: null}
+  model: peacecorps.campaign
+  pk: 41
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Peru
+      Country Fund will support Volunteer and community projects that will take place
+      in Peru. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 62, icon: null, name: Peru,
+    slug: peru, tagline: null}
+  model: peacecorps.campaign
+  pk: 42
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Philippines
+      Country Fund will support Volunteer and community projects in the Philippines.These
+      development projects include, but are not limited to the following: English
+      language and basic education, library development, alternative livelihood, HIV/AIDS
+      and health, environmental education, coastal resources development, capacity
+      building, life skills, and youth empowerment.', featured_image: null, fund: 63,
+    icon: null, name: Philippines, slug: philippines, tagline: null}
+  model: peacecorps.campaign
+  pk: 43
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Rwanda
+      Country Fund will support Volunteer and community projects that will take place
+      in Rwanda. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 64, icon: null, name: Rwanda,
+    slug: rwanda, tagline: null}
+  model: peacecorps.campaign
+  pk: 44
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Samoa
+      Country Fund will support Volunteer and community projects that will take place
+      in Samoa. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 65, icon: null, name: Samoa,
+    slug: samoa, tagline: null}
+  model: peacecorps.campaign
+  pk: 45
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Senegal
+      Country Fund will support Volunteer and community projects that will take place
+      in Senegal. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 66, icon: null, name: Senegal,
+    slug: senegal, tagline: null}
+  model: peacecorps.campaign
+  pk: 46
+- fields: {call: null, campaigntype: coun, description: Contributions to the Sierra
+      Leone Country Fund will support Volunteer and community projects that will take
+      place in Sierra Leone. These projects will focus on English education and other
+      pressing needs determined by the community., featured_image: null, fund: 67,
+    icon: null, name: Sierra Leone, slug: sierra-leone, tagline: null}
+  model: peacecorps.campaign
+  pk: 47
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the South
+      Africa Country Fund will support Volunteer and community projects that will
+      take place in South Africa. These projects include water and sanitation, agricultural
+      development, and youth programs.', featured_image: null, fund: 68, icon: null,
+    name: South Africa, slug: south-africa, tagline: null}
+  model: peacecorps.campaign
+  pk: 48
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Swaziland
+      Country Fund will support Volunteer and community projects that will take place
+      in Swaziland. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 69, icon: null, name: Swaziland,
+    slug: swaziland, tagline: null}
+  model: peacecorps.campaign
+  pk: 49
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Tanzania
+      Country Fund will support Volunteer and community projects that will take place
+      in Tanzania. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 70, icon: null, name: Tanzania,
+    slug: tanzania, tagline: null}
+  model: peacecorps.campaign
+  pk: 50
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Thailand
+      Country Fund will support Volunteer and community projects that will take place
+      in Thailand. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 71, icon: null, name: Thailand,
+    slug: thailand, tagline: null}
+  model: peacecorps.campaign
+  pk: 51
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Togo
+      Country Fund will support Volunteer and community projects that will take place
+      in Togo. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 72, icon: null, name: Togo,
+    slug: togo, tagline: null}
+  model: peacecorps.campaign
+  pk: 52
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Tonga
+      Country Fund will support Volunteer and community projects that will take place
+      in Tonga.These projects include youth development, school library development,
+      environmental education, public health and IT education.', featured_image: null,
+    fund: 73, icon: null, name: Tonga, slug: tonga, tagline: null}
+  model: peacecorps.campaign
+  pk: 53
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Uganda
+      Country Fund will support Volunteer and community projects that will take place
+      in Uganda. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 74, icon: null, name: Uganda,
+    slug: uganda, tagline: null}
+  model: peacecorps.campaign
+  pk: 54
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Ukraine
+      Country Fund will support Volunteer and community projects that will take place
+      in Ukraine. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 75, icon: null, name: Ukraine,
+    slug: ukraine, tagline: null}
+  model: peacecorps.campaign
+  pk: 55
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Vanuatu
+      Country Fund will support Volunteer and community projects that will take place
+      in Vanuatu. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 76, icon: null, name: Vanuatu,
+    slug: vanuatu, tagline: null}
+  model: peacecorps.campaign
+  pk: 56
+- fields: {call: null, campaigntype: coun, description: 'Contributions to the Zambia
+      Country Fund will support Volunteer and community projects that will take place
+      in Zambia. These projects include water and sanitation, agricultural development,
+      and youth programs.', featured_image: null, fund: 77, icon: null, name: Zambia,
+    slug: zambia, tagline: null}
+  model: peacecorps.campaign
+  pk: 57
+- fields: {call: null, campaigntype: coun, description: "<p>Contributions to the Kenya
+      Country Fund will support Volunteer Community projects in Kenya. The scope of
+      projects to be funded would likely fall within education, water/sanitation,
+      health, agriculture, youth development, vocational/special education and income-generating
+      activities.&nbsp;</p>\r\n<p>Peace Corps supports Kenya's goals of poverty eradication
+      and industrialization as well as Kenya's commitment to fight HIV/AIDS and malaria.
+      Peace Corps Kenya's current programs include Education (including Deaf Education),
+      Public Health and Small Enterprise Development/Information and Communications
+      Technology.&nbsp;</p>\r\n<p>Insecurity, poor infrastructure, access to clean
+      water especially in rural areas, and adverse poverty continues to be Kenya's
+      major challenges. Changes in weather patterns and high farming costs have compromised
+      farmers' ability to plant and grow adequate food, resulting in shortages of
+      food and hunger in some parts of Kenya. The demand for food continues to increase
+      household poverty levels with more than half of Kenyans (56%) living below the
+      poverty level.&nbsp;</p>\r\n<p>HIV/AIDS is another major social, economic and
+      health problem in Kenya. Many young and productive Kenyans die daily as a result
+      of AIDS. Much productive time and resources are spent in care and treatment
+      for AIDS patients. The situation is worsened when the patient is the household
+      breadwinner.&nbsp;</p>\r\n<p>In addressing these prevalent Kenya community needs,
+      Peace Corps volunteers work hand in hand with their Kenyan community counterparts
+      in engaging the community to identify their priority needs and possible interventions.
+      The community also identifies local resources and gaps within which external
+      assistance is required.</p>", featured_image: null, fund: 45, icon: null, name: Kenya,
+    slug: kenya, tagline: null}
+  model: peacecorps.campaign
+  pk: 58
+- fields: {call: null, campaigntype: gen, description: "<p>This is a terrific opportunity
+      to make a donation to the Peace Corps and receive a collectible work of art
+      by American contemporary artist Shepard Fairey. This artwork depicts a Peace
+      Corps agricultural Volunteer working with a young person in Senegal. Fairey
+      was inspired by his sister who served in West Africa. Not only is this a great
+      gift for family and friends, but your donation supports the Peace Corps&rsquo;
+      mission. First come, first served, for this artwork so make your donation today!</p>\r\n<p>Why
+      support our work? One hundred percent of your contribution is tax-deductible
+      and will advance the Peace Corps mission of peace and friendship around the
+      globe. Additionally, you can donate in honor or in memory of a loved one.</p>",
+    featured_image: null, fund: 93, icon: null, name: Peace Corps, slug: peace-corps,
+    tagline: null}
+  model: peacecorps.campaign
+  pk: 68
+- fields: {call: Support Education Projects, campaigntype: sec, description: 'Throughout
+      the developing world, Peace Corps Volunteers are working in their communities
+      to share the precious gift of education. Often Volunteers'' dedication to teaching
+      is matched by a severe lack of supplies and facilities in which to help. Contributions
+      to this fund will help Volunteer and community projects such as school construction,
+      English language training, school and library material, and adult literacy.',
+    featured_image: 11, fund: 81, icon: 26, name: Education, slug: education, tagline: Peace
+      Corps Volunteers are working in their communities to share the precious gift
+      of education.}
+  model: peacecorps.campaign
+  pk: 69
+- fields: {call: Support Youth Projects, campaigntype: sec, description: 'In communities
+      that face very basic struggles, the specific needs of children and young adults
+      often go unaddressed. Peace Corps Volunteers work with local youths to improve
+      their education opportunities, make them aware of health and cultural issues
+      they will face, and engage them in activities that will help them grow. Contributions
+      to this fund will help Volunteer and community projects such as camps, recreation
+      centers, and after school clubs and sports.', featured_image: 11, fund: 85,
+    icon: 22, name: Youth, slug: youth, tagline: Improve education and health for
+      children and youth around the world.}
+  model: peacecorps.campaign
+  pk: 70
+- fields: {call: Support Technology Projects, campaigntype: sec, description: 'Peace
+      Corps Volunteers are working with men and women in communities throughout the
+      developing world to help them gain access to information technology skills and
+      resources. Consistent with all Peace Corps volunteer work, their efforts are
+      aimed at the promotion of social and economic development and the reduction
+      of poverty. To this aim, volunteers are using IT to enhance existing small,
+      local entrepreneurial efforts, in order to allow once isolated communities to
+      link to the world and find and capitalize on opportunities once completely out
+      of their reach. Contributions to this fund will support Community and Volunteer
+      projects such as creating school and public computer labs and teaching computer
+      skills.', featured_image: 14, fund: 84, icon: 23, name: Technology, slug: technology,
+    tagline: 'Enhance existing local entrepreneurial efforts, create school and public
+      computer labs, and teaching computer skills.'}
+  model: peacecorps.campaign
+  pk: 71
+- fields: {call: Support Health Projects, campaigntype: sec, description: 'Donations
+      to the Health and HIV/AIDS Fund will help combat global health issues such as
+      poor nutrition, the spread of infectious diseases, and the devastating social
+      and economic impact of HIV/AIDS. In order to help alleviate these problems,
+      Volunteers and their host communities are planning and implementing projects
+      which focus on preventative health care, nutrition, and disease prevention and
+      mitigation. The range of activities includes immunizations; nutrition and growth
+      monitoring; promotion of breast-feeding; access to prenatal and postnatal care;
+      training health workers; development of public awareness material; and culturally
+      appropriate education strategies.', featured_image: 13, fund: 83, icon: 24,
+    name: Health, slug: health, tagline: 'Combat global health issues such as poor
+      nutrition, the spread of infectious diseases, and the devastating impact of
+      HIV/AIDS.'}
+  model: peacecorps.campaign
+  pk: 72
+- fields: {call: Support Environmental Projects, campaigntype: sec, description: 'Communities
+      around the world are challenged by the need to improve their development in
+      an environmentally sustainable way. Peace Corps Volunteers are working with
+      their communities to show that sustainable environmental management is not only
+      good stewardship, but can be an engine of future economic growth. Contributions
+      to this fund will help Volunteer and community projects such as environmental
+      conservation and ecotourism.', featured_image: 12, fund: 82, icon: 25, name: Environment
+      Fund, slug: environment-fund, tagline: 'Environmental stewardship spurs economic
+      growth. '}
+  model: peacecorps.campaign
+  pk: 73
+- fields: {call: Support Water Projects, campaigntype: sec, description: 'The very
+      basic needs of clean water and accessible sanitation are absent from many communities
+      around the world. This often leads to severe community health problems. Volunteers
+      work with their communities to design locally appropriate solutions to provide
+      safe, affordable, and sustainable water and sanitation. Contributions to this
+      fund will help Volunteer and community projects such as latrines, aqueducts
+      and wells, and basic sanitation training.', featured_image: 10, fund: 80, icon: 27,
+    name: Drinking Water and Sanitation Fund, slug: drinking-water-and-sanitation-fund,
+    tagline: 'Safe, affordable, and sustainable water and sanitation are vital to
+      communities worldwide.'}
+  model: peacecorps.campaign
+  pk: 74
+- fields: {call: Support Business Development Projects, campaigntype: sec, description: 'Volunteers
+      are posted throughout the developing world to help local businesses thrive in
+      ways they never thought possible. Increasing the opportunities presented to
+      local businesses promotes a sense of empowerment that can truly change a community.
+      Contributions to this fund will support Volunteer and community projects such
+      as microfinance, agribusiness, business education, and artisan collectives.',
+    featured_image: 9, fund: 79, icon: 28, name: Business Development, slug: business-development,
+    tagline: Increasing opportunities for local businesses promotes a sense of empowerment
+      that can transform a community.}
+  model: peacecorps.campaign
+  pk: 75
+- fields: {call: Support Agriculture Projects, campaigntype: sec, description: "Contributions
+      to the Agriculture Fund support one of the most basic needs of communities worldwide:
+      safe and sustainable food production. Agriculture projects target areas such
+      as community food production systems, pesticide safety, crop production, animal
+      husbandry, apiculture, agriculture marketing, farm economics, and formation
+      of agricultural cooperatives. As food security continues to be a global concern,
+      it is imperative to support communities' agricultural development.\r\n", featured_image: 8,
+    fund: 78, icon: 29, name: Agriculture, slug: agriculture, tagline: Safe and sustainable
+      food production is one of the most basic needs of communities worldwide.}
+  model: peacecorps.campaign
+  pk: 76
+- fields: {call: null, campaigntype: mem, description: "<p>The Stephanie Brown Memorial
+      Fund was established to honor the memory and service of Stephanie Brown, who
+      volunteered with the Peace Corps for two years in Cameroon before returning
+      to New York. This fund, established with a generous grant from the Thomas and
+      Martha Wayne Foundation, enables those inspired by Stephanie's story to contribute
+      to ongoing work in her memory.</p>\r\n<p>All contributions to the Stephanie
+      Brown Memorial Fund go towards community-initiated and volunteer-led projects
+      that support women, such as establishing women's cooperatives, increasing women's
+      access to resources and services, exploring gender roles, building shelters,
+      and increasing training programs.&nbsp;</p>", featured_image: 11, fund: 94,
+    icon: null, name: Stephanie Brown, slug: stephanie-brown, tagline: null}
+  model: peacecorps.campaign
+  pk: 77
 - fields: {code: USA, name: United States}
   model: peacecorps.country
   pk: 1
