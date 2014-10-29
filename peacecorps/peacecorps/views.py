@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import Campaign, CountryFund, FeaturedCampaign
+from peacecorps.models import Campaign, FeaturedCampaign
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
 from peacecorps.models import Project
 from peacecorps.payxml import convert_to_paygov
@@ -97,7 +97,7 @@ def donate_landing(request):
 def donate_campaign(request, slug):
 
     campaign = Campaign.objects.select_related('fund').get(slug=slug)
-    featured = campaign.featuredprojects
+    featured = campaign.featuredprojects.all()
     projects = Project.objects.filter(campaigns=campaign)
 
     return render(
@@ -143,16 +143,17 @@ def donate_project(request, slug):
         })
 
 
-#   @TODO - need PCPP connection to campaign first
 def donate_country(request, slug):
     """
     The page for the individual countries in which the Peace Corps operates.
     Users can donate to the country fund and see the list of active projects in
     that country.
     """
-    country = CountryFund.objects.select_related(
-        'featured_image', 'fund').get(slug=slug)
-    projects = Project.objects.filter(country=country.country)
+
+    country = get_object_or_404(
+        Campaign.objects.select_related('featured_image', 'fund'),
+        slug=slug, campaigntype=Campaign.COUNTRY)
+    projects = country.project_set.all()
 
     return render(
         request,

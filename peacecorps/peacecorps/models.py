@@ -70,7 +70,7 @@ class Campaign(models.Model):
         help_text="used for the fund page url.",
         max_length=100, unique=True)
     description = tinymce_models.HTMLField()
-    featurdprojects = models.ManyToManyField('Project', blank=True, null=True)
+    featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
 
     def __str__(self):
         return self.name
