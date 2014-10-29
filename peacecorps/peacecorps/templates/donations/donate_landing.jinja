@@ -11,19 +11,19 @@
 {% block content %}
 
 {% if featuredissue %}
-<div class="full_bg" style="
-    background-image: url('http://lorempixel.com/1920/1200/people');
+<section class="full_bg" style="
+    background-image: url('{{featuredissue.featured_image.url}}');
     height: 46em;
   ">
-</div>
-<section class="featured">
-  <img src="{{featuredissue.featured_image.url}}"
-       alt="{{featuredissue.featured_image.description}}" />
-  <div class="featured-tagline">{{featuredissue.tagline}}</div>
-  <div class="featured-call">
-    <a href="{{url("donate issue", slug=featuredissue.slug)}}"
-       class="button-link">{{featuredissue.call}}</a></div>
 </section>
+<div class="full_banner full_banner--support_color"
+    style="margin-top: 15em;">
+  <div class="showcase showcase--shift_sm">
+    <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
+    <a href="{{url("donate issue", slug=featuredissue.slug)}}"
+       class="button-link">{{featuredissue.call}}</a>
+  </div>
+</div>
 {% endif %}
 
 <h2>Issues</h2>

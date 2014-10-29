@@ -5,9 +5,12 @@
 @import "landing";
 
 // TODO add "sass-globbing" to allow globbing here
+@import "base/elements";
 @import "components/inline_text";
 @import "components/main_nav";
 @import "components/full_bg";
+@import "components/full_banner";
+@import "components/showcase";
 
 body {
   // TODO remove
@@ -21,9 +24,6 @@ body {
     text-align: center;
   }
   h2 {
-    border: 1px solid black;
-    position: relative;
-
     a.back {
       position: absolute;
       left: 1em;
