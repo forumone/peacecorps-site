@@ -97,7 +97,7 @@ class Fund(models.Model):
     )
 
     name = models.CharField(max_length=120, unique=True)
-    fundcode = models.CharField(max_length=25)
+    fundcode = models.CharField(max_length=25, unique=True)
     fundcurrent = models.IntegerField(default=0)
     fundgoal = models.IntegerField(blank=True, null=True)
     community_contribution = models.IntegerField(blank=True, null=True)
@@ -266,4 +266,4 @@ class Donation(models.Model):
     """Log donation amounts as received from pay.gov"""
     fund = models.ForeignKey(Fund, related_name='donations')
     amount = models.PositiveIntegerField()
-    time = models.DateTimeField(auto_now=True)
+    time = models.DateTimeField(auto_now_add=True)

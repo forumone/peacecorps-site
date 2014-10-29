@@ -62,6 +62,9 @@ STATIC_ROOT = '/var/www/static/'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
 
+USE_TZ = True
+TIME_ZONE = 'UTC'
+
 # APP_SPECIFIC_VALUES
 
 # Not secret information -- it's in donation form
