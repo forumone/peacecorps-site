@@ -5,3 +5,7 @@ django-localflavor
 django-tinymce
 pyyaml
 python-gnupg
+pytz
+boto
+# @see http://code.larlet.fr/django-storages/issue/155/python-3-support
+-e git+https://github.com/coagulant/django-storages-py3.git#egg=django-storages

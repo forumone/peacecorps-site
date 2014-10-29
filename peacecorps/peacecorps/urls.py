@@ -2,7 +2,6 @@ from django.apps import apps
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
-from django.contrib import admin
 
 from peacecorps.views import donation_failure, donation_payment
 from peacecorps.views import donation_success
@@ -17,8 +16,6 @@ from peacecorps.views import donate_general
 
 urlpatterns = patterns(
     '',
-    url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^donate/?$', donate_landing, name='donate landing'),
     url(r'^donate/issue/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_issue, name='donate issue'),
@@ -48,3 +45,12 @@ if settings.DEBUG:
 if apps.is_installed('paygov'):
     urlpatterns += patterns(
         '', url(r'^callback/', include('paygov.urls', namespace='paygov')))
+
+if apps.is_installed('django.contrib.admin'):
+    from django.contrib import admin
+    urlpatterns += patterns(
+        '', url(r'^admin/', include(admin.site.urls)))
+
+if apps.is_installed('tinymce'):
+    urlpatterns += patterns(
+        '', url(r'^tinymce/', include('tinymce.urls')))
