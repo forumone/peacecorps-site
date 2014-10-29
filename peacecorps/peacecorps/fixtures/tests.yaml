@@ -1466,7 +1466,7 @@
   pk: 19
 - fields: {caption: 'A public composting toilet, photographed by Wolfgang Berger,
       CC-BY', country: 65, description: A photo of a public composting toilet in Germany,
-    file: ./Public-toilet-by-Wolfgang-Berger-CC-BY_nFE97Fv.jpg, mediatype: IMG, title: Public
+    file: ./Public-toilet-by-Wolfgang-Berger-CC-BY.jpg, mediatype: IMG, title: Public
       Toilet, transcript: ''}
   model: peacecorps.media
   pk: 20
