@@ -6,9 +6,9 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import CountryFund, FeaturedIssue
+from peacecorps.models import CountryFund, FeaturedCampaign
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
-from peacecorps.models import Issue, Project, MemorialFund, FundDisplay
+from peacecorps.models import Campaign, Project, MemorialFund, FundDisplay
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -78,33 +78,33 @@ def donate_landing(request):
     projects = Project.objects.select_related('country', 'fund')
 
     try:
-        featuredissue = FeaturedIssue.objects.get(id=1).issue
-    except FeaturedIssue.DoesNotExist:
-        featuredissue = None
+        featuredcampaign = FeaturedCampaign.objects.get(id=1).campaign
+    except FeaturedCampaign.DoesNotExist:
+        featuredcampaign = None
 
     return render(
         request,
         'donations/donate_landing.jinja',
         {
-            'featuredissue': featuredissue,
-            'issues': Issue.objects.all(),
+            'featuredcampaign': featuredcampaign,
+            'campaigns': Campaign.objects.all(),
             'featuredprojects': featuredprojects,
             'projects': projects,
             'humanize_amount': humanize_amount,
         })
 
 
-def donate_issue(request, slug):
+def donate_campaign(request, slug):
 
-    issue = Issue.objects.select_related('fund').get(slug=slug)
-    featured = Project.objects.filter(issue=issue, issue_feature=True)
-    projects = Project.objects.filter(issue=issue)
+    campaign = Campaign.objects.select_related('fund').get(slug=slug)
+    featured = campaign.featuredprojects
+    projects = Project.objects.filter(campaigns=campaign)
 
     return render(
         request,
-        'donations/donate_issue.jinja',
+        'donations/donate_campaign.jinja',
         {
-            'issue': issue,
+            'campaign': campaign,
             'featured': featured,
             'projects': projects,
         })
