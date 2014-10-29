@@ -70,6 +70,7 @@ class Campaign(models.Model):
         help_text="used for the fund page url.",
         max_length=100, unique=True)
     description = tinymce_models.HTMLField()
+    featurdprojects = models.ManyToManyField('Project', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -111,6 +112,20 @@ class CountryFund(models.Model):
 
     def __str__(self):
         return self.country.name
+
+
+class FeaturedCampaign(models.Model):
+    campaign = models.ForeignKey('Campaign')
+
+    # Much like the Highlander, there can be only one.
+    def save(self):
+        for cam in FeaturedCampaign.objects.all():
+            cam.delete()
+        self.id = 1
+        super(FeaturedCampaign, self).save()
+
+    def __str__(self):
+        return '%s (Featured)' % (self.campaign.name)
 
 
 class FeaturedIssue(models.Model):
@@ -271,6 +286,7 @@ class MemorialFund(models.Model):
     def __str__(self):
         return '%s' % (self.name)
 
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     tagline = models.CharField(
@@ -283,12 +299,18 @@ class Project(models.Model):
         'Issue', related_name="related_projects",
         help_text="other issues this project relates to.",
         blank=True, null=True)
+    campaigns = models.ManyToManyField(
+        'Issue',
+        help_text="Campaigns to which this project belongs",
+        blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media',
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
     fund = models.ForeignKey('Fund', unique=True)
+    fundoverflow = models.ForeignKey('Fund',
+        related_name="overflow", blank=True, null=True)
     # This one can't be its own table because Django doesn't do OneToMany.
     issue_feature = models.BooleanField(default=False)
     volunteername = models.CharField(max_length=100)
