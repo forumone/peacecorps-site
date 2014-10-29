@@ -1466,7 +1466,7 @@
   pk: 19
 - fields: {caption: 'A public composting toilet, photographed by Wolfgang Berger,
       CC-BY', country: 65, description: A photo of a public composting toilet in Germany,
-    file: ./public-toilet-by-Wolfgang-Berger-CC-BY.jpg, mediatype: IMG, title: Public
+    file: ./Public-toilet-by-Wolfgang-Berger-CC-BY.jpg, mediatype: IMG, title: Public
       Toilet, transcript: ''}
   model: peacecorps.media
   pk: 20
@@ -1491,7 +1491,7 @@
   model: peacecorps.media
   pk: 24
 - fields: {caption: 'World icon by Ana Maria Lora Macias, CC-BY', country: null, description: An
-      icon of the globe., file: ./World-by-Ana-Maria-Lora-Macias.png, mediatype: IMG,
+      icon of the globe., file: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png, mediatype: IMG,
     title: World Icon, transcript: ''}
   model: peacecorps.media
   pk: 25
