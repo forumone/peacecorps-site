@@ -19,6 +19,7 @@
     @include inline_text__ele--centered;
 
     a {
+      @include t-heading;
       @include t-heading--white;
     }
   }

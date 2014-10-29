@@ -1,0 +1,13 @@
+/*
+ * A large block within the wrapper with centered elements to showcase some
+ * content very visually.
+ */
+
+.showcase {
+  text-align: center;
+}
+
+.showcase--shift_sm {
+  @include span-columns(10);
+  @include shift(1);
+}

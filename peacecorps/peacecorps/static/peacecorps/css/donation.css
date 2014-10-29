@@ -190,41 +190,13 @@ html {
 .landing a.button-link {
   text-size: x-large;
   color: #fff;
+  display: inline-block;
   background-color: #333;
   border: solid 1px #fff;
   text-decoration: none;
   text-transform: uppercase;
+  margin-bottom: -2em;
   padding: 1em 2em; }
-.landing .featured {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  position: relative; }
-  .landing .featured:last-child {
-    margin-right: 0; }
-  .landing .featured img {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    max-height: 600px; }
-    .landing .featured img:last-child {
-      margin-right: 0; }
-  .landing .featured div {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    position: absolute;
-    text-align: center; }
-    .landing .featured div:last-child {
-      margin-right: 0; }
-.landing .featured-tagline {
-  text-size: x-large;
-  top: 4em; }
-.landing .featured-call {
-  bottom: 4em; }
 .landing .issues {
   float: left;
   display: block;
@@ -350,6 +322,13 @@ html {
     padding-top: .5em; }
 
 /*
+ * All base rules concerning elements
+ */
+html, body {
+  margin: 0;
+  overflow-x: hidden; }
+
+/*
  * Inline text module
  *
  * The inline text module helps style text inline. It has separate styles for
@@ -440,13 +419,21 @@ html {
   text-transform: uppercase; }
 
 .t-heading--white {
-  font-family: "museo-sans",sans-serif;
-  font-size: .8em;
-  font-style: normal;
-  font-weight: 300;
-  text-decoration: none;
-  text-transform: uppercase;
   color: #fff; }
+
+.t-heading_lg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
+
+h2 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
 
 /*
  * Inline text module
@@ -543,6 +530,14 @@ html {
   .u-unmarked_list li {
     list-style: none; }
 
+.u-clearfix:after:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
 .main_nav {
   padding: 0;
   text-align: center;
@@ -570,7 +565,7 @@ html {
 /*
  * Full background image
  *
- * To use, set the class and apply a background image url and height with 
+ * To use, set the class and apply a background image url and height with
  * inline css.
  */
 /*
@@ -595,6 +590,99 @@ html {
   width: 100%;
   z-index: -100; }
 
+/*
+ * A full width banner with content that sits in its center.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+/*
+ * Contains all sass utilities such as floats, clears, etc.
+ */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+.u-unmarked_list {
+  padding: 0; }
+  .u-unmarked_list li {
+    list-style: none; }
+
+.u-clearfix:after:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.full_banner {
+  margin: 0 -500%;
+  padding: 0.5em 500%; }
+  .full_banner:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0; }
+
+.full_banner--support_color {
+  background-color: rgba(201, 65, 18, 0.75); }
+
+/*
+ * A large block within the wrapper with centered elements to showcase some
+ * content very visually.
+ */
+.showcase {
+  text-align: center; }
+
+.showcase--shift_sm {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%; }
+  .showcase--shift_sm:last-child {
+    margin-right: 0; }
+
 body {
   background: #0081dd; }
 
@@ -614,11 +702,8 @@ body {
     text-align: center; }
     .wrapper h1:last-child, .wrapper h2:last-child {
       margin-right: 0; }
-  .wrapper h2 {
-    border: 1px solid black;
-    position: relative; }
-    .wrapper h2 a.back {
-      position: absolute;
-      left: 1em; }
+  .wrapper h2 a.back {
+    position: absolute;
+    left: 1em; }
 
 /*# sourceMappingURL=donation.css.map */

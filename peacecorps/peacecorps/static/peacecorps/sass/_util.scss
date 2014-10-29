@@ -17,3 +17,19 @@
 .u-unmarked_list {
   @include u-unmarked_list;
 }
+
+// Classic clearfix
+@mixin u-clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+.u-clearfix:after {
+  @include u-clearfix;
+}
+

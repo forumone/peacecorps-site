@@ -4,6 +4,7 @@
 
 @import "globals";
 
+
 @mixin t-heading {
   font-family: "museo-sans",sans-serif;
   font-size: .8em;
@@ -17,9 +18,23 @@
 }
 
 @mixin t-heading--white {
-  @include t-heading;
   color: $white;
 }
 .t-heading--white {
   @include t-heading--white;
+}
+
+@mixin t-heading_lg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em;
+}
+.t-heading_lg {
+  @include t-heading_lg;
+}
+
+h2 {
+  @include t-heading_lg;
 }

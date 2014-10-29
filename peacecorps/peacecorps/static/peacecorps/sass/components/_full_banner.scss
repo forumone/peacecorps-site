@@ -1,0 +1,16 @@
+/*
+ * A full width banner with content that sits in its center.
+ */
+
+@import "globals";
+@import "util";
+
+.full_banner {
+  margin: 0 -500%;
+  padding: 0.5em 500%;
+  @include u-clearfix;
+}
+
+.full_banner--support_color {
+  background-color: rgba($primary_support, 0.75);
+}

@@ -5,33 +5,13 @@
   a.button-link {
     text-size: x-large;
     color: #fff;
+    display: inline-block;
     background-color: #333;
     border: solid 1px #fff;
     text-decoration: none;
     text-transform: uppercase;
+    margin-bottom: -2em;
     padding: 1em 2em;
-  }
-
-  .featured {
-    @include span-columns(12);
-    position: relative;
-
-    img {
-      @include span-columns(12);
-      max-height: 600px;
-    }
-    div {
-      @include span-columns(12);
-      position: absolute;
-      text-align: center;
-    }
-  }
-  .featured-tagline {
-    text-size: x-large;
-    top: 4em;
-  }
-  .featured-call {
-    bottom: 4em;
   }
 
   .issues {
