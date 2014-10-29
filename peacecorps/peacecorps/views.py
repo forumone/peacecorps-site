@@ -6,9 +6,9 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import CountryFund, FeaturedIssue
+from peacecorps.models import Campaign, CountryFund, FeaturedIssue
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
-from peacecorps.models import Issue, Project, MemorialFund, FundDisplay
+from peacecorps.models import Issue, Project, MemorialFund
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -197,8 +197,9 @@ def donate_general(request, slug):
     """
     The page for the general fund.
     """
-    general = get_object_or_404(FundDisplay.objects.select_related('fund'),
-        slug=slug)
+    general = get_object_or_404(
+        Campaign.objects.filter(campaigntype=Campaign.GENERAL).select_related(
+            'fund'), slug=slug)
 
     return render(
         request,
