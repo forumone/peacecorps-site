@@ -125,8 +125,8 @@ def donate_project(request, slug):
             if form.is_valid():
                 params = {'project': project.fund.fundcode,
                           # convert back into cents
-                          'amount': int(form.cleaned_data['payment_amount']
-                                        * 100)}
+                          'amount': int(round(
+                              form.cleaned_data['payment_amount'] * 100))}
                 return HttpResponseRedirect(
                     reverse('donations_payment') + '?' + urlencode(params))
     else:

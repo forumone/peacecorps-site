@@ -63,6 +63,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
 
+USE_TZ = True
+TIME_ZONE = 'UTC'
+
 # APP_SPECIFIC_VALUES
 
 # The agency id assigned by pay.gov
