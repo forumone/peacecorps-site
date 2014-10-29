@@ -300,7 +300,7 @@ class Project(models.Model):
         help_text="other issues this project relates to.",
         blank=True, null=True)
     campaigns = models.ManyToManyField(
-        'Issue',
+        'Campaign',
         help_text="Campaigns to which this project belongs",
         blank=True, null=True)
     featured_image = models.ForeignKey(
