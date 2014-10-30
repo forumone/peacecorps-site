@@ -18,25 +18,11 @@ DATABASES = {}
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
     'peacecorps',
-    'tinymce',
 )
 
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
 
 ROOT_URLCONF = 'peacecorps.urls'
 WSGI_APPLICATION = 'peacecorps.wsgi.application'
@@ -59,6 +45,19 @@ USE_L10N = True
 USE_TZ = True
 
 
+# TinyMCE configurations
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'theme_advanced_toolbar_location': "top",
+    'theme_advanced_buttons1': "bold,italic,underline,separator,bullist,separator,outdent,indent,separator,undo,redo",
+    'theme_advanced_buttons2': "",
+    'theme_advanced_buttons3': "",
+    'width': '70%',
+    'height': 300,
+}
+STATIC_ROOT = '/var/www/static/'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
@@ -68,28 +67,13 @@ TIME_ZONE = 'UTC'
 
 # APP_SPECIFIC_VALUES
 
-# The agency id assigned by pay.gov
+# Not secret information -- it's in donation form
 PAY_GOV_AGENCY_ID = '1247'
-
-# The name of the agency application in pay.gov
-PAY_GOV_APP_NAME = 'DONORPAGES'
+PAY_GOV_APP_NAME = 'DONORPAGES2'
+PAY_GOV_FORM_ID = 'DONORPAGES2'
 
 # The URL for the pay.gov payment service.
-PAY_GOV_OCI_URL = 'mockpay'
-
-# TinyMCE configurations
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': "advanced",
-    'theme_advanced_toolbar_location' : "top",
-    'theme_advanced_buttons1': "bold,italic,underline,separator,bullist,separator,outdent,indent,separator,undo,redo",
-    'theme_advanced_buttons2': "",
-    'theme_advanced_buttons3': "",
-    'width' : '70%',
-    'height' : 300,
-    }
-
-# This id is also provided by pay.gov
-PAY_GOV_FORM_ID = 'TODO'
+PAY_GOV_OCI_URL = 'https://example.com/'
 
 # DonorInfo objects expire after a set period of time
 DONOR_EXPIRE_AFTER = 30      # minutes
