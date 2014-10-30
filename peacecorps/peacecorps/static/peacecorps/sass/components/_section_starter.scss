@@ -1,0 +1,15 @@
+/*
+ * A visual separator at the start of a section. Allows space for a title header
+ * for the section.
+ */
+
+@import "globals";
+
+.section_starter {
+  background-color: $neutral_dark;
+  border-radius: 0 0 29em 29em;
+  height: 14.5em;
+  margin: 0 auto 2em;
+  padding: 2em 0 0 0;
+  width: 29em;
+}

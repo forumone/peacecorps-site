@@ -7,7 +7,15 @@
   text-align: center;
 }
 
+.showcase--main {
+  @include span-columns(12);
+}
+
 .showcase--shift_sm {
   @include span-columns(10);
   @include shift(1);
+}
+
+.showcase--neutral {
+  background-color: $neutral_medium;
 }

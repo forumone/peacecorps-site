@@ -7,12 +7,17 @@
 
 @import "base/type";
 @import "components/inline_text";
+@import "globals";
 @import "util";
 
 .main_nav {
   @include u-unmarked_list;
   @include inline_text--centered;
   width: 100%;
+
+  @include media($sm) {
+    @include u-visually_hidden;
+  }
 
   .main_nav__link {
     @include span_columns(2);

@@ -347,6 +347,9 @@ html {
 /*
  * Z-Index
  */
+body {
+  color: #A12122; }
+
 .t-heading {
   font-family: "museo-sans",sans-serif;
   font-size: .8em;
@@ -358,12 +361,28 @@ html {
 .t-heading--white {
   color: #fff; }
 
+.t-heading_xlg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
+
 .t-heading_lg {
   font-family: "museo-slab",sans-serif;
   font-size: 1.6em;
   font-style: normal;
   font-weight: 100;
   line-height: 1.8em; }
+
+h1 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
 
 h2 {
   font-family: "museo-slab",sans-serif;
@@ -430,6 +449,75 @@ h2 {
 html, body {
   margin: 0;
   overflow-x: hidden; }
+
+/*
+ * Type styles.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+body {
+  color: #A12122; }
+
+.t-heading {
+  font-family: "museo-sans",sans-serif;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.t-heading--white {
+  color: #fff; }
+
+.t-heading_xlg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
+
+.t-heading_lg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
+
+h1 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
+
+h2 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 1.6em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1.8em; }
+
+.t-heading_md {
+  font-family: "museo-sans",sans-serif;
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase; }
 
 /*
  * Inline text module
@@ -513,6 +601,9 @@ html {
 /*
  * Z-Index
  */
+body {
+  color: #A12122; }
+
 .t-heading {
   font-family: "museo-sans",sans-serif;
   font-size: .8em;
@@ -524,12 +615,28 @@ html {
 .t-heading--white {
   color: #fff; }
 
+.t-heading_xlg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
+
 .t-heading_lg {
   font-family: "museo-slab",sans-serif;
   font-size: 1.6em;
   font-style: normal;
   font-weight: 100;
   line-height: 1.8em; }
+
+h1 {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase; }
 
 h2 {
   font-family: "museo-slab",sans-serif;
@@ -604,6 +711,21 @@ html {
     float: none; }
 
 /*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+/*
  * Contains all sass utilities such as floats, clears, etc.
  */
 /* Neat 1.7.0
@@ -648,12 +770,22 @@ html {
   clear: both;
   height: 0; }
 
+.u-visually_hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important; }
+
 .main_nav {
   padding: 0;
   text-align: center;
   width: 100%; }
   .main_nav li {
     list-style: none; }
+  @media screen and (max-width: 480px) {
+    .main_nav {
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important; } }
   .main_nav .main_nav__link {
     float: left;
     display: block;
@@ -763,6 +895,11 @@ html {
   clear: both;
   height: 0; }
 
+.u-visually_hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important; }
+
 .full_banner {
   margin: 0 -500%;
   padding: 0.5em 500%; }
@@ -778,11 +915,46 @@ html {
   background-color: rgba(201, 65, 18, 0.75); }
 
 /*
+ * A visual separator at the start of a section. Allows space for a title header
+ * for the section.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+.section_starter {
+  background-color: #E5E1D4;
+  border-radius: 0 0 29em 29em;
+  height: 14.5em;
+  margin: 0 auto 2em;
+  padding: 2em 0 0 0;
+  width: 29em; }
+
+/*
  * A large block within the wrapper with centered elements to showcase some
  * content very visually.
  */
 .showcase {
   text-align: center; }
+
+.showcase--main {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .showcase--main:last-child {
+    margin-right: 0; }
 
 .showcase--shift_sm {
   float: left;
@@ -793,8 +965,8 @@ html {
   .showcase--shift_sm:last-child {
     margin-right: 0; }
 
-body {
-  background: #0081dd; }
+.showcase--neutral {
+  background-color: #F2EFE8; }
 
 .wrapper {
   max-width: 68em;
@@ -804,14 +976,6 @@ body {
     content: "";
     display: table;
     clear: both; }
-  .wrapper h1, .wrapper h2 {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    text-align: center; }
-    .wrapper h1:last-child, .wrapper h2:last-child {
-      margin-right: 0; }
   .wrapper h2 a.back {
     position: absolute;
     left: 1em; }
