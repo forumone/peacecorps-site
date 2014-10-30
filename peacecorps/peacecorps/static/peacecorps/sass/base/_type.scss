@@ -4,6 +4,9 @@
 
 @import "globals";
 
+body {
+  color: $primary;
+}
 
 // TODO clean up text styles and make consistant.
 // Waiting on finalized design for this.
@@ -26,6 +29,18 @@
   @include t-heading--white;
 }
 
+@mixin t-heading_xlg {
+  font-family: "museo-slab",sans-serif;
+  font-size: 3.8em;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.t-heading_xlg {
+  @include t-heading_xlg;
+}
+
 @mixin t-heading_lg {
   font-family: "museo-slab",sans-serif;
   font-size: 1.6em;
@@ -35,6 +50,10 @@
 }
 .t-heading_lg {
   @include t-heading_lg;
+}
+
+h1 {
+  @include t-heading_xlg;
 }
 
 h2 {
