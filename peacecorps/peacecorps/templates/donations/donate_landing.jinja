@@ -16,25 +16,29 @@
     height: 46em;
   ">
 </div>
-<section class="full_banner full_banner--support_color"
-    style="margin-top: 15em;">
-  <div class="showcase showcase--shift_sm">
-    <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
-    <a href="{{url("donate issue", slug=featuredissue.slug)}}"
-       class="button-link">{{featuredissue.call}}</a>
-  </div>
+<section style="height: 23.6em;">
+  <section class="full_banner full_banner--support_color"
+      style="margin-top: 15em;">
+    <div class="showcase showcase--shift_sm">
+      <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
+      <a href="{{url("donate issue", slug=featuredissue.slug)}}"
+         class="button-link">{{featuredissue.call}}</a>
+    </div>
+  </section>
 </section>
 {% endif %}
 
-<h2>Issues</h2>
-<section class="issues">
-{% for issue in issues %}
-  <div>
-    <a href="{{url("donate issue", slug=issue.slug)}}"><img
-       src="{{issue.icon.url}}" /></a>
-    <span>{{issue.name}}</span>
-  </div>
-{% endfor %}
+<section class="showcase showcase--main showcase--neutral issues">
+  <header class="section_starter">
+    <h1 class="t-heading_xlg">Issues</h1>
+  </header>
+  {% for issue in issues %}
+    <div>
+      <a href="{{url("donate issue", slug=issue.slug)}}"><img
+         src="{{issue.icon.url}}" /></a>
+      <span>{{issue.name}}</span>
+    </div>
+  {% endfor %}
 </section>
 
 <h2>Featured Projects</h2>

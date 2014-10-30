@@ -6,23 +6,16 @@
 
 // TODO add "sass-globbing" to allow globbing here
 @import "base/elements";
+@import "base/type";
 @import "components/inline_text";
 @import "components/main_nav";
 @import "components/full_bg";
 @import "components/full_banner";
+@import "components/section_starter";
 @import "components/showcase";
-
-body {
-  // TODO remove
-  background: #0081dd;
-}
 
 .wrapper {
   @include outer-container;
-  h1, h2 {
-    @include span-columns(12);
-    text-align: center;
-  }
   h2 {
     a.back {
       position: absolute;
