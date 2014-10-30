@@ -7,7 +7,7 @@ from peacecorps.views import donation_failure, donation_payment
 from peacecorps.views import donation_success
 
 from peacecorps.views import donate_landing
-from peacecorps.views import donate_issue
+from peacecorps.views import donate_campaign
 from peacecorps.views import donate_project
 from peacecorps.views import donate_country
 from peacecorps.views import donate_countries
@@ -17,8 +17,8 @@ from peacecorps.views import donate_general
 urlpatterns = patterns(
     '',
     url(r'^donate/?$', donate_landing, name='donate landing'),
-    url(r'^donate/issue/(?P<slug>[a-zA-Z0-9_-]*)/?$',
-        donate_issue, name='donate issue'),
+    url(r'^donate/campaign/(?P<slug>[a-zA-Z0-9_-]*)/?$',
+        donate_campaign, name='donate campaign'),
     url(r'^donate/project/(?P<slug>[a-zA-Z0-9_-]*)/?$',
         donate_project, name='donate project'),
     url(r'^donate/country/(?P<slug>[a-zA-Z0-9_-]*)/?$',

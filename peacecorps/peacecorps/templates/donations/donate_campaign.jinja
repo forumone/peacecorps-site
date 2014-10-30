@@ -1,12 +1,12 @@
 <html lang='en'>
 <head>
-    <title>{{issue.name}}</title>
+    <title>{{campaign.name}}</title>
 </head>
 <body>
 
-<img src="{{issue.featured_image.url}}" height="300px"></img>
+<img src="{{campaign.featured_image.url}}" height="300px"></img>
 
-<h2>{{issue.name}}</h2>
+<h2>{{campaign.name}}</h2>
 
 {% for project in featured %}
 <div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url}}" height="300px"></a></div>
@@ -14,7 +14,7 @@
 
 <h3>{{projects.count()}} active projects</h3>
 
-<p>{{issue.fund.fundcurrent / 100}}</p>
+<p>{{campaign.fund.fundcurrent / 100}}</p>
 
 <h3>Project Field Reports</h3>
 
