@@ -8,7 +8,7 @@ from peacecorps.views import donation_failure, donation_payment
 from peacecorps.views import donation_success
 
 from peacecorps.views import donate_landing
-from peacecorps.views import donate_issue
+from peacecorps.views import donate_campaign
 from peacecorps.views import donate_project
 from peacecorps.views import donate_country
 from peacecorps.views import donate_countries
