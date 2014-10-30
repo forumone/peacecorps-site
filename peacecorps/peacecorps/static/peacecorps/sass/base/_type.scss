@@ -5,6 +5,8 @@
 @import "globals";
 
 
+// TODO clean up text styles and make consistant.
+// Waiting on finalized design for this.
 @mixin t-heading {
   font-family: "museo-sans",sans-serif;
   font-size: .8em;
@@ -38,3 +40,36 @@
 h2 {
   @include t-heading_lg;
 }
+
+@mixin t-heading_md {
+  font-family: "museo-sans",sans-serif;
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.t-heading_md {
+  @include t-heading_md;
+}
+
+// Different text styles:
+//   - Either slab or sans
+//   - Five different colors, white, primary, secondary, support, dark, light
+//   dark
+//   - Sizes: nav, large callouts, buttons, page divisions, paragraph,
+//     paragraph heading
+//
+//  nav -- sans -- white
+//  callouts -- slab -- white | primary
+//  buttons -- sans -- white | primary | support
+//  page divisions -- slab -- primary
+//  paragraph header -- sans -- primary | dark | secondary
+//  paragraphy -- sans -- primary | dark | secondary
+//
+//
+//  h1 -- page divisions - slab - upper
+//  h2 -- callouts - slab - camel
+//  h3 --
+//  h4 -- paragraph header | buttons - sans - upper | camel
+//  h5 -- table headings | navigation - sans - upper
+//  p -- paragraph - sans - camel
