@@ -21,7 +21,8 @@ INSTALLED_APPS += (
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
-    'paygov'
+    'paygov',
+    'debug_toolbar.apps.DebugToolbarConfig', 
 )
 
 MIDDLEWARE_CLASSES = (
