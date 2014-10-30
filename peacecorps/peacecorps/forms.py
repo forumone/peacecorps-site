@@ -151,11 +151,11 @@ class DonationAmountForm(forms.Form):
     payment_amount = forms.DecimalField(max_value=9999.99, min_value=1,
                                         decimal_places=2, required=False)
 
-    def __init__(self, fund=None, *args, **kwargs):
-        """We need a fund to set payment amount when preset-all is
+    def __init__(self, account=None, *args, **kwargs):
+        """We need a account to set payment amount when preset-all is
         selected"""
         super(DonationAmountForm, self).__init__(*args, **kwargs)
-        self.fund = fund
+        self.account = account
 
     def clean_payment_amount(self):
         """Selecting a preset is identical to typing the exact amount"""
@@ -163,10 +163,10 @@ class DonationAmountForm(forms.Form):
             if self.cleaned_data.get('presets') == 'preset-' + str(amt):
                 return Decimal(amt)
         if self.cleaned_data.get('presets') == 'preset-all':
-            if not self.fund:
-                raise ValidationError('Missing fund')
+            if not self.account:
+                raise ValidationError('Missing account')
             else:
-                remaining_amount = self.fund.fundgoal - self.fund.fundcurrent
+                remaining_amount = self.account.goal - self.account.current
                 # We're circumventing the normal bounds checks, so we must
                 # enforce them here
                 if remaining_amount < 100:  # cents

@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import Campaign, FeaturedCampaign
-from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
+from peacecorps.models import FeaturedProjectFrontPage, Account, humanize_amount
 from peacecorps.models import Project
 from peacecorps.payxml import convert_to_paygov
 
@@ -26,8 +26,8 @@ def donation_payment(request):
     except ValueError:
         return HttpResponseBadRequest('amount must be an integer value')
 
-    fund = Fund.objects.filter(fundcode=project_code).first()
-    if not fund:
+    account = Account.objects.filter(code=project_code).first()
+    if not account:
         return HttpResponseBadRequest('Invalid project')
 
     readable_amount = humanize_amount(amount)
@@ -39,7 +39,7 @@ def donation_payment(request):
             data = {}
             for k, v in form.cleaned_data.items():
                 data[k] = v
-            return donation_payment_review(request, data, fund)
+            return donation_payment_review(request, data, account)
     else:
         data = {'payment_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
@@ -53,10 +53,10 @@ def donation_payment(request):
         })
 
 
-def donation_payment_review(request, data, fund):
+def donation_payment_review(request, data, account):
     """Save the payment information for future access; provide the user with a
     form that sends them over to pay.gov"""
-    paygov = convert_to_paygov(data, fund)
+    paygov = convert_to_paygov(data, account)
     paygov.save()
 
     return render(
@@ -75,7 +75,7 @@ def donate_landing(request):
 
     featuredprojects = FeaturedProjectFrontPage.objects.select_related(
         'project__featured_image').all()
-    projects = Project.objects.select_related('country', 'fund')
+    projects = Project.objects.select_related('country', 'account')
 
     try:
         featuredcampaign = FeaturedCampaign.objects.get(id=1).campaign
@@ -97,7 +97,7 @@ def donate_landing(request):
 
 def donate_campaign(request, slug):
 
-    campaign = Campaign.objects.select_related('fund').get(slug=slug)
+    campaign = Campaign.objects.select_related('account').get(slug=slug)
     featured = campaign.featuredprojects.all()
     projects = Project.objects.filter(campaigns=campaign)
 
@@ -115,24 +115,25 @@ def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
         Project.objects.select_related('volunteerpicture',
-                                       'featured_image', 'fund'),
+                                       'featured_image', 'account'),
         slug=slug)
     if request.method == 'POST':
         top_form = DonationAmountForm(prefix="top", data=request.POST,
-                                      fund=project.fund)
+                                      account=project.account)
         bottom_form = DonationAmountForm(prefix="bottom", data=request.POST,
-                                         fund=project.fund)
+                                         account=project.account)
         for form in (top_form, bottom_form):
             if form.is_valid():
-                params = {'project': project.fund.fundcode,
+                params = {'project': project.account.code,
                           # convert back into cents
                           'amount': int(round(
                               form.cleaned_data['payment_amount'] * 100))}
                 return HttpResponseRedirect(
                     reverse('donations_payment') + '?' + urlencode(params))
     else:
-        top_form = DonationAmountForm(prefix="top", fund=project.fund)
-        bottom_form = DonationAmountForm(prefix="bottom", fund=project.fund)
+        top_form = DonationAmountForm(prefix="top", account=project.account)
+        bottom_form = DonationAmountForm(
+            prefix="bottom", account=project.account)
 
     return render(
         request,
@@ -147,12 +148,12 @@ def donate_project(request, slug):
 def donate_country(request, slug):
     """
     The page for the individual countries in which the Peace Corps operates.
-    Users can donate to the country fund and see the list of active projects in
+    Users can donate to the country account and see the list of active projects in
     that country.
     """
 
     country = get_object_or_404(
-        Campaign.objects.select_related('featured_image', 'fund'),
+        Campaign.objects.select_related('featured_image', 'account'),
         slug=slug, campaigntype=Campaign.COUNTRY)
     projects = country.project_set.all()
 
@@ -171,7 +172,7 @@ def donate_countries(request):
     links to country pages.
     """
     countries = Campaign.objects.select_related(
-        'featured_image', 'fund').filter(campaigntype=Campaign.COUNTRY).all()
+        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY).all()
 
     return render(
         request,
@@ -186,7 +187,7 @@ def donate_memorial(request, slug):
     The page for individual memorial funds.
     """
     memfund = get_object_or_404(
-        Campaign.objects.select_related('featured_image', 'fund'),
+        Campaign.objects.select_related('featured_image', 'account'),
         slug=slug, campaigntype=Campaign.MEMORIAL)
 
     return render(
@@ -201,7 +202,7 @@ def donate_general(request, slug):
     """
     The page for the general fund.
     """
-    general = get_object_or_404(Campaign.objects.select_related('fund'),
+    general = get_object_or_404(Campaign.objects.select_related('account'),
                                 slug=slug, campaigntype=Campaign.GENERAL)
 
     return render(
