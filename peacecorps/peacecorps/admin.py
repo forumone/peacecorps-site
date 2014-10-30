@@ -85,10 +85,15 @@ class StrictUserAdmin(UserAdmin):
     change_password_form = StrictAdminPasswordChangeForm
 
 
+class CampaignAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+
+
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
+admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
 admin.site.register(models.FeaturedCampaign)
 admin.site.register(models.FeaturedProjectFrontPage)
