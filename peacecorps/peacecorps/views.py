@@ -6,9 +6,9 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import CountryFund, FeaturedCampaign
+from peacecorps.models import Campaign, FeaturedCampaign
 from peacecorps.models import FeaturedProjectFrontPage, Fund, humanize_amount
-from peacecorps.models import Campaign, Project, MemorialFund, FundDisplay
+from peacecorps.models import Project
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -87,7 +87,8 @@ def donate_landing(request):
         'donations/donate_landing.jinja',
         {
             'featuredcampaign': featuredcampaign,
-            'campaigns': Campaign.objects.all(),
+            'sectors': Campaign.objects.filter(
+                campaigntype=Campaign.SECTOR).order_by('name'),
             'featuredprojects': featuredprojects,
             'projects': projects,
             'humanize_amount': humanize_amount,
@@ -97,7 +98,7 @@ def donate_landing(request):
 def donate_campaign(request, slug):
 
     campaign = Campaign.objects.select_related('fund').get(slug=slug)
-    featured = campaign.featuredprojects
+    featured = campaign.featuredprojects.all()
     projects = Project.objects.filter(campaigns=campaign)
 
     return render(
@@ -113,7 +114,7 @@ def donate_campaign(request, slug):
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
-        Project.objects.select_related('volunteer__profile_image',
+        Project.objects.select_related('volunteerpicture',
                                        'featured_image', 'fund'),
         slug=slug)
     if request.method == 'POST':
@@ -149,9 +150,11 @@ def donate_country(request, slug):
     Users can donate to the country fund and see the list of active projects in
     that country.
     """
-    country = CountryFund.objects.select_related(
-        'featured_image', 'fund').get(slug=slug)
-    projects = Project.objects.filter(country=country.country)
+
+    country = get_object_or_404(
+        Campaign.objects.select_related('featured_image', 'fund'),
+        slug=slug, campaigntype=Campaign.COUNTRY)
+    projects = country.project_set.all()
 
     return render(
         request,
@@ -167,8 +170,8 @@ def donate_countries(request):
     Page listing all of the countries in which the Peace Corps is active, with
     links to country pages.
     """
-    countries = CountryFund.objects.select_related(
-        'featured_image', 'fund').all()
+    countries = Campaign.objects.select_related(
+        'featured_image', 'fund').filter(campaigntype=Campaign.COUNTRY).all()
 
     return render(
         request,
@@ -182,8 +185,9 @@ def donate_memorial(request, slug):
     """
     The page for individual memorial funds.
     """
-    memfund = get_object_or_404(MemorialFund.objects.select_related(
-        'featured_image', 'headshot', 'fund'), slug=slug)
+    memfund = get_object_or_404(
+        Campaign.objects.select_related('featured_image', 'fund'),
+        slug=slug, campaigntype=Campaign.MEMORIAL)
 
     return render(
         request,
@@ -197,8 +201,8 @@ def donate_general(request, slug):
     """
     The page for the general fund.
     """
-    general = get_object_or_404(FundDisplay.objects.select_related('fund'),
-        slug=slug)
+    general = get_object_or_404(Campaign.objects.select_related('fund'),
+                                slug=slug, campaigntype=Campaign.GENERAL)
 
     return render(
         request,

@@ -28,7 +28,7 @@
 
 <h2>Issues</h2>
 <section class="issues">
-{% for campaign in campaigns %}
+{% for campaign in sectors %}
   <div>
     <a href="{{url("donate campaign", slug=campaign.slug)}}"><img
        src="{{campaign.icon.url}}" /></a>
@@ -43,7 +43,7 @@
     <img src="{{project.project.featured_image.url}}" />
     <div class="project-tagline">{{project.tagline}}</div>
     <div class="project-call">
-      <a href="{{url("donate project", slug=project.slug)}}"
+      <a href="{{url("donate project", slug=project.project.slug)}}"
          class="button-link">Read the Field Report</a></div>
   </div>
 {% endfor %}
