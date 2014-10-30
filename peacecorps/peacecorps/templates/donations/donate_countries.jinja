@@ -8,8 +8,8 @@
 
 <h2>All Countries</h2>
 {% for country in countries %}
-<div><a href="/donate/country/{{country.slug}}"><img src="{{country.featured_image.url}}" height="200"></a>
-{{country}}</div>
+<div><a href="/donate/country/{{country.slug}}"><img src="{{country.featured_image.url}}" height="200">
+{{country}}</a></div>
 {% endfor %}
 
 </body>

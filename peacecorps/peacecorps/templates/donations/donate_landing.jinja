@@ -10,9 +10,9 @@
 
 {% block content %}
 
-{% if featuredissue %}
+{% if featuredcampaign %}
 <div class="full_bg" style="
-    background-image: url('{{featuredissue.featured_image.url}}');
+    background-image: url('{{featuredcampaign.featured_image.url}}');
     height: 46em;
   ">
 </div>
@@ -20,10 +20,10 @@
   <section class="full_banner full_banner--support_color"
       style="margin-top: 15em;">
     <div class="showcase showcase--shift_sm">
-      <h2 class="t-heading--white">{{featuredissue.tagline}}</h2>
-      <a href="{{url("donate issue", slug=featuredissue.slug)}}"
+      <h2 class="t-heading--white">{{featuredcampaign.tagline}}</h2>
+      <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
          style="margin-bottom: -1.5em"
-         class="button button--secondary">{{featuredissue.call}}</a>
+         class="button button--secondary">{{featuredcampaign.call}}</a>
     </div>
   </section>
 </section>
@@ -33,11 +33,11 @@
   <header class="section_starter">
     <h1 class="t-heading_xlg">Issues</h1>
   </header>
-  {% for issue in issues %}
+  {% for campaign in sectors %}
     <div>
-      <a href="{{url("donate issue", slug=issue.slug)}}"><img
-         src="{{issue.icon.url}}" /></a>
-      <span>{{issue.name}}</span>
+      <a href="{{url("donate campaign", slug=campaign.slug)}}"><img
+         src="{{campaign.icon.url}}" /></a>
+      <span>{{campaign.name}}</span>
     </div>
   {% endfor %}
 </section>
@@ -48,7 +48,7 @@
     <img src="{{project.project.featured_image.url}}" />
     <div class="project-tagline">{{project.tagline}}</div>
     <div class="project-call">
-      <a href="{{url("donate project", slug=project.slug)}}"
+      <a href="{{url("donate project", slug=project.project.slug)}}"
          class="button-link">Read the Field Report</a></div>
   </div>
 {% endfor %}

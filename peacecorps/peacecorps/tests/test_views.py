@@ -112,8 +112,8 @@ class DonatePagesTests(TestCase):
         response = self.client.get('/donate')
         self.assertEqual(response.status_code, 200)
 
-    def test_issue_rendering(self):
-        response = self.client.get('/donate/issue/health')
+    def test_campaign_rendering(self):
+        response = self.client.get('/donate/campaign/health')
         self.assertEqual(response.status_code, 200)
 
     def test_project_rendering(self):

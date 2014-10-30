@@ -3,7 +3,6 @@ from datetime import timedelta
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
 from tinymce import models as tinymce_models
 
@@ -25,6 +24,60 @@ def humanize_amount(amount_cents):
     return "${:,.2f}".format(amount_dollars)
 
 
+class Campaign(models.Model):
+    """
+    A campaign is any fundraising effort. Campaigns can collect donations
+    to a separate account that can be distributed to projects (sector, country,
+    special, and memorial funds, the general fund), or they can exist simply to
+    group related projects to highlight them to interested parties.
+    """
+    COUNTRY = 'coun'
+    GENERAL = 'gen'
+    MEMORIAL = 'mem'
+    OTHER = 'oth'
+    SECTOR = 'sec'
+    TAG = 'tag'  # a group of campaigns that doesn't have an account attached.
+    CAMPAIGNTYPE_CHOICES = (
+        (COUNTRY, 'Country'),
+        (GENERAL, 'General'),
+        (SECTOR, 'Sector'),
+        (MEMORIAL, 'Memorial'),
+        (OTHER, 'Other'),
+        (TAG, 'Tag')
+    )
+
+    name = models.CharField(max_length=120)
+    fund = models.ForeignKey('Fund', unique=True, blank=True, null=True)
+    campaigntype = models.CharField(
+        max_length=10, choices=CAMPAIGNTYPE_CHOICES)
+    icon = models.ForeignKey(
+        'Media',
+        related_name="campaign-icon",
+        help_text="A small icon to represent this on the landing page.",
+        blank=True, null=True)
+    featured_image = models.ForeignKey(
+        'Media',
+        help_text="A large landscape image for use in banners, headers, etc",
+        blank=True, null=True)
+    tagline = models.CharField(
+        max_length=140,
+        help_text="a short phrase for banners (140 characters)",
+        blank=True, null=True)
+    call = models.CharField(
+        max_length=50, help_text="call to action for buttons (50 characters)",
+        blank=True, null=True)
+    slug = models.SlugField(
+        help_text="used for the fund page url.",
+        max_length=100, unique=True)
+    description = tinymce_models.HTMLField()
+    featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    # TODO: slugify in admin, override save to preserve unique on general?
+
+
 class Country(models.Model):
     code = models.CharField(max_length=5)
     name = models.CharField(max_length=50)
@@ -33,46 +86,18 @@ class Country(models.Model):
         return '%s (%s)' % (self.name, self.code)
 
 
-class CountryFund(models.Model):
-    country = models.ForeignKey('Country', related_name="fund")
-    fund = models.ForeignKey('Fund', unique=True)
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc",
-        blank=True, null=True)
-    slug = models.SlugField(
-        help_text="used for the fund page url.",
-        max_length=100, unique=True)
-    description = tinymce_models.HTMLField()
-
-    def save(self):
-        # can't prepopulate slugfields from foreignkeys in the admin.
-        self.slug = slugify(self.country.name)
-
-        # avoid error on non-unique
-        if CountryFund.objects.filter(
-                slug=self.slug).exclude(id=self.id).exists():
-
-            self.slug = self.country.code + '-' + self.country.name
-
-        super(CountryFund, self).save()
-
-    def __str__(self):
-        return self.country.name
-
-
-class FeaturedIssue(models.Model):
-    issue = models.ForeignKey('Issue')
+class FeaturedCampaign(models.Model):
+    campaign = models.ForeignKey('Campaign')
 
     # Much like the Highlander, there can be only one.
     def save(self):
-        for issue in FeaturedIssue.objects.all():
-            issue.delete()
+        for cam in FeaturedCampaign.objects.all():
+            cam.delete()
         self.id = 1
-        super(FeaturedIssue, self).save()
+        super(FeaturedCampaign, self).save()
 
     def __str__(self):
-        return '%s (Featured)' % (self.issue.name)
+        return '%s (Featured)' % (self.campaign.name)
 
 
 class FeaturedProjectFrontPage(models.Model):
@@ -122,49 +147,6 @@ class Fund(models.Model):
         return self.fundgoal - self.fundcurrent
 
 
-class FundDisplay(models.Model):
-    """
-    Non-monetary info associated with a fund. Used for special & general funds.
-    """
-    name = models.CharField(max_length=200)
-    fund = models.ForeignKey('Fund', unique=True)
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc",
-        blank=True, null=True)
-    slug = models.SlugField(
-        help_text="used for the fund page url.",
-        max_length=100, unique=True)
-    description = tinymce_models.HTMLField()
-
-    def __str__(self):
-        return '%s' % (self.name)
-
-
-class Issue(models.Model):
-    name = models.CharField(max_length=100)
-    tagline = models.CharField(
-        max_length=140,
-        help_text="a short phrase for banners (140 characters)")
-    call = models.CharField(
-        max_length=40, help_text="call to action for buttons (40 characters)")
-    description = models.TextField()
-    slug = models.SlugField(
-        help_text="used for the issue page url.",
-        max_length=100, unique=True)
-    icon = models.ForeignKey(
-        'Media',
-        related_name="iconissues",
-        help_text="A small icon to represent the issue on the landing page.")
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc")
-    fund = models.ForeignKey('Fund', unique=True)
-
-    def __str__(self):
-        return '%s' % (self.name)
-
-
 class Media(models.Model):
     IMAGE = "IMG"
     VIDEO = "VID"
@@ -199,25 +181,6 @@ class Media(models.Model):
     def url(self):
         return self.file.url
 
-class MemorialFund(models.Model):
-    name = models.CharField(max_length=200)
-    fund = models.ForeignKey('Fund', unique=True)
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc",
-        blank=True, null=True)
-    headshot = models.ForeignKey(
-        'Media',
-        help_text="A picture of the memorialized person",
-        related_name="memorial_headshot",
-        blank=True, null=True)
-    slug = models.SlugField(
-        help_text="used for the fund page url.",
-        max_length=100, unique=True)
-    description = tinymce_models.HTMLField()
-
-    def __str__(self):
-        return '%s' % (self.name)
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -226,10 +189,9 @@ class Project(models.Model):
     slug = models.SlugField(max_length=100, help_text="for the project url.")
     description = tinymce_models.HTMLField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
-    issue = models.ForeignKey('Issue', related_name="projects")
-    issues_related = models.ManyToManyField(
-        'Issue', related_name="related_projects",
-        help_text="other issues this project relates to.",
+    campaigns = models.ManyToManyField(
+        'Campaign',
+        help_text="Campaigns to which this project belongs",
         blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media',
@@ -237,8 +199,8 @@ class Project(models.Model):
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
     fund = models.ForeignKey('Fund', unique=True)
-    # This one can't be its own table because Django doesn't do OneToMany.
-    issue_feature = models.BooleanField(default=False)
+    fundoverflow = models.ForeignKey(
+        'Fund', related_name="overflow", blank=True, null=True)
     volunteername = models.CharField(max_length=100)
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)
