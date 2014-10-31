@@ -73,7 +73,7 @@ PAY_GOV_APP_NAME = 'DONORPAGES2'
 PAY_GOV_FORM_ID = 'DONORPAGES2'
 
 # The URL for the pay.gov payment service.
-PAY_GOV_OCI_URL = 'https://example.com/'
+PAY_GOV_OCI_URL = os.environ.get('PAY_GOV_OCI_URL', 'https://example.com/')
 
 # DonorInfo objects expire after a set period of time
 DONOR_EXPIRE_AFTER = 30      # minutes
