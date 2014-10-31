@@ -1,18 +1,18 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from peacecorps.models import DonorInfo, Fund
+from peacecorps.models import DonorInfo, Account
 
 
 class DataTests(TestCase):
     """Tests the data() view"""
     def setUp(self):
-        self.fund = Fund.objects.create(fundcode='FUNDFUND')
-        self.donorinfo = DonorInfo.objects.create(agency_tracking_id='TRACK',
-                                                  fund=self.fund, xml='XML')
+        self.account = Account.objects.create(code='FUNDFUND')
+        self.donorinfo = DonorInfo.objects.create(
+            agency_tracking_id='TRACK', account=self.account, xml='XML')
 
     def tearDown(self):
-        self.fund.delete()  # cascades
+        self.account.delete()  # cascades
 
     def test_requires_post(self):
         result = self.client.get(reverse('paygov:data'),
@@ -38,12 +38,12 @@ class DataTests(TestCase):
 class ResultsTests(TestCase):
     """Tests the results() view"""
     def setUp(self):
-        self.fund = Fund.objects.create(fundcode='FUNDFUND')
-        self.donorinfo = DonorInfo.objects.create(agency_tracking_id='TRACK',
-                                                  fund=self.fund, xml='XML')
+        self.account = Account.objects.create(code='FUNDFUND')
+        self.donorinfo = DonorInfo.objects.create(
+            agency_tracking_id='TRACK', account=self.account, xml='XML')
 
     def tearDown(self):
-        self.fund.delete()  # cascades
+        self.account.delete()  # cascades
 
     def test_requires_post(self):
         result = self.client.get(reverse('paygov:results'),
@@ -93,8 +93,8 @@ class ResultsTests(TestCase):
         self.assertEqual(result['Content-Type'], 'text/plain')
 
         # avoiding the cache
-        fund = Fund.objects.get(pk=self.fund.pk)
-        self.assertEqual(1, len(fund.donations.all()))
-        donation = fund.donations.all()[0]
+        account = Account.objects.get(pk=self.account.pk)
+        self.assertEqual(1, len(account.donations.all()))
+        donation = account.donations.all()[0]
         self.assertEqual(donation.amount, 12500)
-        self.assertEqual(0, len(fund.donorinfos.all()))
+        self.assertEqual(0, len(account.donorinfos.all()))

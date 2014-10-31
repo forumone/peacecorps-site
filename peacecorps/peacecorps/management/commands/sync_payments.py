@@ -4,7 +4,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
 
-from peacecorps.models import Fund
+from peacecorps.models import Account
 
 
 def datetime_from(text):
@@ -25,9 +25,9 @@ def cents_from(text):
 
 
 class Command(BaseCommand):
-    help = """Synchronize Fund and Transactions with a CSV.
+    help = """Synchronize Account and Transactions with a CSV.
               Generally, this means deleting transactions and updating the
-              amount field in the fund."""
+              amount field in the account."""
 
     def handle(self, *args, **kwargs):
         if len(args) == 0:
@@ -36,11 +36,11 @@ class Command(BaseCommand):
         with open(args[0]) as csvfile:
             # Column names will no doubt change
             for row in csv.DictReader(csvfile):
-                fund = Fund.objects.filter(
-                    fundcode=row['PROJ_NO']).first()
-                if fund:
-                    # Ignoring non-existing funds - they're handled elsewhere
+                account = Account.objects.filter(
+                    code=row['PROJ_NO']).first()
+                if account:
+                    # Ignoring non-existing accounts - they're handled elsewhere
                     updated_at = datetime_from(row['LAST_UPDATED_FROM_PAYGOV'])
-                    fund.donations.filter(time__lte=updated_at).delete()
-                    fund.fundcurrent = cents_from(row['REVENUE'])
-                    fund.save()
+                    account.donations.filter(time__lte=updated_at).delete()
+                    account.current = cents_from(row['REVENUE'])
+                    account.save()
