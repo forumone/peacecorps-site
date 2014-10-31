@@ -31,8 +31,8 @@ GPG_RECIPIENTS = {
     'peacecorps.fields.GPGField.xml': os.environ.get('GPG_ENCRYPT_ID', '')
 }
 
-# Add this to local settings only on the machines which pay.gov contact
-# INSTALLED_APPS += ('paygov',)
+if os.environ.get('USE_PAYGOV', ''):
+    INSTALLED_APPS += ('paygov',)
 
 
 try:
