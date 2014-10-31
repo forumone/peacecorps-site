@@ -2,27 +2,13 @@
 @import "neat/neat";
 
 .landing {
-  .issues {
-    @include span-columns(12);
-
-    div {
-      @include span-columns(3);
-      @include omega(4n);
-      text-align: center;
-      padding-top: 1em;
-
-      img {
-        width: 80px;
-        height: 80px;
-      }
-      span {
-        display: block;
-      }
-    }
+  h2 {
+    // TODO remove
+    clear: both;
   }
   .featured-project {
     @include span-columns(8);
-    @include shift(2);
+    @include shift(4);
     position: relative;
     padding-top: 1em;
 

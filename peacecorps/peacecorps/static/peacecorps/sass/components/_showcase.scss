@@ -2,20 +2,44 @@
  * A large block within the wrapper with centered elements to showcase some
  * content very visually.
  */
+@import "globals";
+@import "util";
 
 .showcase {
   text-align: center;
 }
 
 .showcase--main {
-  @include span-columns(12);
+  @include u-clearfix;
+  margin-bottom: 2em;
+  width: 100%;
 }
 
 .showcase--shift_sm {
   @include span-columns(10);
   @include shift(1);
+  @include omega;
 }
 
 .showcase--neutral {
   background-color: $neutral_medium;
+}
+
+.showcase__column-4 {
+  margin-bottom: 2em;
+
+  @include media($sm) {
+    @include span-columns(2);
+    @include omega(2n);
+  }
+
+  @include media($md) {
+    @include omega(3n);
+    @include span-columns(3);
+  }
+
+  @include media($lg) {
+    @include span-columns(3);
+    @include omega(4n);
+  }
 }

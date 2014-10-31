@@ -12,37 +12,14 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-.landing .issues {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .landing .issues:last-child {
-    margin-right: 0; }
-  .landing .issues div {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
-    text-align: center;
-    padding-top: 1em; }
-    .landing .issues div:last-child {
-      margin-right: 0; }
-    .landing .issues div:nth-child(4n) {
-      margin-right: 0; }
-    .landing .issues div:nth-child(4n+1) {
-      clear: left; }
-    .landing .issues div img {
-      width: 80px;
-      height: 80px; }
-    .landing .issues div span {
-      display: block; }
+.landing h2 {
+  clear: both; }
 .landing .featured-project {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
-  margin-left: 17.05961%;
+  margin-left: 34.11922%;
   position: relative;
   padding-top: 1em; }
   .landing .featured-project:last-child {

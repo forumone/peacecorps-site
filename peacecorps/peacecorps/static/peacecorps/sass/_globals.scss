@@ -21,14 +21,19 @@ $neutral_medium: #F2EFE8; // Gray brownish lighter
  * Grid
  */
 $grid-columns: 12;
+$column: golden-ratio(1em, 3) !default;
+$gutter: golden-ratio(.8em, 3) !default;
+$max-width: em(1088);
+$visual-grid: true;
 
 
 /*
  * Breakpoint
  */
-// TODO change these breakpoints to not be decide specific.
-$tablet: new-breakpoint(max-width 768px 8);
-$sm: new-breakpoint(max-width 480px 4);
+$sm: new-breakpoint(min-width 0px max-width 499px 4);
+$md: new-breakpoint(min-width 500px max-width 899px 9);
+$lg: new-breakpoint(min-width 900px max-width 1999px 12);
+$xlg: new-breakpoint(min-width 2000px 12);
 
 
 /*
