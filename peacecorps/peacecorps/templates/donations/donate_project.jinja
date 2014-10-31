@@ -51,7 +51,11 @@
     {% endfor %}
   </div>
   <div class="button-container">
-    <input type="submit" value="Donate" />
+    {% if project.fund.funded() %}
+      <input type="submit" value="Donate to Help Similar Projects" />
+    {% else %}
+      <input type="submit" value="Donate" />
+    {% endif %}
   </div>
 </form>
 
@@ -75,7 +79,11 @@
     {% endfor %}
   </div>
   <div class="button-container">
-    <input type="submit" value="Donate" />
+    {% if project.fund.funded() %}
+      <input type="submit" value="Donate to Help Similar Projects" />
+    {% else %}
+      <input type="submit" value="Donate" />
+    {% endif %}
   </div>
 </form>
 {% endblock %}

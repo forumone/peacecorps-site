@@ -1,8 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from django.test.client import Client
 
-from peacecorps.models import Fund, Project
+from peacecorps.models import Country, Fund, Media, Project
 from peacecorps.views import humanize_amount
 
 
@@ -104,9 +103,6 @@ class DonatePagesTests(TestCase):
 
     fixtures = ['tests.yaml']
 
-    def setUp(self):
-        self.client = Client()
-
     # Do the pages load without error?
     def test_pages_rendering(self):
         response = self.client.get('/donate')
@@ -188,3 +184,24 @@ class DonatePagesTests(TestCase):
         fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
         self.assertTrue(fundcode)
         self.assertTrue(fundcode in response['Location'])
+
+    def test_project_form_redirect_full(self):
+        """If a project is funded, its overflow code should be used"""
+        fund = Fund.objects.create(name='Full', fundcode='FULL', fundgoal=500,
+                                   fundcurrent=500)
+        overflow = Fund.objects.create(name='Overflow', fundcode='OVERFLOW')
+        project = Project.objects.create(
+            country=Country.objects.get(name='China'), fund=fund,
+            featured_image=Media.objects.get(pk=8), fundoverflow=overflow
+        )
+
+        response = self.client.post(
+            reverse('donate project', kwargs={'slug': project.slug}),
+            {'top-presets': 'preset-10'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("1000" in response['Location'])
+        self.assertTrue('OVERFLOW' in response['Location'])
+
+        project.delete()
+        overflow.delete()
+        fund.delete()

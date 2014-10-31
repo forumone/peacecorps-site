@@ -9,3 +9,17 @@ class HumanizeTest(TestCase):
         self.assertEqual('$0.12', models.humanize_amount(12))
         self.assertEqual('$1.23', models.humanize_amount(123))
         self.assertEqual('$12,345,678.90', models.humanize_amount(1234567890))
+
+
+class FundTest(TestCase):
+    def test_funded(self):
+        fund = models.Fund()
+        self.assertFalse(fund.funded())
+        fund.fundcurrent = 100
+        self.assertFalse(fund.funded())
+        fund.fundgoal = 101
+        self.assertFalse(fund.funded())
+        fund.fundgoal = 100
+        self.assertTrue(fund.funded())
+        fund.fundgoal = 99
+        self.assertTrue(fund.funded())
