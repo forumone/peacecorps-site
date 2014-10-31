@@ -40,18 +40,24 @@
   <div class="radio-container">
     {{top_form.payment_amount.errors}}
     {% for radio in top_form.presets %}
-      <div>
-        {{ radio.tag() }}
-        {% if radio.choice_value == 'custom' %}
-          {{ top_form.payment_amount }}
-        {% else %}
-          <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
-        {% endif %}
-      </div>
+      {% if radio.choice_value != 'preset-all' or not project.fund.funded() %}
+        <div>
+          {{ radio.tag() }}
+          {% if radio.choice_value == 'custom' %}
+            {{ top_form.payment_amount }}
+          {% else %}
+            <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+          {% endif %}
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
   <div class="button-container">
-    <input type="submit" value="Donate" />
+    {% if project.fund.funded() %}
+      <input type="submit" value="Donate to Help Similar Projects" />
+    {% else %}
+      <input type="submit" value="Donate" />
+    {% endif %}
   </div>
 </form>
 
@@ -64,18 +70,24 @@
   <div class="radio-container">
     {{bottom_form.payment_amount.errors}}
     {% for radio in bottom_form.presets %}
-      <div>
-        {{ radio.tag() }}
-        {% if radio.choice_value == 'custom' %}
-          {{ bottom_form.payment_amount }}
-        {% else %}
-          <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
-        {% endif %}
-      </div>
+      {% if radio.choice_value != 'preset-all' or not project.fund.funded() %}
+        <div>
+          {{ radio.tag() }}
+          {% if radio.choice_value == 'custom' %}
+            {{ bottom_form.payment_amount }}
+          {% else %}
+            <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+          {% endif %}
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
   <div class="button-container">
-    <input type="submit" value="Donate" />
+    {% if project.fund.funded() %}
+      <input type="submit" value="Donate to Help Similar Projects" />
+    {% else %}
+      <input type="submit" value="Donate" />
+    {% endif %}
   </div>
 </form>
 {% endblock %}

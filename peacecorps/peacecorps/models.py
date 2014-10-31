@@ -136,10 +136,7 @@ class Fund(models.Model):
         return percentfunded(self.fundcurrent, self.fundgoal)
 
     def funded(self):
-        if self.fundcurrent >= self.fundgoal:
-            return True
-        else:
-            return False
+        return self.fundgoal is not None and self.fundcurrent >= self.fundgoal
 
     def remaining(self):
         """This will be expanded later, and may involve more complicated
