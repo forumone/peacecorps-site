@@ -48,7 +48,7 @@ def results(request):
         else:
             donation = Donation(
                 amount=float(request.POST.get('payment_amount'))*100)
-            donation.fund_id = info.fund_id
+            donation.account_id = info.account_id
             donation.save()
             info.delete()
             message = 'OK'

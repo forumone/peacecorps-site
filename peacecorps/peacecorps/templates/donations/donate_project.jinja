@@ -25,12 +25,12 @@
   {% endif %}
   <div class="volunteer-info">
     <p><strong>{{project.volunteername}}</strong> from <strong>{{project.volunteerhomecity}}, {{project.volunteerhomestate}}</strong></p>
-    {% set funded_percent = project.fund.percent_funded() %}
+    {% set funded_percent = project.account.percent_funded() %}
     <div class="funded-chart">
       <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
       <div class="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
     </div>
-    <p>Funds sought: <strong>${{project.fund.fundgoal/100}}</strong></p>
+    <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
 
   </div>
 </div>
@@ -40,7 +40,7 @@
   <div class="radio-container">
     {{top_form.payment_amount.errors}}
     {% for radio in top_form.presets %}
-      {% if radio.choice_value != 'preset-all' or not project.fund.funded() %}
+      {% if radio.choice_value != 'preset-all' or not project.account.funded() %}
         <div>
           {{ radio.tag() }}
           {% if radio.choice_value == 'custom' %}
@@ -53,7 +53,7 @@
     {% endfor %}
   </div>
   <div class="button-container">
-    {% if project.fund.funded() %}
+    {% if project.account.funded() %}
       <input type="submit" value="Donate to Help Similar Projects" />
     {% else %}
       <input type="submit" value="Donate" />
@@ -70,7 +70,7 @@
   <div class="radio-container">
     {{bottom_form.payment_amount.errors}}
     {% for radio in bottom_form.presets %}
-      {% if radio.choice_value != 'preset-all' or not project.fund.funded() %}
+      {% if radio.choice_value != 'preset-all' or not project.account.funded() %}
         <div>
           {{ radio.tag() }}
           {% if radio.choice_value == 'custom' %}
@@ -83,7 +83,7 @@
     {% endfor %}
   </div>
   <div class="button-container">
-    {% if project.fund.funded() %}
+    {% if project.account.funded() %}
       <input type="submit" value="Donate to Help Similar Projects" />
     {% else %}
       <input type="submit" value="Donate" />

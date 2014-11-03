@@ -4,20 +4,20 @@ from unittest import skipUnless
 
 from django.test import TestCase
 
-from peacecorps.models import DonorInfo, Fund
+from peacecorps.models import DonorInfo, Account
 
 
 class GPGTests(TestCase):
     def setUp(self):
-        self.fund = Fund.objects.create(fundcode='FUNDFUND')
+        self.account = Account.objects.create(code='FUNDFUND')
 
     def tearDown(self):
-        self.fund.delete()
+        self.account.delete()
 
     def test_no_encryption(self):
         """With no encryption settings, fields still work"""
         with self.settings(GNUPG_HOME=''):
-            di = DonorInfo(agency_tracking_id='TRACK', fund=self.fund,
+            di = DonorInfo(agency_tracking_id='TRACK', account=self.account,
                            xml='Plain Text')
             di.save()
 
@@ -40,7 +40,7 @@ class GPGTests(TestCase):
                                                    'gpg'),
                            GPG_RECIPIENTS={
                                'peacecorps.fields.GPGField.xml': 'C68F6B22'}):
-            di = DonorInfo(agency_tracking_id='TRACK', fund=self.fund,
+            di = DonorInfo(agency_tracking_id='TRACK', account=self.account,
                            xml='Plain Text')
             di.save()
 

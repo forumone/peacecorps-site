@@ -1,16 +1,16 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from peacecorps.models import Country, Fund, Media, Project
+from peacecorps.models import Account, Country, Media, Project
 from peacecorps.views import humanize_amount
 
 
 class DonationsTests(TestCase):
     def setUp(self):
-        self.fund = Fund.objects.create(fundcode='FUNDFUND')
+        self.account = Account.objects.create(code='FUNDFUND')
 
     def tearDown(self):
-        self.fund.delete()
+        self.account.delete()
 
     def test_contribution_parameters(self):
         """ To get to the page where name, address are filled out before being
@@ -19,18 +19,18 @@ class DonationsTests(TestCase):
         """
 
         response = self.client.get(
-            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode)
+            '/donations/contribute/?amount=2000&project=' + self.account.code)
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.00' in content)
-        self.assertTrue(self.fund.fundcode)     # Check that this is nonempty
-        self.assertTrue(self.fund.fundcode in content)
+        self.assertTrue(self.account.code)     # Check that this is nonempty
+        self.assertTrue(self.account.code in content)
 
     def test_payment_type(self):
         """Check that the payment type values are rendered correctly."""
 
         response = self.client.get(
-            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode)
+            '/donations/contribute/?amount=2000&project=' + self.account.code)
         content = response.content.decode('utf-8')
         self.assertTrue('id_payment_type_0' in content)
         self.assertTrue('id_payment_type_1' in content)
@@ -55,7 +55,7 @@ class DonationsTests(TestCase):
             'information_consent': 'vol-consent-yes'}
 
         response = self.client.post(
-            '/donations/contribute/?amount=2000&project=' + self.fund.fundcode,
+            '/donations/contribute/?amount=2000&project=' + self.account.code,
             form_data)
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
@@ -66,9 +66,9 @@ class DonationsTests(TestCase):
         self.assertTrue('MD' in content)
         self.assertTrue('20852' in content)
 
-        #   Refetch the fund so we can lookup its donorinfo
-        fund = Fund.objects.get(pk=self.fund.pk)
-        self.assertEqual(1, len(fund.donorinfos.all()))
+        #   Refetch the account so we can lookup its donorinfo
+        account = Account.objects.get(pk=self.account.pk)
+        self.assertEqual(1, len(account.donorinfos.all()))
 
     def test_humanize_amount(self):
         """ The humanize_amount function converts an amount in cents into
@@ -157,9 +157,9 @@ class DonatePagesTests(TestCase):
                                     {'top-presets': 'preset-all'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("220000" in response['Location'])
-        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
-        self.assertTrue(fundcode)
-        self.assertTrue(fundcode in response['Location'])
+        code = Project.objects.get(slug='brick-oven-bakery').account.code
+        self.assertTrue(code)
+        self.assertTrue(code in response['Location'])
 
     def test_project_form_redirect_custom(self):
         """When selecting the fund-a-custom-amount option, everything should
@@ -169,9 +169,9 @@ class DonatePagesTests(TestCase):
                                      'top-payment_amount': '123.45'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("12345" in response['Location'])
-        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
-        self.assertTrue(fundcode)
-        self.assertTrue(fundcode in response['Location'])
+        code = Project.objects.get(slug='brick-oven-bakery').account.code
+        self.assertTrue(code)
+        self.assertTrue(code in response['Location'])
 
     def test_project_form_redirect_bottom(self):
         """Despite the top form being invalid, if the bottom is, we should
@@ -181,18 +181,18 @@ class DonatePagesTests(TestCase):
                                      'bottom-presets': 'preset-all'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("220000" in response['Location'])
-        fundcode = Project.objects.get(slug='brick-oven-bakery').fund.fundcode
-        self.assertTrue(fundcode)
-        self.assertTrue(fundcode in response['Location'])
+        code = Project.objects.get(slug='brick-oven-bakery').account.code
+        self.assertTrue(code)
+        self.assertTrue(code in response['Location'])
 
     def test_project_form_redirect_full(self):
         """If a project is funded, its overflow code should be used"""
-        fund = Fund.objects.create(name='Full', fundcode='FULL', fundgoal=500,
-                                   fundcurrent=500)
-        overflow = Fund.objects.create(name='Overflow', fundcode='OVERFLOW')
+        account = Account.objects.create(name='Full', code='FULL', goal=500,
+                                   current=500)
+        overflow = Account.objects.create(name='Overflow', code='OVERFLOW')
         project = Project.objects.create(
-            country=Country.objects.get(name='China'), fund=fund,
-            featured_image=Media.objects.get(pk=8), fundoverflow=overflow
+            country=Country.objects.get(name='China'), account=account,
+            featured_image=Media.objects.get(pk=8), overflow=overflow
         )
 
         response = self.client.post(
@@ -204,4 +204,4 @@ class DonatePagesTests(TestCase):
 
         project.delete()
         overflow.delete()
-        fund.delete()
+        account.delete()

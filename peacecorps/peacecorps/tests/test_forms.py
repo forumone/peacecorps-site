@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from django.test import TestCase
 
-from peacecorps.models import Fund
+from peacecorps.models import Account
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 
 
@@ -113,32 +113,32 @@ class DonationAmountTests(TestCase):
     def test_preset_all(self):
         """Selecting 'preset-all' should be equivalent to a payment amount of
         the remaining balance"""
-        fund = Fund(fundgoal=9876, fundcurrent=1234)
+        account = Account(goal=9876, current=1234)
         data = {'presets': 'preset-all'}
-        form = DonationAmountForm(data=data, fund=fund)
+        form = DonationAmountForm(data=data, account=account)
         self.assertTrue(form.is_valid())
         self.assertEqual(form.cleaned_data['payment_amount'], Decimal(86.42))
 
     def test_preset_all_bounds(self):
         """Selecting 'preset-all' won't work if the remaining balance is out
         of bounds"""
-        fund = Fund(fundgoal=1000000, fundcurrent=0)
+        account = Account(goal=1000000, current=0)
         data = {'presets': 'preset-all'}
-        form = DonationAmountForm(data=data, fund=fund)
+        form = DonationAmountForm(data=data, account=account)
         self.assertFalse(form.is_valid())
 
-        fund.fundcurrent = 999999
-        form = DonationAmountForm(data=data, fund=fund)
+        account.current = 999999
+        form = DonationAmountForm(data=data, account=account)
         self.assertFalse(form.is_valid())
 
     def test_preset_custom(self):
         """Entering no value will result in an error. Entering a custom amount
         will resolve"""
-        fund = Fund(fundgoal=1000000, fundcurrent=0)
+        account = Account(goal=1000000, current=0)
         data = {'presets': 'custom'}
-        form = DonationAmountForm(data=data, fund=fund)
+        form = DonationAmountForm(data=data, account=account)
         self.assertFalse(form.is_valid())
 
         data['payment_amount'] = 1250
-        form = DonationAmountForm(data=data, fund=fund)
+        form = DonationAmountForm(data=data, account=account)
         self.assertTrue(form.is_valid())

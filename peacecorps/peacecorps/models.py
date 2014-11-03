@@ -24,6 +24,46 @@ def humanize_amount(amount_cents):
     return "${:,.2f}".format(amount_dollars)
 
 
+class Account(models.Model):
+    COUNTRY = 'coun'
+    MEMORIAL = 'mem'
+    OTHER = 'oth'
+    PROJECT = 'proj'
+    SECTOR = 'sec'
+    CATEGORY_CHOICES = (
+        (COUNTRY, 'Country'),
+        (SECTOR, 'Sector'),
+        (MEMORIAL, 'Memorial'),
+        (OTHER, 'Other'),
+        (PROJECT, 'Project'),
+    )
+
+    name = models.CharField(max_length=120, unique=True)
+    code = models.CharField(max_length=25, unique=True)
+    current = models.IntegerField(default=0)
+    goal = models.IntegerField(blank=True, null=True)
+    community_contribution = models.IntegerField(blank=True, null=True)
+    category = models.CharField(
+        max_length=10, choices=CATEGORY_CHOICES)
+
+    def __str__(self):
+        return '%s' % (self.name)
+
+    def percent_funded(self):
+        return percentfunded(self.current, self.goal)
+
+    def funded(self):
+        if self.goal and self.current >= self.goal:
+            return True
+        else:
+            return False
+
+    def remaining(self):
+        """This will be expanded later, and may involve more complicated
+        calculations. As such, we don't want it to be a property"""
+        return self.goal - self.current
+
+
 class Campaign(models.Model):
     """
     A campaign is any fundraising effort. Campaigns can collect donations
@@ -47,7 +87,7 @@ class Campaign(models.Model):
     )
 
     name = models.CharField(max_length=120)
-    fund = models.ForeignKey('Fund', unique=True, blank=True, null=True)
+    account = models.ForeignKey('Account', unique=True, blank=True, null=True)
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
@@ -67,7 +107,7 @@ class Campaign(models.Model):
         max_length=50, help_text="call to action for buttons (50 characters)",
         blank=True, null=True)
     slug = models.SlugField(
-        help_text="used for the fund page url.",
+        help_text="used for the campaign page url.",
         max_length=100, unique=True)
     description = tinymce_models.HTMLField()
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
@@ -105,43 +145,6 @@ class FeaturedProjectFrontPage(models.Model):
 
     def __str__(self):
         return '%s (Featured)' % (self.project.title)
-
-
-class Fund(models.Model):
-    COUNTRY = 'coun'
-    MEMORIAL = 'mem'
-    OTHER = 'oth'
-    PROJECT = 'proj'
-    SECTOR = 'sec'
-    FUNDTYPE_CHOICES = (
-        (COUNTRY, 'Country'),
-        (SECTOR, 'Sector'),
-        (MEMORIAL, 'Memorial'),
-        (OTHER, 'Other'),
-        (PROJECT, 'Project'),
-    )
-
-    name = models.CharField(max_length=120, unique=True)
-    fundcode = models.CharField(max_length=25, unique=True)
-    fundcurrent = models.IntegerField(default=0)
-    fundgoal = models.IntegerField(blank=True, null=True)
-    community_contribution = models.IntegerField(blank=True, null=True)
-    fundtype = models.CharField(
-        max_length=10, choices=FUNDTYPE_CHOICES)
-
-    def __str__(self):
-        return '%s' % (self.name)
-
-    def percent_funded(self):
-        return percentfunded(self.fundcurrent, self.fundgoal)
-
-    def funded(self):
-        return self.fundgoal is not None and self.fundcurrent >= self.fundgoal
-
-    def remaining(self):
-        """This will be expanded later, and may involve more complicated
-        calculations. As such, we don't want it to be a property"""
-        return self.fundgoal - self.fundcurrent
 
 
 class Media(models.Model):
@@ -195,9 +198,9 @@ class Project(models.Model):
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    fund = models.ForeignKey('Fund', unique=True)
-    fundoverflow = models.ForeignKey(
-        'Fund', related_name="overflow", blank=True, null=True)
+    account = models.ForeignKey('Account', unique=True)
+    overflow = models.ForeignKey(
+        'Account', related_name="overflow", blank=True, null=True)
     volunteername = models.CharField(max_length=100)
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)
@@ -216,13 +219,13 @@ class DonorInfo(models.Model):
     """Represents a blob of donor information which will be requested by
     pay.gov. We need to limit accessibility as it contains PII"""
     agency_tracking_id = models.CharField(max_length=21, primary_key=True)
-    fund = models.ForeignKey(Fund, related_name='donorinfos')
+    account = models.ForeignKey(Account, related_name='donorinfos')
     xml = GPGField()
     expires_at = models.DateTimeField(default=default_expire_time)
 
 
 class Donation(models.Model):
     """Log donation amounts as received from pay.gov"""
-    fund = models.ForeignKey(Fund, related_name='donations')
+    account = models.ForeignKey(Account, related_name='donations')
     amount = models.PositiveIntegerField()
     time = models.DateTimeField(auto_now_add=True)

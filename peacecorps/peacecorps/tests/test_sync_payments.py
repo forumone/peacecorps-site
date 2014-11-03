@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from peacecorps.management.commands.sync_payments import cents_from, Command
 from peacecorps.management.commands.sync_payments import datetime_from
-from peacecorps.models import Donation, Fund
+from peacecorps.models import Donation, Account
 
 
 class SyncPaymentsTests(TestCase):
@@ -35,14 +35,16 @@ class SyncPaymentsTests(TestCase):
         with open(csv_file_handle, 'w') as csv_file:
             csv_file.write(filedata)
 
-        fund456 = Fund.objects.create(name='Fund1', fundcode='123-456')
-        fund222 = Fund.objects.create(name='Fund2', fundcode='111-222')
+        account456 = Account.objects.create(name='account1', code='123-456')
+        account222 = Account.objects.create(name='account2', code='111-222')
         tz = timezone.get_current_timezone()
-        before_donation = Donation.objects.create(fund=fund222, amount=5432)
+        before_donation = Donation.objects.create(
+            account=account222, amount=5432)
         before_donation.time = timezone.make_aware(
             datetime(2009, 12, 14, 15, 16), tz)
         before_donation.save()
-        after_donation = Donation.objects.create(fund=fund222, amount=5432)
+        after_donation = Donation.objects.create(
+            account=account222, amount=5432)
         after_donation.time = timezone.make_aware(
             datetime(2009, 12, 14, 16), tz)
         after_donation.save()
@@ -57,5 +59,5 @@ class SyncPaymentsTests(TestCase):
             None, Donation.objects.filter(pk=after_donation.pk).first())
 
         # amount donated to each should also be updated
-        self.assertEqual(123400, Fund.objects.get(pk=fund456.pk).fundcurrent)
-        self.assertEqual(123, Fund.objects.get(pk=fund222.pk).fundcurrent)
+        self.assertEqual(123400, Account.objects.get(pk=account456.pk).current)
+        self.assertEqual(123, Account.objects.get(pk=account222.pk).current)

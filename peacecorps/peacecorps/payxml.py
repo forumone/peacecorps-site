@@ -111,7 +111,7 @@ def generate_custom_fields(data):
     return custom
 
 
-def convert_to_paygov(data, fund):
+def convert_to_paygov(data, account):
     """Convert the form data into a pay.gov model (including appropriate XML)
     and return."""
     data = dict(data)   # shallow copy
@@ -121,5 +121,5 @@ def convert_to_paygov(data, fund):
     data['form_id'] = settings.PAY_GOV_FORM_ID
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
-    return DonorInfo(agency_tracking_id=tracking_id, fund=fund,
+    return DonorInfo(agency_tracking_id=tracking_id, account=account,
                      xml=tostring(xml).decode('utf-8'))

@@ -65,7 +65,7 @@
     <div class="project-expanded">
       <div class="volunteer">{{project.volunteername}} from
       {{project.volunteerhomestate}}</div>
-      <div class="remaining">{{humanize_amount(project.fund.remaining())}}
+      <div class="remaining">{{humanize_amount(project.account.remaining())}}
         until funded</div>
       <div class="short-desc">{{project.tagline}}</div>
       <div><a href="{{url("donate project", slug=project.slug)}}"
