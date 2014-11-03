@@ -7,6 +7,9 @@ INSTALLED_APPS += ('storages',)
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']  # proxied
+if os.environ.get('DJANGO_HOST'):
+    ALLOWED_HOSTS.append(os.environ.get('DJANGO_HOST'))
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
