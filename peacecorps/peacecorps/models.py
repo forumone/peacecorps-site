@@ -182,6 +182,12 @@ class Media(models.Model):
         return self.file.url
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(
+            published=True)
+
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     tagline = models.CharField(
@@ -208,6 +214,9 @@ class Project(models.Model):
     volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
 
     published = models.BooleanField(default=False)
+
+    objects = models.Manager()
+    published_objects = PublishedManager()
 
     def __str__(self):
         return self.title

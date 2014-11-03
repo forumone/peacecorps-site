@@ -2172,6 +2172,7 @@
     featured_image: 14
     media: []
     overflow: null
+    published: true
     slug: computer-lab-agricultural-secondary-school
     tagline: Transform a classroom and help students gain a broader view of the world.
     title: Computer Lab for Agricultural Secondary School
@@ -2207,6 +2208,7 @@
     featured_image: 15
     media: []
     overflow: null
+    published: true
     slug: local-ultrasound-machine
     tagline: Reduce stillbirths and newborn deaths in Nicaragua
     title: Local Ultrasound Machine
@@ -2244,6 +2246,7 @@
     featured_image: 16
     media: []
     overflow: null
+    published: true
     slug: hiv-bike-trek
     tagline: Empower Gambian youth to protect themselves and their loved ones from
       HIV.
@@ -2278,6 +2281,7 @@
     featured_image: 17
     media: []
     overflow: null
+    published: true
     slug: man-library
     tagline: Build a school library in East Java, Indonesia
     title: MAN Library
@@ -2314,6 +2318,7 @@
     featured_image: 18
     media: []
     overflow: null
+    published: true
     slug: fencing-ball-court
     tagline: Build a fence to protect kids from a dangerous drop at the end of a ball
       court
@@ -2344,6 +2349,7 @@
     featured_image: 19
     media: []
     overflow: null
+    published: true
     slug: brick-oven-bakery
     tagline: Developing a small business at a popular park in Madagascar
     title: Brick Oven Bakery
@@ -2380,6 +2386,7 @@
     featured_image: 20
     media: []
     overflow: null
+    published: true
     slug: build-bathrooms-peru
     tagline: Bathrooms in homes and schools will greatly improve health and safety
       in this community.
