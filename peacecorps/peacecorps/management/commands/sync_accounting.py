@@ -1,6 +1,8 @@
 import csv
 from datetime import datetime
+import logging
 
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
 
@@ -38,23 +40,27 @@ def find_issue(sector_name):
 def create_account_pcpp(row):
     """This is a new project. Create the associated account information and
     generate an empty Project"""
-    account = Account.objects.create(
-        name=row['PROJ_NAME1'], code=row['PROJ_NO'],
-        current=cents_from(row['REVENUE']),
-        goal=cents_from(row['BURDENED_COST']),
-        community_contribution=cents_from(row['OVERS_PART']),
-        category=Account.PROJECT)
-    country = Country.objects.get(name__iexact=row['LOCATION'])
-    volunteername = row['PCV_NAME']
-    if volunteername.startswith(row['STATE']):
-        volunteername = volunteername[len(row['STATE']):].strip()
-    issue = find_issue(row['SECTOR'])
-    project = Project.objects.create(
-        title=row['PROJ_NAME1'], country=country, account=account,
-        overflow=issue.account, volunteername=volunteername,
-        volunteerhomestate=row['STATE']
-    )
-    project.campaigns.add(issue)
+    try:
+        country = Country.objects.get(name__iexact=row['LOCATION'])
+        issue = find_issue(row['SECTOR'])
+        account = Account.objects.create(
+            name=row['PROJ_NAME1'], code=row['PROJ_NO'],
+            current=cents_from(row['REVENUE']),
+            goal=cents_from(row['BURDENED_COST']),
+            community_contribution=cents_from(row['OVERS_PART']),
+            category=Account.PROJECT)
+        volunteername = row['PCV_NAME']
+        if volunteername.startswith(row['STATE']):
+            volunteername = volunteername[len(row['STATE']):].strip()
+        project = Project.objects.create(
+            title=row['PROJ_NAME1'], country=country, account=account,
+            overflow=issue.account, volunteername=volunteername,
+            volunteerhomestate=row['STATE']
+        )
+        project.campaigns.add(issue)
+    except ObjectDoesNotExist:
+        logging.warning("Either country or issue does not exist: %s, %s",
+                        row['LOCATION'], row['SECTOR'])
 
 
 def update_account(row, account):
