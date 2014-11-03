@@ -11,6 +11,7 @@ body {
 // TODO clean up text styles and make consistant.
 // Waiting on finalized design for this.
 @mixin t-heading {
+  color: $primary;
   font-family: "museo-sans",sans-serif;
   font-size: .8em;
   font-style: normal;
@@ -20,6 +21,14 @@ body {
 }
 .t-heading {
   @include t-heading;
+}
+
+@mixin t-heading_sm {
+  @include t-heading;
+  font-size: 1em;
+}
+.t-heading_sm {
+  @include t-heading_sm;
 }
 
 @mixin t-heading--white {

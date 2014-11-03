@@ -1,0 +1,36 @@
+/*
+ * Bubble. Creates a round bubble with content in it.
+ *
+ * A rounded shape with content in its center.
+ */
+
+@import "globals";
+
+
+.bubble {
+  background-color: $white;
+  border-radius: 50%;
+  display: block;
+  height: 0;
+  margin: 0 auto;
+  padding-bottom: 80%;
+  width: 80%;
+
+  @include media($sm) {
+    padding-bottom: 90%;
+    width: 90%;
+  }
+}
+
+.bubble__content {
+  float: left;
+  line-height: 1;
+  margin-top: -0.5em;
+  padding-top: 22%;
+  text-align: center;
+  width: 100%;
+
+  @include media($sm) {
+    padding-top: 20%;
+  }
+}

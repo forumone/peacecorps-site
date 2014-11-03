@@ -29,7 +29,7 @@
     height: 0;
   }
 }
-.u-clearfix:after {
+.u-clearfix {
   @include u-clearfix;
 }
 

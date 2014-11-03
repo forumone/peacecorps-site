@@ -1,0 +1,28 @@
+/*
+ * Symbol
+ *
+ * An image with text centered together.
+ */
+
+@import "base/type";
+@import "globals";
+
+.symbol {
+  text-align: center;
+}
+
+.symbol__image {
+  // TODO the following may be dangerous to use in a more global context.
+  @include media($sm) {
+    height: inherit;
+    width: 40%;
+  }
+}
+
+.symbol__text {
+  @include t-heading_sm;
+  display: block;
+  margin: .4em auto;
+  max-width: 80%;
+  text-align: center;
+}
