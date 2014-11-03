@@ -114,9 +114,9 @@ def donate_campaign(request, slug):
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
-        Project.objects.select_related('volunteerpicture',
-                                       'featured_image', 'account'),
-        slug=slug)
+        Project.objects.select_related(
+            'volunteerpicture','featured_image', 'account', 'overflow'),
+            slug=slug)
     if request.method == 'POST':
         top_form = DonationAmountForm(prefix="top", data=request.POST,
                                       account=project.account)
@@ -124,7 +124,11 @@ def donate_project(request, slug):
                                          account=project.account)
         for form in (top_form, bottom_form):
             if form.is_valid():
-                params = {'project': project.account.code,
+                if project.account.funded() and project.overflow:
+                    code = project.overflow.code
+                else:
+                    code = project.account.code
+                params = {'project': code,
                           # convert back into cents
                           'amount': int(round(
                               form.cleaned_data['payment_amount'] * 100))}
