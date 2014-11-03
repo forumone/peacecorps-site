@@ -5,11 +5,59 @@
 
 @import "globals";
 
+@import "util";
+
 .section_starter {
-  background-color: $neutral_dark;
-  border-radius: 0 0 29em 29em;
-  height: 14.5em;
-  margin: 0 auto 2em;
-  padding: 2em 0 0 0;
-  width: 29em;
+  @extend .u-hv_center--block;
+  border-top: 0.7em $neutral_dark solid;
+  height: 0.5em;
+  margin: 0 auto;
+  padding-bottom: 20%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: $z_index-show;
+
+  @include media($md) {
+    padding-bottom: 28.5%;
+  }
+
+  @include media($sm) {
+    padding-bottom: 40%;
+  }
+
+  &:after {
+    background-color: $neutral_dark;
+    border-radius: 0 0 50% 50%;
+    content: ' ';
+    display: block;
+    height: 0;
+    left: 29%;
+    margin: 0 auto 2em;
+    padding-bottom: 40%;
+    position: absolute;
+    top: -105%;
+    width: 40%;
+    z-index: $z_index-hide;
+
+    @include media($md) {
+      left: 21.5%;
+      padding-bottom: 55%;
+      width: 55%;
+    }
+
+    @include media($sm) {
+      left: 9%;
+      padding-bottom: 80%;
+      width: 80%;
+    }
+  }
+}
+
+.section_starter__content {
+  // This value should usually be 50% but is 17% due to the non-visual
+  // height of this element being larger then the visual height.
+  // TODO investigate if !important must be used here.
+  top: 17% !important;
+  @extend .u-hv_center--block__content;
 }
