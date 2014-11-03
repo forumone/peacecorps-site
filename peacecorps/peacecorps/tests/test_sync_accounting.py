@@ -4,12 +4,12 @@ import tempfile
 from django.test import TestCase
 from django.utils import timezone
 
-from peacecorps.management.commands.sync_payments import cents_from, Command
-from peacecorps.management.commands.sync_payments import datetime_from
+from peacecorps.management.commands.sync_accounting import cents_from, Command
+from peacecorps.management.commands.sync_accounting import datetime_from
 from peacecorps.models import Donation, Account
 
 
-class SyncPaymentsTests(TestCase):
+class SyncAccountingTests(TestCase):
     def test_datetime_from(self):
         dt = datetime_from('2012-03-20 16:45:01')
         self.assertEqual(2012, dt.year)
