@@ -194,7 +194,7 @@ class Project(models.Model):
         help_text="Campaigns to which this project belongs",
         blank=True, null=True)
     featured_image = models.ForeignKey(
-        'Media',
+        'Media', null=True,
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
@@ -206,6 +206,8 @@ class Project(models.Model):
         'Media', related_name="volunteer", blank=True, null=True)
     volunteerhomestate = USPostalCodeField(blank=True, null=True)
     volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
+
+    published = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

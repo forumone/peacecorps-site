@@ -1,15 +1,18 @@
 from datetime import datetime
 import tempfile
+from unittest.mock import patch
 
 from django.test import TestCase
 from django.utils import timezone
 
-from peacecorps.management.commands.sync_accounting import cents_from, Command
-from peacecorps.management.commands.sync_accounting import datetime_from
-from peacecorps.models import Donation, Account
+from peacecorps.management.commands.sync_accounting import (
+    cents_from, Command, create_account_pcpp, datetime_from, update_account)
+from peacecorps.models import Account, Donation, Project
 
 
 class SyncAccountingTests(TestCase):
+    fixtures = ['tests.yaml']
+
     def test_datetime_from(self):
         dt = datetime_from('2012-03-20 16:45:01')
         self.assertEqual(2012, dt.year)
@@ -24,9 +27,58 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(12300, cents_from('123'))
         self.assertRaises(ValueError, cents_from, '12.34.56')
 
-    def test_command(self):
+    def test_update_account(self):
         """Use fake data to verify that amount fields are updated and old
         transactions are deleted"""
+        acc222 = Account.objects.create(name='Account222', code='111-222')
+
+        tz = timezone.get_current_timezone()
+        before_donation = Donation.objects.create(account=acc222, amount=5432)
+        before_donation.time = timezone.make_aware(
+            datetime(2009, 12, 14, 15, 16), tz)
+        before_donation.save()
+        after_donation = Donation.objects.create(account=acc222, amount=5432)
+        after_donation.time = timezone.make_aware(
+            datetime(2009, 12, 14, 16), tz)
+        after_donation.save()
+
+        row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14 15:16:17',
+               'REVENUE': '1,234.23'}
+        update_account(row, acc222)
+        # before_donation should be deleted, but after_donation not
+        self.assertEqual(
+            None, Donation.objects.filter(pk=before_donation.pk).first())
+        self.assertNotEqual(
+            None, Donation.objects.filter(pk=after_donation.pk).first())
+
+        # amount donated to should also be updated
+        self.assertEqual(123423, Account.objects.get(pk=acc222.pk).current)
+
+    def test_create_account_pcpp(self):
+        """Use fake data to generate a new account and pcpp"""
+        row = {
+            'PROJ_NO': '098-765', 'LOCATION': 'CHINA',
+            'PROJ_NAME1': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'OVERS_PART': '1234.56', 'BURDENED_COST': '3,434',
+            'REVENUE': '1,111', 'SECTOR': 'IT'}
+        create_account_pcpp(row)
+        project = Project.objects.get(title='New Project Effort')
+        self.assertEqual(project.account.code, '098-765')
+        self.assertEqual(project.country.name, 'China')
+        self.assertEqual(project.volunteername, 'Jones, B.')
+        self.assertEqual(project.volunteerhomestate, 'IN')
+        self.assertEqual(project.account.community_contribution, 123456)
+        self.assertEqual(project.account.goal, 343400)
+        self.assertEqual(project.account.current, 111100)
+        self.assertEqual(project.overflow.name, 'Information Technology')
+        self.assertEqual(project.campaigns.all()[0].name, 'Technology')
+        self.assertFalse(project.published)
+
+    @patch('peacecorps.management.commands.sync_accounting.update_account')
+    @patch('peacecorps.management.commands.sync_accounting.'
+           + 'create_account_pcpp')
+    def test_command(self, create, update):
+        """Verify CSV reading and that the update/create are called"""
         filedata = "PROJ_NO,OTHER_FIELD,LAST_UPDATED_FROM_PAYGOV,REVENUE\n"
         filedata += '123-456,Some Content,2009-12-14 15:16:17,"1,234"\n'
         filedata += "nonexist,Not Here,2009-12-14 15:16:17,1.23\n"
@@ -37,27 +89,11 @@ class SyncAccountingTests(TestCase):
 
         account456 = Account.objects.create(name='account1', code='123-456')
         account222 = Account.objects.create(name='account2', code='111-222')
-        tz = timezone.get_current_timezone()
-        before_donation = Donation.objects.create(
-            account=account222, amount=5432)
-        before_donation.time = timezone.make_aware(
-            datetime(2009, 12, 14, 15, 16), tz)
-        before_donation.save()
-        after_donation = Donation.objects.create(
-            account=account222, amount=5432)
-        after_donation.time = timezone.make_aware(
-            datetime(2009, 12, 14, 16), tz)
-        after_donation.save()
 
         command = Command()
         command.handle(csv_path)
 
-        # before_donation should be deleted, but after_donation not
-        self.assertEqual(
-            None, Donation.objects.filter(pk=before_donation.pk).first())
-        self.assertNotEqual(
-            None, Donation.objects.filter(pk=after_donation.pk).first())
-
-        # amount donated to each should also be updated
-        self.assertEqual(123400, Account.objects.get(pk=account456.pk).current)
-        self.assertEqual(123, Account.objects.get(pk=account222.pk).current)
+        self.assertEqual(create.call_count, 1)
+        self.assertEqual(update.call_count, 2)
+        account222.delete()
+        account456.delete()
