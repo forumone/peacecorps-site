@@ -339,7 +339,7 @@ html {
 /*
  * Z-Index
  */
-body {
+body, a {
   color: #A12122; }
 
 .t-heading {
@@ -480,7 +480,7 @@ figure {
 /*
  * Z-Index
  */
-body {
+body, a {
   color: #A12122; }
 
 .t-heading {
@@ -575,6 +575,7 @@ h2 {
   height: 0;
   margin: 0 auto;
   padding-bottom: 80%;
+  position: relative;
   width: 80%; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .bubble {
@@ -583,14 +584,21 @@ h2 {
 
 .bubble__content {
   float: left;
+  left: 50%;
   line-height: 1;
   margin-top: -0.5em;
   padding-top: 22%;
+  position: absolute;
   text-align: center;
+  top: 45%;
+  transform: translate(-50%, -50%);
   width: 100%; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .bubble__content {
       padding-top: 20%; } }
+
+.bubble--neutral_dark {
+  background-color: #E5E1D4; }
 
 /*
  * Inline text module
@@ -714,7 +722,7 @@ body:before {
 /*
  * Z-Index
  */
-body {
+body, a {
   color: #A12122; }
 
 .t-heading {
@@ -1301,7 +1309,7 @@ body:before {
 .section_starter {
   border-top: 0.7em #E5E1D4 solid;
   height: 0.5em;
-  margin: 0 auto;
+  margin: 0 auto 1em;
   padding-bottom: 20%;
   position: relative;
   overflow: hidden;
@@ -1363,7 +1371,7 @@ body:before {
 /*
  * Z-Index
  */
-body {
+body, a {
   color: #A12122; }
 
 .t-heading {
@@ -1589,7 +1597,6 @@ body:before {
   text-align: center; }
 
 .showcase--main {
-  margin-bottom: 2em;
   width: 100%; }
   .showcase--main:after {
     visibility: hidden;
@@ -1599,15 +1606,9 @@ body:before {
     clear: both;
     height: 0; }
 
-.showcase--shift_sm {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 82.94039%;
+.showcase--shift--1 {
   margin-left: 8.5298%;
   margin-right: 0; }
-  .showcase--shift_sm:last-child {
-    margin-right: 0; }
 
 .showcase--neutral {
   background-color: #F2EFE8; }
@@ -1650,6 +1651,60 @@ body:before {
         margin-right: 0; }
       .showcase__column-4:nth-child(4n+1) {
         clear: left; } }
+
+.bm, .showcase--col3_centered .showcase--col3_centered__col {
+  margin-bottom: 1em; }
+
+.showcase--col3_centered {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%;
+  float: none;
+  margin: 0 auto !important; }
+  .showcase--col3_centered:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .showcase--col3_centered {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%; }
+      .showcase--col3_centered:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .showcase--col3_centered {
+      float: left;
+      display: block;
+      margin-right: 3.16844%;
+      width: 100%; }
+      .showcase--col3_centered:last-child {
+        margin-right: 0; } }
+  .showcase--col3_centered .showcase--col3_centered__col {
+    float: left;
+    display: block;
+    margin-right: 3.16844%;
+    width: 31.22104%; }
+    .showcase--col3_centered .showcase--col3_centered__col:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 0px) and (max-width: 499px) {
+      .showcase--col3_centered .showcase--col3_centered__col {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 46.28851%; }
+        .showcase--col3_centered .showcase--col3_centered__col:last-child {
+          margin-right: 0; }
+        .showcase--col3_centered .showcase--col3_centered__col:first-child {
+          margin-left: 26.85574%; } }
+    @media screen and (min-width: 500px) and (max-width: 899px) {
+      .showcase--col3_centered .showcase--col3_centered__col {
+        float: left;
+        display: block;
+        margin-right: 3.16844%;
+        width: 31.22104%; }
+        .showcase--col3_centered .showcase--col3_centered__col:last-child {
+          margin-right: 0; } }
 
 /*
  * Contains all sass utilities such as floats, clears, etc.

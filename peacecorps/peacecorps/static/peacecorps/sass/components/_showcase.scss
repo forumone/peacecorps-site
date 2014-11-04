@@ -11,12 +11,10 @@
 
 .showcase--main {
   @include u-clearfix;
-  margin-bottom: 2em;
   width: 100%;
 }
 
-.showcase--shift_sm {
-  @include span-columns(10);
+.showcase--shift--1 {
   @include shift(1);
   @include omega;
 }
@@ -43,3 +41,39 @@
     @include omega(4n);
   }
 }
+
+.bm {
+  margin-bottom: 1em;
+}
+
+.showcase--col3_centered {
+  @include span-columns(9);
+  float: none;
+  margin: 0 auto !important;
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+
+  @include media($md) {
+    @include span-columns(9);
+  }
+
+  .showcase--col3_centered__col {
+    @include span-columns(3 of 9);
+    @extend .bm;
+
+    @include media($sm) {
+      @include span-columns(2 of 4);
+
+      &:first-child {
+        @include shift(1);
+      }
+    }
+
+    @include media($md) {
+      @include span-columns(3 of 9);
+    }
+  }
+}
+

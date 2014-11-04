@@ -14,6 +14,7 @@
   height: 0;
   margin: 0 auto;
   padding-bottom: 80%;
+  position: relative;
   width: 80%;
 
   @include media($sm) {
@@ -24,13 +25,21 @@
 
 .bubble__content {
   float: left;
+  left: 50%;
   line-height: 1;
   margin-top: -0.5em;
   padding-top: 22%;
+  position: absolute;
   text-align: center;
+  top: 45%;
+  transform: translate(-50%, -50%);
   width: 100%;
 
   @include media($sm) {
     padding-top: 20%;
   }
+}
+
+.bubble--neutral_dark {
+  background-color: $neutral_dark;
 }
