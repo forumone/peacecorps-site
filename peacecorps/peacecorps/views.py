@@ -6,9 +6,9 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import Campaign, FeaturedCampaign
-from peacecorps.models import FeaturedProjectFrontPage, Account, humanize_amount
-from peacecorps.models import Project
+from peacecorps.models import (
+    Account, Campaign, FeaturedCampaign, FeaturedProjectFrontPage,
+    humanize_amount, Project)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -75,7 +75,7 @@ def donate_landing(request):
 
     featuredprojects = FeaturedProjectFrontPage.objects.select_related(
         'project__featured_image').all()
-    projects = Project.objects.select_related('country', 'account')
+    projects = Project.published_objects.select_related('country', 'account')
 
     try:
         featuredcampaign = FeaturedCampaign.objects.get(id=1).campaign
@@ -99,7 +99,7 @@ def donate_campaign(request, slug):
 
     campaign = Campaign.objects.select_related('account').get(slug=slug)
     featured = campaign.featuredprojects.all()
-    projects = Project.objects.filter(campaigns=campaign)
+    projects = Project.published_objects.filter(campaigns=campaign)
 
     return render(
         request,
@@ -114,9 +114,9 @@ def donate_campaign(request, slug):
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
-        Project.objects.select_related(
-            'volunteerpicture','featured_image', 'account', 'overflow'),
-            slug=slug)
+        Project.published_objects.select_related(
+            'volunteerpicture', 'featured_image', 'account', 'overflow'),
+        slug=slug)
     if request.method == 'POST':
         top_form = DonationAmountForm(prefix="top", data=request.POST,
                                       account=project.account)
@@ -152,8 +152,8 @@ def donate_project(request, slug):
 def donate_country(request, slug):
     """
     The page for the individual countries in which the Peace Corps operates.
-    Users can donate to the country account and see the list of active projects in
-    that country.
+    Users can donate to the country account and see the list of active
+    projects in that country.
     """
 
     country = get_object_or_404(
@@ -176,7 +176,7 @@ def donate_countries(request):
     links to country pages.
     """
     countries = Campaign.objects.select_related(
-        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY).all()
+        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY)
 
     return render(
         request,

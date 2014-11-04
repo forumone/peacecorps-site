@@ -23,3 +23,26 @@ class AccountTest(TestCase):
         self.assertTrue(account.funded())
         account.goal = 99
         self.assertTrue(account.funded())
+
+
+class ProjectTests(TestCase):
+    fixtures = ['countries.yaml']
+
+    def test_published(self):
+        """Publish is not set by default"""
+        account = models.Account.objects.create(name='Acc', code='ACC')
+        models.Project.objects.all().delete()
+        proj = models.Project.objects.create(
+            country=models.Country.objects.get(name='Mexico'),
+            account=account)
+        self.assertFalse(proj.published)
+        self.assertEqual(1, len(models.Project.objects.all()))
+        self.assertEqual(0, len(models.Project.published_objects.all()))
+
+        proj.published = True
+        proj.save()
+        self.assertEqual(1, len(models.Project.objects.all()))
+        self.assertEqual(1, len(models.Project.published_objects.all()))
+
+        proj.delete()
+        account.delete()

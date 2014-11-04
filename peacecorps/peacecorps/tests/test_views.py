@@ -187,12 +187,13 @@ class DonatePagesTests(TestCase):
 
     def test_project_form_redirect_full(self):
         """If a project is funded, its overflow code should be used"""
-        account = Account.objects.create(name='Full', code='FULL', goal=500,
-                                   current=500)
+        account = Account.objects.create(
+            name='Full', code='FULL', goal=500, current=500)
         overflow = Account.objects.create(name='Overflow', code='OVERFLOW')
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
-            featured_image=Media.objects.get(pk=8), overflow=overflow
+            featured_image=Media.objects.get(pk=8), overflow=overflow,
+            published=True
         )
 
         response = self.client.post(
