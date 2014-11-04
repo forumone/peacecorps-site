@@ -52,6 +52,39 @@
   </div>
 </section>
 
+<section class="showcase showcase--main">
+  <header class="section_starter">
+    <h1 class="section_starter__content t-heading_xlg">Funds</h1>
+  </header>
+  <div class="showcase--col3_centered showcase--force_center">
+       <!-- This div is needed because of "broken"
+            functionality in
+            bourbon neat which requires a wrapping div to use the
+            omega(n) functionality. -->
+    <div class="showcase--col3_centered__col">
+      <a class="bubble bubble--neutral_dark" href="donate/general">
+        <div class="bubble__content">
+          <span class="t-heading_lg">General</span>
+        </div>
+      </a>
+    </div>
+    <div class="showcase--col3_centered__col">
+      <a class="bubble bubble--neutral_dark" href="donate/country">
+        <div class="bubble__content">
+          <span class="t-heading_lg">Country</span>
+        </div>
+      </a>
+    </div>
+    <div class="showcase--col3_centered__col">
+      <a class="bubble bubble--neutral_dark" href="donate/memorial">
+        <div class="bubble__content">
+          <span class="t-heading_lg">Memorial</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <h2>Featured Projects</h2>
 {% for project in featuredprojects %}
   <div class="featured-project">
