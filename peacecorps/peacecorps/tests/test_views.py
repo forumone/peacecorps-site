@@ -193,7 +193,7 @@ class DonatePagesTests(TestCase):
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
             featured_image=Media.objects.get(pk=8), overflow=overflow,
-            slug='proj-proj'
+            slug='proj-proj', published=True
         )
 
         response = self.client.post(

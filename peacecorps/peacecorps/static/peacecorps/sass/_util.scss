@@ -43,3 +43,14 @@
   @include u-visually_hidden;
 }
 
+// Centers an block element vertically and horizontally.
+.u-hv_center--block {
+  position: relative;
+
+  .u-hv_center--block__content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+}

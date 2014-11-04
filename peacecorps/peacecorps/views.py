@@ -76,7 +76,7 @@ def donate_landing(request):
 
     featuredprojects = FeaturedProjectFrontPage.objects.select_related(
         'project__featured_image').all()
-    projects = Project.objects.select_related('country', 'account')
+    projects = Project.published_objects.select_related('country', 'account')
 
     try:
         featuredcampaign = FeaturedCampaign.objects.get(id=1).campaign
@@ -100,7 +100,7 @@ def donate_campaign(request, slug):
 
     campaign = Campaign.objects.select_related('account').get(slug=slug)
     featured = campaign.featuredprojects.all()
-    projects = Project.objects.filter(campaigns=campaign)
+    projects = Project.published_objects.filter(campaigns=campaign)
 
     return render(
         request,
@@ -115,7 +115,7 @@ def donate_campaign(request, slug):
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
-        Project.objects.select_related(
+        Project.published_objects.select_related(
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
     if request.method == 'POST':

@@ -32,14 +32,16 @@ $visual-grid: true;
  */
 $sm: new-breakpoint(min-width 0px max-width 499px 4);
 $md: new-breakpoint(min-width 500px max-width 899px 9);
-$lg: new-breakpoint(min-width 900px max-width 1999px 12);
-$xlg: new-breakpoint(min-width 2000px 12);
+$lg: new-breakpoint(min-width 900px 12);
 
 
 /*
  * Z-Index
  */
 $z_index-neg_1: -100;
+$z_index-neg_1: -200;
 $z_index-1: 100;
 
+$z_index-hide: $z_index-neg_1;
 $z_index-bg: $z_index-neg_1;
+$z_index-show: $z_index-1;
