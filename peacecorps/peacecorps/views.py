@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
@@ -217,13 +218,11 @@ def donate_general(request, slug):
         })
 
 
-def donation_success(request):
-    """User returns here on a successful donation. Can be extended to lookup
-    the project and redirect if needed."""
-    return render(request, 'donations/success.jinja')
+class ProjectReturn(DetailView):
+    queryset = Project.objects.select_related(
+        'account', 'country', 'featured_image', 'overflow',
+        'volunteerpicture')
 
 
-def donation_failure(request):
-    """User returns here on a failed donation. Can be extended to lookup
-    the project and redirect if needed."""
-    return render(request, 'donations/failure.jinja')
+class CampaignReturn(DetailView):
+    queryset = Campaign.objects.select_related('account', 'featured_image')

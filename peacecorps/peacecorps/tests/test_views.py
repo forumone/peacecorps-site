@@ -193,7 +193,7 @@ class DonatePagesTests(TestCase):
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
             featured_image=Media.objects.get(pk=8), overflow=overflow,
-            published=True
+            slug='proj-proj', published=True
         )
 
         response = self.client.post(
@@ -206,3 +206,33 @@ class DonatePagesTests(TestCase):
         project.delete()
         overflow.delete()
         account.delete()
+
+    def test_project_success_failure(self):
+        response = self.client.get(
+            reverse('project success', kwargs={'slug': 'nonproj'}))
+        self.assertEqual(response.status_code, 404)
+        response = self.client.get(
+            reverse('project failure', kwargs={'slug': 'nonproj'}))
+        self.assertEqual(response.status_code, 404)
+        response = self.client.get(
+            reverse('project success',
+                    kwargs={'slug': 'local-ultrasound-machine'}))
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get(
+            reverse('project failure',
+                    kwargs={'slug': 'local-ultrasound-machine'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_campaign_success_failure(self):
+        response = self.client.get(
+            reverse('campaign success', kwargs={'slug': 'nonproj'}))
+        self.assertEqual(response.status_code, 404)
+        response = self.client.get(
+            reverse('campaign failure', kwargs={'slug': 'nonproj'}))
+        self.assertEqual(response.status_code, 404)
+        response = self.client.get(
+            reverse('campaign success', kwargs={'slug': 'education'}))
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get(
+            reverse('campaign failure', kwargs={'slug': 'education'}))
+        self.assertEqual(response.status_code, 200)

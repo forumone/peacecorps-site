@@ -9,31 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<p class="tagline">{{project.tagline}}</p>
-
-<div class="featured-image">
-  <img src="{{project.featured_image.url}}" alt="{{project.featured_image.description}}">
-  <figcaption>{{project.featured_image.caption}}</figcaption>
-</div>
-
-<div class="donation-stats">
-  {% if project.volunteerpicture %}
-    <div class="volunteer-image">
-      <img src="{{project.volunteerpicture.url}}"
-           alt="{{project.volunteerpicture.description}}">
-    </div>
-  {% endif %}
-  <div class="volunteer-info">
-    <p><strong>{{project.volunteername}}</strong> from <strong>{{project.volunteerhomecity}}, {{project.volunteerhomestate}}</strong></p>
-    {% set funded_percent = project.account.percent_funded() %}
-    <div class="funded-chart">
-      <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
-      <div class="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
-    </div>
-    <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
-
-  </div>
-</div>
+{% include "donations/includes/project-top.jinja" %}
 
 <form method="post">
   {% csrf_token %}
