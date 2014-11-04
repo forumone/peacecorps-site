@@ -45,6 +45,10 @@ body {
   font-weight: 100;
   line-height: 1em;
   text-transform: uppercase;
+
+  @include media($sm) {
+    font-size: 3.4em;
+  }
 }
 .t-heading_xlg {
   @include t-heading_xlg;
