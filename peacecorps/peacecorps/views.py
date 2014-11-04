@@ -4,11 +4,12 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
-from peacecorps.models import Campaign, FeaturedCampaign
-from peacecorps.models import FeaturedProjectFrontPage, Account, humanize_amount
-from peacecorps.models import Project
+from peacecorps.models import (
+    Account, Campaign, FeaturedCampaign, FeaturedProjectFrontPage,
+    humanize_amount, Project)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -115,8 +116,8 @@ def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
         Project.objects.select_related(
-            'volunteerpicture','featured_image', 'account', 'overflow'),
-            slug=slug)
+            'volunteerpicture', 'featured_image', 'account', 'overflow'),
+        slug=slug)
     if request.method == 'POST':
         top_form = DonationAmountForm(prefix="top", data=request.POST,
                                       account=project.account)
@@ -152,8 +153,8 @@ def donate_project(request, slug):
 def donate_country(request, slug):
     """
     The page for the individual countries in which the Peace Corps operates.
-    Users can donate to the country account and see the list of active projects in
-    that country.
+    Users can donate to the country account and see the list of active
+    projects in that country.
     """
 
     country = get_object_or_404(
@@ -176,7 +177,7 @@ def donate_countries(request):
     links to country pages.
     """
     countries = Campaign.objects.select_related(
-        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY).all()
+        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY)
 
     return render(
         request,
@@ -217,13 +218,11 @@ def donate_general(request, slug):
         })
 
 
-def donation_success(request):
-    """User returns here on a successful donation. Can be extended to lookup
-    the project and redirect if needed."""
-    return render(request, 'donations/success.jinja')
+class ProjectReturn(DetailView):
+    queryset = Project.objects.select_related(
+        'account', 'country', 'featured_image', 'overflow',
+        'volunteerpicture')
 
 
-def donation_failure(request):
-    """User returns here on a failed donation. Can be extended to lookup
-    the project and redirect if needed."""
-    return render(request, 'donations/failure.jinja')
+class CampaignReturn(DetailView):
+    queryset = Campaign.objects.select_related('account', 'featured_image')
