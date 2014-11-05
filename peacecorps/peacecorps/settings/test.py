@@ -29,3 +29,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+# Verify that the django-storages lib is not broken
+import storages.backends.s3boto
