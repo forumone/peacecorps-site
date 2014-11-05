@@ -24,6 +24,23 @@ class AccountTest(TestCase):
         account.goal = 99
         self.assertTrue(account.funded())
 
+    def test_track_total(self):
+        """Use fake data to verify that account totals are being
+        kept up-to-date"""
+        def makedonation(acct, amount):
+            donation = models.Donation.objects.create(
+                account=acct, amount=amount)
+            donation.save()
+            return donation
+
+        acc1 = models.Account.objects.create(
+            name='Account1', code='112-358', current=150)
+        donation1 = makedonation(acc1, 75)
+        donation2 = makedonation(acc1, 100)
+        donation3 = makedonation(acc1, 1)
+
+        self.assertEqual(326, acc1.total())
+
 
 class ProjectTests(TestCase):
     fixtures = ['countries.yaml']
