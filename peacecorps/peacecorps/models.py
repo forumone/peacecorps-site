@@ -49,11 +49,14 @@ class Account(models.Model):
     def __str__(self):
         return '%s' % (self.name)
 
+    def total(self):
+        return self.current + sum([x.amount for x in self.donations.all()])
+
     def percent_funded(self):
-        return percentfunded(self.current, self.goal)
+        return percentfunded(self.total(), self.goal)
 
     def funded(self):
-        if self.goal and self.current >= self.goal:
+        if self.goal and self.total() >= self.goal:
             return True
         else:
             return False
@@ -61,7 +64,7 @@ class Account(models.Model):
     def remaining(self):
         """This will be expanded later, and may involve more complicated
         calculations. As such, we don't want it to be a property"""
-        return self.goal - self.current
+        return self.goal - self.total()
 
 
 class Campaign(models.Model):

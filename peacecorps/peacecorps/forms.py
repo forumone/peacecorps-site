@@ -166,7 +166,7 @@ class DonationAmountForm(forms.Form):
             if not self.account:
                 raise ValidationError('Missing account')
             else:
-                remaining_amount = self.account.goal - self.account.current
+                remaining_amount = self.account.goal - self.account.total()
                 # We're circumventing the normal bounds checks, so we must
                 # enforce them here
                 if remaining_amount < 100:  # cents
