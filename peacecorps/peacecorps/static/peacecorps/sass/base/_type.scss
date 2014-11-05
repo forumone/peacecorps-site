@@ -8,6 +8,11 @@ body, a {
   color: $primary;
 }
 
+// TODO find a place for this
+h1, h2, h3, h4, h5 {
+  padding: 0 5%;
+}
+
 // TODO clean up text styles and make consistant.
 // Waiting on finalized design for this.
 @mixin t-heading {
@@ -38,6 +43,10 @@ body, a {
   @include t-heading--white;
 }
 
+.t-heading--secondary {
+  color: $secondary;
+}
+
 @mixin t-heading_xlg {
   font-family: "museo-slab",sans-serif;
   font-size: 3.8em;
@@ -47,7 +56,7 @@ body, a {
   text-transform: uppercase;
 
   @include media($sm) {
-    font-size: 3.4em;
+    font-size: 2.8em;
   }
 }
 .t-heading_xlg {
@@ -60,6 +69,11 @@ body, a {
   font-style: normal;
   font-weight: 100;
   line-height: 1.8em;
+
+  @include media($sm) {
+    font-size: 1.4em;
+    line-height: 1.5em;
+  }
 }
 .t-heading_lg {
   @include t-heading_lg;
@@ -79,9 +93,17 @@ h2 {
   font-style: normal;
   font-weight: 300;
   text-transform: uppercase;
+
+  @include media($sm) {
+    font-size: 1em;
+  }
 }
 .t-heading_md {
   @include t-heading_md;
+}
+
+.t--no_bm {
+  margin-bottom: 0;
 }
 
 // Different text styles:

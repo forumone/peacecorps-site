@@ -11,12 +11,25 @@
 
 .showcase--main {
   @include u-clearfix;
+  padding-bottom: 3em;
   width: 100%;
 }
 
 .showcase--shift--1 {
   @include shift(1);
   @include omega;
+}
+
+.showcase_inset--lg {
+  @include shift(1);
+  @include span-columns(10);
+  @include omega;
+
+  @include media($sm) {
+    @include shift(0);
+    @include span-columns(4);
+    @include omega;
+  }
 }
 
 .showcase--neutral {
@@ -44,6 +57,10 @@
 
 .bm {
   margin-bottom: 1em;
+}
+
+.bm3 {
+  margin-bottom: 3em;
 }
 
 .showcase--col3_centered {
@@ -76,4 +93,3 @@
     }
   }
 }
-

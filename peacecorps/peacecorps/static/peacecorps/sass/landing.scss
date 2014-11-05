@@ -6,29 +6,6 @@
     // TODO remove
     clear: both;
   }
-  .featured-project {
-    @include span-columns(8);
-    @include shift(4);
-    position: relative;
-    padding-top: 1em;
-
-    img {
-      @include span-columns(8 of 8);
-      max-height: 200px;
-    }
-    div {
-      @include span-columns(8 of 8);
-      position: absolute;
-      text-align: center;
-    }
-  }
-  .project-tagline {
-    top: 1em;
-  }
-  .project-call {
-    bottom: 2em;
-  }
-
   .more-projects {
     @include span-columns(12);
   }
