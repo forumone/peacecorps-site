@@ -50,7 +50,7 @@ class Account(models.Model):
         return '%s' % (self.name)
 
     def total(self):
-        return self.current + sum([x.amount for x in self.donations.all()])
+        return self.current + sum(x.amount for x in self.donations.all())
 
     def percent_funded(self):
         return percentfunded(self.total(), self.goal)
