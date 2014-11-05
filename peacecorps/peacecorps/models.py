@@ -3,6 +3,7 @@ from datetime import timedelta
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.db.models import Sum
 from localflavor.us.models import USPostalCodeField
 from tinymce import models as tinymce_models
 
@@ -50,7 +51,11 @@ class Account(models.Model):
         return '%s' % (self.name)
 
     def total(self):
-        return self.current + sum(x.amount for x in self.donations.all())
+        donations = self.donations.aggregate(Sum('amount'))
+        if donations['amount__sum']:
+            return self.current + donations['amount__sum']
+        else:
+            return self.current
 
     def percent_funded(self):
         return percentfunded(self.total(), self.goal)
