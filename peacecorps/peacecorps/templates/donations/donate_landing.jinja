@@ -56,7 +56,12 @@
   <header class="section_starter">
     <h1 class="section_starter__content t-heading_xlg">Funds</h1>
   </header>
-  <div class="showcase--col3_centered showcase--force_center">
+  <h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum
+    eleifend massa, et rhoncus nisl molestie vitae. In non odio ac metus ornare
+    cursus.
+  </h2>
+  <div class="showcase--col3_centered">
        <!-- This div is needed because of "broken"
             functionality in
             bourbon neat which requires a wrapping div to use the
@@ -69,7 +74,7 @@
       </a>
     </div>
     <div class="showcase--col3_centered__col">
-      <a class="bubble bubble--neutral_dark" href="donate/country">
+      <a class="bubble bubble--neutral_dark" href="donate/countries">
         <div class="bubble__content">
           <span class="t-heading_lg">Country</span>
         </div>
@@ -85,16 +90,24 @@
   </div>
 </section>
 
-<h2>Featured Projects</h2>
-{% for project in featuredprojects %}
-  <div class="featured-project">
-    <img src="{{project.project.featured_image.url}}" />
-    <div class="project-tagline">{{project.tagline}}</div>
-    <div class="project-call">
-      <a href="{{url("donate project", slug=project.project.slug)}}"
-         class="button-link">Read the Field Report</a></div>
-  </div>
-{% endfor %}
+
+<section class="showcase showcase--main showcase--neutral">
+  <header class="section_starter">
+    <h1 class="section_starter__content t-heading_xlg">Projects</h1>
+  </header>
+  {% for project in featuredprojects %}
+    <article class="showcase_inset--lg bordered bordered--white bm3">
+      <div class="u-hv_center--block bg_img--centered bg_img--banner"
+          style="background-image: url('{{project.project.featured_image.url}}')">
+        <a href="{{url("donate project", slug=project.project.slug)}}"
+             class="button button--primary u-hv_center--block__content">
+           Read their story
+        </a>
+      </div>
+      <h2 class="t-heading--secondary t--no_bm">{{project.project.tagline}}</h2>
+    </article>
+  {% endfor %}
+</section>
 
 <h2>More Projects</h2>
 <section class="more-projects">
