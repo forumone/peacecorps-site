@@ -9,6 +9,8 @@
 @import "base/buttons";
 @import "base/elements";
 @import "base/type";
+@import "components/bg_img";
+@import "components/bordered";
 @import "components/bubble";
 @import "components/inline_text";
 @import "components/main_nav";
@@ -21,10 +23,4 @@
 
 .wrapper {
   @include outer-container;
-  h2 {
-    a.back {
-      position: absolute;
-      left: 1em;
-    }
-  }
 }

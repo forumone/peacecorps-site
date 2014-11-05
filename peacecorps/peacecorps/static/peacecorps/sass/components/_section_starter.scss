@@ -23,7 +23,7 @@
   }
 
   @include media($sm) {
-    padding-bottom: 40%;
+    padding-bottom: 50%;
   }
 
   &:after {
@@ -47,9 +47,10 @@
     }
 
     @include media($sm) {
-      left: 9%;
-      padding-bottom: 80%;
-      width: 80%;
+      left: 0;
+      padding-bottom: 100%;
+      top: -100%;
+      width: 100%;
     }
   }
 }
