@@ -3,8 +3,9 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 from uuid import uuid4
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 
-from peacecorps.models import DonorInfo, humanize_amount
+from peacecorps.models import Account, DonorInfo, humanize_amount
 
 
 def add_subelements(parent, data, elements):
@@ -60,6 +61,10 @@ def generate_collection_request(data):
     SubElement(root, 'action', {'value': 'SubmitCollectionInteractive'})
 
     interactive = SubElement(root, 'interactive_request')
+    SubElement(interactive, 'success_return_url',
+               {'value': data['success_url']})
+    SubElement(interactive, 'failure_return_url',
+               {'value': data['failure_url']})
     SubElement(interactive, 'allow_account_data_change', {'value': 'True'})
 
     collection_auth = SubElement(interactive, 'collection_auth')
@@ -111,6 +116,29 @@ def generate_custom_fields(data):
     return custom
 
 
+def redirect_urls(account):
+    """Success and return URLs are derived from the account"""
+    if account.category == Account.PROJECT:
+        project = account.project_set.first()
+        return (reverse('project success', kwargs={'slug': project.slug}),
+                reverse('project failure', kwargs={'slug': project.slug}))
+    else:
+        campaign = account.campaign_set.first()
+        mapping = {Account.COUNTRY: 'country', Account.MEMORIAL: 'memorial',
+                   Account.OTHER: 'general'}
+        if account.category in mapping:
+            ident = mapping[account.category]
+            return (reverse(ident + ' success',
+                            kwargs={'slug': campaign.slug}),
+                    reverse(ident + ' failure',
+                            kwargs={'slug': campaign.slug}))
+        else:
+            return (reverse('campaign success',
+                            kwargs={'slug': campaign.slug}),
+                    reverse('campaign failure',
+                            kwargs={'slug': campaign.slug}))
+
+
 def convert_to_paygov(data, account):
     """Convert the form data into a pay.gov model (including appropriate XML)
     and return."""
@@ -119,6 +147,7 @@ def convert_to_paygov(data, account):
     data['agency_tracking_id'] = tracking_id
     data['agency_memo'] = generate_agency_memo(data)
     data['form_id'] = settings.PAY_GOV_FORM_ID
+    data['success_url'], data['failure_url'] = redirect_urls(account)
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
     return DonorInfo(agency_tracking_id=tracking_id, account=account,

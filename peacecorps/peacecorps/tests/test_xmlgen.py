@@ -3,6 +3,7 @@ from xml.etree.ElementTree import tostring
 from django.test import TestCase
 
 from peacecorps import payxml
+from peacecorps.models import Account, Country, Campaign, Project
 
 
 def donor_custom_fields():
@@ -20,6 +21,8 @@ def donor_custom_fields():
 
 
 class PayXMLGenerationTests(TestCase):
+    fixtures = ['countries.yaml']
+
     def test_xml(self):
         data = {
             'agency_tracking_id': 'PCIOCI1234',
@@ -31,7 +34,9 @@ class PayXMLGenerationTests(TestCase):
             'billing_address': '1 Main St',
             'billing_city': 'Anytown',
             'billing_state': 'MD',
-            'billing_zip': '20852'
+            'billing_zip': '20852',
+            'success_url': 'https://success.com',
+            'failure_url': 'https://failure.com'
         }
 
         data.update(payxml.generate_custom_fields(donor_custom_fields()))
@@ -46,6 +51,13 @@ class PayXMLGenerationTests(TestCase):
 
         action = collection_request.findall('.//action')[0]
         self.assertEqual(action.attrib['value'], 'SubmitCollectionInteractive')
+
+        success_el = collection_request.findall(
+            './interactive_request/success_return_url')[0]
+        self.assertEqual(success_el.attrib['value'], 'https://success.com')
+        failure_el = collection_request.findall(
+            './interactive_request/failure_return_url')[0]
+        self.assertEqual(failure_el.attrib['value'], 'https://failure.com')
 
         account_data = collection_request.findall(
             './interactive_request/collection_auth/account_data')[0]
@@ -122,3 +134,54 @@ class PayXMLGenerationTests(TestCase):
 
         tracking_id = payxml.generate_agency_tracking_id()
         self.assertTrue(tracking_id.startswith('PCOCI'))
+
+    def test_redirect_urls(self):
+        account = Account.objects.create(category=Account.PROJECT)
+        proj = Project.objects.create(
+            account=account, country=Country.objects.get(name='Canada'),
+            slug='proj-proj')
+        campaign = Campaign.objects.create(
+            account=account, slug='cccccc')
+
+        succ, fail = payxml.redirect_urls(account)
+        self.assertTrue('success' in succ)
+        self.assertTrue('project' in succ)
+        self.assertTrue('failure' in fail)
+        self.assertTrue('project' in fail)
+        proj.delete()
+
+        account.category = Account.COUNTRY
+        succ, fail = payxml.redirect_urls(account)
+        self.assertTrue('success' in succ)
+        self.assertTrue('country' in succ)
+        self.assertTrue('failure' in fail)
+        self.assertTrue('country' in fail)
+
+        account.category = Account.MEMORIAL
+        succ, fail = payxml.redirect_urls(account)
+        self.assertTrue('success' in succ)
+        self.assertTrue('memorial' in succ)
+        self.assertTrue('failure' in fail)
+        self.assertTrue('memorial' in fail)
+
+        account.category = Account.SECTOR
+        succ, fail = payxml.redirect_urls(account)
+        self.assertTrue('success' in succ)
+        self.assertTrue('campaign' in succ)
+        self.assertTrue('failure' in fail)
+        self.assertTrue('campaign' in fail)
+
+        # the url for "general"/other funds does not have an identifier
+        account.category = Account.OTHER
+        succ, fail = payxml.redirect_urls(account)
+        self.assertTrue('success' in succ)
+        self.assertFalse('country' in succ)
+        self.assertFalse('memorial' in succ)
+        self.assertFalse('campaign' in succ)
+        self.assertTrue('failure' in fail)
+        self.assertFalse('country' in fail)
+        self.assertFalse('memorial' in fail)
+        self.assertFalse('campaign' in fail)
+
+        campaign.delete()
+        account.delete()

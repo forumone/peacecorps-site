@@ -6,10 +6,17 @@ from peacecorps.views import humanize_amount
 
 
 class DonationsTests(TestCase):
+    fixtures = ['countries.yaml']
+
     def setUp(self):
-        self.account = Account.objects.create(code='FUNDFUND')
+        self.account = Account.objects.create(
+            code='FUNDFUND', category=Account.PROJECT)
+        self.project = Project.objects.create(
+            slug='sluggy', country=Country.objects.get(name='Egypt'),
+            account=self.account)
 
     def tearDown(self):
+        self.project.delete()
         self.account.delete()
 
     def test_contribution_parameters(self):
