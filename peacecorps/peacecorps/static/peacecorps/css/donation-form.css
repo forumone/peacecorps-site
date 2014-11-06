@@ -1,7 +1,16 @@
-* {
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
 .donate-form form {
   max-width: 68em;
@@ -80,5 +89,3 @@
   .donate-form form ul {
     margin-top: 0;
     margin-bottom: 0; }
-
-/*# sourceMappingURL=donation-form.css.map */
