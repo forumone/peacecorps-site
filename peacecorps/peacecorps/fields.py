@@ -24,13 +24,6 @@ class GPGField(models.Field, metaclass=models.SubfieldBase):
         if settings.GNUPG_HOME:
             return gnupg.GPG(gnupghome=settings.GNUPG_HOME)
 
-    def field_path(self):
-        """Determining the recipient requires we use deconstruct(), which
-        isn't possible during initialization, so place it in this method.
-        This will return something like app.models.Model.fieldname"""
-        field_name, model_name, _, _ = self.deconstruct()
-        return model_name + '.' + field_name
-
     def to_python(self, value):
         """Convert ciphertext into plaintext"""
         if value is None:
@@ -54,7 +47,10 @@ class GPGField(models.Field, metaclass=models.SubfieldBase):
             return value
 
         plain_text = value.encode('utf-8')
-        recipient = settings.GPG_RECIPIENTS[self.field_path()]
+        field_path = '%s.%s.%s' % (self.model._meta.app_label,
+                                   self.model._meta.object_name,
+                                   self.name)
+        recipient = settings.GPG_RECIPIENTS[field_path]
         gpg = self.gpg()
         if gpg:
             return gpg.encrypt(plain_text, [recipient]).data
