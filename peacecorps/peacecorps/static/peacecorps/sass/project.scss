@@ -1,52 +1,36 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-#project {
-  & > * {
-    @include span-columns(12);
-  }
-  img {
-    max-height: 100%;
-    max-width: 100%;
-  }
-  .featured-image {
-    text-align: center;
-    max-height: 200px;
-  }
-  .donation-stats {
-    max-height: 150px;
-  }
-  .volunteer-image {
-    @include span-columns(4);
-    text-align: center;
-  }
-  .volunteer-info {
-    @include span-columns(7);
-    @include shift(4);
-    @include omega();
+.donation-stats {
+  max-height: 150px;
+}
+.volunteer-image {
+  @include span-columns(4);
+  text-align: center;
+}
+.volunteer-info {
+  @include span-columns(7);
+  @include shift(4);
+  @include omega();
 
-    & > * {
-      @include span-columns(7 of 7);
-    }
+  & > * {
+    @include span-columns(7 of 7);
   }
-  .funded-chart {
-    @include omega();
-    position: relative;
-    border: 1px solid #000;
-  }
-  .funded-amount-bar {
-    background-color: #aaa;
-    width: 100%;
-  }
-  .funded-amount-text {
-    position: absolute;
-    top: 0;
-    left: 1em;
-  }
-  .donate-container {
-    text-align: right;
-  }
-  .volunteer-image + .volunteer-info {
-    @include shift(0);
-  }
+}
+.funded-chart {
+  @include omega();
+  position: relative;
+  border: 1px solid #000;
+}
+.funded-amount-bar {
+  background-color: #aaa;
+  width: 100%;
+}
+.funded-amount-text {
+  position: absolute;
+  top: 0;
+  left: 1em;
+}
+.donate-container {
+  text-align: right;
 }

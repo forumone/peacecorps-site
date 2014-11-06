@@ -106,6 +106,20 @@ h2 {
   margin-bottom: 0;
 }
 
+.t-body {
+  color: $primary;
+  font-family: "museo-sans",sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 100;
+}
+.t-bold {
+  font-weight: 600;
+}
+p, span {
+  @extend .t-body;
+}
+
 // Different text styles:
 //   - Either slab or sans
 //   - Five different colors, white, primary, secondary, support, dark, light

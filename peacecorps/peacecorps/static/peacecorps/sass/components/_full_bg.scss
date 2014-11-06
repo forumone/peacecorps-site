@@ -8,9 +8,15 @@
 @import "globals";
 
 .full_bg {
+  background-position-y: 50%;
+  background-size: 100% auto;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: $z_index-bg;
+}
+
+.full_bg--lg {
+  height: 46em;
 }

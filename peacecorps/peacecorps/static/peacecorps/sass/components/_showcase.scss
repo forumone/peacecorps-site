@@ -78,6 +78,7 @@
 
   .showcase--col3_centered__col {
     @include span-columns(3 of 9);
+    @include omega(3n);
     @extend .bm;
 
     @include media($sm) {
