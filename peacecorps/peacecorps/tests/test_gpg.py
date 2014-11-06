@@ -39,7 +39,7 @@ class GPGTests(TestCase):
         with self.settings(GNUPG_HOME=os.path.join('peacecorps', 'tests',
                                                    'gpg'),
                            GPG_RECIPIENTS={
-                               'peacecorps.fields.GPGField.xml': 'C68F6B22'}):
+                               'peacecorps.DonorInfo.xml': 'C68F6B22'}):
             di = DonorInfo(agency_tracking_id='TRACK', account=self.account,
                            xml='Plain Text')
             di.save()

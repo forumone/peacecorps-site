@@ -81,5 +81,5 @@ DONOR_EXPIRE_AFTER = 30      # minutes
 # GPG info for encrypted fields
 GNUPG_HOME = ''     # Directory containing keys. If empty, GPG will not be used
 GPG_RECIPIENTS = {
-    'peacecorps.fields.GPGField.xml': '00000000'
+    'peacecorps.DonorInfo.xml': '00000000'
 }

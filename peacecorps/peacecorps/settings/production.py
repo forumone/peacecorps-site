@@ -29,7 +29,7 @@ MEDIA_URL = '//peace-corps.s3.amazonaws.com/'
 
 GNUPG_HOME = os.environ.get('GNUPG_HOME', '')
 GPG_RECIPIENTS = {
-    'peacecorps.fields.GPGField.xml': os.environ.get('GPG_ENCRYPT_ID', '')
+    'peacecorps.DonorInfo.xml': os.environ.get('GPG_ENCRYPT_ID', '')
 }
 
 if os.environ.get('USE_PAYGOV', ''):
