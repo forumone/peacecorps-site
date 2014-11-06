@@ -4,8 +4,10 @@
 {% block header %}Peace Corps - Donate{% endblock %}
 {% block content_class %}project{% endblock %}
 
-{% block navigation %}
-<h2>{{project.title}}</h2>
+{% block full_bg %}
+  <div class="full_bg full_bg--lg" style="
+      background-image: url('{{project.featured_image.url}}');
+    ">
 {% endblock %}
 
 {% block content %}

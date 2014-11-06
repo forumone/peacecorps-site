@@ -1,26 +1,42 @@
-<p class="tagline">{{project.tagline}}</p>
-
-<div class="featured-image">
-  <img src="{{project.featured_image.url}}" alt="{{project.featured_image.description}}">
-  <figcaption>{{project.featured_image.caption}}</figcaption>
+<div class="full_bg full_bg--lg" style="
+    background-image: url('{{project.featured_image.url}}');
+  ">
 </div>
+<article>
+  {# TODO Figure out way to remove these inlines to global css #}
+  <section style="min-height: 38em; padding-top: 6em;">
+    <section class="full_banner full_banner--support_color">
+      <div class="showcase showcase--shift_sm">
+        <h1 class="t-heading--white t--no_bm">{{project.title}}</h1>
+        <h2 class="t-heading--white">{{project.tagline}}</h2>
+      </div>
+    </section>
+  </section>
 
-<div class="donation-stats">
-  {% if project.volunteerpicture %}
-    <div class="volunteer-image">
-      <img src="{{project.volunteerpicture.url}}"
-           alt="{{project.volunteerpicture.description}}">
-    </div>
-  {% endif %}
-  <div class="volunteer-info">
-    <p><strong>{{project.volunteername}}</strong> from <strong>{{project.volunteerhomecity}}, {{project.volunteerhomestate}}</strong></p>
-    {% set funded_percent = project.account.percent_funded() %}
-    <div class="funded-chart">
-      <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">&nbsp;</div>
-      <div class="funded-amount-text">{{ funded_percent|round|int }}% funded</div>
-    </div>
-    <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
-
-  </div>
-</div>
-
+  <section class="showcase--col3_centered u-clearfix">
+    <section class="showcase--col3_centered__col">
+      <p class="t-bold">{{project.title}}</p>
+      {% if project.volunteerpicture %}
+        <div class="">
+          <img src="{{project.volunteerpicture.url}}"
+               alt="{{project.volunteerpicture.description}}">
+        </div>
+      {% endif %}
+      <span>{{project.volunteername}} from {{project.volunteerhomestate}}</span>
+    </section>
+    <section class="showcase--col3_centered__col">
+    </section>
+    <section class="showcase--col3_centered__col">
+      {% set funded_percent = project.account.percent_funded() %}
+      <div class="funded-chart">
+        <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">
+          &nbsp;
+        </div>
+        <p class="funded-amount-text">
+          {{ funded_percent|round|int }}% funded
+        </p>
+      </div>
+      <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
+    </section>
+  </section>
+</article>
