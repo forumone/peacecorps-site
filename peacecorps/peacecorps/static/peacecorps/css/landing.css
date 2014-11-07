@@ -64,8 +64,9 @@ html {
   display: block;
   margin-right: 2.35765%;
   width: 14.70196%;
-  margin-right: 0;
   font-size: larger; }
+  .landing .project-country:last-child {
+    margin-right: 0; }
   .landing .project-country:last-child {
     margin-right: 0; }
 .landing .project-expanded {
@@ -74,12 +75,11 @@ html {
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
-  margin-right: 0;
   display: none;
   /* Initially hidden */ }
   .landing .project-expanded:last-child {
     margin-right: 0; }
+  .landing .project-expanded:last-child {
+    margin-right: 0; }
   .landing .project-expanded > * {
-    padding-top: .5em; }
-
-/*# sourceMappingURL=landing.css.map */
+    padding-top: 0.5em; }

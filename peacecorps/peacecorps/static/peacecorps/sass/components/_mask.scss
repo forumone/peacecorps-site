@@ -1,0 +1,24 @@
+/*
+ * Mask
+ */
+
+@import "util";
+
+.mask {
+  @extend .u-hv_center--block;
+  overflow: hidden;
+  width: 8em;
+  height: 8em;
+}
+
+.mask__content {
+  @extend .u-hv_center--block__content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mask--oval {
+  border-radius: 50%;
+}
