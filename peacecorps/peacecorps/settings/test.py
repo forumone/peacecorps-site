@@ -17,7 +17,8 @@ INSTALLED_APPS += (
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
-    'paygov'
+    'paygov',
+    'contenteditor'
 )
 
 MIDDLEWARE_CLASSES = (

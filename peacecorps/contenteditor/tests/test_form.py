@@ -1,8 +1,7 @@
 from django.contrib.auth.models import User
-
 from django.test import TestCase
 
-from peacecorps.admin import (
+from contenteditor.admin import (
     StrictUserCreationForm, StrictAdminPasswordChangeForm)
 
 

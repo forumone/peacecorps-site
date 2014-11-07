@@ -6,6 +6,7 @@ INSTALLED_APPS += (
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
+    'contenteditor',
 )
 # Set these only on the machines which have admin access
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
