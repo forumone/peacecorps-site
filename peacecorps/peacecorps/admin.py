@@ -72,6 +72,9 @@ class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
         stronger passwords"""
         password = self.cleaned_data['password1']
         errors = password_validator(password)
+        # Also check that this is a new password
+        if self.user.check_password(self.cleaned_data['password1']):
+            errors.append("Must not reuse a password")
 
         # If password_validator returns errors, raise an error, else proceed.
         if errors:
