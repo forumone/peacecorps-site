@@ -1,0 +1,196 @@
+- fields: {category: mem, code: SPF-ALF, community_contribution: null, current: 0,
+    goal: null, name: Alden Landis Memorial}
+  model: peacecorps.account
+  pk: 201
+- fields: {category: mem, code: SPF-CPF, community_contribution: null, current: 0,
+    goal: null, name: Craig Pollock Memorial}
+  model: peacecorps.account
+  pk: 202
+- fields: {category: mem, code: SPF-DDF, community_contribution: null, current: 0,
+    goal: null, name: 'Danielle "Dani" Dunlap Memorial'}
+  model: peacecorps.account
+  pk: 203
+- fields: {category: mem, code: SPF-EBF, community_contribution: null, current: 0,
+    goal: null, name: Emily Balog Memorial}
+  model: peacecorps.account
+  pk: 204
+- fields: {category: mem, code: SPF-KPF, community_contribution: null, current: 0,
+    goal: null, name: Kate Puzey Memorial}
+  model: peacecorps.account
+  pk: 205
+- fields: {category: mem, code: SPF-LJF, community_contribution: null, current: 0,
+    goal: null, name: Lena Jenison Memorial}
+  model: peacecorps.account
+  pk: 206
+- fields: {category: mem, code: SPF-PKF, community_contribution: null, current: 0,
+    goal: null, name: Porter Knight Memorial}
+  model: peacecorps.account
+  pk: 207
+- fields: {category: mem, code: SPF-GND, community_contribution: null, current: 0,
+    goal: null, name: Ruppe Gender Development}
+  model: peacecorps.account
+  pk: 208
+- fields: {category: mem, code: SPF-SCF, community_contribution: null, current: 0,
+    goal: null, name: Stephanie Chance Memorial}
+  model: peacecorps.account
+  pk: 209
+- fields:
+    account: 201
+    call: Support Projects in Mozambique
+    campaigntype: mem
+    description: All donations to the Alden Landis Memorial Fund will support
+      approved Peace Corps Partnership Program (PCPP) projects in Mozambique
+      including those with an emphasis on healthcare and safety.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Alden Landis Memorial
+    slug: alden-landis-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 201
+- fields:
+    account: 202
+    call: Support Projects in South America
+    campaigntype: mem
+    description: All donations to this Fund will support approved Peace Corps
+      Partnership Program (PCPP) projects in South America with a focus on
+      Health and Education.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Craig Pollock Memorial
+    slug: craig-pollock-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 202
+- fields:
+    account: 203
+    call: Support the Mama Grace Memorial Clinic
+    campaigntype: mem
+    description: Donations to this fund will be used to equip and outfit the
+      "Mama Grace Memorial Clinic" begun by Danielle; once the clinic is
+      complete, contributions will support approved Peace Corps Partnership
+      Program (PCPP) projects in Ghana for improving rural health care and
+      preventing HIV/AIDS and malaria, in furtherance of Dani's extraordinary
+      work.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: 'Danielle "Dani" Dunlap Memorial'
+    slug: danielle-dani-dunlap-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 203
+- fields:
+    account: 204
+    call: Support Projects in Paraguay
+    campaigntype: mem
+    description: All donations to the Emily Balog Memorial Fund will support
+      approved Peace Corps Partnership Program (PCPP) projects in Paraguay.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Emily Balog Memorial
+    slug: emily-balog-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 204
+- fields:
+    account: 205
+    call: Support Young Girls in Benin
+    campaigntype: mem
+    description: The Kate Puzey Memorial Fund was established to honor the
+      memory and service of Benin Volunteer, Kate Puzey. This fund enables
+      members of the public, as well as former Volunteers who have been
+      inspired by Kate's story, to support ongoing work in her memory.
+      Donations to this fund will be used to support approved Peace Corps
+      Partnership Program (PCPP) projects which focus on the empowerment and
+      education of young girls in Benin, a cause that was very close to Kate's
+      heart. Returned Peace Corps Volunteers who received contributions from
+      the Fund for their previous PCPP projects are also welcome to contribute
+      to ensure Kate's continuing legacy.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Kate Puzey Memorial
+    slug: kate-puzey-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 205
+- fields:
+    account: 206
+    call: Support Projects in Mozambique
+    campaigntype: mem
+    description: All donations to the Lena Jenison Memorial Fund will support
+      approved Peace Corps Partnership Program (PCPP) projects in Mozambique
+      with a focus on science education.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Lena Jenison Memorial
+    slug: lena-jenison-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 206
+- fields:
+    account: 207
+    call: Support Projects in Paraguay
+    campaigntype: mem
+    description: All donations to the Porter Knight Memorial Fund will support
+      approved Peace Corps Partnership Program (PCPP) projects in Paraguay
+      that focus on the environment.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Porter Knight Memorial
+    slug: porter-knight-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 207
+- fields:
+    account: 208
+    call: Support Girls Education
+    campaigntype: mem
+    description: "Contributions to this Fund are committed to
+      community-initiated and Volunteer-led projects such as establishing
+      women's cooperatives, increasing women's access to resources and
+      services, exploring gender roles, building shelters, and increasing
+      training programs. The Loret Miller Ruppe and Loret, Jr. Fund for the
+      Advancement of Women was established to celebrate the lives of Loret
+      Miller Ruppe who was the longest serving Director in Peace Corps history
+      and Loret Jr., her daughter. Loret Miller Ruppe served as Director from
+      1981-89 and was a great, vocal advocate for the Peace Corps' mission of
+      world peace and friendship both globally and domestically. Her passion
+      for service inspired her daughter, Loret, Jr., to serve as a Peace Corps
+      Volunteer in Nepal. Their vision and hard work brought hope to
+      communities around the world, especially for women.<p />
+      To honor the outstanding contributions of Loret Miller Ruppe, this fund
+      was established with a generous grant from her family to assist Peace
+      Corps volunteers who wish to carry on the work that was so important to
+      her: the empowerment of women and girls around the world.<p />
+      To celebrate the life and service of Loret, Jr., the fund now highlights
+      projects supporting girls' education and camps for girls."
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Ruppe Gender Development
+    slug: ruppe-gender-development
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 208
+- fields:
+    account: 209
+    call: Support Projects Empowering Women
+    campaigntype: mem
+    description: All donations to this Fund will support approved Peace Corps
+      Partnership Program (PCPP) projects around the world with a focus on
+      gender, such as women's empowerment and girls education.
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Stephanie Chance Memorial 
+    slug: stephanie-chance-memorial
+    tagline: ""
+  model: peacecorps.campaign
+  pk: 209
