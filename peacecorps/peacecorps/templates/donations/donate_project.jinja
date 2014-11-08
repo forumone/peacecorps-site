@@ -4,12 +4,6 @@
 {% block header %}Peace Corps - Donate{% endblock %}
 {% block content_class %}project{% endblock %}
 
-{% block full_bg %}
-  <div class="full_bg full_bg--lg" style="
-      background-image: url('{{project.featured_image.url}}');
-    ">
-{% endblock %}
-
 {% block content %}
 {% include "donations/includes/project-top.jinja" %}
 
@@ -68,4 +62,9 @@
     {% endif %}
   </div>
 </form>
+{% endblock %}
+
+{% from "donations/includes/project-top.jinja" import map_js with context %}
+{% block custom_js %}
+{{ map_js(COUNTRY_CODE_MAP[project.country.code]) }}
 {% endblock %}

@@ -15,8 +15,8 @@
 
   <div class="showcase--neutral">
     <div class="showcase showcase--col3_centered u-clearfix">
+      <p class="t-bold">{{project.title}}</p>
       <section class="showcase--col3_centered__col">
-        <p class="t-bold">{{project.title}}</p>
         {% if project.volunteerpicture %}
           <div class="mask mask--oval u-h_center--block">
             <img class="mask__content"
@@ -29,6 +29,13 @@
         </span>
       </section>
       <section class="showcase--col3_centered__col">
+        <div class="mask mask--oval mask--bordered u-h_center--block map">
+          <object class="mask__content js-worldMap"
+                  id="js-worldMap"
+                  type="image/svg+xml"
+                  data="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
+          </object>
+        </div>
       </section>
       <section class="showcase--col3_centered__col">
         {% set funded_percent = project.account.percent_funded() %}
@@ -49,3 +56,53 @@
     </div>
   </div>
 </article>
+
+{% macro map_js(country_code) %}
+  var map,
+      selectedCountry,
+      selectedCountryCode = '',
+      selectedCountryCoords = {};
+
+  map = document.getElementById('js-worldMap')
+    .contentDocument
+    .querySelectorAll('svg')[0];
+
+  {# TODO map 3 letter codes to 2 letter codes #}
+  selectedCountryCode = '{{country_code.lower()|escapejs}}';
+  hightLightCountry(selectedCountryCode);
+
+  selectedCountry = map.getElementById(selectedCountryCode);
+  selectedCountryCoords = selectedCountry.getBBox();
+  setMapViewBox(selectedCountryCoords, map);
+
+  function hightLightCountry(countryCode) {
+    var countryPaths = [],
+        path = {},
+        i, ilen;
+
+    countryPaths = map.querySelectorAll('.' + countryCode);
+    for (i = 0, ilen = countryPaths.length; i < ilen; i++) {
+      path = countryPaths[i];
+      if (path.classList) {
+        path.classList.add('world_map-is_selected');
+      } else {
+        el.className += ' ' + 'world_map-is_selected';
+      }
+    }
+  }
+
+  function setMapViewBox(coords, map) {
+    // TODO scaling factor is arbituary, have to check how well it works for
+    // all countries.
+    var factor = 80;
+    coords.x = parseFloat(coords.x, 10) - factor;
+    coords.y = parseFloat(coords.y, 10) - factor;
+    coords.width = parseFloat(coords.width, 10) + factor;
+    coords.height = parseFloat(coords.height, 10) + factor;
+    map.setAttribute('viewBox',
+      coords.x + ' ' +
+      coords.y + ' ' +
+      coords.width + ' ' +
+      coords.height)
+  }
+{% endmacro %}
