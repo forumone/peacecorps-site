@@ -2,6 +2,7 @@
  * Mask
  */
 
+@import "globals";
 @import "util";
 
 .mask {
@@ -21,4 +22,8 @@
 
 .mask--oval {
   border-radius: 50%;
+}
+
+.mask--bordered {
+  border: 3px solid $neutral_dark;
 }
