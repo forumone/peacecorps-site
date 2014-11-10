@@ -6,7 +6,6 @@ from .form import (
     StrictAdminPasswordChangeForm, StrictUserCreationForm)
 
 
-# Register your models here.
 class StrictUserAdmin(UserAdmin):
     add_form = StrictUserCreationForm
     change_password_form = StrictAdminPasswordChangeForm

@@ -175,7 +175,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_passwordsuccess(self):
-        """ Check to ensure the password, when proper, is successful."""
+        """ Check to ensure the password, when proper, is successful. Verify
+        that the password expiration field gets updated"""
         form_data = {
             'password1': '2$n5[]$nnA5Y}2}}^gba',
             'password2': '2$n5[]$nnA5Y}2}}^gba'

@@ -87,10 +87,9 @@ if apps.is_installed('paygov'):
     urlpatterns += patterns(
         '', url(r'^callback/', include('paygov.urls', namespace='paygov')))
 
-if apps.is_installed('django.contrib.admin'):
-    from django.contrib import admin
+if apps.is_installed('contenteditor'):
     urlpatterns += patterns(
-        '', url(r'^admin/', include(admin.site.urls)))
+        '', url(r'^admin/', include('contenteditor.urls')))
 
 if apps.is_installed('tinymce'):
     urlpatterns += patterns(
