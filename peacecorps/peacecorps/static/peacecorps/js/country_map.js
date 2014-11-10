@@ -26,7 +26,8 @@ var PC = PC || {};
    * to it.
    */
   PC.CountryMap.prototype.init = function() {
-    var selectedCountry = this.map.getElementById(this.selectedCountryCode);
+    var selectedCountry = this.map.querySelectorAll(
+      '.' + this.selectedCountryCode)[0];
     if (!selectedCountry) {
       // TODO handle error condition.
       return;
@@ -88,16 +89,15 @@ var PC = PC || {};
   document.getElementById('js-worldMap').addEventListener('load',
       function(){
     var elMap,
+        svg,
         countryMap,
         selectedCountryCode = '';
 
-    elMap = document.getElementById('js-worldMap')
-      .contentDocument
-      .querySelectorAll('svg')[0];
+    elMap = document.getElementById('js-worldMap');
+    svg = elMap.contentDocument.querySelectorAll('svg')[0];
     selectedCountryCode = elMap.getAttribute('data-country');
-    selectedCountryCode = 'br';
 
-    countryMap = new PC.CountryMap(elMap, selectedCountryCode);
+    countryMap = new PC.CountryMap(svg, selectedCountryCode);
     countryMap.init();
   });
 })();

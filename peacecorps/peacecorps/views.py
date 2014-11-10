@@ -6,7 +6,6 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView
 
-from .countries import COUNTRY_CODE_MAP
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, FeaturedCampaign, FeaturedProjectFrontPage,
