@@ -63,7 +63,7 @@ class DonationsTests(TestCase):
 
         response = self.client.post(
             '/donations/contribute/?amount=2000&project=' + self.account.code,
-            form_data)
+            form_data, HTTP_HOST='example.com')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('agency_tracking_id' in content)
@@ -76,6 +76,9 @@ class DonationsTests(TestCase):
         #   Refetch the account so we can lookup its donorinfo
         account = Account.objects.get(pk=self.account.pk)
         self.assertEqual(1, len(account.donorinfos.all()))
+        #   Also verify that the http host has been added
+        donorinfo = account.donorinfos.get()
+        self.assertTrue('://example.com' in donorinfo.xml)
 
     def test_humanize_amount(self):
         """ The humanize_amount function converts an amount in cents into
