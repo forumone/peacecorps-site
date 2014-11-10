@@ -325,7 +325,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1em; }
 
 .t-heading--white {
-  color: #fff; }
+  color: #ffffff; }
 
 .t-heading--secondary {
   color: #05888C; }
@@ -439,10 +439,10 @@ h2 {
 
 .button--primary {
   background-color: #A12122;
-  color: #fff; }
+  color: #ffffff; }
 
 .button--secondary {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #C94112; }
 
 /*
@@ -499,7 +499,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1em; }
 
 .t-heading--white {
-  color: #fff; }
+  color: #ffffff; }
 
 .t-heading--secondary {
   color: #05888C; }
@@ -632,8 +632,8 @@ body {
       border-width: 0.5em; } }
 
 .bordered--white {
-  background-color: #fff;
-  border-color: #fff; }
+  background-color: #ffffff;
+  border-color: #ffffff; }
 
 /*
  * Bubble. Creates a round bubble with content in it.
@@ -656,7 +656,7 @@ body {
  * Z-Index
  */
 .bubble {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50%;
   display: block;
   height: 0;
@@ -835,7 +835,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1em; }
 
 .t-heading--white {
-  color: #fff; }
+  color: #ffffff; }
 
 .t-heading--secondary {
   color: #05888C; }
@@ -1149,7 +1149,7 @@ body:before {
       font-weight: 300;
       text-decoration: none;
       text-transform: uppercase;
-      color: #fff; }
+      color: #ffffff; }
 
 /*
  * Full background image
@@ -1321,6 +1321,21 @@ body:before {
  * Mask
  */
 /*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+/*
  * Contains all sass utilities such as floats, clears, etc.
  */
 /* Neat 1.7.0
@@ -1434,6 +1449,9 @@ body:before {
 
 .mask--oval {
   border-radius: 50%; }
+
+.mask--bordered {
+  border: 3px solid #E5E1D4; }
 
 /*
  * Radial progress.
@@ -1667,7 +1685,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1em; }
 
 .t-heading--white {
-  color: #fff; }
+  color: #ffffff; }
 
 .t-heading--secondary {
   color: #05888C; }
