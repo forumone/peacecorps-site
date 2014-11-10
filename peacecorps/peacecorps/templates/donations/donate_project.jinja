@@ -64,7 +64,8 @@
 </form>
 {% endblock %}
 
-{% from "donations/includes/project-top.jinja" import map_js with context %}
 {% block custom_js %}
-{{ map_js(COUNTRY_CODE_MAP[project.country.code]) }}
+<script type="text/javascript" src="{{ static("peacecorps/js/country_map.js")
+    }}"></script>
 {% endblock %}
+

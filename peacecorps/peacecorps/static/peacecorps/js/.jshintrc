@@ -1,0 +1,11 @@
+{
+  "debug": true,
+  "forin": false,
+  "indent": 2,
+  "plusplus": false,
+  "quotmark": true,
+  "sub": true,
+  "undef": false,
+  "unused": true,
+  "validthis": true
+}

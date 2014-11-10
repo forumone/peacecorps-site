@@ -145,7 +145,6 @@ def donate_project(request, slug):
         request,
         'donations/donate_project.jinja',
         {
-            'COUNTRY_CODE_MAP': COUNTRY_CODE_MAP,
             'project': project,
             'top_form': top_form,
             'bottom_form': bottom_form,

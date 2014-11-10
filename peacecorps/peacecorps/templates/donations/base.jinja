@@ -44,13 +44,7 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </div>
-<script type="text/javascript">
-  {# TODO JS should all be in its own file, for better organization, testing and
-     debugging. #}
-  window.onload=function() {
-    {% block custom_js %}{% endblock %}
-  };
-</script>
+{% block custom_js %}{% endblock %}
 
 </body>
 </html>
