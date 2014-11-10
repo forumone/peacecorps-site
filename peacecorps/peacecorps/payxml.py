@@ -68,9 +68,10 @@ def generate_collection_request(data):
     SubElement(interactive, 'allow_account_data_change', {'value': 'True'})
 
     collection_auth = SubElement(interactive, 'collection_auth')
-    collection_fields = [
-        'agency_tracking_id', 'agency_memo', 'form_id', 'payment_amount']
+    collection_fields = ['agency_tracking_id', 'agency_memo', 'form_id']
     add_subelements(collection_auth, data, collection_fields)
+    SubElement(collection_auth, 'payment_amount',
+               {'value': "%.2f" % (data['payment_amount'] / 100.0)})
 
     account_data = SubElement(collection_auth, 'account_data')
     account_fields = [

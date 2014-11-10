@@ -28,7 +28,7 @@ class PayXMLGenerationTests(TestCase):
             'agency_tracking_id': 'PCIOCI1234',
             'agency_memo': '()(5555555)',
             'form_id': 'DONORFORM',
-            'payment_amount': '20.00',
+            'payment_amount': 2000,
             'payment_type': 'CreditCard',
             'payer_name': 'William Williams',
             'billing_address': '1 Main St',
