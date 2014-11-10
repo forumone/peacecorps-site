@@ -68,9 +68,10 @@ def generate_collection_request(data):
     SubElement(interactive, 'allow_account_data_change', {'value': 'True'})
 
     collection_auth = SubElement(interactive, 'collection_auth')
-    collection_fields = [
-        'agency_tracking_id', 'agency_memo', 'form_id', 'payment_amount']
+    collection_fields = ['agency_tracking_id', 'agency_memo', 'form_id']
     add_subelements(collection_auth, data, collection_fields)
+    SubElement(collection_auth, 'payment_amount',
+               {'value': "%.2f" % (data['payment_amount'] / 100.0)})
 
     account_data = SubElement(collection_auth, 'account_data')
     account_fields = [
@@ -139,7 +140,7 @@ def redirect_urls(account):
                             kwargs={'slug': campaign.slug}))
 
 
-def convert_to_paygov(data, account):
+def convert_to_paygov(data, account, callback_base):
     """Convert the form data into a pay.gov model (including appropriate XML)
     and return."""
     data = dict(data)   # shallow copy
@@ -147,7 +148,8 @@ def convert_to_paygov(data, account):
     data['agency_tracking_id'] = tracking_id
     data['agency_memo'] = generate_agency_memo(data)
     data['form_id'] = settings.PAY_GOV_FORM_ID
-    data['success_url'], data['failure_url'] = redirect_urls(account)
+    data['success_url'], data['failure_url'] = (
+        callback_base + url for url in redirect_urls(account))
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
     return DonorInfo(agency_tracking_id=tracking_id, account=account,

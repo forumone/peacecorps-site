@@ -57,7 +57,8 @@ def donation_payment(request):
 def donation_payment_review(request, data, account):
     """Save the payment information for future access; provide the user with a
     form that sends them over to pay.gov"""
-    paygov = convert_to_paygov(data, account)
+    callback_base = request.scheme + "://" + request.get_host()
+    paygov = convert_to_paygov(data, account, callback_base)
     paygov.save()
 
     return render(
