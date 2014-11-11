@@ -102,6 +102,10 @@ h2 {
   @include t-heading_md;
 }
 
+.t-lg_margins {
+  margin: 2.5em 0;
+}
+
 .t--no_bm {
   margin-bottom: 0;
 }
@@ -109,9 +113,10 @@ h2 {
 .t-body {
   color: $primary;
   font-family: "museo-sans",sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: normal;
   font-weight: 100;
+  line-height: 1.5em;
 }
 .t-bold {
   font-weight: 600;

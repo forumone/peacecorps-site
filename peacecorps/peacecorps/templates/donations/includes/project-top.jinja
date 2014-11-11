@@ -13,47 +13,57 @@
     </section>
   </section>
 
-  <div class="showcase--neutral">
-    <div class="showcase showcase--col3_centered u-clearfix">
-      <p class="t-bold">{{project.title}}</p>
-      <section class="showcase--col3_centered__col">
-        {% if project.volunteerpicture %}
-          <div class="mask mask--oval u-h_center--block">
-            <img class="mask__content"
-                 src="{{project.volunteerpicture.url}}"
-                 alt="{{project.volunteerpicture.description}}">
+  <div class="showcase--main showcase--neutral">
+    <div class="showcase--col3_centered bm u-clearfix">
+      <header class="t-lg_margins">
+        <p>Project</p>
+        <p class="t-bold">{{project.title}}</p>
+      </header>
+      <div>
+        <section class="showcase showcase--col3_centered__col">
+          {% if project.volunteerpicture %}
+            <div class="mask mask--oval u-h_center--block">
+              <img class="mask__content"
+                   src="{{project.volunteerpicture.url}}"
+                   alt="{{project.volunteerpicture.description}}">
+            </div>
+          {% endif %}
+          <span><strong>{{project.volunteername}}</strong><br>
+            volunteer from <strong>{{project.volunteerhomestate}}</strong>
+          </span>
+        </section>
+        <section class="showcase showcase--col3_centered__col">
+          <div class="mask mask--oval mask--bordered u-h_center--block map">
+            <object data-country="{{project.country.code}}"
+                    class="mask__content js-worldMap"
+                    id="js-worldMap"
+                    type="image/svg+xml"
+                    data="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
+            </object>
           </div>
-        {% endif %}
-        <span><strong>{{project.volunteername}}</strong><br>
-          volunteer from <strong>{{project.volunteerhomestate}}</strong>
-        </span>
-      </section>
-      <section class="showcase--col3_centered__col">
-        <div class="mask mask--oval mask--bordered u-h_center--block map">
-          <object data-country="{{project.country.code}}"
-                  class="mask__content js-worldMap"
-                  id="js-worldMap"
-                  type="image/svg+xml"
-                  data="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
-          </object>
-        </div>
-      </section>
-      <section class="showcase--col3_centered__col">
-        {% set funded_percent = project.account.percent_funded() %}
-        <div class="funded-chart">
-          <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">
-            &nbsp;
-          </div>
+            <span>in <strong>{{project.country.name}}</strong></span>
+        </section>
+        <section class="showcase--col3_centered__col">
+          {% set funded_percent = project.account.percent_funded() %}
+          <div class="funded-chart">
+            <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">
+              &nbsp;
+            </div>
 
-          <div class="radial_progress">
-          </div>
+            <div class="radial_progress">
+            </div>
 
-          <p class="funded-amount-text">
-            {{ funded_percent|round|int }}% funded
-          </p>
-        </div>
-        <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
-      </section>
+            <p class="funded-amount-text">
+              {{ funded_percent|round|int }}% funded
+            </p>
+          </div>
+          <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
+        </section>
+      </div>
+    </div>
+    <div class="showcase showcase--main">
+      <a href="" {# TODO where does this link go? #}
+         class="button button--primary">Help fund {{project.title}}</a>
     </div>
   </div>
 </article>

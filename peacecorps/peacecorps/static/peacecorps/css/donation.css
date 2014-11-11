@@ -384,15 +384,19 @@ h2 {
     .t-heading_md {
       font-size: 1em; } }
 
+.t-lg_margins {
+  margin: 2.5em 0; }
+
 .t--no_bm {
   margin-bottom: 0; }
 
 .t-body, p, span {
   color: #A12122;
   font-family: "museo-sans",sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: normal;
-  font-weight: 100; }
+  font-weight: 100;
+  line-height: 1.5em; }
 
 .t-bold {
   font-weight: 600; }
@@ -558,15 +562,19 @@ h2 {
     .t-heading_md {
       font-size: 1em; } }
 
+.t-lg_margins {
+  margin: 2.5em 0; }
+
 .t--no_bm {
   margin-bottom: 0; }
 
 .t-body, p, span {
   color: #A12122;
   font-family: "museo-sans",sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: normal;
-  font-weight: 100; }
+  font-weight: 100;
+  line-height: 1.5em; }
 
 .t-bold {
   font-weight: 600; }
@@ -894,15 +902,19 @@ h2 {
     .t-heading_md {
       font-size: 1em; } }
 
+.t-lg_margins {
+  margin: 2.5em 0; }
+
 .t--no_bm {
   margin-bottom: 0; }
 
 .t-body, p, span {
   color: #A12122;
   font-family: "museo-sans",sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: normal;
-  font-weight: 100; }
+  font-weight: 100;
+  line-height: 1.5em; }
 
 .t-bold {
   font-weight: 600; }
@@ -1744,15 +1756,19 @@ h2 {
     .t-heading_md {
       font-size: 1em; } }
 
+.t-lg_margins {
+  margin: 2.5em 0; }
+
 .t--no_bm {
   margin-bottom: 0; }
 
 .t-body, p, span {
   color: #A12122;
   font-family: "museo-sans",sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   font-style: normal;
-  font-weight: 100; }
+  font-weight: 100;
+  line-height: 1.5em; }
 
 .t-bold {
   font-weight: 600; }
@@ -1952,6 +1968,35 @@ body:before {
       .showcase_inset--lg:last-child {
         margin-right: 0; } }
 
+.showcase_inset--md {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .showcase_inset--md:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0; }
+  .showcase_inset--md:last-child {
+    margin-right: 0; }
+
+.showcase_inset--sm {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%; }
+  .showcase_inset--sm:last-child {
+    margin-right: 0; }
+  .showcase_inset--sm:nth-child(1n) {
+    margin-right: 0; }
+  .showcase_inset--sm:nth-child(1n+1) {
+    clear: left; }
+
 .showcase--neutral {
   background-color: #F2EFE8; }
 
@@ -2006,7 +2051,9 @@ body:before {
   margin-right: 2.35765%;
   width: 74.41059%;
   float: none;
-  margin: 0 auto !important; }
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: auto; }
   .showcase--col3_centered:last-child {
     margin-right: 0; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
@@ -2054,6 +2101,18 @@ body:before {
         width: 31.22104%; }
         .showcase--col3_centered .showcase--col3_centered__col:last-child {
           margin-right: 0; } }
+
+.showcase--col2_centered {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  float: none;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: auto; }
+  .showcase--col2_centered:last-child {
+    margin-right: 0; }
 
 /*
  * Contains all sass utilities such as floats, clears, etc.
