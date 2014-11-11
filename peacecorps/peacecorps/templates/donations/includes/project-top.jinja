@@ -15,8 +15,8 @@
 
   <div class="showcase--neutral">
     <div class="showcase showcase--col3_centered u-clearfix">
+      <p class="t-bold">{{project.title}}</p>
       <section class="showcase--col3_centered__col">
-        <p class="t-bold">{{project.title}}</p>
         {% if project.volunteerpicture %}
           <div class="mask mask--oval u-h_center--block">
             <img class="mask__content"
@@ -29,6 +29,14 @@
         </span>
       </section>
       <section class="showcase--col3_centered__col">
+        <div class="mask mask--oval mask--bordered u-h_center--block map">
+          <object data-country="{{project.country.code}}"
+                  class="mask__content js-worldMap"
+                  id="js-worldMap"
+                  type="image/svg+xml"
+                  data="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
+          </object>
+        </div>
       </section>
       <section class="showcase--col3_centered__col">
         {% set funded_percent = project.account.percent_funded() %}

@@ -1,0 +1,36 @@
+/*
+ * World svg map styling
+ *
+ * These class names all come from the wikipedia SVG map file. While they are
+ * techincally editable, it would require a lot of editing.
+ */
+
+@import "globals";
+
+.world_map {
+
+  .world_map-is_selected {
+    fill: $primary_support !important;
+  }
+
+  .landxx {
+    fill: $neutral_medium;
+    stroke: $white;
+    stroke-width: 5px;
+    fill-rule:evenodd;
+  }
+  .coastxx {
+     fill: $neutral_medium;
+     stroke: $white;
+     stroke-width: 2px;
+     fill-rule:evenodd;
+  }
+  .oceanxx {
+     opacity: 1;
+     color: #ccc;
+     fill: $white;
+     stroke: $white;
+     stroke-width:0.5;
+     stroke-miterlimit:1;
+  }
+}
