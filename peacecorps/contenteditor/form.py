@@ -3,6 +3,8 @@ from django.contrib.auth.forms import (
     UserCreationForm, AdminPasswordChangeForm)
 from django.utils.translation import ugettext_lazy as _
 
+from contenteditor import models
+
 
 # Password length requirements
 def password_validator(password):
@@ -74,3 +76,9 @@ class StrictAdminPasswordChangeForm(AdminPasswordChangeForm):
             raise forms.ValidationError('\n'.join(errors))
         else:
             return password
+
+    def save(self):
+        user = super(StrictAdminPasswordChangeForm, self).save()
+        user.extra.password_expires = models.expires()
+        user.extra.save()
+        return user

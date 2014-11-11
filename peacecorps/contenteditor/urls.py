@@ -9,7 +9,6 @@ from django.utils import timezone
 def _wrap(callback):
     """Wrap an url callback with a test for password expiration"""
     def inner(request, *args, **kwargs):
-        print(request.user.extra.password_expires)
         if (request.path in settings.PASSWORD_EXPIRATION_WHITELIST
                 or (not request.user.is_authenticated())    # deferring
                 or (request.user.extra.password_expires > timezone.now())):

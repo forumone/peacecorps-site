@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.utils import timezone
 
 from contenteditor.admin import (
     StrictUserCreationForm, StrictAdminPasswordChangeForm)
@@ -177,6 +178,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
     def test_passwordsuccess(self):
         """ Check to ensure the password, when proper, is successful. Verify
         that the password expiration field gets updated"""
+        old_time = timezone.now()
+        self.u.extra.password_expires = old_time
         form_data = {
             'password1': '2$n5[]$nnA5Y}2}}^gba',
             'password2': '2$n5[]$nnA5Y}2}}^gba'
@@ -184,6 +187,10 @@ class StrictAdminPasswordChangeFormTest(TestCase):
         form = StrictAdminPasswordChangeForm(
             data=form_data, user=User.objects.get(username='testuser'))
         self.assertTrue(form.is_valid())
+        form.save()
+        new_time = User.objects.get(
+            username=self.u.username).extra.password_expires
+        self.assertTrue(new_time > old_time)
 
     def test_new_password(self):
         """ Password must be different than the current """
