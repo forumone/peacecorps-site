@@ -90,7 +90,5 @@ PASSWORD_EXPIRE_AFTER = 60   # days
 PASSWORD_EXPIRATION_WHITELIST = [
     '/admin/login/',
     '/admin/logout/',
-    '/admin/password_change/',
-    '/admin/password_change/done/',
     '/admin/jsi18n/'
 ]

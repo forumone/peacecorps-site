@@ -1,5 +1,5 @@
 from django.apps import apps
-from django.core.urlresolvers import RegexURLPattern, RegexURLResolver, reverse
+from django.core.urlresolvers import RegexURLPattern, RegexURLResolver
 from django.conf import settings
 from django.conf.urls import patterns, url
 from django.http import HttpResponseRedirect
@@ -11,10 +11,16 @@ def _wrap(callback):
     def inner(request, *args, **kwargs):
         if (request.path in settings.PASSWORD_EXPIRATION_WHITELIST
                 or (not request.user.is_authenticated())    # deferring
+                or (request.path ==
+                    '/admin/auth/user/%d/password/' % request.user.id)
                 or (request.user.extra.password_expires > timezone.now())):
             return callback(request, *args, **kwargs)
         else:   # Password expired and not in whitelist
-            return HttpResponseRedirect(reverse('admin:password_change'))
+            # @todo: it makes more sense to not hard-code this, but we need to
+            # change password validation first
+            return HttpResponseRedirect(
+                '/admin/auth/user/%d/password/' % request.user.id)
+            # return HttpResponseRedirect(reverse('admin:password_change'))
     return inner
 
 
