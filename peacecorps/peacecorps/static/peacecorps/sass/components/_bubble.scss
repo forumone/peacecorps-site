@@ -33,7 +33,7 @@
   text-align: center;
   top: 45%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 96%;
 
   @include media($sm) {
     padding-top: 20%;
@@ -42,4 +42,60 @@
 
 .bubble--neutral_dark {
   background-color: $neutral_dark;
+}
+
+.bubble--primary {
+  background-color: $primary;
+  color: $white;
+
+  .bubble__content {
+    color: $white;
+  }
+}
+
+.bubble--white {
+  background-color: $white;
+  outline-color: $primary;
+  color: $primary;
+}
+
+.bubble--bordered {
+  outline-style: solid;
+  outline-width: .25em
+}
+
+.bubble--square {
+  border-radius: 0;
+}
+
+.bubble--rectangle {
+  padding-bottom: 51%;
+
+  @include media($sm) {
+    padding-bottom: 67%;
+  }
+}
+
+// TODO hack
+.bubble_form {
+  input[type=number]:not(old) {
+    @extend .bubble__content;
+    border: none;
+    border-bottom-width: .15em;
+    border-bottom-style: solid;
+    color: $primary;
+    background: none;
+    left: 58%;
+    margin-top: 0;
+    padding-top: .1em;
+    font-size: 1.2em;
+    width: 70%;
+  }
+  input[type=radio]:not(old):checked {
+    border-color: $white;
+  }
+
+  input[type=radio]:not(old):checked + .bubble {
+    @extend .bubble--primary;
+  }
 }

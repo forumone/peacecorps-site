@@ -7,65 +7,64 @@
 {% block content %}
 {% include "donations/includes/project-top.jinja" %}
 
-<div class="showcase_inset--sm">
+<article class="showcase_inset--sm">
   {{project.description|safe}}
-</div>
+</article>
 
 <div class="u-clearfix"></div>
 
-<div class="showcase--main">
-  <form method="post">
-    {% csrf_token %}
-    <div class="radio-container">
-      {{top_form.payment_amount.errors}}
-      {% for radio in top_form.presets %}
-        {% if radio.choice_value != 'preset-all' or not project.account.funded() %}
-          <div>
-            {{ radio.tag() }}
-            {% if radio.choice_value == 'custom' %}
-              {{ top_form.payment_amount }}
+<div class="showcase--main showcase--neutral">
+  <div class="showcase_inset--lg">
+    <h5 class="t-heading_sm">give to {{project.title}}</h5>
+    <form method="post" class="bubble_form form_hide--radio">
+      {% csrf_token %}
+      <fieldset>
+        <legend class="t-heading_md">Choose an amount to give</legend>
+        {{top_form.payment_amount.errors}}
+        {% for radio in top_form.presets %}
+          {% set preset_all = (radio.choice_value == 'preset-all') %}
+          {% if not preset_all or not project.account.funded() %}
+            {% if radio.choice_value == 'preset-all' %}
+            <div class="showcase--line_25">
             {% else %}
-              <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
+            <div class="showcase--line_16">
             {% endif %}
-          </div>
+              {{ radio.tag() }}
+              {% if radio.choice_value == 'custom' %}
+                <label class="bubble bubble--white bubble--bordered bubble--square"
+                    for="{{radio.id_for_label}}" >
+                  <span class="bubble__content" style="left: 10%">
+                    <strong>$</strong>
+                  </span>
+                  {{ top_form.payment_amount }}
+                </label>
+              {% else %}
+                <label
+                    class="bubble
+                    bubble--white
+                    bubble--bordered
+                    {% if preset_all %}bubble--rectangle{% endif %}
+                    bubble--square"
+                    for="{{radio.id_for_label}}">
+                  <span class="bubble__content "><strong>
+                      {% if not preset_all %}${% endif %}
+                    {{radio.choice_label}}
+                  </strong></span>
+                </label>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </fieldset>
+      <a href="javascript: submitform()" class="button button--primary">
+        {% if project.account.funded() %}
+          Donate to Help Similar Projects
+        {% else %}
+          Donate
         {% endif %}
-      {% endfor %}
-    </div>
-    <div class="button-container">
-      {% if project.account.funded() %}
-        <input type="submit" value="Donate to Help Similar Projects" />
-      {% else %}
-        <input type="submit" value="Donate" />
-      {% endif %}
-    </div>
-  </form>
-
-
-  <form method="post">
-    {% csrf_token %}
-    <div class="radio-container">
-      {{bottom_form.payment_amount.errors}}
-      {% for radio in bottom_form.presets %}
-        {% if radio.choice_value != 'preset-all' or not project.account.funded() %}
-          <div>
-            {{ radio.tag() }}
-            {% if radio.choice_value == 'custom' %}
-              {{ bottom_form.payment_amount }}
-            {% else %}
-              <label for="{{radio.id_for_label}}">{{radio.choice_label}}</label>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div class="button-container">
-      {% if project.account.funded() %}
-        <input type="submit" value="Donate to Help Similar Projects" />
-      {% else %}
-        <input type="submit" value="Donate" />
-      {% endif %}
-    </div>
-  </form>
+      </a>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

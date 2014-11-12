@@ -397,6 +397,10 @@ h2 {
   font-style: normal;
   font-weight: 100;
   line-height: 1.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .t-body, p, span {
+      font-size: 1em;
+      line-height: 1.4em; } }
 
 .t-bold {
   font-weight: 600; }
@@ -458,6 +462,9 @@ html, body {
 
 figure {
   margin: 0; }
+
+fieldset {
+  border-width: 0; }
 
 /*
  * Type styles.
@@ -575,6 +582,10 @@ h2 {
   font-style: normal;
   font-weight: 100;
   line-height: 1.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .t-body, p, span {
+      font-size: 1em;
+      line-height: 1.4em; } }
 
 .t-bold {
   font-weight: 600; }
@@ -677,7 +688,7 @@ body {
       padding-bottom: 90%;
       width: 90%; } }
 
-.bubble__content {
+.bubble__content, .bubble_form input[type=number]:not(old) {
   float: left;
   left: 50%;
   line-height: 1;
@@ -687,13 +698,57 @@ body {
   text-align: center;
   top: 45%;
   transform: translate(-50%, -50%);
-  width: 100%; }
+  width: 96%; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
-    .bubble__content {
+    .bubble__content, .bubble_form input[type=number]:not(old) {
       padding-top: 20%; } }
 
 .bubble--neutral_dark {
   background-color: #E5E1D4; }
+
+.bubble--primary, .bubble_form input[type=radio]:not(old):checked + .bubble {
+  background-color: #A12122;
+  color: #ffffff; }
+  .bubble--primary .bubble__content, .bubble_form input[type=radio]:not(old):checked + .bubble .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old), .bubble_form input[type=radio]:not(old):checked + .bubble input[type=number]:not(old) {
+    color: #ffffff; }
+
+.bubble--white {
+  background-color: #ffffff;
+  outline-color: #A12122;
+  color: #A12122; }
+
+.bubble--bordered {
+  outline-style: solid;
+  outline-width: 0.25em; }
+
+.bubble--square {
+  border-radius: 0; }
+
+.bubble--rectangle {
+  padding-bottom: 51%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .bubble--rectangle {
+      padding-bottom: 67%; } }
+
+.bubble_form input[type=number]:not(old) {
+  border: none;
+  border-bottom-width: .15em;
+  border-bottom-style: solid;
+  color: #A12122;
+  background: none;
+  left: 58%;
+  margin-top: 0;
+  padding-top: .1em;
+  font-size: 1.2em;
+  width: 70%; }
+.bubble_form input[type=radio]:not(old):checked {
+  border-color: #ffffff; }
+
+/*
+ * Forms.
+ */
+.form_hide--radio input[type=radio]:not(old) {
+  display: none; }
 
 /*
  * Inline text module
@@ -915,6 +970,10 @@ h2 {
   font-style: normal;
   font-weight: 100;
   line-height: 1.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .t-body, p, span {
+      font-size: 1em;
+      line-height: 1.4em; } }
 
 .t-bold {
   font-weight: 600; }
@@ -1769,6 +1828,10 @@ h2 {
   font-style: normal;
   font-weight: 100;
   line-height: 1.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .t-body, p, span {
+      font-size: 1em;
+      line-height: 1.4em; } }
 
 .t-bold {
   font-weight: 600; }
@@ -1996,6 +2059,27 @@ body:before {
     margin-right: 0; }
   .showcase_inset--sm:nth-child(1n+1) {
     clear: left; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .showcase_inset--sm {
+      margin-left: 8.5298%;
+      float: left;
+      display: block;
+      margin-right: 3.16844%;
+      width: 77.07368%;
+      margin-right: 0; }
+      .showcase_inset--sm:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .showcase_inset--sm {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0;
+      padding: 0 1em; }
+      .showcase_inset--sm:last-child {
+        margin-right: 0; } }
 
 .showcase--neutral {
   background-color: #F2EFE8; }
@@ -2113,6 +2197,22 @@ body:before {
   overflow: auto; }
   .showcase--col2_centered:last-child {
     margin-right: 0; }
+
+.showcase--line_16 {
+  display: inline-block;
+  margin-bottom: 1em;
+  width: 16%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .showcase--line_16 {
+      width: 26%; } }
+
+.showcase--line_25 {
+  display: inline-block;
+  margin-bottom: 1em;
+  width: 25%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .showcase--line_25 {
+      width: 35%; } }
 
 /*
  * Contains all sass utilities such as floats, clears, etc.
