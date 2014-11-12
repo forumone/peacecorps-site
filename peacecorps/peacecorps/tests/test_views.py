@@ -246,3 +246,16 @@ class DonatePagesTests(TestCase):
         response = self.client.get(
             reverse('campaign failure', kwargs={'slug': 'education'}))
         self.assertEqual(response.status_code, 200)
+
+    def test_post_redirect(self):
+        """All POSTs to the project/campaign success/failure pages should get
+        redirected to the same page as a GET"""
+        for proj_camp, slug in (('project', 'local-ultrasound-machine'),
+                                ('campaign', 'education')):
+            for succ_fail in ('success', 'failure'):
+                url = reverse(proj_camp + ' ' + succ_fail,
+                              kwargs={'slug': slug})
+                response = self.client.post(
+                    url, data={'agency_tracking_id': 'NEVERUSED'})
+                self.assertEqual(response.status_code, 302)
+                self.assertTrue(url in response['LOCATION'])

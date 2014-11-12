@@ -224,6 +224,12 @@ class ProjectReturn(DetailView):
         'account', 'country', 'featured_image', 'overflow',
         'volunteerpicture')
 
+    def post(self, request, *args, **kwargs):
+        return HttpResponseRedirect(request.path)
+
 
 class CampaignReturn(DetailView):
     queryset = Campaign.objects.select_related('account', 'featured_image')
+
+    def post(self, request, *args, **kwargs):
+        return HttpResponseRedirect(request.path)
