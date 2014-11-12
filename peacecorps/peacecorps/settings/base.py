@@ -83,3 +83,12 @@ GNUPG_HOME = ''     # Directory containing keys. If empty, GPG will not be used
 GPG_RECIPIENTS = {
     'peacecorps.DonorInfo.xml': '00000000'
 }
+
+# Password expire after a set number of days
+PASSWORD_EXPIRE_AFTER = 60   # days
+# Admin paths which can be accessed even when the password has expired
+PASSWORD_EXPIRATION_WHITELIST = [
+    '/admin/login/',
+    '/admin/logout/',
+    '/admin/jsi18n/'
+]
