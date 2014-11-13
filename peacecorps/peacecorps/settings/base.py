@@ -94,4 +94,3 @@ PASSWORD_EXPIRATION_WHITELIST = [
 ]
 
 AUTHENTICATION_BACKENDS = ('contenteditor.backends.EditorBackend',)
-#AUTH_USER_MODEL = 'contenteditor.Editor'
