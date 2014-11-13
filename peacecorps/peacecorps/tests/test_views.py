@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse
-from django.test import TestCase
+from django.test import Client, TestCase
 
 from peacecorps.models import Account, Country, Media, Project
 from peacecorps.views import humanize_amount
@@ -255,7 +255,9 @@ class DonatePagesTests(TestCase):
             for succ_fail in ('success', 'failure'):
                 url = reverse(proj_camp + ' ' + succ_fail,
                               kwargs={'slug': slug})
-                response = self.client.post(
-                    url, data={'agency_tracking_id': 'NEVERUSED'})
-                self.assertEqual(response.status_code, 302)
-                self.assertTrue(url in response['LOCATION'])
+                for enforce_csrf_checks in (False, True):
+                    client = Client(enforce_csrf_checks=enforce_csrf_checks)
+                    response = client.post(
+                        url, data={'agency_tracking_id': 'NEVERUSED'})
+                    self.assertEqual(response.status_code, 302)
+                    self.assertTrue(url in response['LOCATION'])

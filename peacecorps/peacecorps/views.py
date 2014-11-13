@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView
+from django.views.decorators.csrf import csrf_exempt
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
@@ -227,9 +228,17 @@ class ProjectReturn(DetailView):
     def post(self, request, *args, **kwargs):
         return HttpResponseRedirect(request.path)
 
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(ProjectReturn, self).dispatch(*args, **kwargs)
+
 
 class CampaignReturn(DetailView):
     queryset = Campaign.objects.select_related('account', 'featured_image')
 
     def post(self, request, *args, **kwargs):
         return HttpResponseRedirect(request.path)
+
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(CampaignReturn, self).dispatch(*args, **kwargs)
