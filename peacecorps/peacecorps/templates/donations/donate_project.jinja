@@ -56,13 +56,13 @@
           {% endif %}
         {% endfor %}
       </fieldset>
-      <a href="javascript: submitform()" class="button button--primary">
+      <button class="button button--primary">
         {% if project.account.funded() %}
           Donate to Help Similar Projects
         {% else %}
           Donate
         {% endif %}
-      </a>
+      </button>
     </form>
   </div>
 </div>
