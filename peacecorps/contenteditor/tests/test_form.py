@@ -2,8 +2,9 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.utils import timezone
 
-from contenteditor.admin import (
-    StrictUserCreationForm, StrictAdminPasswordChangeForm)
+from contenteditor.forms import (
+    StrictAdminPasswordChangeForm, StrictPasswordChangeForm,
+    StrictUserCreationForm)
 
 
 class StrictUserCreationTest(TestCase):
@@ -88,7 +89,7 @@ class StrictUserCreationTest(TestCase):
         self.assertTrue(form.is_valid())
 
 
-class StrictAdminPasswordChangeFormTest(TestCase):
+class AbstractPasswordChange(object):
     def setUp(self):
         username = 'testuser'
         pwd = 'q*A9x=^2hg&v7u?u9tg?u'
@@ -106,67 +107,58 @@ class StrictAdminPasswordChangeFormTest(TestCase):
     def tearDown(self):
         self.u.delete()
 
+    def form_data(self, password1, password2=None):
+        """Generate fields for the password form submission. We're generally
+        testing password constraints, so include a shorthand for duplicating
+        password1"""
+        form_data = {'old_password': self.pwd}
+        if password2 is None:
+            password2 = password1
+        form_data[self.password_field + '1'] = password1
+        form_data[self.password_field + '2'] = password2
+        return form_data
+
     def test_blank(self):
         """ Check to ensure the password cannot be blank."""
-        form_data = {
-            'password1': '',
-            'password2': ''
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_match(self):
         """ Check to ensure the passwords match."""
-        form_data = {
-            'password1': 'r*A9x=^2hg&v7u?u9tg?u',
-            'password2': 'A=r7-%=K?K@B^!9Q8=C+'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('r*A9x=^2hg&v7u?u9tg?u',
+                                   'A=r7-%=K?K@B^!9Q8=C+')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_uppercase(self):
         """ Check to ensure the password contains an uppercase letter."""
-        form_data = {
-            'password1': 'q*9x=^2hg&v7u?u9tg?u',
-            'password2': 'q*9x=^2hg&v7u?u9tg?u'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('q*9x=^2hg&v7u?u9tg?u')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_lowercase(self):
         """ Check to ensure the password contains a lowercase letter."""
-        form_data = {
-            'password1': 'A=R7-%=K?K@B^!9Q8=C+',
-            'password2': 'A=R7-%=K?K@B^!9Q8=C+'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('A=R7-%=K?K@B^!9Q8=C+')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_number(self):
         """ Check to ensure the password contains a number."""
-        form_data = {
-            'password1': 'CDr=cpz&Z&a!cuP-nAQe',
-            'password2': 'CDr=cpz&Z&a!cuP-nAQe'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('CDr=cpz&Z&a!cuP-nAQe')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_specialchar(self):
         """ Check to ensure the password contains a special character."""
-        form_data = {
-            'password1': 'vNzwXpzKJyTshvHsuULn',
-            'password2': 'vNzwXpzKJyTshvHsuULn'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('vNzwXpzKJyTshvHsuULn')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_length(self):
         """ Check to ensure the password is 20 characters long."""
-        form_data = {
-            'password1': 'c897B$eH@',
-            'password2': 'c897B$eH@'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('c897B$eH@')
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
 
     def test_passwordsuccess(self):
@@ -174,11 +166,8 @@ class StrictAdminPasswordChangeFormTest(TestCase):
         that the password expiration field gets updated"""
         old_time = timezone.now()
         self.u.extra.password_expires = old_time
-        form_data = {
-            'password1': '2$n5[]$nnA5Y}2}}^gba',
-            'password2': '2$n5[]$nnA5Y}2}}^gba'
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data('2$n5[]$nnA5Y}2}}^gba')
+        form = self.form(data=form_data, user=self.u)
         self.assertTrue(form.is_valid())
         form.save()
         new_time = User.objects.get(
@@ -187,9 +176,16 @@ class StrictAdminPasswordChangeFormTest(TestCase):
 
     def test_new_password(self):
         """ Password must be different than the current """
-        form_data = {
-            'password1': self.pwd,
-            'password2': self.pwd
-        }
-        form = StrictAdminPasswordChangeForm(data=form_data, user=self.u)
+        form_data = self.form_data(self.pwd)
+        form = self.form(data=form_data, user=self.u)
         self.assertFalse(form.is_valid())
+
+
+class StrictAdminPasswordChangeFormTest(AbstractPasswordChange, TestCase):
+    password_field = 'password'
+    form = StrictAdminPasswordChangeForm
+
+
+class StrictPasswordChangeFormTest(AbstractPasswordChange, TestCase):
+    password_field = 'new_password'
+    form = StrictPasswordChangeForm

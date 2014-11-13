@@ -41,3 +41,30 @@ class ExpirationTests(TestCase):
                          password=self.user.username)
             resp = client.get('/admin/')
             self.assertEqual(resp.status_code, 200)
+
+
+class PasswordChangeTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user('joe', password='joe')
+        self.user.is_staff = True
+        self.user.save()
+
+    def tearDown(self):
+        self.user.delete()
+
+    def test_extra_checks(self):
+        """Verify that the password change page checks our extra
+        requirements"""
+        client = Client()
+        client.login(username=self.user.username, password=self.user.username)
+        resp = client.post('/admin/password_change/',
+                           data={'old_password': self.user.username,
+                                 'new_password1': 'q*9x=^2hg&v7u?u9tg?u',
+                                 'new_password2': 'q*9x=^2hg&v7u?u9tg?u'})
+        self.assertContains(resp, 'errorlist')
+        # Add an uppercase letter
+        resp = client.post('/admin/password_change/',
+                           data={'old_password': self.user.username,
+                                 'new_password1': 'q*9x=^2Hg&v7u?u9tg?u',
+                                 'new_password2': 'q*9x=^2Hg&v7u?u9tg?u'})
+        self.assertEqual(resp.status_code, 302)
