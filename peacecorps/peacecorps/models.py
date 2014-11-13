@@ -58,7 +58,10 @@ class Account(models.Model):
             return self.current
 
     def percent_funded(self):
-        return percentfunded(self.total(), self.goal)
+        if self.goal:
+            return percentfunded(self.total(), self.goal)
+        else:
+            return ''
 
     def funded(self):
         if self.goal and self.total() >= self.goal:

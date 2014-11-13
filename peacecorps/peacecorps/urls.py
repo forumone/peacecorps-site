@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from peacecorps import views
+from peacecorps import api
 
 _slug = r'(?P<slug>[a-zA-Z0-9_-]+)'
 
@@ -75,7 +76,8 @@ urlpatterns = patterns(
         name='donation success'),
     url(r'^failure/?$',
         TemplateView.as_view(template_name='donations/failure.jinja'),
-        name='donation failure')
+        name='donation failure'),
+    url(r'^api/accountpercent$', api.GetAccountPercent.as_view()),
 )
 
 
