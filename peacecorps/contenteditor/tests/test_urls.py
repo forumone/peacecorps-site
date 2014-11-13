@@ -27,8 +27,7 @@ class ExpirationTests(TestCase):
         client.login(username=self.user.username, password=self.user.username)
         resp = client.get('/admin/')
         self.assertEqual(resp.status_code, 302)
-        url = '/admin/auth/user/%d/password/' % self.user.id
-        self.assertTrue(url in resp['LOCATION'])
+        self.assertTrue('/admin/password_change/' in resp['LOCATION'])
 
     def test_access_whitelist(self):
         """If a password has expired, certain pages in a whitelist are still
