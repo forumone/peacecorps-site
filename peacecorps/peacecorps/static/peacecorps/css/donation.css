@@ -405,6 +405,9 @@ h2 {
 .t-bold {
   font-weight: 600; }
 
+button {
+  cursor: pointer; }
+
 .button {
   -webkit-user-select: none;
   -moz-user-select: none;

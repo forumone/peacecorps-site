@@ -7,6 +7,10 @@
 @import "globals";
 @import "base/type";
 
+button {
+  cursor: pointer;
+}
+
 .button {
   @include user-select(none);
   @include t-heading_md;
