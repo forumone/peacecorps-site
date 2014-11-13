@@ -1,0 +1,46 @@
+/*
+ * Rectangular progress bar
+ */
+@import "globals";
+@import "util";
+
+.rectangular_progress {
+  height: 10em;
+  margin: 0 auto;
+  position: relative;
+  text-align: left;
+  width: 100%;
+
+  .rectangular_progress__bar {
+    background-color: $neutral_dark;
+    height: 2em;
+    width: 100%;
+  }
+  .rectangular_progress__filled {
+    background-color: $primary;
+    height: 100%;
+  }
+
+  .rectangular_progress__point {
+    display: inline-block;
+    margin: 0;
+    max-width: 30%;
+    position: relative;
+    text-align: center;
+  }
+  .rectangular_progress__line {
+    background-color: $neutral_dark;
+    display: block;
+    margin: 0 auto .0625em auto;
+    height: .7em;
+    width: .11em;
+  }
+}
+
+.rectangular_progress--secondary {
+  color: $secondary;
+
+  .rectangular_progress__filled {
+    background-color: $secondary;
+  }
+}

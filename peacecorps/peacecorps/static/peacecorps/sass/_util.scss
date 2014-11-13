@@ -59,3 +59,13 @@
 .u-h_center--block {
   margin: 0 auto;
 }
+
+.u-v_center--block {
+  position: relative;
+
+  .u-v_center--block__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
