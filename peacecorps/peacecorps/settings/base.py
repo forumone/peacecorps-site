@@ -92,3 +92,6 @@ PASSWORD_EXPIRATION_WHITELIST = [
     '/admin/logout/',
     '/admin/jsi18n/'
 ]
+
+AUTHENTICATION_BACKENDS = ('contenteditor.backends.EditorBackend',)
+#AUTH_USER_MODEL = 'contenteditor.Editor'
