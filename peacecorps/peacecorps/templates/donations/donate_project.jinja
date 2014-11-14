@@ -31,7 +31,7 @@
       <span style="left: {{percent_community}}%;"
           class="rectangular_progress__line">
       </span>
-      <span class="rectangular_progress__point" style="right: 0%;">
+      <span class="rectangular_progress__point" style="left: 100%;">
         <strong>
           ${{ "{:,}".format(project.account.goal) }}
         </strong><br>
@@ -51,7 +51,7 @@
       </span>
       <span class="rectangular_progress__point
                    rectangular_progress__point--bottom"
-          style="left: {{percent_completed - 5.35}}%;">
+          style="left: {{percent_completed}}%;">
         total raised<br>
         <strong>
           ${{ "{:,}".format(project.account.current) }}
