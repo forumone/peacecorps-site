@@ -41,26 +41,26 @@ def create_account_pcpp(row):
     """This is a new project. Create the associated account information and
     generate an empty Project"""
     try:
-        country = Country.objects.get(name__iexact=row['LOCATION'])
+        country = Country.objects.get(name__iexact=row['COUNTY_NAME'])
         issue = find_issue(row['SECTOR'])
+        goal = cents_from(row['PROJ_REQUEST'])
+        balance = cents_from(row['PROJ_BAL'])
         account = Account.objects.create(
-            name=row['PROJ_NAME1'], code=row['PROJ_NO'],
-            current=cents_from(row['REVENUE']),
-            goal=cents_from(row['BURDENED_COST']),
-            community_contribution=cents_from(row['OVERS_PART']),
-            category=Account.PROJECT)
+            name=row['PROJ_NAME'], code=row['PROJ_CODE'],
+            current=(goal - balance), goal=goal, category=Account.PROJECT,
+            community_contribution=cents_from(row['COMM_CONTRIB']))
         volunteername = row['PCV_NAME']
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
         project = Project.objects.create(
-            title=row['PROJ_NAME1'], country=country, account=account,
+            title=row['PROJ_NAME'], country=country, account=account,
             overflow=issue.account, volunteername=volunteername,
-            volunteerhomestate=row['STATE']
+            volunteerhomestate=row['STATE'], description=row['SUMMARY']
         )
         project.campaigns.add(issue)
     except ObjectDoesNotExist:
         logging.warning("Either country or issue does not exist: %s, %s",
-                        row['LOCATION'], row['SECTOR'])
+                        row['COUNTY_NAME'], row['SECTOR'])
 
 
 def update_account(row, account):
@@ -80,11 +80,11 @@ class Command(BaseCommand):
         if len(args) == 0:
             raise CommandError("Missing path to csv")
 
-        with open(args[0]) as csvfile:
+        with open(args[0], encoding='iso-8859-1') as csvfile:
             # Column names will no doubt change
             for row in csv.DictReader(csvfile):
                 account = Account.objects.filter(
-                    code=row['PROJ_NO']).first()
+                    code=row['PROJ_CODE']).first()
                 if account:
                     update_account(row, account)
                 else:

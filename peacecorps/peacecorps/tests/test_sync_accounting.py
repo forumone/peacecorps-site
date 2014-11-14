@@ -57,10 +57,10 @@ class SyncAccountingTests(TestCase):
     def test_create_account_pcpp(self):
         """Use fake data to generate a new account and pcpp"""
         row = {
-            'PROJ_NO': '098-765', 'LOCATION': 'CHINA',
-            'PROJ_NAME1': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
-            'STATE': 'IN', 'OVERS_PART': '1234.56', 'BURDENED_COST': '3,434',
-            'REVENUE': '1,111', 'SECTOR': 'IT'}
+            'PROJ_CODE': '098-765', 'COUNTY_NAME': 'CHINA',
+            'PROJ_NAME': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'COMM_CONTRIB': '1234.56', 'PROJ_REQUEST': '3,434',
+            'PROJ_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
         create_account_pcpp(row)
         project = Project.objects.get(title='New Project Effort')
         self.assertEqual(project.account.code, '098-765')
@@ -69,9 +69,10 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(project.volunteerhomestate, 'IN')
         self.assertEqual(project.account.community_contribution, 123456)
         self.assertEqual(project.account.goal, 343400)
-        self.assertEqual(project.account.current, 111100)
+        self.assertEqual(project.account.current, (343400 - 111100))
         self.assertEqual(project.overflow.name, 'Information Technology')
         self.assertEqual(project.campaigns.all()[0].name, 'Technology')
+        self.assertEqual(project.description, 'sum sum sum')
         self.assertFalse(project.published)
 
     @patch('peacecorps.management.commands.sync_accounting.update_account')
@@ -79,13 +80,14 @@ class SyncAccountingTests(TestCase):
            + 'create_account_pcpp')
     def test_command(self, create, update):
         """Verify CSV reading and that the update/create are called"""
-        filedata = "PROJ_NO,OTHER_FIELD,LAST_UPDATED_FROM_PAYGOV,REVENUE\n"
+        filedata = "PROJ_CODE,OTHER_FIELD,LAST_UPDATED_FROM_PAYGOV,REVENUE\n"
         filedata += '123-456,Some Content,2009-12-14 15:16:17,"1,234"\n'
         filedata += "nonexist,Not Here,2009-12-14 15:16:17,1.23\n"
-        filedata += "111-222,Other Content,2009-12-14 15:16:17,1.23\n"
+        filedata += "111-222,Other Co¿ntent,2009-12-14 15:16:17,1.23\n"
+        # Note the non-utf character ^
         csv_file_handle, csv_path = tempfile.mkstemp()
-        with open(csv_file_handle, 'w') as csv_file:
-            csv_file.write(filedata)
+        with open(csv_file_handle, 'wb') as csv_file:
+            csv_file.write(filedata.encode('iso-8859-1'))
 
         account456 = Account.objects.create(name='account1', code='123-456')
         account222 = Account.objects.create(name='account2', code='111-222')
