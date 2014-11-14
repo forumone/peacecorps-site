@@ -60,6 +60,10 @@ class Account(models.Model):
     def percent_funded(self):
         return percentfunded(self.total(), self.goal)
 
+    def percent_community_funded(self):
+        return percentfunded(self.community_contribution,
+                self.goal + self.community_contribution)
+
     def funded(self):
         if self.goal and self.total() >= self.goal:
             return True

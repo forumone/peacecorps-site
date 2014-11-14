@@ -149,6 +149,7 @@ def donate_project(request, slug):
             'project': project,
             'top_form': top_form,
             'bottom_form': bottom_form,
+            'humanize_amount': humanize_amount,
         })
 
 

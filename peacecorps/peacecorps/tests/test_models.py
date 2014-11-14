@@ -41,6 +41,13 @@ class AccountTest(TestCase):
 
         self.assertEqual(326, acc1.total())
 
+    def test_community_funded(self):
+        account = models.Account()
+        account.community_contribution = 80
+        account.goal = 80
+        self.assertEqual(50, account.percent_community_funded())
+        account.community_contribution = 100
+        self.assertEqual(55.56, account.percent_community_funded())
 
 class ProjectTests(TestCase):
     fixtures = ['countries.yaml']

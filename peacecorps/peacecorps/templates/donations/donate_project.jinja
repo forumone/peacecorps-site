@@ -16,24 +16,21 @@
 <div class="showcase--main showcase--neutral">
   <div class="showcase_inset--lg bm3">
     <h5 class="t-heading_sm">give to {{project.title}}</h5>
-    {% set percent_completed = project.account.current / project.account.goal *100
-    %}
-    {% set percent_community = project.account.community_contribution / project.account.goal * 100
-    %}
+    {% set percent_completed = project.account.percent_funded() %}
     <div class="rectangular_progress rectangular_progress--secondary">
       <span class="rectangular_progress__point"
-            style="left:{{percent_community}}%;">
+          style="left:{{project.account.percent_community_funded()}}%;">
         community constributions<br>
         <strong>
-          ${{ "{:,}".format(project.account.community_contribution) }}
+          {{humanize_amount(project.account.community_contribution)}}
         </strong>
       </span>
-      <span style="left: {{percent_community}}%;"
+      <span style="left: {{project.account.percent_community_funded()}}%;"
           class="rectangular_progress__line">
       </span>
       <span class="rectangular_progress__point" style="left: 100%;">
         <strong>
-          ${{ "{:,}".format(project.account.goal) }}
+          {{humanize_amount(project.account.goal)}}
         </strong><br>
         goal to reach
       </span>
@@ -54,7 +51,7 @@
           style="left: {{percent_completed}}%;">
         total raised<br>
         <strong>
-          ${{ "{:,}".format(project.account.current) }}
+          {{humanize_amount(project.account.current)}}
         </strong>
       </span>
     </div>
