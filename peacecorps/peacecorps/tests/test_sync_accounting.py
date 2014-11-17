@@ -99,6 +99,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(project.overflow.name, 'Information Technology')
         self.assertEqual(project.campaigns.all()[0].name, 'Technology')
         self.assertEqual(project.description, 'sum sum sum')
+        self.assertEqual(project.slug, 'new-project-effort')
         self.assertFalse(project.published)
         project.delete()
         account.delete()
@@ -146,6 +147,22 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(campaign.description, 'Some Sum')
         self.assertEqual(campaign.slug, 'argentina-fund')
         account.delete()    # cascades
+
+    @patch('peacecorps.management.commands.sync_accounting.Campaign')
+    def test_create_account_double(self, Campaign):
+        """If an account with the same name already exists, create a distinct
+        name based on project code"""
+        row = {'PROJ_NAME': 'Peru Fund', 'PROJ_CODE': '777-CFD',
+               'SUMMARY': 'Some Sum'}
+        sync.create_account(row, None)
+        row['PROJ_CODE'] = '778-CFD'
+        sync.create_account(row, None)
+        account = Account.objects.get(code='777-CFD')
+        self.assertEqual(account.name, 'Peru Fund')
+        account.delete()
+        account = Account.objects.get(code='778-CFD')
+        self.assertEqual(account.name, 'Peru Fund (778-CFD)')
+        account.delete()
 
     def test_create_account_sector(self):
         """The creation of sectors creates a sector map, too"""

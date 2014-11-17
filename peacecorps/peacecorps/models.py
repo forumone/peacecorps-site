@@ -242,6 +242,17 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        """Set slug, but make sure it is distinct"""
+        if not self.slug:
+            self.slug = slugify(self.title)
+            existing = Project.objects.filter(
+                # has some false positives, but almost no false negatives
+                slug__startswith=self.slug).order_by('-pk').first()
+            if existing:
+                self.slug = self.slug + str(existing.pk)
+        super(Project, self).save(*args, **kwargs)
+
 
 def default_expire_time():
     return timezone.now() + timedelta(minutes=settings.DONOR_EXPIRE_AFTER)

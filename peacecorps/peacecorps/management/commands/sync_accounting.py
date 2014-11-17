@@ -52,14 +52,16 @@ def create_account(row, issue_map):
     """This is a new project/campaign. Determine the account type and create
     the appropriate project, country fund, etc."""
     acc_type = account_type(row)
-    account = Account(
-        name=row['PROJ_NAME'], code=row['PROJ_CODE'], category=acc_type)
+    name = row['PROJ_NAME']
+    if Account.objects.filter(name=name).first():
+        name = name + ' (' + row['PROJ_CODE'] + ')'
+    account = Account(name=name, code=row['PROJ_CODE'], category=acc_type)
     if acc_type == Account.PROJECT:
         create_pcpp(account, row, issue_map)
     else:   # Campaign
         account.save()
         campaign = Campaign.objects.create(
-            name=row['PROJ_NAME'], account=account, campaigntype=acc_type,
+            name=name, account=account, campaigntype=acc_type,
             description=row['SUMMARY'])
         if acc_type == Account.SECTOR:
             # Make sure we remember the sector this is marked as
