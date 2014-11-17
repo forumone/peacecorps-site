@@ -2,8 +2,9 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.db import models
-from django.utils import timezone
 from django.db.models import Sum
+from django.utils import timezone
+from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
 from tinymce import models as tinymce_models
 
@@ -123,7 +124,19 @@ class Campaign(models.Model):
     def __str__(self):
         return self.name
 
-    # TODO: slugify in admin, override save to preserve unique on general?
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Campaign, self).save(*args, **kwargs)
+
+
+class SectorMapping(models.Model):
+    """When importing data from the accounting software, a 'sector' field
+    indicates how individual projects should be categorized. The text used in
+    this field does not directly match anything we store, however, so we use a
+    mapping object, which is populated on data import."""
+    accounting_name = models.CharField(max_length=50, primary_key=True)
+    campaign = models.ForeignKey(Campaign)
 
 
 class Country(models.Model):

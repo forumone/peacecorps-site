@@ -1,12 +1,13 @@
 import csv
 from datetime import datetime
 import logging
+import re
 
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
 
-from peacecorps.models import Campaign, Country, Account, Project
+from peacecorps.models import (
+    Account, Campaign, Country, Project, SectorMapping)
 
 
 def datetime_from(text):
@@ -26,29 +27,57 @@ def cents_from(text):
     return int(round(dollars * 100))
 
 
-def find_issue(sector_name):
-    """Map sector names to their appropriate issue; text is not always an
-    exact match"""
-    name_mismatch = {
-        'Health and HIV/AIDS': 'Health', 'IT': 'Technology',
-        'Water and Sanitation': 'Drinking Water and Sanitation',
-        'Youth Development': 'Youth'}
-    campaign_name = name_mismatch.get(sector_name, sector_name)
-    return Campaign.objects.filter(name=campaign_name).first()
+class IssueCache(object):
+    """Keeps track of all known issues, so that we do not need to hit the
+    database with each request."""
+
+    def __init__(self):
+        self.issues = {m.accounting_name: m.campaign
+                       for m in SectorMapping.objects.all()}
+
+    def find(self, sector_name):
+        if sector_name not in self.issues:
+            # may have been added
+            mapping = SectorMapping.objects.filter(pk=sector_name).first()
+            if mapping:
+                self.issues[mapping.accounting_name] = mapping.campaign
+        return self.issues.get(sector_name)
 
 
-def create_account_pcpp(row):
-    """This is a new project. Create the associated account information and
-    generate an empty Project"""
-    try:
-        country = Country.objects.get(name__iexact=row['COUNTY_NAME'])
-        issue = find_issue(row['SECTOR'])
+def create_account(row, issue_map):
+    """This is a new project/campaign. Determine the account type and create
+    the appropriate project, country fund, etc."""
+    acc_type = account_type(row)
+    account = Account(
+        name=row['PROJ_NAME'], code=row['PROJ_CODE'], category=acc_type)
+    if acc_type == Account.PROJECT:
+        create_pcpp(account, row, issue_map)
+    else:   # Campaign
+        account.save()
+        campaign = Campaign.objects.create(
+            name=row['PROJ_NAME'], account=account, campaigntype=acc_type,
+            description=row['SUMMARY'])
+        if acc_type == Account.SECTOR:
+            # Make sure we remember the sector this is marked as
+            SectorMapping.objects.create(pk=row['SECTOR'], campaign=campaign)
+
+
+def create_pcpp(account, row, issue_map):
+    """Create and save a project (and account). This is a bit more complex for
+    projects, which have foal amounts, etc."""
+    country = Country.objects.filter(name__iexact=row['COUNTRY_NAME']).first()
+    issue = issue_map.find(row['SECTOR'])
+    if not country or not issue:
+        logging.warning("Either country or issue does not exist: %s, %s",
+                        row['COUNTRY_NAME'], row['SECTOR'])
+    else:
         goal = cents_from(row['PROJ_REQUEST'])
         balance = cents_from(row['PROJ_BAL'])
-        account = Account.objects.create(
-            name=row['PROJ_NAME'], code=row['PROJ_CODE'],
-            current=(goal - balance), goal=goal, category=Account.PROJECT,
-            community_contribution=cents_from(row['COMM_CONTRIB']))
+        account.current = goal - balance
+        account.goal = goal
+        account.community_contribution = cents_from(row['COMM_CONTRIB'])
+        account.save()
+
         volunteername = row['PCV_NAME']
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
@@ -58,9 +87,6 @@ def create_account_pcpp(row):
             volunteerhomestate=row['STATE'], description=row['SUMMARY']
         )
         project.campaigns.add(issue)
-    except ObjectDoesNotExist:
-        logging.warning("Either country or issue does not exist: %s, %s",
-                        row['COUNTY_NAME'], row['SECTOR'])
 
 
 def update_account(row, account):
@@ -69,6 +95,25 @@ def update_account(row, account):
     account.donations.filter(time__lte=updated_at).delete()
     account.current = cents_from(row['REVENUE'])
     account.save()
+
+
+def account_type(row):
+    """Derive whether this account is a project, country fund, etc. by
+    heuristics on the project code, sector, and other fields"""
+    if row['PROJ_CODE'].endswith('-CFD') or (
+            row['SECTOR'] == 'None' and row['PROJ_REQUEST'] == '0'
+            and row['PCV_NAME'] == row['COUNTRY_NAME'] + ' COUNTRY FUND'):
+        return Account.COUNTRY
+    if (row['PROJ_CODE'].startswith('SPF-')
+            and 'MEMORIAL' in row['PROJ_NAME'].upper()):
+        return Account.MEMORIAL
+    if row['PROJ_CODE'].startswith('SPF-') and (
+            row['COUNTRY_NAME'] == 'D/OSP/GGM'
+            or row['PROJ_NAME'].upper() == row['PCV_NAME'].upper()):
+        return Account.SECTOR
+    if re.match(r'[\d-]+', row['PROJ_CODE']) or row['COMM_CONTRIB']:
+        return Account.PROJECT
+    return Account.OTHER
 
 
 class Command(BaseCommand):
@@ -80,6 +125,8 @@ class Command(BaseCommand):
         if len(args) == 0:
             raise CommandError("Missing path to csv")
 
+        issue_map = IssueCache()
+
         with open(args[0], encoding='iso-8859-1') as csvfile:
             # Column names will no doubt change
             for row in csv.DictReader(csvfile):
@@ -88,4 +135,4 @@ class Command(BaseCommand):
                 if account:
                     update_account(row, account)
                 else:
-                    create_account_pcpp(row, account)
+                    create_account(row, issue_map)
