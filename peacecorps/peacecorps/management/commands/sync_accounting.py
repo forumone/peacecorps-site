@@ -14,8 +14,12 @@ def datetime_from(text):
     """Convert a string representation of a datetime into a UTC datetime
     object."""
     # This format will no doubt change
-    return timezone.make_aware(datetime.strptime(text, "%Y-%m-%d %H:%M:%S"),
-                               timezone.get_current_timezone())
+    try:
+        time = datetime.strptime(text, "%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        # Try a different format. @todo: remove once data's cleaned
+        time = datetime.strptime(text, "%d-%b-%y")
+    return timezone.make_aware(time, timezone.get_current_timezone())
 
 
 def cents_from(text):
@@ -65,7 +69,8 @@ def create_account(row, issue_map):
 def create_pcpp(account, row, issue_map):
     """Create and save a project (and account). This is a bit more complex for
     projects, which have foal amounts, etc."""
-    country = Country.objects.filter(name__iexact=row['COUNTRY_NAME']).first()
+    country_name = row['COUNTRY_NAME']
+    country = Country.objects.filter(name__iexact=country_name).first()
     issue = issue_map.find(row['SECTOR'])
     if not country or not issue:
         logging.warning("Either country or issue does not exist: %s, %s",
@@ -75,7 +80,7 @@ def create_pcpp(account, row, issue_map):
         balance = cents_from(row['PROJ_BAL'])
         account.current = goal - balance
         account.goal = goal
-        account.community_contribution = cents_from(row['COMM_CONTRIB'])
+        account.community_contribution = cents_from(row['COMM_CONTRIB'] or '0')
         account.save()
 
         volunteername = row['PCV_NAME']
@@ -91,10 +96,14 @@ def create_pcpp(account, row, issue_map):
 
 def update_account(row, account):
     """If an account already exists, synchronize the transactions and amount"""
-    updated_at = datetime_from(row['LAST_UPDATED_FROM_PAYGOV'])
-    account.donations.filter(time__lte=updated_at).delete()
-    account.current = cents_from(row['REVENUE'])
-    account.save()
+    if row['LAST_UPDATED_FROM_PAYGOV']:
+        updated_at = datetime_from(row['LAST_UPDATED_FROM_PAYGOV'])
+        account.donations.filter(time__lte=updated_at).delete()
+    if account.category == Account.PROJECT:
+        goal = cents_from(row['PROJ_REQUEST'])
+        balance = cents_from(row['PROJ_BAL'])
+        account.current = goal - balance
+        account.save()
 
 
 def account_type(row):

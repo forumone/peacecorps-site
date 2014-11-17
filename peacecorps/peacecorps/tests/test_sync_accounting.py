@@ -22,6 +22,15 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(45, dt.minute)
         self.assertEqual(1, dt.second)
 
+        #   @todo remove this test once the data is cleaned up
+        dt = sync.datetime_from('9-Oct-12')
+        self.assertEqual(2012, dt.year)
+        self.assertEqual(10, dt.month)
+        self.assertEqual(9, dt.day)
+        self.assertEqual(0, dt.hour)
+        self.assertEqual(0, dt.minute)
+        self.assertEqual(0, dt.second)
+
     def test_cents_from(self):
         self.assertEqual(123456789, sync.cents_from('1,234,567.89'))
         self.assertEqual(12300, sync.cents_from('123'))
@@ -30,7 +39,8 @@ class SyncAccountingTests(TestCase):
     def test_update_account(self):
         """Use fake data to verify that amount fields are updated and old
         transactions are deleted"""
-        acc222 = Account.objects.create(name='Account222', code='111-222')
+        acc222 = Account.objects.create(
+            name='Account222', code='111-222', category=Account.PROJECT)
 
         tz = timezone.get_current_timezone()
         before_donation = Donation.objects.create(account=acc222, amount=5432)
@@ -42,8 +52,20 @@ class SyncAccountingTests(TestCase):
             datetime(2009, 12, 14, 16), tz)
         after_donation.save()
 
+        # First test with an empty LAST_UPDATED value
+        row = {'LAST_UPDATED_FROM_PAYGOV': '', 'PROJ_REQUEST': '444',
+               'PROJ_BAL': '110.7'}
+        sync.update_account(row, acc222)
+        # All donations should remain
+        self.assertNotEqual(
+            None, Donation.objects.filter(pk=before_donation.pk).first())
+        self.assertNotEqual(
+            None, Donation.objects.filter(pk=after_donation.pk).first())
+        # amount donated to should be updated
+        self.assertEqual(33330, Account.objects.get(pk=acc222.pk).current)
+
         row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14 15:16:17',
-               'REVENUE': '1,234.23'}
+               'PROJ_REQUEST': '5,555.55', 'PROJ_BAL': '4,321.32'}
         sync.update_account(row, acc222)
         # before_donation should be deleted, but after_donation not
         self.assertEqual(
@@ -80,6 +102,24 @@ class SyncAccountingTests(TestCase):
         self.assertFalse(project.published)
         project.delete()
         account.delete()
+
+    def test_create_pcpp_empty(self):
+        """Community contribution might be empty"""
+        account = Account(name='New Project Effort', code='098-765',
+                          category=Account.PROJECT)
+        row = {
+            'PROJ_CODE': '098-765', 'COUNTRY_NAME': 'CHINA',
+            'PROJ_NAME': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'COMM_CONTRIB': '', 'PROJ_REQUEST': '3,434',
+            'PROJ_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
+        issue_cache = Mock()
+        issue_cache.find.return_value = Campaign.objects.get(name='Technology')
+        sync.create_pcpp(account, row, issue_cache)
+        project = Project.objects.get(title='New Project Effort')
+        self.assertEqual(project.account.community_contribution, 0)
+        self.assertEqual(project.account.goal, 343400)
+        self.assertEqual(project.account.current, (343400 - 111100))
+        account.delete()    # cascades
 
     @patch('peacecorps.management.commands.sync_accounting.create_pcpp')
     def test_create_account_project(self, create):
