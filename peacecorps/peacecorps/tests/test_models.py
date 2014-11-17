@@ -35,9 +35,9 @@ class AccountTest(TestCase):
 
         acc1 = models.Account.objects.create(
             name='Account1', code='112-358', current=150)
-        donation1 = makedonation(acc1, 75)
-        donation2 = makedonation(acc1, 100)
-        donation3 = makedonation(acc1, 1)
+        makedonation(acc1, 75)
+        makedonation(acc1, 100)
+        makedonation(acc1, 1)
 
         self.assertEqual(326, acc1.total())
 
@@ -80,3 +80,17 @@ class ProjectTests(TestCase):
 
         proj.delete()
         account.delete()
+
+    def test_slug_collision(self):
+        """Project slug should be derived from title, yet unique"""
+        account1 = models.Account.objects.create(name='Acc', code='ACC')
+        account2 = models.Account.objects.create(name='Acc2', code='ACC2')
+        country = models.Country.objects.get(name='Mexico')
+        proj1 = models.Project.objects.create(
+            title='Project', country=country, account=account1)
+        proj2 = models.Project.objects.create(
+            title='Project', country=country, account=account2)
+        self.assertEqual(proj1.slug, 'project')
+        self.assertEqual(proj2.slug, 'project1')
+        account1.delete()
+        account2.delete()
