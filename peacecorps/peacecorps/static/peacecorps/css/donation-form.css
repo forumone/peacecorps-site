@@ -1,104 +1,93 @@
-/*
-Syntax error: Invalid CSS after "      webkit-image": expected ")", was ": -webkit- + $p..."
-        on line 21 of sass/bourbon/helpers/_linear-angle-parser.scss
-        from line 10 of sass/bourbon/_bourbon.scss
-        from line 1 of sass/donation-form.scss
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-16: 
-17:   @if $offset {
-18:     $num: _str-to-num($first-val);
-19: 
-20:     @return (
-21:       webkit-image: -webkit- + $prefix + ($offset - $num) + $suffix,
-22:       spec-image: $image
-23:     );
-24:   }
-25: }
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
-Backtrace:
-sass/bourbon/helpers/_linear-angle-parser.scss:21
-sass/bourbon/_bourbon.scss:10
-sass/donation-form.scss:1
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1148:in `expected'
-/usr/lib/ruby/vendor_ruby/sass/script/lexer.rb:199:in `expected!'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:476:in `assert_tok'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:426:in `paren'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:411:in `special_fun'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:406:in `raw'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:330:in `funcall'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:319:in `ident'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:228:in `unary_not'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:228:in `unary_div'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:228:in `unary_minus'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:228:in `unary_plus'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `times_div_or_mod'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `plus_or_minus'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `relational'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `eq_or_neq'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `and_expr'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:209:in `or_expr'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:298:in `space'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:283:in `interpolation'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:246:in `expr'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:470:in `assert_expr'
-/usr/lib/ruby/vendor_ruby/sass/script/parser.rb:49:in `parse'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1021:in `sass_script'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:215:in `return_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:174:in `special_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:146:in `directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:553:in `block_child'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:545:in `block_contents'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:534:in `block'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:264:in `if_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:174:in `special_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:146:in `directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:551:in `block_child'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:545:in `block_contents'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:534:in `block'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:211:in `function_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:174:in `special_directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:146:in `directive'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:552:in `block_child'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:542:in `block_contents'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:82:in `stylesheet'
-/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:27:in `parse'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:342:in `_to_tree'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:274:in `to_tree'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:225:in `visit_import'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:227:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:227:in `visit_import'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `map'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:53:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:121:in `with_environment'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:108:in `visit_children'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `block in visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:128:in `visit_root'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:37:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:100:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:7:in `visit'
-/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:20:in `render'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:315:in `_render'
-/usr/lib/ruby/vendor_ruby/sass/engine.rb:262:in `render'
-/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:362:in `update_stylesheet'
-/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:201:in `each'
-/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:235:in `watch'
-/usr/lib/ruby/vendor_ruby/sass/plugin.rb:107:in `method_missing'
-/usr/lib/ruby/vendor_ruby/sass/exec.rb:459:in `watch_or_update'
-/usr/lib/ruby/vendor_ruby/sass/exec.rb:326:in `process_result'
-/usr/lib/ruby/vendor_ruby/sass/exec.rb:41:in `parse'
-/usr/lib/ruby/vendor_ruby/sass/exec.rb:21:in `parse!'
-/usr/bin/sass:8:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"      webkit-image\": expected \")\", was \": -webkit- + $p...\"\A         on line 21 of sass/bourbon/helpers/_linear-angle-parser.scss\A         from line 10 of sass/bourbon/_bourbon.scss\A         from line 1 of sass/donation-form.scss\A \A 16: \A 17:   @if $offset {\A 18:     $num: _str-to-num($first-val);\A 19: \A 20:     @return (\A 21:       webkit-image: -webkit- + $prefix + ($offset - $num) + $suffix,\A 22:       spec-image: $image\A 23:     );\A 24:   }\A 25: }"; }
+.donate-form form {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .donate-form form:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .donate-form form > div {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .donate-form form > div:last-child {
+      margin-right: 0; }
+  .donate-form form div > label {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .donate-form form div > label:last-child {
+      margin-right: 0; }
+  .donate-form form div > .value {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%; }
+    .donate-form form div > .value:last-child {
+      margin-right: 0; }
+  .donate-form form div > .checkbox {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%; }
+    .donate-form form div > .checkbox:last-child {
+      margin-right: 0; }
+  .donate-form form .checkbox + label {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%; }
+    .donate-form form .checkbox + label:last-child {
+      margin-right: 0; }
+  .donate-form form label.required::after {
+    content: ' *'; }
+  .donate-form form .dedication_details {
+    margin-left: 8.5298%;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+    border: solid 1px #000;
+    padding: 0.5em;
+    display: none;
+    /* Initially hidden */ }
+    .donate-form form .dedication_details:last-child {
+      margin-right: 0; }
+    .donate-form form .dedication_details > div, .donate-form form .dedication_details p {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .donate-form form .dedication_details > div:last-child, .donate-form form .dedication_details p:last-child {
+        margin-right: 0; }
+    .donate-form form .dedication_details #id_dedication_consent {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 82.94039%; }
+      .donate-form form .dedication_details #id_dedication_consent:last-child {
+        margin-right: 0; }
+  .donate-form form .shown-with-organization {
+    display: none;
+    /* Initially hidden */ }
+  .donate-form form ul {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+/*# sourceMappingURL=donation-form.css.map */
