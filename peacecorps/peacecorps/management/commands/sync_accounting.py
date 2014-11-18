@@ -75,8 +75,9 @@ def create_pcpp(account, row, issue_map):
     country = Country.objects.filter(name__iexact=country_name).first()
     issue = issue_map.find(row['SECTOR'])
     if not country or not issue:
-        logging.warning("Either country or issue does not exist: %s, %s",
-                        row['COUNTRY_NAME'], row['SECTOR'])
+        logging.getLogger('peacecorps.sync_accounting').warning(
+            "Either country or issue does not exist: %s, %s",
+            row['COUNTRY_NAME'], row['SECTOR'])
     else:
         goal = cents_from(row['PROJ_REQUEST'])
         balance = cents_from(row['PROJ_BAL'])
@@ -137,6 +138,7 @@ class Command(BaseCommand):
             raise CommandError("Missing path to csv")
 
         issue_map = IssueCache()
+        logger = logging.getLogger('peacecorps.sync_accounting')
 
         with open(args[0], encoding='iso-8859-1') as csvfile:
             # Column names will no doubt change
@@ -144,6 +146,10 @@ class Command(BaseCommand):
                 account = Account.objects.filter(
                     code=row['PROJ_CODE']).first()
                 if account:
+                    logger.info(
+                        'Updating %s, new balance: %s / %s', row['PROJ_CODE'],
+                        row['PROJ_BALANCE'], row['PROJ_REQUEST'])
                     update_account(row, account)
                 else:
+                    logger.info('Creating %s', row['PROJ_CODE'])
                     create_account(row, issue_map)
