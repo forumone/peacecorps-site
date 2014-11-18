@@ -77,7 +77,7 @@ urlpatterns = patterns(
     url(r'^failure/?$',
         TemplateView.as_view(template_name='donations/failure.jinja'),
         name='donation failure'),
-    url(r'^api/accountpercent$', api.GetAccountPercent.as_view()),
+    url(r'^api/account/' + _slug + r'/?$', api.GetAccountPercent.as_view()),
 )
 
 

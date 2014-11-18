@@ -43,9 +43,8 @@
           </div>
             <span>in <strong>{{project.country.name}}</strong></span>
         </section>
-        <section class="showcase--col3_centered__col"
-                 data-project-code="{{ project.account.code }}"
-                 id="fundingbar">
+        <section class="showcase--col3_centered__col js-fundingBar"
+                 data-project-code="{{ project.account.code }}">
           {% set funded_percent = project.account.percent_funded() %}
           <div class="funded-chart">
             <div class="funded-amount-bar" style="max-width: {{funded_percent }}%;">

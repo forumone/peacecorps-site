@@ -4,7 +4,6 @@ from restless.views import Endpoint
 from peacecorps.models import Account
 
 class GetAccountPercent(Endpoint):
-    def get(self, request):
-        code = request.params.get('code')
-        percent = Account.objects.get(code=code).percent_funded()
-        return {'percent': '%s' % percent}
+    def get(self, request, slug):
+        percent = Account.objects.get(code=slug).percent_funded()
+        return {'percent': percent}
