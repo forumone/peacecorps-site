@@ -14,8 +14,7 @@
   "strict": true,
   "undef": false,
   "unused": true,
-  "validthis": true
-
+  "validthis": true,
   "boss": true,
   "browser": true,
   "globalstrict": true,
@@ -23,6 +22,7 @@
   "globals": {
     "$": true,
     "_": true,
-    "PC": true
+    "PC": true,
+    "jQuery": true
   }
 }
