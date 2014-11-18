@@ -2,8 +2,9 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.db import models
-from django.utils import timezone
 from django.db.models import Sum
+from django.utils import timezone
+from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
 from tinymce import models as tinymce_models
 
@@ -62,6 +63,12 @@ class Account(models.Model):
             return percentfunded(self.total(), self.goal)
         else:
             return 0
+        return percentfunded(self.total() + self.community_contribution,
+                             self.goal + self.community_contribution)
+
+    def percent_community_funded(self):
+        return percentfunded(self.community_contribution,
+                self.goal + self.community_contribution)
 
     def funded(self):
         if self.goal and self.total() >= self.goal:
@@ -126,7 +133,19 @@ class Campaign(models.Model):
     def __str__(self):
         return self.name
 
-    # TODO: slugify in admin, override save to preserve unique on general?
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Campaign, self).save(*args, **kwargs)
+
+
+class SectorMapping(models.Model):
+    """When importing data from the accounting software, a 'sector' field
+    indicates how individual projects should be categorized. The text used in
+    this field does not directly match anything we store, however, so we use a
+    mapping object, which is populated on data import."""
+    accounting_name = models.CharField(max_length=50, primary_key=True)
+    campaign = models.ForeignKey(Campaign)
 
 
 class Country(models.Model):
@@ -231,6 +250,17 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        """Set slug, but make sure it is distinct"""
+        if not self.slug:
+            self.slug = slugify(self.title)
+            existing = Project.objects.filter(
+                # has some false positives, but almost no false negatives
+                slug__startswith=self.slug).order_by('-pk').first()
+            if existing:
+                self.slug = self.slug + str(existing.pk)
+        super(Project, self).save(*args, **kwargs)
 
 
 def default_expire_time():

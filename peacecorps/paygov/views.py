@@ -38,7 +38,7 @@ def results(request):
         message = request.POST.get('error_message', 'Unknown error')
     elif not request.POST.get('payment_amount'):
         message = 'Missing payment_amount'
-    elif not re.match(r'^\d+\.\d{2}$', request.POST.get('payment_amount')):
+    elif not re.match(r'^\d+(\.\d*)?$', request.POST.get('payment_amount')):
         message = 'Invalid payment_amount'
     else:
         info = DonorInfo.objects.filter(

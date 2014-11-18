@@ -98,3 +98,21 @@ class ResultsTests(TestCase):
         donation = account.donations.all()[0]
         self.assertEqual(donation.amount, 12500)
         self.assertEqual(0, len(account.donorinfos.all()))
+
+    def test_other_amount_formats(self):
+        """The payment_amount format returned by pay.gov varies"""
+        self.donorinfo.delete()     # we'll make a few in the loop
+        for amount in ('125', '125.0', '125.', '125.00'):
+            self.donorinfo = DonorInfo.objects.create(
+                agency_tracking_id='TRACK', account=self.account, xml='XML')
+            successful = {'agency_tracking_id': 'TRACK',
+                          'payment_status': 'Completed',
+                          'payment_amount': amount}
+            result = self.client.post(reverse('paygov:results'),
+                                      data=successful)
+            self.assertEqual(result.content, b'response_message=OK')
+
+            # avoiding the cache
+            account = Account.objects.get(pk=self.account.pk)
+            donation = account.donations.order_by('-pk')[0]
+            self.assertEqual(donation.amount, 12500)
