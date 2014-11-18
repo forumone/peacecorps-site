@@ -59,8 +59,11 @@ class Account(models.Model):
             return self.current
 
     def percent_funded(self):
-        return percentfunded(self.total() + self.community_contribution,
+        if self.goal:
+            return percentfunded(self.total() + self.community_contribution,
                              self.goal + self.community_contribution)
+        else:
+            return 0
 
     def percent_community_funded(self):
         return percentfunded(self.community_contribution,
