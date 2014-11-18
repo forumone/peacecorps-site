@@ -91,6 +91,6 @@ class ProjectTests(TestCase):
         proj2 = models.Project.objects.create(
             title='Project', country=country, account=account2)
         self.assertEqual(proj1.slug, 'project')
-        self.assertEqual(proj2.slug, 'project1')
+        self.assertEqual(proj2.slug, 'project' + str(proj1.id))
         account1.delete()
         account2.delete()
