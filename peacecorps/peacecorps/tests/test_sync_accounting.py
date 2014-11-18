@@ -8,11 +8,20 @@ from django.utils import timezone
 
 from peacecorps.management.commands import sync_accounting as sync
 from peacecorps.models import (
-    Account, Campaign, Donation, Project, SectorMapping)
+    Account, Campaign, Country, Donation, Project, SectorMapping)
 
 
 class SyncAccountingTests(TestCase):
-    fixtures = ['tests.yaml']
+    def setUp(self):
+        self.campaign_account = Account.objects.create(
+            name='Information Technology', code='SPF-ITC')
+        Campaign.objects.create(
+            name='Technology', account=self.campaign_account)
+        self.china = Country.objects.create(code='CHINA', name='China')
+
+    def tearDown(self):
+        self.campaign_account.delete()  # cascades
+        self.china.delete()
 
     def test_datetime_from(self):
         dt = sync.datetime_from('2012-03-20 16:45:01')
