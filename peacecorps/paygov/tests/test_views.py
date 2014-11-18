@@ -65,14 +65,6 @@ class ResultsTests(TestCase):
         result = self.client.post(reverse('paygov:results'), data=data)
         self.assertContains(result, 'agency_tracking_id')
 
-        data = dict(successful, payment_status='Canceled')
-        result = self.client.post(reverse('paygov:results'), data=data)
-        self.assertContains(result, 'Unknown error')
-
-        data['error_message'] = 'ABCDEFG'
-        result = self.client.post(reverse('paygov:results'), data=data)
-        self.assertContains(result, 'ABCDEFG')
-
         data = dict(successful)
         del data['payment_amount']
         result = self.client.post(reverse('paygov:results'), data=data)
@@ -82,17 +74,37 @@ class ResultsTests(TestCase):
         result = self.client.post(reverse('paygov:results'), data=data)
         self.assertContains(result, 'payment_amount')
 
+    def test_cancelation(self):
+        """If we receive notification that the payment was not a success,
+        delete the associated donorinfo and log accordingly"""
+        data = {'agency_tracking_id': 'TRACK', 'payment_status': 'Canceled',
+                'payment_amount': '125.00', 'error_message': 'ABCDEFG'}
+        with self.assertLogs('paygov.results') as logger:
+            result = self.client.post(reverse('paygov:results'), data=data)
+            self.assertContains(result, 'ABCDEFG')
+        self.assertEqual(
+            0, DonorInfo.objects.filter(agency_tracking_id='TRACK').count())
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('Canceled' in logger.output[0])
+        self.assertTrue('ABCDEFG' in logger.output[0])
+
     def test_success(self):
         """Verify mimetype and that donation is made when passed the right
-        values"""
+        values. A message should also be logged"""
         successful = {'agency_tracking_id': 'TRACK',
                       'payment_status': 'Completed',
                       'payment_amount': '125.00'}
-        result = self.client.post(reverse('paygov:results'), data=successful)
-        self.assertEqual(result.content, b'response_message=OK')
-        self.assertEqual(result['Content-Type'], 'text/plain')
+        with self.assertLogs('paygov.results') as logger:
+            result = self.client.post(reverse('paygov:results'),
+                                      data=successful)
+            self.assertEqual(result.content, b'response_message=OK')
+            self.assertEqual(result['Content-Type'], 'text/plain')
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('Transaction success' in logger.output[0])
+        self.assertTrue('12500 cents' in logger.output[0])
+        self.assertTrue('FUNDFUND' in logger.output[0])
 
-        # avoiding the cache
+        # avoiding the cache to verify the donor info's been deleted
         account = Account.objects.get(pk=self.account.pk)
         self.assertEqual(1, len(account.donations.all()))
         donation = account.donations.all()[0]
