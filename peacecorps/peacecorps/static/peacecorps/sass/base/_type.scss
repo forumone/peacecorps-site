@@ -3,151 +3,195 @@
  */
 
 @import "globals";
+@import "mixins";
 
-body, a {
+$leading-xsm: 1em;
+$leading-sm: 1.2em;
+$leading-md: 1.4em;
+$leading-lg: 1.6em;
+$leading-xlg: 2em;
+
+$weight-light: 100;
+$weight-book: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+html {
+  font-size: 62.5%;
+  line-height: $leading-md;
+}
+body {
   color: $primary;
+  @include font-size(1.5);
+  font-family: Archer;
+  font-weight: $weight-book;
+  line-height: $leading-md;
+  text-transform: none;
 }
 
-// TODO find a place for this
-h1, h2, h3, h4, h5 {
-  padding: 0 5%;
-}
-
-// TODO clean up text styles and make consistant.
-// Waiting on finalized design for this.
-@mixin t-heading {
-  color: $primary;
-  font-family: "museo-sans",sans-serif;
-  font-size: .8em;
-  font-style: normal;
-  font-weight: 300;
-  text-decoration: none;
+// Modfifier extensions
+.t--caps {
+  letter-spacing: .09em;
   text-transform: uppercase;
 }
-.t-heading {
-  @include t-heading;
+
+.t--bold {
+  font-weight: $weight-bold;
 }
 
-@mixin t-heading_sm {
-  @include t-heading;
-  font-size: 1em;
-}
-.t-heading_sm {
-  @include t-heading_sm;
+.t--primary {
+  color: $primary;
 }
 
-@mixin t-heading--white {
-  color: $white;
-}
-.t-heading--white {
-  @include t-heading--white;
-}
-
-.t-heading--secondary {
+.t--secondary {
   color: $secondary;
 }
 
-@mixin t-heading_xlg {
-  font-family: "museo-slab",sans-serif;
-  font-size: 3.8em;
-  font-style: normal;
-  font-weight: 100;
-  line-height: 1em;
-  text-transform: uppercase;
-
-  @include media($sm) {
-    font-size: 2.8em;
-  }
-}
-.t-heading_xlg {
-  @include t-heading_xlg;
+.t--white {
+  color: $white;
 }
 
-@mixin t-heading_lg {
-  font-family: "museo-slab",sans-serif;
-  font-size: 1.6em;
-  font-style: normal;
-  font-weight: 100;
-  line-height: 1.8em;
-
-  @include media($sm) {
-    font-size: 1.4em;
-    line-height: 1.5em;
-  }
-}
-.t-heading_lg {
-  @include t-heading_lg;
+.t--black {
+  color: $black;
 }
 
+/*
+ * Headings are in the main content, serving as titles to body text.
+ *
+ * Default style of <h1-6>
+ */
+.t-heading {
+  font-weight: $weight-medium;
+  line-height: $leading-sm;
+}
+.t-heading--1 {
+  @include font-size(3.8);
+}
+.t-heading--2 {
+  @include font-size(2.8);
+}
+.t-heading--3 {
+  @include font-size(2.2);
+}
+.t-heading--4 {
+  @include font-size(1.8);
+}
 h1 {
-  @include t-heading_xlg;
+  @extend .t-heading--1;
 }
-
 h2 {
-  @include t-heading_lg;
+  @extend .t-heading--2;
+}
+h3 {
+  @extend .t-heading--3;
+}
+h4 {
+  @extend .t-heading--4;
+}
+h1, h2, h3, h4, h5, h6 {
+  @extend .t-heading;
 }
 
-@mixin t-heading_md {
-  font-family: "museo-sans",sans-serif;
-  font-size: 1.1em;
-  font-style: normal;
-  font-weight: 300;
-  text-transform: uppercase;
-
-  @include media($sm) {
-    font-size: 1em;
-  }
-}
-.t-heading_md {
-  @include t-heading_md;
-}
-
-.t-lg_margins {
-  margin: 2.5em 0;
-}
-
-.t--no_bm {
-  margin-bottom: 0;
-}
-
+/*
+ * Body is the main body text.
+ *
+ * Default style of <p>, <span>, <button>
+ */
 .t-body {
-  color: $primary;
-  font-family: "museo-sans",sans-serif;
-  font-size: 1.2em;
-  font-style: normal;
-  font-weight: 100;
-  line-height: 1.5em;
-
-  @include media($sm) {
-    font-size: 1em;
-    line-height: 1.4em;
-  }
+  line-height: $leading-md;
 }
-.t-bold {
-  font-weight: 600;
-}
-p, span {
+.t-body--md {
   @extend .t-body;
+  @include font-size(2.3);
+}
+.t-body--sm {
+  @extend .t-body;
+  @include font-size(1.6);
+}
+p, span, button {
+  @extend .t-body--md;
+}
+p {
+  color: $black;
 }
 
-// Different text styles:
-//   - Either slab or sans
-//   - Five different colors, white, primary, secondary, support, dark, light
-//   dark
-//   - Sizes: nav, large callouts, buttons, page divisions, paragraph,
-//     paragraph heading
-//
-//  nav -- sans -- white
-//  callouts -- slab -- white | primary
-//  buttons -- sans -- white | primary | support
-//  page divisions -- slab -- primary
-//  paragraph header -- sans -- primary | dark | secondary
-//  paragraphy -- sans -- primary | dark | secondary
-//
-//
-//  h1 -- page divisions - slab - upper
-//  h2 -- callouts - slab - camel
-//  h3 --
-//  h4 -- paragraph header | buttons - sans - upper | camel
-//  h5 -- table headings | navigation - sans - upper
-//  p -- paragraph - sans - camel
+/*
+ * Title styles are for titles not associated with content.
+ */
+.t-title {
+  @extend .t--caps;
+  font-weight: $weight-medium;
+}
+.t-title--1 {
+  @extend .t-title;
+  @include font-size(3.8);
+}
+.t-title--2 {
+  @extend .t-title;
+  @include font-size(2.8);
+}
+.t-title--3 {
+  @extend .t-title;
+  @include font-size(2.0);
+}
+.t-title--4 {
+  @extend .t-title;
+  @include font-size(1.6);
+}
+.t-title--5 {
+  @extend .t-title;
+  @include font-size(1.2);
+}
+.t-title--6 {
+  @extend .t-title;
+  @include font-size(0.9);
+}
+
+
+/*
+ * Blurbs are large pieces of readable (not uppercased) text that call out
+ * bits of important information.
+ */
+.t-blurb {
+  font-weight: $weight-book;
+  line-height: $leading-sm;
+}
+.t-blurb--lg {
+  @extend .t-blurb;
+  @include font-size(4.8);
+}
+.t-blurb--md {
+  @extend .t-blurb;
+  @include font-size(3.8);
+}
+
+
+/*
+ * Icon is for text that goes along with an icon
+ */
+.t-icon {
+  @extend .t--caps;
+  @include font-size(1.6);
+}
+
+
+/*
+ * Single-nav are single navigational elements, such as links to more content.
+ */
+.t-single_nav {
+  @extend .t--caps;
+  @include font-size(1.6);
+  font-weight: $weight-medium;
+}
+
+
+/*
+ * Generic link styles.
+ */
+.t-link {
+  color: $primary;
+}
+a {
+  @extend .t-link;
+}

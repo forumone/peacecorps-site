@@ -5,6 +5,7 @@
 @import "bourbon/bourbon";
 
 @import "globals";
+@import "mixins";
 @import "base/type";
 
 button {
@@ -13,7 +14,6 @@ button {
 
 .button {
   @include user-select(none);
-  @include t-heading_md;
   border: 0;
   display: inline-block;
   padding: .6em 1.4em;
@@ -57,6 +57,17 @@ button {
   }
 }
 
+.button--sm {
+  @extend .t-title--4;
+}
+
+.button--md {
+  @extend .t-title--3;
+}
+
+.button--lg {
+  @extend .t-title--2;
+}
 
 .button--primary {
   background-color: $primary;

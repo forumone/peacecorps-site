@@ -20,7 +20,6 @@
 }
 
 .symbol__text {
-  @include t-heading_sm;
   display: block;
   margin: .4em auto;
   max-width: 80%;
