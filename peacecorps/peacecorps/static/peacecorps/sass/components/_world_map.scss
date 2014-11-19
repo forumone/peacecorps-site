@@ -16,8 +16,19 @@
   .landxx {
     fill: $neutral_medium;
     stroke: $white;
-    stroke-width: 5px;
     fill-rule:evenodd;
+  }
+  &.zoom4 .landxx {
+    stroke-width: 2px;
+  }
+  &.zoom3 .landxx {
+    stroke-width: 3px;
+  }
+  &.zoom2 .landxx {
+    stroke-width: 4px;
+  }
+  &.zoom1 .landxx {
+    stroke-width: 5px;
   }
   .coastxx {
      fill: $neutral_medium;

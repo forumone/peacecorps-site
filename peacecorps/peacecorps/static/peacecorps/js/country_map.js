@@ -89,7 +89,10 @@ var PC = PC || {};
   PC.CountryMap.prototype.zoomToCountry = function(countryCoords, mapBounds) {
     var margin = 0.9, /* as a percentage of the country size */
         coords = $.extend({}, countryCoords),
-        factor = null;
+        factor = null,
+        imgWidth = null,
+        imgHeight = null,
+        zoomLevel = null;
 
     if (coords.width * margin > mapBounds.width * 0.1) {
       margin = mapBounds.width * 0.1 / coords.width;
@@ -97,13 +100,25 @@ var PC = PC || {};
     if (coords.height * margin > mapBounds.height * 0.1) {
       margin = mapBounds.height * 0.1 / coords.height;
     }
+
     factor = 1 + (2 * margin);
+    imgWidth = factor * coords.width;
+    imgHeight = factor * coords.height;
+    if (imgWidth / mapBounds.width < 0.05) { zoomLevel = 'zoom4'; }
+    else if (imgWidth / mapBounds.width < 0.1) { zoomLevel = 'zoom3'; }
+    else if (imgWidth / mapBounds.width < 0.2) { zoomLevel = 'zoom2'; }
+    else { zoomLevel = 'zoom1'; }
+    // TODO replace with class adding util.
+    if (this.map.classList) {
+      this.map.classList.add(zoomLevel);
+    } else {
+      this.map.className += ' ' + zoomLevel;
+    }
 
     this.map.setAttribute('viewBox',
       (coords.x - margin*coords.width) + ' ' +
       (coords.y - margin*coords.height) + ' ' +
-      (factor*coords.width) + ' ' +
-      (factor*coords.height));
+      imgWidth + ' ' + imgHeight);
 
   };
 

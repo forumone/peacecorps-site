@@ -42,8 +42,15 @@
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
-  stroke-width: 5px;
   fill-rule: evenodd; }
+.world_map.zoom4 .landxx {
+  stroke-width: 2px; }
+.world_map.zoom3 .landxx {
+  stroke-width: 3px; }
+.world_map.zoom2 .landxx {
+  stroke-width: 4px; }
+.world_map.zoom1 .landxx {
+  stroke-width: 5px; }
 .world_map .coastxx {
   fill: #F2EFE8;
   stroke: #ffffff;
