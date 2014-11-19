@@ -1,9 +1,9 @@
+'use strict';
 
 /* @namespace */
 var PC = PC || {};
 
 (function() {
-  'use strict';
 
   /*
    * Country Map
@@ -27,15 +27,34 @@ var PC = PC || {};
    */
   PC.CountryMap.prototype.init = function() {
     var selectedCountry = this.map.querySelectorAll(
-      '.' + this.selectedCountryCode)[0];
+          '.' + this.selectedCountryCode)[0],
+        coords = null;
     if (!selectedCountry) {
       // TODO handle error condition.
       return;
     }
-    this.selectedCountryCoords = selectedCountry.getBBox();
+    coords = this.calculateCountryCoords(selectedCountry);
 
     this.highLightCountry(this.selectedCountryCode);
-    this.zoomToCountry(this.selectedCountryCoords);
+    this.zoomToCountry(coords, selectedCountry.ownerSVGElement.getBBox());
+  };
+
+  /*
+   * Account for SVG transformations when determining a bounding box
+   */
+  PC.CountryMap.prototype.calculateCountryCoords = function(element) {
+    var bbox = element.getBBox(),
+        svg = element.ownerSVGElement,
+        transform = element.getTransformToElement(svg),
+        ul = svg.createSVGPoint(),
+        lr = svg.createSVGPoint();
+    ul.x = bbox.x;
+    ul.y = bbox.y;
+    lr.x = bbox.x + bbox.width;
+    lr.y = bbox.y + bbox.height;
+    ul = ul.matrixTransform(transform);
+    lr = lr.matrixTransform(transform);
+    return {x: ul.x, y: ul.y, width: lr.x - ul.x, height: lr.y - ul.y};
   };
 
   /*
@@ -56,31 +75,35 @@ var PC = PC || {};
       if (path.classList) {
         path.classList.add('world_map-is_selected');
       } else {
-        el.className += ' ' + 'world_map-is_selected';
+        path.className += ' ' + 'world_map-is_selected';
       }
     }
   };
 
   /*
-   * Zoom to the country.
+   * Zoom to the country. Adds a margin of 80% the country size or 20% of the
+   * whole map, whichever is smaller.
    *
    * @param {object} countryCoords - The coordinates to zoom to.
    */
-  PC.CountryMap.prototype.zoomToCountry = function(countryCoords) {
-    // TODO scaling factor is arbituary, have to check how well it works for
-    // all countries.
-    var factor = 80,
-        coords = $.extend({}, countryCoords);
+  PC.CountryMap.prototype.zoomToCountry = function(countryCoords, mapBounds) {
+    var margin = 0.9, /* as a percentage of the country size */
+        coords = $.extend({}, countryCoords),
+        factor = null;
 
-    coords.x = parseFloat(coords.x, 10) - factor;
-    coords.y = parseFloat(coords.y, 10) - factor;
-    coords.width = parseFloat(coords.width, 10) + factor;
-    coords.height = parseFloat(coords.height, 10) + factor;
+    if (coords.width * margin > mapBounds.width * 0.1) {
+      margin = mapBounds.width * 0.1 / coords.width;
+    }
+    if (coords.height * margin > mapBounds.height * 0.1) {
+      margin = mapBounds.height * 0.1 / coords.height;
+    }
+    factor = 1 + (2 * margin);
+
     this.map.setAttribute('viewBox',
-      coords.x + ' ' +
-      coords.y + ' ' +
-      coords.width + ' ' +
-      coords.height);
+      (coords.x - margin*coords.width) + ' ' +
+      (coords.y - margin*coords.height) + ' ' +
+      (factor*coords.width) + ' ' +
+      (factor*coords.height));
 
   };
 
