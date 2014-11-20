@@ -1,3 +1,5 @@
+import logging
+
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -79,7 +81,7 @@ class ResultsTests(TestCase):
         delete the associated donorinfo and log accordingly"""
         data = {'agency_tracking_id': 'TRACK', 'payment_status': 'Canceled',
                 'payment_amount': '125.00', 'error_message': 'ABCDEFG'}
-        with self.assertLogs('paygov.results') as logger:
+        with self.assertLogs('paygov.results', level=logging.WARN) as logger:
             result = self.client.post(reverse('paygov:results'), data=data)
             self.assertContains(result, 'ABCDEFG')
         self.assertEqual(
