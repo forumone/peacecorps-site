@@ -5,7 +5,8 @@
 {% block content_class %}landing{% endblock %}
 {% block custom_js %}
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
+<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}">
+</script>
 {% endblock %}
 
 {% block content %}
@@ -15,7 +16,7 @@
     background-image: url('{{featuredcampaign.featured_image.url}}');
   ">
 </div>
-<section style="height: 23.5em;">
+<section style="height: 25em;">
   <section class="full_banner full_banner--support_color"
       style="margin-top: 15em;">
     <div class="showcase showcase--shift_sm">

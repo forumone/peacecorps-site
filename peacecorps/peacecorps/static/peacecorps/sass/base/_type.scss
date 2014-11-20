@@ -5,11 +5,11 @@
 @import "globals";
 @import "mixins";
 
-$leading-xsm: 1em;
-$leading-sm: 1.2em;
-$leading-md: 1.4em;
-$leading-lg: 1.6em;
-$leading-xlg: 2em;
+$leading-xsm: 1.1;
+$leading-sm: 1.3;
+$leading-md: 1.4;
+$leading-lg: 1.6;
+$leading-xlg: 2;
 
 $weight-light: 100;
 $weight-book: 400;
@@ -19,7 +19,6 @@ $weight-bold: 700;
 
 html {
   font-size: 62.5%;
-  line-height: $leading-md;
 }
 body {
   color: $primary;
@@ -104,16 +103,23 @@ h1, h2, h3, h4, h5, h6 {
 .t-body--md {
   @extend .t-body;
   @include font-size(2.3);
+  @include rem(margin, 1.2rem 0);
 }
 .t-body--sm {
   @extend .t-body;
   @include font-size(1.6);
+  @include rem(margin, 1rem 0);
 }
 p, span, button {
   @extend .t-body--md;
 }
 p {
   color: $black;
+  margin: 0;
+}
+// For every p that follows a p, add top margin.
+p + p {
+  margin-top: 1em;
 }
 
 /*
@@ -126,26 +132,32 @@ p {
 .t-title--1 {
   @extend .t-title;
   @include font-size(3.8);
+  @include rem(margin, 1.5rem 0);
 }
 .t-title--2 {
   @extend .t-title;
   @include font-size(2.8);
+  @include rem(margin, 1.1rem 0);
 }
 .t-title--3 {
   @extend .t-title;
   @include font-size(2.0);
+  @include rem(margin, 1rem 0);
 }
 .t-title--4 {
   @extend .t-title;
   @include font-size(1.6);
+  @include rem(margin, 0.8rem 0);
 }
 .t-title--5 {
   @extend .t-title;
   @include font-size(1.2);
+  @include rem(margin, 0.5rem 0);
 }
 .t-title--6 {
   @extend .t-title;
   @include font-size(0.9);
+  @include rem(margin, 0.4rem 0);
 }
 
 
@@ -155,15 +167,20 @@ p {
  */
 .t-blurb {
   font-weight: $weight-book;
-  line-height: $leading-sm;
+  line-height: $leading-xsm;
 }
 .t-blurb--lg {
   @extend .t-blurb;
   @include font-size(4.8);
+  @include rem(margin, 2.2rem 0);
 }
 .t-blurb--md {
   @extend .t-blurb;
   @include font-size(3.8);
+  @include rem(margin, 1.8rem 0);
+}
+.tblurb + .tblurb {
+  margin-top: 0;
 }
 
 

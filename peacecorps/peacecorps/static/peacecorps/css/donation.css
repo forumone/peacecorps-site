@@ -26,66 +26,6 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-.donation-stats {
-  max-height: 150px; }
-
-.volunteer-image {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  text-align: center; }
-  .volunteer-image:last-child {
-    margin-right: 0; }
-
-.volunteer-info {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%;
-  margin-left: 34.11922%;
-  margin-right: 0; }
-  .volunteer-info:last-child {
-    margin-right: 0; }
-  .volunteer-info > * {
-    float: left;
-    display: block;
-    margin-right: 4.11092%;
-    width: 100%; }
-    .volunteer-info > *:last-child {
-      margin-right: 0; }
-
-.funded-chart {
-  margin-right: 0;
-  position: relative;
-  border: 1px solid #000; }
-
-.funded-amount-bar {
-  background-color: #aaa;
-  width: 100%; }
-
-.funded-amount-text {
-  position: absolute;
-  top: 0;
-  left: 1em; }
-
-.donate-container {
-  text-align: right; }
-
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
 .donate-form form {
   max-width: 68em;
   margin-left: auto;
@@ -164,90 +104,6 @@ html {
     margin-top: 0;
     margin-bottom: 0; }
 
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
-.landing h2 {
-  clear: both; }
-.landing .more-projects {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .landing .more-projects:last-child {
-    margin-right: 0; }
-.landing .search-space {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  display: none;
-  /* Defaults hidden for non-JS users */ }
-  .landing .search-space:last-child {
-    margin-right: 0; }
-  .landing .search-space input {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    height: 2em;
-    font-size: large;
-    padding: 1em 4em; }
-    .landing .search-space input:last-child {
-      margin-right: 0; }
-.landing .project-row {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  border-bottom: solid 1px #979797;
-  padding: 1em 0; }
-  .landing .project-row:last-child {
-    margin-right: 0; }
-.landing .project-name {
-  margin-left: 17.05961%;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  font-size: larger;
-  font-weight: bold; }
-  .landing .project-name:last-child {
-    margin-right: 0; }
-.landing .project-country {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
-  margin-right: 0;
-  font-size: larger; }
-  .landing .project-country:last-child {
-    margin-right: 0; }
-.landing .project-expanded {
-  margin-left: 17.05961%;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  margin-right: 0;
-  display: none;
-  /* Initially hidden */ }
-  .landing .project-expanded:last-child {
-    margin-right: 0; }
-  .landing .project-expanded > * {
-    padding-top: .5em; }
-
 /*
  * Global variables
  */
@@ -284,170 +140,6 @@ html {
 /*
  * Global mixins.
  */
-/*
- * Type styles.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Grid
- */
-/*
- * Breakpoint
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-html {
-  font-size: 62.5%;
-  line-height: 1.4em; }
-
-body {
-  color: #A12122;
-  font-size: 15px;
-  font-size: 1.5rem;
-  font-family: Archer;
-  font-weight: 400;
-  line-height: 1.4em;
-  text-transform: none; }
-
-.t--caps, .t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6, .t-icon, .t-single_nav {
-  letter-spacing: .09em;
-  text-transform: uppercase; }
-
-.t--bold {
-  font-weight: 700; }
-
-.t--primary {
-  color: #A12122; }
-
-.t--secondary {
-  color: #05888C; }
-
-.t--white, .full_banner {
-  color: #ffffff; }
-
-.t--black {
-  color: #222; }
-
-/*
- * Headings are in the main content, serving as titles to body text.
- *
- * Default style of <h1-6>
- */
-.t-heading, h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2em; }
-
-.t-heading--1, h1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-heading--2, h2 {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-heading--3, h3 {
-  font-size: 22px;
-  font-size: 2.2rem; }
-
-.t-heading--4, h4 {
-  font-size: 18px;
-  font-size: 1.8rem; }
-
-/*
- * Body is the main body text.
- *
- * Default style of <p>, <span>, <button>
- */
-.t-body, .t-body--md, p, span, button, .t-body--sm {
-  line-height: 1.4em; }
-
-.t-body--md, p, span, button {
-  font-size: 23px;
-  font-size: 2.3rem; }
-
-.t-body--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-p {
-  color: #222; }
-
-/*
- * Title styles are for titles not associated with content.
- */
-.t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6 {
-  font-weight: 500; }
-
-.t-title--1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-title--2, .button--lg {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-title--3, .button--md {
-  font-size: 20px;
-  font-size: 2rem; }
-
-.t-title--4, .button--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-.t-title--5 {
-  font-size: 12px;
-  font-size: 1.2rem; }
-
-.t-title--6 {
-  font-size: 9px;
-  font-size: 0.9rem; }
-
-/*
- * Blurbs are large pieces of readable (not uppercased) text that call out
- * bits of important information.
- */
-.t-blurb, .t-blurb--lg, .t-blurb--md {
-  font-weight: 400;
-  line-height: 1.2em; }
-
-.t-blurb--lg {
-  font-size: 48px;
-  font-size: 4.8rem; }
-
-.t-blurb--md {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-/*
- * Icon is for text that goes along with an icon
- */
-.t-icon {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-/*
- * Single-nav are single navigational elements, such as links to more content.
- */
-.t-single_nav {
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-weight: 500; }
-
-/*
- * Generic link styles.
- */
-.t-link, a {
-  color: #A12122; }
-
 button {
   cursor: pointer; }
 
@@ -526,8 +218,7 @@ fieldset {
  * Global mixins.
  */
 html {
-  font-size: 62.5%;
-  line-height: 1.4em; }
+  font-size: 62.5%; }
 
 body {
   color: #A12122;
@@ -535,7 +226,7 @@ body {
   font-size: 1.5rem;
   font-family: Archer;
   font-weight: 400;
-  line-height: 1.4em;
+  line-height: 1.4;
   text-transform: none; }
 
 .t--caps, .t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6, .t-icon, .t-single_nav {
@@ -564,7 +255,7 @@ body {
  */
 .t-heading, h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
-  line-height: 1.2em; }
+  line-height: 1.3; }
 
 .t-heading--1, h1 {
   font-size: 38px;
@@ -588,18 +279,46 @@ body {
  * Default style of <p>, <span>, <button>
  */
 .t-body, .t-body--md, p, span, button, .t-body--sm {
-  line-height: 1.4em; }
+  line-height: 1.4; }
 
 .t-body--md, p, span, button {
   font-size: 23px;
-  font-size: 2.3rem; }
+  font-size: 2.3rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 12px 0;
+  /* 9 */
+  margin: 1.2rem 0;
+  /* 9 */ }
 
 .t-body--sm {
   font-size: 16px;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 10px 0;
+  /* 9 */
+  margin: 1rem 0;
+  /* 9 */ }
 
 p {
-  color: #222; }
+  color: #222;
+  margin: 0; }
+
+p + p {
+  margin-top: 1em; }
 
 /*
  * Title styles are for titles not associated with content.
@@ -609,27 +328,99 @@ p {
 
 .t-title--1 {
   font-size: 38px;
-  font-size: 3.8rem; }
+  font-size: 3.8rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 15px 0;
+  /* 9 */
+  margin: 1.5rem 0;
+  /* 9 */ }
 
 .t-title--2, .button--lg {
   font-size: 28px;
-  font-size: 2.8rem; }
+  font-size: 2.8rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 11px 0;
+  /* 9 */
+  margin: 1.1rem 0;
+  /* 9 */ }
 
 .t-title--3, .button--md {
   font-size: 20px;
-  font-size: 2rem; }
+  font-size: 2rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 10px 0;
+  /* 9 */
+  margin: 1rem 0;
+  /* 9 */ }
 
 .t-title--4, .button--sm {
   font-size: 16px;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 8px 0;
+  /* 9 */
+  margin: 0.8rem 0;
+  /* 9 */ }
 
 .t-title--5 {
   font-size: 12px;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 5px 0;
+  /* 9 */
+  margin: 0.5rem 0;
+  /* 9 */ }
 
 .t-title--6 {
   font-size: 9px;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 4px 0;
+  /* 9 */
+  margin: 0.4rem 0;
+  /* 9 */ }
 
 /*
  * Blurbs are large pieces of readable (not uppercased) text that call out
@@ -637,15 +428,42 @@ p {
  */
 .t-blurb, .t-blurb--lg, .t-blurb--md {
   font-weight: 400;
-  line-height: 1.2em; }
+  line-height: 1.1; }
 
 .t-blurb--lg {
   font-size: 48px;
-  font-size: 4.8rem; }
+  font-size: 4.8rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 22px 0;
+  /* 9 */
+  margin: 2.2rem 0;
+  /* 9 */ }
 
 .t-blurb--md {
   font-size: 38px;
-  font-size: 3.8rem; }
+  font-size: 3.8rem;
+  /* 3 */
+  /* 3 */
+  /* 4 */
+  /* 6 */
+  /* 6 */
+  /* 7 */
+  /* 4 */
+  /* 5 */
+  margin: 18px 0;
+  /* 9 */
+  margin: 1.8rem 0;
+  /* 9 */ }
+
+.tblurb + .tblurb {
+  margin-top: 0; }
 
 /*
  * Icon is for text that goes along with an icon
@@ -932,170 +750,6 @@ body:before {
  * The main nav is a horizontal row of links, which collapses to a centered
  * vertical row for smaller screens.
  */
-/*
- * Type styles.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Grid
- */
-/*
- * Breakpoint
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-html {
-  font-size: 62.5%;
-  line-height: 1.4em; }
-
-body {
-  color: #A12122;
-  font-size: 15px;
-  font-size: 1.5rem;
-  font-family: Archer;
-  font-weight: 400;
-  line-height: 1.4em;
-  text-transform: none; }
-
-.t--caps, .t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6, .t-icon, .t-single_nav {
-  letter-spacing: .09em;
-  text-transform: uppercase; }
-
-.t--bold {
-  font-weight: 700; }
-
-.t--primary {
-  color: #A12122; }
-
-.t--secondary {
-  color: #05888C; }
-
-.t--white, .full_banner {
-  color: #ffffff; }
-
-.t--black {
-  color: #222; }
-
-/*
- * Headings are in the main content, serving as titles to body text.
- *
- * Default style of <h1-6>
- */
-.t-heading, h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2em; }
-
-.t-heading--1, h1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-heading--2, h2 {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-heading--3, h3 {
-  font-size: 22px;
-  font-size: 2.2rem; }
-
-.t-heading--4, h4 {
-  font-size: 18px;
-  font-size: 1.8rem; }
-
-/*
- * Body is the main body text.
- *
- * Default style of <p>, <span>, <button>
- */
-.t-body, .t-body--md, p, span, button, .t-body--sm {
-  line-height: 1.4em; }
-
-.t-body--md, p, span, button {
-  font-size: 23px;
-  font-size: 2.3rem; }
-
-.t-body--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-p {
-  color: #222; }
-
-/*
- * Title styles are for titles not associated with content.
- */
-.t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6 {
-  font-weight: 500; }
-
-.t-title--1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-title--2, .button--lg {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-title--3, .button--md {
-  font-size: 20px;
-  font-size: 2rem; }
-
-.t-title--4, .button--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-.t-title--5 {
-  font-size: 12px;
-  font-size: 1.2rem; }
-
-.t-title--6 {
-  font-size: 9px;
-  font-size: 0.9rem; }
-
-/*
- * Blurbs are large pieces of readable (not uppercased) text that call out
- * bits of important information.
- */
-.t-blurb, .t-blurb--lg, .t-blurb--md {
-  font-weight: 400;
-  line-height: 1.2em; }
-
-.t-blurb--lg {
-  font-size: 48px;
-  font-size: 4.8rem; }
-
-.t-blurb--md {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-/*
- * Icon is for text that goes along with an icon
- */
-.t-icon {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-/*
- * Single-nav are single navigational elements, such as links to more content.
- */
-.t-single_nav {
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-weight: 500; }
-
-/*
- * Generic link styles.
- */
-.t-link, a {
-  color: #A12122; }
-
 /*
  * Inline text module
  *
@@ -1502,170 +1156,6 @@ body:before {
 
 .u-align_r {
   text-align: right; }
-
-/*
- * Type styles.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Grid
- */
-/*
- * Breakpoint
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-html {
-  font-size: 62.5%;
-  line-height: 1.4em; }
-
-body {
-  color: #A12122;
-  font-size: 15px;
-  font-size: 1.5rem;
-  font-family: Archer;
-  font-weight: 400;
-  line-height: 1.4em;
-  text-transform: none; }
-
-.t--caps, .t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6, .t-icon, .t-single_nav {
-  letter-spacing: .09em;
-  text-transform: uppercase; }
-
-.t--bold {
-  font-weight: 700; }
-
-.t--primary {
-  color: #A12122; }
-
-.t--secondary {
-  color: #05888C; }
-
-.t--white, .full_banner {
-  color: #ffffff; }
-
-.t--black {
-  color: #222; }
-
-/*
- * Headings are in the main content, serving as titles to body text.
- *
- * Default style of <h1-6>
- */
-.t-heading, h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2em; }
-
-.t-heading--1, h1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-heading--2, h2 {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-heading--3, h3 {
-  font-size: 22px;
-  font-size: 2.2rem; }
-
-.t-heading--4, h4 {
-  font-size: 18px;
-  font-size: 1.8rem; }
-
-/*
- * Body is the main body text.
- *
- * Default style of <p>, <span>, <button>
- */
-.t-body, .t-body--md, p, span, button, .t-body--sm {
-  line-height: 1.4em; }
-
-.t-body--md, p, span, button {
-  font-size: 23px;
-  font-size: 2.3rem; }
-
-.t-body--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-p {
-  color: #222; }
-
-/*
- * Title styles are for titles not associated with content.
- */
-.t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6 {
-  font-weight: 500; }
-
-.t-title--1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-title--2, .button--lg {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-title--3, .button--md {
-  font-size: 20px;
-  font-size: 2rem; }
-
-.t-title--4, .button--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-.t-title--5 {
-  font-size: 12px;
-  font-size: 1.2rem; }
-
-.t-title--6 {
-  font-size: 9px;
-  font-size: 0.9rem; }
-
-/*
- * Blurbs are large pieces of readable (not uppercased) text that call out
- * bits of important information.
- */
-.t-blurb, .t-blurb--lg, .t-blurb--md {
-  font-weight: 400;
-  line-height: 1.2em; }
-
-.t-blurb--lg {
-  font-size: 48px;
-  font-size: 4.8rem; }
-
-.t-blurb--md {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-/*
- * Icon is for text that goes along with an icon
- */
-.t-icon {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-/*
- * Single-nav are single navigational elements, such as links to more content.
- */
-.t-single_nav {
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-weight: 500; }
-
-/*
- * Generic link styles.
- */
-.t-link, a {
-  color: #A12122; }
 
 .full_banner {
   margin: 0 -500%;
@@ -2272,170 +1762,6 @@ body:before {
  *
  * An image with text centered together.
  */
-/*
- * Type styles.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Grid
- */
-/*
- * Breakpoint
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-html {
-  font-size: 62.5%;
-  line-height: 1.4em; }
-
-body {
-  color: #A12122;
-  font-size: 15px;
-  font-size: 1.5rem;
-  font-family: Archer;
-  font-weight: 400;
-  line-height: 1.4em;
-  text-transform: none; }
-
-.t--caps, .t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6, .t-icon, .t-single_nav {
-  letter-spacing: .09em;
-  text-transform: uppercase; }
-
-.t--bold {
-  font-weight: 700; }
-
-.t--primary {
-  color: #A12122; }
-
-.t--secondary {
-  color: #05888C; }
-
-.t--white, .full_banner {
-  color: #ffffff; }
-
-.t--black {
-  color: #222; }
-
-/*
- * Headings are in the main content, serving as titles to body text.
- *
- * Default style of <h1-6>
- */
-.t-heading, h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2em; }
-
-.t-heading--1, h1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-heading--2, h2 {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-heading--3, h3 {
-  font-size: 22px;
-  font-size: 2.2rem; }
-
-.t-heading--4, h4 {
-  font-size: 18px;
-  font-size: 1.8rem; }
-
-/*
- * Body is the main body text.
- *
- * Default style of <p>, <span>, <button>
- */
-.t-body, .t-body--md, p, span, button, .t-body--sm {
-  line-height: 1.4em; }
-
-.t-body--md, p, span, button {
-  font-size: 23px;
-  font-size: 2.3rem; }
-
-.t-body--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-p {
-  color: #222; }
-
-/*
- * Title styles are for titles not associated with content.
- */
-.t-title, .t-title--1, .t-title--2, .button--lg, .t-title--3, .button--md, .t-title--4, .button--sm, .t-title--5, .t-title--6 {
-  font-weight: 500; }
-
-.t-title--1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-.t-title--2, .button--lg {
-  font-size: 28px;
-  font-size: 2.8rem; }
-
-.t-title--3, .button--md {
-  font-size: 20px;
-  font-size: 2rem; }
-
-.t-title--4, .button--sm {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-.t-title--5 {
-  font-size: 12px;
-  font-size: 1.2rem; }
-
-.t-title--6 {
-  font-size: 9px;
-  font-size: 0.9rem; }
-
-/*
- * Blurbs are large pieces of readable (not uppercased) text that call out
- * bits of important information.
- */
-.t-blurb, .t-blurb--lg, .t-blurb--md {
-  font-weight: 400;
-  line-height: 1.2em; }
-
-.t-blurb--lg {
-  font-size: 48px;
-  font-size: 4.8rem; }
-
-.t-blurb--md {
-  font-size: 38px;
-  font-size: 3.8rem; }
-
-/*
- * Icon is for text that goes along with an icon
- */
-.t-icon {
-  font-size: 16px;
-  font-size: 1.6rem; }
-
-/*
- * Single-nav are single navigational elements, such as links to more content.
- */
-.t-single_nav {
-  font-size: 16px;
-  font-size: 1.6rem;
-  font-weight: 500; }
-
-/*
- * Generic link styles.
- */
-.t-link, a {
-  color: #A12122; }
-
 /*
  * Global variables
  */
