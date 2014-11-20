@@ -4,8 +4,10 @@
 
 @import "globals";
 @import "util";
+@import "base/type";
 
 .full_banner {
+  @extend .t--white;
   margin: 0 -500%;
   padding: 0.5em 500%;
   @include u-clearfix;
