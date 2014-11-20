@@ -15,8 +15,12 @@ class LoggingAuthenticationForm(AdminAuthenticationForm):
         logger = logging.getLogger("peacecorps.login")
         try:
             cleaned = super(LoggingAuthenticationForm, self).clean()
-            logger.info("%s successfully logged in",
-                        self.cleaned_data['username'])
+            if cleaned.get('password'):
+                logger.info("%s successfully logged in",
+                            self.cleaned_data['username'])
+            else:
+                logger.warn("Failed login attempt for %s",
+                            self.cleaned_data.get('username'))
             return cleaned
         except forms.ValidationError:
             logger.warn("Failed login attempt for %s",

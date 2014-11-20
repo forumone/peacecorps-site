@@ -207,9 +207,19 @@ class LoggingAuthenticationFormTest(TestCase):
         user.delete()
 
     def test_failure(self):
+        """Test both a missing password and an incorrect password"""
         user = User.objects.create_user('LOgin', 'bob@example.com', 'passpass')
         user.is_staff = True
         user.save()
+        with self.assertLogs("peacecorps.login") as logger:
+            response = self.client.post(
+                '/admin/login/', data={'username': user.username,
+                                       'password': ''})
+            self.assertEqual(200, response.status_code)
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('LOgin' in logger.output[0])
+        self.assertTrue('Fail' in logger.output[0])
+
         with self.assertLogs("peacecorps.login") as logger:
             response = self.client.post(
                 '/admin/login/', data={'username': user.username,
