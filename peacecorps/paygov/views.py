@@ -40,7 +40,7 @@ def results(request):
     # Transaction was canceled or had another error
     elif request.POST.get('payment_status') != 'Completed':
         message = request.POST.get('error_message', 'Unknown error')
-        logger.info("Transaction %s: %s", request.POST.get('payment_status'),
+        logger.warn("Transaction %s: %s", request.POST.get('payment_status'),
                     message)
         info.delete()
     elif not request.POST.get('payment_amount'):
