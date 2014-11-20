@@ -1,4 +1,5 @@
 from datetime import datetime
+import logging
 import tempfile
 from unittest.mock import Mock, patch
 
@@ -7,11 +8,20 @@ from django.utils import timezone
 
 from peacecorps.management.commands import sync_accounting as sync
 from peacecorps.models import (
-    Account, Campaign, Donation, Project, SectorMapping)
+    Account, Campaign, Country, Donation, Project, SectorMapping)
 
 
 class SyncAccountingTests(TestCase):
-    fixtures = ['tests.yaml']
+    def setUp(self):
+        self.campaign_account = Account.objects.create(
+            name='Information Technology', code='SPF-ITC')
+        Campaign.objects.create(
+            name='Technology', account=self.campaign_account)
+        self.china = Country.objects.create(code='CHINA', name='China')
+
+    def tearDown(self):
+        self.campaign_account.delete()  # cascades
+        self.china.delete()
 
     def test_datetime_from(self):
         dt = sync.datetime_from('2012-03-20 16:45:01')
@@ -122,6 +132,31 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(project.account.current, (343400 - 111100))
         account.delete()    # cascades
 
+    def test_create_pcpp_failure(self):
+        """Country and sector must be valid, lest nothing gets saved. An error
+        should be logged in this situation"""
+        count = Project.objects.count()
+        issue_cache = Mock()
+        issue_cache.find.return_value = Campaign.objects.get(name='Technology')
+        row = {'COUNTRY_NAME': 'NONEXISTENT', 'SECTOR': 'MOCKED'}
+        with self.assertLogs('peacecorps.sync_accounting',
+                             level=logging.WARN) as logger:
+            sync.create_pcpp(None, row, issue_cache)
+        self.assertEqual(count, Project.objects.count())    # nothing created
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('NONEXISTENT' in logger.output[0])
+        self.assertTrue('MOCKED' in logger.output[0])
+
+        issue_cache.find.return_value = None
+        row = {'COUNTRY_NAME': 'IRELAND', 'SECTOR': 'MOCKED'}
+        with self.assertLogs('peacecorps.sync_accounting',
+                             level=logging.WARN) as logger:
+            sync.create_pcpp(None, row, issue_cache)
+        self.assertEqual(count, Project.objects.count())    # nothing created
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('IRELAND' in logger.output[0])
+        self.assertTrue('MOCKED' in logger.output[0])
+
     @patch('peacecorps.management.commands.sync_accounting.create_pcpp')
     def test_create_account_project(self, create):
         """Test that execution is deferred to the create_pcpp method"""
@@ -177,14 +212,14 @@ class SyncAccountingTests(TestCase):
         account.delete()    # cascades
 
     @patch('peacecorps.management.commands.sync_accounting.update_account')
-    @patch('peacecorps.management.commands.sync_accounting.'
-           + 'create_account')
-    def test_command(self, create, update):
-        """Verify CSV reading and that the update/create are called"""
-        filedata = "PROJ_CODE,OTHER_FIELD,LAST_UPDATED_FROM_PAYGOV,REVENUE\n"
-        filedata += '123-456,Some Content,2009-12-14 15:16:17,"1,234"\n'
-        filedata += "nonexist,Not Here,2009-12-14 15:16:17,1.23\n"
-        filedata += "111-222,Other Co¿ntent,2009-12-14 15:16:17,1.23\n"
+    @patch('peacecorps.management.commands.sync_accounting.create_account')
+    def test_handle(self, create, update):
+        """Verify CSV reading and that the update/create are called. Also
+        make sure that appropriate logs are created"""
+        filedata = "PROJ_CODE,OTHER_FIELD,PROJ_REQUEST,PROJ_BALANCE\n"
+        filedata += '123-456,Some Content,5555,"1,234"\n'
+        filedata += "nonexist,Not Here,5.00,1.23\n"
+        filedata += "111-222,Other Co¿ntent,5,1.23\n"
         # Note the non-utf character ^
         csv_file_handle, csv_path = tempfile.mkstemp()
         with open(csv_file_handle, 'wb') as csv_file:
@@ -193,8 +228,18 @@ class SyncAccountingTests(TestCase):
         account456 = Account.objects.create(name='account1', code='123-456')
         account222 = Account.objects.create(name='account2', code='111-222')
 
-        command = sync.Command()
-        command.handle(csv_path)
+        with self.assertLogs('peacecorps.sync_accounting') as logger:
+            command = sync.Command()
+            command.handle(csv_path)
+        self.assertEqual(3, len(logger.output))
+        self.assertTrue('123-456' in logger.output[0])
+        self.assertTrue('Updating' in logger.output[0])
+        self.assertTrue('5555' in logger.output[0])
+        self.assertTrue('1,234' in logger.output[0])
+        self.assertTrue('nonexist' in logger.output[1])
+        self.assertTrue('Creating' in logger.output[1])
+        self.assertTrue('111-222' in logger.output[2])
+        self.assertTrue('Updating' in logger.output[2])
 
         self.assertEqual(create.call_count, 1)
         self.assertEqual(update.call_count, 2)
