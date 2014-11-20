@@ -7,8 +7,14 @@ class CampaignAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 
+class AccountInline(admin.StackedInline):
+    model = models.Account
+
+
 class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['title', 'country', 'volunteername', 'account']
     prepopulated_fields = {"slug": ("title",)}
+    filter_horizontal = ('campaigns',)
 
 
 admin.site.register(models.Campaign, CampaignAdmin)
