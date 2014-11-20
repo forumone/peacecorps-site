@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from contenteditor import models
+from peacecorps.models import Country
 
 
 class ExtraUserTests(TestCase):
@@ -11,6 +12,62 @@ class ExtraUserTests(TestCase):
         self.assertNotEqual(None, user.extra.password_expires)
         user.delete()
         self.assertEqual(0, len(models.ExtraUserFields.objects.all()))
+
+
+class SignalTests(TestCase):
+    def test_user_logging(self):
+        """We should receive a log when a user is created and deleted"""
+        with self.assertLogs('peacecorps.users') as logger:
+            user = get_user_model().objects.create_user(
+                username='bob', email='bob@example.com', password='bob')
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('bob (bob@example.com)' in logger.output[0])
+        self.assertTrue('created' in logger.output[0])
+
+        with self.assertLogs('peacecorps.users') as logger:
+            user.delete()
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('bob (bob@example.com)' in logger.output[0])
+        self.assertTrue('deleted' in logger.output[0])
+
+    def test_admin_edits(self):
+        """When models are created, edited, and deleted, a logging entry
+        should be made"""
+        user = get_user_model().objects.create_user(
+            username='bob', email='bob@example.com', password='bob')
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+        self.client.login(username='bob', password='bob')
+        with self.assertLogs('peacecorps.admin_edit') as logger:
+            self.client.post('/admin/peacecorps/country/add/',
+                             data={'code': 'XYZ', 'name': 'Mystery'})
+        country = Country.objects.get(code='XYZ')
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('bob (bob@example.com)' in logger.output[0])
+        self.assertTrue('added' in logger.output[0])
+        self.assertTrue('Mystery' in logger.output[0])
+        self.assertTrue(str(country.id) in logger.output[0])
+
+        with self.assertLogs('peacecorps.admin_edit') as logger:
+            self.client.post('/admin/peacecorps/country/%d/' % country.id,
+                             data={'code': 'XYZ', 'name': 'CountryName'})
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('bob (bob@example.com)' in logger.output[0])
+        self.assertTrue('edited' in logger.output[0])
+        self.assertTrue('CountryName' in logger.output[0])
+        self.assertTrue(str(country.id) in logger.output[0])
+
+        with self.assertLogs('peacecorps.admin_edit') as logger:
+            self.client.post(
+                '/admin/peacecorps/country/%d/delete/' % country.id,
+                data={'post': 'yes', 'submit': "Yes, I'm sure"})
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('bob (bob@example.com)' in logger.output[0])
+        self.assertTrue('deleted' in logger.output[0])
+        self.assertTrue('CountryName' in logger.output[0])
+        self.assertTrue(str(country.id) in logger.output[0])
+        user.delete()
 
 
 class EditorTests(TestCase):
