@@ -1,9 +1,27 @@
+import logging
+
 from django import forms
+from django.contrib.admin.forms import AdminAuthenticationForm
 from django.contrib.auth.forms import (
     AdminPasswordChangeForm, PasswordChangeForm, UserCreationForm)
 from django.utils.translation import ugettext_lazy as _
 
 from contenteditor import models
+
+
+class LoggingAuthenticationForm(AdminAuthenticationForm):
+    """Override login form to log attempts"""
+    def clean(self):
+        logger = logging.getLogger("peacecorps.login")
+        try:
+            cleaned = super(LoggingAuthenticationForm, self).clean()
+            logger.info("%s successfully logged in",
+                        self.cleaned_data['username'])
+            return cleaned
+        except forms.ValidationError:
+            logger.warn("Failed login attempt for %s",
+                        self.cleaned_data.get('username'))
+            raise
 
 
 class StrictUserCreationForm(UserCreationForm):

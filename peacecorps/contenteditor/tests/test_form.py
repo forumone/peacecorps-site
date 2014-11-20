@@ -189,3 +189,33 @@ class StrictAdminPasswordChangeFormTest(AbstractPasswordChange, TestCase):
 class StrictPasswordChangeFormTest(AbstractPasswordChange, TestCase):
     password_field = 'new_password'
     form = StrictPasswordChangeForm
+
+
+class LoggingAuthenticationFormTest(TestCase):
+    def test_success(self):
+        user = User.objects.create_user('LOgin', 'bob@example.com', 'passpass')
+        user.is_staff = True
+        user.save()
+        with self.assertLogs("peacecorps.login") as logger:
+            response = self.client.post(
+                '/admin/login/', data={'username': user.username,
+                                       'password': 'passpass'})
+            self.assertEqual(302, response.status_code)
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('LOgin' in logger.output[0])
+        self.assertTrue('success' in logger.output[0])
+        user.delete()
+
+    def test_failure(self):
+        user = User.objects.create_user('LOgin', 'bob@example.com', 'passpass')
+        user.is_staff = True
+        user.save()
+        with self.assertLogs("peacecorps.login") as logger:
+            response = self.client.post(
+                '/admin/login/', data={'username': user.username,
+                                       'password': 'wrong'})
+            self.assertEqual(200, response.status_code)
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('LOgin' in logger.output[0])
+        self.assertTrue('Fail' in logger.output[0])
+        user.delete()
