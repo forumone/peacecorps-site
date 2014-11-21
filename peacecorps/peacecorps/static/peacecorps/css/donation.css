@@ -427,7 +427,7 @@ p + p {
  * bits of important information.
  */
 .t-blurb, .t-blurb--lg, .t-blurb--md {
-  font-weight: 400;
+  font-weight: 100;
   line-height: 1.1; }
 
 .t-blurb--lg {
@@ -441,9 +441,9 @@ p + p {
   /* 7 */
   /* 4 */
   /* 5 */
-  margin: 22px 0;
+  margin: 25px 0;
   /* 9 */
-  margin: 2.2rem 0;
+  margin: 2.5rem 0;
   /* 9 */ }
 
 .t-blurb--md {
@@ -457,9 +457,9 @@ p + p {
   /* 7 */
   /* 4 */
   /* 5 */
-  margin: 18px 0;
+  margin: 20px 0;
   /* 9 */
-  margin: 1.8rem 0;
+  margin: 2rem 0;
   /* 9 */ }
 
 .tblurb + .tblurb {

@@ -166,18 +166,18 @@ p + p {
  * bits of important information.
  */
 .t-blurb {
-  font-weight: $weight-book;
+  font-weight: $weight-light;
   line-height: $leading-xsm;
 }
 .t-blurb--lg {
   @extend .t-blurb;
   @include font-size(4.8);
-  @include rem(margin, 2.2rem 0);
+  @include rem(margin, 2.5rem 0);
 }
 .t-blurb--md {
   @extend .t-blurb;
   @include font-size(3.8);
-  @include rem(margin, 1.8rem 0);
+  @include rem(margin, 2rem 0);
 }
 .tblurb + .tblurb {
   margin-top: 0;
