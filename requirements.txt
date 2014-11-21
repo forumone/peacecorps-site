@@ -1,5 +1,4 @@
 Django==1.7
-psycopg2==2.5.3
 django-jinja==1.0.4
 django-localflavor
 django-tinymce
@@ -7,6 +6,11 @@ DjangoRestless
 pyyaml
 python-gnupg
 pytz
+
+# These should really be optional dependencies, but we can separate out a
+# requirements-production later
+psycopg2==2.5.3
 boto
+python-logstash
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
 -e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages
