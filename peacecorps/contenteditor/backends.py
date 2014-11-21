@@ -1,11 +1,9 @@
-import json
 import logging
 
 from django.conf import settings
 from django.contrib.auth import backends
 from django.utils.functional import empty, LazyObject
 from django.utils.module_loading import import_string
-from logstash.formatter import LogstashFormatterVersion1
 
 from .models import Editor
 
@@ -18,14 +16,6 @@ class EditorBackend(backends.ModelBackend):
             return Editor.objects.get(pk=user_id)
         except Editor.DoesNotExist:
             return None
-
-
-class LogstashFormatter(LogstashFormatterVersion1):
-    """Though the logstash library does most of what we want, it assumes
-    the logs are serialized to UDP or TCP, and so converts them to bytes. We
-    need them to be strings instead."""
-    def serialize(self, message):
-        return json.dumps(message)
 
 
 class LoggingStorage(LazyObject):

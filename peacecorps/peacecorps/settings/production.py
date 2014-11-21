@@ -40,7 +40,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'logstash': {
-            '()': 'contenteditor.backends.LogstashFormatter'
+            '()': 'peacecorps.settings.logformatter.LogstashFormatter'
         }
     },
     'handlers': {
