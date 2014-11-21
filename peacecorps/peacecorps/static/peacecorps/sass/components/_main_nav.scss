@@ -5,13 +5,12 @@
  * vertical row for smaller screens.
  */
 
-@import "components/inline_text";
 @import "globals";
-@import "util";
+@import "mixins";
 
 .main_nav {
-  @include u-unmarked_list;
-  @include inline_text--centered;
+  @extend .inline_text--centered;
+  @extend .u-unmarked_list;
   width: 100%;
 
   @include media($sm) {
@@ -20,10 +19,7 @@
 
   .main_nav__link {
     @include span_columns(2);
-    @include inline_text__ele--centered;
-
-    a {
-    }
+    @extend .inline_text__ele--centered;
   }
 
 }

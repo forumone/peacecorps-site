@@ -7,6 +7,12 @@
   font-size: $sizeValue + rem;
 }
 
+@mixin u-visually_hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
 @function parseInt($n) { /* 2 */
   @return $n / ($n * 0 + 1);
 }

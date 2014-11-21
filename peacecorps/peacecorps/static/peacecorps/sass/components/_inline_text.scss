@@ -5,34 +5,22 @@
  * centered inline text.
  */
 
-@import "bourbon/bourbon";
-@import "neat/neat";
 @import "globals";
 
 // Inline text
-@mixin inline_text {
+.inline_text {
   @include span-columns(1);
   @include media($sm) {
     @include span-columns(4);
     text-align: center;
   }
 }
-.inline_text {
-  @include inline_text;
-}
 
-// Inline text centered
-@mixin inline_text--centered {
-  text-align: center;
-}
-@mixin inline_text__ele--centered {
-  display: inline-block;
-  float: none;
-}
 .inline_text--centered {
-  @include inline_text--centered;
+  text-align: center;
 
-  .inline_text__ele {
-    @include inline_text__ele--centered;
+  .inline_text__ele--centered {
+    display: inline-block;
+    float: none;
   }
 }

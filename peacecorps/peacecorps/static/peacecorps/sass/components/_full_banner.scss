@@ -3,13 +3,12 @@
  */
 
 @import "globals";
-@import "util";
 
 .full_banner {
   @extend .t--white;
   margin: 0 -500%;
   padding: 0.5em 500%;
-  @include u-clearfix;
+  @extend .u-clearfix;
 }
 
 .full_banner--support_color {
