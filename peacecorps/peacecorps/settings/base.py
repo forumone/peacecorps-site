@@ -95,3 +95,6 @@ PASSWORD_EXPIRATION_WHITELIST = [
 ]
 
 AUTHENTICATION_BACKENDS = ('contenteditor.backends.EditorBackend',)
+DEFAULT_FILE_STORAGE = 'contenteditor.backends.LoggingStorage'
+# The logging storage (above) must have a backend. Default to Django's default
+LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
