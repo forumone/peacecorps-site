@@ -35,6 +35,40 @@ GPG_RECIPIENTS = {
 if os.environ.get('USE_PAYGOV', ''):
     INSTALLED_APPS += ('paygov',)
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logstash': {
+            '()': 'contenteditor.backends.LogstashFormatter'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/var/log/webapp.log',
+            'formatter': 'logstash'
+        },
+    },
+    'loggers':  {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'peacecorps': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'paygov': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
 
 try:
     from .local_settings import *
