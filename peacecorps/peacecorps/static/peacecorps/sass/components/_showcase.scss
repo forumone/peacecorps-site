@@ -3,14 +3,13 @@
  * content very visually.
  */
 @import "globals";
-@import "util";
 
 .showcase {
+  clear: both;
   text-align: center;
 }
 
 .showcase--main {
-  @include u-clearfix;
   padding-bottom: 3em;
   width: 100%;
 }
@@ -33,7 +32,6 @@
 }
 
 .showcase_inset--md {
-  @include u-clearfix;
   @include span-columns(8);
   @include shift(2);
 

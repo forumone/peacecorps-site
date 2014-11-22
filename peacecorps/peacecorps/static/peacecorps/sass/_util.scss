@@ -18,18 +18,13 @@
 }
 
 // Classic clearfix
-@mixin u-clearfix {
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-}
-.u-clearfix {
-  @include u-clearfix;
+.u-clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 // Visually hide information but keep available for screen readers.
@@ -67,4 +62,9 @@
 // Alignment
 .u-align_r {
   text-align: right;
+}
+
+.u-wrap {
+  @include outer-container;
+
 }

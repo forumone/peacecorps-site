@@ -1,0 +1,34 @@
+/*
+ * Section
+ *
+ * Section(s) are for main, separated visual block of content.
+ */
+
+@import "globals";
+@import "mixins";
+
+.section {
+  clear: left;
+}
+
+.section__content + .section__content {
+  margin-top: 3em;
+}
+
+.section--white {
+  background-color: $white;
+}
+
+.section__content {
+  padding: 1.5em;
+}
+
+/*
+
+.section__inner {
+  padding: 1.5em;
+}
+.section__inner + .section__inner {
+  margin-top: 3em;
+}
+*/

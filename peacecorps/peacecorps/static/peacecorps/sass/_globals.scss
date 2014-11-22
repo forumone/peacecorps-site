@@ -20,10 +20,11 @@ $neutral_medium: #F2EFE8; // Gray brownish lighter
 /*
  * Grid
  */
+$base: 15;
 $grid-columns: 12;
 $column: golden-ratio(1em, 3) !default;
 $gutter: golden-ratio(.8em, 3) !default;
-$max-width: em(1088);
+$max-width: 81.5em !default;
 $visual-grid: true;
 
 

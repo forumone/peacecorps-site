@@ -5,12 +5,19 @@
 @import "globals";
 
 .full_banner {
-  @extend .t--white;
+  border-top: 1em solid;
   margin: 0 -500%;
   padding: 0.5em 500%;
   @extend .u-clearfix;
 }
 
-.full_banner--support_color {
+.full_banner--support {
+  @extend .t--white;
+  border-top: none;
   background-color: rgba($primary_support, 0.75);
+}
+
+.full_banner--neutral {
+  background-color: $neutral_medium;
+  border-color: $neutral_dark;
 }
