@@ -45,10 +45,10 @@
 {% endif %}
 
 <section class="section">
-  <section class="full_banner full_banner--neutral">
+  <section class="section__content full_banner full_banner--neutral">
     <h1 class="t-title--1">Projects</h1>
     {% for project in featuredprojects %}
-      <article class="section__content section--white">
+      <article class="section__box section--white">
         <div class="u-hv_center--block bg_img--centered bg_img--banner"
             style="background-image: url('{{project.project.featured_image.url}}')">
           <a href="{{url("donate project", slug=project.project.slug)}}"

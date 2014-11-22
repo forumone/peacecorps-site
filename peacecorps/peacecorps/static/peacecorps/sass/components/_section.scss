@@ -9,10 +9,7 @@
 
 .section {
   clear: left;
-}
-
-.section__content + .section__content {
-  margin-top: 3em;
+  padding: 0 1em;
 }
 
 .section--white {
@@ -20,15 +17,18 @@
 }
 
 .section__content {
-  padding: 1.5em;
+  padding-top: 2em;
 }
 
-/*
-
-.section__inner {
+.section__box {
   padding: 1.5em;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  & + & {
+    margin-top: 3em;
+  }
 }
-.section__inner + .section__inner {
-  margin-top: 3em;
-}
-*/
+

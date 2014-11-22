@@ -12,6 +12,20 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
 .donate-form form {
   max-width: 68em;
   margin-left: auto;
@@ -1048,26 +1062,22 @@ body {
  * Global mixins.
  */
 .section {
-  clear: left; }
-
-.section__content + .section__content {
-  margin-top: 3em; }
+  clear: left;
+  padding: 0 1em; }
 
 .section--white {
   background-color: #ffffff; }
 
 .section__content {
+  padding-top: 2em; }
+
+.section__box {
   padding: 1.5em; }
+  .section__box > *:last-child {
+    margin-bottom: 0; }
+  .section__box + .section__box {
+    margin-top: 3em; }
 
-/*
-
-.section__inner {
-  padding: 1.5em;
-}
-.section__inner + .section__inner {
-  margin-top: 3em;
-}
-*/
 /*
  * A visual separator at the start of a section. Allows space for a title header
  * for the section.
@@ -1254,6 +1264,7 @@ body {
  */
 .showcase {
   clear: both;
+  padding: 0 1em;
   text-align: center; }
 
 .showcase--main {
