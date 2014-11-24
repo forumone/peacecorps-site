@@ -4,22 +4,21 @@ import logging
 import re
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils import timezone
+import pytz
 
 from peacecorps.models import (
     Account, Campaign, Country, Project, SectorMapping)
 
 
 def datetime_from(text):
-    """Convert a string representation of a datetime into a UTC datetime
-    object."""
-    # This format will no doubt change
-    try:
-        time = datetime.strptime(text, "%Y-%m-%d %H:%M:%S")
-    except ValueError:
-        # Try a different format. @todo: remove once data's cleaned
-        time = datetime.strptime(text, "%d-%b-%y")
-    return timezone.make_aware(time, timezone.get_current_timezone())
+    """Convert a string representation of a date into a UTC datetime. We
+    assume the incoming date is in Eastern and represents the last second of
+    that day"""
+    eastern = pytz.timezone("US/Eastern")
+    time = datetime.strptime(text, "%d-%b-%y")
+    time = time.replace(hour=23, minute=59, second=59)
+    time = eastern.localize(time)
+    return time.astimezone(pytz.utc)
 
 
 def cents_from(text):
@@ -75,8 +74,9 @@ def create_pcpp(account, row, issue_map):
     country = Country.objects.filter(name__iexact=country_name).first()
     issue = issue_map.find(row['SECTOR'])
     if not country or not issue:
-        logging.warning("Either country or issue does not exist: %s, %s",
-                        row['COUNTRY_NAME'], row['SECTOR'])
+        logging.getLogger('peacecorps.sync_accounting').warning(
+            "Either country or issue does not exist: %s, %s",
+            row['COUNTRY_NAME'], row['SECTOR'])
     else:
         goal = cents_from(row['PROJ_REQUEST'])
         balance = cents_from(row['PROJ_BAL'])
@@ -137,6 +137,7 @@ class Command(BaseCommand):
             raise CommandError("Missing path to csv")
 
         issue_map = IssueCache()
+        logger = logging.getLogger('peacecorps.sync_accounting')
 
         with open(args[0], encoding='iso-8859-1') as csvfile:
             # Column names will no doubt change
@@ -144,6 +145,10 @@ class Command(BaseCommand):
                 account = Account.objects.filter(
                     code=row['PROJ_CODE']).first()
                 if account:
+                    logger.info(
+                        'Updating %s, new balance: %s / %s', row['PROJ_CODE'],
+                        row['PROJ_BALANCE'], row['PROJ_REQUEST'])
                     update_account(row, account)
                 else:
+                    logger.info('Creating %s', row['PROJ_CODE'])
                     create_account(row, issue_map)

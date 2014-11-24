@@ -9,7 +9,7 @@ INSTALLED_APPS += (
     'contenteditor',
 )
 # Set these only on the machines which have admin access
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+LOGGED_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'peace-corps'
 AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')

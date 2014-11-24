@@ -221,7 +221,8 @@ class PublishedManager(models.Manager):
 class Project(models.Model):
     title = models.CharField(max_length=100)
     tagline = models.CharField(
-        max_length=240, help_text="a short description for subheadings.")
+        max_length=240, help_text="a short description for subheadings.",
+        blank=True, null=True)
     slug = models.SlugField(max_length=100, help_text="for the project url.")
     description = SirTrevorField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
@@ -230,7 +231,7 @@ class Project(models.Model):
         help_text="Campaigns to which this project belongs",
         blank=True, null=True)
     featured_image = models.ForeignKey(
-        'Media', null=True,
+        'Media', null=True, blank=True,
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)

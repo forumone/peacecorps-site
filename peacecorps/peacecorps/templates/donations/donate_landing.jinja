@@ -5,7 +5,8 @@
 {% block content_class %}landing{% endblock %}
 {% block custom_js %}
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
+<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}">
+</script>
 {% endblock %}
 
 {% block content %}
@@ -15,22 +16,56 @@
     background-image: url('{{featuredcampaign.featured_image.url}}');
   ">
 </div>
-<section style="height: 23.5em;">
-  <section class="full_banner full_banner--support_color"
+<section style="height: 27.75em;">
+  <section class="full_banner full_banner--support"
       style="margin-top: 15em;">
     <div class="showcase showcase--shift_sm">
-      <h2 class="t-heading--white">{{featuredcampaign.tagline}}</h2>
+      <h2 class="t-blurb--lg">{{featuredcampaign.tagline}}</h2>
       <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
          style="margin-bottom: -1.5em"
-         class="button button--secondary">{{featuredcampaign.call}}</a>
+         class="button button--md button--secondary">
+        {{featuredcampaign.call}}
+      </a>
     </div>
   </section>
 </section>
+<section class="blurb">
+  <h2 class="t-blurb--md t--black">Archer 100 brief inspirational call to
+    action encouraging visitors to give to the general fund.
+  </h2>
+  <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
+     class="button button--md button--primary">
+    Give to {{featuredcampaign.name}}
+  </a>
+  <h4 class="t-title--4 blurb__spacing">
+    <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}">
+      Explore projects and funds</a>
+  </h4>
+</section>
 {% endif %}
 
-<section class="showcase showcase--main showcase--neutral">
+<section class="section">
+  <section class="section__content full_banner full_banner--neutral">
+    <h1 class="t-title--1">Projects</h1>
+    {% for project in featuredprojects %}
+      <article class="section__box section--white">
+        <div class="u-hv_center--block bg_img--centered bg_img--banner"
+            style="background-image: url('{{project.project.featured_image.url}}')">
+          <a href="{{url("donate project", slug=project.project.slug)}}"
+               class="button button--sm button--primary
+               u-hv_center--block__content">
+             Read their story
+          </a>
+        </div>
+        <h2 class="t-heading--2">{{project.project.tagline}}</h2>
+      </article>
+    {% endfor %}
+  </section>
+</section>
+
+<section class="showcase showcase--main ">
   <header class="section_starter">
-    <h1 class="section_starter__content t-heading_xlg">Issues</h1>
+    <h1 class="section_starter__content t-title--2">Issues</h1>
   </header>
   <div><!-- This div is needed because of "broken" functionality in
             bourbon neat which requires a wrapping div to use the
@@ -87,25 +122,6 @@
       </a>
     </div>
   </div>
-</section>
-
-
-<section class="showcase showcase--main showcase--neutral">
-  <header class="section_starter">
-    <h1 class="section_starter__content t-heading_xlg">Projects</h1>
-  </header>
-  {% for project in featuredprojects %}
-    <article class="showcase_inset--lg bordered bordered--white bm3">
-      <div class="u-hv_center--block bg_img--centered bg_img--banner"
-          style="background-image: url('{{project.project.featured_image.url}}')">
-        <a href="{{url("donate project", slug=project.project.slug)}}"
-             class="button button--primary u-hv_center--block__content">
-           Read their story
-        </a>
-      </div>
-      <h2 class="t-heading--secondary t--no_bm">{{project.project.tagline}}</h2>
-    </article>
-  {% endfor %}
 </section>
 
 <h2>More Projects</h2>

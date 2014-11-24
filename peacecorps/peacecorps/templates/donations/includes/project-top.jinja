@@ -7,8 +7,8 @@
   <section style="min-height: 38em; padding-top: 6em;">
     <section class="full_banner full_banner--support_color">
       <div class="showcase showcase--shift_sm">
-        <h1 class="t-heading--white t--no_bm">{{project.title}}</h1>
-        <h2 class="t-heading--white">{{project.tagline}}</h2>
+        <h1 class="t-blurb t-blurb--lg">{{project.title}}</h1>
+        <h2 class="t-blurb t-blurb--md">{{project.tagline}}</h2>
       </div>
     </section>
   </section>
@@ -16,8 +16,7 @@
   <div class="showcase--main showcase--neutral">
     <div class="showcase--col3_centered bm u-clearfix">
       <header class="t-lg_margins">
-        <p>Project</p>
-        <p class="t-bold">{{project.title}}</p>
+        <h2>{{project.title}}</h2>
       </header>
       <div>
         <section class="showcase showcase--col3_centered__col">
@@ -28,7 +27,7 @@
                    alt="{{project.volunteerpicture.description}}">
             </div>
           {% endif %}
-          <span><strong>{{project.volunteername}}</strong><br>
+          <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
             volunteer from <strong>{{project.volunteerhomestate}}</strong>
           </span>
         </section>
@@ -41,7 +40,9 @@
                     data="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
             </object>
           </div>
-            <span>in <strong>{{project.country.name}}</strong></span>
+            <span class="t-body--sm">
+              in <strong>{{project.country.name}}</strong>
+            </span>
         </section>
         <section class="showcase--col3_centered__col js-fundingBar"
                  data-project-code="{{ project.account.code }}">
@@ -57,6 +58,9 @@
             <p class="funded-amount-text">
               {{ funded_percent|round|int }}% funded
             </p>
+            <p class="funded-amount-text t-body--sm">
+              {{ funded_percent|round|int }}% funded
+            </p>
           </div>
           <p>Funds sought: <strong>${{project.account.goal/100}}</strong></p>
         </section>
@@ -64,7 +68,8 @@
     </div>
     <div class="showcase showcase--main">
       <a href="" {# TODO where does this link go? #}
-         class="button button--primary">Help fund {{project.title}}</a>
+         class="button button--sm button--primary">
+        Help fund {{project.title}}</a>
     </div>
   </div>
 </article>

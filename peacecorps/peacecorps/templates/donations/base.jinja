@@ -7,43 +7,21 @@
     <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
-    <script src="//use.typekit.net/dyt6gwn.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <h1>{% block header %}Peace Corps{% endblock %}</h1>
-        <nav>
-            <ul class="main_nav">
-                <li class="main_nav__link">
-                  <a href="/">Home</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="/about">About</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="http://passport.peacecorps.gov/">Blog</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="/volunteer">Volunteer</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="{{ url("donate landing") }}">Donate</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>{% block header %}Peace Corps{% endblock %}</h1>
+  </header>
 
-{% block navigation %}{% endblock %}
+  {% block navigation %}{% endblock %}
 
-<main class="{% block content_class %}{% endblock %}">
-{% block content %}{% endblock %}
-</main>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <main class="{% block content_class %}{% endblock %}">
+  {% block content %}{% endblock %}
+  </main>
 
 </div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 {% block custom_js %}{% endblock %}
 
 </body>

@@ -1,0 +1,21 @@
+/*
+ * layout/Blurb
+ *
+ * Blurb is a layout module that puts a large amount of padding and spacing
+ * for a blurb.
+ */
+
+@import "globals";
+@import "mixins";
+
+.blurb {
+  @include span-columns(10);
+  @include shift(1);
+  padding-bottom: em(50, $base);
+  padding-top: em(150, $base);
+  text-align: center;
+}
+
+.blurb__spacing {
+  margin-top: em(120, $base);
+}
