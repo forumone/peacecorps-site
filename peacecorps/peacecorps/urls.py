@@ -4,17 +4,19 @@ from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
-from peacecorps import views
-from peacecorps import api
+from peacecorps import api, views
+from peacecorps.cache import midterm_cache, shortterm_cache
 
 _slug = r'(?P<slug>[a-zA-Z0-9_-]+)'
 
 urlpatterns = patterns(
     '',
-    url(r'^donate/?$', views.donate_landing, name='donate landing'),
+    url(r'^donate/?$', midterm_cache(views.donate_landing),
+        name='donate landing'),
 
-    url(r'^donate/campaign/' + _slug + r'/?$', views.donate_campaign,
-        name='donate campaign'),
+    url(r'^donate/campaign/' + _slug + r'/?$',
+        midterm_cache(views.donate_campaign), name='donate campaign'),
+    # not cached so the values are up-to-date
     url(r'^donate/campaign/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -24,8 +26,9 @@ urlpatterns = patterns(
             template_name='donations/campaign_failure.jinja'),
         name='campaign failure'),
 
-    url(r'^donate/project/' + _slug + r'/?$', views.donate_project,
-        name='donate project'),
+    url(r'^donate/project/' + _slug + r'/?$',
+        midterm_cache(views.donate_project), name='donate project'),
+    # not cached so the values are up-to-date
     url(r'^donate/project/' + _slug + r'/success/?$',
         views.ProjectReturn.as_view(
             template_name='donations/project_success.jinja'),
@@ -35,8 +38,9 @@ urlpatterns = patterns(
             template_name='donations/project_failure.jinja'),
         name='project failure'),
 
-    url(r'^donate/country/' + _slug + r'/?$', views.donate_country,
-        name='donate country'),
+    url(r'^donate/country/' + _slug + r'/?$',
+        midterm_cache(views.donate_country), name='donate country'),
+    # not cached so the values are up-to-date
     url(r'^donate/country/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -45,10 +49,12 @@ urlpatterns = patterns(
         views.CampaignReturn.as_view(
             template_name='donations/campaign_failure.jinja'),
         name='country failure'),
-    url(r'^donate/countries', views.donate_countries, name='donate countries'),
+    url(r'^donate/countries', midterm_cache(views.donate_countries),
+        name='donate countries'),
 
-    url(r'^donate/memorial/' + _slug + r'/?$', views.donate_memorial,
-        name='donate memorial'),
+    url(r'^donate/memorial/' + _slug + r'/?$',
+        midterm_cache(views.donate_memorial), name='donate memorial'),
+    # not cached so the values are up-to-date
     url(r'^donate/memorial/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -58,8 +64,9 @@ urlpatterns = patterns(
             template_name='donations/campaign_failure.jinja'),
         name='memorial failure'),
     # this needs to be below other donate urls.
-    url(r'^donate/' + _slug + r'/?$', views.donate_general,
+    url(r'^donate/' + _slug + r'/?$', midterm_cache(views.donate_general),
         name='donate general'),
+    # not cached so the values are up-to-date
     url(r'^donate/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -69,15 +76,18 @@ urlpatterns = patterns(
             template_name='donations/campaign_failure.jinja'),
         name='general failure'),
 
-    url(r'^donations/contribute/?$', views.donation_payment,
+    url(r'^donations/contribute/?$', midterm_cache(views.donation_payment),
         name='donations_payment'),
+    # not cached so the values are up-to-date
     url(r'^success/?$',
         TemplateView.as_view(template_name='donations/success.jinja'),
         name='donation success'),
     url(r'^failure/?$',
         TemplateView.as_view(template_name='donations/failure.jinja'),
         name='donation failure'),
-    url(r'^api/account/' + _slug + r'/?$', api.GetAccountPercent.as_view()),
+
+    url(r'^api/account/' + _slug + r'/?$',
+        shortterm_cache(api.GetAccountPercent.as_view())),
 )
 
 
