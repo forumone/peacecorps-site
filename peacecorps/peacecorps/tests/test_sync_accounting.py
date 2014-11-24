@@ -4,7 +4,7 @@ import tempfile
 from unittest.mock import Mock, patch
 
 from django.test import TestCase
-from django.utils import timezone
+from pytz import timezone
 
 from peacecorps.management.commands import sync_accounting as sync
 from peacecorps.models import (
@@ -24,22 +24,24 @@ class SyncAccountingTests(TestCase):
         self.china.delete()
 
     def test_datetime_from(self):
-        dt = sync.datetime_from('2012-03-20 16:45:01')
+        """Test daylight savings conversions"""
+        dt = sync.datetime_from('9-Sep-12')    # EDT
         self.assertEqual(2012, dt.year)
-        self.assertEqual(3, dt.month)
-        self.assertEqual(20, dt.day)
-        self.assertEqual(16, dt.hour)
-        self.assertEqual(45, dt.minute)
-        self.assertEqual(1, dt.second)
+        self.assertEqual(9, dt.month)
+        self.assertEqual(10, dt.day)
+        self.assertEqual(3, dt.hour)
+        self.assertEqual(59, dt.minute)
+        self.assertEqual(59, dt.second)
+        self.assertEqual(dt.tzname(), 'UTC')
 
-        #   @todo remove this test once the data is cleaned up
-        dt = sync.datetime_from('9-Oct-12')
+        dt = sync.datetime_from('9-Dec-12')     # EST
         self.assertEqual(2012, dt.year)
-        self.assertEqual(10, dt.month)
-        self.assertEqual(9, dt.day)
-        self.assertEqual(0, dt.hour)
-        self.assertEqual(0, dt.minute)
-        self.assertEqual(0, dt.second)
+        self.assertEqual(12, dt.month)
+        self.assertEqual(10, dt.day)
+        self.assertEqual(4, dt.hour)
+        self.assertEqual(59, dt.minute)
+        self.assertEqual(59, dt.second)
+        self.assertEqual(dt.tzname(), 'UTC')
 
     def test_cents_from(self):
         self.assertEqual(123456789, sync.cents_from('1,234,567.89'))
@@ -52,14 +54,12 @@ class SyncAccountingTests(TestCase):
         acc222 = Account.objects.create(
             name='Account222', code='111-222', category=Account.PROJECT)
 
-        tz = timezone.get_current_timezone()
+        tz = timezone('US/Eastern')
         before_donation = Donation.objects.create(account=acc222, amount=5432)
-        before_donation.time = timezone.make_aware(
-            datetime(2009, 12, 14, 15, 16), tz)
+        before_donation.time = tz.localize(datetime(2009, 12, 14, 23, 59, 59))
         before_donation.save()
         after_donation = Donation.objects.create(account=acc222, amount=5432)
-        after_donation.time = timezone.make_aware(
-            datetime(2009, 12, 14, 16), tz)
+        after_donation.time = tz.localize(datetime(2009, 12, 15))
         after_donation.save()
 
         # First test with an empty LAST_UPDATED value
@@ -74,7 +74,7 @@ class SyncAccountingTests(TestCase):
         # amount donated to should be updated
         self.assertEqual(33330, Account.objects.get(pk=acc222.pk).current)
 
-        row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14 15:16:17',
+        row = {'LAST_UPDATED_FROM_PAYGOV': '14-Dec-09',
                'PROJ_REQUEST': '5,555.55', 'PROJ_BAL': '4,321.32'}
         sync.update_account(row, acc222)
         # before_donation should be deleted, but after_donation not

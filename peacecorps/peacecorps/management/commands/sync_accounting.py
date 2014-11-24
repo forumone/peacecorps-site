@@ -4,22 +4,21 @@ import logging
 import re
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils import timezone
+import pytz
 
 from peacecorps.models import (
     Account, Campaign, Country, Project, SectorMapping)
 
 
 def datetime_from(text):
-    """Convert a string representation of a datetime into a UTC datetime
-    object."""
-    # This format will no doubt change
-    try:
-        time = datetime.strptime(text, "%Y-%m-%d %H:%M:%S")
-    except ValueError:
-        # Try a different format. @todo: remove once data's cleaned
-        time = datetime.strptime(text, "%d-%b-%y")
-    return timezone.make_aware(time, timezone.get_current_timezone())
+    """Convert a string representation of a date into a UTC datetime. We
+    assume the incoming date is in Eastern and represents the last second of
+    that day"""
+    eastern = pytz.timezone("US/Eastern")
+    time = datetime.strptime(text, "%d-%b-%y")
+    time = time.replace(hour=23, minute=59, second=59)
+    time = eastern.localize(time)
+    return time.astimezone(pytz.utc)
 
 
 def cents_from(text):
