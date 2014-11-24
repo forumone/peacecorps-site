@@ -2,9 +2,8 @@
  * Contains all sass utilities such as floats, clears, etc.
  */
 
-@import "bourbon/bourbon";
-@import "neat/neat";
 @import "globals";
+@import "mixins";
 
 
 // A list with no list style and list spacing.
@@ -19,26 +18,16 @@
 }
 
 // Classic clearfix
-@mixin u-clearfix {
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-}
-.u-clearfix {
-  @include u-clearfix;
+.u-clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 // Visually hide information but keep available for screen readers.
-@mixin u-visually_hidden {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
-}
 .u-visually_hidden {
   @include u-visually_hidden;
 }
@@ -73,4 +62,9 @@
 // Alignment
 .u-align_r {
   text-align: right;
+}
+
+.u-wrap {
+  @include outer-container;
+
 }

@@ -1,8 +1,8 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import 'bourbon/bourbon';
+@import 'neat/neat';
 
 .donate-form form {
-  @include outer-container; 
+  @include outer-container;
 
   & > div {
     @include span-columns(12);
