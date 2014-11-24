@@ -11,6 +11,7 @@ _slug = r'(?P<slug>[a-zA-Z0-9_-]+)'
 
 urlpatterns = patterns(
     '',
+    url(r'^sirtrevor/', include('sirtrevor.urls')),
     url(r'^donate/?$', views.donate_landing, name='donate landing'),
 
     url(r'^donate/campaign/' + _slug + r'/?$', views.donate_campaign,

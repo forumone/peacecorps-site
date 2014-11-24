@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
 from tinymce import models as tinymce_models
+from sirtrevor.fields import SirTrevorField
 
 from peacecorps.fields import GPGField
 
@@ -222,7 +223,7 @@ class Project(models.Model):
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.")
     slug = models.SlugField(max_length=100, help_text="for the project url.")
-    description = tinymce_models.HTMLField(help_text="the full description.")
+    description = SirTrevorField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     campaigns = models.ManyToManyField(
         'Campaign',

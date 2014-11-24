@@ -20,6 +20,7 @@ DATABASES = {}
 INSTALLED_APPS = (
     'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
+    'sirtrevor',
     'restless',
     'peacecorps',
 )
@@ -57,6 +58,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': 300,
 }
 STATIC_ROOT = '/var/www/static/'
+
+SIRTREVOR_DEFAULT_TYPE = 'Text'
 
 
 # Static files (CSS, JavaScript, Images)
