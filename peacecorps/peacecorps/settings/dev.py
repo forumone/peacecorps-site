@@ -52,6 +52,16 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'peacecorps': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'paygov': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
 
