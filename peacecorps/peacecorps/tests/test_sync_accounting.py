@@ -63,8 +63,8 @@ class SyncAccountingTests(TestCase):
         after_donation.save()
 
         # First test with an empty LAST_UPDATED value
-        row = {'LAST_UPDATED_FROM_PAYGOV': '', 'PROJ_REQUEST': '444',
-               'PROJ_BAL': '110.7'}
+        row = {'LAST_UPDATED_FROM_PAYGOV': '', 'PROJ_REQ': '444',
+               'UNIDENT_BAL': '110.7'}
         sync.update_account(row, acc222)
         # All donations should remain
         self.assertNotEqual(
@@ -75,7 +75,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(33330, Account.objects.get(pk=acc222.pk).current)
 
         row = {'LAST_UPDATED_FROM_PAYGOV': '14-Dec-09',
-               'PROJ_REQUEST': '5,555.55', 'PROJ_BAL': '4,321.32'}
+               'PROJ_REQ': '5,555.55', 'UNIDENT_BAL': '4,321.32'}
         sync.update_account(row, acc222)
         # before_donation should be deleted, but after_donation not
         self.assertEqual(
@@ -91,10 +91,10 @@ class SyncAccountingTests(TestCase):
         account = Account(name='New Project Effort', code='098-765',
                           category=Account.PROJECT)
         row = {
-            'PROJ_CODE': '098-765', 'COUNTRY_NAME': 'CHINA',
-            'PROJ_NAME': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
-            'STATE': 'IN', 'COMM_CONTRIB': '1234.56', 'PROJ_REQUEST': '3,434',
-            'PROJ_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
+            'PROJ_NO': '098-765', 'LOCATION': 'CHINA',
+            'PROJ_NAME1': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'OVERS_PART': '1234.56', 'PROJ_REQ': '3,434',
+            'UNIDENT_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
         issue_cache = Mock()
         issue_cache.find.return_value = Campaign.objects.get(name='Technology')
         sync.create_pcpp(account, row, issue_cache)
@@ -119,10 +119,10 @@ class SyncAccountingTests(TestCase):
         account = Account(name='New Project Effort', code='098-765',
                           category=Account.PROJECT)
         row = {
-            'PROJ_CODE': '098-765', 'COUNTRY_NAME': 'CHINA',
-            'PROJ_NAME': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
-            'STATE': 'IN', 'COMM_CONTRIB': '', 'PROJ_REQUEST': '3,434',
-            'PROJ_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
+            'PROJ_NO': '098-765', 'LOCATION': 'CHINA',
+            'PROJ_NAME1': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'OVERS_PART': '', 'PROJ_REQ': '3,434',
+            'UNIDENT_BAL': '1,111', 'SECTOR': 'IT', 'SUMMARY': 'sum sum sum'}
         issue_cache = Mock()
         issue_cache.find.return_value = Campaign.objects.get(name='Technology')
         sync.create_pcpp(account, row, issue_cache)
@@ -138,7 +138,7 @@ class SyncAccountingTests(TestCase):
         count = Project.objects.count()
         issue_cache = Mock()
         issue_cache.find.return_value = Campaign.objects.get(name='Technology')
-        row = {'COUNTRY_NAME': 'NONEXISTENT', 'SECTOR': 'MOCKED'}
+        row = {'LOCATION': 'NONEXISTENT', 'SECTOR': 'MOCKED'}
         with self.assertLogs('peacecorps.sync_accounting',
                              level=logging.WARN) as logger:
             sync.create_pcpp(None, row, issue_cache)
@@ -148,7 +148,7 @@ class SyncAccountingTests(TestCase):
         self.assertTrue('MOCKED' in logger.output[0])
 
         issue_cache.find.return_value = None
-        row = {'COUNTRY_NAME': 'IRELAND', 'SECTOR': 'MOCKED'}
+        row = {'LOCATION': 'IRELAND', 'SECTOR': 'MOCKED'}
         with self.assertLogs('peacecorps.sync_accounting',
                              level=logging.WARN) as logger:
             sync.create_pcpp(None, row, issue_cache)
@@ -160,7 +160,7 @@ class SyncAccountingTests(TestCase):
     @patch('peacecorps.management.commands.sync_accounting.create_pcpp')
     def test_create_account_project(self, create):
         """Test that execution is deferred to the create_pcpp method"""
-        row = {'PROJ_NAME': 'Some Proj', 'PROJ_CODE': '121-212',
+        row = {'PROJ_NAME1': 'Some Proj', 'PROJ_NO': '121-212',
                'SECTOR': 'IT'}
         sync.create_account(row, None)
         self.assertTrue(create.called)
@@ -172,7 +172,7 @@ class SyncAccountingTests(TestCase):
 
     def test_create_account_campaign(self):
         """Campaigns should be created"""
-        row = {'PROJ_NAME': 'Argentina Fund', 'PROJ_CODE': '789-CFD',
+        row = {'PROJ_NAME1': 'Argentina Fund', 'PROJ_NO': '789-CFD',
                'SUMMARY': 'Some Sum'}
         sync.create_account(row, None)
         account = Account.objects.get(code='789-CFD')
@@ -187,10 +187,10 @@ class SyncAccountingTests(TestCase):
     def test_create_account_double(self, Campaign):
         """If an account with the same name already exists, create a distinct
         name based on project code"""
-        row = {'PROJ_NAME': 'Peru Fund', 'PROJ_CODE': '777-CFD',
+        row = {'PROJ_NAME1': 'Peru Fund', 'PROJ_NO': '777-CFD',
                'SUMMARY': 'Some Sum'}
         sync.create_account(row, None)
-        row['PROJ_CODE'] = '778-CFD'
+        row['PROJ_NO'] = '778-CFD'
         sync.create_account(row, None)
         account = Account.objects.get(code='777-CFD')
         self.assertEqual(account.name, 'Peru Fund')
@@ -201,8 +201,8 @@ class SyncAccountingTests(TestCase):
 
     def test_create_account_sector(self):
         """The creation of sectors creates a sector map, too"""
-        row = {'PROJ_NAME': 'Renewal Fund', 'PROJ_CODE': 'SPF-REN',
-               'COUNTRY_NAME': 'D/OSP/GGM', 'SUMMARY': 'Some Sum',
+        row = {'PROJ_NAME1': 'Renewal Fund', 'PROJ_NO': 'SPF-REN',
+               'LOCATION': 'D/OSP/GGM', 'SUMMARY': 'Some Sum',
                'SECTOR': 'RENEW'}
         sync.create_account(row, None)
         account = Account.objects.get(code='SPF-REN')
@@ -216,10 +216,10 @@ class SyncAccountingTests(TestCase):
     def test_handle(self, create, update):
         """Verify CSV reading and that the update/create are called. Also
         make sure that appropriate logs are created"""
-        filedata = "PROJ_CODE,OTHER_FIELD,PROJ_REQUEST,PROJ_BALANCE\n"
-        filedata += '123-456,Some Content,5555,"1,234"\n'
-        filedata += "nonexist,Not Here,5.00,1.23\n"
-        filedata += "111-222,Other Co¿ntent,5,1.23\n"
+        filedata = "PROJ_NO,SECTOR,OTHER_FIELD,PROJ_REQ,UNIDENT_BAL\n"
+        filedata += '123-456,IT,Some Content,5555,"1,234"\n'
+        filedata += "444-444,IT,Not Here,5.00,1.23\n"
+        filedata += "111-222,IT,Other Co¿ntent,5,1.23\n"
         # Note the non-utf character ^
         csv_file_handle, csv_path = tempfile.mkstemp()
         with open(csv_file_handle, 'wb') as csv_file:
@@ -236,7 +236,7 @@ class SyncAccountingTests(TestCase):
         self.assertTrue('Updating' in logger.output[0])
         self.assertTrue('5555' in logger.output[0])
         self.assertTrue('1,234' in logger.output[0])
-        self.assertTrue('nonexist' in logger.output[1])
+        self.assertTrue('444-444' in logger.output[1])
         self.assertTrue('Creating' in logger.output[1])
         self.assertTrue('111-222' in logger.output[2])
         self.assertTrue('Updating' in logger.output[2])
@@ -246,46 +246,58 @@ class SyncAccountingTests(TestCase):
         account222.delete()
         account456.delete()
 
+    @patch('peacecorps.management.commands.sync_accounting.create_account')
+    def test_process_rows_in(self, create):
+        """Verify that projects are processed after sector funds"""
+        rows = [
+            {'PROJ_NO': '123-456', 'SECTOR': 'NEWSECTOR'},
+            {'PROJ_NO': 'SPF-STR', 'SECTOR': 'NEWSECTOR', 'PROJ_NAME1': 'Proj',
+             'LOCATION': 'D/OSP/GGM'}]
+        sync.process_rows_in(rows)
+        self.assertEqual(2, len(create.call_args_list))
+        self.assertEqual(create.call_args_list[0][0][0]['PROJ_NO'], 'SPF-STR')
+        self.assertEqual(create.call_args_list[1][0][0]['PROJ_NO'], '123-456')
+
     def test_account_type_country(self):
-        row = {'PROJ_CODE': '123-CFD'}
+        row = {'PROJ_NO': '123-CFD'}
         self.assertEqual(Account.COUNTRY, sync.account_type(row))
-        row = {'PROJ_CODE': '111-222', 'SECTOR': 'None', 'PROJ_REQUEST': '0',
-               'COUNTRY_NAME': 'RUSSIA', 'PCV_NAME': 'RUSSIA COUNTRY FUND'}
+        row = {'PROJ_NO': '111-222', 'SECTOR': 'None', 'PROJ_REQ': '0',
+               'LOCATION': 'RUSSIA', 'PCV_NAME': 'RUSSIA COUNTRY FUND'}
         self.assertEqual(Account.COUNTRY, sync.account_type(row))
 
     def test_account_type_memorial(self):
-        row = {'PROJ_CODE': 'SPF-BOB', 'SECTOR': 'None', 'PROJ_REQUEST': '0',
-               'COUNTRY_NAME': 'MOZAMBIQUE',
-               'PROJ_NAME': 'Bob Jones Memorial Fund',
+        row = {'PROJ_NO': 'SPF-BOB', 'SECTOR': 'None', 'PROJ_REQ': '0',
+               'LOCATION': 'MOZAMBIQUE',
+               'PROJ_NAME1': 'Bob Jones Memorial Fund',
                'PCV_NAME': 'BOB JONES MEMORIAL FUND'}
         self.assertEqual(Account.MEMORIAL, sync.account_type(row))
 
     def test_account_type_sector(self):
-        row = {'PROJ_CODE': 'SPF-YTH', 'SECTOR': 'Youth Development',
-               'PROJ_REQUEST': '2550', 'COUNTRY_NAME': 'D/OSP/GGM',
-               'PROJ_NAME': 'Youth Fund', 'PCV_NAME': 'The Youth Fund'}
+        row = {'PROJ_NO': 'SPF-YTH', 'SECTOR': 'Youth Development',
+               'PROJ_REQ': '2550', 'LOCATION': 'D/OSP/GGM',
+               'PROJ_NAME1': 'Youth Fund', 'PCV_NAME': 'The Youth Fund'}
         self.assertEqual(Account.SECTOR, sync.account_type(row))
-        row = {'PROJ_CODE': 'SPF-YTH', 'SECTOR': 'Youth Development',
-               'PROJ_REQUEST': '2550', 'COUNTRY_NAME': '',
-               'PROJ_NAME': 'Youth Fund', 'PCV_NAME': 'YOUTH FUND'}
+        row = {'PROJ_NO': 'SPF-YTH', 'SECTOR': 'Youth Development',
+               'PROJ_REQ': '2550', 'LOCATION': '',
+               'PROJ_NAME1': 'Youth Fund', 'PCV_NAME': 'YOUTH FUND'}
         self.assertEqual(Account.SECTOR, sync.account_type(row))
 
     def test_account_type_project(self):
-        row = {'PROJ_CODE': '123-456', 'SECTOR': 'IT', 'PROJ_REQUEST': '0',
-               'COUNTRY_NAME': 'FRANCE', 'PROJ_NAME': 'Proj Proj',
-               'PCV_NAME': 'B. Smith', 'COMM_CONTRIB': ''}
+        row = {'PROJ_NO': '123-456', 'SECTOR': 'IT', 'PROJ_REQ': '0',
+               'LOCATION': 'FRANCE', 'PROJ_NAME1': 'Proj Proj',
+               'PCV_NAME': 'B. Smith', 'OVERS_PART': ''}
         self.assertEqual(Account.PROJECT, sync.account_type(row))
-        row = {'PROJ_CODE': '123-456-A', 'SECTOR': 'IT', 'PROJ_REQUEST': '0',
-               'COUNTRY_NAME': 'FRANCE', 'PROJ_NAME': 'Proj Proj',
-               'PCV_NAME': 'B. Smith', 'COMM_CONTRIB': '123.45'}
+        row = {'PROJ_NO': '123-456-A', 'SECTOR': 'IT', 'PROJ_REQ': '0',
+               'LOCATION': 'FRANCE', 'PROJ_NAME1': 'Proj Proj',
+               'PCV_NAME': 'B. Smith', 'OVERS_PART': '123.45'}
         self.assertEqual(Account.PROJECT, sync.account_type(row))
-        row = {'PROJ_CODE': '123-456-A', 'SECTOR': 'IT', 'PROJ_REQUEST': '150',
-               'COUNTRY_NAME': 'FRANCE', 'PROJ_NAME': 'Proj Proj',
-               'PCV_NAME': 'B. Smith', 'COMM_CONTRIB': ''}
+        row = {'PROJ_NO': '123-456-A', 'SECTOR': 'IT', 'PROJ_REQ': '150',
+               'LOCATION': 'FRANCE', 'PROJ_NAME1': 'Proj Proj',
+               'PCV_NAME': 'B. Smith', 'OVERS_PART': ''}
         self.assertEqual(Account.PROJECT, sync.account_type(row))
 
     def test_account_type_general(self):
-        row = {'PROJ_CODE': 'PCF-GEN', 'SECTOR': 'None', 'PROJ_REQUEST': '0',
-               'COUNTRY_NAME': 'D/OSP/GGM', 'PROJ_NAME': 'General Fund',
-               'PCV_NAME': 'General Fund', 'COMM_CONTRIB': ''}
+        row = {'PROJ_NO': 'PCF-GEN', 'SECTOR': 'None', 'PROJ_REQ': '0',
+               'LOCATION': 'D/OSP/GGM', 'PROJ_NAME1': 'General Fund',
+               'PCV_NAME': 'General Fund', 'OVERS_PART': ''}
         self.assertEqual(Account.OTHER, sync.account_type(row))
