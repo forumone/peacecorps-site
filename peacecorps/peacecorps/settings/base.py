@@ -69,6 +69,20 @@ STATIC_URL = '/static/'
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    },
+    'shortterm': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'TIMEOUT': 60*5    # 5 minutes
+    },
+    'midterm': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'TIMEOUT': 60*60    # 1 hour
+    }
+}
+
 # APP_SPECIFIC_VALUES
 
 # Not secret information -- it's in donation form

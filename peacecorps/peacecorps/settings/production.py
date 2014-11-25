@@ -24,6 +24,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# @todo switch to memcached/elasticache
+_backend = 'django.core.cache.backends.filebased.FileBasedCache'
+CACHES['shortterm']['BACKEND'] = _backend
+CACHES['shortterm']['LOCATION'] = '/tmp/shorttermcache/'
+CACHES['midterm']['BACKEND'] = _backend
+CACHES['midterm']['LOCATION'] = '/tmp/midtermcache/'
+
 # Note that MEDIA_ROOT is not needed since we're using S3
 MEDIA_URL = '//peace-corps.s3.amazonaws.com/'
 

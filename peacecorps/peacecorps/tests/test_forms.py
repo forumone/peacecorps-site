@@ -2,11 +2,18 @@ from decimal import Decimal
 
 from django.test import TestCase
 
-from peacecorps.models import Account
+from peacecorps.models import Account, Country
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 
 
 class DonationPaymentTests(TestCase):
+    def setUp(self):
+        Country.objects.create(code='USA', name='United States of America')
+        Country.objects.create(code='CAN', name='Canada')
+
+    def tearDown(self):
+        Country.objects.all().delete()
+
     def form_data(self, clear=[], **kwargs):
         """Create a form_data object with reasonable defaults"""
         form_data = {

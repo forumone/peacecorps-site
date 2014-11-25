@@ -4,7 +4,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from localflavor.us.us_states import STATE_CHOICES
 
-from .countries import COUNTRY_OPTIONS
+from .models import Country
 
 
 class DonationPaymentForm(forms.Form):
@@ -25,8 +25,6 @@ class DonationPaymentForm(forms.Form):
         ('vol-consent-no', "Don't share with Volunteer")
     )
 
-    COUNTRY_CHOICES = COUNTRY_OPTIONS
-
     donor_type = forms.ChoiceField(
         widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
         initial='Individual')
@@ -40,7 +38,8 @@ class DonationPaymentForm(forms.Form):
 
     email = forms.EmailField(required=False)
     # Be sure that country is processed before billing_state/zip
-    country = forms.ChoiceField(choices=COUNTRY_CHOICES, initial='USA')
+    country = forms.ModelChoiceField(
+        queryset=Country.objects, to_field_name='code', initial='USA')
     billing_address = forms.CharField(label="Street Address", max_length=80)
     billing_city = forms.CharField(label="City", max_length=40)
     billing_state = forms.ChoiceField(
@@ -120,10 +119,19 @@ class DonationPaymentForm(forms.Form):
                                   'organization_contact')
 
     def clean_billing_state(self):
-        return self.required_when('country', 'USA', 'billing_state')
+        """Can't use required_when because the country field returns a model"""
+        country = self.cleaned_data.get('country')
+        state = self.cleaned_data.get('billing_state')
+        if country and country.code == 'USA' and not state:
+            raise ValidationError('This field is required.')
+        return state
 
     def clean_billing_zip(self):
-        return self.required_when('country', 'USA', 'billing_zip')
+        country = self.cleaned_data.get('country')
+        zip = self.cleaned_data.get('billing_zip')
+        if country and country.code == 'USA' and not zip:
+            raise ValidationError('This field is required.')
+        return zip
 
     def clean(self):
         """Only one of the organization/individual set of fields should be
