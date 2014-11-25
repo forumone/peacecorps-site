@@ -216,10 +216,10 @@ class SyncAccountingTests(TestCase):
     def test_handle(self, create, update):
         """Verify CSV reading and that the update/create are called. Also
         make sure that appropriate logs are created"""
-        filedata = "PROJ_NO,OTHER_FIELD,PROJ_REQ,UNIDENT_BAL\n"
-        filedata += '123-456,Some Content,5555,"1,234"\n'
-        filedata += "nonexist,Not Here,5.00,1.23\n"
-        filedata += "111-222,Other Co¿ntent,5,1.23\n"
+        filedata = "PROJ_NO,SECTOR,OTHER_FIELD,PROJ_REQ,UNIDENT_BAL\n"
+        filedata += '123-456,IT,Some Content,5555,"1,234"\n'
+        filedata += "444-444,IT,Not Here,5.00,1.23\n"
+        filedata += "111-222,IT,Other Co¿ntent,5,1.23\n"
         # Note the non-utf character ^
         csv_file_handle, csv_path = tempfile.mkstemp()
         with open(csv_file_handle, 'wb') as csv_file:
@@ -236,7 +236,7 @@ class SyncAccountingTests(TestCase):
         self.assertTrue('Updating' in logger.output[0])
         self.assertTrue('5555' in logger.output[0])
         self.assertTrue('1,234' in logger.output[0])
-        self.assertTrue('nonexist' in logger.output[1])
+        self.assertTrue('444-444' in logger.output[1])
         self.assertTrue('Creating' in logger.output[1])
         self.assertTrue('111-222' in logger.output[2])
         self.assertTrue('Updating' in logger.output[2])
@@ -245,6 +245,18 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(update.call_count, 2)
         account222.delete()
         account456.delete()
+
+    @patch('peacecorps.management.commands.sync_accounting.create_account')
+    def test_process_rows_in(self, create):
+        """Verify that projects are processed after sector funds"""
+        rows = [
+            {'PROJ_NO': '123-456', 'SECTOR': 'NEWSECTOR'},
+            {'PROJ_NO': 'SPF-STR', 'SECTOR': 'NEWSECTOR', 'PROJ_NAME1': 'Proj',
+             'LOCATION': 'D/OSP/GGM'}]
+        sync.process_rows_in(rows)
+        self.assertEqual(2, len(create.call_args_list))
+        self.assertEqual(create.call_args_list[0][0][0]['PROJ_NO'], 'SPF-STR')
+        self.assertEqual(create.call_args_list[1][0][0]['PROJ_NO'], '123-456')
 
     def test_account_type_country(self):
         row = {'PROJ_NO': '123-CFD'}

@@ -127,6 +127,32 @@ def account_type(row):
     return Account.OTHER
 
 
+def process_rows_in(reader):
+    """Run through rows in the CSV file, creating/updating accounts. Delay
+    processing of PROJECT accounts until the end (as they may rely on funds
+    created later). Note that we accomplish this by effectively storing the
+    CSV in memory. This shouldn't be a problem given expected file sizes"""
+    project_rows, other_rows = [], []
+    for row in reader:
+        if account_type(row) == Account.PROJECT:
+            project_rows.append(row)
+        else:
+            other_rows.append(row)
+
+    issue_map = IssueCache()
+    logger = logging.getLogger('peacecorps.sync_accounting')
+    for row in other_rows + project_rows:
+        account = Account.objects.filter(code=row['PROJ_NO']).first()
+        if account:
+            logger.info(
+                'Updating %s, new balance: %s / %s', row['PROJ_NO'],
+                row['UNIDENT_BAL'], row['PROJ_REQ'])
+            update_account(row, account)
+        else:
+            logger.info('Creating %s', row['PROJ_NO'])
+            create_account(row, issue_map)
+
+
 class Command(BaseCommand):
     help = """Synchronize Account and Transactions with a CSV.
               Generally, this means deleting transactions and updating the
@@ -136,18 +162,5 @@ class Command(BaseCommand):
         if len(args) == 0:
             raise CommandError("Missing path to csv")
 
-        issue_map = IssueCache()
-        logger = logging.getLogger('peacecorps.sync_accounting')
-
         with open(args[0], encoding='iso-8859-1') as csvfile:
-            for row in csv.DictReader(csvfile):
-                account = Account.objects.filter(
-                    code=row['PROJ_NO']).first()
-                if account:
-                    logger.info(
-                        'Updating %s, new balance: %s / %s', row['PROJ_NO'],
-                        row['UNIDENT_BAL'], row['PROJ_REQ'])
-                    update_account(row, account)
-                else:
-                    logger.info('Creating %s', row['PROJ_NO'])
-                    create_account(row, issue_map)
+            process_rows_in(csv.DictReader(csvfile))
