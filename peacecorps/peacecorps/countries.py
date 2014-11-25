@@ -65,6 +65,7 @@ COUNTRY_OPTIONS = (
     ("FIN", "Finland"),
     ("FRA", "France"),
     ("GAB", "Gabon"),
+    ("GAM", "Gambia"),
     ("GEO", "Georgia"),
     ("DEU", "Germany"),
     ("GHA", "Ghana"),
