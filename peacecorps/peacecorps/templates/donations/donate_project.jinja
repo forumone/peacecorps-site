@@ -8,7 +8,7 @@
 {% include "donations/includes/project-top.jinja" %}
 
 <article class="showcase_inset--sm">
-  {{project.description|safe}}
+  {{ project.description.html|safe }}
 </article>
 
 <div class="u-clearfix"></div>
