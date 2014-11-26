@@ -67,7 +67,6 @@
               <div class="rectangular_progress rectangular_progress--secondary">
                 {# TODO make macro #}
                 {% set percent_completed = project.account.percent_funded() %}
-                {% set percent_community = project.account.percent_community_funded() %}
                 <div class="rectangular_progress__bar">
                   <div class="rectangular_progress__filled"
                       style="width: {{ percent_completed }}%;">
@@ -77,7 +76,8 @@
 
               <a class="button button--sm button--primary" href="">
                Give to the project</a>
-              <a href="/donate/project/{{ project.slug }}">Read more</a>
+              <a href="{{ url("donate project", slug=project.slug) }}">
+                Read more</a>
             </td>
           </tr>
         {% endfor %}
