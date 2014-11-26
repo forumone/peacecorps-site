@@ -14,9 +14,13 @@ urlpatterns = patterns(
     url(r'^donate/?$', midterm_cache(views.donate_landing),
         name='donate landing'),
 
+    url(r'^donate/all/?$', midterm_cache(views.donate_all), name='donate all'),
+
     url(r'^donate/campaign/' + _slug + r'/?$',
         midterm_cache(views.donate_campaign), name='donate campaign'),
     # not cached so the values are up-to-date
+    url(r'^donate/campaign/' + _slug + r'/?$', views.donate_campaign,
+        name='donate campaign'),
     url(r'^donate/campaign/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
