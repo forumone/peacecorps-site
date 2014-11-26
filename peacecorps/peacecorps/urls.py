@@ -13,6 +13,8 @@ urlpatterns = patterns(
     '',
     url(r'^donate/?$', views.donate_landing, name='donate landing'),
 
+    url(r'^donate/all/?$', views.donate_all, name='donate all'),
+
     url(r'^donate/campaign/' + _slug + r'/?$', views.donate_campaign,
         name='donate campaign'),
     url(r'^donate/campaign/' + _slug + r'/success/?$',

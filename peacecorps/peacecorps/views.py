@@ -220,6 +220,35 @@ def donate_general(request, slug):
             'general': general,
         })
 
+def donate_all(request):
+    """
+    The page that displays a sorter for all projects, issues, volunteers.
+    """
+    class Volunteer():
+        pass
+
+    countries = Campaign.objects.all()
+    issues = Campaign.objects.filter(
+                campaigntype=Campaign.SECTOR).order_by('name')
+    projects = Project.published_objects.select_related('country', 'account')
+    volunteers = []
+    for project in projects:
+        volunteer = Volunteer()
+        volunteer.name = project.volunteername
+        volunteer.picture = project.volunteerpicture
+        volunteer.homestate = project.volunteerhomestate
+        volunteer.homecity = project.volunteerhomecity
+        volunteers.append(volunteer)
+
+    return render(
+        request,
+        'donations/donate_all.jinja',
+        {
+            'countries': countries,
+            'issues': issues,
+            'projects': projects,
+            'volunteers': volunteers,
+        })
 
 class ProjectReturn(DetailView):
     queryset = Project.objects.select_related(
