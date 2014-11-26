@@ -11,7 +11,7 @@ INSTALLED_APPS += (
 )
 # Only media uploads are logged
 LOGGED_FILE_STORAGE = 'contenteditor.backends.MediaS3Storage'
-# We arsse not using this setting in favor of the two below it
+# We are not using this setting in favor of the two below it
 # AWS_STORAGE_BUCKET_NAME = 'peace-corps'
 AWS_MEDIA_BUCKET_NAME = 'pc-media-dev'
 AWS_STATIC_BUCKET_NAME = 'pc-theme-dev'
