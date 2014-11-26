@@ -4,6 +4,8 @@ from django.conf import settings
 from django.contrib.auth import backends
 from django.utils.functional import empty, LazyObject
 from django.utils.module_loading import import_string
+# Would it be better to move this requirement elsewhere?
+from storages.backends.s3boto import S3BotoStorage
 
 from .models import Editor
 
@@ -43,3 +45,25 @@ class LoggingStorage(LazyObject):
         result = self.wrapped.delete(name)
         self.logger.info("Deleted file %s", name)
         return result
+
+
+class MediaS3Storage(S3BotoStorage):
+    """Pass through to S3BotoStorage, save that the bucket name is
+    predefined"""
+    def __init__(self, *args, **kwargs):
+        if not args and 'bucket' not in kwargs:
+            super(MediaS3Storage, self).__init__(
+                getattr(settings, 'AWS_MEDIA_BUCKET_NAME', ''), **kwargs)
+        else:
+            super(MediaS3Storage, self).__init__(**kwargs)
+
+
+class StaticS3Storage(S3BotoStorage):
+    """Pass through to S3BotoStorage, save that the bucket name is
+    predefined"""
+    def __init__(self, *args, **kwargs):
+        if not args and 'bucket' not in kwargs:
+            super(StaticS3Storage, self).__init__(
+                getattr(settings, 'AWS_STATIC_BUCKET_NAME', ''), **kwargs)
+        else:
+            super(StaticS3Storage, self).__init__(**kwargs)
