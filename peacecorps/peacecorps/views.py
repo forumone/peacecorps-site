@@ -220,7 +220,7 @@ def donate_general(request, slug):
             'general': general,
         })
 
-def donate_all(request):
+def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
