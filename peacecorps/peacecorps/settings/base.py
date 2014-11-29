@@ -104,7 +104,7 @@ GPG_RECIPIENTS = {
 
 # Password expire after a set number of days
 PASSWORD_EXPIRE_AFTER = 60   # days
-# Admin paths which can be accessed even when the password has expired
+# Admin paths which can be accessible even when the password has expired
 PASSWORD_EXPIRATION_WHITELIST = [
     '/admin/login/',
     '/admin/logout/',

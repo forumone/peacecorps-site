@@ -1,0 +1,106 @@
+{% extends "donations/base.jinja" %}
+
+{% block title %}PEACECORPS{% endblock %}
+{% block header %}PEACECORPS{% endblock %}
+{% block content_class %}landing{% endblock %}
+
+{% block content %}
+
+<table>
+  <tr>
+    <td>
+      <table name="issues">
+        {% for issue in issues %}
+          <tr name="{{ issue.name }}">
+            <td><img width=50" src="{{ issue.icon.url }}"
+                     alt="{{ issue.name }}" /></td>
+            <td><h3>{{ issue.name }}</h3></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table name="countries">
+        {% for country in countries %}
+          <tr name="{{ country.name }}">
+            <td>
+              {{ country_map(country.code) }}
+            </td>
+            <td><h3>{{ country.name }}</h3></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table name="volunteers">
+        {% for volunteer in volunteers %}
+          <tr name="{{ volunteer.name }}">
+            <td>
+              <img src="{{ volunteer.picture.url }}"
+                   alt="{{ volunteer.name }}" />
+            </td>
+            <td>
+              <h3>{{ volunteer.name }}</h3>
+              <p>{{ volunteer.homestate }}, {{ volunteer.homecountry }}</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table name="projects">
+        {% for project in  projects %}
+          <tr name="{{ project.title }}">
+            <td>
+              <img src="{{ volunteerpicture }}" alt="{{ volunteername }}" />
+            </td>
+            <td>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+
+              <div class="rectangular_progress rectangular_progress--secondary">
+                {# TODO make macro #}
+                {% set percent_completed = project.account.percent_funded() %}
+                <div class="rectangular_progress__bar">
+                  <div class="rectangular_progress__filled"
+                      style="width: {{ percent_completed }}%;">
+                  </div>
+                </div>
+              </div>
+
+              <a class="button button--sm button--primary" href="">
+               Give to the project</a>
+              <a href="{{ url("donate project", slug=project.slug) }}">
+                Read more</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+</table>
+
+{% endblock %}
+
+{% block custom_js %}
+<script type="text/javascript" src="{{ static("peacecorps/js/country_map.js")
+    }}"></script>
+{% endblock %}
+
+{% macro country_map(code) -%}
+  <div class="mask mask--oval mask--bordered u-h_center--block map">
+    <object data-country="{{code}}"
+            class="mask__content js-worldmap"
+            id="js-worldmap"
+            type="image/svg+xml"
+            data="{{ static("peacecorps/img/blankmap-world6.svg") }}">
+    </object>
+  </div>
+{%- endmacro %}
+

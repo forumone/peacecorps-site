@@ -3,8 +3,6 @@ import os
 from .base import *
 
 
-INSTALLED_APPS += ('storages',)
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 ALLOWED_HOSTS = ['*']  # proxied
 
@@ -32,7 +30,8 @@ CACHES['midterm']['BACKEND'] = _backend
 CACHES['midterm']['LOCATION'] = '/tmp/midtermcache/'
 
 # Note that MEDIA_ROOT is not needed since we're using S3
-MEDIA_URL = '//peace-corps.s3.amazonaws.com/'
+MEDIA_URL = '//pc-media-dev.s3.amazonaws.com/'
+STATIC_URL = '//pc-theme-dev.s3.amazonaws.com/'
 
 GNUPG_HOME = os.environ.get('GNUPG_HOME', '')
 GPG_RECIPIENTS = {
