@@ -94,13 +94,9 @@
 {% endblock %}
 
 {% macro country_map(code) -%}
-  <div class="mask mask--oval mask--bordered u-h_center--block map">
-    <object data-country="{{code}}"
-            class="mask__content js-worldmap"
-            id="js-worldmap"
-            type="image/svg+xml"
-            data="{{ static("peacecorps/img/blankmap-world6.svg") }}">
-    </object>
+  <div class="mask mask--oval mask--bordered u-h_center--block map"
+       data-country="{{code}}"
+       data-url="{{ static("peacecorps/img/blankmap-world6.svg") }}">
   </div>
 {%- endmacro %}
 

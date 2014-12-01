@@ -1,6 +1,6 @@
 {
   "camelcase": true,
-  "curl": true,
+  "curly": true,
   "eqeqeq": true,
   "forin": true,
   "immed": true,
