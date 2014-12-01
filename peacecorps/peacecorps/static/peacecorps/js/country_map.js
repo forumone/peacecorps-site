@@ -122,20 +122,26 @@ var PC = PC || {};
 
   };
 
-  // main
-  // Start when the svg map object is loaded.
-  document.getElementById('js-worldMap').addEventListener('load',
-      function(){
-    var elMap,
-        svg,
-        countryMap,
-        selectedCountryCode = '';
-
-    elMap = document.getElementById('js-worldMap');
-    svg = elMap.contentDocument.querySelectorAll('svg')[0];
-    selectedCountryCode = elMap.getAttribute('data-country');
-
-    countryMap = new PC.CountryMap(svg, selectedCountryCode);
-    countryMap.init();
+  // main - if necessary, fetch the map and update countries
+  $(document).ready(function() {
+    var $mapEls = $('.map');
+    if ($mapEls) {
+      // Grab the data only once; assume they all have the same url;
+      // note that jQuery adds the required "Origin" header (for CORS)
+      $.ajax({
+        url: $mapEls.data('url'),
+        dataType: 'html'
+      }).done(function (svgEl) {
+        //  Then run the map manipulation for each svg
+        $mapEls.each(function(idx, mapEl) {
+          var $mapEl = $(mapEl),
+              countryMap;
+          $mapEl.append(svgEl);
+          countryMap = new PC.CountryMap($mapEl.children()[0],
+                                         $mapEl.data('country'));
+          countryMap.init();
+        });
+      });
+    }
   });
 })();
