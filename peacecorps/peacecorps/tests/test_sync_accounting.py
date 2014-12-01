@@ -5,6 +5,7 @@ from unittest.mock import Mock, patch
 
 from django.test import TestCase
 from pytz import timezone
+import json
 
 from peacecorps.management.commands import sync_accounting as sync
 from peacecorps.models import (
@@ -99,6 +100,8 @@ class SyncAccountingTests(TestCase):
         issue_cache.find.return_value = Campaign.objects.get(name='Technology')
         sync.create_pcpp(account, row, issue_cache)
         project = Project.objects.get(title='New Project Effort')
+        description = json.loads(project.description)
+        description = description['data'][0]['data']['text']
         self.assertEqual(project.account.code, '098-765')
         self.assertEqual(project.country.name, 'China')
         self.assertEqual(project.volunteername, 'Jones, B.')
@@ -108,7 +111,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(project.account.current, (343400 - 111100))
         self.assertEqual(project.overflow.name, 'Information Technology')
         self.assertEqual(project.campaigns.all()[0].name, 'Technology')
-        self.assertEqual(project.description, 'sum sum sum')
+        self.assertEqual(description, 'sum sum sum')
         self.assertEqual(project.slug, 'new-project-effort')
         self.assertFalse(project.published)
         project.delete()

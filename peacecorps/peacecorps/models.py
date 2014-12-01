@@ -127,7 +127,7 @@ class Campaign(models.Model):
     slug = models.SlugField(
         help_text="used for the campaign page url.",
         max_length=100, unique=True)
-    description = tinymce_models.HTMLField()
+    description = SirTrevorField(help_text="the full description.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
 
     def __str__(self):
@@ -198,8 +198,7 @@ class Media(models.Model):
     description = models.TextField(
         help_text="Provide an image description for users with screenreaders. \
         If the image has text, transcribe the text here. If it's a photo, \
-        briefly describe the scene. For design elements like icons, bullets, \
-        etc, leave this field blank.")
+        briefly describe what it depicts. Do not use html formatting.")
     transcript = models.TextField(
         help_text="Please transcribe audio for users with disabilities.",
         blank=True, null=True)

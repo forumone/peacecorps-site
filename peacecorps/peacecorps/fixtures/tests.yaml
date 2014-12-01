@@ -426,9 +426,11 @@
     account: 11
     call: null
     campaigntype: coun
-    description: Contributions to the Cameroon Country Fund will support Volunteer
-      and community projects that will take place in Cameroon. These projects include
-      water and sanitation, agricultural development, and youth programs.
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"
+      Contributions to the Cameroon Country Fund will support Volunteer and
+      community projects that will take place in Cameroon. These projects
+      include water and sanitation, agricultural development, and youth programs
+      .\"}}]}"
     featured_image: null
     featuredprojects: []
     icon: null
@@ -1232,16 +1234,18 @@
     account: 76
     call: null
     campaigntype: gen
-    description: "<p>This is a terrific opportunity to make a donation to the Peace
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"
+      This is a terrific opportunity to make a donation to the Peace
       Corps and receive a collectible work of art by American contemporary artist
       Shepard Fairey. This artwork depicts a Peace Corps agricultural Volunteer working
       with a young person in Senegal. Fairey was inspired by his sister who served
       in West Africa. Not only is this a great gift for family and friends, but your
       donation supports the Peace Corps&rsquo; mission. First come, first served,
-      for this artwork so make your donation today!</p>\r\n<p>Why support our work?
-      One hundred percent of your contribution is tax-deductible and will advance
-      the Peace Corps mission of peace and friendship around the globe. Additionally,
-      you can donate in honor or in memory of a loved one.</p>"
+      for this artwork so make your donation today!  
+      Why support our work? One hundred percent of your contribution is
+      tax-deductible and will advance the Peace Corps mission of peace and
+      friendship around the globe. Additionally, you can donate in honor or in
+      memory of a loved one.\"}}]}"
     featured_image: null
     featuredprojects: []
     icon: null
@@ -1315,7 +1319,8 @@
     account: 66
     call: Support Health Projects
     campaigntype: sec
-    description: Donations to the Health and HIV/AIDS Fund will help combat global
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"
+      Donations to the Health and HIV/AIDS Fund will help combat global
       health issues such as poor nutrition, the spread of infectious diseases, and
       the devastating social and economic impact of HIV/AIDS. In order to help alleviate
       these problems, Volunteers and their host communities are planning and implementing
@@ -1323,7 +1328,7 @@
       and mitigation. The range of activities includes immunizations; nutrition and
       growth monitoring; promotion of breast-feeding; access to prenatal and postnatal
       care; training health workers; development of public awareness material; and
-      culturally appropriate education strategies.
+      culturally appropriate education strategies.\"}}]}"
     featured_image: 13
     featuredprojects: []
     icon: 24
@@ -1411,16 +1416,18 @@
 - fields:
     account: 1
     call: null
-    campaigntype: mem
-    description: "<p>The Stephanie Brown Memorial Fund was established to honor the
-      memory and service of Stephanie Brown, who volunteered with the Peace Corps
-      for two years in Cameroon before returning to New York. This fund, established
-      with a generous grant from the Thomas and Martha Wayne Foundation, enables those
-      inspired by Stephanie's story to contribute to ongoing work in her memory.</p>\r\n<p>All
-      contributions to the Stephanie Brown Memorial Fund go towards community-initiated
-      and volunteer-led projects that support women, such as establishing women's
-      cooperatives, increasing women's access to resources and services, exploring
-      gender roles, building shelters, and increasing training programs.&nbsp;</p>"
+    campaigntype: mem 
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"
+      The Stephanie Brown Memorial Fund was established to honor the memory and
+      service of Stephanie Brown, who volunteered with the Peace Corps for two
+      years in Cameroon before returning to New York. This fund, established
+      with a generous grant from the Thomas and Martha Wayne Foundation, enables
+      those inspired by Stephanie's story to contribute to ongoing work in her
+      memory.</p><p>All contributions to the Stephanie Brown Memorial Fund
+      go towards community-initiated and volunteer-led projects that support
+      women, such as establishing women's cooperatives, increasing women's
+      access to resources and services, exploring gender roles, building
+      shelters, and increasing training programs.\"}}]}"
     featured_image: 11
     featuredprojects: []
     icon: null
@@ -2186,7 +2193,7 @@
     account: 70
     campaigns: [12, 13]
     country: 125
-    description: "<p>This grant will assist my community in procuring a Portable Ultrasound
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"This grant will assist my community in procuring a Portable Ultrasound
       Machine for the health center. The apparatus will be used in antenatal care
       to reduce still-births and neonatal deaths and to increase preparedness for
       complications such as: risky fetal presentation (e.g. breach, transverse), position
@@ -2204,7 +2211,7 @@
       will pay for the transportation of the machine from the Capitol to the community
       and for the gas needed to transport the apparatus to each of the three outlying
       health posts at least once per month.&nbsp;</p>\r\n<p>Part 5: A cash contribution
-      of $1030 towards purchasing the ultrasound will be made by the mayor's office.</p>"
+      of $1030 towards purchasing the ultrasound will be made by the mayor's office.\"}}]}"
     featured_image: 15
     media: []
     overflow: null
@@ -2333,19 +2340,7 @@
     account: 74
     campaigns: [8]
     country: 102
-    description: <p>My villiage is the second most visited park in Madagascar. There
-      is a great opportunity for income generating activities with the number of tourists
-      and guides visiting the area. Bread is available in the village, but it is low-quality
-      and is only delivered every few weeks. The plan would be to work with local
-      people to develop a small-scale business. They would be trained in basic business
-      skills like pricing, marketing, and branding as well as accounting. The initial
-      product would be a baguette. However, the location of the oven will be in close
-      proximity to a few hotels and could be rented out for events to make pizza.
-      Currently, there is only one hotel in town that makes pizza and the times offered
-      and selection is limited. This business would allow for custom orders, but the
-      primary focus would be baking bread. A trained baker/chef would come and do
-      a 1-2 day training on french style. The community would provide some of the
-      building materials as well as meals and lodging for the various trainers.</p>
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"My villiage is the second most visited park in Madagascar. There is a great opportunity for income generating activities with the number of tourists and guides visiting the area. Bread is available in the village, but it is low-quality and is only delivered every few weeks. The plan would be to work with local people to develop a small-scale business. They would be trained in basic business skills like pricing, marketing, and branding as well as accounting. The initial product would be a baguette. However, the location of the oven will be in close proximity to a few hotels and could be rented out for events to make pizza. Currently, there is only one hotel in town that makes pizza and the times offered and selection is limited. This business would allow for custom orders, but the primary focus would be baking bread. A trained baker/chef would come and do a 1-2 day training on french style. The community would provide some of the building materials as well as meals and lodging for the various trainers.\"}}]}"
     featured_image: 19
     media: []
     overflow: null

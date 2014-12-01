@@ -1,4 +1,5 @@
 import csv
+import json
 from datetime import datetime
 import logging
 import re
@@ -88,10 +89,15 @@ def create_pcpp(account, row, issue_map):
         volunteername = row['PCV_NAME']
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
+
+        sirtrevorobj = {"data":[{"type":"text","data":{"text":""}}]}
+        sirtrevorobj['data'][0]['data']['text'] = row['SUMMARY']
+        description = json.dumps(sirtrevorobj)
+
         project = Project.objects.create(
             title=row['PROJ_NAME1'], country=country, account=account,
             overflow=issue.account, volunteername=volunteername,
-            volunteerhomestate=row['STATE'], description=row['SUMMARY']
+            volunteerhomestate=row['STATE'], description=description
         )
         project.campaigns.add(issue)
 

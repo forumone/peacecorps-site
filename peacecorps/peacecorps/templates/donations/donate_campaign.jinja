@@ -8,6 +8,8 @@
 
 <h2>{{campaign.name}}</h2>
 
+{{campaign.description.html|safe}}
+
 {% for project in featured %}
 <div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url}}" height="300px"></a></div>
 {% endfor %}
