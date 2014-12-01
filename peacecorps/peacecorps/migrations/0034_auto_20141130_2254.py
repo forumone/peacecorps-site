@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-from markdown2 import markdown
 import json
 
 def htmltosirtrevor(obj):
