@@ -58,19 +58,35 @@ def create_account(row, issue_map):
     account = Account(name=name, code=row['PROJ_NO'], category=acc_type)
     if acc_type == Account.PROJECT:
         create_pcpp(account, row, issue_map)
-    else:   # Campaign
-        account.save()
-        campaign = Campaign.objects.create(
-            name=name, account=account, campaigntype=acc_type,
-            description=row['SUMMARY'])
-        if acc_type == Account.SECTOR:
-            # Make sure we remember the sector this is marked as
-            SectorMapping.objects.create(pk=row['SECTOR'], campaign=campaign)
+    else:
+        create_campaign(account, row, name, acc_type)
+
+
+def create_campaign(account, row, name, acc_type):
+    """Create and save a campaign (and account). Also save sector name mapping
+    if creating a sector fund. May error if trying to add a country fund for a
+    country which does not exist."""
+    country = None
+    if acc_type == Account.COUNTRY:
+        country_name = row['LOCATION']
+        country = Country.objects.filter(name__iexact=country_name).first()
+        if not country:
+            logging.getLogger('peacecorps.sync_accounting').warning(
+                "Country does not exist: %s", row['LOCATION'])
+            return
+
+    account.save()
+    campaign = Campaign.objects.create(
+        name=name, account=account, campaigntype=acc_type,
+        description=row['SUMMARY'], country=country)
+    if acc_type == Account.SECTOR:
+        # Make sure we remember the sector this is marked as
+        SectorMapping.objects.create(pk=row['SECTOR'], campaign=campaign)
 
 
 def create_pcpp(account, row, issue_map):
     """Create and save a project (and account). This is a bit more complex for
-    projects, which have foal amounts, etc."""
+    projects, which have goal amounts, etc."""
     country_name = row['LOCATION']
     country = Country.objects.filter(name__iexact=country_name).first()
     issue = issue_map.find(row['SECTOR'])

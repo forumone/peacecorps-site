@@ -62,13 +62,13 @@ class Account(models.Model):
     def percent_funded(self):
         if self.goal:
             return percentfunded(self.total() + self.community_contribution,
-                             self.goal + self.community_contribution)
+                                 self.goal + self.community_contribution)
         else:
             return 0
 
     def percent_community_funded(self):
         return percentfunded(self.community_contribution,
-                self.goal + self.community_contribution)
+                             self.goal + self.community_contribution)
 
     def funded(self):
         if self.goal and self.total() >= self.goal:
@@ -129,6 +129,8 @@ class Campaign(models.Model):
         max_length=100, unique=True)
     description = SirTrevorField(help_text="the full description.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
+    country = models.ForeignKey(
+        'Country', related_name="campaign", blank=True, null=True, unique=True)
 
     def __str__(self):
         return self.name
