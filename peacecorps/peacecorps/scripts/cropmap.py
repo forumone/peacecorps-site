@@ -4,6 +4,7 @@ country map file, but the script could be modified to resize images, provide
 more context, etc."""
 import copy
 import itertools
+import logging
 import os
 import sys
 import xml.etree.ElementTree as ET
@@ -14,16 +15,18 @@ import svg
 def highlight(doc, el_id):
     """Modify the document to add a highlight class on the country with the
     provided code"""
-    root = doc.find(".//*[@id='%s']" % el_id)
-    for el in itertools.chain([root], root.iterfind(".//*")):
+    parent = doc.find(".//*[@id='%s']" % el_id)
+    for el in itertools.chain([parent], parent.iterfind(".//*")):
         if el.get('class'):
             el.set('class', 'world_map-is_selected ' + el.get('class'))
     return doc
 
 
-def zoom_with_context(doc, boundary):
+def zoom_with_context(doc, el_id):
     """Zoom to the given boundary. Adds a margin of 90% the boundary size or
     20% of the whole map, whichever is smaller"""
+    parent = doc.find(".//*[@id='%s']" % el_id)
+    boundary = bbox(parent)
     margin = 0.9
     root = doc.getroot()
     # The SVG file initially contains the whole map
@@ -64,31 +67,47 @@ def crop_to(doc, bboxes):
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     left, top, width, height = map(float, root.get('viewBox').split())
     right, bottom = left + width, top + height
-    for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
-                                  root.iterfind("svg:g", namespaces)):
-        code = country_code(xml_el, namespaces)
-        el_bb = bboxes[code]
+    # Delete any path not on screen (even if another portion of the country
+    # is visible)
+    for key, bbox in bboxes.items():
         if not overlaps(left, top, right, bottom,
-                        el_bb[0].x, el_bb[0].y, el_bb[1].x, el_bb[1].y):
-            root.remove(xml_el)
+                        bbox[0].x, bbox[0].y, bbox[1].x, bbox[1].y):
+            parent = root.find(".//*[@id='%s']/.." % key)
+            parent.remove(parent.find("./*[@id='%s']" % key))
+    # Delete any groups which no longer have children. We run this three times
+    # to account for nesting
+    for parent in itertools.chain(root.iterfind(".//svg:g/..", namespaces),
+                                  root.iterfind(".//svg:g/..", namespaces),
+                                  root.iterfind(".//svg:g/..", namespaces)):
+        for child in parent.iterfind("g", namespaces):
+            if len(child) == 0 or (len(child) == 1
+                                   and child[0].tag.endswith('title')):
+                parent.remove(child)
 
 
-def code_to_bbox(root):
-    """Run through all countries, generating a mapping between country code
-    and bounding box"""
+def ids_to_bboxes(root):
+    """Run through all paths, generating a mapping between xml id and bounding
+    box"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     mapping = {}
-    for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
-                                  root.iterfind("svg:g", namespaces)):
-        code = country_code(xml_el, namespaces)
-        if xml_el.tag.endswith("path"):
-            mapping[code] = svg.Path(xml_el).bbox()
-        else:
-            group = svg.Group(xml_el)
-            group.append(xml_el)
-            group.transform()
-            mapping[code] = group.bbox()
+    for path in itertools.chain(
+            root.iterfind(".//svg:path[@id]", namespaces),
+            root.iterfind(".//svg:circle[@id]", namespaces)):
+        mapping[path.get('id')] = bbox(path)
     return mapping
+
+
+def bbox(svg_el):
+    """Bounding box for this svg element. Accounts for transformations"""
+    if svg_el.tag.endswith("path"):
+        return svg.Path(svg_el).bbox()
+    elif svg_el.tag.endswith("circle"):
+        return svg.Circle(svg_el).bbox()
+    else:
+        group = svg.Group(svg_el)
+        group.append(svg_el)
+        group.transform()
+        return group.bbox()
 
 
 def country_code(xml_el, namespaces):
@@ -112,21 +131,23 @@ def cropmap(map_path, outputdir):
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     doc = ET.parse(map_path)
     root = doc.getroot()
-    bboxes = code_to_bbox(root)
+    bboxes = ids_to_bboxes(root)
     for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
                                   root.iterfind("svg:g", namespaces)):
         if "landxx" in xml_el.get('class', ''):   # skip the ocean paths
             code = country_code(xml_el, namespaces)
             copy_doc = copy.deepcopy(doc)
             highlight(copy_doc, xml_el.get('id'))
-            zoom_with_context(copy_doc, bboxes[code])
+            zoom_with_context(copy_doc, xml_el.get('id'))
             crop_to(copy_doc, bboxes)
 
             write_file(copy_doc, outputdir, code)
+            logging.info("Wrote %s", code)
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python cropmap.py /path/to/svg /path/to/outputdir")
     else:
+        logging.basicConfig(level=logging.INFO)
         cropmap(sys.argv[1], sys.argv[2])
