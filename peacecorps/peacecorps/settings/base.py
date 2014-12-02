@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
     'restless',
+    'sirtrevor',
     'peacecorps',
 )
 
@@ -57,6 +58,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': 300,
 }
 STATIC_ROOT = '/var/www/static/'
+
+SIRTREVOR_DEFAULT_TYPE = 'Text'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -112,3 +115,7 @@ AUTHENTICATION_BACKENDS = ('contenteditor.backends.EditorBackend',)
 DEFAULT_FILE_STORAGE = 'contenteditor.backends.LoggingStorage'
 # The logging storage (above) must have a backend. Default to Django's default
 LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+# Set SIRTREVOR var to exclude sirtrevor urls
+# (overwritten in admin settings)
+SIRTREVOR = False

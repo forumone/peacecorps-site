@@ -108,3 +108,7 @@ if apps.is_installed('contenteditor'):
 if apps.is_installed('tinymce'):
     urlpatterns += patterns(
         '', url(r'^tinymce/', include('tinymce.urls')))
+
+if settings.SIRTREVOR:
+    urlpatterns += patterns(
+        '', url(r'^sirtrevor/', include('sirtrevor.urls')))
