@@ -62,6 +62,7 @@ peacecorps/*/static/*/sass/neat
 local_settings.py
 peacecorps/media
 peacecorps/peacecorps/tests/gpg/random_seed
+peacecorps/peacecorps/scripts/svg
 
 *.swp
 
