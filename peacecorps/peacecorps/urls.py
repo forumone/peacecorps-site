@@ -11,7 +11,6 @@ _slug = r'(?P<slug>[a-zA-Z0-9_-]+)'
 
 urlpatterns = patterns(
     '',
-    url(r'^sirtrevor/', include('sirtrevor.urls')),
     url(r'^donate/?$', midterm_cache(views.donate_landing),
         name='donate landing'),
     url(r'^donate/projects-funds/?$', midterm_cache(views.donate_projects_funds),
@@ -109,3 +108,7 @@ if apps.is_installed('contenteditor'):
 if apps.is_installed('tinymce'):
     urlpatterns += patterns(
         '', url(r'^tinymce/', include('tinymce.urls')))
+
+if apps.is_installed('sirtrevor'):
+    urlpatterns += patterns(
+        '', url(r'^sirtrevor/', include('sirtrevor.urls')))

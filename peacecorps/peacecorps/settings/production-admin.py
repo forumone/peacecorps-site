@@ -6,6 +6,7 @@ INSTALLED_APPS += (
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
+    'sirtrevor',
     'storages',
     'contenteditor',
 )

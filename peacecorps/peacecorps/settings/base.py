@@ -20,7 +20,6 @@ DATABASES = {}
 INSTALLED_APPS = (
     'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
-    'sirtrevor',
     'restless',
     'peacecorps',
 )
