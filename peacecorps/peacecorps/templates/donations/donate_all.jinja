@@ -88,15 +88,11 @@
 
 {% endblock %}
 
-{% block custom_js %}
-<script type="text/javascript" src="{{ static("peacecorps/js/country_map.js")
-    }}"></script>
-{% endblock %}
-
 {% macro country_map(code) -%}
-  <div class="mask mask--oval mask--bordered u-h_center--block map"
-       data-country="{{code}}"
-       data-url="{{ static("peacecorps/img/blankmap-world6.svg") }}">
+  <div class="mask mask--oval mask--bordered u-h_center--block map">
+    <img src="{{ static("peacecorps/img/countries/" + code.lower()
+                        + ".svg") }}"
+         class="mask__content" />
   </div>
 {%- endmacro %}
 

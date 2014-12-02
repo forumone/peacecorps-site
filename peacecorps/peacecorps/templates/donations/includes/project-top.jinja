@@ -32,9 +32,10 @@
           </span>
         </section>
         <section class="showcase showcase--col3_centered__col">
-          <div class="mask mask--oval mask--bordered u-h_center--block map"
-               data-country="{{project.country.code}}"
-               data-url="{{ static("peacecorps/img/BlankMap-World6.svg") }}">
+          <div class="mask mask--oval mask--bordered u-h_center--block map">
+            <img src="{{ static("peacecorps/img/countries/"
+                                + project.country.code.lower() + ".svg") }}"
+                 class="mask__content" />
           </div>
             <span class="t-body--sm">
               in <strong>{{project.country.name}}</strong>
