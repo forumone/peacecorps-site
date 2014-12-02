@@ -18,8 +18,10 @@ and the output directory:
 
 ```bash
 git clone https://github.com/cjlano/svg.git
-python cropmap.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecoprs/img/countries/
+python cropmap.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecorps/img/countries/
 ```
+
+You will see several debug messages which can be safely ignored.
 
 TODO: It'd make sense to simplify the shapes/otherwise reduce the file size.
 The script removes unseen countries, but it could definitely be improved.
