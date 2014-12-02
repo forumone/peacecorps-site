@@ -31,5 +31,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# Include Sir Trevor URLS
+SIRTREVOR = True
+
 # Verify that the django-storages lib is not broken
 import storages.backends.s3boto

@@ -6,7 +6,6 @@ INSTALLED_APPS += (
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
-    'sirtrevor',
     'storages',
     'contenteditor',
 )
@@ -32,6 +31,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# Include Sir Trevor urls:
+SIRTREVOR = True
 
 try:
     from .local_settings import *

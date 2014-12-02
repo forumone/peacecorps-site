@@ -68,6 +68,8 @@ LOGGING = {
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
 
+SIRTREVOR = True
+
 try:
     from .local_settings import *
 except ImportError:

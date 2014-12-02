@@ -109,6 +109,6 @@ if apps.is_installed('tinymce'):
     urlpatterns += patterns(
         '', url(r'^tinymce/', include('tinymce.urls')))
 
-if apps.is_installed('sirtrevor'):
+if settings.SIRTREVOR:
     urlpatterns += patterns(
         '', url(r'^sirtrevor/', include('sirtrevor.urls')))
