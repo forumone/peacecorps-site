@@ -4,6 +4,7 @@ django-localflavor
 django-sirtrevor
 django-tinymce
 DjangoRestless
+Pillow
 pyyaml
 python-gnupg
 pytz
