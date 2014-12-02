@@ -74,15 +74,14 @@ def crop_to(doc, bboxes):
                         bbox[0].x, bbox[0].y, bbox[1].x, bbox[1].y):
             parent = root.find(".//*[@id='%s']/.." % key)
             parent.remove(parent.find("./*[@id='%s']" % key))
-    # Delete any groups which no longer have children. We run this three times
+    # Delete any groups which no longer have children. We run this five times
     # to account for nesting
-    for parent in itertools.chain(root.iterfind(".//svg:g/..", namespaces),
-                                  root.iterfind(".//svg:g/..", namespaces),
-                                  root.iterfind(".//svg:g/..", namespaces)):
-        for child in parent.iterfind("g", namespaces):
-            if len(child) == 0 or (len(child) == 1
-                                   and child[0].tag.endswith('title')):
-                parent.remove(child)
+    for _ in range(5):
+        for parent in root.iterfind(".//svg:g/..", namespaces):
+            for child in parent.iterfind("svg:g", namespaces):
+                if len(child) == 0 or (len(child) == 1
+                                       and child[0].tag.endswith('title')):
+                    parent.remove(child)
 
 
 def ids_to_bboxes(root):
