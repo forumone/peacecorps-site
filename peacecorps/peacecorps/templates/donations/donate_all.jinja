@@ -6,12 +6,17 @@
 
 {% block content %}
 
+<nav class="jsDiscoverNav">
+  <a href="#" data-filterType="issue">Issues</a>
+  <a href="#" data-filterType="country">Countries</a>
+  <a href="#" data-filterType="volunteer">Volunteers</a>
+</nav>
 <table>
   <tr>
     <td>
-      <table name="issues">
+      <table name="issues" class="jsIssues">
         {% for issue in issues %}
-          <tr name="{{ issue.name }}">
+          <tr class="jsIssue" name="{{ issue.name }}" data-itemType="issue" >
             <td><img width=50" src="{{ issue.icon.url }}"
                      alt="{{ issue.name }}" /></td>
             <td><h3>{{ issue.name }}</h3></td>
@@ -22,7 +27,7 @@
   </tr>
   <tr>
     <td>
-      <table name="countries">
+      <table name="countries" class="js-countries">
         {% for country in countries %}
           <tr name="{{ country.name }}">
             <td>
@@ -36,7 +41,7 @@
   </tr>
   <tr>
     <td>
-      <table name="volunteers">
+      <table name="volunteers" class="js-volunteers">
         {% for volunteer in volunteers %}
           <tr name="{{ volunteer.name }}">
             <td>
@@ -54,7 +59,7 @@
   </tr>
   <tr>
     <td>
-      <table name="projects">
+      <table name="projects" class="js-projects">
         {% for project in  projects %}
           <tr name="{{ project.title }}">
             <td>

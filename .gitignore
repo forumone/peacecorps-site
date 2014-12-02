@@ -53,11 +53,6 @@ docs/_build/
 # PyBuilder
 target/
 
-# SCSS/SASS
-.sass-cache
-peacecorps/*/static/*/sass/bourbon
-peacecorps/*/static/*/sass/neat
-
 # Application
 local_settings.py
 peacecorps/media
