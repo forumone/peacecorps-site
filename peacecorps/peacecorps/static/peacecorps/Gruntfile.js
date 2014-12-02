@@ -44,7 +44,6 @@ module.exports = function(grunt) {
           browserifyOptions: {
              debug: true
           },
-          keepAlive: true,
           watch: true
         },
         dest: './js/compiled/<%= pkg.name %>-donation.js',
@@ -53,8 +52,8 @@ module.exports = function(grunt) {
     },
     watch: {
       jshint: {
-        all: '<%= jshint.all =>',
-        options: '<%= jshint.options =>'
+        files: '<%= jshint.all =>',
+        tasks: ['jshint']
       }
     }
   });
@@ -67,6 +66,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'browserify:donation', 'uglify']);
-  grunt.registerTask('buildWatch', ['browserify:withWatch']);
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('build', ['jshint', 'browserify:donation', 'uglify']);
+  grunt.registerTask('buildWatch', ['browserify:withWatch', 'watch']);
 };
