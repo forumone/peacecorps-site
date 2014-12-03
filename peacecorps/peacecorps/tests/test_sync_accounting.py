@@ -173,33 +173,34 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(account.category, Account.PROJECT)
         self.assertIsNone(account.pk)
 
-    def test_create_account_campaign(self):
+    @patch('peacecorps.management.commands.sync_accounting.create_campaign')
+    def test_create_account_campaign(self, create):
+        """Test that execution is deferred to the create_campaign method"""
         """Campaigns should be created"""
         row = {'PROJ_NAME1': 'Argentina Fund', 'PROJ_NO': '789-CFD',
                'SUMMARY': 'Some Sum'}
         sync.create_account(row, None)
-        account = Account.objects.get(code='789-CFD')
-        campaign = Campaign.objects.get(account=account)
-        self.assertEqual(campaign.name, 'Argentina Fund')
-        self.assertEqual(campaign.account, account)
-        self.assertEqual(campaign.description, 'Some Sum')
-        self.assertEqual(campaign.slug, 'argentina-fund')
-        account.delete()    # cascades
+        self.assertTrue(create.called)
+        account, row, name, acc_type = create.call_args[0]
+        self.assertEqual(account.name, 'Argentina Fund')
+        self.assertEqual(account.code, '789-CFD')
+        self.assertEqual(account.category, Account.COUNTRY)
+        self.assertIsNone(account.pk)
 
     @patch('peacecorps.management.commands.sync_accounting.Campaign')
     def test_create_account_double(self, Campaign):
         """If an account with the same name already exists, create a distinct
         name based on project code"""
-        row = {'PROJ_NAME1': 'Peru Fund', 'PROJ_NO': '777-CFD',
-               'SUMMARY': 'Some Sum'}
+        row = {'PROJ_NAME1': 'China Fund', 'PROJ_NO': '777-CFD',
+               'SUMMARY': 'Some Sum', 'LOCATION': 'CHINA'}
         sync.create_account(row, None)
         row['PROJ_NO'] = '778-CFD'
         sync.create_account(row, None)
         account = Account.objects.get(code='777-CFD')
-        self.assertEqual(account.name, 'Peru Fund')
+        self.assertEqual(account.name, 'China Fund')
         account.delete()
         account = Account.objects.get(code='778-CFD')
-        self.assertEqual(account.name, 'Peru Fund (778-CFD)')
+        self.assertEqual(account.name, 'China Fund (778-CFD)')
         account.delete()
 
     def test_create_account_sector(self):
@@ -213,6 +214,26 @@ class SyncAccountingTests(TestCase):
         mapping = SectorMapping.objects.get(pk='RENEW')
         self.assertEqual(mapping.campaign, campaign)
         account.delete()    # cascades
+
+    def test_create_campaign(self):
+        """Verify that country funds have the correct country, and other funds
+        have none"""
+        acc1 = Account.objects.create(name='acc1', code='111-111')
+        row = {'PROJ_NAME1': 'China Fund', 'PROJ_NO': 'CFD-111',
+               'LOCATION': 'CHINA', 'SUMMARY': 'Ssssss'}
+        sync.create_campaign(acc1, row, 'China Fund', Account.COUNTRY)
+        campaign = Campaign.objects.filter(name='China Fund').first()
+        self.assertEqual(self.china.pk, campaign.country.pk)
+
+        acc2 = Account.objects.create(name='acc2', code='222-222')
+        row = {'PROJ_NAME1': 'Smith Memorial Fund', 'PROJ_NO': 'SPF-222',
+               'SUMMARY': 'Ssssss'}
+        sync.create_campaign(acc2, row, 'Smith Memorial Fund',
+                             Account.MEMORIAL)
+        campaign = Campaign.objects.filter(name='Smith Memorial Fund').first()
+        self.assertEqual(None, campaign.country)
+        acc1.delete()
+        acc2.delete()
 
     @patch('peacecorps.management.commands.sync_accounting.update_account')
     @patch('peacecorps.management.commands.sync_accounting.create_account')
