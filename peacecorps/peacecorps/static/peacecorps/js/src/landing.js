@@ -1,7 +1,9 @@
 'use strict';
 
+var $ = require('jquery');
+
 //  Namespace
-var Init = {
+var Landing = {
   //  Each project can be clicked to reveal/hide extra project information
   createExpanders: function() {
     var $expands = $('.project-row .project-expanded');
@@ -30,7 +32,7 @@ var Init = {
     $('.project-row').each(function() {
       var $this = $(this),
           title = parse($this.find('.project-name').text()),
-          country = $this.find('.project-country').text().toUpperCase(), 
+          country = $this.find('.project-country').text().toUpperCase(),
           volunteer = parse($this.find('.volunteer').text()),
           desc = parse($this.find('.short-desc').text()),
           words = _.union(title, [country], volunteer, desc);
@@ -42,7 +44,7 @@ var Init = {
 
   //  Creates the search box for filtering PCPP data
   createDataFilter: function() {
-    var wordMapping = Init.initFilterData(),
+    var wordMapping = Landing.initFilterData(),
         searchBox = $('.search-space input');
     $('.search-space').show();
     searchBox.keyup(function() {
@@ -64,7 +66,4 @@ var Init = {
   }
 };
 
-$(document).ready(function() {
-  Init.createExpanders();
-  Init.createDataFilter();
-});
+module.exports = Landing;
