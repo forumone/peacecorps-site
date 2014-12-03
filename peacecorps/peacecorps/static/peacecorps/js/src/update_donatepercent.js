@@ -4,18 +4,20 @@
 var $ = require('jquery');
 
 var UpdatePercent = function(root){
-  console.debug('asdfjkl');
   this.$root = root;
 };
+
 UpdatePercent.prototype.getTotal = function(){
   $.ajax({
       url: '/api/account/' + this.code,
       method: 'GET'
   }).done(this.updateHTML.bind(this));
 };
+
 UpdatePercent.prototype.getCode = function(){
   this.code = this.$root.data('project-code');
 };
+
 UpdatePercent.prototype.updateHTML = function(oData){
   var bar = this.$root.find('.funded-amount-bar');
   var text = this.$root.find('.funded-amount-text');
@@ -30,10 +32,5 @@ UpdatePercent.prototype.init = function(){
   var seconds = 60;
   this.interval = setInterval(this.getTotal.bind(this), seconds * 1000);
 };
-
-$().ready(function() {
-  var updatePercent = new UpdatePercent($('.js-fundingBar'));
-  updatePercent.init();
-});
 
 module.exports = UpdatePercent;

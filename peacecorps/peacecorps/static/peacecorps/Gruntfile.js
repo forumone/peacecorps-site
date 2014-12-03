@@ -11,19 +11,26 @@ module.exports = function(grunt) {
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+    // Constants
+    pkgFullName: '<%= pkg.name %>-donation',
+    jsBuildDir: './js/compiled/',
+    jsSrcDir: './js/src/',
     // Task configuration.
+    clean: ['<%= jsBuildDir %>'],
     uglify: {
       options: {
-        banner: '<%= banner %>',
-        sourceMap: true
+        report: 'gzip',
+        sourceMap: true,
+        sourceMapIn: '<%= browserify.donation.dest %>.map',
+        sourceMapIncludeSources : true
       },
       dist: {
         src: '<%= browserify.donation.dest %>',
-        dest: './js/compiled/<%= pkg.name %>-donation.min.js'
+        dest: '<%= jsBuildDir %><%= pkgFullName %>.min.js'
       }
     },
     jshint: {
-      all: ['./js/src/**/*.js'],
+      all: ['<%= jsSrcDir %>**/*.js'],
       options: {
         jshintrc: './.jshintrc'
       }
@@ -33,11 +40,10 @@ module.exports = function(grunt) {
         options: {
           browserifyOptions: {
              debug: true
-          },
-          banner: '<%= banner %>',
+          }
         },
-        dest: './js/compiled/<%= pkg.name %>-donation.js',
-        src: './js/src/**/*.js'
+        dest: '<%= jsBuildDir %><%= pkgFullName %>.js',
+        src: '<%= jsSrcDir %>donation.js'
       },
       withWatch: {
         options: {
@@ -46,27 +52,43 @@ module.exports = function(grunt) {
           },
           watch: true
         },
-        dest: './js/compiled/<%= pkg.name %>-donation.js',
-        src: './js/src/**/*.js'
+        dest: '<%= jsBuildDir %><%= pkgFullName %>.js',
+        src: '<%= jsSrcDir %>donation.js'
+      }
+    },
+    exorcise: {
+      donation: {
+        options: {},
+        files: {
+          '<%= browserify.donation.dest %>.map': [
+            '<%= browserify.donation.dest %>'],
+        }
       }
     },
     watch: {
       jshint: {
-        files: '<%= jshint.all =>',
+        files: '<%= jsSrcDir %>**/*.js',
         tasks: ['jshint']
       }
-    }
+    },
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-exorcise');
 
   // Default task.
   grunt.registerTask('default', ['build']);
-  grunt.registerTask('build', ['jshint', 'browserify:donation', 'uglify']);
+  grunt.registerTask('build', [
+      'jshint',
+      'clean',
+      'browserify:donation',
+      'exorcise',
+      'uglify']);
   grunt.registerTask('buildWatch', ['browserify:withWatch', 'watch']);
 };
