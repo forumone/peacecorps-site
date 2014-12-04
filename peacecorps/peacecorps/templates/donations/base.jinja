@@ -4,7 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=0">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
+    <link rel="stylesheet" href="{{ static(
+        "peacecorps/css/compiled/donation.css") }}" />
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
 </head>
@@ -21,7 +22,10 @@
   </main>
 
 </div>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
+</script>
+
 {% block custom_js %}{% endblock %}
 
 </body>
