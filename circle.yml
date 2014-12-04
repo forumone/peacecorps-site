@@ -12,10 +12,10 @@ dependencies:
         - pip install -r ../requirements.txt
         - pip install -r ../requirements-dev.txt
         - npm install:
-            pwd: peacecorps/peacecorps/static/peacecorps
+            pwd: peacecorps/static/peacecorps
 
 test:
     override:
         - python manage.py test --settings=peacecorps.settings.test
         - grunt test:
-            pwd: peacecorps/peacecorps/static/peacecorps
+            pwd: peacecorps/static/peacecorps
