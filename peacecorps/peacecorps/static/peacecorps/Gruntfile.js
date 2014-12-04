@@ -16,6 +16,17 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
       '<%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+    // Env vars
+    env: {
+      test: {
+        concat: {
+          PATH : {
+            'value': 'node_modules/.bin',
+            'delimiter': ':'
+          }
+        }
+      }
+    },
     // Constants
     pkgFullName: '<%= pkg.name %>-donation',
     jsBuildDir: './js/compiled/',
@@ -88,6 +99,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-exorcise');
   grunt.loadNpmTasks('grunt-testling');
 
@@ -99,6 +111,6 @@ module.exports = function(grunt) {
       'browserify:donation',
       'exorcise',
       'uglify']);
-  grunt.registerTask('test', ['jshint', 'testling']);
+  grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('buildWatch', ['browserify:withWatch', 'watch']);
 };

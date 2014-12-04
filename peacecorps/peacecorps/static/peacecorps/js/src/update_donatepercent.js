@@ -3,8 +3,13 @@
 
 var $ = require('jquery');
 
-var UpdatePercent = function(root){
-  this.$root = root;
+// TODO doesn't require a class.
+var UpdatePercent = function($root){
+  if ($root.length < 1) {
+    return null;
+  }
+  this.$root = $root;
+  this.init.apply(this, arguments);
 };
 
 UpdatePercent.prototype.getTotal = function(){

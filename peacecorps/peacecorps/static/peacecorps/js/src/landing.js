@@ -7,6 +7,9 @@ var Landing = {
   //  Each project can be clicked to reveal/hide extra project information
   createExpanders: function() {
     var $expands = $('.project-row .project-expanded');
+    if ($expands.length < 1) {
+      return;
+    }
     $('.project-row').click(function() {
       var $expand = $(this).find('.project-expanded');
       $expands.not($expand).slideUp();
@@ -46,6 +49,10 @@ var Landing = {
   createDataFilter: function() {
     var wordMapping = Landing.initFilterData(),
         searchBox = $('.search-space input');
+
+    if (searchBox.length < 1) {
+      return;
+    }
     $('.search-space').show();
     searchBox.keyup(function() {
       var query = searchBox.val().toUpperCase(),

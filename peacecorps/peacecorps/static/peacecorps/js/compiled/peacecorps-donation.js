@@ -8,6 +8,7 @@ var Landing = require('./landing');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
+//  TODO move Init to own module
 var Init = {
   //  Individual and Organization have different fields
   donorTypeFields: function() {
@@ -24,7 +25,8 @@ var Init = {
   //  State/Zip are only marked "required" if country == USA
   countryRequirements: function() {
     var country = $('#id_country'),
-        countryReqLabels = $('label[for=id_billing_state], label[for=id_billing_zip]');
+        countryReqLabels = $('label[for=id_billing_state], ' +
+            'label[for=id_billing_zip]');
 
     country.change(function() {
       countryReqLabels.toggleClass('required', country.val() === 'USA');
@@ -64,16 +66,18 @@ var Init = {
 };
 
 $().ready(function() {
-  Init.donorTypeFields();
-  Init.countryRequirements();
-  Init.dedicationFields();
-  Init.inMemoryChanges();
+  // TODO I want to rebuild the Init class to remove this check at some point.
+  if ($('.landing').length < 1) {
+    Init.donorTypeFields();
+    Init.countryRequirements();
+    Init.dedicationFields();
+    Init.inMemoryChanges();
+  }
 
   Landing.createExpanders();
   Landing.createDataFilter();
 
-  var updatePercent = new UpdatePercent($('.js-fundingBar'));
-  updatePercent.init();
+  new UpdatePercent($('.js-fundingBar'));
 });
 
 },{"./landing":2,"./update_donatepercent":3,"jquery":4}],2:[function(require,module,exports){
@@ -86,6 +90,9 @@ var Landing = {
   //  Each project can be clicked to reveal/hide extra project information
   createExpanders: function() {
     var $expands = $('.project-row .project-expanded');
+    if ($expands.length < 1) {
+      return;
+    }
     $('.project-row').click(function() {
       var $expand = $(this).find('.project-expanded');
       $expands.not($expand).slideUp();
@@ -125,6 +132,10 @@ var Landing = {
   createDataFilter: function() {
     var wordMapping = Landing.initFilterData(),
         searchBox = $('.search-space input');
+
+    if (searchBox.length < 1) {
+      return;
+    }
     $('.search-space').show();
     searchBox.keyup(function() {
       var query = searchBox.val().toUpperCase(),
@@ -153,8 +164,13 @@ module.exports = Landing;
 
 var $ = require('jquery');
 
-var UpdatePercent = function(root){
-  this.$root = root;
+// TODO doesn't require a class.
+var UpdatePercent = function($root){
+  if ($root.length < 1) {
+    return null;
+  }
+  this.$root = $root;
+  this.init.apply(this, arguments);
 };
 
 UpdatePercent.prototype.getTotal = function(){

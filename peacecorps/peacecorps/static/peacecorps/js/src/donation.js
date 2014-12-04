@@ -7,6 +7,7 @@ var Landing = require('./landing');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
+//  TODO move Init to own module
 var Init = {
   //  Individual and Organization have different fields
   donorTypeFields: function() {
@@ -23,7 +24,8 @@ var Init = {
   //  State/Zip are only marked "required" if country == USA
   countryRequirements: function() {
     var country = $('#id_country'),
-        countryReqLabels = $('label[for=id_billing_state], label[for=id_billing_zip]');
+        countryReqLabels = $('label[for=id_billing_state], ' +
+            'label[for=id_billing_zip]');
 
     country.change(function() {
       countryReqLabels.toggleClass('required', country.val() === 'USA');
@@ -63,14 +65,16 @@ var Init = {
 };
 
 $().ready(function() {
-  Init.donorTypeFields();
-  Init.countryRequirements();
-  Init.dedicationFields();
-  Init.inMemoryChanges();
+  // TODO I want to rebuild the Init class to remove this check at some point.
+  if ($('.landing').length < 1) {
+    Init.donorTypeFields();
+    Init.countryRequirements();
+    Init.dedicationFields();
+    Init.inMemoryChanges();
+  }
 
   Landing.createExpanders();
   Landing.createDataFilter();
 
-  var updatePercent = new UpdatePercent($('.js-fundingBar'));
-  updatePercent.init();
+  new UpdatePercent($('.js-fundingBar'));
 });

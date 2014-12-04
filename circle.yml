@@ -1,4 +1,6 @@
 machine:
+    node:
+      version: 0.10.0
     python:
         version: 3.4.1
 
@@ -13,3 +15,4 @@ dependencies:
 test:
     override:
         - python manage.py test --settings=peacecorps.settings.test
+        - grunt test

@@ -26,8 +26,6 @@ test('init', function(t) {
     $testEl.data('project-code', 'something');
     testUpdatePercent = new UpdatePercent($testEl);
 
-    testUpdatePercent.init();
-
     t.ok(testUpdatePercent.code, 'Sets the code attribute to something');
 
     t.end();
@@ -39,8 +37,6 @@ test('init', function(t) {
     stub = sinon.stub(UpdatePercent.prototype, 'getTotal');
     stub.returns(100);
     testUpdatePercent = new UpdatePercent($('<div></div>'));
-
-    testUpdatePercent.init();
 
     t.ok(stub.calledOnce, 'getTotal() was called once');
 
@@ -54,8 +50,6 @@ test('init', function(t) {
     stub = sinon.stub(window, 'setInterval');
     stub.returns(1);
     testUpdatePercent = new UpdatePercent($('<div></div>'));
-
-    testUpdatePercent.init();
 
     t.ok(stub.calledOnce, 'setInterval() was called once');
 
@@ -72,6 +66,7 @@ test('getTotal', function(t) {
         expectedCode = 'moo',
         stub;
 
+    sinon.stub(UpdatePercent.prototype, 'init');
     stub = sinon.stub($, 'ajax');
     stub.returns({done: function() {}});
     testUpdatePercent = new UpdatePercent($('<div></div>'));
@@ -87,6 +82,7 @@ test('getTotal', function(t) {
     t.ok(stub.calledWith(expected), 'ajax was called with url set to ' +
       '/api/account/code and method set to GET');
 
+    UpdatePercent.prototype.init.restore();
     $.ajax.restore();
     t.end();
   });
@@ -101,6 +97,7 @@ test('updateHTML', function(t) {
         actual,
         $testEl;
 
+    sinon.stub(UpdatePercent.prototype, 'init');
     testData = {percent: expected};
     $testEl = $('<div><div class="funded-amount-bar"></div></div>');
     testUpdatePercent = new UpdatePercent($testEl);
@@ -110,6 +107,7 @@ test('updateHTML', function(t) {
 
     t.equals(actual, expected + '%', 'The maxWidth is set to expected');
 
+    UpdatePercent.prototype.init.restore();
     t.end();
   });
   t.end();
@@ -122,6 +120,7 @@ test('getCode', function(t) {
         actual,
         $testEl;
 
+    sinon.stub(UpdatePercent.prototype, 'init');
     expected = 'testtest1';
     $testEl = $('<div></div>');
     $testEl.data('project-code', expected);
@@ -131,6 +130,7 @@ test('getCode', function(t) {
     t.equals(actual, expected, 'The data element equals ' +
       'testtest1');
 
+    UpdatePercent.prototype.init.restore();
     t.end();
   });
   t.end();

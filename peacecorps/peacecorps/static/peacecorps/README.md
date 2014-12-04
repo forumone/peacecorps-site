@@ -60,7 +60,7 @@ From the peacecorp/peacecorp/static/peacecorp directory, run the following from
 the command line:
 
 ```bash
-npm install
+npm install --dev
 ```
 
 Run JS tests
