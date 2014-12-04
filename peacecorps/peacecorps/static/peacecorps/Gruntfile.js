@@ -114,6 +114,6 @@ module.exports = function(grunt) {
       'browserify:donation',
       'exorcise',
       'uglify']);
-  grunt.registerTask('test', ['testling']);
+  grunt.registerTask('test', ['jshint', 'testling']);
   grunt.registerTask('buildWatch', ['browserify:withWatch', 'watch']);
 };

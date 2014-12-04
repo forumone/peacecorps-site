@@ -1,6 +1,10 @@
 'use strict';
 
+// Require for phantomjs
 Function.prototype.bind = require('function-bind');
+
+var setup = require('./setup');
+setup = setup; // HACK not using module yet.
 
 var $ = require('jquery');
 var sinon = require('sinon');
