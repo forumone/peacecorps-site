@@ -15,7 +15,8 @@ UpdatePercent.prototype.getTotal = function(){
 };
 
 UpdatePercent.prototype.getCode = function(){
-  this.code = this.$root.data('project-code');
+  var code = this.$root.data('project-code');
+  return code;
 };
 
 UpdatePercent.prototype.updateHTML = function(oData){
@@ -27,7 +28,7 @@ UpdatePercent.prototype.updateHTML = function(oData){
 };
 
 UpdatePercent.prototype.init = function(){
-  this.getCode();
+  this.code = this.getCode();
   this.getTotal();  //  rendered data may be out of date
   var seconds = 60;
   this.interval = setInterval(this.getTotal.bind(this), seconds * 1000);

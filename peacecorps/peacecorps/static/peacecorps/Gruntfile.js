@@ -1,6 +1,12 @@
 /*global module:false*/
 'use strict';
+
+var exec = require('child_process').exec;
+
+var timer = require('grunt-timer');
+
 module.exports = function(grunt) {
+  timer.init(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -16,6 +22,7 @@ module.exports = function(grunt) {
     pkgFullName: '<%= pkg.name %>-donation',
     jsBuildDir: './js/compiled/',
     jsSrcDir: './js/src/',
+    jsTestDir: '<%= jsSrcDir %>test/',
     // Task configuration.
     clean: ['<%= jsBuildDir %>'],
     uglify: {
@@ -39,6 +46,7 @@ module.exports = function(grunt) {
     browserify: {
       donation: {
         options: {
+          exclude: '<%= jsSrcDir %>test/**/*.js',
           browserifyOptions: {
              debug: true
           }
@@ -48,6 +56,7 @@ module.exports = function(grunt) {
       },
       withWatch: {
         options: {
+          exclude: '<%= jsSrcDir %>test/',
           browserifyOptions: {
              debug: true
           },
@@ -71,7 +80,20 @@ module.exports = function(grunt) {
         files: '<%= jsSrcDir %>**/*.js',
         tasks: ['jshint']
       }
-    },
+    }
+  });
+
+  grunt.registerMultiTask('tape', function() {
+    var done = this.async();
+
+    exec('browserify '+ this.files[0] + ' | tape-run', function (
+        error, stdout) {
+      if (error) {
+        done(error);
+      } else {
+        done(stdout);
+      }
+    });
   });
 
   // These plugins provide necessary tasks.
@@ -82,14 +104,16 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-exorcise');
+  grunt.loadNpmTasks('grunt-testling');
 
   // Default task.
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['test', 'build']);
   grunt.registerTask('build', [
       'jshint',
       'clean',
       'browserify:donation',
       'exorcise',
       'uglify']);
+  grunt.registerTask('test', ['testling']);
   grunt.registerTask('buildWatch', ['browserify:withWatch', 'watch']);
 };
