@@ -1,8 +1,6 @@
 /*global module:false*/
 'use strict';
 
-var exec = require('child_process').exec;
-
 var timer = require('grunt-timer');
 
 module.exports = function(grunt) {
@@ -81,19 +79,6 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       }
     }
-  });
-
-  grunt.registerMultiTask('tape', function() {
-    var done = this.async();
-
-    exec('browserify '+ this.files[0] + ' | tape-run', function (
-        error, stdout) {
-      if (error) {
-        done(error);
-      } else {
-        done(stdout);
-      }
-    });
   });
 
   // These plugins provide necessary tasks.
