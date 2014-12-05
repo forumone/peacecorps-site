@@ -1,11 +1,11 @@
 peacecorps-site
 ===============
 
-A place to think and work on a new Peace Corps website. 
+A place to think and work on a new Peace Corps website.
 
-## Setup 
+## Setup
 
-This is a Django application that depends on Python 3. 
+This is a Django application that depends on Python 3.
 
 ### Installing Python 3
 There are multiple approaches to installing Python 3, depending on your personal setup and preferences.
@@ -61,35 +61,6 @@ test.py configuration.  See the Django settings
 [documentation](https://docs.djangoproject.com/dev/ref/django-admin/) for
 details. 
 
-### Front-end Dev Environment
 
-We use SASS, Bourbon, and Neat for our front-end stack. To set them up, you
-will need ruby (and gem) installed. On a Debian/Linux box, this can be
-accomplished via:
-
-```bash
-sudo apt-get install ruby
-```
-
-You next need to install the appropriate ruby libraries. In this example, we
-will install them system wide, though you may prefer bundler, etc.
-
-```bash
-sudo gem install neat sass bourbon
-```
-
-You will then need to pull down the appropriate sass libraries for bourbon and
-neat:
-
-```bash
-cd peacecorps/peacecorps/static/peacecorps/sass
-bourbon install
-neat install
-```
-
-Finally, run the "watch" script, which will recompile CSS as you make SASS
-changes. From within the sass directory:
-
-```bash
-sass --watch .:../css
-```
+### Front end development
+See [front end development](/peacecorps/peacecorps/static/peacecorps/README.md) 
