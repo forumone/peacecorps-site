@@ -6,7 +6,6 @@ from django.db.models import Sum
 from django.utils import timezone
 from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
-from tinymce import models as tinymce_models
 from sirtrevor.fields import SirTrevorField
 
 from peacecorps.fields import GPGField
@@ -283,3 +282,15 @@ class Donation(models.Model):
     account = models.ForeignKey(Account, related_name='donations')
     amount = models.PositiveIntegerField()
     time = models.DateTimeField(auto_now_add=True)
+
+
+class Vignette(models.Model):
+    """Chunk of content with a unique identifier. This allows otherwise static
+    content to be edited by admins"""
+    slug = models.CharField(max_length=50, primary_key=True)
+    location = models.TextField()
+    instructions = models.TextField()
+    content = SirTrevorField()
+
+    def __str__(self):
+        return self.slug

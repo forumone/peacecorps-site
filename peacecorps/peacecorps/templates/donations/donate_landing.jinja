@@ -42,6 +42,11 @@
       Explore projects and funds</a>
   </h4>
 </section>
+{% else %}
+<section class="top_banner">
+  {{ top_vignette.content.html|safe }}
+</section>
+<p><a href="{{url("donate projects funds")}}">More Projects and Funds</a></p>
 {% endif %}
 
 <section class="section">

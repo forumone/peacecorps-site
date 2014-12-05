@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, Country, FeaturedCampaign, FeaturedProjectFrontPage,
-    humanize_amount, Project)
+    humanize_amount, Project, Vignette)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -89,6 +89,8 @@ def donate_landing(request):
         request,
         'donations/donate_landing.jinja',
         {
+            'top_vignette': Vignette.objects.filter(
+                slug='donate_landing_top').first(),
             'featuredcampaign': featuredcampaign,
             'sectors': Campaign.objects.filter(
                 campaigntype=Campaign.SECTOR).order_by('name'),
@@ -220,18 +222,20 @@ def donate_general(request, slug):
             'general': general,
         })
 
+
 def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
     countries = Country.objects.all()
     issues = Campaign.objects.filter(
-                campaigntype=Campaign.SECTOR).order_by('name')
+        campaigntype=Campaign.SECTOR).order_by('name')
     projects = Project.published_objects.select_related('country', 'account')
     volunteers = []
     for project in projects:
-        volunteers.append({key: getattr(project, 'volunteer' + key)
-                   for key in ('name', 'picture', 'homestate', 'homecity')})
+        volunteers.append({
+            key: getattr(project, 'volunteer' + key)
+            for key in ('name', 'picture', 'homestate', 'homecity')})
 
     return render(
         request,
@@ -242,6 +246,7 @@ def donate_projects_funds(request):
             'projects': projects,
             'volunteers': volunteers,
         })
+
 
 class ProjectReturn(DetailView):
     queryset = Project.objects.select_related(
