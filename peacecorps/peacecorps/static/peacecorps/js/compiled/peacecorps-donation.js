@@ -3,6 +3,57 @@
 
 var $ = require('jquery');
 
+var Discover = function($root) {
+  // TODO move this all into shared code.
+  if ($root.length < 1) {
+    new Error('selector missing');
+  }
+  this.el = $root[0];
+  this.$el = $root;
+  // create shortcut to finding things within root.
+  this.$ =  function(selector) {
+    return this.$el.find(selector);
+  };
+  this.ccFilteredItem = '.js-filteredItem';
+  this.init.apply(this, arguments);
+};
+
+Discover.prototype.init = function(root, $navLinks, opts) {
+  var self = this,
+      lopts = opts || {};
+
+  this.$navLinks = $navLinks;
+  this.filters = [];
+  $navLinks.each(function() {
+    self.filters.push($(this).data('filter-type'));
+  });
+  this.selected = lopts.selected || this.filters[0];
+};
+
+Discover.prototype.render = function() {
+  var $filtereds = this.$(
+    this.ccFilteredItem + this.dataSelector('filter-type', this.selected));
+  this.$(this.ccFilteredItem).hide();
+
+  $filtereds.each(function() {
+    $(this).show();
+  });
+};
+
+Discover.prototype.dataSelector = function(dataAttr, dataVal) {
+  return '[data-'+ dataAttr + '="' + dataVal + '"]';
+};
+
+
+module.exports = Discover;
+
+
+},{"jquery":5}],2:[function(require,module,exports){
+'use strict';
+
+var $ = require('jquery');
+
+var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 
@@ -66,6 +117,7 @@ var Init = {
 };
 
 $().ready(function() {
+  var $discoverApp = $('.js-discoverApp');
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
     Init.donorTypeFields();
@@ -78,9 +130,16 @@ $().ready(function() {
   Landing.createDataFilter();
 
   new UpdatePercent($('.js-fundingBar'));
+
+  if ($discoverApp) {
+    var discover = new Discover($('.js-discoverApp'), $('.js-discoverNav a'), {
+      selected: 'country'
+    });
+    discover.render();
+  }
 });
 
-},{"./landing":2,"./update_donatepercent":3,"jquery":4}],2:[function(require,module,exports){
+},{"./discover":1,"./landing":3,"./update_donatepercent":4,"jquery":5}],3:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -158,7 +217,7 @@ var Landing = {
 
 module.exports = Landing;
 
-},{"jquery":4}],3:[function(require,module,exports){
+},{"jquery":5}],4:[function(require,module,exports){
 /* Update donations percentages on project pages. */
 'use strict';
 
@@ -202,7 +261,7 @@ UpdatePercent.prototype.init = function(){
 
 module.exports = UpdatePercent;
 
-},{"jquery":4}],4:[function(require,module,exports){
+},{"jquery":5}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -9394,7 +9453,7 @@ return jQuery;
 
 }));
 
-},{}]},{},[1])
+},{}]},{},[2])
 
 
 //# sourceMappingURL=peacecorps-donation.js.map
