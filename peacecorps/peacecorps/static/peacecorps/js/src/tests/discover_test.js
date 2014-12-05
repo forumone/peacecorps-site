@@ -21,5 +21,62 @@ test('init', function(t) {
 
     t.end();
   });
+  t.test('should set all the filters and selected to first', function(t) {
+    var testDiscover,
+        $testEls,
+        expected,
+        expected1 = 'test1',
+        expected2 = 'test2';
+
+    $testEls = [
+      $('<div>').data('filter-type', expected1),
+      $('<div>').data('filter-type', expected2)];
+
+    testDiscover = new Discover($('<div></div>'), $($testEls));
+    expected = [expected1, expected2];
+
+    t.deepEquals(testDiscover.filters, expected, 'Filters set to the data of ' +
+      'elements passed in');
+    t.equal(testDiscover.selected, expected1, 'Sets the selected to the first ' +
+      'filter if no option passed in');
+
+    t.end();
+  });
+  t.test('should set the selected filter', function(t) {
+    var testDiscover,
+        expected = 'afilterable';
+
+    testDiscover = new Discover($('<div></div>'), $('<a>'), {
+      selected: expected
+    });
+
+    t.equals(testDiscover.selected, expected, 'Expected is the passed in opt');
+    t.end();
+  });
+  t.end();
+});
+
+test('render', function(t) {
+  t.test('should hide all the items not matching selected', function(t) {
+    var testDiscover,
+        testFilter = 'test',
+        $testEls;
+
+    $testEls = [
+      $('<div>').addClass('js-filteredItem').data('filter-type', 'dud'),
+      $('<div>').addClass('js-filteredItem').data('filter-type', testFilter),
+      $('<div>').addClass('js-filteredItem').data('filter-type', 'dud')];
+
+    testDiscover = new Discover($($testEls), $($testEls), {
+      selected: testFilter
+    });
+
+    testDiscover.render();
+
+    t.equal(testDiscover.$('js-filteredItem:visible'), 2);
+    t.equal(testDiscover.$('js-filteredItem:hidden'), 1);
+
+    t.end();
+  });
   t.end();
 });
