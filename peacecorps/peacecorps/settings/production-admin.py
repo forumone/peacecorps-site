@@ -1,5 +1,7 @@
 from .production import *
 
+# We want contenteditor to appear before sir trevor, as it overrides templates
+INSTALLED_APPS = ('contenteditor',) + INSTALLED_APPS
 INSTALLED_APPS += (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -7,7 +9,6 @@ INSTALLED_APPS += (
     'django.contrib.messages',
     'tinymce',
     'storages',
-    'contenteditor',
 )
 # Only media uploads are logged
 LOGGED_FILE_STORAGE = 'contenteditor.backends.MediaS3Storage'
