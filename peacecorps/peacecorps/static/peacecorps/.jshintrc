@@ -19,6 +19,10 @@
   "browser": true,
   "globalstrict": true,
   "sub": true,
+
+  "node" : true,
+  "browser": true,
+
   "globals": {
     "$": true,
     "_": true,
