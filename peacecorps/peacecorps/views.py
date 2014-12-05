@@ -89,8 +89,8 @@ def donate_landing(request):
         request,
         'donations/donate_landing.jinja',
         {
-            'top_vignette': Vignette.objects.filter(
-                slug='donate_landing_top').first(),
+            'top_vignette': Vignette.for_slug('donate_landing_top'),
+            'bottom_vignette': Vignette.for_slug('donate_landing_bottom'),
             'featuredcampaign': featuredcampaign,
             'sectors': Campaign.objects.filter(
                 campaigntype=Campaign.SECTOR).order_by('name'),

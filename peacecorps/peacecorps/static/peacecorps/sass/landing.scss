@@ -1,14 +1,7 @@
 @import "globals";
 
-.landing .top_banner {
+.landing .top_banner, .landing .bottom_banner {
   @include span-columns(12);
-  .text-block a {
-    @extend .t--white;
-    @include span-columns(4 of 8);
-    @include shift(2 of 8);
-    text-decoration: none;
-    background-color: rgba($primary_support, 0.75);
-  }
   img {
     width: 100%;
     max-height: 350px;
@@ -18,4 +11,9 @@
     @include shift(2);
     text-align: center;
   }
+}
+
+.showcase--main.float-above {
+  margin-top: -175;
+  padding-bottom: 175;
 }

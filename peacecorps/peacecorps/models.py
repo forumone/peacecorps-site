@@ -1,4 +1,5 @@
 from datetime import timedelta
+import json
 
 from django.conf import settings
 from django.db import models
@@ -294,3 +295,14 @@ class Vignette(models.Model):
 
     def __str__(self):
         return self.slug
+
+    @staticmethod
+    def for_slug(slug):
+        """Return the requested vignette if it exists, and one with a warning
+        if not"""
+        vig = Vignette.objects.filter(slug=slug).first()
+        if not vig:
+            vig = Vignette(slug=slug, content=json.dumps({'data': [
+                {'type': 'text', 'data': {
+                    'text': 'Missing Vignette `' + slug + '`'}}]}))
+        return vig

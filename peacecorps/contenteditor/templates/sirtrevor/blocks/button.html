@@ -1,0 +1,7 @@
+{% if float_above %}
+<div class="content-block button-block showcase showcase--main float-above">
+{% else %}
+<div class="content-block button-block showcase showcase--main">
+{% endif %}
+  <a href="{{url}}" class="button button--sm button--primary">{{text|safe}}</a>
+</div>
