@@ -31,6 +31,8 @@ Discover.prototype.init = function(root, $navLinks, opts) {
 };
 
 Discover.prototype.render = function() {
+  console.log(this.selected);
+  console.log(this.dataSelector('filter-type', this.selected));
   var $filtereds = this.$(
     this.ccFilteredItem + this.dataSelector('filter-type', this.selected));
   this.$(this.ccFilteredItem).hide()
