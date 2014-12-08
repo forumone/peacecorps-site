@@ -163,7 +163,7 @@
     account: 70
     call: null
     campaigntype: sec
-    description: '{"data":[{"type":"text","data":{"text":"Contributions to this Fund are committed to community-initiated and Volunteer-led projects such as establishing women''s cooperatives, increasing women''s access to resources and services, exploring gender roles, building shelters, and increasing training programs. The Loret Miller Ruppe and Loret, Jr. Fund for the Advancement of Women was established to celebrate the lives of Loret Miller Ruppe who was the longest serving Director in Peace Corps history and Loret Jr., her daughter.  Loret Miller Ruppe served as Director from 1981-89 and was a great, vocal advocate for the Peace Corps'' mission of \"world peace and friendship\" both globally and domestically. Her passion for service inspired her daughter, Loret, Jr., to serve as a Peace Corps Volunteer in Nepal. Their vision and hard work brought hope to communities around the world, especially for women.\n\nTo honor the outstanding contributions of Loret Miller Ruppe, this fund was established with a generous grant from her family to assist Peace Corps volunteers who wish to carry on the work that was so important to her: the empowerment of women and girls around the world.\n\n o celebrate the life and service of Loret, Jr., the fund now highlights projects supporting girls'' education and camps for girls."}}]}'
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to this Fund are committed to community-initiated and Volunteer-led projects such as establishing women''s cooperatives, increasing women''s access to resources and services, exploring gender roles, building shelters, and increasing training programs. The Loret Miller Ruppe and Loret, Jr. Fund for the Advancement of Women was established to celebrate the lives of Loret Miller Ruppe who was the longest serving Director in Peace Corps history and Loret Jr., her daughter.  Loret Miller Ruppe served as Director from 1981-89 and was a great, vocal advocate for the Peace Corps'' mission of \"world peace and friendship\" both globally and domestically. Her passion for service inspired her daughter, Loret, Jr., to serve as a Peace Corps Volunteer in Nepal. Their vision and hard work brought hope to communities around the world, especially for women.\n\nTo honor the outstanding contributions of Loret Miller Ruppe, this fund was established with a generous grant from her family to assist Peace Corps volunteers who wish to carry on the work that was so important to her: the empowerment of women and girls around the world.\n\nTo celebrate the life and service of Loret, Jr., the fund now highlights projects supporting girls'' education and camps for girls."}}]}'
     featured_image: null
     featuredprojects: []
     icon: null
@@ -181,7 +181,7 @@
     featuredprojects: []
     icon: null
     name: Stomping Out Malaria in Africa
-    slug: stomping-out-malaria-aftica
+    slug: stomping-out-malaria-africa
     tagline: null
   model: peacecorps.campaign
   pk: 71

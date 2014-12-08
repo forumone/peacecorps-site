@@ -103,8 +103,8 @@ def donate_landing(request):
 
 
 def donate_campaign(request, slug):
-
-    campaign = Campaign.objects.select_related('account').get(slug=slug)
+    campaign = get_object_or_404(Campaign.objects.select_related('account'),
+                                 slug=slug)
     featured = campaign.featuredprojects.all()
     projects = Project.published_objects.filter(campaigns=campaign)
 
