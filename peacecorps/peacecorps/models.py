@@ -1,4 +1,5 @@
 from datetime import timedelta
+import json
 
 from django.conf import settings
 from django.db import models
@@ -6,7 +7,6 @@ from django.db.models import Sum
 from django.utils import timezone
 from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
-from tinymce import models as tinymce_models
 from sirtrevor.fields import SirTrevorField
 
 from peacecorps.fields import GPGField
@@ -283,3 +283,26 @@ class Donation(models.Model):
     account = models.ForeignKey(Account, related_name='donations')
     amount = models.PositiveIntegerField()
     time = models.DateTimeField(auto_now_add=True)
+
+
+class Vignette(models.Model):
+    """Chunk of content with a unique identifier. This allows otherwise static
+    content to be edited by admins"""
+    slug = models.CharField(max_length=50, primary_key=True)
+    location = models.TextField()
+    instructions = models.TextField()
+    content = SirTrevorField()
+
+    def __str__(self):
+        return self.slug
+
+    @staticmethod
+    def for_slug(slug):
+        """Return the requested vignette if it exists, and one with a warning
+        if not"""
+        vig = Vignette.objects.filter(slug=slug).first()
+        if not vig:
+            vig = Vignette(slug=slug, content=json.dumps({'data': [
+                {'type': 'text', 'data': {
+                    'text': 'Missing Vignette `' + slug + '`'}}]}))
+        return vig

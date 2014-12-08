@@ -8,6 +8,9 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.db.models.signals import post_delete, post_save
+import sirtrevor
+
+from .blocks import ButtonBlock
 
 
 def expires(initial=None):
@@ -96,3 +99,5 @@ def password_errors(password):
         errors.append('Password must be at least 20 characters in length.')
 
     return errors
+
+sirtrevor.register_block(ButtonBlock)

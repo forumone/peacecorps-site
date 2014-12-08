@@ -1,0 +1,12 @@
+- fields:
+    content: '{"data":[{"type":"heading","data":{"text":"All Projects &amp; Funds"}},{"type":"image","data":{"file":{"url":"//s3.amazonaws.com/pc-media-dev/Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg","size":582590,"dimensions":[2794,1871],"type":"image/jpeg","name":"Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg","path":"Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg"}}},{"type":"button","data":{"url":"/donate/projects-funds","text":"Explore and Give","float_above":true}},{"type":"text","data":{"text":"Brief blurb touting the search and sort tool, lorem ipsum dolor amet lorem ipsum dolor.\n"}}]}'
+    instructions: ""
+    location: Bottom of the Donation Landing page (/donate)
+  model: peacecorps.vignette
+  pk: donate_landing_bottom
+- fields:
+    content: '{"data":[{"type":"image","data":{"file":{"url":"//s3.amazonaws.com/pc-media-dev/Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg","size":582590,"dimensions":[2794,1871],"type":"image/jpeg","name":"Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg","path":"Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg"}}},{"type":"text","data":{"text":"When you give to Peace Corps volunteer projects and funds, 100% of your donation goes directly to the community.\n"}},{"type":"button","data":{"url":"/campaign/global","text":"Give to the Global Fund","float_above":false}}]}'
+    instructions: The first block should be an image.
+    location: Top of the Donation landing page (/donate)}
+  model: peacecorps.vignette
+  pk: donate_landing_top
