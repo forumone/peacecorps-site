@@ -28,6 +28,7 @@
         </a>
       </td>
     </tr>
+    {% if issue.featuredprojects.all().count() > 0 %}
     <tr class="collapsibleItem" id="collapsible-issue-{{ loop.index }}">
       <td>
         <table></tbody>
@@ -48,6 +49,7 @@
         </tbody></table>
       </td>
     </tr>
+    {% endif %}
   {% endfor %}
   {# TODO figure out how to order by volunteer name #}
   {% for project in projects %}
@@ -60,7 +62,7 @@
       </td>
       <td>
         <a aria-expanded="false"
-            aria-controls="collapsible-volunteer-{{ loop.index }}">
+           aria-controls="collapsible-volunteer-{{ loop.index }}">
           <h3>{{ project.volunteername }}</h3>
           <p>{{ project.volunteerhomestate }},
                 {{ project.volunteerhomecountry }}</p>
@@ -70,7 +72,6 @@
     <tr class="collapsibleItem" id="collapsible-volunteer-{{ loop.index }}">
       <td>
         <table></tbody>
-          {# TODO figure out projects rather the featured projects #}
           <tr name="{{ project.title }}"
               aria-hidden="true">
             {{ render_project(project, loop.index) }}
