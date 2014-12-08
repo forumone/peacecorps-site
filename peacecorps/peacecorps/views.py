@@ -75,9 +75,11 @@ def donation_payment_review(request, data, account):
 
 
 def donate_landing(request):
-
-    featuredprojects = FeaturedProjectFrontPage.objects.select_related(
-        'project__featured_image').all()
+    """First page for the donations section"""
+    featuredprojects = list(map(
+        lambda fp: fp.project,
+        FeaturedProjectFrontPage.objects.select_related(
+            'project__featured_image')))
     projects = Project.published_objects.select_related('country', 'account')
 
     try:

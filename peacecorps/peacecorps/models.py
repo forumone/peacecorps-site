@@ -267,6 +267,19 @@ class Project(models.Model):
                 self.slug = self.slug + str(existing.pk)
         super(Project, self).save(*args, **kwargs)
 
+    def issue(self, check_cache=True):
+        """Find the "first" issue that this project is associated with, if
+        any"""
+        if not check_cache or not hasattr(self, '_issue'):
+            issue_data = self.campaigns.values_list(
+                'issue__pk', 'issue__name').filter(
+                issue__pk__isnull=False).order_by('issue__name').first()
+            if issue_data:
+                self._issue = Issue.objects.get(pk=issue_data[0])
+            else:
+                self._issue = None
+        return self._issue
+
 
 class Issue(models.Model):
     """A categorization scheme. This could eventually house relationships with

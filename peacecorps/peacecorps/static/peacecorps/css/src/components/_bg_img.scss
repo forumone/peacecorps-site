@@ -18,3 +18,10 @@
     height: 10em;
   }
 }
+
+.bg_img--icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right, center;
+  padding-right: 3em; /* Until the icon size is solidified */
+}

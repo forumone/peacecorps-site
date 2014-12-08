@@ -59,6 +59,7 @@ class AccountTest(TestCase):
         account.community_contribution = 100
         self.assertEqual(55.56, account.percent_community_funded())
 
+
 class ProjectTests(TestCase):
     fixtures = ['countries.yaml']
 
@@ -94,3 +95,42 @@ class ProjectTests(TestCase):
         self.assertEqual(proj2.slug, 'project' + str(proj1.id))
         account1.delete()
         account2.delete()
+
+    def test_issue(self):
+        """Should retrieve the *first* (alpha) issue associated with this
+        issue, by passing through any campaigns"""
+        paccount = models.Account.objects.create(name='P', code='PROJ')
+        c1account = models.Account.objects.create(name='C1', code='CPN1')
+        c2account = models.Account.objects.create(name='C2', code='CPN2')
+        country = models.Country.objects.get(name='Mexico')
+        issue1 = models.Issue.objects.create(name='AAA')
+        issue2 = models.Issue.objects.create(name='BBB')
+        issue3 = models.Issue.objects.create(name='CCC')
+
+        proj = models.Project.objects.create(
+            title='Project', country=country, account=paccount)
+        self.assertEqual(proj.issue(check_cache=False), None)
+
+        cpn1 = models.Campaign.objects.create(
+            name='Campaign1', account=c1account,
+            campaigntype=models.Campaign.SECTOR)
+        cpn2 = models.Campaign.objects.create(
+            name='Campaign2', account=c2account,
+            campaigntype=models.Campaign.SECTOR)
+        proj.campaigns.add(cpn1)
+        self.assertEqual(proj.issue(check_cache=False), None)
+
+        issue3.campaigns.add(cpn1)
+        self.assertEqual(proj.issue(check_cache=False), issue3)
+
+        issue2.campaigns.add(cpn1)
+        self.assertEqual(proj.issue(check_cache=False), issue2)
+
+        proj.campaigns.add(cpn2)
+        self.assertEqual(proj.issue(check_cache=False), issue2)
+
+        issue1.campaigns.add(cpn2)
+        self.assertEqual(proj.issue(check_cache=False), issue1)
+
+        models.Issue.objects.all().delete()     # cascades
+        models.Account.objects.all().delete()
