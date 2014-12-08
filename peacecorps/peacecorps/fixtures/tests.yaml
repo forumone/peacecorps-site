@@ -2193,25 +2193,7 @@
     account: 70
     campaigns: [12, 13]
     country: 125
-    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"This grant will assist my community in procuring a Portable Ultrasound
-      Machine for the health center. The apparatus will be used in antenatal care
-      to reduce still-births and neonatal deaths and to increase preparedness for
-      complications such as: risky fetal presentation (e.g. breach, transverse), position
-      of the placenta, quantity of amniotic fluid, any congenital diseases that make
-      survival of the fetus impossible after birth, etc. It will also serve to confirm
-      gestational age, which aids greatly in providing appropriate care.The community
-      contribution will be made in several parts.&nbsp;</p>\r\n<p>Part 1: The health
-      center will arrange and pay for the training of a permanent doctor in an intensive
-      8-week course in obstetric ultrasound technology at the regional hospital.&nbsp;</p>\r\n<p>Part
-      2: The director of the health center and I will have a one-time training for
-      85 doctors, nurses, and volunteer health workers to promote the sonogram in
-      the communities, and better patient - doctor communication.&nbsp;</p>\r\n<p>Part
-      3: A voltage stabilizer will be bought by the health center to help control
-      the sporadic nature of the electricity.&nbsp;</p>\r\n<p>Part 4: The health center
-      will pay for the transportation of the machine from the Capitol to the community
-      and for the gas needed to transport the apparatus to each of the three outlying
-      health posts at least once per month.&nbsp;</p>\r\n<p>Part 5: A cash contribution
-      of $1030 towards purchasing the ultrasound will be made by the mayor's office.\"}}]}"
+    description: '{"data":[{"type":"text","data":{"text":"This grant will assist my community in procuring a Portable Ultrasound Machine for the health center. The apparatus will be used in antenatal care to reduce still-births and neonatal deaths and to increase preparedness for complications such as: risky fetal presentation (e.g. breach, transverse), position of the placenta, quantity of amniotic fluid, any congenital diseases that make survival of the fetus impossible after birth, etc. It will also serve to confirm gestational age, which aids greatly in providing appropriate care.The community contribution will be made in several parts.\n\nPart 1: The health center will arrange and pay for the training of a permanent doctor in an intensive 8-week course in obstetric ultrasound technology at the regional hospital.\n\nPart 2: The director of the health center and I will have a one-time training for 85 doctors, nurses, and volunteer health workers to promote the sonogram in the communities, and better patient - doctor communication.\n\n<p>Part 3: A voltage stabilizer will be bought by the health center to help control the sporadic nature of the electricity.\n\nPart 4: The health center will pay for the transportation of the machine from the Capitol to the community and for the gas needed to transport the apparatus to each of the three outlying health posts at least once per month.\n\nPart 5: A cash contribution of $1030 towards purchasing the ultrasound will be made by the mayor''s office."}}]}'
     featured_image: 15
     media: []
     overflow: null
@@ -2358,26 +2340,7 @@
     account: 75
     campaigns: [9, 12]
     country: 136
-    description: "<p>Our community does not have a basic sanitation system which forces
-      the 22 households to use their farmlands for defecation. Open defecation is
-      not only harmful for the environment, including the town's water, but also for
-      the health of the individual. In addition, the community is affected each year
-      by strong winds and heavy rains. The main objectives of this project revolve
-      around reducing risk in our community, which includes environmental, health,
-      and natural disasters risks.&nbsp;</p>\r\n<p>Through various education sessions
-      held in the community by the Volunteer, representatives from the municipality,
-      and the health post, each family will gain knowledge about hygiene practices,
-      global climate change, encouraging recycling and environmental consciousness,
-      preparing and reducing risk of natural disasters in their houses. Once the family
-      has attended four education sessions, they will work with the Volunteer and
-      local masons to build a bathroom for their household. In addition, the residents
-      will work together to build two bathrooms for the local elementary school which
-      has 21 students. The Volunteer and a representative of the health post will
-      teach the students about hand washing and maintain their new bathroom. The execution
-      of the project will result in better hygienic practices by the community members,
-      healthier farmlands free of open defecation, increased knowledge about climate
-      change, higher participation of recycling, and better preparation for future
-      strong winds and heavy rains.</p>\r\n<p>&nbsp;</p>"
+    description: '{"data": [{"type": "text", "data": {"text": "Our community does not have a basic sanitation system which forces the 22 households to use their farmlands for defecation. Open defecation is not only harmful for the environment, including the town''s water, but also for the health of the individual. In addition, the community is affected each year by strong winds and heavy rains. The main objectives of this project revolve around reducing risk in our community, which includes environmental, health, and natural disasters risks.\n\nThrough various education sessions held in the community by the Volunteer, representatives from the municipality, and the health post, each family will gain knowledge about hygiene practices, global climate change, encouraging recycling and environmental consciousness, preparing and reducing risk of natural disasters in their houses. Once the family has attended four education sessions, they will work with the Volunteer and local masons to build a bathroom for their household. In addition, the residents will work together to build two bathrooms for the local elementary school which has 21 students. The Volunteer and a representative of the health post will teach the students about hand washing and maintain their new bathroom. The execution of the project will result in better hygienic practices by the community members, healthier farmlands free of open defecation, increased knowledge about climate change, higher participation of recycling, and better preparation for future strong winds and heavy rains."}}]}'
     featured_image: 20
     media: []
     overflow: null

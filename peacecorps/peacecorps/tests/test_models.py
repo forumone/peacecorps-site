@@ -1,3 +1,5 @@
+import json
+
 from django.test import TestCase
 
 from peacecorps import models
@@ -134,3 +136,25 @@ class ProjectTests(TestCase):
 
         models.Issue.objects.all().delete()     # cascades
         models.Account.objects.all().delete()
+
+    def test_abstract_html(self):
+        """The first *text* paragraph should be returned (and rendered) if no
+        abstract is present. Otherwise, the abstract should be returned."""
+        description = {'data': [{'type': 'other'}]}
+        proj = models.Project(description=json.dumps(description))
+        self.assertEqual('', proj.abstract_html())
+
+        description['data'].append({'type': 'text',
+                                    'data': {'text': 'He*llo*'}})
+        proj.description = json.dumps(description)
+        self.assertTrue('He<em>llo</em>' in proj.abstract_html())
+
+        # Should also trim the result
+        description['data'][1]['data']['text'] = "hello " * 100
+        proj.description = json.dumps(description)
+        # The text has been shortened, but markup's been added
+        self.assertTrue(len(proj.abstract_html()) < 350)
+        self.assertTrue("..." in proj.abstract_html())
+
+        proj.abstract = "This is the abstract"
+        self.assertEqual("This is the abstract", proj.abstract_html())

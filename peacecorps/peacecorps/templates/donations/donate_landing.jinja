@@ -67,7 +67,7 @@
           {% if project.tagline %}{{project.tagline}}
           {% else %}Help this Project{%endif%}
         </h2>
-        <div class="abstract">[ABSTRACT GOES HERE]</div>
+        <div class="abstract">{{project.abstract_html()|safe}}</div>
         <a href="{{url("donate project", slug=project.slug)}}">Read Their
         Story</a>
       </article>
