@@ -75,9 +75,11 @@ def donation_payment_review(request, data, account):
 
 
 def donate_landing(request):
-
-    featuredprojects = FeaturedProjectFrontPage.objects.select_related(
-        'project__featured_image').all()
+    """First page for the donations section"""
+    featuredprojects = list(map(
+        lambda fp: fp.project,
+        FeaturedProjectFrontPage.objects.select_related(
+            'project__featured_image')))
     projects = Project.published_objects.select_related('country', 'account')
 
     try:
@@ -101,8 +103,8 @@ def donate_landing(request):
 
 
 def donate_campaign(request, slug):
-
-    campaign = Campaign.objects.select_related('account').get(slug=slug)
+    campaign = get_object_or_404(Campaign.objects.select_related('account'),
+                                 slug=slug)
     featured = campaign.featuredprojects.all()
     projects = Project.published_objects.filter(campaigns=campaign)
 

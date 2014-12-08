@@ -1,272 +1,291 @@
-- fields: {category: iss, code: SPF-AGG, community_contribution: null, current: 0,
-    goal: null, name: Agriculture}
+- fields: {category: sec, code: SPF-AGG, community_contribution: null, current: 0,
+    goal: null, name: Agriculture Fund}
   model: peacecorps.account
   pk: 61
-- fields: {category: iss, code: SPF-BUS, community_contribution: null, current: 0,
-    goal: null, name: Business Development}
+- fields: {category: sec, code: SPF-BUS, community_contribution: null, current: 0,
+    goal: null, name: Business Development Fund}
   model: peacecorps.account
   pk: 62
-- fields: {category: iss, code: SPF-WAT, community_contribution: null, current: 0,
-    goal: null, name: Water and Sanitation}
+- fields: {category: sec, code: SPF-WAT, community_contribution: null, current: 0,
+    goal: null, name: Drinking Water and Sanitation Fund}
   model: peacecorps.account
   pk: 63
-- fields: {category: iss, code: SPF-EDU, community_contribution: null, current: 0,
-    goal: null, name: Education}
+- fields: {category: sec, code: SPF-EDU, community_contribution: null, current: 0,
+    goal: null, name: Education Fund}
   model: peacecorps.account
   pk: 64
-- fields: {category: iss, code: SPF-ENV, community_contribution: null, current: 0,
-    goal: null, name: Environment}
+- fields: {category: sec, code: SPF-ENV, community_contribution: null, current: 0,
+    goal: null, name: Environment Fund}
   model: peacecorps.account
   pk: 65
-- fields: {category: iss, code: SPF-HHA, community_contribution: null, current: 0,
-    goal: null, name: Health}
+- fields: {category: sec, code: SPF-HHA, community_contribution: null, current: 0,
+    goal: null, name: Health and HIV/AIDS Fund}
   model: peacecorps.account
   pk: 66
-- fields: {category: iss, code: SPF-ICT, community_contribution: null, current: 0,
-    goal: null, name: Information Technology}
+- fields: {category: sec, code: SPF-ICT, community_contribution: null, current: 0,
+    goal: null, name: Information & Communication Technology Fund}
   model: peacecorps.account
   pk: 67
-- fields: {category: iss, code: SPF-YTH, community_contribution: null, current: 0,
-    goal: null, name: Youth}
+- fields: {category: sec, code: SPF-YTH, community_contribution: null, current: 0,
+    goal: null, name: Youth Fund}
   model: peacecorps.account
   pk: 68
+- fields: {category: sec, code: SPF-MDF, community_contribution: null, current: 0,
+    goal: null, name: Municipal Development Fund}
+  model: peacecorps.account
+  pk: 69
+- fields: {category: sec, code: SPF-GND, community_contribution: null, current: 0,
+    goal: null, name: Ruppe Gender Development Fund}
+  model: peacecorps.account
+  pk: 70
+- fields: {category: sec, code: SPF-MLR, community_contribution: null, current: 0,
+    goal: null, name: Stomping Out Malaria in Africa}
+  model: peacecorps.account
+  pk: 71
+- fields:
+    account: 61
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to the Agriculture Fund support one of the most basic needs of communities worldwide: safe and sustainable food production.  Agriculture projects target areas such as community food production systems, pesticide safety, crop production, animal husbandry, apiculture, agriculture marketing, farm economics, and formation of agricultural cooperatives.  As food security continues to be a global concern, it is imperative to support communities'' agricultural development."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Agriculture Fund
+    slug: agriculture-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 61
+- fields:
+    account: 62
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Volunteers are posted throughout the developing world to help local businesses thrive in ways they never thought possible. Increasing the opportunities presented to local businesses promotes a sense of empowerment that can truly change a community. Contributions to this fund will support Volunteer and community projects such as microfinance, agribusiness, business education, and artisan collectives."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Business Development Fund
+    slug: business-development-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 62
+- fields:
+    account: 63
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"The very basic needs of clean water and accessible sanitation are absent from many communities around the world. This often leads to severe community health problems. Volunteers work with their communities to design locally appropriate solutions to provide safe, affordable, and sustainable water and sanitation. Contributions to this fund will help Volunteer and community projects such as latrines, aqueducts and wells, and basic sanitation training."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Drinking Water and Sanitation Fund
+    slug: drinking-water-sanitation-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 63
 - fields:
     account: 64
-    call: Support Education Projects
+    call: null
     campaigntype: sec
-    description: Throughout the developing world, Peace Corps Volunteers are working
-      in their communities to share the precious gift of education. Often Volunteers'
-      dedication to teaching is matched by a severe lack of supplies and facilities
-      in which to help. Contributions to this fund will help Volunteer and community
-      projects such as school construction, English language training, school and
-      library material, and adult literacy.
-    featured_image: 11
+    description: '{"data":[{"type":"text","data":{"text":"Throughout the developing world, Peace Corps Volunteers are working in their communities to share the precious gift of education.  Often Volunteers'' dedication to teaching is matched by a severe lack of supplies and facilities in which to help. Contributions to this fund will help Volunteer and community projects such as school construction, English language training, school and library material, and adult literacy."}}]}'
+    featured_image: null
     featuredprojects: []
-    icon: 26
-    name: Education
-    slug: education
-    tagline: Peace Corps Volunteers are working in their communities to share the
-      precious gift of education.
+    icon: null
+    name: Education Fund
+    slug: education-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 64
+- fields:
+    account: 65
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Communities around the world are challenged by the need to improve their development in an environmentally sustainable way. Peace Corps Volunteers are working with their communities to show that sustainable environmental management is not only good stewardship, but can be an engine of future economic growth.  Contributions to this fund will help Volunteer and community projects such as environmental conservation and ecotourism."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Environment Fund
+    slug: environment-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 65
+- fields:
+    account: 66
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Donations to the Health and HIV/AIDS Fund will help combat global health issues such as poor nutrition, the spread of infectious diseases, and the devastating social and economic impact of HIV/AIDS. In order to help alleviate these problems, Volunteers and their host communities are planning and implementing projects which focus on preventative health care, nutrition, and disease prevention and mitigation. The range of activities includes immunizations; nutrition and growth monitoring; promotion of breast-feeding; access to prenatal and postnatal care; training health workers; development of public awareness material; and culturally appropriate education strategies."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Health and HIV/AIDS Fund
+    slug: health-hivaids-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 66
+- fields:
+    account: 67
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Peace Corps Volunteers are working with men and women in communities throughout the developing world to help them gain access to information technology skills and resources. Consistent with all Peace Corps volunteer work, their efforts are aimed at the promotion of social and economic development and the reduction of poverty. To this aim, volunteers are using IT to enhance existing small, local entrepreneurial efforts, in order to allow once isolated communities to link to the world and find and capitalize on opportunities once completely out of their reach. Contributions to this fund will support Community and Volunteer projects such as creating school and public computer labs and teaching computer skills."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Information & Communication Technology Fund
+    slug: information-communication-technology-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 67
+- fields:
+    account: 68
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"In communities that face very basic struggles, the specific needs of children and young adults often go unaddressed. Peace Corps Volunteers work with local youths to improve their education opportunities, make them aware of health and cultural issues they will face, and engage them in activities that will help them grow.  Contributions to this fund will help Volunteer and community projects such as camps, recreation centers, and after school clubs and sports."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Youth Fund
+    slug: youth-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 68
+- fields:
+    account: 69
+    call: null
+    campaigntype: sec
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to the Municipal Development Fund will support overarching capacity building across all sectors, such as health, education, and waste management.  Projects range from improving public spaces and buildings, like classrooms, clinics, and parks to promoting civic education and participation in municipal decisions.  Municipal projects area foundation on which communities can increase their civic engagement and ultimately their overall economic development."}}]}'
+    featured_image: null
+    featuredprojects: []
+    icon: null
+    name: Municipal Development Fund
+    slug: municipal-development-fund
+    tagline: null
   model: peacecorps.campaign
   pk: 69
 - fields:
-    account: 68
-    call: Support Youth Projects
+    account: 70
+    call: null
     campaigntype: sec
-    description: In communities that face very basic struggles, the specific needs
-      of children and young adults often go unaddressed. Peace Corps Volunteers work
-      with local youths to improve their education opportunities, make them aware
-      of health and cultural issues they will face, and engage them in activities
-      that will help them grow. Contributions to this fund will help Volunteer and
-      community projects such as camps, recreation centers, and after school clubs
-      and sports.
-    featured_image: 11
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to this Fund are committed to community-initiated and Volunteer-led projects such as establishing women''s cooperatives, increasing women''s access to resources and services, exploring gender roles, building shelters, and increasing training programs. The Loret Miller Ruppe and Loret, Jr. Fund for the Advancement of Women was established to celebrate the lives of Loret Miller Ruppe who was the longest serving Director in Peace Corps history and Loret Jr., her daughter.  Loret Miller Ruppe served as Director from 1981-89 and was a great, vocal advocate for the Peace Corps'' mission of \"world peace and friendship\" both globally and domestically. Her passion for service inspired her daughter, Loret, Jr., to serve as a Peace Corps Volunteer in Nepal. Their vision and hard work brought hope to communities around the world, especially for women.\n\nTo honor the outstanding contributions of Loret Miller Ruppe, this fund was established with a generous grant from her family to assist Peace Corps volunteers who wish to carry on the work that was so important to her: the empowerment of women and girls around the world.\n\nTo celebrate the life and service of Loret, Jr., the fund now highlights projects supporting girls'' education and camps for girls."}}]}'
+    featured_image: null
     featuredprojects: []
-    icon: 22
-    name: Youth
-    slug: youth
-    tagline: Improve education and health for children and youth around the world.
+    icon: null
+    name: Ruppe Gender Development Fund
+    slug: ruppe-gender-development-fund
+    tagline: null
   model: peacecorps.campaign
   pk: 70
 - fields:
-    account: 67
-    call: Support Technology Projects
+    account: 71
+    call: null
     campaigntype: sec
-    description: Peace Corps Volunteers are working with men and women in communities
-      throughout the developing world to help them gain access to information technology
-      skills and resources. Consistent with all Peace Corps volunteer work, their
-      efforts are aimed at the promotion of social and economic development and the
-      reduction of poverty. To this aim, volunteers are using IT to enhance existing
-      small, local entrepreneurial efforts, in order to allow once isolated communities
-      to link to the world and find and capitalize on opportunities once completely
-      out of their reach. Contributions to this fund will support Community and Volunteer
-      projects such as creating school and public computer labs and teaching computer
-      skills.
-    featured_image: 14
+    description: '{"data":[{"type":"text","data":{"text":"The Peace Corps Malaria Initiative for Africa is a targeted support program for malaria prevention activities across sub-Saharan Africa. Contributions to the Fund support community identified, volunteer facilitated malaria prevention Peace Corps Partnership Program projects such as training community health workers in malaria diagnosis and treatment, creating small businesses selling mosquito repellent crèmes, delivering insecticide treated nets, providing education to thousands of community members on how to protect oneself from malaria and many more.\n\nAccording to WHO statistics, Malaria kills 750,000 people annually and while large scale international efforts have seen notable success in the last decade, malaria is still the scourge of much of Africa.  Contributions to the Fund allow volunteers and their communities to pilot the next round of innovative best practices which will inform malaria prevention world-wide."}}]}'
+    featured_image: null
     featuredprojects: []
-    icon: 23
-    name: Technology
-    slug: technology
-    tagline: Enhance existing local entrepreneurial efforts, create school and public
-      computer labs, and teaching computer skills.
+    icon: null
+    name: Stomping Out Malaria in Africa
+    slug: stomping-out-malaria-africa
+    tagline: null
   model: peacecorps.campaign
   pk: 71
 - fields:
-    account: 66
-    call: Support Health Projects
-    campaigntype: sec
-    description: Donations to the Health and HIV/AIDS Fund will help combat global
-      health issues such as poor nutrition, the spread of infectious diseases, and
-      the devastating social and economic impact of HIV/AIDS. In order to help alleviate
-      these problems, Volunteers and their host communities are planning and implementing
-      projects which focus on preventative health care, nutrition, and disease prevention
-      and mitigation. The range of activities includes immunizations; nutrition and
-      growth monitoring; promotion of breast-feeding; access to prenatal and postnatal
-      care; training health workers; development of public awareness material; and
-      culturally appropriate education strategies.
-    featured_image: 13
-    featuredprojects: []
-    icon: 24
+    campaigns: [63]
+    icon: ./Water-by-Monika-Ciapala-CC-BY.png
+    name: Water & Sanitation
+  model: peacecorps.issue
+  pk: 1
+- fields:
+    campaigns: [64]
+    icon: ./Book-by-Dmitry-Baranovskiy-CC-BY.png
+    name: Education
+  model: peacecorps.issue
+  pk: 2
+- fields:
+    campaigns: [68]
+    icon: ./Children-by-Sarah-Rudkin-CC-BY-3.png
+    name: Youth
+  model: peacecorps.issue
+  pk: 3
+- fields:
+    campaigns: [70]
+    icon: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png
+    name: Women & Gender
+  model: peacecorps.issue
+  pk: 4
+- fields:
+    campaigns: [66, 71]
+    icon: ./Health-by-Christopher-Holm-Hansen-CC-BY.png
     name: Health
-    slug: health
-    tagline: Combat global health issues such as poor nutrition, the spread of infectious
-      diseases, and the devastating impact of HIV/AIDS.
-  model: peacecorps.campaign
-  pk: 72
+  model: peacecorps.issue
+  pk: 5
 - fields:
-    account: 65
-    call: Support Environmental Projects
-    campaigntype: sec
-    description: Communities around the world are challenged by the need to improve
-      their development in an environmentally sustainable way. Peace Corps Volunteers
-      are working with their communities to show that sustainable environmental management
-      is not only good stewardship, but can be an engine of future economic growth.
-      Contributions to this fund will help Volunteer and community projects such as
-      environmental conservation and ecotourism.
-    featured_image: 12
-    featuredprojects: []
-    icon: 25
-    name: Environment Fund
-    slug: environment-fund
-    tagline: 'Environmental stewardship spurs economic growth. '
-  model: peacecorps.campaign
-  pk: 73
+    campaigns: [67]
+    icon: ./Cell-Phone-Icon-By-Marwa-Boukarim-CC-BY.png
+    name: Technology
+  model: peacecorps.issue
+  pk: 6
 - fields:
-    account: 63
-    call: Support Water Projects
-    campaigntype: sec
-    description: <p>The very basic needs of clean water and accessible sanitation
-      are absent from many communities around the world. This often leads to severe
-      community health problems. Volunteers work with their communities to design
-      locally appropriate solutions to provide safe, affordable, and sustainable water
-      and sanitation. Contributions to this fund will help Volunteer and community
-      projects such as latrines, aqueducts and wells, and basic sanitation training.</p>
-    featured_image: 10
-    featuredprojects: []
-    icon: 27
-    name: Drinking Water and Sanitation
-    slug: drinking-water-and-sanitation-fund
-    tagline: Safe, affordable, and sustainable water and sanitation are vital to communities
-      worldwide.
-  model: peacecorps.campaign
-  pk: 74
+    campaigns: [62]
+    icon: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png
+    name: Business
+  model: peacecorps.issue
+  pk: 7
 - fields:
-    account: 62
-    call: Support Business Development Projects
-    campaigntype: sec
-    description: Volunteers are posted throughout the developing world to help local
-      businesses thrive in ways they never thought possible. Increasing the opportunities
-      presented to local businesses promotes a sense of empowerment that can truly
-      change a community. Contributions to this fund will support Volunteer and community
-      projects such as microfinance, agribusiness, business education, and artisan
-      collectives.
-    featured_image: 9
-    featuredprojects: []
-    icon: 28
-    name: Business Development
-    slug: business-development
-    tagline: Increasing opportunities for local businesses promotes a sense of empowerment
-      that can transform a community.
-  model: peacecorps.campaign
-  pk: 75
-- fields:
-    account: 61
-    call: Support Agriculture Projects
-    campaigntype: sec
-    description: "Contributions to the Agriculture Fund support one of the most basic
-      needs of communities worldwide: safe and sustainable food production. Agriculture
-      projects target areas such as community food production systems, pesticide safety,
-      crop production, animal husbandry, apiculture, agriculture marketing, farm economics,
-      and formation of agricultural cooperatives. As food security continues to be
-      a global concern, it is imperative to support communities' agricultural development.\r\n"
-    featured_image: 8
-    featuredprojects: []
-    icon: 29
-    name: Agriculture
-    slug: agriculture
-    tagline: Safe and sustainable food production is one of the most basic needs of
-      communities worldwide.
-  model: peacecorps.campaign
-  pk: 76
-- fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
-      user Merbabu, CC-BY-SA 3.0', country: 79, description: A picture of water buffalo
-      pulling a plow., file: ./Agriculture-wikipedia-user-merbabu-cc-by-sa-3.jpg,
-    mediatype: IMG, title: Agriculture, transcript: ''}
-  model: peacecorps.media
+    campaigns: [65]
+    icon: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png
+    name: Environment
+  model: peacecorps.issue
   pk: 8
-- fields: {caption: 'A meeting to discuss microfinance in Tzaneen, South Africa. Picture
-      by GiveWell, CC-BY.', country: 160, description: 'Women sitting on a blanket
-      and discussing microfinance on a patio in Tzaneen, South Africa.', file: ./Tzaneen-South-Africa-Microfinance-Meeting-by-GiveWell-CC-BY.jpg,
-    mediatype: IMG, title: 'Microfinance Meeting, Tzaneen, South Africa', transcript: ''}
-  model: peacecorps.media
+- fields:
+    campaigns: [61]
+    icon: ./Agriculture-by-OCHA-Visual-Information-Unit-PD.png
+    name: Agriculture
+  model: peacecorps.issue
   pk: 9
-- fields: {caption: 'An iceberg near Upernavik, Greenland. Photo by Kim Hansen, CC-BY-SA',
-    country: 77, description: An iceberg in a large body of water., file: ./Iceburg-near-Upernavik-Greenland-by-Kim-Hansen-CC-BY-SA.jpg,
-    mediatype: IMG, title: 'Iceberg near Upernavik, Greenland', transcript: ''}
-  model: peacecorps.media
+- fields:
+    campaigns: [69]
+    icon: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png
+    name: Community Growth
+  model: peacecorps.issue
   pk: 10
-- fields: {caption: 'Schoolgirls sitting in the shade on a patio in Bamozai, Afghanistan.
-      Photo by Capt. John Severns, U.S. Air Force (Public Domain)', country: 2, description: 'Schoolgirls
-      sitting on a patio in Bamozai, Afghanistan.', file: ./Schoolgirls-in-Bamozai-Afghanistan-by-Capt-John-Severns-PD.jpg,
-    mediatype: IMG, title: Schoolgirls in Bamozai Afghanistan, transcript: ''}
-  model: peacecorps.media
-  pk: 11
-- fields: {caption: A woman in Guatamala holds a bunch of radishes in this photo by
-      a Peace Corps volunteer., country: 69, description: A woman stands in a public
-      square in Guatamala with a bunch of radishes., file: ./Guatamala-by-peacecorps.jpg,
-    mediatype: IMG, title: Guatamala Radishes, transcript: ''}
-  model: peacecorps.media
-  pk: 12
-- fields: {caption: Health volunteers sworn in in Gambia., country: null, description: A
-      group of Peace Corps health volunteers in Gambia., file: ./Gambia-Health-Volunteers-by-peacecorps.jpg,
-    mediatype: IMG, title: Health Volunteers in Gambia, transcript: ''}
-  model: peacecorps.media
-  pk: 13
-- fields: {caption: 'Peace Corps volunteer Sam teaching reading in El Progreso, El
-      Salvador', country: 55, description: A peace corps volunteer helping a Salvadoran
-      girl with a computer program., file: ./Rubidia-learns-to-read-by-Lee-Shaver-CC-BY-SA.jpg,
-    mediatype: IMG, title: Rubidia Learns To Read, transcript: ''}
-  model: peacecorps.media
-  pk: 14
-- fields: {caption: Children by Sarah Rudkin., country: null, description: an icon
-      of children holding hands., file: ./Children-by-Sarah-Rudkin-CC-BY-3.png, mediatype: IMG,
-    title: Children Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 22
-- fields: {caption: image by Marwa Boukarim., country: null, description: Simple graphic
-      of a phone., file: ./Cell-Phone-Icon-By-Marwa-Boukarim-CC-BY.png, mediatype: IMG,
-    title: Cell Phone Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 23
-- fields: {caption: 'Health by Christopher Holm-Hansen, CC-BY', country: null, description: Icon
-      of a heart with a heartbeat line, file: ./Health-by-Christopher-Holm-Hansen-CC-BY.png,
-    mediatype: IMG, title: Health Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 24
-- fields: {caption: 'World icon by Ana Maria Lora Macias, CC-BY', country: null, description: An
-      icon of the globe., file: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png, mediatype: IMG,
-    title: World Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 25
-- fields: {caption: 'Book Icon by Dmitry Baranovskiy, CC-BY', country: null, description: An
-      icon of a pair of books, file: ./Book-by-Dmitry-Baranovskiy-CC-BY.png, mediatype: IMG,
-    title: Book Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 26
-- fields: {caption: Water by Monika Ciapala, country: null, description: An icon of
-      a water droplet., file: ./Water-by-Monika-Ciapala-CC-BY.png, mediatype: IMG,
-    title: Water icon, transcript: ''}
-  model: peacecorps.media
-  pk: 27
-- fields: {caption: 'Livelihood, by OCHA Visual Information Unit. This work of the
-      United Nations Secretariat is in the public domain.', country: null, description: an
-      icon of a bowl with a wheat stalk in it in front of a bag of money., file: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png,
-    mediatype: IMG, title: Livelihood Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 28
-- fields: {caption: Agriculture by the OCHA Visual Information Unit. This work of
-      the United Nations Secretariat is in the public domain., country: null, description: An
-      icon of two stalks of wheat., file: ./Agriculture-by-OCHA-Visual-Information-Unit-PD.png,
-    mediatype: IMG, title: Agriculture Icon, transcript: ''}
-  model: peacecorps.media
-  pk: 29
+- fields:
+    campaign: 61
+  model: peacecorps.sectormapping
+  pk: Agriulture
+- fields:
+    campaign: 62
+  model: peacecorps.sectormapping
+  pk: Business Development
+- fields:
+    campaign: 63
+  model: peacecorps.sectormapping
+  pk: Water & Sanitation
+- fields:
+    campaign: 64
+  model: peacecorps.sectormapping
+  pk: Education
+- fields:
+    campaign: 65
+  model: peacecorps.sectormapping
+  pk: Environment
+- fields:
+    campaign: 66
+  model: peacecorps.sectormapping
+  pk: Health and HIV/AIDS
+- fields:
+    campaign: 67
+  model: peacecorps.sectormapping
+  pk: IT
+- fields:
+    campaign: 68
+  model: peacecorps.sectormapping
+  pk: Youth Development
+- fields:
+    campaign: 69
+  model: peacecorps.sectormapping
+  pk: Municipal Development
+- fields:
+    campaign: 70
+  model: peacecorps.sectormapping
+  pk: Gender and Development
+- fields:
+    campaign: 71
+  model: peacecorps.sectormapping
+  pk: Malaria Prevention
