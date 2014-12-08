@@ -5,7 +5,7 @@ var $ = require('jquery');
 var Discover = function($root) {
   // TODO move this all into shared code.
   if ($root.length < 1) {
-    new Error('selector missing');
+    throw new Error('selector missing');
   }
   this.el = $root[0];
   this.$el = $root;
@@ -32,10 +32,12 @@ Discover.prototype.init = function(root, $navLinks, opts) {
 Discover.prototype.render = function() {
   var $filtereds = this.$(
     this.ccFilteredItem + this.dataSelector('filter-type', this.selected));
-  this.$(this.ccFilteredItem).hide();
+  this.$(this.ccFilteredItem).hide()
+      .toggleClass('u-hide', true);
 
   $filtereds.each(function() {
-    $(this).show();
+    $(this).show()
+        .toggleClass('u-hide', false);
   });
 };
 

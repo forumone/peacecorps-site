@@ -81,7 +81,7 @@ $().ready(function() {
   new UpdatePercent($('.js-fundingBar'));
 
   if ($discoverApp) {
-    var discover = new Discover($('.js-discoverApp'), $('.js-discoverNav a'), {
+    var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
       selected: 'country'
     });
     discover.render();

@@ -59,22 +59,28 @@ test('init', function(t) {
 test('render', function(t) {
   t.test('should hide all the items not matching selected', function(t) {
     var testDiscover,
-        testFilter = 'test',
+        testF = 'tester',
+        $testEl,
         $testEls;
 
     $testEls = [
-      $('<div>').addClass('js-filteredItem').data('filter-type', 'dud'),
-      $('<div>').addClass('js-filteredItem').data('filter-type', testFilter),
-      $('<div>').addClass('js-filteredItem').data('filter-type', 'dud')];
+      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud'),
+      $('<div>').addClass('js-filteredItem').attr('data-filter-type', testF),
+      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud')];
+    $testEl = $('<div>');
+    $testEl.append($testEls);
 
-    testDiscover = new Discover($($testEls), $($testEls), {
-      selected: testFilter
+    testDiscover = new Discover($testEl, $($testEls), {
+      selected: testF
     });
 
     testDiscover.render();
 
-    t.equal(testDiscover.$('js-filteredItem:visible'), 2);
-    t.equal(testDiscover.$('js-filteredItem:hidden'), 1);
+    t.equal(testDiscover.$('.js-filteredItem').length, 3, 'All elements there');
+    t.equal(testDiscover.$('.js-filteredItem:not(.u-hide)').length, 1, 'One is ' +
+      'visible');
+    t.equal(testDiscover.$('.js-filteredItem.u-hide').length, 2, 'Two are ' +
+      'not visible');
 
     t.end();
   });
