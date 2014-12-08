@@ -48,6 +48,7 @@ admin.site.register(models.Account)
 admin.site.register(models.Media)
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Vignette, VignetteAdmin)
+admin.site.register(models.Issue)
 admin.site.unregister(User)
 admin.site.register(User, StrictUserAdmin)
 admin.site.login_form = LoggingAuthenticationForm

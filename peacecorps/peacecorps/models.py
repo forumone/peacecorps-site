@@ -82,6 +82,8 @@ class Account(models.Model):
         return self.goal - self.total()
 
 
+# @todo: this description isn't really accurate anymore. Probably worth
+# renaming
 class Campaign(models.Model):
     """
     A campaign is any fundraising effort. Campaigns can collect donations
@@ -173,7 +175,8 @@ class FeaturedCampaign(models.Model):
 
 
 class FeaturedProjectFrontPage(models.Model):
-    project = models.ForeignKey('Project')
+    project = models.ForeignKey('Project',
+                                limit_choices_to={'published': True})
 
     def __str__(self):
         return '%s (Featured)' % (self.project.title)
@@ -263,6 +266,23 @@ class Project(models.Model):
             if existing:
                 self.slug = self.slug + str(existing.pk)
         super(Project, self).save(*args, **kwargs)
+
+
+class Issue(models.Model):
+    """A categorization scheme. This could eventually house relationships with
+    individual projects, but for now, just point to sector funds"""
+    name = models.CharField(max_length=100)
+    icon = models.FileField()   # No need for any of the 'Media' fields
+    campaigns = models.ManyToManyField(
+        Campaign, limit_choices_to={'campaigntype': Campaign.SECTOR})
+
+    def __str__(self):
+        return self.name
+
+    def projects(self):
+        """Jump through the campaigns connection to get to a set of projects"""
+        campaigns = self.campaigns.all()
+        return Project.published_objects.filter(campaigns__in=campaigns)
 
 
 def default_expire_time():
