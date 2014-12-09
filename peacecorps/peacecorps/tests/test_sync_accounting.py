@@ -26,7 +26,7 @@ class SyncAccountingTests(TestCase):
 
     def test_datetime_from(self):
         """Test daylight savings conversions"""
-        dt = sync.datetime_from('9-Sep-12')    # EDT
+        dt = sync.datetime_from('2012-09-09T00:00:00')    # EDT
         self.assertEqual(2012, dt.year)
         self.assertEqual(9, dt.month)
         self.assertEqual(10, dt.day)
@@ -35,7 +35,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(59, dt.second)
         self.assertEqual(dt.tzname(), 'UTC')
 
-        dt = sync.datetime_from('9-Dec-12')     # EST
+        dt = sync.datetime_from('2012-12-09T00:00:00')     # EST
         self.assertEqual(2012, dt.year)
         self.assertEqual(12, dt.month)
         self.assertEqual(10, dt.day)
@@ -75,7 +75,7 @@ class SyncAccountingTests(TestCase):
         # amount donated to should be updated
         self.assertEqual(33330, Account.objects.get(pk=acc222.pk).current)
 
-        row = {'LAST_UPDATED_FROM_PAYGOV': '14-Dec-09',
+        row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14T00:00:00',
                'PROJ_REQ': '5,555.55', 'UNIDENT_BAL': '4,321.32'}
         sync.update_account(row, acc222)
         # before_donation should be deleted, but after_donation not

@@ -14,9 +14,12 @@ from peacecorps.models import (
 def datetime_from(text):
     """Convert a string representation of a date into a UTC datetime. We
     assume the incoming date is in Eastern and represents the last second of
-    that day"""
+    that day. We must account for a misleading timestamp; only the date
+    provided is relevant"""
     eastern = pytz.timezone("US/Eastern")
-    time = datetime.strptime(text, "%d-%b-%y")
+    if text.endswith("T00:00:00"):
+        text = text[:-len("T00:00:00")]
+    time = datetime.strptime(text, "%Y-%m-%d")
     time = time.replace(hour=23, minute=59, second=59)
     time = eastern.localize(time)
     return time.astimezone(pytz.utc)
@@ -106,7 +109,7 @@ def create_pcpp(account, row, issue_map):
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
 
-        sirtrevorobj = {"data":[{"type":"text","data":{"text":""}}]}
+        sirtrevorobj = {"data": [{"type": "text", "data": {"text": ""}}]}
         sirtrevorobj['data'][0]['data']['text'] = row['SUMMARY']
         description = json.dumps(sirtrevorobj)
 
