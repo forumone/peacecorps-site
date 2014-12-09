@@ -82,8 +82,9 @@ $().ready(function() {
 
   if ($discoverApp) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: 'country'
+      selected: 'volunteer'
     });
     discover.render();
+    $('.collapsibleItem').hide();
   }
 });
