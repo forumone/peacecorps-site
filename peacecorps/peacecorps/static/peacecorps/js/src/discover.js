@@ -25,6 +25,9 @@ Discover.prototype.init = function(root, $navLinks, opts) {
   this.filters = [];
   $navLinks.each(function() {
     self.filters.push($(this).data('filter-type'));
+    $(this).on('click', function() {
+      self.select($(this));
+    });
   });
   this.selected = lopts.selected || this.filters[0];
 };
@@ -45,6 +48,11 @@ Discover.prototype.dataSelector = function(dataAttr, dataVal) {
   return '[data-'+ dataAttr + '="' + dataVal + '"]';
 };
 
+Discover.prototype.select = function($link) {
+  var filter = $link.attr('data-filter-type');
+  this.selected = filter;
+  this.render();
+};
 
 module.exports = Discover;
 
