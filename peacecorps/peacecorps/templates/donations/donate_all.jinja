@@ -69,11 +69,10 @@
         </a>
       </td>
     </tr>
-    <tr class="collapsibleItem" id="collapsible-volunteer-{{ loop.index }}">
-      <td>
-        <table></tbody>
-          <tr name="{{ project.title }}"
-              aria-hidden="true">
+    <tr class="js-collapsibleItem"
+        name="{{ project.title }}"
+        aria-hidden="true"
+        id="collapsible-volunteer-{{ loop.index }}">
             {{ render_project(project, loop.index) }}
           </tr>
         </tbody></table>
