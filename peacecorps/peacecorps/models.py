@@ -8,7 +8,6 @@ from django.template.loader import render_to_string as django_render
 from django.utils import timezone
 from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
-from sirtrevor.fields import SirTrevorField
 
 from peacecorps.fields import GPGField, BraveSirTrevorField
 
@@ -344,7 +343,7 @@ class Vignette(models.Model):
     slug = models.CharField(max_length=50, primary_key=True)
     location = models.TextField()
     instructions = models.TextField()
-    content = SirTrevorField()
+    content = BraveSirTrevorField()
 
     def __str__(self):
         return self.slug

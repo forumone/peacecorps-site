@@ -13,8 +13,11 @@ urlpatterns = patterns(
     '',
     url(r'^donate/?$', midterm_cache(views.donate_landing),
         name='donate landing'),
-    url(r'^donate/projects-funds/?$', midterm_cache(views.donate_projects_funds),
+    url(r'^donate/projects-funds/?$',
+        midterm_cache(views.donate_projects_funds),
         name='donate projects funds'),
+    url(r'^donate/projects-funds/special/?$',
+        midterm_cache(views.special_funds), name='donate special funds'),
 
     # not cached so the values are up-to-date
     url(r'^donate/campaign/' + _slug + r'/?$',

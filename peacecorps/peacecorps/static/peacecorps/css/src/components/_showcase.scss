@@ -121,6 +121,12 @@
       @include span-columns(3 of 9);
     }
   }
+
+  .showcase--col3_centered__2col {
+    @include span-columns(6 of 9);
+    @include omega(3n);
+    @extend .bm;
+  }
 }
 
 .showcase--col2_centered {

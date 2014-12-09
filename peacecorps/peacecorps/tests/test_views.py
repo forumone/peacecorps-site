@@ -135,7 +135,8 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_memorial_rendering(self):
-        response = self.client.get('/donate/memorial/stephanie-brown')
+        response = self.client.get(
+            '/donate/memorial/stephanie-brown-memorial-fund')
         self.assertEqual(response.status_code, 200)
 
     def test_general_rendering(self):
@@ -261,3 +262,8 @@ class DonatePagesTests(TestCase):
                         url, data={'agency_tracking_id': 'NEVERUSED'})
                     self.assertEqual(response.status_code, 302)
                     self.assertTrue(url in response['LOCATION'])
+
+    def test_memorial_fund_name(self):
+        response = self.client.get(reverse('donate special funds'))
+        self.assertNotContains(response, 'Stephanie Brown Memorial Fund')
+        self.assertContains(response, 'Stephanie Brown')
