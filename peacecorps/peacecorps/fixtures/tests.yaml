@@ -1658,8 +1658,8 @@
     featured_image: 11
     featuredprojects: []
     icon: null
-    name: Stephanie Brown
-    slug: stephanie-brown
+    name: Stephanie Brown Memorial Fund
+    slug: stephanie-brown-memorial-fund
     tagline: null
   model: peacecorps.campaign
   pk: 77

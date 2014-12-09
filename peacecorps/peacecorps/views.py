@@ -244,6 +244,25 @@ def donate_projects_funds(request):
         })
 
 
+def special_funds(request):
+    """Contains general, global, and memorial funds"""
+    general_funds = Campaign.objects.filter(
+        campaigntype=Campaign.GENERAL).order_by('pk')
+    memorial_funds = Campaign.objects.filter(campaigntype=Campaign.MEMORIAL)
+    # Quick hack to pull out the volunteer's name. Replace when we have a new
+    # model
+    for fund in memorial_funds:
+        if fund.name.endswith('Memorial Fund'):
+            fund.memorial_name = fund.name[:-len("Memorial Fund")].strip()
+        else:
+            fund.memorial_name = fund.name.strip()
+        name_parts = fund.memorial_name.split(' ')
+        fund.sort_name = " ".join(name_parts[-1:] + name_parts[:-1])
+    memorial_funds = sorted(memorial_funds, key=lambda f: f.sort_name)
+    return render(request, "donations/special_funds.jinja", {
+        "general_funds": general_funds, "memorial_funds": memorial_funds})
+
+
 class ProjectReturn(DetailView):
     queryset = Project.objects.select_related(
         'account', 'country', 'featured_image', 'overflow',
