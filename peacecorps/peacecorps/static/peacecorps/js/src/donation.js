@@ -83,7 +83,7 @@ $().ready(function() {
 
   if ($discoverApp) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: 'issue'
+      selected: 'volunteer'
     });
     discover.render();
 

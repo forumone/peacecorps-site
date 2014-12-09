@@ -13,81 +13,43 @@
     <li><a href="#" data-filter-type="volunteer">Volunteers</a></li>
   </ul>
 </nav>
-<table class="js-discoverApp">
+<article class="js-discoverApp">
+  <ul class="js-filterable" data-filter-type="issue">
   {% for issue in issues %}
-    <tr class="js-filteredItem" name="{{ issue.name }}"
-        data-id="{{ issue.id }}"
-        data-filter-type="issue" >
-      <td><img width=50" src="{{ issue.icon.url }}"
-               alt="{{ issue.name }}" />
-      </td>
-      <td>
-        <a  href="#"
-            aria-expanded="false"
-            aria-controls="collapsible-issue-{{ loop.index }}">
-          <h3>{{ issue.name }}</h3>
-        </a>
-      </td>
-    </tr>
-    {% if issue.featuredprojects.all().count() > 0 %}
-    <tr class="js-collapsibleItem" id="collapsible-issue-{{ loop.index }}">
-      <td>
-        <table><tbody>
-          <tr>
-            <td>
-            {#
-            {{ render_campaign() }}
-            #}
-            </td>
-          </tr>
-          {# TODO figure out projects rather the featured projects #}
-          {% for project in issue.featuredprojects.all() %}
-            <tr name="{{ project.title }}">
-              {{ render_project(project, loop.index) }}
-            </tr>
-          {% endfor %}
-        </tbody></table>
-      </td>
-    </tr>
-    {% endif %}
+    {% for campaign in issue.campaigns.all() %}
+      <li>
+        {{ render_campaign(campaign) }}
+      </li>
+    {% endfor %}
+      {# TODO figure out projects rather the featured projects #}
+    {% for project in issue.projects() %}
+      <li>
+        {{ render_project(project, 'issue') }}
+      </li>
+    {% endfor %}
   {% endfor %}
-  {# TODO figure out how to order by volunteer name #}
+  </ul>
+  <ul class="js-filterable" data-filter-type="volunteer">
   {% for project in projects %}
-    <tr class="js-filteredItem"
-        data-filter-type="volunteer"
-        name="{{ project.volunteername }}">
-      <td>
-        <img src="{{ project.volunteerpicture.url }}"
-             alt="{{ project.volunteername }}" />
-      </td>
-      <td>
-        <a aria-expanded="false"
-           aria-controls="collapsible-volunteer-{{ loop.index }}">
-          <h3>{{ project.volunteername }}</h3>
-          <p>{{ project.volunteerhomestate }},
-                {{ project.volunteerhomecountry }}</p>
-        </a>
-      </td>
-    </tr>
-    <tr class="js-collapsibleItem"
-        name="{{ project.title }}"
-        aria-hidden="true"
-        id="collapsible-volunteer-{{ loop.index }}">
-      {{ render_project(project, loop.index) }}
-    </tr>
+    <li>
+      {{ render_project(project, 'volunteer') }}
+    </li>
   {% endfor %}
+  </ul>
+  <ul  class="js-filterable" data-filter-type="country">
   {% for country in countries %}
-    <tr class="js-filteredItem"
-        data-filter-type="country"
-        data-id="{{ country.code }}"
-        name="{{ country.name }}">
-      <td>
-        {{ country_map(country.code) }}
-      </td>
-      <td><h3>{{ country.name }}</h3></td>
-    </tr>
+    <li>
+      {{ render_country_campaign(country) }}
+    </li>
+    {# TODO figure out projects rather the featured projects #}
+    {% for project in country.project_set.all() %}
+      <li>
+        {{ render_project(project, 'country') }}
+      </li>
+    {% endfor %}
   {% endfor %}
-</table>
+  </ul>
+</article>
 
 {% endblock %}
 
@@ -99,41 +61,61 @@
   </div>
 {%- endmacro %}
 
-{% macro render_project(project, idx) -%}
-  <td>
-    <table>
-      <tr>
-        <th><button aria-expanded="false"
-                    aria-controls="collapsible-project-{{ idx }}">
-            {{ project.title }}
-          </button></th>
-      </tr>
-      <tr class="js-collapsibleItem"
-          id="collapsible-project-{{ idx }}" aria-hidden="true">
-        <td>
-          <img src="{{ volunteerpicture }}" alt="{{ volunteername }}" />
-        </td>
-        <td>
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
+{% macro render_campaign(campaign) -%}
+  {# TODO find way to link to media urls #}
+  <aside>
+    <img src="{{ media(campaign.icon or '') }}" alt="{{ campaign.name }}" />
+  </aside>
+  <article>
+    <h2>{{ campaign.name }}</h2>
+    <p>{{ campaign.description }}</p>
+    <a href="{{ url("donate campaign", slug=campaign.slug) }}">
+      Give to this fund</a>
+  </article>
+{%- endmacro %}
 
-          <div class="rectangular_progress rectangular_progress--secondary">
-            {# TODO make macro #}
-            {% set percent_completed = project.account.percent_funded() %}
-            <div class="rectangular_progress__bar">
-              <div class="rectangular_progress__filled"
-                  style="width: {{ percent_completed }}%;">
-              </div>
-            </div>
+{% macro render_country_campaign(campaign) -%}
+  <aside>
+    {{ country_map(campaign.country.code) }}
+  </aside>
+  <article>
+    <h2>{{ campaign.country.name }}</h2>
+    <p>{{ campaign.description }}</p>
+    <a href="{{ url("donate campaign", slug=campaign.slug) }}">
+      Give to this fund</a>
+  </article>
+{%- endmacro %}
+
+{% macro render_project(project, ptype) -%}
+  <header>
+    <a aria-expanded="false" href="#"
+       aria-controls="collapsible-{{ ptype }}-{{ project.id }}">
+      {{ project.title }}</a>
+  </header>
+  <article class="js-collapsibleItem"
+        id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
+    <aside>
+      <img src="{{ media(project.volunteerpicture or '') }}"
+           alt="{{ project.volunteername }}" />
+    </aside>
+    <section>
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+
+      <div class="rectangular_progress rectangular_progress--secondary">
+        {# TODO make macro #}
+        {% set percent_completed = project.account.percent_funded() %}
+        <div class="rectangular_progress__bar">
+          <div class="rectangular_progress__filled"
+              style="width: {{ percent_completed }}%;">
           </div>
-
-          <a class="button button--sm button--primary" href="">
-           Give to the project</a>
-          <a href="{{ url("donate project", slug=project.slug) }}">
-            Read more</a>
-        </td>
-      </tr>
-    </table>
-  </td>
+        </div>
+      </div>
+      <a class="button button--sm button--primary" href="">
+       Give to the project</a>
+      <a href="{{ url("donate project", slug=project.slug) }}">
+        Read more</a>
+    </section>
+  </article>
 {%- endmacro %}
 
