@@ -64,9 +64,9 @@ test('render', function(t) {
         $testEls;
 
     $testEls = [
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud'),
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', testF),
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud')];
+      $('<div>').addClass(Discover.ccFilteredItem).attr('data-filter-type', 'dud'),
+      $('<div>').addClass(Discover.ccFilteredItem).attr('data-filter-type', testF),
+      $('<div>').addClass(Discover.ccFilteredItem).attr('data-filter-type', 'dud')];
     $testEl = $('<div>');
     $testEl.append($testEls);
 
