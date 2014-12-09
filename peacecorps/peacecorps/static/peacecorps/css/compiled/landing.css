@@ -1,0 +1,54 @@
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/*
+ * Z-Index
+ */
+.landing .top_banner, .landing .bottom_banner {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .landing .top_banner:last-child, .landing .bottom_banner:last-child {
+    margin-right: 0; }
+  .landing .top_banner img, .landing .bottom_banner img {
+    width: 100%;
+    max-height: 350px; }
+  .landing .top_banner .text-block, .landing .bottom_banner .text-block {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    text-align: center; }
+    .landing .top_banner .text-block:last-child, .landing .bottom_banner .text-block:last-child {
+      margin-right: 0; }
+
+.showcase--main.float-above {
+  margin-top: -175;
+  padding-bottom: 175; }
+
+/*# sourceMappingURL=landing.css.map */

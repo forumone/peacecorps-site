@@ -4,6 +4,7 @@ var setup = require('./setup');
 setup = setup; // HACK not using module yet.
 
 var $ = require('jquery');
+var sinon = require('sinon');
 var test = require('tapes');
 
 var Discover = require('../discover');
@@ -81,6 +82,39 @@ test('render', function(t) {
       'visible');
     t.equal(testDiscover.$('.js-filteredItem.u-hide').length, 2, 'Two are ' +
       'not visible');
+
+    t.end();
+  });
+  t.end();
+});
+
+test('select', function(t) {
+  t.test('should select selected to the new filter', function(t) {
+    var $testLink,
+        testDiscover,
+        expected = 'test',
+        actual;
+
+    $testLink = $('<div data-filter-type="' + expected + '"]></div>');
+    testDiscover = new Discover($('<div>'), $([$testLink]), {
+      selected: 'dud'
+    });
+
+    testDiscover.select($testLink);
+    actual = testDiscover.selected;
+
+    t.equals(actual, expected, 'It sets the selected class to the filter');
+    t.end();
+  });
+  t.test('should call render', function(t) {
+    var spy,
+        testDiscover;
+
+    testDiscover = new Discover($('<div>'), $('<div>'));
+    spy = sinon.spy(testDiscover, 'render');
+    testDiscover.select($('<div>'));
+
+    t.ok(spy.calledOnce, 'Render was called once');
 
     t.end();
   });
