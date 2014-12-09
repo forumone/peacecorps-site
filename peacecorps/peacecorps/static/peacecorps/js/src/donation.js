@@ -2,6 +2,7 @@
 
 var $ = require('jquery');
 
+var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 
@@ -65,6 +66,7 @@ var Init = {
 };
 
 $().ready(function() {
+  var $discoverApp = $('.js-discoverApp');
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
     Init.donorTypeFields();
@@ -77,4 +79,11 @@ $().ready(function() {
   Landing.createDataFilter();
 
   new UpdatePercent($('.js-fundingBar'));
+
+  if ($discoverApp) {
+    var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
+      selected: 'country'
+    });
+    discover.render();
+  }
 });

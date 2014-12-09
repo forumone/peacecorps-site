@@ -15,6 +15,7 @@ class StrictUserAdmin(UserAdmin):
 
 class CampaignAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
+    list_display = ['account', 'name']
 
 
 class AccountInline(admin.StackedInline):
@@ -22,7 +23,7 @@ class AccountInline(admin.StackedInline):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'country', 'volunteername', 'account']
+    list_display = ['account', 'title', 'country', 'volunteername']
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('campaigns',)
 

@@ -10,7 +10,7 @@ from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
 from sirtrevor.fields import SirTrevorField
 
-from peacecorps.fields import GPGField
+from peacecorps.fields import GPGField, BraveSirTrevorField
 
 
 def percentfunded(current, goal):
@@ -51,7 +51,7 @@ class Account(models.Model):
         max_length=10, choices=CATEGORY_CHOICES)
 
     def __str__(self):
-        return '%s' % (self.name)
+        return '%s' % (self.code)
 
     def total(self):
         donations = self.donations.aggregate(Sum('amount'))
@@ -108,7 +108,8 @@ class Campaign(models.Model):
     )
 
     name = models.CharField(max_length=120)
-    account = models.ForeignKey('Account', unique=True, blank=True, null=True)
+    account = models.ForeignKey(
+        'Account', to_field='code', unique=True, blank=True, null=True)
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
@@ -130,7 +131,7 @@ class Campaign(models.Model):
     slug = models.SlugField(
         help_text="used for the campaign page url.",
         max_length=100, unique=True)
-    description = SirTrevorField(help_text="the full description.")
+    description = BraveSirTrevorField(help_text="the full description.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
         'Country', related_name="campaign", blank=True, null=True, unique=True)
@@ -229,7 +230,7 @@ class Project(models.Model):
         max_length=240, help_text="a short description for subheadings.",
         blank=True, null=True)
     slug = models.SlugField(max_length=100, help_text="for the project url.")
-    description = SirTrevorField(help_text="the full description.")
+    description = BraveSirTrevorField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     campaigns = models.ManyToManyField(
         'Campaign',
@@ -240,7 +241,7 @@ class Project(models.Model):
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    account = models.ForeignKey('Account', unique=True)
+    account = models.ForeignKey('Account', to_field='code', unique=True)
     overflow = models.ForeignKey(
         'Account', related_name="overflow", blank=True, null=True)
     volunteername = models.CharField(max_length=100)

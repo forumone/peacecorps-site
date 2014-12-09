@@ -4,6 +4,8 @@ from django.conf import settings
 from django.db import models
 import gnupg
 
+from sirtrevor.fields import SirTrevorField
+
 
 class GPGField(models.Field, metaclass=models.SubfieldBase):
     def __init__(self, gpg_check=False, *args, **kwargs):
@@ -56,3 +58,10 @@ class GPGField(models.Field, metaclass=models.SubfieldBase):
             return gpg.encrypt(plain_text, [recipient]).data
         else:   # No GPG; just stick it in the DB
             return plain_text
+
+
+class BraveSirTrevorField(SirTrevorField):
+
+    def value_to_string(self, obj):
+        sirtrev = self._get_val_from_obj(obj)
+        return str(sirtrev)

@@ -1,8 +1,5 @@
 'use strict';
 
-// Require for phantomjs
-Function.prototype.bind = require('function-bind');
-
 var setup = require('./setup');
 setup = setup; // HACK not using module yet.
 
