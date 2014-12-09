@@ -2,6 +2,7 @@
 
 var $ = require('jquery');
 
+var Collapsible = require('./collapsible');
 var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
@@ -82,9 +83,17 @@ $().ready(function() {
 
   if ($discoverApp) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: 'volunteer'
+      selected: 'issue'
     });
     discover.render();
-    $('.collapsibleItem').hide();
+
+    $('.js-collapsibleItem').each(function() {
+      var collapsible,
+          id = $(this).attr('id'),
+          $control = $('[aria-controls="'+ id +'"]');
+
+      collapsible = new Collapsible($(this), $control);
+      collapsible.render();
+    });
   }
 });

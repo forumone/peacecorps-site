@@ -22,16 +22,17 @@
                alt="{{ issue.name }}" />
       </td>
       <td>
-        <a aria-expanded="false"
+        <a  href="#"
+            aria-expanded="false"
             aria-controls="collapsible-issue-{{ loop.index }}">
           <h3>{{ issue.name }}</h3>
         </a>
       </td>
     </tr>
     {% if issue.featuredprojects.all().count() > 0 %}
-    <tr class="collapsibleItem" id="collapsible-issue-{{ loop.index }}">
+    <tr class="js-collapsibleItem" id="collapsible-issue-{{ loop.index }}">
       <td>
-        <table></tbody>
+        <table><tbody>
           <tr>
             <td>
             {#
@@ -41,8 +42,7 @@
           </tr>
           {# TODO figure out projects rather the featured projects #}
           {% for project in issue.featuredprojects.all() %}
-            <tr name="{{ project.title }}"
-                aria-hidden="true">
+            <tr name="{{ project.title }}">
               {{ render_project(project, loop.index) }}
             </tr>
           {% endfor %}
@@ -73,10 +73,7 @@
         name="{{ project.title }}"
         aria-hidden="true"
         id="collapsible-volunteer-{{ loop.index }}">
-            {{ render_project(project, loop.index) }}
-          </tr>
-        </tbody></table>
-      </td>
+      {{ render_project(project, loop.index) }}
     </tr>
   {% endfor %}
   {% for country in countries %}
@@ -105,13 +102,13 @@
 {% macro render_project(project, idx) -%}
   <td>
     <table>
-      <tr class="js-collapsableNav">
+      <tr>
         <th><button aria-expanded="false"
                     aria-controls="collapsible-project-{{ idx }}">
             {{ project.title }}
           </button></th>
       </tr>
-      <tr class="js-collapsableItem"
+      <tr class="js-collapsibleItem"
           id="collapsible-project-{{ idx }}" aria-hidden="true">
         <td>
           <img src="{{ volunteerpicture }}" alt="{{ volunteername }}" />

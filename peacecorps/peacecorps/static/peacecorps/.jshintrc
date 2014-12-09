@@ -19,6 +19,7 @@
   "browser": true,
   "globalstrict": true,
   "sub": true,
+  "-W030": true,
 
   "node" : true,
   "browser": true,
