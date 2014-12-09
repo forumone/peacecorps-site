@@ -268,8 +268,8 @@ class Project(models.Model):
                 if block.get('type') == 'text':
                     data = block['data']
                     # Naive string shortener
-                    if len(data['text']) > 256:
-                        trimmed = data['text'][:256]
+                    if len(data['text']) > settings.ABSTRACT_LENGTH:
+                        trimmed = data['text'][:settings.ABSTRACT_LENGTH]
                         trimmed = trimmed[:trimmed.rindex(' ')]
                         data = {'text': trimmed + '...'}
                     return django_render('sirtrevor/blocks/text.html', data)

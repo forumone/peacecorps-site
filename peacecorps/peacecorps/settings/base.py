@@ -96,6 +96,9 @@ PAY_GOV_OCI_URL = os.environ.get('PAY_GOV_OCI_URL', 'https://example.com/')
 # DonorInfo objects expire after a set period of time
 DONOR_EXPIRE_AFTER = 30      # minutes
 
+# Where to cut project "abstract"s
+ABSTRACT_LENGTH = 256
+
 # GPG info for encrypted fields
 GNUPG_HOME = ''     # Directory containing keys. If empty, GPG will not be used
 GPG_RECIPIENTS = {
