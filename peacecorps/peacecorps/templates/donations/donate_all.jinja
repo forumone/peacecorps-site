@@ -7,67 +7,84 @@
 {% block content %}
 
 <nav class="js-discoverNav">
-  <a href="#" data-filter-type="issue">Issues</a>
-  <a href="#" data-filter-type="country">Countries</a>
-  <a href="#" data-filter-type="volunteer">Volunteers</a>
+  <ul>
+    <li><a href="#" data-filter-type="issue">Issues</a></li>
+    <li><a href="#" data-filter-type="country">Countries</a></li>
+    <li><a href="#" data-filter-type="volunteer">Volunteers</a></li>
+  </ul>
 </nav>
 <table class="js-discoverApp">
   {% for issue in issues %}
     <tr class="js-filteredItem" name="{{ issue.name }}"
+        data-id="{{ issue.id }}"
         data-filter-type="issue" >
       <td><img width=50" src="{{ issue.icon.url }}"
-               alt="{{ issue.name }}" /></td>
-      <td><h3>{{ issue.name }}</h3></td>
+               alt="{{ issue.name }}" />
+      </td>
+      <td>
+        <a  href="#"
+            aria-expanded="false"
+            aria-controls="collapsible-issue-{{ loop.index }}">
+          <h3>{{ issue.name }}</h3>
+        </a>
+      </td>
+    </tr>
+    {% if issue.featuredprojects.all().count() > 0 %}
+    <tr class="js-collapsibleItem" id="collapsible-issue-{{ loop.index }}">
+      <td>
+        <table><tbody>
+          <tr>
+            <td>
+            {#
+            {{ render_campaign() }}
+            #}
+            </td>
+          </tr>
+          {# TODO figure out projects rather the featured projects #}
+          {% for project in issue.featuredprojects.all() %}
+            <tr name="{{ project.title }}">
+              {{ render_project(project, loop.index) }}
+            </tr>
+          {% endfor %}
+        </tbody></table>
+      </td>
+    </tr>
+    {% endif %}
+  {% endfor %}
+  {# TODO figure out how to order by volunteer name #}
+  {% for project in projects %}
+    <tr class="js-filteredItem"
+        data-filter-type="volunteer"
+        name="{{ project.volunteername }}">
+      <td>
+        <img src="{{ project.volunteerpicture.url }}"
+             alt="{{ project.volunteername }}" />
+      </td>
+      <td>
+        <a aria-expanded="false"
+           aria-controls="collapsible-volunteer-{{ loop.index }}">
+          <h3>{{ project.volunteername }}</h3>
+          <p>{{ project.volunteerhomestate }},
+                {{ project.volunteerhomecountry }}</p>
+        </a>
+      </td>
+    </tr>
+    <tr class="js-collapsibleItem"
+        name="{{ project.title }}"
+        aria-hidden="true"
+        id="collapsible-volunteer-{{ loop.index }}">
+      {{ render_project(project, loop.index) }}
     </tr>
   {% endfor %}
   {% for country in countries %}
     <tr class="js-filteredItem"
         data-filter-type="country"
+        data-id="{{ country.code }}"
         name="{{ country.name }}">
       <td>
         {{ country_map(country.code) }}
       </td>
       <td><h3>{{ country.name }}</h3></td>
-    </tr>
-  {% endfor %}
-  {% for volunteer in volunteers %}
-    <tr class="js-filteredItem"
-        data-filter-type="volunteer"
-        name="{{ volunteer.name }}">
-      <td>
-        <img src="{{ volunteer.picture.url }}"
-             alt="{{ volunteer.name }}" />
-      </td>
-      <td>
-        <h3>{{ volunteer.name }}</h3>
-        <p>{{ volunteer.homestate }}, {{ volunteer.homecountry }}</p>
-      </td>
-    </tr>
-  {% endfor %}
-  {% for project in  projects %}
-    <tr class="js-detailItem" name="{{ project.title }}">
-      <td>
-        <img src="{{ volunteerpicture }}" alt="{{ volunteername }}" />
-      </td>
-      <td>
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-
-        <div class="rectangular_progress rectangular_progress--secondary">
-          {# TODO make macro #}
-          {% set percent_completed = project.account.percent_funded() %}
-          <div class="rectangular_progress__bar">
-            <div class="rectangular_progress__filled"
-                style="width: {{ percent_completed }}%;">
-            </div>
-          </div>
-        </div>
-
-        <a class="button button--sm button--primary" href="">
-         Give to the project</a>
-        <a href="{{ url("donate project", slug=project.slug) }}">
-          Read more</a>
-      </td>
     </tr>
   {% endfor %}
 </table>
@@ -80,5 +97,43 @@
                         + ".svg") }}"
          class="mask__content" />
   </div>
+{%- endmacro %}
+
+{% macro render_project(project, idx) -%}
+  <td>
+    <table>
+      <tr>
+        <th><button aria-expanded="false"
+                    aria-controls="collapsible-project-{{ idx }}">
+            {{ project.title }}
+          </button></th>
+      </tr>
+      <tr class="js-collapsibleItem"
+          id="collapsible-project-{{ idx }}" aria-hidden="true">
+        <td>
+          <img src="{{ volunteerpicture }}" alt="{{ volunteername }}" />
+        </td>
+        <td>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+
+          <div class="rectangular_progress rectangular_progress--secondary">
+            {# TODO make macro #}
+            {% set percent_completed = project.account.percent_funded() %}
+            <div class="rectangular_progress__bar">
+              <div class="rectangular_progress__filled"
+                  style="width: {{ percent_completed }}%;">
+              </div>
+            </div>
+          </div>
+
+          <a class="button button--sm button--primary" href="">
+           Give to the project</a>
+          <a href="{{ url("donate project", slug=project.slug) }}">
+            Read more</a>
+        </td>
+      </tr>
+    </table>
+  </td>
 {%- endmacro %}
 

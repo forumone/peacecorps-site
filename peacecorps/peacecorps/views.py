@@ -233,11 +233,6 @@ def donate_projects_funds(request):
     issues = Campaign.objects.filter(
         campaigntype=Campaign.SECTOR).order_by('name')
     projects = Project.published_objects.select_related('country', 'account')
-    volunteers = []
-    for project in projects:
-        volunteers.append({
-            key: getattr(project, 'volunteer' + key)
-            for key in ('name', 'picture', 'homestate', 'homecity')})
 
     return render(
         request,
@@ -245,8 +240,7 @@ def donate_projects_funds(request):
         {
             'countries': countries,
             'issues': issues,
-            'projects': projects,
-            'volunteers': volunteers,
+            'projects': projects
         })
 
 
