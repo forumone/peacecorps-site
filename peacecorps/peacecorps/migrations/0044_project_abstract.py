@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('peacecorps', '0037_issue'),
+        ('peacecorps', '0043_merge'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='project',
             name='abstract',
-            field=models.TextField(null=True, blank=True),
+            field=models.TextField(blank=True, null=True),
             preserve_default=True,
         ),
     ]
