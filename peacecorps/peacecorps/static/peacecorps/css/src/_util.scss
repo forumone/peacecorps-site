@@ -32,6 +32,14 @@
   @include u-visually_hidden;
 }
 
+[aria-hidden=true] {
+  display: none;
+}
+[aria-hidden=false] {
+  display: block;
+}
+
+
 // Centers an block element vertically and horizontally.
 .u-hv_center--block {
   position: relative;
