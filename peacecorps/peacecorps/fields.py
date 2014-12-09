@@ -5,7 +5,6 @@ from django.db import models
 import gnupg
 
 from sirtrevor.fields import SirTrevorField
-import json
 
 
 class GPGField(models.Field, metaclass=models.SubfieldBase):
@@ -65,6 +64,4 @@ class BraveSirTrevorField(SirTrevorField):
 
     def value_to_string(self, obj):
         sirtrev = self._get_val_from_obj(obj)
-        sirjson = json.loads(sirtrev)
-        sirjohn = json.dumps(sirjson)
-        return sirjohn
+        return str(sirtrev)
