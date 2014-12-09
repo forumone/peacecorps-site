@@ -4,6 +4,7 @@ import json
 from django.conf import settings
 from django.db import models
 from django.db.models import Sum
+from django.template.loader import render_to_string as django_render
 from django.utils import timezone
 from django.utils.text import slugify
 from localflavor.us.models import USPostalCodeField
@@ -248,6 +249,7 @@ class Project(models.Model):
         'Media', related_name="volunteer", blank=True, null=True)
     volunteerhomestate = USPostalCodeField(blank=True, null=True)
     volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
+    abstract = models.TextField(blank=True, null=True)
 
     published = models.BooleanField(default=False)
 
@@ -256,6 +258,23 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def abstract_html(self):
+        """If an explicit abstract is present, return it. Otherwise, return
+        the formatted first paragraph of the description"""
+        if self.abstract:
+            return self.abstract
+        elif self.description:
+            for block in json.loads(self.description)['data']:
+                if block.get('type') == 'text':
+                    data = block['data']
+                    # Naive string shortener
+                    if len(data['text']) > settings.ABSTRACT_LENGTH:
+                        trimmed = data['text'][:settings.ABSTRACT_LENGTH]
+                        trimmed = trimmed[:trimmed.rindex(' ')]
+                        data = {'text': trimmed + '...'}
+                    return django_render('sirtrevor/blocks/text.html', data)
+        return ''
 
     def save(self, *args, **kwargs):
         """Set slug, but make sure it is distinct"""
