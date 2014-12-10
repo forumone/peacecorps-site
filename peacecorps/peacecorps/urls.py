@@ -19,9 +19,9 @@ urlpatterns = patterns(
     url(r'^donate/projects-funds/special/?$',
         midterm_cache(views.special_funds), name='donate special funds'),
 
+    url(r'^donate/fund/' + _slug + r'/?$',
+        midterm_cache(views.fund_detail), name='donate campaign'),
     # not cached so the values are up-to-date
-    url(r'^donate/campaign/' + _slug + r'/?$',
-        midterm_cache(views.donate_campaign), name='donate campaign'),
     url(r'^donate/campaign/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -43,8 +43,6 @@ urlpatterns = patterns(
             template_name='donations/project_failure.jinja'),
         name='project failure'),
 
-    url(r'^donate/country/' + _slug + r'/?$',
-        midterm_cache(views.donate_country), name='donate country'),
     # not cached so the values are up-to-date
     url(r'^donate/country/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
@@ -54,11 +52,7 @@ urlpatterns = patterns(
         views.CampaignReturn.as_view(
             template_name='donations/campaign_failure.jinja'),
         name='country failure'),
-    url(r'^donate/countries', midterm_cache(views.donate_countries),
-        name='donate countries'),
 
-    url(r'^donate/memorial/' + _slug + r'/?$',
-        midterm_cache(views.donate_memorial), name='donate memorial'),
     # not cached so the values are up-to-date
     url(r'^donate/memorial/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
@@ -69,8 +63,6 @@ urlpatterns = patterns(
             template_name='donations/campaign_failure.jinja'),
         name='memorial failure'),
     # this needs to be below other donate urls.
-    url(r'^donate/' + _slug + r'/?$', midterm_cache(views.donate_general),
-        name='donate general'),
     # not cached so the values are up-to-date
     url(r'^donate/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(

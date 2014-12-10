@@ -118,29 +118,26 @@ class DonatePagesTests(TestCase):
         response = self.client.get('/donate')
         self.assertEqual(response.status_code, 200)
 
-    def test_campaign_rendering(self):
-        response = self.client.get('/donate/campaign/health')
-        self.assertEqual(response.status_code, 200)
-
     def test_project_rendering(self):
         response = self.client.get('/donate/project/brick-oven-bakery')
         self.assertEqual(response.status_code, 200)
 
-    def test_country_rendering(self):
-        response = self.client.get('/donate/country/cameroon')
+    def test_fund_rendering(self):
+        response = self.client.get(reverse('donate campaign',
+                                           kwargs={'slug': 'health'}))
         self.assertEqual(response.status_code, 200)
 
-    def test_countries_rendering(self):
-        response = self.client.get('/donate/countries')
+        response = self.client.get(reverse('donate campaign',
+                                           kwargs={'slug': 'cameroon'}))
         self.assertEqual(response.status_code, 200)
 
-    def test_memorial_rendering(self):
         response = self.client.get(
-            '/donate/memorial/stephanie-brown-memorial-fund')
+            reverse('donate campaign',
+                    kwargs={'slug': 'stephanie-brown-memorial-fund'}))
         self.assertEqual(response.status_code, 200)
 
-    def test_general_rendering(self):
-        response = self.client.get('/donate/peace-corps')
+        response = self.client.get(reverse('donate campaign',
+                                           kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_empty_amount(self):
