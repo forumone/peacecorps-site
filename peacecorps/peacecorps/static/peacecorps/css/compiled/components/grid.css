@@ -1,0 +1,74 @@
+/*
+Error: Undefined mixin 'span-columns'.
+        on line 13 of css/src/components/grid.scss, in `span-columns'
+        from line 13 of css/src/components/grid.scss
+
+8: @import "mixins";
+9: 
+10: .grid {};
+11: 
+12: .grid--60 {
+13:   @include span-columns(7);
+14: }
+15: 
+16: .grid--40 {
+17:   @include span-columns(5);
+18: }
+
+Backtrace:
+css/src/components/grid.scss:13:in `span-columns'
+css/src/components/grid.scss:13
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:338:in `block in visit_mixin'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:98:in `block in with_mixin'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:98:in `with_mixin'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:336:in `visit_mixin'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+/Users/msegreto/.rvm/gems/ruby-2.1.3/gems/sass-3.4.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'span-columns'.\A         on line 13 of css/src/components/grid.scss, in `span-columns'\A         from line 13 of css/src/components/grid.scss\A \A 8: @import \"mixins\";\A 9: \A 10: .grid {};\A 11: \A 12: .grid--60 {\A 13:   @include span-columns(7);\A 14: }\A 15: \A 16: .grid--40 {\A 17:   @include span-columns(5);\A 18: }"; }
