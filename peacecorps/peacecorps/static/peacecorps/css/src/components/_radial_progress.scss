@@ -5,3 +5,47 @@
  */
 
 @import "globals";
+
+$barColor: $primary;
+$overlayColor: $white;
+$backColor: $neutral_medium;
+
+.radialProgress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid $backColor;
+  background-color: $barColor;
+}
+
+.radialProgress__overlay {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: $overlayColor;
+  border-radius: 50%;
+  margin-left: 23px;
+  margin-top: 23px;
+  text-align: center;
+}
+$step: 5; // step of % for created classes
+
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+@for $i from 0 through $loops {
+  .radialProgress--progress-#{$i*$step} {
+    @if $i < $half {
+      $nextdeg: 90deg + ($increment * $i);
+      background-image: linear-gradient(90deg, $backColor 50%, transparent 50%,
+        transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%,
+        $backColor);
+    } @else {
+      $nextdeg: -90deg + ($increment * ( $i - $half ));
+      background-image: linear-gradient($nextdeg, $barColor 50%, transparent
+        50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%,
+        $backColor);
+    }
+  }
+}
