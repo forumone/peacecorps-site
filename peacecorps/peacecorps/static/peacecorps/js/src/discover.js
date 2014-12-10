@@ -13,9 +13,11 @@ var Discover = function($root) {
   this.$ =  function(selector) {
     return this.$el.find(selector);
   };
-  this.ccFilteredItem = '.js-filteredItem';
+  this.ccFilteredItem = '.js-filterable';
   this.init.apply(this, arguments);
 };
+
+Discover.ccFilteredItem = '.js-filterable';
 
 Discover.prototype.init = function(root, $navLinks, opts) {
   var self = this,
@@ -25,6 +27,9 @@ Discover.prototype.init = function(root, $navLinks, opts) {
   this.filters = [];
   $navLinks.each(function() {
     self.filters.push($(this).data('filter-type'));
+    $(this).on('click', function() {
+      self.select($(this));
+    });
   });
   this.selected = lopts.selected || this.filters[0];
 };
@@ -32,13 +37,21 @@ Discover.prototype.init = function(root, $navLinks, opts) {
 Discover.prototype.render = function() {
   var $filtereds = this.$(
     this.ccFilteredItem + this.dataSelector('filter-type', this.selected));
-  this.$(this.ccFilteredItem).hide()
+  this.$(this.ccFilteredItem)
+      .attr('aria-hidden', true)
       .toggleClass('u-hide', true);
 
   $filtereds.each(function() {
-    $(this).show()
+    $(this)
+        .attr('aria-hidden', false)
         .toggleClass('u-hide', false);
   });
+};
+
+Discover.prototype.select = function($link) {
+  var filter = $link.attr('data-filter-type');
+  this.selected = filter;
+  this.render();
 };
 
 Discover.prototype.dataSelector = function(dataAttr, dataVal) {

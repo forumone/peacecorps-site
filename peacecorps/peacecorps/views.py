@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, Country, FeaturedCampaign, FeaturedProjectFrontPage,
-    humanize_amount, Project, Vignette)
+    Issue, humanize_amount, Project, Vignette)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -229,10 +229,11 @@ def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
-    countries = Country.objects.all()
-    issues = Campaign.objects.filter(
-        campaigntype=Campaign.SECTOR).order_by('name')
-    projects = Project.published_objects.select_related('country', 'account')
+    countries = Campaign.objects.filter(
+        campaigntype=Campaign.COUNTRY).order_by('name')
+    issues = Issue.objects.all().order_by('name')
+    projects = Project.published_objects.select_related(
+            'country', 'account').order_by('volunteername')
 
     return render(
         request,

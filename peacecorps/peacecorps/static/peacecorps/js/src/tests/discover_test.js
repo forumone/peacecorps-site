@@ -60,13 +60,17 @@ test('render', function(t) {
   t.test('should hide all the items not matching selected', function(t) {
     var testDiscover,
         testF = 'tester',
+        ccfilterable = Discover.ccFilteredItem.replace('.', ''),
         $testEl,
         $testEls;
 
     $testEls = [
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud'),
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', testF),
-      $('<div>').addClass('js-filteredItem').attr('data-filter-type', 'dud')];
+      $('<div>').addClass(ccfilterable).attr('data-filter-type',
+        'dud'),
+      $('<div>').addClass(ccfilterable).attr('data-filter-type',
+        testF),
+      $('<div>').addClass(ccfilterable).attr('data-filter-type',
+        'dud')];
     $testEl = $('<div>');
     $testEl.append($testEls);
 
@@ -76,11 +80,12 @@ test('render', function(t) {
 
     testDiscover.render();
 
-    t.equal(testDiscover.$('.js-filteredItem').length, 3, 'All elements there');
-    t.equal(testDiscover.$('.js-filteredItem:not(.u-hide)').length, 1, 'One is ' +
-      'visible');
-    t.equal(testDiscover.$('.js-filteredItem.u-hide').length, 2, 'Two are ' +
-      'not visible');
+    t.equal(testDiscover.$(Discover.ccFilteredItem).length, 3,
+        'All elements there');
+    t.equal(testDiscover.$(Discover.ccFilteredItem + ':not(.u-hide)').length, 1,
+        'One is visible');
+    t.equal(testDiscover.$(Discover.ccFilteredItem + '.u-hide').length, 2,
+        'Two are not visible');
 
     t.end();
   });
