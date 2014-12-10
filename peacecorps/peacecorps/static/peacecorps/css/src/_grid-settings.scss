@@ -1,0 +1,18 @@
+@import "neat/neat-helpers";
+
+/*
+ * Grid
+ */
+$base: 15;
+$grid-columns: 12;
+$column: golden-ratio(1em, 3);
+$gutter: golden-ratio(.8em, 3);
+$max-width: 83em;
+$visual-grid: true;
+
+/*
+ * Breakpoint
+ */
+$sm: new-breakpoint(min-width 0px max-width 499px 4);
+$md: new-breakpoint(min-width 500px max-width 899px 9);
+$lg: new-breakpoint(min-width 900px 12);
