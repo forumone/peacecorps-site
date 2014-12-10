@@ -17,9 +17,24 @@
     @include u-visually_hidden;
   }
 
-  .main_nav__link {
-    @include span_columns(2);
-    @extend .inline_text__ele--centered;
+}
+.main_nav__list {
+  margin: 0 auto;
+}
+.main_nav__link {
+  @include span_columns(3);
+  @extend .inline_text__ele--centered;
+  border-left: 1px solid;
+  border-color: $gray-2;
+  margin: 0 auto;
+  text-align: center;
+
+  &:first-child {
+    border-left: none;
   }
 
+  * {
+    @extend .t-link--gray;
+    text-decoration: none;
+  }
 }
