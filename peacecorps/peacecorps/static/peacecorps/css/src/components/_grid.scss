@@ -11,9 +11,28 @@
 
 .grid--60 {
   @include span-columns(7);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
 }
 
 .grid--40 {
   @include span-columns(5);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+}
+
+.inline_grid {
+  margin: inherit auto;
+}
+
+.inline_grid--15 {
+  @include span-columns(2);
+  display: inline-block;
+  float: none;
+  vertical-align: top;
 }
 

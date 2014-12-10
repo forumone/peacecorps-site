@@ -1,39 +1,41 @@
-<div class="full_bg full_bg--lg" style="
-    background-image: url('{{project.featured_image.url}}');
+<div class="full_bg full_bg--lg" style="height: 37em;
+    background-image: url('{{ project.featured_image.url or '' }}');
   ">
 </div>
-<article class="u-clearfix">
+<article class="u-clearfix" style="margin-top: 15em;">
   {# TODO Figure out way to remove these inlines to global css #}
 
   <section class="blurb">
     <div class="blurb">
-      <h2 class="t-blurb--lg t--black">{{ project.tagline }}</h2>
-      <h3 class="t--black">{{ project.abstract }}</h3>
+      <h2 class="t-blurb--lg t--black">{{ project.title }}</h2>
+      <h3 class="t--black">{{ project.tagline }}</h3>
     </div>
 
-    <section class="u-align_c">
-        <div class="mask mask--oval mask--bordered u-h_center--block">
-          <img class="mask__content"
-               src="{{project.volunteerpicture.url}}"
-               alt="{{project.volunteerpicture.description}}">
-        </div>
-      <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
-        volunteer from <strong>{{project.volunteerhomestate}}</strong>
-      </span>
-    </section>
-    <section class="u-align_c">
-      <div class="mask mask--oval mask--bordered u-h_center--block map">
-        <img src="{{ static("peacecorps/img/countries/"
-                            + project.country.code.lower() + ".svg") }}"
-             class="mask__content" />
-      </div>
-        <span class="t-body--sm">
-          in <strong>{{project.country.name}}</strong>
+    <div class="inline_grid l-bm--3">
+      <section class="u-align_c inline_grid--15">
+          <div class="mask mask--oval mask--bordered u-h_center--block">
+            <img class="mask__content"
+                 src="{{project.volunteerpicture.url}}"
+                 alt="{{project.volunteerpicture.description}}">
+          </div>
+        <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+          volunteer from <strong>{{project.volunteerhomestate}}</strong>
         </span>
-    </section>
-    <section class="u-align_c">
-      {# radial progress #}
-    </section>
+      </section>
+      <section class="u-align_c inline_grid--15">
+        <div class="mask mask--oval mask--bordered u-h_center--block map">
+          <img src="{{ static("peacecorps/img/countries/"
+                              + project.country.code.lower() + ".svg") }}"
+               class="mask__content" />
+        </div>
+          <span class="t-body--sm">
+            in <strong>{{project.country.name}}</strong>
+          </span>
+      </section>
+      <section class="u-align_c inline_grid--20">
+        {# radial progress #}
+      </section>
+    </div>
 
     <section class="section u-align_c">
       <a href="" {# TODO where does this link go? #}

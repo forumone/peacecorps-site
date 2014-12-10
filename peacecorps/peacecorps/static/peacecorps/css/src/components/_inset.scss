@@ -26,8 +26,8 @@
 }
 
 .inset--sm {
-  @include span-columns(7);
-  @include shift(2);
+  @include span-columns(6);
+  @include shift(3);
   @include omega(1n);
 
   @include media($md) {
@@ -39,5 +39,4 @@
     @include shift(0);
     @include span-columns(4);
   }
-
 }

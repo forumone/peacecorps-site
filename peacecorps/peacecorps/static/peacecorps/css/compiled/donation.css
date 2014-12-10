@@ -285,6 +285,20 @@ fieldset {
   border-width: 0; }
 
 /*
+ * Layout
+ *
+ * Base rules that are specific to layout, such as spacing.
+ */
+.l-bm--1 {
+  margin-bottom: 1em; }
+
+.l-bm--2 {
+  margin-bottom: 2em; }
+
+.l-bm--3 {
+  margin-bottom: 3em; }
+
+/*
  * Type styles.
  */
 /*
@@ -526,9 +540,11 @@ p + p {
 .bg_img--icon {
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right, center;
+  background-position: left, center;
   padding-right: 3em;
   /* Until the icon size is solidified */ }
+  .bg_img--icon * {
+    margin-left: 1.5em; }
 
 /*
  * layout/Blurb
@@ -576,6 +592,9 @@ p + p {
 
 .blurb__spacing {
   margin-top: 8em; }
+
+.blurb--sm {
+  padding-top: 2em; }
 
 /*
  * Bordered block.
@@ -733,6 +752,14 @@ body {
   width: 56.73077%; }
   .grid--60:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .grid--60 {
+      float: left;
+      display: block;
+      margin-right: 12.5%;
+      width: 100%; }
+      .grid--60:last-child {
+        margin-right: 0; } }
 
 .grid--40 {
   float: left;
@@ -740,6 +767,28 @@ body {
   margin-right: 3.84615%;
   width: 39.42308%; }
   .grid--40:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .grid--40 {
+      float: left;
+      display: block;
+      margin-right: 12.5%;
+      width: 100%; }
+      .grid--40:last-child {
+        margin-right: 0; } }
+
+.inline_grid {
+  margin: inherit auto; }
+
+.inline_grid--15 {
+  float: left;
+  display: block;
+  margin-right: 3.84615%;
+  width: 13.46154%;
+  display: inline-block;
+  float: none;
+  vertical-align: top; }
+  .inline_grid--15:last-child {
     margin-right: 0; }
 
 /*
@@ -829,9 +878,33 @@ body {
   border-top: none;
   background-color: rgba(201, 65, 18, 0.75); }
 
-.full_banner--neutral {
+.full_banner--neutral, .image-block {
   background-color: #F2EFE8;
-  border-color: #E5E1D4; }
+  border-color: #E5E1D4 !important; }
+
+.full_banner--img, .image-block {
+  border-top: 0.8em solid;
+  height: 40em;
+  margin: 0 -200%;
+  overflow: hidden;
+  padding: 0px 200%;
+  position: relative; }
+  .full_banner--img img, .image-block img {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transform: translatex(-50%);
+    -moz-transform: translatex(-50%);
+    -ms-transform: translatex(-50%);
+    -o-transform: translatex(-50%);
+    transform: translatex(-50%);
+    left: 50%;
+    max-width: 1900px;
+    position: absolute;
+    top: -100%;
+    width: 70%; }
 
 /*
  * Inset
@@ -874,8 +947,8 @@ body {
   float: left;
   display: block;
   margin-right: 3.84615%;
-  width: 56.73077%;
-  margin-left: 17.30769%; }
+  width: 48.07692%;
+  margin-left: 25.96154%; }
   .inset--sm:last-child {
     margin-right: 0; }
   .inset--sm:nth-child(1n) {
@@ -1061,6 +1134,12 @@ body {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important; }
+
+[aria-hidden=true] {
+  display: none; }
+
+[aria-hidden=false] {
+  display: block; }
 
 .u-hv_center--block, .mask, .rectangular_progress, .section_starter {
   position: relative; }
@@ -1273,6 +1352,12 @@ body {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important; }
+
+[aria-hidden=true] {
+  display: none; }
+
+[aria-hidden=false] {
+  display: block; }
 
 .u-hv_center--block, .mask, .rectangular_progress, .section_starter {
   position: relative; }
@@ -1615,6 +1700,22 @@ body {
       width: 35%; } }
 
 /*
+ * image-block
+ *
+ * Styling for the custom sir-trevor content image blocks.
+ * Note: The html for these classes is controlled in sir-trevor.
+ */
+/*
+ * text-block
+ *
+ * Styling for the custom sir-trevor content text blocks.
+ * Note: The html for these classes is controlled in sir-trevor.
+ */
+.text-block {
+  margin-top: 3em;
+  margin-bottom: 3em; }
+
+/*
  * Contains all sass utilities such as floats, clears, etc.
  */
 /*
@@ -1660,6 +1761,12 @@ body {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important; }
+
+[aria-hidden=true] {
+  display: none; }
+
+[aria-hidden=false] {
+  display: block; }
 
 .u-hv_center--block, .mask, .rectangular_progress, .section_starter {
   position: relative; }
