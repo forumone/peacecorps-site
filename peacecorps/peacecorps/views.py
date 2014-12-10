@@ -109,34 +109,28 @@ def donate_project(request, slug):
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
     if request.method == 'POST':
-        top_form = DonationAmountForm(prefix="top", data=request.POST,
-                                      account=project.account)
-        bottom_form = DonationAmountForm(prefix="bottom", data=request.POST,
-                                         account=project.account)
-        for form in (top_form, bottom_form):
-            if form.is_valid():
-                if project.account.funded() and project.overflow:
-                    code = project.overflow.code
-                else:
-                    code = project.account.code
-                params = {'project': code,
-                          # convert back into cents
-                          'amount': int(round(
-                              form.cleaned_data['payment_amount'] * 100))}
-                return HttpResponseRedirect(
-                    reverse('donations_payment') + '?' + urlencode(params))
+        form = DonationAmountForm(data=request.POST)
+        if form.is_valid():
+            if project.account.funded() and project.overflow:
+                code = project.overflow.code
+            else:
+                code = project.account.code
+            params = {'project': code,
+                      # convert back into cents
+                      'amount': int(round(
+                          form.cleaned_data['payment_amount'] * 100))}
+            return HttpResponseRedirect(
+                reverse('donations_payment') + '?' + urlencode(params))
     else:
-        top_form = DonationAmountForm(prefix="top", account=project.account)
-        bottom_form = DonationAmountForm(
-            prefix="bottom", account=project.account)
+        form = DonationAmountForm()
 
     return render(
         request,
         'donations/donate_project.jinja',
         {
             'project': project,
-            'top_form': top_form,
-            'bottom_form': bottom_form,
+            'account': project.account,
+            'donate_form': form,
             'humanize_amount': humanize_amount,
         })
 
@@ -183,16 +177,25 @@ def special_funds(request):
 def fund_detail(request, slug):
     campaign = get_object_or_404(Campaign.objects.select_related('account'),
                                  slug=slug)
-    featured = campaign.featuredprojects.all()
-    projects = Project.published_objects.filter(campaigns=campaign)
+    if request.method == "POST":
+        form = DonationAmountForm(data=request.POST)
+        if form.is_valid():
+            params = {'project': campaign.account.code,
+                      # convert back into cents
+                      'amount': int(round(
+                          form.cleaned_data['payment_amount'] * 100))}
+            return HttpResponseRedirect(
+                reverse('donations_payment') + '?' + urlencode(params))
+    else:
+        form = DonationAmountForm()
 
     return render(
         request,
         'donations/fund_detail.jinja',
         {
             'campaign': campaign,
-            'featured': featured,
-            'projects': projects,
+            'account': campaign.account,
+            'donate_form': form,
         })
 
 

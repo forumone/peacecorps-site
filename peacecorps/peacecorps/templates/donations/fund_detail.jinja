@@ -1,26 +1,15 @@
-<html lang='en'>
-<head>
-    <title>{{campaign.name}}</title>
-</head>
-<body>
+{% extends "donations/base.jinja" %}
 
-<img src="{{campaign.featured_image.url}}" height="300px"></img>
+{% block title %}Peace Corps - Donate{% endblock %}
+{% block header %}Peace Corps - Donate{% endblock %}
+{% block content_class %}fund-detail{% endblock %}
 
-<h2>{{campaign.name}}</h2>
+{% block content %}
+<article class="inset inset--sm">
+  <h2>{{campaign.name}}</h2>
+  {{campaign.description.html|safe}}
+</article>
 
-{{campaign.description.html|safe}}
+{% include "donations/includes/amount-form.jinja" %}
 
-{% for project in featured %}
-<div>{{project.title}}<a href="/donate/project/{{project.slug}}"><img src="{{project.featured_image.url}}" height="300px"></a></div>
-{% endfor %}
-
-<h3>{{projects.count()}} active projects</h3>
-
-<h3>Project Field Reports</h3>
-
-{% for project in projects %}
-<div><a href="/donate/project/{{project.slug}}">{{project.title}}</a></div>
-{% endfor %}
-
-</body>
-</html>
+{% endblock content %}

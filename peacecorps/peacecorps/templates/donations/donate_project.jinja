@@ -61,56 +61,7 @@
       </div>
     </div>
 
-    <div class="u-clearfix inset--md">
-      <form method="post" class="bubble_form form_hide--radio">
-        {% csrf_token %}
-        <fieldset>
-          <legend class="t-heading_md">Choose an amount to give</legend>
-          {{top_form.payment_amount.errors}}
-          {% for radio in top_form.presets %}
-            {% set preset_all = (radio.choice_value == 'preset-all') %}
-            {% if not preset_all or not project.account.funded() %}
-              {% if radio.choice_value == 'preset-all' %}
-              <div class="showcase--line_25">
-              {% else %}
-              <div class="showcase--line_16">
-              {% endif %}
-                {{ radio.tag() }}
-                {% if radio.choice_value == 'custom' %}
-                  <label class="bubble bubble--white bubble--bordered bubble--square"
-                      for="{{radio.id_for_label}}" >
-                    <span class="bubble__content" style="left: 10%">
-                      <strong>$</strong>
-                    </span>
-                    {{ top_form.payment_amount }}
-                  </label>
-                {% else %}
-                  <label
-                      class="bubble
-                      bubble--white
-                      bubble--bordered
-                      {% if preset_all %}bubble--rectangle{% endif %}
-                      bubble--square"
-                      for="{{radio.id_for_label}}">
-                    <span class="bubble__content "><strong>
-                        {% if not preset_all %}${% endif %}
-                      {{radio.choice_label}}
-                    </strong></span>
-                  </label>
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </fieldset>
-        <button class="button button--primary">
-          {% if project.account.funded() %}
-            Donate to Help Similar Projects
-          {% else %}
-            Donate
-          {% endif %}
-        </button>
-      </form>
-    </div>
+    {% include "donations/includes/amount-form.jinja" %}
   </div>
 </div>
 
