@@ -796,6 +796,74 @@ body {
   border-color: #E5E1D4; }
 
 /*
+ * Inset
+ *
+ * Inset a element on both sides.
+ */
+.inset {
+  margin-right: 0; }
+
+.inset--lg {
+  margin-left: 8.5298%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-right: 0; }
+  .inset--lg:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .inset--lg {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0; }
+      .inset--lg:last-child {
+        margin-right: 0; } }
+
+.inset--md {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .inset--md:last-child {
+    margin-right: 0; }
+
+.inset--sm {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%;
+  margin-left: 17.05961%; }
+  .inset--sm:last-child {
+    margin-right: 0; }
+  .inset--sm:nth-child(1n) {
+    margin-right: 0; }
+  .inset--sm:nth-child(1n+1) {
+    clear: left; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .inset--sm {
+      margin-left: 8.5298%;
+      float: left;
+      display: block;
+      margin-right: 3.16844%;
+      width: 77.07368%; }
+      .inset--sm:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .inset--sm {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%; }
+      .inset--sm:last-child {
+        margin-right: 0; } }
+
+/*
  * Mask
  */
 /*
@@ -941,6 +1009,9 @@ body {
 
 .u-align_r {
   text-align: right; }
+
+.u-align_c {
+  text-align: center; }
 
 .u-wrap {
   max-width: 68em;
@@ -1162,6 +1233,9 @@ body {
 .u-align_r {
   text-align: right; }
 
+.u-align_c {
+  text-align: center; }
+
 .u-wrap {
   max-width: 68em;
   margin-left: auto;
@@ -1277,7 +1351,7 @@ body {
   width: 100%; }
 
 .showcase--shift--1 {
-  margin-left: 8.5298%;
+  margin-left: 26.85574%;
   margin-right: 0; }
 
 .showcase_inset--lg {
@@ -1560,6 +1634,9 @@ body {
 
 .u-align_r {
   text-align: right; }
+
+.u-align_c {
+  text-align: center; }
 
 .u-wrap {
   max-width: 68em;
