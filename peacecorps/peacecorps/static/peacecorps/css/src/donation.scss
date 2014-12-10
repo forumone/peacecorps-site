@@ -1,4 +1,5 @@
 @import "bourbon/bourbon";
+@import "grid-settings";
 @import "neat/neat";
 @import "donation-form";
 
@@ -12,10 +13,11 @@
 @import "components/bordered";
 @import "components/bubble";
 @import "components/form";
+@import "components/grid";
 @import "components/inline_text";
-@import "components/main_nav";
 @import "components/full_bg";
 @import "components/full_banner";
+@import "components/main_nav";
 @import "components/mask";
 @import "components/radial_progress";
 @import "components/rectangular_progress";
