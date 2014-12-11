@@ -36,7 +36,7 @@
   <section class="showcase--col3_centered">
   {% for fund in memorial_funds %}
     <section class="showcase--col3_centered__col">
-      <a href="{{url("donate memorial", slug=fund.slug)}}">
+      <a href="{{url("donate campaign", slug=fund.slug)}}">
         {% if fund.featured_image %}
           <div class="mask mask--oval u-h_center--block">
             <img class="mask__content"

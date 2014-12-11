@@ -1,0 +1,42 @@
+<div class="u-clearfix inset--md">
+  <form method="post" class="bubble_form form_hide--radio">
+    {% csrf_token %}
+    <fieldset>
+      <legend class="t-heading_md">Choose an amount to give</legend>
+      {{donate_form.payment_amount.errors}}
+      {% for radio in donate_form.presets %}
+          <div class="showcase--line_16">
+            {{ radio.tag() }}
+            {% if radio.choice_value == 'custom' %}
+              <label class="bubble bubble--white bubble--bordered bubble--square"
+                  for="{{radio.id_for_label}}" >
+                <span class="bubble__content" style="left: 10%">
+                  <strong>$</strong>
+                </span>
+                {{ donate_form.payment_amount }}
+              </label>
+            {% else %}
+              <label
+                  class="bubble
+                  bubble--white
+                  bubble--bordered
+                  bubble--square"
+                  for="{{radio.id_for_label}}">
+                <span class="bubble__content "><strong>
+                  ${{radio.choice_label}}
+                </strong></span>
+              </label>
+            {% endif %}
+          </div>
+      {% endfor %}
+    </fieldset>
+    <button class="button button--primary">
+      {% if account.funded() %}
+        Donate to Help Similar Projects
+      {% else %}
+        Donate
+      {% endif %}
+    </button>
+  </form>
+</div>
+

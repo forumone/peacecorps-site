@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
-    Account, Campaign, Country, FeaturedCampaign, FeaturedProjectFrontPage,
+    Account, Campaign, FeaturedCampaign, FeaturedProjectFrontPage,
     Issue, humanize_amount, Project, Vignette)
 from peacecorps.payxml import convert_to_paygov
 
@@ -102,22 +102,6 @@ def donate_landing(request):
         })
 
 
-def donate_campaign(request, slug):
-    campaign = get_object_or_404(Campaign.objects.select_related('account'),
-                                 slug=slug)
-    featured = campaign.featuredprojects.all()
-    projects = Project.published_objects.filter(campaigns=campaign)
-
-    return render(
-        request,
-        'donations/donate_campaign.jinja',
-        {
-            'campaign': campaign,
-            'featured': featured,
-            'projects': projects,
-        })
-
-
 def donate_project(request, slug):
     """A profile for each project. Also includes a donation form"""
     project = get_object_or_404(
@@ -125,103 +109,29 @@ def donate_project(request, slug):
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
     if request.method == 'POST':
-        top_form = DonationAmountForm(prefix="top", data=request.POST,
-                                      account=project.account)
-        bottom_form = DonationAmountForm(prefix="bottom", data=request.POST,
-                                         account=project.account)
-        for form in (top_form, bottom_form):
-            if form.is_valid():
-                if project.account.funded() and project.overflow:
-                    code = project.overflow.code
-                else:
-                    code = project.account.code
-                params = {'project': code,
-                          # convert back into cents
-                          'amount': int(round(
-                              form.cleaned_data['payment_amount'] * 100))}
-                return HttpResponseRedirect(
-                    reverse('donations_payment') + '?' + urlencode(params))
+        form = DonationAmountForm(data=request.POST)
+        if form.is_valid():
+            if project.account.funded() and project.overflow:
+                code = project.overflow.code
+            else:
+                code = project.account.code
+            params = {'project': code,
+                      # convert back into cents
+                      'amount': int(round(
+                          form.cleaned_data['payment_amount'] * 100))}
+            return HttpResponseRedirect(
+                reverse('donations_payment') + '?' + urlencode(params))
     else:
-        top_form = DonationAmountForm(prefix="top", account=project.account)
-        bottom_form = DonationAmountForm(
-            prefix="bottom", account=project.account)
+        form = DonationAmountForm()
 
     return render(
         request,
         'donations/donate_project.jinja',
         {
             'project': project,
-            'top_form': top_form,
-            'bottom_form': bottom_form,
+            'account': project.account,
+            'donate_form': form,
             'humanize_amount': humanize_amount,
-        })
-
-
-def donate_country(request, slug):
-    """
-    The page for the individual countries in which the Peace Corps operates.
-    Users can donate to the country account and see the list of active
-    projects in that country.
-    """
-
-    country = get_object_or_404(
-        Campaign.objects.select_related('featured_image', 'account'),
-        slug=slug, campaigntype=Campaign.COUNTRY)
-    projects = country.project_set.all()
-
-    return render(
-        request,
-        'donations/donate_country.jinja',
-        {
-            'country': country,
-            'projects': projects,
-        })
-
-
-def donate_countries(request):
-    """
-    Page listing all of the countries in which the Peace Corps is active, with
-    links to country pages.
-    """
-    countries = Campaign.objects.select_related(
-        'featured_image', 'account').filter(campaigntype=Campaign.COUNTRY)
-
-    return render(
-        request,
-        'donations/donate_countries.jinja',
-        {
-            'countries': countries,
-        })
-
-
-def donate_memorial(request, slug):
-    """
-    The page for individual memorial funds.
-    """
-    memfund = get_object_or_404(
-        Campaign.objects.select_related('featured_image', 'account'),
-        slug=slug, campaigntype=Campaign.MEMORIAL)
-
-    return render(
-        request,
-        'donations/donate_memorial.jinja',
-        {
-            'memfund': memfund,
-        })
-
-
-def donate_general(request, slug):
-    """
-    The page for the general fund.
-    """
-    general = get_object_or_404(Campaign.objects.select_related('account'),
-                                slug=slug, campaigntype=Campaign.GENERAL)
-
-    return render(
-        request,
-        'donations/donate_general.jinja',
-        {
-            'general': general,
         })
 
 
@@ -233,7 +143,7 @@ def donate_projects_funds(request):
         campaigntype=Campaign.COUNTRY).order_by('name')
     issues = Issue.objects.all().order_by('name')
     projects = Project.published_objects.select_related(
-            'country', 'account').order_by('volunteername')
+        'country', 'account').order_by('volunteername')
 
     return render(
         request,
@@ -262,6 +172,31 @@ def special_funds(request):
     memorial_funds = sorted(memorial_funds, key=lambda f: f.sort_name)
     return render(request, "donations/special_funds.jinja", {
         "general_funds": general_funds, "memorial_funds": memorial_funds})
+
+
+def fund_detail(request, slug):
+    campaign = get_object_or_404(Campaign.objects.select_related('account'),
+                                 slug=slug)
+    if request.method == "POST":
+        form = DonationAmountForm(data=request.POST)
+        if form.is_valid():
+            params = {'project': campaign.account.code,
+                      # convert back into cents
+                      'amount': int(round(
+                          form.cleaned_data['payment_amount'] * 100))}
+            return HttpResponseRedirect(
+                reverse('donations_payment') + '?' + urlencode(params))
+    else:
+        form = DonationAmountForm()
+
+    return render(
+        request,
+        'donations/fund_detail.jinja',
+        {
+            'campaign': campaign,
+            'account': campaign.account,
+            'donate_form': form,
+        })
 
 
 class ProjectReturn(DetailView):
