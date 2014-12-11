@@ -247,6 +247,12 @@ class DonatePagesTests(TestCase):
                         url, data={'agency_tracking_id': 'NEVERUSED'})
                     self.assertEqual(response.status_code, 302)
                     self.assertTrue(url in response['LOCATION'])
+                    response = client.post(
+                        url + '?something=else',
+                        data={'agency_tracking_id': 'NEVERUSED'})
+                    self.assertEqual(response.status_code, 302)
+                    self.assertTrue(url in response['LOCATION'])
+                    self.assertTrue('?something=else' in response['LOCATION'])
 
     def test_memorial_fund_name(self):
         response = self.client.get(reverse('donate special funds'))

@@ -1,5 +1,6 @@
 from datetime import datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
+from urllib.parse import urlencode
 from uuid import uuid4
 
 from django.conf import settings
@@ -117,15 +118,18 @@ def generate_custom_fields(data):
     return custom
 
 
-def redirect_urls(account):
-    """Success and return URLs are derived from the account"""
+def redirect_urls(account, donor_name):
+    """Success and return URLs are derived from the account. Also the
+    donor's first name to the url"""
     if account.category == Account.PROJECT:
         project = account.project_set.first()
-        return (reverse('project success', kwargs={'slug': project.slug}),
+        return (reverse('project success', kwargs={'slug': project.slug})
+                + '?' + urlencode({'donor_name': donor_name}),
                 reverse('project failure', kwargs={'slug': project.slug}))
     else:
         campaign = account.campaign_set.first()
-        return (reverse('campaign success', kwargs={'slug': campaign.slug}),
+        return (reverse('campaign success', kwargs={'slug': campaign.slug})
+                + '?' + urlencode({'donor_name': donor_name}),
                 reverse('campaign failure', kwargs={'slug': campaign.slug}))
 
 
@@ -137,8 +141,10 @@ def convert_to_paygov(data, account, callback_base):
     data['agency_tracking_id'] = tracking_id
     data['agency_memo'] = generate_agency_memo(data)
     data['form_id'] = settings.PAY_GOV_FORM_ID
+    # quick method of finding the donor's first name
+    donor_first = data.get('payer_name', '').split(' ')[0]
     data['success_url'], data['failure_url'] = (
-        callback_base + url for url in redirect_urls(account))
+        callback_base + url for url in redirect_urls(account, donor_first))
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
     return DonorInfo(agency_tracking_id=tracking_id, account=account,
