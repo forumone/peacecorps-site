@@ -151,37 +151,18 @@ class DonationAmountForm(forms.Form):
         choices=(('preset-10', '10.00'),
                  ('preset-25', '25.00'),
                  ('preset-50', '50.00'),
-                 ('custom', 'Custom'),
-                 ('preset-all', 'Fund the remaining amount')))
+                 ('custom', 'Custom')))
     # required if "custom" is selected above. Min value of $1, as anything
     # lower than that will cost too much money to process. Max value of
     # $9,999.99, as anything above that can't be processed by pay.gov
     payment_amount = forms.DecimalField(max_value=9999.99, min_value=1,
                                         decimal_places=2, required=False)
 
-    def __init__(self, account=None, *args, **kwargs):
-        """We need a account to set payment amount when preset-all is
-        selected"""
-        super(DonationAmountForm, self).__init__(*args, **kwargs)
-        self.account = account
-
     def clean_payment_amount(self):
         """Selecting a preset is identical to typing the exact amount"""
         for amt in (10, 25, 50):
             if self.cleaned_data.get('presets') == 'preset-' + str(amt):
                 return Decimal(amt)
-        if self.cleaned_data.get('presets') == 'preset-all':
-            if not self.account:
-                raise ValidationError('Missing account')
-            else:
-                remaining_amount = self.account.goal - self.account.total()
-                # We're circumventing the normal bounds checks, so we must
-                # enforce them here
-                if remaining_amount < 100:  # cents
-                    raise ValidationError('Must be >= 1.00')
-                elif remaining_amount >= 1000000:
-                    raise ValidationError('Must be < 10,000.00')
-                return Decimal(remaining_amount / 100.00)  # user sees dollars
         if self.cleaned_data.get('payment_amount'):
             return self.cleaned_data.get('payment_amount')
         raise ValidationError('This field is required.')

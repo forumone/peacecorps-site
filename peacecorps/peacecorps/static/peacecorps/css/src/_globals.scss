@@ -8,33 +8,15 @@
  * Color
  */
 $black: #222;
-$white: #ffffff;
+$white: #fff;
+$gray-1: #888;
+$gray-2: #555;
 $primary: #A12122; // Darkish red
 $primary_support: #C94112; // Darkish orange
 $primary_support_lite: #F68B1F; // Light orange
 $secondary: #05888C; // Teal
 $neutral_dark: #E5E1D4; // Gray brownish
 $neutral_medium: #F2EFE8; // Gray brownish lighter
-
-
-/*
- * Grid
- */
-$base: 15;
-$grid-columns: 12;
-$column: golden-ratio(1em, 3) !default;
-$gutter: golden-ratio(.8em, 3) !default;
-$max-width: 81.5em !default;
-$visual-grid: true;
-
-
-/*
- * Breakpoint
- */
-$sm: new-breakpoint(min-width 0px max-width 499px 4);
-$md: new-breakpoint(min-width 500px max-width 899px 9);
-$lg: new-breakpoint(min-width 900px 12);
-
 
 /*
  * Z-Index

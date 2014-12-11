@@ -51,6 +51,10 @@ body {
   color: $white;
 }
 
+.t--gray {
+  color: $gray-1;
+}
+
 .t--black {
   color: $black;
 }
@@ -167,7 +171,7 @@ p + p {
  */
 .t-blurb {
   font-weight: $weight-light;
-  line-height: $leading-xsm;
+  line-height: $leading-md;
 }
 .t-blurb--lg {
   @extend .t-blurb;
@@ -189,6 +193,7 @@ p + p {
  */
 .t-icon {
   @extend .t--caps;
+  @extend .t--gray;
   @include font-size(1.6);
 }
 
@@ -200,6 +205,8 @@ p + p {
   @extend .t--caps;
   @include font-size(1.6);
   font-weight: $weight-medium;
+  margin: 1.5em 0;
+  text-decoration: none;
 }
 
 
@@ -209,6 +216,24 @@ p + p {
 .t-link {
   color: $primary;
 }
+.t-link--gray {
+  color: $gray-2;
+
+  &:visited {
+    color: lighten($gray-2, 15%);
+  }
+  &:hover {
+    color: $primary;
+  }
+  &:active {
+    color: lighten($primary, 10%);
+  }
+}
+
 a {
   @extend .t-link;
+}
+
+.t-title--1 a, .t-title--2 a, .t-title--3 a {
+  text-decoration: none;
 }
