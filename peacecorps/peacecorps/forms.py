@@ -147,10 +147,9 @@ class DonationPaymentForm(forms.Form):
 class DonationAmountForm(forms.Form):
     """Validation of donation amounts."""
     presets = forms.ChoiceField(
-        widget=forms.RadioSelect, initial='preset-25',
-        choices=(('preset-10', '10.00'),
-                 ('preset-25', '25.00'),
-                 ('preset-50', '50.00'),
+        widget=forms.RadioSelect, initial='preset-50',
+        choices=(('preset-50', '50'),
+                 ('preset-100', '100'),
                  ('custom', 'Custom')))
     # required if "custom" is selected above. Min value of $1, as anything
     # lower than that will cost too much money to process. Max value of
@@ -160,7 +159,7 @@ class DonationAmountForm(forms.Form):
 
     def clean_payment_amount(self):
         """Selecting a preset is identical to typing the exact amount"""
-        for amt in (10, 25, 50):
+        for amt in (50, 100):
             if self.cleaned_data.get('presets') == 'preset-' + str(amt):
                 return Decimal(amt)
         if self.cleaned_data.get('payment_amount'):

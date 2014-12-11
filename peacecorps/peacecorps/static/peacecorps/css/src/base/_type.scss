@@ -54,6 +54,9 @@ body {
 .t--gray {
   color: $gray-1;
 }
+.t--gray--2 {
+  color: $gray-2;
+}
 
 .t--black {
   color: $black;
@@ -94,6 +97,10 @@ h4 {
 }
 h1, h2, h3, h4, h5, h6 {
   @extend .t-heading;
+}
+
+h4 + h3 {
+  margin-top: 0;
 }
 
 /*
@@ -140,12 +147,20 @@ p + p {
 }
 .t-title--2 {
   @extend .t-title;
-  @include font-size(2.8);
+  @include font-size(3.0);
   @include rem(margin, 1.1rem 0);
+
+  @include media($md) {
+    @include font-size(2.5);
+  }
+
+  @include media($sm) {
+    @include font-size(2.0);
+  }
 }
 .t-title--3 {
   @extend .t-title;
-  @include font-size(2.0);
+  @include font-size(2.2);
   @include rem(margin, 1rem 0);
 }
 .t-title--4 {
@@ -156,7 +171,7 @@ p + p {
 .t-title--5 {
   @extend .t-title;
   @include font-size(1.2);
-  @include rem(margin, 0.5rem 0);
+  @include rem(margin, 0.8rem 0);
 }
 .t-title--6 {
   @extend .t-title;
@@ -236,4 +251,8 @@ a {
 
 .t-title--1 a, .t-title--2 a, .t-title--3 a {
   text-decoration: none;
+}
+
+.t-nom {
+  margin-bottom: 0;
 }

@@ -19,9 +19,14 @@
   }
 }
 
+// TODO move to icon class
 .bg_img--icon {
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right, center;
+  background-position: left, center;
   padding-right: 3em; /* Until the icon size is solidified */
+
+  * {
+    margin-left: 1.5em;
+  }
 }

@@ -1,0 +1,11 @@
+/*
+ * image-block
+ *
+ * Styling for the custom sir-trevor content image blocks.
+ * Note: The html for these classes is controlled in sir-trevor.
+ */
+
+.image-block {
+  @extend .full_banner--neutral;
+  @extend .full_banner--img;
+}

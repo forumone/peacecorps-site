@@ -12,7 +12,7 @@
   border-radius: 50%;
   display: block;
   height: 0;
-  margin: 0 auto;
+  margin: 0.4em auto;
   padding-bottom: 80%;
   position: relative;
   width: 80%;
@@ -31,7 +31,7 @@
   padding-top: 22%;
   position: absolute;
   text-align: center;
-  top: 45%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 96%;
 
@@ -45,11 +45,11 @@
 }
 
 .bubble--primary {
-  background-color: $primary;
+  background-color: $white;
   color: $white;
 
   .bubble__content {
-    color: $white;
+    color: $primary;
   }
 }
 
@@ -78,6 +78,9 @@
 
 // TODO hack
 .bubble_form {
+  label {
+    cursor: pointer;
+  }
   input[type=number]:not(old) {
     @extend .bubble__content;
     border: none;
@@ -96,6 +99,11 @@
   }
 
   input[type=radio]:not(old):checked + .bubble {
-    @extend .bubble--primary;
+    background-color: $primary;
+    border-color: $white;
+
+    .bubble__content {
+      color: $white;
+    }
   }
 }

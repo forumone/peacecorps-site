@@ -7,6 +7,7 @@
 @import "globals";
 @import "base/buttons";
 @import "base/elements";
+@import "base/layout";
 @import "base/type";
 @import "components/bg_img";
 @import "components/blurb";
@@ -18,6 +19,7 @@
 @import "components/full_bg";
 @import "components/full_banner";
 @import "components/inset";
+@import "components/island";
 @import "components/main_nav";
 @import "components/mask";
 @import "components/radial_progress";
@@ -26,6 +28,8 @@
 @import "components/section_starter";
 @import "components/symbol";
 @import "components/showcase";
+@import "content/image_block";
+@import "content/text_block";
 @import "util";
 
 .wrapper {
