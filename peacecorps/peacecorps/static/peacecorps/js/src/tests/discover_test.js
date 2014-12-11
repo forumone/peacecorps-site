@@ -4,6 +4,7 @@ var setup = require('./setup');
 setup = setup; // HACK not using module yet.
 
 var $ = require('jquery');
+var sinon = require('sinon');
 var test = require('tapes');
 
 var Discover = require('../discover');
@@ -13,12 +14,14 @@ test('init', function(t) {
     var testDiscover,
         expected;
 
+    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
     expected = $('<a></a>');
     testDiscover = new Discover($('<div></div>'), expected);
 
     t.equals(testDiscover.$navLinks, expected, 'The navLinks are whats passed ' +
         'in');
 
+    Discover.prototype.getOtherLinks.restore();
     t.end();
   });
   t.test('should set all the filters and selected to first', function(t) {
@@ -38,19 +41,24 @@ test('init', function(t) {
     t.deepEquals(testDiscover.filters, expected, 'Filters set to the data of ' +
       'elements passed in');
     t.equal(testDiscover.selected, expected1, 'Sets the selected to the first ' +
-      'filter if no option passed in');
+      'filter');
 
     t.end();
   });
-  t.test('should set the selected filter', function(t) {
+  t.test('should set aria-selected to true on first link', function(t) {
     var testDiscover,
-        expected = 'afilterable';
+        $testNavs;
 
-    testDiscover = new Discover($('<div></div>'), $('<a>'), {
-      selected: expected
-    });
+    $testNavs = [
+      $('<a id="nav1"></a>'),
+      $('<a id="nav2"></a>')];
+    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
+    testDiscover = new Discover($('<div></div>'), $($testNavs));
 
-    t.equals(testDiscover.selected, expected, 'Expected is the passed in opt');
+    t.equals($testNavs[0].attr('aria-selected'), 'true', 'Sets the aria ' +
+      'selected attribute of selected link to true');
+
+    Discover.prototype.getOtherLinks.restore();
     t.end();
   });
   t.end();
@@ -66,17 +74,16 @@ test('render', function(t) {
 
     $testEls = [
       $('<div>').addClass(ccfilterable).attr('data-filter-type',
-        'dud'),
-      $('<div>').addClass(ccfilterable).attr('data-filter-type',
         testF),
+      $('<div>').addClass(ccfilterable).attr('data-filter-type',
+        'dud'),
       $('<div>').addClass(ccfilterable).attr('data-filter-type',
         'dud')];
     $testEl = $('<div>');
     $testEl.append($testEls);
+    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
 
-    testDiscover = new Discover($testEl, $($testEls), {
-      selected: testF
-    });
+    testDiscover = new Discover($testEl, $($testEls));
 
     testDiscover.render();
 
@@ -87,6 +94,7 @@ test('render', function(t) {
     t.equal(testDiscover.$(Discover.ccFilteredItem + '.u-hide').length, 2,
         'Two are not visible');
 
+    Discover.prototype.getOtherLinks.restore();
     t.end();
   });
   t.end();

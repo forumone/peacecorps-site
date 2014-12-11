@@ -17,6 +17,12 @@
   @include u-unmarked_list;
 }
 
+.u-inline_list {
+  * {
+    display: inline-block;
+  }
+}
+
 // Classic clearfix
 .u-clearfix:after {
   visibility: hidden;
@@ -25,6 +31,10 @@
   content: " ";
   clear: both;
   height: 0;
+}
+
+.u-clearl {
+  clear: left;
 }
 
 // Visually hide information but keep available for screen readers.
@@ -79,6 +89,21 @@
   @include outer-container;
 }
 
+.u-pull {
+  float: left;
+}
 .u-pullr {
   float: right;
+}
+
+.md-hide {
+  @include media($md) {
+    display: none;
+  }
+}
+.sm-hide {
+  @include media($sm) {
+    display: none;
+  }
+
 }

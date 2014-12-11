@@ -288,6 +288,9 @@ figure {
 fieldset {
   border-width: 0; }
 
+ul {
+  margin: 0; }
+
 /*
  * Layout
  *
@@ -518,6 +521,8 @@ p + p {
  */
 .t-link, a {
   color: #A12122; }
+  .t-link:hover, a:hover {
+    text-decoration: underline; }
 
 .t-link--gray, .main_nav__link * {
   color: #555; }
@@ -566,6 +571,35 @@ p + p {
   /* Until the icon size is solidified */ }
   .bg_img--icon * {
     margin-left: 1.5em; }
+
+/*
+ * Banner
+ *
+ * A full width to wrap banner of differnt colors and sizes. This differs from
+ * full banner in that it doesn't span the whole width of the viewport.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+.banner {
+  border-top: .8em solid;
+  padding: .5em 3em;
+  width: 100%; }
+
+.banner--primary {
+  border-color: #A12122;
+  background: #E5E1D4; }
+
+.banner--secondary {
+  border-color: #05888C;
+  background-color: #08ADB5;
+  color: #fff; }
 
 /*
  * layout/Blurb
@@ -918,8 +952,8 @@ body {
  * Z-Index
  */
 .full_banner {
-  border-top: 1em solid;
-  border-bottom: 1em solid;
+  border-top: .8em solid;
+  border-bottom: .8em solid;
   margin: 0 -500%;
   padding: 0.5em 500%; }
 
@@ -1219,6 +1253,9 @@ body {
   .u-unmarked_list li, .main_nav li {
     list-style: none; }
 
+.u-inline_list * {
+  display: inline-block; }
+
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;
   display: block;
@@ -1226,6 +1263,9 @@ body {
   content: " ";
   clear: both;
   height: 0; }
+
+.u-clearl {
+  clear: left; }
 
 .u-visually_hidden {
   position: absolute !important;
@@ -1271,8 +1311,19 @@ body {
     display: table;
     clear: both; }
 
+.u-pull {
+  float: left; }
+
 .u-pullr {
   float: right; }
+
+@media screen and (min-width: 500px) and (max-width: 899px) {
+  .md-hide {
+    display: none; } }
+
+@media screen and (min-width: 0px) and (max-width: 499px) {
+  .sm-hide {
+    display: none; } }
 
 #djDebug {
   display: none !important; }
@@ -1446,6 +1497,9 @@ body {
   .u-unmarked_list li, .main_nav li {
     list-style: none; }
 
+.u-inline_list * {
+  display: inline-block; }
+
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;
   display: block;
@@ -1453,6 +1507,9 @@ body {
   content: " ";
   clear: both;
   height: 0; }
+
+.u-clearl {
+  clear: left; }
 
 .u-visually_hidden {
   position: absolute !important;
@@ -1498,8 +1555,19 @@ body {
     display: table;
     clear: both; }
 
+.u-pull {
+  float: left; }
+
 .u-pullr {
   float: right; }
+
+@media screen and (min-width: 500px) and (max-width: 899px) {
+  .md-hide {
+    display: none; } }
+
+@media screen and (min-width: 0px) and (max-width: 499px) {
+  .sm-hide {
+    display: none; } }
 
 .section_starter {
   border-top: 0.7em #E5E1D4 solid;
@@ -1543,6 +1611,30 @@ body {
 
 .section_starter__content {
   top: 17% !important; }
+
+/*
+ * Sub Nav
+ *
+ * A sub inline navigation separate from the Main Nav
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+.sub_nav__link {
+  margin-left: 7%; }
+  .sub_nav__link * {
+    text-decoration: none; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .sub_nav__link {
+      margin-left: 5%; } }
+  .sub_nav__link *[aria-selected=true] {
+    text-decoration: underline; }
 
 /*
  * Symbol
@@ -1855,6 +1947,9 @@ body {
   .u-unmarked_list li, .main_nav li {
     list-style: none; }
 
+.u-inline_list * {
+  display: inline-block; }
+
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;
   display: block;
@@ -1862,6 +1957,9 @@ body {
   content: " ";
   clear: both;
   height: 0; }
+
+.u-clearl {
+  clear: left; }
 
 .u-visually_hidden {
   position: absolute !important;
@@ -1907,8 +2005,19 @@ body {
     display: table;
     clear: both; }
 
+.u-pull {
+  float: left; }
+
 .u-pullr {
   float: right; }
+
+@media screen and (min-width: 500px) and (max-width: 899px) {
+  .md-hide {
+    display: none; } }
+
+@media screen and (min-width: 0px) and (max-width: 499px) {
+  .sm-hide {
+    display: none; } }
 
 .wrapper {
   max-width: 83em;
