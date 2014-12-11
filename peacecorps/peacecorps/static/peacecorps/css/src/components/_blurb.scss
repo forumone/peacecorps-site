@@ -11,8 +11,8 @@
 .blurb {
   @include span-columns(10);
   @include shift(1);
-  padding-bottom: em(50, $base);
-  padding-top: em(150, $base);
+  padding-bottom: em(75, $base);
+  padding-top: em(75, $base);
   text-align: center;
 }
 

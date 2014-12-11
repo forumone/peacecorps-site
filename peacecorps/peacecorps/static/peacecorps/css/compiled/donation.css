@@ -432,14 +432,14 @@ p + p {
 .t-title--1 {
   font-size: 38px;
   font-size: 3.8rem;
-  margin: 15px 0;
-  margin: 1.5rem 0; }
+  margin: 0 0 15px 0;
+  margin: 0 0 1.5rem 0; }
 
 .t-title--2, .button--lg {
   font-size: 30px;
   font-size: 3rem;
-  margin: 11px 0;
-  margin: 1.1rem 0; }
+  margin: 0 0 11px 0;
+  margin: 0 0 1.1rem 0; }
   @media screen and (min-width: 500px) and (max-width: 899px) {
     .t-title--2, .button--lg {
       font-size: 25px;
@@ -605,8 +605,8 @@ p + p {
   margin-right: 3.84615%;
   width: 82.69231%;
   margin-left: 8.65385%;
-  padding-bottom: 3.33333em;
-  padding-top: 10em;
+  padding-bottom: 5em;
+  padding-top: 5em;
   text-align: center; }
   .blurb:last-child {
     margin-right: 0; }
@@ -1390,10 +1390,10 @@ body {
 
 .section__content {
   padding-top: 2.5em;
-  padding-bottom: 2em; }
+  padding-bottom: 2.5em; }
 
 .section__box {
-  padding: 1.5em; }
+  padding: 1.9em; }
   .section__box > *:last-child {
     margin-bottom: 0; }
   .section__box + .section__box {
