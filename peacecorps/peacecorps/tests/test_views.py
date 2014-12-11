@@ -170,6 +170,18 @@ class DonatePagesTests(TestCase):
         self.assertTrue(code)
         self.assertTrue(code in response['Location'])
 
+    def test_project_form_redirect_bottom(self):
+        """Despite the top form being invalid, if the bottom is, we should
+        still redirect"""
+        response = self.client.post('/donate/project/brick-oven-bakery',
+                                    {'top-presets': 'custom',
+                                     'bottom-presets': 'preset-50'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue("50" in response['Location'])
+        code = Project.objects.get(slug='brick-oven-bakery').account.code
+        self.assertTrue(code)
+        self.assertTrue(code in response['Location'])
+
     def test_project_form_redirect_full(self):
         """If a project is funded, its overflow code should be used"""
         account = Account.objects.create(
