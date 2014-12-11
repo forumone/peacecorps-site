@@ -22,11 +22,11 @@ urlpatterns = patterns(
     url(r'^donate/fund/' + _slug + r'/?$',
         midterm_cache(views.fund_detail), name='donate campaign'),
     # not cached so the values are up-to-date
-    url(r'^donate/campaign/' + _slug + r'/success/?$',
+    url(r'^donate/fund/' + _slug + r'/success/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
         name='campaign success'),
-    url(r'^donate/campaign/' + _slug + r'/failure/?$',
+    url(r'^donate/fund/' + _slug + r'/failure/?$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_failure.jinja'),
         name='campaign failure'),
@@ -42,36 +42,6 @@ urlpatterns = patterns(
         views.ProjectReturn.as_view(
             template_name='donations/project_failure.jinja'),
         name='project failure'),
-
-    # not cached so the values are up-to-date
-    url(r'^donate/country/' + _slug + r'/success/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_success.jinja'),
-        name='country success'),
-    url(r'^donate/country/' + _slug + r'/failure/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_failure.jinja'),
-        name='country failure'),
-
-    # not cached so the values are up-to-date
-    url(r'^donate/memorial/' + _slug + r'/success/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_success.jinja'),
-        name='memorial success'),
-    url(r'^donate/memorial/' + _slug + r'/failure/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_failure.jinja'),
-        name='memorial failure'),
-    # this needs to be below other donate urls.
-    # not cached so the values are up-to-date
-    url(r'^donate/' + _slug + r'/success/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_success.jinja'),
-        name='general success'),
-    url(r'^donate/' + _slug + r'/failure/?$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_failure.jinja'),
-        name='general failure'),
 
     url(r'^donations/contribute/?$', midterm_cache(views.donation_payment),
         name='donations_payment'),

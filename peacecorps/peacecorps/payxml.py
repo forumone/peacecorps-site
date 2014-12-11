@@ -125,19 +125,8 @@ def redirect_urls(account):
                 reverse('project failure', kwargs={'slug': project.slug}))
     else:
         campaign = account.campaign_set.first()
-        mapping = {Account.COUNTRY: 'country', Account.MEMORIAL: 'memorial',
-                   Account.OTHER: 'general'}
-        if account.category in mapping:
-            ident = mapping[account.category]
-            return (reverse(ident + ' success',
-                            kwargs={'slug': campaign.slug}),
-                    reverse(ident + ' failure',
-                            kwargs={'slug': campaign.slug}))
-        else:
-            return (reverse('campaign success',
-                            kwargs={'slug': campaign.slug}),
-                    reverse('campaign failure',
-                            kwargs={'slug': campaign.slug}))
+        return (reverse('campaign success', kwargs={'slug': campaign.slug}),
+                reverse('campaign failure', kwargs={'slug': campaign.slug}))
 
 
 def convert_to_paygov(data, account, callback_base):
