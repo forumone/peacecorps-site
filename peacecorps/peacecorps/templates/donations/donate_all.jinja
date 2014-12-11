@@ -68,7 +68,7 @@
   </aside>
   <article>
     <h2>{{ campaign.name }}</h2>
-    <p>{{ campaign.description }}</p>
+    <p>{{ campaign.description.html|safe }}</p>
     <a href="{{ url("donate campaign", slug=campaign.slug) }}">
       Give to this fund</a>
   </article>
@@ -100,7 +100,7 @@
     </aside>
     <section>
       <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
+      <p>{{ project.abstract_html()|safe }}</p>
 
       <div class="rectangular_progress rectangular_progress--secondary">
         {# TODO make macro #}
