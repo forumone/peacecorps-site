@@ -183,7 +183,7 @@ class DonatePagesTests(TestCase):
 
         response = self.client.post(
             reverse('donate project', kwargs={'slug': project.slug}),
-            {'presets': 'preset-50'})
+            {'top-presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("5000" in response['Location'])
         self.assertTrue('OVERFLOW' in response['Location'])
