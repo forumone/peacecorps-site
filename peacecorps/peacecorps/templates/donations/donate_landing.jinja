@@ -3,131 +3,131 @@
 {% block title %}PEACECORPS{% endblock %}
 {% block header %}PEACECORPS{% endblock %}
 {% block content_class %}landing{% endblock %}
-{% block custom_js %}
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-<script type="text/javascript" src="{{ static("peacecorps/js/landing.js") }}"></script>
-{% endblock %}
 
 {% block content %}
 
+{# @todo: We haven't re-implemented the campaign design #}
 {% if featuredcampaign %}
 <div class="full_bg full_bg--lg" style="
     background-image: url('{{featuredcampaign.featured_image.url}}');
   ">
 </div>
-<section style="height: 23.5em;">
-  <section class="full_banner full_banner--support_color"
+<section style="height: 27.75em;">
+  <section class="full_banner full_banner--support"
       style="margin-top: 15em;">
-    <div class="showcase showcase--shift_sm">
-      <h2 class="t-heading--white">{{featuredcampaign.tagline}}</h2>
+      <h2 class="t-blurb--lg">{{featuredcampaign.tagline}}</h2>
       <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
          style="margin-bottom: -1.5em"
-         class="button button--secondary">{{featuredcampaign.call}}</a>
-    </div>
+         class="button button--md button--secondary">
+        {{featuredcampaign.call}}
+      </a>
   </section>
+</section>
+<section class="blurb">
+  <h2 class="t-blurb--md t--black">Archer 100 brief inspirational call to
+    action encouraging visitors to give to the general fund.
+  </h2>
+  <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
+     class="button button--md button--primary">
+    Give to {{featuredcampaign.name}}
+  </a>
+  <h4 class="t-title--4 blurb__spacing">
+    <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}">
+      Explore projects and funds</a>
+  </h4>
+</section>
+{% else %}
+<div class="full_bg full_bg--lg" style="background-image:
+    url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');
+  ">
+</div>
+{# The navigation should really belong in the base file somehow #}
+<nav class="main_nav">
+  <ul class="main_nav__list">
+    <li class="main_nav__link t-title--4">
+      <a href="#featured">
+        Featured Projects</a></li>
+    <li class="main_nav__link t-title--4">
+      <a href="{{url("donate projects funds")}}">
+        Projects and Funds</a></li>
+    <li class="main_nav__link t-title--4">
+      <a href="#">
+        Donating FAQs</a></li>
+  </ul>
+</nav>
+<section class="blurb">
+  <div class="t-blurb--md t--black">
+    Brief, inspirational welcome message inviting visitors to explore here
+    and then to give. Lorem ipsum dolor sit amet, consetetur sadipscing
+    elitr, sed diam nonumy eirmod.
+  </div>
 </section>
 {% endif %}
 
-<section class="showcase showcase--main showcase--neutral">
-  <header class="section_starter">
-    <h1 class="section_starter__content t-heading_xlg">Issues</h1>
-  </header>
-  <div><!-- This div is needed because of "broken" functionality in
-            bourbon neat which requires a wrapping div to use the
-            omega(n) functionality. -->
-  {% for campaign in sectors %}
-    <div class="showcase__column-4">
-      <a class="bubble"
-         href="{{url("donate campaign", slug=campaign.slug)}}">
-        <div class="bubble__content symbol">
-          <img class="symbol__image"
-               width="80" height="80"
-               src="{{campaign.icon.url}}" />
-          <span class="symbol__text">{{campaign.name}}</span>
+<section class="section">
+  <section class="section__content full_banner full_banner--neutral">
+    <h1 id="featured" class="t-title--1">Featured Projects</h1>
+    {% for project in featuredprojects %}
+      <article class="section__box section--white u-clearfix">
+        <div class="u-hv_center--block grid--60 u-clearfix"
+              {# Remove height once image works #}
+            style="height: 25em;
+              background-image: url('{{project.featured_image.url}}')">
+          <a href="{{url("donate project", slug=project.slug)}}"
+               class="button button--sm button--primary
+               u-hv_center--block__content">
+             Give to this Project
+          </a>
         </div>
-      </a>
-    </div>
-  {% endfor %}
-  </div>
+        <div class="grid--40 u-clearfix">
+          {% if project.issue() %}
+            <div class="issue bg_img--icon"
+                 style="background-image: url('{{project.issue().icon.url}}');"
+                 ><span class="t-icon">{{project.issue().name}}</span></div>
+          {% endif %}
+          <h2 class="t-heading--2">
+            {% if project.tagline %}{{project.tagline}}
+            {% else %}Help this Project{%endif%}
+          </h2>
+          <div class="abstract">{{project.abstract_html()|safe}}</div>
+          <a class="t-single_nav u-pullr"
+              href="{{url("donate project", slug=project.slug)}}">
+            Read Their
+          Story</a>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
 </section>
 
-<section class="showcase showcase--main">
-  <header class="section_starter">
-    <h1 class="section_starter__content t-heading_xlg">Funds</h1>
-  </header>
-  <h2>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum
-    eleifend massa, et rhoncus nisl molestie vitae. In non odio ac metus ornare
-    cursus.
-  </h2>
-  <div class="showcase--col3_centered">
-       <!-- This div is needed because of "broken"
-            functionality in
-            bourbon neat which requires a wrapping div to use the
-            omega(n) functionality. -->
-    <div class="showcase--col3_centered__col">
-      <a class="bubble bubble--neutral_dark" href="donate/general">
-        <div class="bubble__content">
-          <span class="t-heading_lg">General</span>
-        </div>
+<section class="section">
+  <section class="section__content">
+    <h1 class="t-title--1">Projects &amp; Funds</h1>
+    <div class="u-hv_center--block bg_img--centered bg_img--banner"
+         style="background-image: url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');">
+      <a href="{{url("donate projects funds")}}"
+         class="button button--sm button--primary u-hv_center--block__content">
+         Explore and Give
       </a>
     </div>
-    <div class="showcase--col3_centered__col">
-      <a class="bubble bubble--neutral_dark" href="donate/countries">
-        <div class="bubble__content">
-          <span class="t-heading_lg">Country</span>
-        </div>
-      </a>
+    <div class="u-hv_center--block">
+      <p>Brief blurb touting the search and sort tool, lorem ipsum dolor amet
+      lorem ipsum dolor.</p>
     </div>
-    <div class="showcase--col3_centered__col">
-      <a class="bubble bubble--neutral_dark" href="donate/memorial">
-        <div class="bubble__content">
-          <span class="t-heading_lg">Memorial</span>
-        </div>
-      </a>
-    </div>
-  </div>
+  </section>
 </section>
 
-
-<section class="showcase showcase--main showcase--neutral">
-  <header class="section_starter">
-    <h1 class="section_starter__content t-heading_xlg">Projects</h1>
-  </header>
-  {% for project in featuredprojects %}
-    <article class="showcase_inset--lg bordered bordered--white bm3">
-      <div class="u-hv_center--block bg_img--centered bg_img--banner"
-          style="background-image: url('{{project.project.featured_image.url}}')">
-        <a href="{{url("donate project", slug=project.project.slug)}}"
-             class="button button--primary u-hv_center--block__content">
-           Read their story
-        </a>
-      </div>
-      <h2 class="t-heading--secondary t--no_bm">{{project.project.tagline}}</h2>
-    </article>
-  {% endfor %}
-</section>
-
-<h2>More Projects</h2>
-<section class="more-projects">
-  <div class="search-space">
-    <input type="text" placeholder="Search for volunteer or project" />
-  </div>
-{% for project in projects %}
-  <div class="project-row" tabindex="0">
-    <div class="project-name">{{project.title}}</div>
-    <div class="project-country">{{project.country.name}}</div>
-    <div class="project-expanded">
-      <div class="volunteer">{{project.volunteername}} from
-      {{project.volunteerhomestate}}</div>
-      <div class="remaining">{{humanize_amount(project.account.remaining())}}
-        until funded</div>
-      <div class="short-desc">{{project.tagline}}</div>
-      <div><a href="{{url("donate project", slug=project.slug)}}"
-         >Fund this project or read more</a></div>
+<section class="section">
+  <div class="section__content full_banner full_banner--neutral">
+    <h1 class="t-title--1">About Donating</h1>
+    <div class="blurb">
+      <h2 class="t-blurb--md t--black">
+        Lorem ipsum dolor amet, lorem ipsum dolor amet, lorem ipsum dolor
+        amet, lorem ipseum dolor amet, lorem.</h2>
     </div>
+    <aside class="section">
+      <h2 class="t-title--2 u-pullr"><a href="#">Donating FAQs</h2></a></h2>
+    </aside>
   </div>
-{% endfor %}
 </section>
-
 {% endblock %}

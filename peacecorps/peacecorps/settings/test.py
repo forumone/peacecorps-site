@@ -11,6 +11,8 @@ DATABASES = {
     }
 }
 
+# We want contenteditor to appear before sir trevor, as it overrides templates
+INSTALLED_APPS = ('contenteditor',) + INSTALLED_APPS
 INSTALLED_APPS += (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,7 +20,6 @@ INSTALLED_APPS += (
     'django.contrib.messages',
     'tinymce',
     'paygov',
-    'contenteditor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -30,6 +31,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+# Include Sir Trevor URLS
+SIRTREVOR = True
 
 # Verify that the django-storages lib is not broken
 import storages.backends.s3boto

@@ -1,0 +1,24 @@
+/*
+ * A full width banner with content that sits in its center.
+ */
+
+@import "globals";
+
+.full_banner {
+  border-top: 1em solid;
+  border-bottom: 1em solid;
+  margin: 0 -500%;
+  padding: 0.5em 500%;
+  @extend .u-clearfix;
+}
+
+.full_banner--support {
+  @extend .t--white;
+  border-top: none;
+  background-color: rgba($primary_support, 0.75);
+}
+
+.full_banner--neutral {
+  background-color: $neutral_medium;
+  border-color: $neutral_dark;
+}

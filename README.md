@@ -1,11 +1,11 @@
 peacecorps-site
 ===============
 
-A place to think and work on a new Peace Corps website. 
+A place to think and work on a new Peace Corps website.
 
-## Setup 
+## Setup
 
-This is a Django application that depends on Python 3. 
+This is a Django application that depends on Python 3.
 
 ### Installing Python 3
 There are multiple approaches to installing Python 3, depending on your personal setup and preferences.
@@ -61,35 +61,41 @@ test.py configuration.  See the Django settings
 [documentation](https://docs.djangoproject.com/dev/ref/django-admin/) for
 details. 
 
-### Front-end Dev Environment
+### Loading Data
 
-We use SASS, Bourbon, and Neat for our front-end stack. To set them up, you
-will need ruby (and gem) installed. On a Debian/Linux box, this can be
-accomplished via:
-
+To synchronize to the latest schema, change into the `peacecorps` directory
+and then run:
 ```bash
-sudo apt-get install ruby
+python manage.py migrate
 ```
 
-You next need to install the appropriate ruby libraries. In this example, we
-will install them system wide, though you may prefer bundler, etc.
+Next, you will want to load fixtures related to countries, issues, and special
+funds:
 
 ```bash
-sudo gem install neat sass bourbon
+python manage.py loaddata countries
+python manage.py loaddata issues
+python manage.py loaddata global-general
 ```
 
-You will then need to pull down the appropriate sass libraries for bourbon and
-neat:
+Now the database will contain a list of countries, several issues (and their
+associated sector funds) as well as the General Fund and the Global Fund.
+
+You will want to synchronize with the latest account export:
 
 ```bash
-cd peacecorps/peacecorps/static/peacecorps/sass
-bourbon install
-neat install
+python manage.py sync_accounting /path/to/file.csv
 ```
 
-Finally, run the "watch" script, which will recompile CSS as you make SASS
-changes. From within the sass directory:
+After this, your database should include many projects, but none will be
+"published". A simple fix is to "publish" all projects which have not met
+their goal.
 
 ```bash
-sass --watch .:../css
+python manage.py dbshell
+    update peacecorps_project set published=True where account_id in (select id from peacecorps_account where goal > current);
 ```
+
+
+### Front end development
+See [front end development](/peacecorps/peacecorps/static/peacecorps/README.md) 

@@ -3,8 +3,6 @@ import os
 from .base import *
 
 
-INSTALLED_APPS += ('storages',)
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 ALLOWED_HOSTS = ['*']  # proxied
 
@@ -24,8 +22,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# @todo switch to memcached/elasticache
+_backend = 'django.core.cache.backends.filebased.FileBasedCache'
+CACHES['shortterm']['BACKEND'] = _backend
+CACHES['shortterm']['LOCATION'] = '/tmp/shorttermcache/'
+CACHES['midterm']['BACKEND'] = _backend
+CACHES['midterm']['LOCATION'] = '/tmp/midtermcache/'
+
 # Note that MEDIA_ROOT is not needed since we're using S3
-MEDIA_URL = '//peace-corps.s3.amazonaws.com/'
+MEDIA_URL = '//pc-media-dev.s3.amazonaws.com/'
+STATIC_URL = '//pc-theme-dev.s3.amazonaws.com/'
 
 GNUPG_HOME = os.environ.get('GNUPG_HOME', '')
 GPG_RECIPIENTS = {
@@ -35,6 +41,40 @@ GPG_RECIPIENTS = {
 if os.environ.get('USE_PAYGOV', ''):
     INSTALLED_APPS += ('paygov',)
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logstash': {
+            '()': 'peacecorps.settings.logformatter.LogstashFormatter'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/var/log/webapp.log',
+            'formatter': 'logstash'
+        },
+    },
+    'loggers':  {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+        'peacecorps': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'paygov': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
 
 try:
     from .local_settings import *

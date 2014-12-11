@@ -15,6 +15,8 @@ DATABASES = {
     }
 }
 
+# We want contenteditor to appear before sir trevor, as it overrides templates
+INSTALLED_APPS = ('contenteditor',) + INSTALLED_APPS
 INSTALLED_APPS += (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,7 +24,6 @@ INSTALLED_APPS += (
     'django.contrib.messages',
     'tinymce',
     'paygov',
-    'contenteditor',
     'debug_toolbar.apps.DebugToolbarConfig',
 )
 
@@ -52,11 +53,23 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'peacecorps': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'paygov': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
 
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
+
+SIRTREVOR = True
 
 try:
     from .local_settings import *

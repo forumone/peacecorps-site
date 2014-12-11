@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="../css/svg.css" ?>
-<svg xmlns="http://www.w3.org/2000/svg"
-      height="127" id="svg2985" version="1.1"
-      class="world_map"
-      viewBox="100 50 300 300 "
-      width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map" height="127"
+     id="svg2985" version="1.1" viewBox="82.992 45.607 2528.5721 1428.3294"
+     width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
   <defs>
@@ -16,7 +12,43 @@
  * which allow easily changing how countries are displayed.
  *
  */
+/* --- Custom styles for Peace Corps --- */
+.world_map .world_map-is_selected {
+  fill: #C94112 !important;
+}
+.world_map .landxx {
+  fill: #F2EFE8;
+  stroke: #ffffff;
+  fill-rule: evenodd;
+}
+.world_map.zoom4 .landxx {
+  stroke-width: 2px;
+}
+.world_map.zoom3 .landxx {
+  stroke-width: 3px;
+}
+.world_map.zoom2 .landxx {
+  stroke-width: 4px;
+}
+.world_map.zoom1 .landxx {
+  stroke-width: 5px;
+}
+.world_map .coastxx {
+  fill: #F2EFE8;
+  stroke: #ffffff;
+  stroke-width: 2px;
+  fill-rule: evenodd;
+}
+.world_map .oceanxx {
+  opacity: 1;
+  color: #ccc;
+  fill: #ffffff;
+  stroke: #ffffff;
+  stroke-width: 0.5;
+  stroke-miterlimit: 1;
+}
 
+/* --- Original Styles --- *
 /*
  * Circles around small countries
  *

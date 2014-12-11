@@ -20,6 +20,8 @@ DATABASES = {}
 INSTALLED_APPS = (
     'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
+    'restless',
+    'sirtrevor',
     'peacecorps',
 )
 
@@ -57,6 +59,8 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 STATIC_ROOT = '/var/www/static/'
 
+SIRTREVOR_DEFAULT_TYPE = 'Text'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -64,6 +68,20 @@ STATIC_URL = '/static/'
 
 USE_TZ = True
 TIME_ZONE = 'UTC'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    },
+    'shortterm': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'TIMEOUT': 60*5    # 5 minutes
+    },
+    'midterm': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'TIMEOUT': 60*60    # 1 hour
+    }
+}
 
 # APP_SPECIFIC_VALUES
 
@@ -78,6 +96,9 @@ PAY_GOV_OCI_URL = os.environ.get('PAY_GOV_OCI_URL', 'https://example.com/')
 # DonorInfo objects expire after a set period of time
 DONOR_EXPIRE_AFTER = 30      # minutes
 
+# Where to cut project "abstract"s
+ABSTRACT_LENGTH = 256
+
 # GPG info for encrypted fields
 GNUPG_HOME = ''     # Directory containing keys. If empty, GPG will not be used
 GPG_RECIPIENTS = {
@@ -86,9 +107,18 @@ GPG_RECIPIENTS = {
 
 # Password expire after a set number of days
 PASSWORD_EXPIRE_AFTER = 60   # days
-# Admin paths which can be accessed even when the password has expired
+# Admin paths which can be accessible even when the password has expired
 PASSWORD_EXPIRATION_WHITELIST = [
     '/admin/login/',
     '/admin/logout/',
     '/admin/jsi18n/'
 ]
+
+AUTHENTICATION_BACKENDS = ('contenteditor.backends.EditorBackend',)
+DEFAULT_FILE_STORAGE = 'contenteditor.backends.LoggingStorage'
+# The logging storage (above) must have a backend. Default to Django's default
+LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+# Set SIRTREVOR var to exclude sirtrevor urls
+# (overwritten in admin settings)
+SIRTREVOR = False

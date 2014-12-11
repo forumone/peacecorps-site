@@ -30,3 +30,7 @@ this deed makes no warranties about the work, and disclaims liability for
 all uses of the work, to the fullest extent permitted by applicable law.
 When using or citing the work, you should not imply endorsement by the
 author or the affirmer.
+
+## Exceptions
+- [jQuery](http://jquery.com/) and [Sizzle](http://sizzlejs.com/) by The jQuery
+  Foundation are licensed under the MIT License.
