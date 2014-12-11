@@ -1,8 +1,70 @@
 {% extends "donations/base.jinja" %}
 
-{% block title %}Peace Corps - Donation Success{% endblock %}
-{% block header %}Peace Corps - Donation Success{% endblock %}
+{% block title %}Peace Corps | Thank You{% endblock %}
+{% block header %}Peace Corps | Thank You{% endblock %}
+{% block content_class %}thankyou{% endblock %}
 
 {% block content %}
-{% include "donations/includes/project-top.jinja" %}
+<section class="section">
+  <div class="section__content u-clearfix">
+    <article class="inset inset--sm">
+      {% if request.GET.donor_name %}
+        <h2>Thank you, {{ request.GET.donor_name }}!</h2>
+      {% else %}
+        <h2>Thank you!</h2>
+      {% endif %}
+      Your donation is helping promote {{project.issue().name}} in
+      {{project.country.name}}.
+    </article>
+    <div class="inset inset--sm">Tell Your Friends</div>
+    <ul class="inset inset--sm">
+      <li class="main_nav__link"
+          ><a target="_blank"
+              href="//www.facebook.com/sharer/sharer.php?u={{share_url|urlencode}}"
+              >Facebook</a></li>
+      <li class="main_nav__link"
+          ><a target="_blank"
+              href="//twitter.com/intent/tweet?text={{share_text|urlencode}}"
+              >Twitter</a></li>
+    </ul>
+  </div>
+</section>
+
+<a href="{{url("donate project", slug=project.slug)}}" class="t-title--4"
+   >View Project</a>
+
+<section class="section">
+  <div class="section__content u-clearfix">
+    <div class="inset inset--sm">
+      {# @TODO Photo #}
+      <div>You Helped Fund This Project</div>
+      <h3>{{project.title}}</h2>
+      <section class="blurb">
+        <section class="u-align_c">
+            <div class="mask mask--oval mask--bordered u-h_center--block">
+              <img class="mask__content"
+                   src="{{project.volunteerpicture.url}}"
+                   alt="{{project.volunteerpicture.description}}">
+            </div>
+          <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+            volunteer from <strong>{{project.volunteerhomestate}}</strong>
+          </span>
+        </section>
+        <section class="u-align_c">
+          <div class="mask mask--oval mask--bordered u-h_center--block map">
+            <img src="{{ static("peacecorps/img/countries/"
+                                + project.country.code.lower() + ".svg") }}"
+                 class="mask__content" />
+          </div>
+            <span class="t-body--sm">
+              in <strong>{{project.country.name}}</strong>
+            </span>
+        </section>
+        <section class="u-align_c">
+          {# radial progress #}
+        </section>
+      </section>
+    </div>
+  </div>
+</section>
 {% endblock %}
