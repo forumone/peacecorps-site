@@ -73,9 +73,9 @@ var Discover = function($root) {
 
 Discover.ccFilteredItem = '.js-filterable';
 
-Discover.prototype.init = function(root, $navLinks, opts) {
+Discover.prototype.init = function(root, $navLinks) {
   var self = this,
-      lopts = opts || {};
+      $selectedLink;
 
   this.$navLinks = $navLinks;
   this.filters = [];
@@ -85,7 +85,9 @@ Discover.prototype.init = function(root, $navLinks, opts) {
       self.select($(this));
     });
   });
-  this.selected = lopts.selected || this.filters[0];
+  $selectedLink = $(this.$navLinks[0]);
+  this.selected = this.filters[0];
+  this.select($selectedLink);
 };
 
 Discover.prototype.render = function() {
@@ -102,10 +104,20 @@ Discover.prototype.render = function() {
   });
 };
 
+Discover.prototype.getOtherLinks = function($currentLink) {
+  // TODO hacky, should use event binding
+  return $currentLink.parent().siblings().find('a');
+};
+
 Discover.prototype.select = function($link) {
-  var filter = $link.attr('data-filter-type');
+  var filter = $link.attr('data-filter-type') || $link.data('filter-type'),
+      $otherLinks;
+
   this.selected = filter;
   this.render();
+  $otherLinks = this.getOtherLinks($link);
+  $otherLinks.attr('aria-selected', false);
+  $link.attr('aria-selected', true);
 };
 
 Discover.prototype.dataSelector = function(dataAttr, dataVal) {

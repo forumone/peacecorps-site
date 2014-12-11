@@ -5,8 +5,8 @@
 @import "globals";
 
 .full_banner {
-  border-top: 1em solid;
-  border-bottom: 1em solid;
+  border-top: .8em solid;
+  border-bottom: .8em solid;
   margin: 0 -500%;
   padding: 0.5em 500%;
   @extend .u-clearfix;
@@ -41,5 +41,3 @@
     width: 70%;
   }
 }
-
-
