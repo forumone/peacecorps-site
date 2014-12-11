@@ -78,10 +78,10 @@
           <span>{{ humanize_amount(project.account.remaining()) }}
             to meet goal</span>
           <br><br><br>
-          {{top_form.payment_amount.errors}}
+          {{donate_form.payment_amount.errors}}
           <p class="t-title--5 t--white" style="text-align: left">
             Choose an amount</p>
-          {% for radio in top_form.presets %}
+          {% for radio in donate_form.presets %}
             {% if not project.account.funded() %}
               <div class="inline_grid--15 island__content">
                 {{ radio.tag() }}
@@ -92,7 +92,7 @@
                     <span class="bubble__content" style="left: 10%">
                       <strong>$</strong>
                     </span>
-                    {{ top_form.payment_amount }}
+                    {{ donate_form.payment_amount }}
                   </label>
                 {% else %}
                   <label

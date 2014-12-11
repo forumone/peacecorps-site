@@ -170,22 +170,11 @@ class DonatePagesTests(TestCase):
         self.assertTrue(code)
         self.assertTrue(code in response['Location'])
 
-    def test_project_form_redirect_bottom(self):
-        """Despite the top form being invalid, if the bottom is, we should
-        still redirect"""
-        response = self.client.post('/donate/project/brick-oven-bakery',
-                                    {'top-presets': 'custom',
-                                     'bottom-presets': 'preset-50'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("50" in response['Location'])
-        code = Project.objects.get(slug='brick-oven-bakery').account.code
-        self.assertTrue(code)
-        self.assertTrue(code in response['Location'])
-
     def test_project_form_redirect_full(self):
         """If a project is funded, its overflow code should be used"""
         account = Account.objects.create(
-            name='Full', code='FULL', goal=500, current=500)
+            name='Full', code='FULL', goal=500, current=500,
+              community_contribution=0)
         overflow = Account.objects.create(name='Overflow', code='OVERFLOW')
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
@@ -195,7 +184,7 @@ class DonatePagesTests(TestCase):
 
         response = self.client.post(
             reverse('donate project', kwargs={'slug': project.slug}),
-            {'top-presets': 'preset-50'})
+            {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("5000" in response['Location'])
         self.assertTrue('OVERFLOW' in response['Location'])
