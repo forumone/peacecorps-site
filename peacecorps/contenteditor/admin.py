@@ -1,3 +1,4 @@
+from adminsortable.admin import SortableAdminMixin
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
@@ -41,6 +42,10 @@ class VignetteAdmin(admin.ModelAdmin):
         return False
 
 
+class FAQAdmin(SortableAdminMixin, admin.ModelAdmin):
+    pass
+
+
 admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
 admin.site.register(models.FeaturedCampaign)
@@ -50,6 +55,7 @@ admin.site.register(models.Media)
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Vignette, VignetteAdmin)
 admin.site.register(models.Issue)
+admin.site.register(models.FAQ, FAQAdmin)
 admin.site.unregister(User)
 admin.site.register(User, StrictUserAdmin)
 admin.site.login_form = LoggingAuthenticationForm
