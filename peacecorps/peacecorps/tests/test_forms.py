@@ -109,13 +109,13 @@ class DonationPaymentTests(TestCase):
 
 
 class DonationAmountTests(TestCase):
-    def test_preset_25(self):
+    def test_preset_50(self):
         """Selecting a preset should set the correct value in
         payment_amount"""
-        data = {'presets': 'preset-25'}
+        data = {'presets': 'preset-50'}
         form = DonationAmountForm(data=data)
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data['payment_amount'], Decimal(25))
+        self.assertEqual(form.cleaned_data['payment_amount'], Decimal(50))
 
     def test_preset_custom(self):
         """Entering no value will result in an error. Entering a custom amount

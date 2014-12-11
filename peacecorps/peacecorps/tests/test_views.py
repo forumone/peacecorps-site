@@ -183,9 +183,9 @@ class DonatePagesTests(TestCase):
 
         response = self.client.post(
             reverse('donate project', kwargs={'slug': project.slug}),
-            {'presets': 'preset-10'})
+            {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("1000" in response['Location'])
+        self.assertTrue("5000" in response['Location'])
         self.assertTrue('OVERFLOW' in response['Location'])
 
         project.delete()
@@ -196,9 +196,9 @@ class DonatePagesTests(TestCase):
         """Campaign page should work as the project page does"""
         response = self.client.post(
             reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
-            {'presets': 'preset-25'})
+            {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("2500" in response['Location'])
+        self.assertTrue("5000" in response['Location'])
         code = Campaign.objects.get(slug='peace-corps').account.code
         self.assertTrue(code)
         self.assertTrue(code in response['Location'])

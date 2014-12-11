@@ -171,7 +171,7 @@ p + p {
 .t-title--5 {
   @extend .t-title;
   @include font-size(1.2);
-  @include rem(margin, 0.5rem 0);
+  @include rem(margin, 0.8rem 0);
 }
 .t-title--6 {
   @extend .t-title;
@@ -251,4 +251,8 @@ a {
 
 .t-title--1 a, .t-title--2 a, .t-title--3 a {
   text-decoration: none;
+}
+
+.t-nom {
+  margin-bottom: 0;
 }

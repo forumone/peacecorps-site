@@ -1,14 +1,21 @@
-<div class="u-clearfix inset--md">
-  <form method="post" class="bubble_form form_hide--radio">
+<div class="u-clearfix island island--primary" style="clear: both">
+  <form method="post" class="form_hide--radio">
     {% csrf_token %}
-    <fieldset>
-      <legend class="t-heading_md">Choose an amount to give</legend>
-      {{donate_form.payment_amount.errors}}
+    <fieldset class="bubble_form">
+      <legend class="t-title--3 t-nom">Give to this project</legend>
+      <span>{{ account.remaining() }}
+        to meet goal</span>
+      <br><br><br>
+      {{ donate_form.payment_amount.errors }}
+      <p class="t-title--5 t--white" style="text-align: left">
+        Choose an amount</p>
       {% for radio in donate_form.presets %}
-          <div class="showcase--line_16">
+        {% if not account.funded() %}
+          <div class="inline_grid--15 island__content">
             {{ radio.tag() }}
             {% if radio.choice_value == 'custom' %}
-              <label class="bubble bubble--white bubble--bordered bubble--square"
+              <label class="bubble bubble--primary
+                            bubble--bordered bubble--square"
                   for="{{radio.id_for_label}}" >
                 <span class="bubble__content" style="left: 10%">
                   <strong>$</strong>
@@ -18,25 +25,25 @@
             {% else %}
               <label
                   class="bubble
-                  bubble--white
+                  bubble--primary
                   bubble--bordered
                   bubble--square"
                   for="{{radio.id_for_label}}">
-                <span class="bubble__content "><strong>
+                <span class="bubble__content"><strong>
                   ${{radio.choice_label}}
                 </strong></span>
               </label>
             {% endif %}
           </div>
+        {% endif %}
       {% endfor %}
     </fieldset>
-    <button class="button button--primary">
+    <button class="button button--white" style="margin-top: 1em;">
       {% if account.funded() %}
         Donate to Help Similar Projects
       {% else %}
-        Donate
+        Continue
       {% endif %}
     </button>
   </form>
 </div>
-

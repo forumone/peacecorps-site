@@ -271,6 +271,10 @@ button {
   background-color: #fff;
   color: #C94112; }
 
+.button--white {
+  background-color: #fff;
+  color: #A12122; }
+
 /*
  * All base rules concerning elements
  */
@@ -460,8 +464,8 @@ p + p {
 .t-title--5 {
   font-size: 12px;
   font-size: 1.2rem;
-  margin: 5px 0;
-  margin: 0.5rem 0; }
+  margin: 8px 0;
+  margin: 0.8rem 0; }
 
 .t-title--6 {
   font-size: 9px;
@@ -526,6 +530,9 @@ p + p {
 
 .t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button--md a {
   text-decoration: none; }
+
+.t-nom {
+  margin-bottom: 0; }
 
 /*
  * Class that has no base to deal with placing background images.
@@ -657,7 +664,7 @@ body {
   border-radius: 50%;
   display: block;
   height: 0;
-  margin: 0 auto;
+  margin: 0.4em auto;
   padding-bottom: 80%;
   position: relative;
   width: 80%; }
@@ -674,7 +681,7 @@ body {
   padding-top: 22%;
   position: absolute;
   text-align: center;
-  top: 45%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 96%; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
@@ -684,11 +691,11 @@ body {
 .bubble--neutral_dark {
   background-color: #E5E1D4; }
 
-.bubble--primary, .bubble_form input[type=radio]:not(old):checked + .bubble {
-  background-color: #A12122;
+.bubble--primary {
+  background-color: #fff;
   color: #fff; }
-  .bubble--primary .bubble__content, .bubble_form input[type=radio]:not(old):checked + .bubble .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old), .bubble_form input[type=radio]:not(old):checked + .bubble input[type=number]:not(old) {
-    color: #fff; }
+  .bubble--primary .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old) {
+    color: #A12122; }
 
 .bubble--white {
   background-color: #fff;
@@ -708,6 +715,8 @@ body {
     .bubble--rectangle {
       padding-bottom: 67%; } }
 
+.bubble_form label {
+  cursor: pointer; }
 .bubble_form input[type=number]:not(old) {
   border: none;
   border-bottom-width: .15em;
@@ -721,6 +730,11 @@ body {
   width: 70%; }
 .bubble_form input[type=radio]:not(old):checked {
   border-color: #fff; }
+.bubble_form input[type=radio]:not(old):checked + .bubble {
+  background-color: #A12122;
+  border-color: #fff; }
+  .bubble_form input[type=radio]:not(old):checked + .bubble .bubble__content, .bubble_form input[type=radio]:not(old):checked + .bubble input[type=number]:not(old) {
+    color: #fff; }
 
 /*
  * Forms.
@@ -1028,6 +1042,34 @@ body {
       padding: 0 1em; }
       .inset--sm:last-child {
         margin-right: 0; } }
+
+/*
+ * Island
+ */
+.island {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  width: 40%; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .island {
+      width: 60%; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .island {
+      width: 80%; } }
+
+.island__content {
+  width: 30%; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .island__content {
+      width: 25%; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .island__content {
+      margin-right: .4em; } }
+
+.island--primary {
+  background-color: #A12122;
+  color: #fff; }
 
 /*
  * Main nav module.
