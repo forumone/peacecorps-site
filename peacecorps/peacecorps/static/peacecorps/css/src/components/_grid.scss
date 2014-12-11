@@ -34,7 +34,6 @@
   display: inline-block;
   float: none;
   vertical-align: top;
-<<<<<<< HEAD
 
   @include media($md) {
     @include span-columns(3);
@@ -47,7 +46,5 @@
     float: none;
     margin-top: 1em;
   }
-=======
->>>>>>> Continue building project page
 }
 
