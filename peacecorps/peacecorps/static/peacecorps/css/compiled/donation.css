@@ -358,6 +358,9 @@ body {
 .t--gray, .t-icon {
   color: #888; }
 
+.t--gray--2 {
+  color: #555; }
+
 .t--black {
   color: #222; }
 
@@ -385,6 +388,9 @@ body {
 .t-heading--4, h4 {
   font-size: 18px;
   font-size: 1.8rem; }
+
+h4 + h3 {
+  margin-top: 0; }
 
 /*
  * Body is the main body text.
@@ -426,14 +432,14 @@ p + p {
   margin: 1.5rem 0; }
 
 .t-title--2, .button--lg {
-  font-size: 28px;
-  font-size: 2.8rem;
+  font-size: 30px;
+  font-size: 3rem;
   margin: 11px 0;
   margin: 1.1rem 0; }
 
 .t-title--3, .button--md {
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 22px;
+  font-size: 2.2rem;
   margin: 10px 0;
   margin: 1rem 0; }
 
@@ -1202,11 +1208,11 @@ body {
 .rectangular_progress__point {
   display: inline-block;
   margin: 0;
-  margin-left: -15%;
+  margin-left: -20%;
   position: absolute;
   text-align: center;
   top: 13%;
-  width: 30%; }
+  width: 40%; }
   @media screen and (min-width: 500px) and (max-width: 899px) {
     .rectangular_progress__point {
       margin-left: -25%;
@@ -1224,20 +1230,23 @@ body {
   top: auto; }
 
 .rectangular_progress__line {
-  background-color: #E5E1D4;
+  background-color: #05888C;
   display: block;
   height: .7em;
   margin-left: -.32%;
   position: absolute;
-  top: 37.5%;
+  top: 30.5%;
   width: .11em; }
 
 .rectangular_progress__line--bottom {
-  bottom: 37.5%;
+  bottom: 30.5%;
   top: auto; }
 
+.rectangular_progress__line--neutral {
+  background-color: #E5E1D4; }
+
 .rectangular_progress--secondary {
-  color: #05888C; }
+  color: #555; }
   .rectangular_progress--secondary .rectangular_progress__filled {
     background-color: #05888C; }
 

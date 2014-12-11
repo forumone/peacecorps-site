@@ -54,6 +54,9 @@ body {
 .t--gray {
   color: $gray-1;
 }
+.t--gray--2 {
+  color: $gray-2;
+}
 
 .t--black {
   color: $black;
@@ -94,6 +97,10 @@ h4 {
 }
 h1, h2, h3, h4, h5, h6 {
   @extend .t-heading;
+}
+
+h4 + h3 {
+  margin-top: 0;
 }
 
 /*
@@ -140,12 +147,12 @@ p + p {
 }
 .t-title--2 {
   @extend .t-title;
-  @include font-size(2.8);
+  @include font-size(3.0);
   @include rem(margin, 1.1rem 0);
 }
 .t-title--3 {
   @extend .t-title;
-  @include font-size(2.0);
+  @include font-size(2.2);
   @include rem(margin, 1rem 0);
 }
 .t-title--4 {
