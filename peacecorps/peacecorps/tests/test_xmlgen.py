@@ -143,45 +143,21 @@ class PayXMLGenerationTests(TestCase):
         campaign = Campaign.objects.create(
             account=account, slug='cccccc')
 
-        succ, fail = payxml.redirect_urls(account)
+        succ, fail = payxml.redirect_urls(account, "Bob/Mary")
         self.assertTrue('success' in succ)
         self.assertTrue('project' in succ)
+        self.assertTrue('Bob%2FMary' in succ)
         self.assertTrue('failure' in fail)
         self.assertTrue('project' in fail)
         proj.delete()
 
         account.category = Account.COUNTRY
-        succ, fail = payxml.redirect_urls(account)
+        succ, fail = payxml.redirect_urls(account, "Bob+Mary")
         self.assertTrue('success' in succ)
-        self.assertTrue('country' in succ)
+        self.assertTrue('fund' in succ)
+        self.assertTrue('Bob%2BMary' in succ)
         self.assertTrue('failure' in fail)
-        self.assertTrue('country' in fail)
-
-        account.category = Account.MEMORIAL
-        succ, fail = payxml.redirect_urls(account)
-        self.assertTrue('success' in succ)
-        self.assertTrue('memorial' in succ)
-        self.assertTrue('failure' in fail)
-        self.assertTrue('memorial' in fail)
-
-        account.category = Account.SECTOR
-        succ, fail = payxml.redirect_urls(account)
-        self.assertTrue('success' in succ)
-        self.assertTrue('campaign' in succ)
-        self.assertTrue('failure' in fail)
-        self.assertTrue('campaign' in fail)
-
-        # the url for "general"/other funds does not have an identifier
-        account.category = Account.OTHER
-        succ, fail = payxml.redirect_urls(account)
-        self.assertTrue('success' in succ)
-        self.assertFalse('country' in succ)
-        self.assertFalse('memorial' in succ)
-        self.assertFalse('campaign' in succ)
-        self.assertTrue('failure' in fail)
-        self.assertFalse('country' in fail)
-        self.assertFalse('memorial' in fail)
-        self.assertFalse('campaign' in fail)
+        self.assertTrue('fund' in fail)
 
         campaign.delete()
         account.delete()
