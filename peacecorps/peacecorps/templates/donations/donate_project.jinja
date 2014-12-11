@@ -67,7 +67,59 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     {% include "donations/includes/amount-form.jinja" %}
+=======
+    <div class="u-clearfix island island--primary" style="clear: both">
+      <form method="post" class="form_hide--radio">
+        {% csrf_token %}
+        <fieldset class="bubble_form">
+          <legend class="t-title--3 t-nom">Give to this project</legend>
+          <span>{{ humanize_amount(project.account.remaining()) }}
+            to meet goal</span>
+          <br><br><br>
+          {{top_form.payment_amount.errors}}
+          <p class="t-title--5 t--white" style="text-align: left">
+            Choose an amount</p>
+          {% for radio in top_form.presets %}
+            {% if not project.account.funded() %}
+              <div class="inline_grid--15 island__content">
+                {{ radio.tag() }}
+                {% if radio.choice_value == 'custom' %}
+                  <label class="bubble bubble--primary
+                                bubble--bordered bubble--square"
+                      for="{{radio.id_for_label}}" >
+                    <span class="bubble__content" style="left: 10%">
+                      <strong>$</strong>
+                    </span>
+                    {{ top_form.payment_amount }}
+                  </label>
+                {% else %}
+                  <label
+                      class="bubble
+                      bubble--primary
+                      bubble--bordered
+                      bubble--square"
+                      for="{{radio.id_for_label}}">
+                    <span class="bubble__content"><strong>
+                      ${{radio.choice_label}}
+                    </strong></span>
+                  </label>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </fieldset>
+        <button class="button button--white" style="margin-top: 1em;">
+          {% if project.account.funded() %}
+            Donate to Help Similar Projects
+          {% else %}
+            Continue
+          {% endif %}
+        </button>
+      </form>
+    </div>
+>>>>>>> The donate section
   </div>
 </div>
 
