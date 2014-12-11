@@ -436,6 +436,14 @@ p + p {
   font-size: 3rem;
   margin: 11px 0;
   margin: 1.1rem 0; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .t-title--2, .button--lg {
+      font-size: 25px;
+      font-size: 2.5rem; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .t-title--2, .button--lg {
+      font-size: 20px;
+      font-size: 2rem; } }
 
 .t-title--3, .button--md {
   font-size: 22px;
@@ -796,6 +804,27 @@ body {
   vertical-align: top; }
   .inline_grid--15:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .inline_grid--15 {
+      float: left;
+      display: block;
+      margin-right: 5.19481%;
+      width: 29.87013%;
+      display: inline-block;
+      float: none; }
+      .inline_grid--15:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .inline_grid--15 {
+      float: left;
+      display: block;
+      margin-right: 12.5%;
+      width: 43.75%;
+      display: inline-block;
+      float: none;
+      margin-top: 1em; }
+      .inline_grid--15:last-child {
+        margin-right: 0; } }
 
 /*
  * Inline text module
@@ -948,6 +977,25 @@ body {
   margin-left: 17.30769%; }
   .inset--md:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .inset--md {
+      float: left;
+      display: block;
+      margin-right: 5.19481%;
+      width: 76.62338%;
+      margin-left: 11.68831%; }
+      .inset--md:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .inset--md {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 12.5%;
+      width: 100%;
+      padding: 0 1em; }
+      .inset--md:last-child {
+        margin-right: 0; } }
 
 .inset--sm {
   float: left;
@@ -976,7 +1024,8 @@ body {
       float: left;
       display: block;
       margin-right: 12.5%;
-      width: 100%; }
+      width: 100%;
+      padding: 0 1em; }
       .inset--sm:last-child {
         margin-right: 0; } }
 
@@ -1192,9 +1241,6 @@ body {
   position: relative;
   text-align: left;
   width: 100%; }
-  @media screen and (min-width: 0px) and (max-width: 499px) {
-    .rectangular_progress {
-      width: 90%; } }
 
 .rectangular_progress__bar {
   background-color: #E5E1D4;
@@ -1215,12 +1261,15 @@ body {
   width: 40%; }
   @media screen and (min-width: 500px) and (max-width: 899px) {
     .rectangular_progress__point {
-      margin-left: -25%;
-      width: 50%; } }
+      font-size: 80%;
+      margin-left: -30%;
+      width: 60%; } }
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .rectangular_progress__point {
-      margin-left: -25%;
-      width: 50%; } }
+      font-size: 75%;
+      margin-left: -30%;
+      width: 60%;
+      top: 17%; } }
 
 .rectangular_progress__point--right {
   text-align: right; }
@@ -1228,6 +1277,12 @@ body {
 .rectangular_progress__point--bottom {
   bottom: 13%;
   top: auto; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .rectangular_progress__point--bottom {
+      bottom: 17%; } }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .rectangular_progress__point--bottom {
+      bottom: 17%; } }
 
 .rectangular_progress__line {
   background-color: #05888C;

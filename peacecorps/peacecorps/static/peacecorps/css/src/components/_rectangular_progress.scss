@@ -16,10 +16,6 @@
   position: relative;
   text-align: left;
   width: 100%;
-
-  @include media($sm) {
-    width: 90%;
-  }
 }
 
 .rectangular_progress__bar {
@@ -43,12 +39,16 @@
   width: 40%;
 
   @include media($md) {
-    margin-left: -25%;
-    width: 50%;
+    font-size: 80%;
+    margin-left: -30%;
+    width: 60%;
   }
   @include media($sm) {
-    margin-left: -25%;
-    width: 50%;
+    // TODO don't breakpoint font size here.
+    font-size: 75%;
+    margin-left: -30%;
+    width: 60%;
+    top: 17%;
   }
 }
 .rectangular_progress__point--right {
@@ -57,6 +57,14 @@
 .rectangular_progress__point--bottom {
   bottom: 13%;
   top: auto;
+
+  @include media($md) {
+    bottom: 17%;
+  }
+
+  @include media($sm) {
+    bottom: 17%;
+  }
 }
 .rectangular_progress__line {
   background-color: $secondary;
