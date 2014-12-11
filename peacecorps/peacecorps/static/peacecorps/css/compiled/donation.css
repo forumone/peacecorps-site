@@ -1,78 +1,78 @@
 /*
-Error: Invalid CSS after "...ng project page": expected "{", was "}"
-        on line 52 of css/src/components/_grid.scss
-        from line 17 of css/src/donation.scss
+ * Grid
+ */
+/*
+ * Breakpoint
+ */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-47:     float: none;
-48:     margin-top: 1em;
-49:   }
-50: =======
-51: >>>>>>> Continue building project page
-52: }
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
-Backtrace:
-css/src/components/_grid.scss:52
-css/src/donation.scss:17
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:1165:in `expected'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:1099:in `expected'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:1094:in `tok!'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:641:in `block'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:712:in `declaration_or_ruleset'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:661:in `block_child'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:653:in `block_contents'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:642:in `block'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:636:in `ruleset'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:660:in `block_child'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:653:in `block_contents'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:117:in `stylesheet'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/scss/parser.rb:42:in `parse'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:393:in `_to_tree'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:299:in `to_tree'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:313:in `block in visit_import'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:88:in `block in with_import'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:88:in `with_import'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `map'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/root_node.rb:36:in `css_tree'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `each'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `call'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/var/lib/gems/1.9.1/gems/sass-3.4.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
 body:before {
-<<<<<<< HEAD
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...ng project page\": expected \"{\", was \"}\"\A         on line 52 of css/src/components/_grid.scss\A         from line 17 of css/src/donation.scss\A \A 47:     float: none;\A 48:     margin-top: 1em;\A 49:   }\A 50: =======\A 51: >>>>>>> Continue building project page\A 52: }"; }
-=======
+  content: '';
+  display: inline-block;
+  background-image: -webkit-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+  background-image: -moz-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+  background-image: -ms-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+  background-image: -o-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+  background-image: linear-gradient(to left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  max-width: 83em;
+  opacity: 0.4;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    body:before {
+      background-image: -webkit-linear-gradient(left, transparent 0, #EEE 0, #EEE 15.625%, transparent 15.625%, transparent 28.125%, #EEE 28.125%, #EEE 43.75%, transparent 43.75%, transparent 56.25%, #EEE 56.25%, #EEE 71.875%, transparent 71.875%, transparent 84.375%, #EEE 84.375%, #EEE 100%, transparent 100%);
+      background-image: -moz-linear-gradient(left, transparent 0, #EEE 0, #EEE 15.625%, transparent 15.625%, transparent 28.125%, #EEE 28.125%, #EEE 43.75%, transparent 43.75%, transparent 56.25%, #EEE 56.25%, #EEE 71.875%, transparent 71.875%, transparent 84.375%, #EEE 84.375%, #EEE 100%, transparent 100%);
+      background-image: -ms-linear-gradient(left, transparent 0, #EEE 0, #EEE 15.625%, transparent 15.625%, transparent 28.125%, #EEE 28.125%, #EEE 43.75%, transparent 43.75%, transparent 56.25%, #EEE 56.25%, #EEE 71.875%, transparent 71.875%, transparent 84.375%, #EEE 84.375%, #EEE 100%, transparent 100%);
+      background-image: -o-linear-gradient(left, transparent 0, #EEE 0, #EEE 15.625%, transparent 15.625%, transparent 28.125%, #EEE 28.125%, #EEE 43.75%, transparent 43.75%, transparent 56.25%, #EEE 56.25%, #EEE 71.875%, transparent 71.875%, transparent 84.375%, #EEE 84.375%, #EEE 100%, transparent 100%);
+      background-image: linear-gradient(to left, transparent 0, #EEE 0, #EEE 15.625%, transparent 15.625%, transparent 28.125%, #EEE 28.125%, #EEE 43.75%, transparent 43.75%, transparent 56.25%, #EEE 56.25%, #EEE 71.875%, transparent 71.875%, transparent 84.375%, #EEE 84.375%, #EEE 100%, transparent 100%); } }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    body:before {
+      background-image: -webkit-linear-gradient(left, transparent 0, #EEE 0, #EEE 6.49351%, transparent 6.49351%, transparent 11.68831%, #EEE 11.68831%, #EEE 18.18182%, transparent 18.18182%, transparent 23.37662%, #EEE 23.37662%, #EEE 29.87013%, transparent 29.87013%, transparent 35.06494%, #EEE 35.06494%, #EEE 41.55844%, transparent 41.55844%, transparent 46.75325%, #EEE 46.75325%, #EEE 53.24675%, transparent 53.24675%, transparent 58.44156%, #EEE 58.44156%, #EEE 64.93506%, transparent 64.93506%, transparent 70.12987%, #EEE 70.12987%, #EEE 76.62338%, transparent 76.62338%, transparent 81.81818%, #EEE 81.81818%, #EEE 88.31169%, transparent 88.31169%, transparent 93.50649%, #EEE 93.50649%, #EEE 100.0%, transparent 100.0%);
+      background-image: -moz-linear-gradient(left, transparent 0, #EEE 0, #EEE 6.49351%, transparent 6.49351%, transparent 11.68831%, #EEE 11.68831%, #EEE 18.18182%, transparent 18.18182%, transparent 23.37662%, #EEE 23.37662%, #EEE 29.87013%, transparent 29.87013%, transparent 35.06494%, #EEE 35.06494%, #EEE 41.55844%, transparent 41.55844%, transparent 46.75325%, #EEE 46.75325%, #EEE 53.24675%, transparent 53.24675%, transparent 58.44156%, #EEE 58.44156%, #EEE 64.93506%, transparent 64.93506%, transparent 70.12987%, #EEE 70.12987%, #EEE 76.62338%, transparent 76.62338%, transparent 81.81818%, #EEE 81.81818%, #EEE 88.31169%, transparent 88.31169%, transparent 93.50649%, #EEE 93.50649%, #EEE 100.0%, transparent 100.0%);
+      background-image: -ms-linear-gradient(left, transparent 0, #EEE 0, #EEE 6.49351%, transparent 6.49351%, transparent 11.68831%, #EEE 11.68831%, #EEE 18.18182%, transparent 18.18182%, transparent 23.37662%, #EEE 23.37662%, #EEE 29.87013%, transparent 29.87013%, transparent 35.06494%, #EEE 35.06494%, #EEE 41.55844%, transparent 41.55844%, transparent 46.75325%, #EEE 46.75325%, #EEE 53.24675%, transparent 53.24675%, transparent 58.44156%, #EEE 58.44156%, #EEE 64.93506%, transparent 64.93506%, transparent 70.12987%, #EEE 70.12987%, #EEE 76.62338%, transparent 76.62338%, transparent 81.81818%, #EEE 81.81818%, #EEE 88.31169%, transparent 88.31169%, transparent 93.50649%, #EEE 93.50649%, #EEE 100.0%, transparent 100.0%);
+      background-image: -o-linear-gradient(left, transparent 0, #EEE 0, #EEE 6.49351%, transparent 6.49351%, transparent 11.68831%, #EEE 11.68831%, #EEE 18.18182%, transparent 18.18182%, transparent 23.37662%, #EEE 23.37662%, #EEE 29.87013%, transparent 29.87013%, transparent 35.06494%, #EEE 35.06494%, #EEE 41.55844%, transparent 41.55844%, transparent 46.75325%, #EEE 46.75325%, #EEE 53.24675%, transparent 53.24675%, transparent 58.44156%, #EEE 58.44156%, #EEE 64.93506%, transparent 64.93506%, transparent 70.12987%, #EEE 70.12987%, #EEE 76.62338%, transparent 76.62338%, transparent 81.81818%, #EEE 81.81818%, #EEE 88.31169%, transparent 88.31169%, transparent 93.50649%, #EEE 93.50649%, #EEE 100.0%, transparent 100.0%);
+      background-image: linear-gradient(to left, transparent 0, #EEE 0, #EEE 6.49351%, transparent 6.49351%, transparent 11.68831%, #EEE 11.68831%, #EEE 18.18182%, transparent 18.18182%, transparent 23.37662%, #EEE 23.37662%, #EEE 29.87013%, transparent 29.87013%, transparent 35.06494%, #EEE 35.06494%, #EEE 41.55844%, transparent 41.55844%, transparent 46.75325%, #EEE 46.75325%, #EEE 53.24675%, transparent 53.24675%, transparent 58.44156%, #EEE 58.44156%, #EEE 64.93506%, transparent 64.93506%, transparent 70.12987%, #EEE 70.12987%, #EEE 76.62338%, transparent 76.62338%, transparent 81.81818%, #EEE 81.81818%, #EEE 88.31169%, transparent 88.31169%, transparent 93.50649%, #EEE 93.50649%, #EEE 100.0%, transparent 100.0%); } }
+  @media screen and (min-width: 900px) {
+    body:before {
+      background-image: -webkit-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+      background-image: -moz-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+      background-image: -ms-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+      background-image: -o-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
+      background-image: linear-gradient(to left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%); } }
+
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body:before {
   content: '';
   display: inline-block;
   background-image: -webkit-linear-gradient(left, transparent 0, #EEE 0, #EEE 4.80769%, transparent 4.80769%, transparent 8.65385%, #EEE 8.65385%, #EEE 13.46154%, transparent 13.46154%, transparent 17.30769%, #EEE 17.30769%, #EEE 22.11538%, transparent 22.11538%, transparent 25.96154%, #EEE 25.96154%, #EEE 30.76923%, transparent 30.76923%, transparent 34.61538%, #EEE 34.61538%, #EEE 39.42308%, transparent 39.42308%, transparent 43.26923%, #EEE 43.26923%, #EEE 48.07692%, transparent 48.07692%, transparent 51.92308%, #EEE 51.92308%, #EEE 56.73077%, transparent 56.73077%, transparent 60.57692%, #EEE 60.57692%, #EEE 65.38462%, transparent 65.38462%, transparent 69.23077%, #EEE 69.23077%, #EEE 74.03846%, transparent 74.03846%, transparent 77.88462%, #EEE 77.88462%, #EEE 82.69231%, transparent 82.69231%, transparent 86.53846%, #EEE 86.53846%, #EEE 91.34615%, transparent 91.34615%, transparent 95.19231%, #EEE 95.19231%, #EEE 100.0%, transparent 100.0%);
@@ -691,10 +691,10 @@ body {
 .bubble--neutral_dark {
   background-color: #E5E1D4; }
 
-.bubble--primary, .bubble_form input[type=radio]:not(old):checked + .bubble {
+.bubble--primary {
   background-color: #fff;
   color: #fff; }
-  .bubble--primary .bubble__content, .bubble_form input[type=radio]:not(old):checked + .bubble .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old), .bubble_form input[type=radio]:not(old):checked + .bubble input[type=number]:not(old) {
+  .bubble--primary .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old) {
     color: #A12122; }
 
 .bubble--white {
@@ -715,6 +715,8 @@ body {
     .bubble--rectangle {
       padding-bottom: 67%; } }
 
+.bubble_form label {
+  cursor: pointer; }
 .bubble_form input[type=number]:not(old) {
   border: none;
   border-bottom-width: .15em;
@@ -728,6 +730,11 @@ body {
   width: 70%; }
 .bubble_form input[type=radio]:not(old):checked {
   border-color: #fff; }
+.bubble_form input[type=radio]:not(old):checked + .bubble {
+  background-color: #A12122;
+  border-color: #fff; }
+  .bubble_form input[type=radio]:not(old):checked + .bubble .bubble__content, .bubble_form input[type=radio]:not(old):checked + .bubble input[type=number]:not(old) {
+    color: #fff; }
 
 /*
  * Forms.
@@ -1043,7 +1050,7 @@ body {
   margin: 0 auto;
   padding: 1em;
   text-align: center;
-  width: 30%; }
+  width: 40%; }
   @media screen and (min-width: 500px) and (max-width: 899px) {
     .island {
       width: 60%; } }
@@ -1913,4 +1920,3 @@ body {
     clear: both; }
 
 /*# sourceMappingURL=donation.css.map */
->>>>>>> Responsive breakpoints for progress bar
