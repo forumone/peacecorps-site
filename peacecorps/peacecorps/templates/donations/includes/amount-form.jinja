@@ -3,9 +3,10 @@
     {% csrf_token %}
     <fieldset class="bubble_form">
       <legend class="t-title--3 t-nom">Give to this project</legend>
-      <span>{{ account.remaining() }}
-        to meet goal</span>
-      <br><br><br>
+      {% if IS_PROJECT %}
+        <span>{{ humanize_amount(account.remaining()) }}
+          to meet goal</span>
+      {% endif %}
       {{ donate_form.payment_amount.errors }}
       <p class="t-title--5 t--white" style="text-align: left">
         Choose an amount</p>

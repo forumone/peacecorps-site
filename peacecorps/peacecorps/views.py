@@ -132,6 +132,7 @@ def donate_project(request, slug):
             'account': project.account,
             'donate_form': form,
             'humanize_amount': humanize_amount,
+            "IS_PROJECT": project.account.category == Account.PROJECT,
         })
 
 
@@ -196,6 +197,8 @@ def fund_detail(request, slug):
             'campaign': campaign,
             'account': campaign.account,
             'donate_form': form,
+            'humanize_amount': humanize_amount,
+            "IS_PROJECT": campaign.account.category == Account.PROJECT,
         })
 
 

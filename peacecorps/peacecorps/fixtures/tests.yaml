@@ -1,5 +1,5 @@
 - fields: {category: mem, code: DCC-0123, community_contribution: null, current: 0,
-    goal: 63000, name: Stephanie Brown}
+    goal: null, name: Stephanie Brown}
   model: peacecorps.account
   pk: 1
 - fields: {category: coun, code: 305-CFD, community_contribution: null, current: 0,
@@ -35,7 +35,7 @@
   model: peacecorps.account
   pk: 10
 - fields: {category: coun, code: 313-CFD, community_contribution: null, current: 0,
-    goal: 68000, name: Cameroon}
+    goal: null, name: Cameroon}
   model: peacecorps.account
   pk: 11
 - fields: {category: coun, code: 314-CFD, community_contribution: null, current: 0,
@@ -255,7 +255,7 @@
   model: peacecorps.account
   pk: 65
 - fields: {category: sec, code: SPF-HHA, community_contribution: null, current: 0,
-    goal: 48000, name: Health}
+    goal: null, name: Health}
   model: peacecorps.account
   pk: 66
 - fields: {category: sec, code: SPF-ICT, community_contribution: null, current: 0,
