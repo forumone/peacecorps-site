@@ -1,0 +1,27 @@
+/*
+ * Sub Nav
+ *
+ * A sub inline navigation separate from the Main Nav
+ */
+
+@import "globals";
+
+.sub_nav {
+
+}
+
+.sub_nav__link {
+  margin-left: 7%;
+
+  * {
+    text-decoration: none;
+  }
+
+  @include media($md) {
+    margin-left: 5%;
+  }
+
+  *[aria-selected=true] {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,34 @@
+/*
+ * Island
+ */
+
+.island {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  width: 40%;
+
+  @include media($md) {
+    width: 60%;
+  }
+  @include media($sm) {
+    width: 80%;
+  }
+}
+
+.island__content {
+  width: 30%;
+
+  @include media($md) {
+    width: 25%;
+  }
+
+  @include media($sm) {
+    margin-right: .4em;
+  }
+}
+
+.island--primary {
+  background-color: $primary;
+  color: $white;
+}

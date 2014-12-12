@@ -1,3 +1,5 @@
+from urllib.parse import quote as urlquote
+
 from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
 
@@ -89,7 +91,7 @@ class DonationsTests(TestCase):
     def test_bad_request_donations(self):
         """ The donation information page should 400 if donation amount and
         project code aren't included. """
-        response = self.client.get('/donations/contribute')
+        response = self.client.get('/donations/contribute/')
         self.assertEqual(response.status_code, 400)
 
     def test_bad_amount(self):
@@ -115,11 +117,11 @@ class DonatePagesTests(TestCase):
 
     # Do the pages load without error?
     def test_pages_rendering(self):
-        response = self.client.get('/donate')
+        response = self.client.get('/donate/')
         self.assertEqual(response.status_code, 200)
 
     def test_project_rendering(self):
-        response = self.client.get('/donate/project/brick-oven-bakery')
+        response = self.client.get('/donate/project/brick-oven-bakery/')
         self.assertEqual(response.status_code, 200)
 
     def test_fund_rendering(self):
@@ -141,19 +143,19 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery',
+        response = self.client.post('/donate/project/brick-oven-bakery/',
                                     {'presets': 'custom',
                                      'payment_amount': ''})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery',
+        response = self.client.post('/donate/project/brick-oven-bakery/',
                                     {'presets': 'custom',
                                      'payment_amount': '0.99'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery',
+        response = self.client.post('/donate/project/brick-oven-bakery/',
                                     {'presets': 'custom',
                                      'payment_amount': '10000.00'})
         self.assertEqual(response.status_code, 200)
@@ -161,7 +163,7 @@ class DonatePagesTests(TestCase):
     def test_project_form_redirect_custom(self):
         """When selecting the fund-a-custom-amount option, everything should
         work"""
-        response = self.client.post('/donate/project/brick-oven-bakery',
+        response = self.client.post('/donate/project/brick-oven-bakery/',
                                     {'presets': 'custom',
                                      'payment_amount': '123.45'})
         self.assertEqual(response.status_code, 302)
@@ -173,7 +175,8 @@ class DonatePagesTests(TestCase):
     def test_project_form_redirect_full(self):
         """If a project is funded, its overflow code should be used"""
         account = Account.objects.create(
-            name='Full', code='FULL', goal=500, current=500)
+            name='Full', code='FULL', goal=500, current=500,
+              community_contribution=0)
         overflow = Account.objects.create(name='Overflow', code='OVERFLOW')
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
@@ -183,9 +186,9 @@ class DonatePagesTests(TestCase):
 
         response = self.client.post(
             reverse('donate project', kwargs={'slug': project.slug}),
-            {'presets': 'preset-10'})
+            {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("1000" in response['Location'])
+        self.assertTrue("5000" in response['Location'])
         self.assertTrue('OVERFLOW' in response['Location'])
 
         project.delete()
@@ -196,9 +199,9 @@ class DonatePagesTests(TestCase):
         """Campaign page should work as the project page does"""
         response = self.client.post(
             reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
-            {'presets': 'preset-25'})
+            {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("2500" in response['Location'])
+        self.assertTrue("5000" in response['Location'])
         code = Campaign.objects.get(slug='peace-corps').account.code
         self.assertTrue(code)
         self.assertTrue(code in response['Location'])
@@ -247,8 +250,22 @@ class DonatePagesTests(TestCase):
                         url, data={'agency_tracking_id': 'NEVERUSED'})
                     self.assertEqual(response.status_code, 302)
                     self.assertTrue(url in response['LOCATION'])
+                    response = client.post(
+                        url + '?something=else',
+                        data={'agency_tracking_id': 'NEVERUSED'})
+                    self.assertEqual(response.status_code, 302)
+                    self.assertTrue(url in response['LOCATION'])
+                    self.assertTrue('?something=else' in response['LOCATION'])
 
     def test_memorial_fund_name(self):
         response = self.client.get(reverse('donate special funds'))
         self.assertNotContains(response, 'Stephanie Brown Memorial Fund')
         self.assertContains(response, 'Stephanie Brown')
+
+    def test_success_render(self):
+        """Verify that the donor's name and share links are present"""
+        url = reverse('campaign success', kwargs={'slug': 'education'})
+        url += '?donor_name=Billy'
+        response = self.client.get(url, HTTP_HOST='example.com')
+        self.assertContains(response, 'Thank you, Billy')
+        self.assertContains(response, urlquote('http://example.com/'))

@@ -295,7 +295,7 @@
   model: peacecorps.account
   pk: 75
 - fields: {category: oth, code: pc-general, community_contribution: null, current: 576000,
-    goal: null, name: General}
+    goal: 680222, name: General}
   model: peacecorps.account
   pk: 76
 - fields: {category: proj, code: 15-680-003, community_contribution: 500200, current: 32500,

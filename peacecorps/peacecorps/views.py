@@ -132,6 +132,7 @@ def donate_project(request, slug):
             'account': project.account,
             'donate_form': form,
             'humanize_amount': humanize_amount,
+            "IS_PROJECT": project.account.category == Account.PROJECT,
         })
 
 
@@ -196,28 +197,42 @@ def fund_detail(request, slug):
             'campaign': campaign,
             'account': campaign.account,
             'donate_form': form,
+            'humanize_amount': humanize_amount,
+            "IS_PROJECT": campaign.account.category == Account.PROJECT,
         })
 
 
-class ProjectReturn(DetailView):
+class AbstractReturn(DetailView):
+    """Shared by views related to users returning from pay.gov. This includes
+    success/failure pages for projects/funds"""
+    def post(self, request, *args, **kwargs):
+        path = request.path
+        params = request.GET.urlencode()
+        if params:
+            path += "?" + params
+        return HttpResponseRedirect(path)
+
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(AbstractReturn, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        """Must add sharing link info"""
+        context = super(AbstractReturn, self).get_context_data(**kwargs)
+        path = self.request.scheme + "://" + self.request.get_host()
+        path += reverse("donate " +
+                        self.get_context_object_name(context['object']),
+                        kwargs={'slug': context['object'].slug})
+        context['share_url'] = path
+        context['share_text'] = settings.SHARE_TEMPLATE % path
+        return context
+
+
+class ProjectReturn(AbstractReturn):
     queryset = Project.objects.select_related(
         'account', 'country', 'featured_image', 'overflow',
         'volunteerpicture')
 
-    def post(self, request, *args, **kwargs):
-        return HttpResponseRedirect(request.path)
 
-    @csrf_exempt
-    def dispatch(self, *args, **kwargs):
-        return super(ProjectReturn, self).dispatch(*args, **kwargs)
-
-
-class CampaignReturn(DetailView):
+class CampaignReturn(AbstractReturn):
     queryset = Campaign.objects.select_related('account', 'featured_image')
-
-    def post(self, request, *args, **kwargs):
-        return HttpResponseRedirect(request.path)
-
-    @csrf_exempt
-    def dispatch(self, *args, **kwargs):
-        return super(CampaignReturn, self).dispatch(*args, **kwargs)

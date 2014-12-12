@@ -11,11 +11,15 @@
 .blurb {
   @include span-columns(10);
   @include shift(1);
-  padding-bottom: em(50, $base);
-  padding-top: em(150, $base);
+  padding-bottom: em(75, $base);
+  padding-top: em(75, $base);
   text-align: center;
 }
 
 .blurb__spacing {
   margin-top: em(120, $base);
+}
+
+.blurb--sm {
+  padding-top: em(30, $base);
 }

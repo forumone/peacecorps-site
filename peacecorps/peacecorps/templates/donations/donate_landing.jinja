@@ -42,7 +42,7 @@
   ">
 </div>
 {# The navigation should really belong in the base file somehow #}
-<nav class="main_nav">
+<nav class="main_nav" style="margin-top: 47em">
   <ul class="main_nav__list">
     <li class="main_nav__link t-title--4">
       <a href="#featured">
@@ -55,7 +55,7 @@
         Donating FAQs</a></li>
   </ul>
 </nav>
-<section class="blurb">
+<section class="blurb blurb--sm">
   <div class="t-blurb--md t--black">
     Brief, inspirational welcome message inviting visitors to explore here
     and then to give. Lorem ipsum dolor sit amet, consetetur sadipscing
@@ -90,7 +90,7 @@
             {% else %}Help this Project{%endif%}
           </h2>
           <div class="abstract">{{project.abstract_html()|safe}}</div>
-          <a class="t-single_nav u-pullr"
+          <a class="t-single_nav u-pullr t-nom"
               href="{{url("donate project", slug=project.slug)}}">
             Read Their
           Story</a>
