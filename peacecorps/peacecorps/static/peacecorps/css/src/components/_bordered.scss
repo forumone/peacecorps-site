@@ -19,6 +19,10 @@ body {
   }
 }
 
+.bordered--row {
+  border-top: .8em solid;
+}
+
 .bordered--white {
   background-color: $white;
   border-color: $white;

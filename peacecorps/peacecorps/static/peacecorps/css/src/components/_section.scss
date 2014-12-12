@@ -20,9 +20,26 @@
   background-color: $white;
 }
 
+.section--neutral_dark {
+  background-color: $neutral_dark;
+  color: $gray-2;
+}
+
+.section--neutral_medium {
+  background-color: $neutral_medium;
+}
+
 .section__content {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
+}
+
+.section__content--contain {
+  padding: 2.5em;
+}
+
+.section__content--contain--sm {
+  padding: .5em 1.5em;
 }
 
 .section__box {

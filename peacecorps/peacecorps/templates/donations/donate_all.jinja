@@ -29,37 +29,56 @@
     </li>
   </ul>
 </nav>
+
 <article class="js-discoverApp">
-  <ul class="js-filterable" data-filter-type="issue">
+  <ul class="js-filterable u-unmarked_list u-clearfix"
+      data-filter-type="issue">
   {% for issue in issues %}
     {% for campaign in issue.campaigns.all() %}
-      <li>
-        {{ render_campaign(campaign) }}
+      <li class="section--neutral_dark
+          u-clearfix
+          bordered--row
+          bordered--white">
+        {{ render_campaign(campaign, issue) }}
       </li>
     {% endfor %}
       {# TODO figure out projects rather the featured projects #}
     {% for project in issue.projects() %}
-      <li>
+      <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
         {{ render_project(project, 'issue') }}
       </li>
     {% endfor %}
   {% endfor %}
   </ul>
-  <ul class="js-filterable" data-filter-type="volunteer">
+  <ul class="js-filterable u-unmarked_list u-clearfix"
+       data-filter-type="volunteer">
   {% for project in projects %}
-    <li>
+    <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
       {{ render_project(project, 'volunteer') }}
     </li>
   {% endfor %}
   </ul>
-  <ul  class="js-filterable" data-filter-type="country">
+  <ul  class="js-filterable u-unmarked_list u-clearfix"
+       data-filter-type="country">
   {% for country in countries %}
-    <li>
+    <li class="section--neutral_dark
+          u-clearfix
+          bordered--row
+          bordered--white">
       {{ render_country_campaign(country) }}
     </li>
     {# TODO figure out projects rather the featured projects #}
     {% for project in country.project_set.all() %}
-      <li>
+      <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
         {{ render_project(project, 'country') }}
       </li>
     {% endfor %}
@@ -70,34 +89,46 @@
 {% endblock %}
 
 {% macro country_map(code) -%}
-  <div class="mask mask--oval mask--bordered u-h_center--block map">
+  <div class="mask mask--bordered mask--md mask--oval
+              mask--bordered mask--gray-1 u-h_center--block map">
     <img src="{{ static("peacecorps/img/countries/" + code.lower()
                         + ".svg") }}"
-         class="mask__content" />
+         class="mask__content mask__content--md" />
   </div>
 {%- endmacro %}
 
-{% macro render_campaign(campaign) -%}
+{% macro render_campaign(campaign, issue) -%}
   {# TODO find way to link to media urls #}
-  <aside>
-    <img src="{{ media(campaign.icon or '') }}" alt="{{ campaign.name }}" />
+  <aside class="grid--20 section__content--contain" style="padding-right: 0">
+    <img class="u-pullr"
+      style="width: 42%; padding-right: 0;"
+      src="{{ media('World-by-Ana-Maria-Lora-Macias-CC-BY.png') }}"
+      alt="{{ campaign.name }}" />
   </aside>
-  <article>
-    <h2>{{ campaign.name }}</h2>
-    <p>{{ campaign.description.html|safe }}</p>
-    <a href="{{ url("donate campaign", slug=campaign.slug) }}">
+  <article class="grid--80 section__content--contain">
+    <h2 class="t-title--2">{{ issue.name }}</h2>
+    <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
+    {{ campaign.description.html|safe }}
+    <a class="button button--sm button--primary"
+       href="{{ url("donate campaign", slug=campaign.slug) }}">
       Give to this fund</a>
   </article>
 {%- endmacro %}
 
 {% macro render_country_campaign(campaign) -%}
-  <aside>
-    {{ country_map(campaign.country.code) }}
+  <aside class="grid--20 section__content--contain" style="padding-right: 0">
+    <div class="u-pullr"
+        style="width: 50%; padding-right: 0;">
+      {{ country_map(campaign.country.code) }}
+    </div>
   </aside>
-  <article>
-    <h2>{{ campaign.country.name }}</h2>
-    <p>{{ campaign.description }}</p>
-    <a href="{{ url("donate campaign", slug=campaign.slug) }}">
+  <article class="grid--80 section__content--contain">
+    <h2 class="t-title--2">{{ campaign.country.name }}</h2>
+    <div class="content-block text-block">
+      <p>{{ campaign.description }}</p>
+    </div>
+    <a class="button button--sm button--primary"
+       href="{{ url("donate campaign", slug=campaign.slug) }}">
       Give to this fund</a>
   </article>
 {%- endmacro %}
@@ -106,7 +137,12 @@
   <header>
     <a aria-expanded="false" href="#"
        aria-controls="collapsible-{{ ptype }}-{{ project.id }}">
-      {{ project.title }}</a>
+      {# TODO fix empty element #}
+      <div class="grid--20" style="height: 1em;"></div>
+      <h3 class="t-heading--3 t--gray--2 grid--80
+          section__content--contain--sm">
+        {{ project.title }}</h3>
+    </a>
   </header>
   <article class="js-collapsibleItem"
         id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
