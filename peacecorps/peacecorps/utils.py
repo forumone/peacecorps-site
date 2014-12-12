@@ -29,5 +29,4 @@ def image_sizes(file_):
     resize(im, thm, 'thm', filename)
 
     return file_
-    # SimpleUploadedFile(file_.name, im, content_type=im.format)
 
