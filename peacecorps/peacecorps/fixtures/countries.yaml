@@ -268,7 +268,7 @@
 - fields: {code: KWT, name: Kuwait}
   model: peacecorps.country
   pk: 90
-- fields: {code: KGZ, name: Kyrgyzstan}
+- fields: {code: KGZ, name: Kyrgyz Republic}
   model: peacecorps.country
   pk: 91
 - fields: {code: LAO, name: Laos}
