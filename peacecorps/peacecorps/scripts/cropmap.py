@@ -133,7 +133,7 @@ def cropmap(map_path, outputdir):
     bboxes = ids_to_bboxes(root)
     for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
                                   root.iterfind("svg:g", namespaces)):
-        if "landxx" in xml_el.get('class', ''):   # skip the ocean paths
+        if "oceanxx" not in xml_el.get('class', ''):   # skip the ocean paths
             code = country_code(xml_el, namespaces)
             copy_doc = copy.deepcopy(doc)
             highlight(copy_doc, xml_el.get('id'))
