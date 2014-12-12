@@ -11,12 +11,13 @@ quickly exceeds a reasonable amount of memory. This script, then, splits the
 world map into component countries, providing context in the form of
 surrounding countries and highlighting/zooming to the selected country.
 
-To use the script, you must first install a python
-[library](https://github.com/cjlano/svg) from source. Clone that repository
+To use the script, you must first install two python libraries: `lxml` and
+[svg](https://github.com/cjlano/svg) from source. Clone the latter repository
 within this `scripts` directory. Then run the script with the input SVG file
 and the output directory:
 
 ```bash
+pip install lxml
 git clone https://github.com/cjlano/svg.git
 python cropmap.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecorps/img/countries/
 ```

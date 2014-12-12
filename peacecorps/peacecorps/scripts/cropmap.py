@@ -7,8 +7,8 @@ import itertools
 import logging
 import os
 import sys
-import xml.etree.ElementTree as ET
 
+from lxml import etree
 import svg
 
 
@@ -128,7 +128,7 @@ def cropmap(map_path, outputdir):
     """For each country in the map, create a new map file zoomed to that
     highlighted country"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
-    doc = ET.parse(map_path)
+    doc = etree.parse(map_path)
     root = doc.getroot()
     bboxes = ids_to_bboxes(root)
     for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
