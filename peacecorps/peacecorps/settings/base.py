@@ -134,5 +134,9 @@ LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 # (overwritten in admin settings)
 SIRTREVOR = False
 
+# Sir Trevor image storage and processing:
+SIRTREVOR_UPLOAD_PATH = "attachments/"
+SIRTREVOR_ATTACHMENT_PROCESSOR = 'peacecorps.utils.image_sizes'
+
 # Used when generating tweets
 SHARE_TEMPLATE = "I just donated to a great cause! %s"
