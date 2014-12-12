@@ -1,9 +1,10 @@
+import json
 from urllib.parse import quote as urlquote
 
 from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
 
-from peacecorps.models import Account, Campaign, Country, Media, Project
+from peacecorps.models import Account, Campaign, Country, FAQ, Media, Project
 from peacecorps.views import humanize_amount
 
 
@@ -176,7 +177,7 @@ class DonatePagesTests(TestCase):
         """If a project is funded, its overflow code should be used"""
         account = Account.objects.create(
             name='Full', code='FULL', goal=500, current=500,
-              community_contribution=0)
+            community_contribution=0)
         overflow = Account.objects.create(name='Overflow', code='OVERFLOW')
         project = Project.objects.create(
             country=Country.objects.get(name='China'), account=account,
@@ -269,3 +270,22 @@ class DonatePagesTests(TestCase):
         response = self.client.get(url, HTTP_HOST='example.com')
         self.assertContains(response, 'Thank you, Billy')
         self.assertContains(response, urlquote('http://example.com/'))
+
+
+class FAQTests(TestCase):
+    def answer(self, value):
+        return json.dumps({"data": [{
+            "type": "text", "data": {"text": value}}]})
+
+    def test_presence(self):
+        FAQ.objects.create(question="Q1Q1Q1", answer=self.answer("A1A1A1"))
+        FAQ.objects.create(question="Q2Q2Q2", answer=self.answer("A2A2A2"))
+        FAQ.objects.create(question="Q3Q3Q3", answer=self.answer("A3A3A3"))
+        response = self.client.get(reverse('donate faqs'))
+        self.assertContains(response, 'Q1Q1Q1')
+        self.assertContains(response, 'Q2Q2Q2')
+        self.assertContains(response, 'Q3Q3Q3')
+        self.assertContains(response, 'A1A1A1')
+        self.assertContains(response, 'A2A2A2')
+        self.assertContains(response, 'A3A3A3')
+        FAQ.objects.all().delete()
