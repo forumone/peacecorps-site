@@ -9,6 +9,14 @@
 
 .grid {};
 
+.grid--80 {
+  @include span-columns(8);
+}
+
+.grid--20 {
+  @include span-columns(4);
+}
+
 .grid--60 {
   @include span-columns(7);
 
@@ -48,3 +56,6 @@
   }
 }
 
+.grid__contain {
+  width: 100%
+}

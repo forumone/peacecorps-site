@@ -66,6 +66,7 @@ if apps.is_installed('paygov'):
     urlpatterns += patterns(
         '', url(r'^callback/', include('paygov.urls', namespace='paygov')))
 
+print(apps.is_installed('contenteditor'))
 if apps.is_installed('contenteditor'):
     urlpatterns += patterns(
         '', url(r'^admin/', include('contenteditor.urls')))

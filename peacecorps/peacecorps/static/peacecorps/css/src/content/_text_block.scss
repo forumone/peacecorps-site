@@ -9,3 +9,7 @@
   margin-top: 3em;
   margin-bottom: 3em;
 }
+
+h1 + .text-block, h2 + .text-block, h3 + .text-block {
+  margin-top: 0;
+}
