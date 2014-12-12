@@ -1,0 +1,48 @@
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment.\n"}}]}', order: 2, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 1
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment.\n"}}]}', order: 1, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 2
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment\n"}}]}', order: 3, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 3
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment.\n"}}]}', order: 4, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 4
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment.\n"}}]}', order: 5, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 5
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
+      NGO works with women living in Shirak Marz to overcome psychological and economic
+      hardship. Towards this end, the NGO gives them the tools to identify and solve
+      their communities'' problems. As in many places around the world, this region
+      has high unemployment.\n"}}]}', order: 6, question: 'Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod?'}
+  model: peacecorps.faq
+  pk: 6

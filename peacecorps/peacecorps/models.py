@@ -359,3 +359,15 @@ class Vignette(models.Model):
                 {'type': 'text', 'data': {
                     'text': 'Missing Vignette `' + slug + '`'}}]}))
         return vig
+
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=256)
+    answer = BraveSirTrevorField()
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    class Meta(object):
+        ordering = ('order', )
+
+    def __str__(self):
+        return self.question
