@@ -64,7 +64,8 @@
 
 // Centers a block element horizontally.
 .u-h_center--block {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .u-v_center--block {

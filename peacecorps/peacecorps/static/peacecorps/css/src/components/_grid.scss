@@ -11,10 +11,18 @@
 
 .grid--80 {
   @include span-columns(8);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
 }
 
 .grid--20 {
   @include span-columns(4);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
 }
 
 .grid--60 {

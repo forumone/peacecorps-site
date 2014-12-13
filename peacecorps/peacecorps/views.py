@@ -152,7 +152,8 @@ def donate_projects_funds(request):
         {
             'countries': countries,
             'issues': issues,
-            'projects': projects
+            'projects': projects,
+            'humanize_amount': humanize_amount,
         })
 
 
