@@ -99,7 +99,8 @@
 
 {% macro render_campaign(campaign, issue) -%}
   {# TODO find way to link to media urls #}
-  <aside class="grid--20 section__content--contain section__content--no_space_r">
+  <aside class="grid--20 sm-hide
+      section__content--contain section__content--no_space_r">
     <img class="u-pullr"
       class="section__content--no_space_r"
       style="width: 42%;"
@@ -117,7 +118,8 @@
 {%- endmacro %}
 
 {% macro render_country_campaign(campaign) -%}
-  <aside class="grid--20 section__content--contain section__content--no_space_r">
+  <aside class="grid--20 sm-hide
+      section__content--contain section__content--no_space_r">
     <div class="u-pullr"
         class="section__content--no_space_r"
         style="width: 50%;">
@@ -151,15 +153,15 @@
         id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
     <aside class="grid--20 u-clearfix
         section__content--contain section__content--no_space_r">
-      <div class="u-pullr clearfix" style="width: 55%;">
+      <div class="column column--r clearfix">
         <div class="mask mask--oval mask--gray-1 mask--bordered
-             u-clearfix u-h_center--block l-bm--1"
+             u-clearfix u-h_center--block l-bm--1 column__element"
              style="width: 12em; height: 12em;">
           <img class="mask__content" style="width: 100%;"
                src="{{ project.volunteerpicture.url }}"
                alt="{{ project.volunteername }}" />
         </div>
-        <div class="u-h_center--block
+        <div class="u-h_center--block column__element
               section__content--no_space_r">
           {{ country_map(project.country.code) }}
         </div>
