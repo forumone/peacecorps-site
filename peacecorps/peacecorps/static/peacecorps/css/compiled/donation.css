@@ -357,7 +357,7 @@ body {
   color: #A12122; }
 
 .t--secondary {
-  color: #05888C; }
+  color: #087A7E; }
 
 .t--white, .full_banner--support {
   color: #fff; }
@@ -596,7 +596,7 @@ p + p {
  */
 .banner {
   border-top: .8em solid;
-  padding: .5em 3em;
+  padding: 1em 3em;
   width: 100%; }
 
 .banner--primary {
@@ -604,9 +604,12 @@ p + p {
   background: #E5E1D4; }
 
 .banner--secondary {
-  border-color: #05888C;
-  background-color: #08ADB5;
+  border-color: #F2EFE8;
+  background-color: #087A7E;
   color: #fff; }
+
+.banner--no_line {
+  border-top: none; }
 
 /*
  * layout/Blurb
@@ -1194,8 +1197,8 @@ body {
     text-decoration: none; }
 
 /*
- * Mask
- */
+* Mask
+*/
 /*
  * Global variables
  */
@@ -1231,7 +1234,7 @@ body {
   border-radius: 50%; }
 
 .mask--bordered {
-  border: 3px solid #E5E1D4; }
+  border: 0.25em solid #E5E1D4; }
 
 .mask--gray-1 {
   border-color: #888; }
@@ -1330,7 +1333,8 @@ body {
     top: 50%; }
 
 .u-h_center--block {
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .u-v_center--block {
   position: relative; }
@@ -1373,10 +1377,23 @@ body {
 
 .rectangular_progress {
   height: 15em;
-  margin: 0 auto;
   position: relative;
   text-align: left;
   width: 100%; }
+
+.rectangular_progress--mini {
+  height: 10em;
+  width: 70%; }
+  .rectangular_progress--mini .rectangular_progress__point {
+    top: 5%; }
+  .rectangular_progress--mini .rectangular_progress__point--bottom {
+    top: auto; }
+  .rectangular_progress--mini .rectangular_progress__line {
+    height: .5em;
+    top: 24.5%; }
+  .rectangular_progress--mini .rectangular_progress__line--bottom {
+    bottom: 25.5%;
+    top: auto; }
 
 .rectangular_progress__bar {
   background-color: #E5E1D4;
@@ -1421,7 +1438,7 @@ body {
       bottom: 17%; } }
 
 .rectangular_progress__line {
-  background-color: #05888C;
+  background-color: #087A7E;
   display: block;
   height: .7em;
   margin-left: -.32%;
@@ -1439,7 +1456,7 @@ body {
 .rectangular_progress--secondary {
   color: #555; }
   .rectangular_progress--secondary .rectangular_progress__filled {
-    background-color: #05888C; }
+    background-color: #087A7E; }
 
 /*
  * Section
@@ -1495,6 +1512,9 @@ body {
 
 .section__content--contain {
   padding: 2.5em; }
+
+.section__content--no_space_r {
+  padding-right: 0; }
 
 .section__content--contain--sm {
   padding: .5em 1.5em; }
@@ -1587,7 +1607,8 @@ body {
     top: 50%; }
 
 .u-h_center--block {
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .u-v_center--block {
   position: relative; }
@@ -1969,6 +1990,9 @@ body {
   margin-top: 3em;
   margin-bottom: 3em; }
 
+div + .text-block {
+  margin-top: -3em; }
+
 h1 + .text-block, h2 + .text-block, h3 + .text-block {
   margin-top: 0; }
 
@@ -2040,7 +2064,8 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
     top: 50%; }
 
 .u-h_center--block {
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .u-v_center--block {
   position: relative; }

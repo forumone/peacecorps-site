@@ -10,6 +10,11 @@
   margin-bottom: 3em;
 }
 
+div + .text-block {
+  // TODO investigate solution for removing bottom margin here.
+  margin-top: -3em;
+}
+
 h1 + .text-block, h2 + .text-block, h3 + .text-block {
   margin-top: 0;
 }

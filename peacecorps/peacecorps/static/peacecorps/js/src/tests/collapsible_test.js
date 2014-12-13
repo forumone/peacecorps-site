@@ -39,6 +39,23 @@ test('init', function(t) {
 
     t.end();
   });
+  t.test('should set the hideControls to option passed in', function(t) {
+    var $testEl,
+        actual,
+        testCollapsible;
+
+    $testEl = $('<div></div>');
+    testCollapsible = new Collapsible($testEl, $('<div>'), {
+      hideControls: true
+    });
+
+    actual = testCollapsible.hideControls;
+
+    t.equals(actual, true, 'Sets the hideControls attr to true');
+
+    t.end();
+
+  });
   t.test('should set the $controls to the one passed in', function(t) {
     var $testEl,
         $expected,
@@ -73,10 +90,6 @@ test('init', function(t) {
 });
 
 test('render', function(t) {
-  //t.test('should hide all other collapsible elements', function(t) {
-
-  //  t.end();
-  //});
   t.test('should hide the element', function(t) {
     var $testEl,
         actual,
@@ -89,6 +102,23 @@ test('render', function(t) {
     actual = testCollapsible.$el.attr('aria-hidden');
 
     t.equals(actual, 'true', 'Element has the hidden class');
+
+    t.end();
+  });
+  t.test('should hide controls if option set', function(t) {
+    var $testEl,
+        actual,
+        testCollapsible;
+
+    $testEl = $('<div></div>');
+    testCollapsible = new Collapsible($('<div></div>'), $testEl, {
+      hideControls: true
+    });
+    testCollapsible.render();
+
+    actual = testCollapsible.$control.attr('aria-hidden');
+
+    t.equals(actual, 'true', 'Element is hidden');
 
     t.end();
   });

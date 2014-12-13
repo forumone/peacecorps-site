@@ -11,7 +11,7 @@
 
 .banner {
   border-top: .8em solid;
-  padding: .5em 3em;
+  padding: 1em 3em;
   width: 100%;
 }
 
@@ -21,7 +21,11 @@
 }
 
 .banner--secondary {
-  border-color: $secondary;
-  background-color: $secondary-light;
+  border-color: $neutral_medium;
+  background-color: $secondary;
   color: $white;
+}
+
+.banner--no_line {
+  border-top: none;
 }

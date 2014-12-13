@@ -92,7 +92,9 @@ $().ready(function() {
           id = $(this).attr('id'),
           $control = $('[aria-controls="'+ id +'"]');
 
-      collapsible = new Collapsible($(this), $control);
+      collapsible = new Collapsible($(this), $control, {
+        hideControls: true
+      });
       collapsible.render();
     });
   }

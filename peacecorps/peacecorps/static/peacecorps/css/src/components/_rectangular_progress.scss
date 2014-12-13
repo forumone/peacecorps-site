@@ -12,10 +12,29 @@
 .rectangular_progress {
   @extend .u-hv_center--block;
   height: 15em;
-  margin: 0 auto;
   position: relative;
   text-align: left;
   width: 100%;
+}
+
+.rectangular_progress--mini {
+  height: 10em;
+  width: 70%;
+
+  .rectangular_progress__point {
+    top: 5%;
+  }
+  .rectangular_progress__point--bottom {
+    top: auto;
+  }
+  .rectangular_progress__line {
+    height: .5em;
+    top: 24.5%;
+  }
+  .rectangular_progress__line--bottom {
+    bottom: 25.5%;
+    top: auto;
+  }
 }
 
 .rectangular_progress__bar {
