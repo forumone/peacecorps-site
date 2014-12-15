@@ -85,6 +85,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ['account', 'title', 'country', 'volunteername']
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('campaigns',)
+    search_fields = ['account__code', 'volunteername', 'country__name', 'title']
     raw_id_fields = ['account', 'overflow',
                     'volunteerpicture', 'featured_image']
     exclude = ['media']
