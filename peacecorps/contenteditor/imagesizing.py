@@ -1,18 +1,16 @@
-from PIL import Image
-from django.core.files.uploadedfile import SimpleUploadedFile
-
 from django.conf import settings
-import pdb
+from PIL import Image
 
-def image_sizes(file_):
+
+def resize(file_):
 
     def resize(image, size, ext, filename):
         image.thumbnail(size, Image.ANTIALIAS)
 
         path = settings.MEDIA_ROOT + settings.SIRTREVOR_UPLOAD_PATH
 
-        image.save(path+filename+'-'+ext+'.'+ image.format.lower(),
-            image.format)
+        image.save(path+filename + '-' + ext + '.' + image.format.lower(),
+                   image.format)
         return None
 
     filename = file_.name.split('.')[0]
@@ -29,4 +27,3 @@ def image_sizes(file_):
     resize(im, thm, 'thm', filename)
 
     return file_
-
