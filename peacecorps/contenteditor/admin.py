@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
+from django.forms import TextInput
+from django.db.models import CharField
+
 from peacecorps import models
 from .forms import (
     LoggingAuthenticationForm, StrictAdminPasswordChangeForm,
@@ -13,9 +16,43 @@ class StrictUserAdmin(UserAdmin):
     change_password_form = StrictAdminPasswordChangeForm
 
 
+class AccountAdmin(admin.ModelAdmin):
+    list_display = ['code', 'name']
+    search_fields = ['code', 'name']  
+
+
 class CampaignAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        CharField: {'widget': TextInput(attrs={'size':'80'})},
+    }
+
+    fieldsets = (
+        ('Info', {
+            'fields': ['account', 'name', ('campaigntype', 'country')]
+            }),
+        ('Images', {
+            'fields': [('icon', 'featured_image')]
+        }),
+        ('Text', {
+            'fields': ['tagline', 'call','slug', 'description']
+        }),
+        ('Projects', {
+            'fields': ['featuredprojects'],
+            'description': """<h4>Add projects that you want to appear on this \
+                                campaign's page.</h4>"""
+        }),
+    )
+
     prepopulated_fields = {"slug": ("name",)}
     list_display = ['account', 'name']
+    list_filter = ['campaigntype']
+    search_fields = ['account__code', 'name', 'country__name']
+    raw_id_fields = ['account', 'icon', 'featured_image', 'country']
+    filter_horizontal = ['featuredprojects']
+
+
+class FeaturedCampaignAdmin(admin.ModelAdmin):
+    raw_id_fields = ['campaign']
 
 
 class AccountInline(admin.StackedInline):
@@ -41,11 +78,11 @@ class VignetteAdmin(admin.ModelAdmin):
         return False
 
 
+admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
-admin.site.register(models.FeaturedCampaign)
+admin.site.register(models.FeaturedCampaign, FeaturedCampaignAdmin)
 admin.site.register(models.FeaturedProjectFrontPage)
-admin.site.register(models.Account)
 admin.site.register(models.Media)
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Vignette, VignetteAdmin)

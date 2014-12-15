@@ -173,7 +173,8 @@ class FeaturedCampaign(models.Model):
         super(FeaturedCampaign, self).save()
 
     def __str__(self):
-        return '%s (Featured)' % (self.campaign.name)
+        return '%s: %s (Featured)' % (self.campaign.account_id,
+                                        self.campaign.name)
 
 
 class FeaturedProjectFrontPage(models.Model):
