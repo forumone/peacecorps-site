@@ -13,6 +13,10 @@
   border-top: .8em solid;
   padding: 1em 3em;
   width: 100%;
+
+  @include media($sm) {
+    padding: 1em;
+  }
 }
 
 .banner--primary {

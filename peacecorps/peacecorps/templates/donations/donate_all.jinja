@@ -48,6 +48,7 @@
           u-clearfix
           bordered--row
           bordered--white">
+        {{ render_project_header(project, 'issue') }}
         {{ render_project(project, 'issue') }}
       </li>
     {% endfor %}
@@ -60,6 +61,7 @@
           u-clearfix
           bordered--row
           bordered--white">
+      {{ render_volunteer_project_header(project, 'volunteer') }}
       {{ render_project(project, 'volunteer') }}
     </li>
   {% endfor %}
@@ -79,6 +81,7 @@
           u-clearfix
           bordered--row
           bordered--white">
+        {{ render_project_header(project, 'country') }}
         {{ render_project(project, 'country') }}
       </li>
     {% endfor %}
@@ -137,18 +140,46 @@
   </article>
 {%- endmacro %}
 
+{% macro render_project_header(project, ptype) -%}
+  <a aria-expanded="false" href="#"
+     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
+     class="js-collapsibleControls">
+    <header>
+        {# TODO fix empty element #}
+        <div class="grid--20" style="height: 1em;"></div>
+        <h3 class="t-heading--3 t--gray--2 grid--80
+            section__content--contain--sm">
+          {{ project.title }}</h3>
+    </header>
+  </a>
+{%- endmacro %}
+
+{% macro render_volunteer_project_header(project, ptype) -%}
+  <a aria-expanded="false" href="#"
+     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
+     class="js-collapsibleControls">
+    <aside class="grid--20 sm-hide
+        section__content--contain--sm section__content--no_space_r">
+      <div class="mask mask--oval mask--gray-1 mask--bordered
+           u-clearfix section__content--no_space_r u-pullr"
+           style="width: 5em; height: 5em;">
+        <img class="u-pullr"
+          class="mask__content"
+          style="width: 100%;"
+          src="{{ project.volunteerpicture }}"
+          alt="{{ project.volunteername }}" />
+      </div>
+    </aside>
+    <header class="grid--80 section__content--contain--sm grid__last">
+        <h3 class="t-heading--3 t--gray--2">
+          {{ project.volunteername }}</h3>
+        <h4 class="t-heading--4 t--gray--2">
+          {{ project.title }} </h4>
+    </header>
+  </a>
+{%- endmacro %}
+
 {% macro render_project(project, ptype) -%}
-  <header>
-    <a aria-expanded="false" href="#"
-       aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-       class="js-collapsibleControls">
-      {# TODO fix empty element #}
-      <div class="grid--20" style="height: 1em;"></div>
-      <h3 class="t-heading--3 t--gray--2 grid--80
-          section__content--contain--sm">
-        {{ project.title }}</h3>
-    </a>
-  </header>
   <article class="js-collapsibleItem"
         id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
     <aside class="grid--20 u-clearfix
