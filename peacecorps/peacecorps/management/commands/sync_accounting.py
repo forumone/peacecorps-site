@@ -81,7 +81,9 @@ def create_campaign(account, row, name, acc_type):
     account.save()
     campaign = Campaign.objects.create(
         name=name, account=account, campaigntype=acc_type,
-        description=row['SUMMARY'], country=country)
+        description=json.dumps({"data": [{"type": "text",
+                                          "data": {"text": row['SUMMARY']}}]}),
+        country=country)
     if acc_type == Account.SECTOR:
         # Make sure we remember the sector this is marked as
         SectorMapping.objects.create(pk=row['SECTOR'], campaign=campaign)

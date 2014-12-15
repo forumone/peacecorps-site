@@ -217,7 +217,7 @@ class SyncAccountingTests(TestCase):
 
     def test_create_campaign(self):
         """Verify that country funds have the correct country, and other funds
-        have none"""
+        have none. Also verify summary is json"""
         acc1 = Account.objects.create(name='acc1', code='111-111')
         row = {'PROJ_NAME1': 'China Fund', 'PROJ_NO': 'CFD-111',
                'LOCATION': 'CHINA', 'SUMMARY': 'Ssssss'}
@@ -232,6 +232,9 @@ class SyncAccountingTests(TestCase):
                              Account.MEMORIAL)
         campaign = Campaign.objects.filter(name='Smith Memorial Fund').first()
         self.assertEqual(None, campaign.country)
+        self.assertEqual(
+            {"data": [{"type": "text", "data": {"text": "Ssssss"}}]},
+            json.loads(campaign.description))
         acc1.delete()
         acc2.delete()
 
