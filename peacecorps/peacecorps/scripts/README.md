@@ -34,5 +34,5 @@ Similar to the above script, but zooms in to a particular area instead of a
 single country.
 
 ```bash
-python croptoview.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecorps/img/countries/esc.svg 725 550 125 125
+python croptoview.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecorps/img/countries/esc.svg 700 560 125 125
 ```

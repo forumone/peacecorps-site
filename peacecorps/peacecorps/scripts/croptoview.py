@@ -6,7 +6,7 @@ from lxml import etree
 from cropmap import ids_to_bboxes, crop_to
 
 
-def cropto(map_path, out_path, coords):
+def croptoview(map_path, out_path, coords):
     """Crops the provided map to the given viewbox"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     doc = etree.parse(map_path)
@@ -22,6 +22,6 @@ def cropto(map_path, out_path, coords):
 if __name__ == "__main__":
     if len(sys.argv) < 7:
         print("Usage: python croptoview.py /path/to/insvg /path/to/outsvg"
-              + "[view coords as floats]")
+              + " [view coords]")
     else:
-        cropto(sys.argv[1], sys.argv[2], sys.argv[3:])
+        croptoview(sys.argv[1], sys.argv[2], sys.argv[3:])
