@@ -7,8 +7,8 @@ import itertools
 import logging
 import os
 import sys
-import xml.etree.ElementTree as ET
 
+from lxml import etree
 import svg
 
 
@@ -40,13 +40,11 @@ def zoom_with_context(doc, el_id):
 
     factor = 1 + (2 * margin)
     zoomPercent = factor * bndWidth / svgWidth
-    if zoomPercent < 0.05:
-        root.set('class', root.get('class') + ' zoom4')
-    elif zoomPercent < 0.1:
-        root.set('class', root.get('class') + ' zoom3')
-    elif zoomPercent < 0.2:
-        root.set('class', root.get('class') + ' zoom2')
-    else:
+    thresholds = [0.2 / (2**i) for i in range(5)]
+    for idx, threshold in enumerate(reversed(thresholds)):
+        if zoomPercent < threshold:
+            root.set('class', root.get('class') + ' zoom%d' % (6-idx))
+    if zoomPercent >= 0.2:
         root.set('class', root.get('class') + ' zoom1')
 
     root.set('viewBox', '%d %d %d %d' % (
@@ -72,16 +70,15 @@ def crop_to(doc, bboxes):
     for key, bbox in bboxes.items():
         if not overlaps(left, top, right, bottom,
                         bbox[0].x, bbox[0].y, bbox[1].x, bbox[1].y):
-            parent = root.find(".//*[@id='%s']/.." % key)
-            parent.remove(parent.find("./*[@id='%s']" % key))
+            element = root.find(".//*[@id='%s']" % key)
+            element.getparent().remove(element)
     # Delete any groups which no longer have children. We run this five times
     # to account for nesting
     for _ in range(5):
-        for parent in root.iterfind(".//svg:g/..", namespaces):
-            for child in parent.iterfind("svg:g", namespaces):
-                if len(child) == 0 or (len(child) == 1
-                                       and child[0].tag.endswith('title')):
-                    parent.remove(child)
+        for group in root.iterfind(".//svg:g", namespaces):
+            if len(group) == 0 or (len(group) == 1
+                                   and group[0].tag.endswith('title')):
+                group.getparent().remove(group)
 
 
 def ids_to_bboxes(root):
@@ -89,24 +86,34 @@ def ids_to_bboxes(root):
     box"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     mapping = {}
-    for path in itertools.chain(
-            root.iterfind(".//svg:path[@id]", namespaces),
-            root.iterfind(".//svg:circle[@id]", namespaces)):
+    for path in root.iterfind(".//svg:path[@id]", namespaces):
         mapping[path.get('id')] = bbox(path)
     return mapping
 
 
-def bbox(svg_el):
+def bbox(xml_el):
     """Bounding box for this svg element. Accounts for transformations"""
-    if svg_el.tag.endswith("path"):
-        return svg.Path(svg_el).bbox()
-    elif svg_el.tag.endswith("circle"):
-        return svg.Circle(svg_el).bbox()
+    if xml_el.tag.endswith("path"):
+        svg_el = svg.Path(xml_el)
     else:
-        group = svg.Group(svg_el)
-        group.append(svg_el)
-        group.transform()
-        return group.bbox()
+        svg_el = svg.Group(xml_el)
+        svg_el.append(xml_el)
+        svg_el.transform()
+        return svg_el.bbox()
+
+    top_el = svg_el
+    ancestor = xml_el.getparent()
+    while ancestor is not None:
+        if ancestor.tag.endswith("g"):
+            new_top = svg.Group(ancestor)
+            new_top.items.append(top_el)
+            top_el.matrix = new_top.matrix * top_el.matrix
+            top_el = new_top
+        ancestor = ancestor.getparent()
+
+    if top_el != svg_el:
+        top_el.transform()
+    return top_el.bbox()
 
 
 def country_code(xml_el, namespaces):
@@ -128,12 +135,15 @@ def cropmap(map_path, outputdir):
     """For each country in the map, create a new map file zoomed to that
     highlighted country"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
-    doc = ET.parse(map_path)
+    doc = etree.parse(map_path)
     root = doc.getroot()
+    # Remove all circles
+    for xml_el in root.iterfind(".//svg:circle", namespaces):
+        xml_el.getparent().remove(xml_el)
     bboxes = ids_to_bboxes(root)
     for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
                                   root.iterfind("svg:g", namespaces)):
-        if "landxx" in xml_el.get('class', ''):   # skip the ocean paths
+        if "oceanxx" not in xml_el.get('class', ''):   # skip the ocean paths
             code = country_code(xml_el, namespaces)
             copy_doc = copy.deepcopy(doc)
             highlight(copy_doc, xml_el.get('id'))
