@@ -128,6 +128,11 @@ h4 + h3 {
   @include font-size(1.6);
   @include rem(margin, 1rem 0);
 }
+.t-body--xsm {
+  @extend .t-body;
+  @include font-size(1);
+  @include rem(margin, .9rem 0);
+}
 p, span, button {
   @extend .t-body--md;
 }

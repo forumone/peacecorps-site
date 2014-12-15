@@ -91,6 +91,7 @@ def donate_landing(request):
         request,
         'donations/donate_landing.jinja',
         {
+            'title': 'Donate',
             'top_vignette': Vignette.for_slug('donate_landing_top'),
             'bottom_vignette': Vignette.for_slug('donate_landing_bottom'),
             'featuredcampaign': featuredcampaign,
@@ -128,6 +129,7 @@ def donate_project(request, slug):
         request,
         'donations/donate_project.jinja',
         {
+            'title': project.title,
             'project': project,
             'account': project.account,
             'donate_form': form,

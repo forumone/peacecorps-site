@@ -23,6 +23,17 @@
   }
 }
 
+.u-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.u-block--at_sm {
+  @include media($sm) {
+    display: block;
+  }
+}
+
 // Classic clearfix
 .u-clearfix:after {
   visibility: hidden;
