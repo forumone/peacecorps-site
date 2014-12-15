@@ -18,24 +18,26 @@
 }
 
 .rectangular_progress--mini {
-  @include media($md, $lg) {
-    height: 10em;
-    width: 70%;
+  width: 70%;
+  height: 10em;
 
-    .rectangular_progress__point {
-      top: 5%;
-    }
-    .rectangular_progress__point--bottom {
-      top: auto;
-    }
-    .rectangular_progress__line {
-      height: .5em;
-      top: 24.5%;
-    }
-    .rectangular_progress__line--bottom {
-      bottom: 25.5%;
-      top: auto;
-    }
+  @include media($sm, $md) {
+    width: 100%;
+  }
+
+  .rectangular_progress__point {
+    top: 5%;
+  }
+  .rectangular_progress__point--bottom {
+    top: auto;
+  }
+  .rectangular_progress__line {
+    height: .5em;
+    top: 24.5%;
+  }
+  .rectangular_progress__line--bottom {
+    bottom: 25.5%;
+    top: auto;
   }
 }
 
@@ -60,13 +62,13 @@
   width: 40%;
 
   @include media($md) {
-    font-size: 80%;
+    font-size: 85%;
     margin-left: -30%;
     width: 60%;
   }
   @include media($sm) {
     // TODO don't breakpoint font size here.
-    font-size: 75%;
+    font-size: 80%;
     margin-left: -30%;
     width: 60%;
     top: 17%;
