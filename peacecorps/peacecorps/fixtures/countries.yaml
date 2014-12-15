@@ -571,3 +571,6 @@
 - fields: {code: GMB, name: Gambia}
   model: peacecorps.country
   pk: 191
+- fields: {code: KOS, name: Kosovo}
+  model: peacecorps.country
+  pk: 192

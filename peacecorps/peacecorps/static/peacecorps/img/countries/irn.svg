@@ -8,10 +8,7 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected.circlexx {
-  opacity:1;
-}
-.world_map .world_map-is_selected.landxx {
+.world_map .world_map-is_selected {
   fill: #C94112 !important;
 }
 .world_map .landxx {
@@ -62,7 +59,6 @@
 .circlexx
 {
    opacity:0;
-   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
