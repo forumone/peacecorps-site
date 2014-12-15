@@ -163,7 +163,7 @@ class Country(models.Model):
 
 
 class FeaturedCampaign(models.Model):
-    campaign = models.ForeignKey('Campaign')
+    campaign = models.ForeignKey('Campaign', to_field='account')
 
     # Much like the Highlander, there can be only one.
     def save(self):
@@ -173,11 +173,12 @@ class FeaturedCampaign(models.Model):
         super(FeaturedCampaign, self).save()
 
     def __str__(self):
-        return '%s (Featured)' % (self.campaign.name)
+        return '%s: %s (Featured)' % (self.campaign.account_id,
+                                        self.campaign.name)
 
 
 class FeaturedProjectFrontPage(models.Model):
-    project = models.ForeignKey('Project',
+    project = models.ForeignKey('Project', to_field='account',
                                 limit_choices_to={'published': True})
 
     def __str__(self):
@@ -234,7 +235,7 @@ class Project(models.Model):
     country = models.ForeignKey('Country', related_name="projects")
     campaigns = models.ManyToManyField(
         'Campaign',
-        help_text="Campaigns to which this project belongs",
+        help_text="The campaigns to which this project belongs.",
         blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media', null=True, blank=True,
@@ -243,7 +244,9 @@ class Project(models.Model):
         'Media', related_name="projects", blank=True, null=True)
     account = models.ForeignKey('Account', to_field='code', unique=True)
     overflow = models.ForeignKey(
-        'Account', related_name="overflow", blank=True, null=True)
+        'Account', related_name="overflow", blank=True, null=True,
+        help_text="""Select another fund to which users will be directed to
+                    donate if the project is already funded.""")
     volunteername = models.CharField(max_length=100)
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)

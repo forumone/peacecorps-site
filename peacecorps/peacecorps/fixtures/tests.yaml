@@ -295,7 +295,7 @@
   model: peacecorps.account
   pk: 75
 - fields: {category: oth, code: pc-general, community_contribution: null, current: 576000,
-    goal: 680222, name: General}
+    goal: null, name: General}
   model: peacecorps.account
   pk: 76
 - fields: {category: proj, code: 15-680-003, community_contribution: 500200, current: 32500,
@@ -1642,25 +1642,25 @@
   pk: 76
 - fields:
     account: DCC-0123
-    call: null
+    call: ''
     campaigntype: mem
     country: null
-    description: '{"data": [{"type": "text", "data": {"text": "<p>The Stephanie Brown
-      Memorial Fund was established to honor the memory and service of Stephanie Brown,
-      who volunteered with the Peace Corps for two years in Cameroon before returning
+    description: '{"data":[{"type":"text","data":{"text":"The Stephanie Brown Memorial
+      Fund was established to honor the memory and service of Stephanie Brown, who
+      volunteered with the Peace Corps for two years in Cameroon before returning
       to New York. This fund, established with a generous grant from the Thomas and
       Martha Wayne Foundation, enables those inspired by Stephanie''s story to contribute
-      to ongoing work in her memory.</p>\r\n<p>All contributions to the Stephanie
-      Brown Memorial Fund go towards community-initiated and volunteer-led projects
-      that support women, such as establishing women''s cooperatives, increasing women''s
-      access to resources and services, exploring gender roles, building shelters,
-      and increasing training programs.&nbsp;</p>"}}]}'
+      to ongoing work in her memory.\n\nAll contributions to the Stephanie Brown Memorial
+      Fund go towards community\\-initiated and volunteer\\-led projects that support
+      women, such as establishing women''s cooperatives, increasing women''s access
+      to resources and services, exploring gender roles, building shelters, and increasing
+      training programs. \n\n"}}]}'
     featured_image: 11
     featuredprojects: []
     icon: null
-    name: Stephanie Brown Memorial Fund
-    slug: stephanie-brown-memorial-fund
-    tagline: null
+    name: Stephanie Brown
+    slug: stephanie-brown
+    tagline: ''
   model: peacecorps.campaign
   pk: 77
 - fields: {code: USA, name: United States}
@@ -2239,19 +2239,19 @@
 - fields: {code: IRN, name: Iran}
   model: peacecorps.country
   pk: 192
-- fields: {campaign: 69}
+- fields: {campaign: SPF-EDU}
   model: peacecorps.featuredcampaign
   pk: 1
-- fields: {project: 11}
+- fields: {project: 14-684-020}
   model: peacecorps.featuredprojectfrontpage
   pk: 4
-- fields: {project: 12}
+- fields: {project: 15-527-002}
   model: peacecorps.featuredprojectfrontpage
   pk: 5
-- fields: {project: 7}
+- fields: {project: 14-524-007}
   model: peacecorps.featuredprojectfrontpage
   pk: 6
-- fields: {project: 107}
+- fields: {project: 14-693-016}
   model: peacecorps.featuredprojectfrontpage
   pk: 7
 - fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
@@ -2374,6 +2374,7 @@
   model: peacecorps.media
   pk: 29
 - fields:
+    abstract: null
     account: 14-680-030
     campaigns: [10, 13, 7]
     country: 20
@@ -2420,6 +2421,7 @@
   model: peacecorps.project
   pk: 6
 - fields:
+    abstract: null
     account: 14-524-007
     campaigns: [12, 13]
     country: 125
@@ -2457,6 +2459,7 @@
   model: peacecorps.project
   pk: 7
 - fields:
+    abstract: null
     account: 14-635-002
     campaigns: [12, 14]
     country: 191
@@ -2497,6 +2500,7 @@
   model: peacecorps.project
   pk: 8
 - fields:
+    abstract: null
     account: 14-497-004
     campaigns: [10, 13, 14]
     country: 79
@@ -2532,6 +2536,7 @@
   model: peacecorps.project
   pk: 9
 - fields:
+    abstract: null
     account: 14-532-001
     campaigns: [12, 14]
     country: 84
@@ -2570,6 +2575,7 @@
   model: peacecorps.project
   pk: 10
 - fields:
+    abstract: null
     account: 14-684-020
     campaigns: [8]
     country: 102
@@ -2601,6 +2607,7 @@
   model: peacecorps.project
   pk: 11
 - fields:
+    abstract: null
     account: 15-527-002
     campaigns: [12, 9]
     country: 136
@@ -2639,6 +2646,7 @@
   model: peacecorps.project
   pk: 12
 - fields:
+    abstract: null
     account: 15-680-003
     campaigns: [3]
     country: 20
@@ -2679,6 +2687,7 @@
   model: peacecorps.project
   pk: 80
 - fields:
+    abstract: null
     account: 15-680-002
     campaigns: [3]
     country: 20
@@ -2726,6 +2735,7 @@
   model: peacecorps.project
   pk: 81
 - fields:
+    abstract: null
     account: 14-637-002
     campaigns: [6]
     country: 24
@@ -2773,6 +2783,7 @@
   model: peacecorps.project
   pk: 82
 - fields:
+    abstract: null
     account: 14-303-021
     campaigns: [8]
     country: 32
@@ -2825,6 +2836,7 @@
   model: peacecorps.project
   pk: 83
 - fields:
+    abstract: null
     account: 14-641-010
     campaigns: [19]
     country: 66
@@ -2856,6 +2868,7 @@
   model: peacecorps.project
   pk: 84
 - fields:
+    abstract: null
     account: 15-520-001
     campaigns: [20]
     country: 69
@@ -2901,6 +2914,7 @@
   model: peacecorps.project
   pk: 85
 - fields:
+    abstract: null
     account: 14-684-009
     campaigns: [29]
     country: 102
@@ -2942,6 +2956,7 @@
   model: peacecorps.project
   pk: 86
 - fields:
+    abstract: null
     account: 15-684-003
     campaigns: [29]
     country: 102
@@ -2985,6 +3000,7 @@
   model: peacecorps.project
   pk: 87
 - fields:
+    abstract: null
     account: 15-261-002
     campaigns: [33]
     country: 113
@@ -3030,6 +3046,7 @@
   model: peacecorps.project
   pk: 88
 - fields:
+    abstract: null
     account: 15-261-001
     campaigns: [33]
     country: 113
@@ -3070,6 +3087,7 @@
   model: peacecorps.project
   pk: 89
 - fields:
+    abstract: null
     account: 15-378-007
     campaigns: [35]
     country: 117
@@ -3105,6 +3123,7 @@
   model: peacecorps.project
   pk: 90
 - fields:
+    abstract: null
     account: 15-378-006
     campaigns: [35]
     country: 117
@@ -3152,6 +3171,7 @@
   model: peacecorps.project
   pk: 91
 - fields:
+    abstract: null
     account: 15-378-003
     campaigns: [35]
     country: 117
@@ -3201,6 +3221,7 @@
   model: peacecorps.project
   pk: 92
 - fields:
+    abstract: null
     account: 15-640-004
     campaigns: [36]
     country: 118
@@ -3241,6 +3262,7 @@
   model: peacecorps.project
   pk: 93
 - fields:
+    abstract: null
     account: 15-640-002
     campaigns: [36]
     country: 118
@@ -3281,6 +3303,7 @@
   model: peacecorps.project
   pk: 94
 - fields:
+    abstract: null
     account: 15-524-005
     campaigns: [39]
     country: 125
@@ -3337,6 +3360,7 @@
   model: peacecorps.project
   pk: 95
 - fields:
+    abstract: null
     account: 15-524-002
     campaigns: [39]
     country: 125
@@ -3410,6 +3434,7 @@
   model: peacecorps.project
   pk: 96
 - fields:
+    abstract: null
     account: 15-525-001
     campaigns: [40]
     country: 133
@@ -3452,6 +3477,7 @@
   model: peacecorps.project
   pk: 98
 - fields:
+    abstract: null
     account: 15-525-003
     campaigns: [40]
     country: 133
@@ -3499,6 +3525,7 @@
   model: peacecorps.project
   pk: 99
 - fields:
+    abstract: null
     account: 15-526-001
     campaigns: [41]
     country: 135
@@ -3538,6 +3565,7 @@
   model: peacecorps.project
   pk: 100
 - fields:
+    abstract: null
     account: 14-527-015
     campaigns: [42]
     country: 136
@@ -3588,6 +3616,7 @@
   model: peacecorps.project
   pk: 102
 - fields:
+    abstract: null
     account: 15-527-003
     campaigns: [42]
     country: 136
@@ -3627,6 +3656,7 @@
   model: peacecorps.project
   pk: 103
 - fields:
+    abstract: null
     account: 15-696-001
     campaigns: [44]
     country: 143
@@ -3677,6 +3707,7 @@
   model: peacecorps.project
   pk: 104
 - fields:
+    abstract: null
     account: 14-645-003
     campaigns: [49]
     country: 165
@@ -3751,6 +3782,7 @@
   model: peacecorps.project
   pk: 105
 - fields:
+    abstract: null
     account: 14-693-017
     campaigns: [52]
     country: 172
@@ -3779,6 +3811,7 @@
   model: peacecorps.project
   pk: 106
 - fields:
+    abstract: ''
     account: 14-693-016
     campaigns: [52]
     country: 172
@@ -3788,25 +3821,24 @@
       arcu tortor in neque. Ut scelerisque imperdiet risus non vehicula. Maecenas
       non quam non sem facilisis placerat. Sed ac purus ac metus venenatis semper
       non eget lacus. Ut gravida felis et arcu vehicula, quis condimentum diam tempor.
-      In elementum aliquet mattis.\n"}},{"type":"image","data":{"file":{"type":"image/jpeg","dimensions":[2493,1796],"name":"rubidia-learns-to-read-by-lee-shaver-cc-by-sa.jpg","path":"attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa.jpg","url":"/media/attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa.jpg","size":820328}}},{"type":"text","data":{"text":"Lorem
-      ipsum dolor sit amet, consectetur adipiscing elit. Integer in sapien tempor,
-      faucibus lectus sed, luctus felis. Nam facilisis consectetur metus. Aliquam
-      aliquam tempor justo, vel tincidunt odio. Nulla accumsan suscipit nibh, quis
-      pretium urna ullamcorper vitae. Vestibulum auctor blandit odio sed placerat.
-      Praesent convallis neque ac neque maximus lacinia. Donec varius, neque luctus
-      mollis efficitur, sem sapien feugiat nunc, ut finibus tortor tortor consequat
-      justo. Nullam ultricies odio ut metus tempus, nec venenatis ipsum maximus. Integer
-      in magna quis eros dapibus vehicula. Fusce in congue lectus. Duis sit amet dapibus
-      ante. Phasellus et sollicitudin sem, in dignissim nisl. Quisque dignissim sem
-      ac enim laoreet sodales.\n\nVivamus euismod quis arcu eget sodales. Aliquam
-      et tortor urna. Nam elit risus, iaculis at tempor non, consectetur vitae risus.
-      Nullam non placerat dolor, id ornare felis. Donec sed imperdiet tellus, ut feugiat
-      urna. Nullam ac leo ut odio venenatis lacinia ac at neque. Nulla eget leo at
-      ex hendrerit condimentum. Donec maximus pretium luctus. Morbi lacinia sapien
-      sed ante condimentum, nec molestie nunc posuere. Vivamus finibus felis ac nunc
-      fermentum, ac congue erat accumsan. Vivamus a aliquam turpis, eu condimentum
-      eros. Integer cursus commodo justo, ac tincidunt turpis efficitur ut. Nulla
-      facilisi. Nunc quis auctor lorem, ac fermentum dui.\n\n"}}]}'
+      In elementum aliquet mattis.\n"}},{"type":"text","data":{"text":"Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Integer in sapien tempor, faucibus
+      lectus sed, luctus felis. Nam facilisis consectetur metus. Aliquam aliquam tempor
+      justo, vel tincidunt odio. Nulla accumsan suscipit nibh, quis pretium urna ullamcorper
+      vitae. Vestibulum auctor blandit odio sed placerat. Praesent convallis neque
+      ac neque maximus lacinia. Donec varius, neque luctus mollis efficitur, sem sapien
+      feugiat nunc, ut finibus tortor tortor consequat justo. Nullam ultricies odio
+      ut metus tempus, nec venenatis ipsum maximus. Integer in magna quis eros dapibus
+      vehicula. Fusce in congue lectus. Duis sit amet dapibus ante. Phasellus et sollicitudin
+      sem, in dignissim nisl. Quisque dignissim sem ac enim laoreet sodales.\n\nVivamus
+      euismod quis arcu eget sodales. Aliquam et tortor urna. Nam elit risus, iaculis
+      at tempor non, consectetur vitae risus. Nullam non placerat dolor, id ornare
+      felis. Donec sed imperdiet tellus, ut feugiat urna. Nullam ac leo ut odio venenatis
+      lacinia ac at neque. Nulla eget leo at ex hendrerit condimentum. Donec maximus
+      pretium luctus. Morbi lacinia sapien sed ante condimentum, nec molestie nunc
+      posuere. Vivamus finibus felis ac nunc fermentum, ac congue erat accumsan. Vivamus
+      a aliquam turpis, eu condimentum eros. Integer cursus commodo justo, ac tincidunt
+      turpis efficitur ut. Nulla facilisi. Nunc quis auctor lorem, ac fermentum dui.\n\n"}},{"type":"image","data":{"file":{"name":"rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg","size":820328,"type":"image/jpeg","url":"/media/attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg","path":"attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg"}}}]}'
     featured_image: 10
     media: []
     overflow: null
@@ -3820,3 +3852,18 @@
     volunteerpicture: null
   model: peacecorps.project
   pk: 107
+- fields:
+    campaigns: [69]
+    icon: ./Children-by-Sarah-Rudkin-CC-BY-3_5hvBVba.png
+    name: Education
+  model: peacecorps.issue
+  pk: 1
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"CHANGE?!!!"}}]}', order: 2,
+    question: 'How many python programmers does it take to change a light bulb?'}
+  model: peacecorps.faq
+  pk: 1
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"one to change it, ten
+      to try to do it in fewer lines."}}]}', order: 1, question: 'How many perl devs
+      does it take to change a lightbulb?'}
+  model: peacecorps.faq
+  pk: 2
