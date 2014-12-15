@@ -359,7 +359,7 @@ body {
 .t--secondary {
   color: #087A7E; }
 
-.t--white, .full_banner--support {
+.t--white {
   color: #fff; }
 
 .t--gray, .t-icon {
@@ -413,7 +413,7 @@ h4 + h3 {
  *
  * Default style of <p>, <span>, <button>
  */
-.t-body, .t-body--md, p, span, button, .t-body--sm {
+.t-body, .t-body--md, p, span, button, .t-body--sm, .t-body--xsm {
   line-height: 1.4; }
 
 .t-body--md, p, span, button {
@@ -427,6 +427,12 @@ h4 + h3 {
   font-size: 1.6rem;
   margin: 10px 0;
   margin: 1rem 0; }
+
+.t-body--xsm {
+  font-size: 10px;
+  font-size: 1rem;
+  margin: 9px 0;
+  margin: 0.9rem 0; }
 
 p {
   color: #222;
@@ -611,6 +617,10 @@ p + p {
 .banner--secondary {
   border-color: #F2EFE8;
   background-color: #087A7E;
+  color: #fff; }
+
+.banner--dark_transparent {
+  background-color: rgba(49, 66, 99, 0.9);
   color: #fff; }
 
 .banner--no_line {
@@ -1045,8 +1055,10 @@ body {
   padding: 0.5em 500%; }
 
 .full_banner--support {
+  border-bottom: none;
   border-top: none;
-  background-color: rgba(201, 65, 18, 0.75); }
+  background-color: rgba(201, 65, 18, 0.75);
+  color: #fff; }
 
 .full_banner--neutral, .image-block {
   background-color: #F2EFE8;
@@ -1357,6 +1369,10 @@ body {
 .u-inline_list * {
   display: inline-block; }
 
+.u-inline {
+  display: inline-block;
+  vertical-align: middle; }
+
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;
   display: block;
@@ -1637,6 +1653,10 @@ body {
 .u-inline_list * {
   display: inline-block; }
 
+.u-inline {
+  display: inline-block;
+  vertical-align: middle; }
+
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;
   display: block;
@@ -1749,6 +1769,29 @@ body {
 
 .section_starter__content {
   top: 17% !important; }
+
+/*
+ * Separator
+ *
+ * Creates a separate between elements.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+.separator--r {
+  border-right-width: 2px;
+  border-right-style: solid;
+  margin-right: 0.5em;
+  padding-right: 0.5em; }
+
+.separator--white {
+  border-color: #fff; }
 
 /*
  * Sub Nav
@@ -2093,6 +2136,10 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
 
 .u-inline_list * {
   display: inline-block; }
+
+.u-inline {
+  display: inline-block;
+  vertical-align: middle; }
 
 .u-clearfix:after, .full_banner:after {
   visibility: hidden;

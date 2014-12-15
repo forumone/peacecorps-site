@@ -1,0 +1,18 @@
+/*
+ * Separator
+ *
+ * Creates a separate between elements.
+ */
+
+@import "globals";
+
+.separator--r {
+  border-right-width: 2px;
+  border-right-style: solid;
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+}
+
+.separator--white {
+  border-color: $white;
+}
