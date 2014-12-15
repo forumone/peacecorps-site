@@ -235,7 +235,7 @@ class Project(models.Model):
     country = models.ForeignKey('Country', related_name="projects")
     campaigns = models.ManyToManyField(
         'Campaign',
-        help_text="Campaigns to which this project belongs",
+        help_text="The campaigns to which this project belongs.",
         blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media', null=True, blank=True,
@@ -244,7 +244,9 @@ class Project(models.Model):
         'Media', related_name="projects", blank=True, null=True)
     account = models.ForeignKey('Account', to_field='code', unique=True)
     overflow = models.ForeignKey(
-        'Account', related_name="overflow", blank=True, null=True)
+        'Account', related_name="overflow", blank=True, null=True,
+        help_text="""Select another fund to which users will be directed to
+                    donate if the project is already funded.""")
     volunteername = models.CharField(max_length=100)
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)

@@ -19,7 +19,11 @@ class StrictUserAdmin(UserAdmin):
 
 class AccountAdmin(admin.ModelAdmin):
     list_display = ['code', 'name']
-    search_fields = ['code', 'name']  
+    search_fields = ['code', 'name']
+
+
+class AccountInline(admin.StackedInline):
+    model = models.Account
 
 
 class CampaignAdmin(admin.ModelAdmin):
@@ -52,22 +56,61 @@ class CampaignAdmin(admin.ModelAdmin):
     filter_horizontal = ['featuredprojects']
 
 
-class FeaturedCampaignAdmin(admin.ModelAdmin):
-    raw_id_fields = ['campaign']
-
-
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
     raw_id_fields = ['project']
 
 
-class AccountInline(admin.StackedInline):
-    model = models.Account
+class IssueAdmin(admin.ModelAdmin):
+    filter_horizontal = ['campaigns']
+    search_fields = ['name']
+
+
+class MediaAdmin(admin.ModelAdmin):
+    fieldsets = (
+    ('File', {
+        'fields': ['file']
+    }),
+    ('Info', {
+        'fields': ['title', ('mediatype', 'country'), 'caption']
+        }),
+    ('508 Compliance', {
+        'fields': ['description', 'transcript'],
+        'description': """<h4>Images must have a description.
+                            Audio/video files must be transcribed.</h4>"""
+    }),
+)
 
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['account', 'title', 'country', 'volunteername']
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('campaigns',)
+    raw_id_fields = ['account', 'overflow',
+                    'volunteerpicture', 'featured_image']
+    exclude = ['media']
+
+    fieldsets = (
+        ('Account Info', {
+            'fields': ['account', 'overflow'],
+            }),
+        ('Volunteer Info', {
+            'fields': ['volunteername',
+                        ('volunteerhomecity', 'volunteerhomestate'),
+                        'volunteerpicture'],
+            'classes': ['wide']
+
+        }),
+        ('Media', {
+            'fields': ['featured_image']
+        }),
+        ('Project Info', {
+            'fields': ['title', 'tagline', 'slug',
+                        'description', 'abstract', 'published']
+            }),
+        ('Campaigns', {
+            'fields': ['campaigns']
+            }),
+    )
 
 
 class VignetteAdmin(admin.ModelAdmin):
@@ -89,13 +132,12 @@ class FAQAdmin(SortableAdminMixin, admin.ModelAdmin):
 admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
-admin.site.register(models.FeaturedCampaign, FeaturedCampaignAdmin)
 admin.site.register(models.FeaturedProjectFrontPage,
                     FeaturedProjectFrontPageAdmin)
-admin.site.register(models.Media)
+admin.site.register(models.Media, MediaAdmin)
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Vignette, VignetteAdmin)
-admin.site.register(models.Issue)
+admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.FAQ, FAQAdmin)
 admin.site.unregister(User)
 admin.site.register(User, StrictUserAdmin)

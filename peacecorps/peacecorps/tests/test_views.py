@@ -136,7 +136,7 @@ class DonatePagesTests(TestCase):
 
         response = self.client.get(
             reverse('donate campaign',
-                    kwargs={'slug': 'stephanie-brown-memorial-fund'}))
+                    kwargs={'slug': 'stephanie-brown'}))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get(reverse('donate campaign',
