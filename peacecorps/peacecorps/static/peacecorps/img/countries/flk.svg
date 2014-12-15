@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="860 1188 63 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="860 1192 63 25" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -180,6 +187,5 @@
       <path d="M 921.458,1253.163 C 922.452,1253.641 923.189,1254.809 924.408,1254.743 923.908,1254.419 923.634,1253.88 923.908,1253.303 924.643,1253.585 925.339,1254.007 926.138,1254.093 926.153,1253.16 925.187,1252.702 924.478,1252.373 925.355,1252.277 925.916,1252.858 926.708,1252.86 927.25,1252.86 927.567,1252.501 928.148,1252.653 928.119,1251.669 926.239,1251.45 925.708,1250.783 926.737,1251.397 927.914,1251.506 929.079,1251.374 929.815,1251.291 930.878,1250.414 929.808,1250.213 930.898,1250.384 932.047,1250.136 933.048,1249.703 932.757,1249.775 930.26,1248.677 929.958,1248.413 930.711,1248.012 931.479,1248.52 932.258,1248.333 931.571,1247.801 928.368,1245.861 928.298,1248.123 928.91,1248.196 929.476,1248.52 929.878,1248.983 929.025,1249.01 926.371,1247.324 928.228,1247.543 927.462,1246.164 925.234,1246.267 923.908,1246.394 924.342,1247.001 923.996,1247.556 923.398,1247.833 923.96,1247.875 924.307,1248.183 924.188,1248.773 923.918,1248.637 923.655,1248.491 923.398,1248.333 923.636,1249.148 924.823,1249.277 924.768,1250.213 923.591,1248.76 921.291,1251.641 922.178,1252.873 921.938,1252.97 921.698,1253.066 921.458,1253.163" id="path4888"/>
       <path d="M 929.018,1252.373 C 929.221,1252.576 929.461,1252.72 929.738,1252.803 929.498,1252.659 929.258,1252.517 929.018,1252.373" id="path4890"/>
     </g>
-    <circle class="world_map-is_selected circlexx flk" cx="891.31024" cy="1205.1561" id="fk." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

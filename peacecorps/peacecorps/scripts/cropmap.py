@@ -40,13 +40,11 @@ def zoom_with_context(doc, el_id):
 
     factor = 1 + (2 * margin)
     zoomPercent = factor * bndWidth / svgWidth
-    if zoomPercent < 0.05:
-        root.set('class', root.get('class') + ' zoom4')
-    elif zoomPercent < 0.1:
-        root.set('class', root.get('class') + ' zoom3')
-    elif zoomPercent < 0.2:
-        root.set('class', root.get('class') + ' zoom2')
-    else:
+    thresholds = [0.2 / (2**i) for i in range(5)]
+    for idx, threshold in enumerate(reversed(thresholds)):
+        if zoomPercent < threshold:
+            root.set('class', root.get('class') + ' zoom%d' % (6-idx))
+    if zoomPercent >= 0.2:
         root.set('class', root.get('class') + ' zoom1')
 
     root.set('viewBox', '%d %d %d %d' % (
@@ -88,9 +86,7 @@ def ids_to_bboxes(root):
     box"""
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     mapping = {}
-    for path in itertools.chain(
-            root.iterfind(".//svg:path[@id]", namespaces),
-            root.iterfind(".//svg:circle[@id]", namespaces)):
+    for path in root.iterfind(".//svg:path[@id]", namespaces):
         mapping[path.get('id')] = bbox(path)
     return mapping
 
@@ -99,8 +95,6 @@ def bbox(xml_el):
     """Bounding box for this svg element. Accounts for transformations"""
     if xml_el.tag.endswith("path"):
         svg_el = svg.Path(xml_el)
-    elif xml_el.tag.endswith("circle"):
-        svg_el = svg.Circle(xml_el)
     else:
         svg_el = svg.Group(xml_el)
         svg_el.append(xml_el)
@@ -143,6 +137,9 @@ def cropmap(map_path, outputdir):
     namespaces = {"svg": "http://www.w3.org/2000/svg"}
     doc = etree.parse(map_path)
     root = doc.getroot()
+    # Remove all circles
+    for xml_el in root.iterfind(".//svg:circle", namespaces):
+        xml_el.getparent().remove(xml_el)
     bboxes = ids_to_bboxes(root)
     for xml_el in itertools.chain(root.iterfind("svg:path", namespaces),
                                   root.iterfind("svg:g", namespaces)):

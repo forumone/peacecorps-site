@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="2189 819 75 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="2189 821 75 31" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -199,6 +206,5 @@
       <path d="M 2252.9175,884.3125 C 2252.9725,887.0145 2253.6,885.886 2255.257,884.882 2256.841,883.922 2259.292,883.342 2261.051,882.659 2263.883,881.559 2267.953,880.504 2269.935,877.947 2271.076,876.476 2268.007,876.776 2267.352,876.969 2265.572,877.495 2263.998,877.729 2262.175,878.04 2260.222,878.373 2258.414,878.336 2256.407,878.762 2255.651,878.923 2254.628,878.827 2253.99,879.342 2253.315,879.886 2252.9342,881.1755 2252.2302,881.7025 2253.9042,882.5135 2253.7415,882.9685 2252.9175,884.3125 z" id="path2786"/>
       <path d="M 2243.958,886.033 C 2245.29,885.044 2246.2971,884.60118 2247.9241,884.29418 2247.5767,884.4489 2247.8691,887.55231 2247.0765,887.36277 2246.4781,887.21974 2246.3449,886.58784 2246.2079,886.78361 2245.6041,887.64648 2244.5241,885.82651 2243.9521,886.05154" id="path2788"/>
     </g>
-    <circle class="world_map-is_selected circlexx tls" cx="2230.8491" cy="836.73077" id="tl." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

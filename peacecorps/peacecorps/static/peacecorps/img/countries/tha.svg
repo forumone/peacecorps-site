@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3" height="127" id="svg2985" version="1.1" viewBox="1944 465 187 361" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1944 465 187 361" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -309,13 +316,11 @@
         <path d="M 2123.3273,567.50153 C 2123.2953,566.74853 2124.2253,566.57853 2124.6963,566.27753 2124.7963,567.06553 2124.0213,567.53353 2123.3273,567.50153" id="path2762"/>
         <path d="M 2125.7763,566.78153 C 2125.7763,567.15653 2125.9703,567.39653 2126.3563,567.50153 2126.2653,567.17553 2126.0723,566.93553 2125.7763,566.78153" id="path2760"/>
       </g>
-      <circle class="circlexx subxx chn hkg" cx="2126.874" cy="566.86768" id="hk_" r="4.2337999" rx="4.2337999" ry="4.2337999"/>
-    </g>
+      </g>
     <g id="mo">
       <title>Macao</title>
       <path class="landxx coastxx chn mac" d="M 2121.0963,567.50153 C 2121.2273,567.42253 2121.3423,567.92253 2121.2463,567.35653 2121.3683,567.63453 2121.3923,567.92253 2121.3153,568.22053 2121.2433,567.98153 2121.1693,567.74153 2121.0963,567.50153" id="mo-"/>
-      <circle class="circlexx subxx chn mac" cx="2118.7195" cy="569.46204" id="mo_" r="4.2337999" rx="4.2337999" ry="4.2337999"/>
-    </g>
+      </g>
   </g>
   <g class="landxx coastxx mys" id="my">
     <title>Malaysia</title>
@@ -344,6 +349,5 @@
   <g id="sg">
     <title>Singapore</title>
     <path class="landxx coastxx sgp" d="M 2063.4263,747.21355 C 2062.4673,747.46555 2063.9353,749.29255 2065.2263,747.57255 2064.6573,747.30155 2064.0573,747.18155 2063.4263,747.21355" id="sg-"/>
-    <circle class="circlexx sgp" cx="2065.0579" cy="748.10004" id="sg." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

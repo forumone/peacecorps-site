@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="2640 925 33 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="2653 939 6 8" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -169,6 +176,5 @@
       <path d="M 2656.6363,943.55855 C 2656.9323,943.13855 2657.2453,942.73155 2657.5763,942.33855 2656.8423,943.24255 2656.2723,942.08255 2655.4063,942.25855 2655.7113,942.79055 2656.1213,943.22455 2656.6363,943.55855" id="path5930"/>
       <path d="M 2657.8563,945.21855 C 2657.8393,944.93855 2657.7693,944.67155 2657.6463,944.41855 2657.7163,944.68555 2657.7863,944.95155 2657.8563,945.21855" id="path5932"/>
     </g>
-    <circle class="world_map-is_selected circlexx ton" cx="2657.3086" cy="942.448" id="to." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

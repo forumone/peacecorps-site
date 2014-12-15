@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="879 337 33 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="896 351 2 6" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -171,6 +178,5 @@
   <g id="pm">
     <title>Saint Pierre and Miquelon</title>
     <path class="world_map-is_selected landxx coastxx spm" d="M 898.61629,353.30155 C 898.43129,354.07655 897.97229,354.74855 897.81629,355.53355 897.76129,354.75655 898.02129,354.00555 897.96629,353.22855 898.18229,353.25355 898.39929,353.27755 898.61629,353.30155" id="pm-"/>
-    <circle class="world_map-is_selected circlexx spm" cx="896.5238" cy="354.30203" id="pm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

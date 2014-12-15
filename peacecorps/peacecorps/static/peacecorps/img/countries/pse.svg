@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1509 466 45 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1515 467 26 32" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -182,14 +189,12 @@
   <g id="lb">
     <title>Lebanon</title>
     <path class="landxx lbn" d="M 1529.1163,473.25355 C 1530.7063,471.39955 1530.6543,468.05455 1532.0043,465.97055 1532.6733,464.93855 1531.8893,463.54455 1532.6573,462.54955 1533.2563,461.77555 1534.8933,460.91955 1534.3663,459.71755 1534.9833,459.84755 1535.9173,460.11055 1536.5083,459.75855 1537.8673,458.94855 1536.9073,460.49055 1537.1073,460.95455 1537.0813,460.89255 1538.0023,461.23655 1538.0983,461.32955 1538.7833,461.98855 1538.3973,461.84255 1538.9153,462.79255 1540.0193,464.81355 1536.4923,465.13755 1537.8963,466.84455 1536.4673,466.41755 1534.0353,467.41655 1535.7373,469.00455 1535.1033,469.15055 1532.9513,471.23855 1532.8563,471.88455 1532.7003,471.80155 1532.5803,471.68155 1532.4973,471.52455 1532.2603,471.98955 1532.2462,472.54105 1531.9923,473.01555 1531.4541,474.02142 1529.8989,472.62259 1529.1163,473.25355" id="lb-"/>
-    <circle class="circlexx lbn" cx="1533.8287" cy="465.99615" id="lb." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="ps">
     <title>Palestine, State of</title>
     <g class="world_map-is_selected landxx pse" id="ps-" transform="translate(-29.9017,-45.0745)">
       <path d="M 1553.758,533.592 C 1554.452,532.907 1555.098,532.154 1555.559,531.288 1556.42,531.832 1554.592,534.1568 1554.189,534.5758 1554.018,534.2768 1553.874,533.917 1553.758,533.592" id="gaza_strip"/>
       <path d="M 1558.658,526.104 C 1559.0247,525.24666 1559.1486,522.83964 1560.615,523.128 1561.1236,523.22802 1562.6102,524.10083 1562.7968,524.59486 1563.339,526.03011 1563.1992,528.04465 1563.1509,529.605 1563.1179,530.67692 1563.1019,531.83254 1562.5373,532.09714 L 1560.4431,533.07772 C 1559.4492,533.54306 1558.4571,533.57606 1558.8831,532.01706 1558.9961,531.60406 1560.466,529.43 1560.676,529.501 1560.24,529.352 1559.1109,529.78377 1558.848,529.023 1558.3837,527.67927 1558.848,526.66836 1558.658,526.104" id="west_bank"/>
     </g>
-    <circle class="world_map-is_selected circlexx pse" cx="1534.2589" cy="483.44797" id="ps." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

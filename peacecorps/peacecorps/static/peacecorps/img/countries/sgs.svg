@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1023 1208 44 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1023 1217 44 21" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -168,6 +175,5 @@
     <g class="world_map-is_selected antxx sgs" id="gs-" transform="translate(-29.9017,-45.0745)">
       <path d="M 1082.377,1276.413 C 1082.57,1276.269 1082.764,1276.127 1082.957,1275.983 1082.708,1275.768 1082.441,1275.578 1082.157,1275.413 1082.679,1275.845 1083.309,1275.764 1083.747,1275.263 1083.325,1274.897 1081.511,1273.714 1081.65,1273.226 1081.8,1272.701 1079.393,1271.337 1078.917,1271.303 1079.94,1272.845 1077.638,1271.021 1077.047,1271.234 1078.204,1270.143 1075.464,1270.054 1074.662,1269.749 1073.693,1269.381 1072.427,1269.649 1071.344,1269.334 1070.306,1269.033 1068.8,1268.896 1067.757,1269.214 1069.406,1270.132 1071.187,1270.356 1073.017,1270.444 1071.209,1270.491 1073.017,1271.328 1073.632,1271.332 1074.679,1271.342 1075.566,1271.828 1076.406,1272.411 1077.281,1273.018 1078.131,1273.359 1079.071,1273.828 1080.31,1274.445 1081.246,1275.627 1082.377,1276.413" id="path4892"/>
     </g>
-    <circle class="world_map-is_selected noxx sgs" cx="1045.427" cy="1225.649" id="gs." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

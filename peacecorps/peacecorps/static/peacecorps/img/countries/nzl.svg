@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom2" height="127" id="svg2985" version="1.1" viewBox="2220 930 481 393" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -200,8 +207,7 @@
       <path d="M 2555.718,987.913 C 2556.582,987.228 2556.22,983.252 2554.559,983.813 2555.959,984.771 2554.237,984.797 2553.989,985.602 2553.604,986.846 2555.136,987.149 2555.718,987.913" id="path2574"/>
       <path d="M 2559.388,992.013 C 2560.304,992.044 2560.707,991.095 2560.899,990.364 2560.051,990.593 2560.125,989.526 2559.453,989.507 2558.071,989.466 2558.832,991.537 2559.388,992.013" id="path2576"/>
       </g>
-    <circle class="circlexx ncl" cx="2512.668" cy="942.85565" id="nc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="vu">
     <title>Vanuatu</title>
     <g class="landxx coastxx vut" id="vu-" transform="translate(-29.9017,-45.0745)">
@@ -214,11 +220,9 @@
       <path d="M 2656.6363,943.55855 C 2656.9323,943.13855 2657.2453,942.73155 2657.5763,942.33855 2656.8423,943.24255 2656.2723,942.08255 2655.4063,942.25855 2655.7113,942.79055 2656.1213,943.22455 2656.6363,943.55855" id="path5930"/>
       <path d="M 2657.8563,945.21855 C 2657.8393,944.93855 2657.7693,944.67155 2657.6463,944.41855 2657.7163,944.68555 2657.7863,944.95155 2657.8563,945.21855" id="path5932"/>
     </g>
-    <circle class="circlexx ton" cx="2657.3086" cy="942.448" id="to." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="nf">
     <title>Norfolk Island</title>
     <path class="landxx coastxx nfk" d="M 2521.2674,998.14342 C 2520.4802,997.67737 2519.6866,997.21184 2518.8942,996.7453 2518.1234,997.29417 2517.7363,997.70984 2519.9571,998.01743" id="nf-"/>
-    <circle class="circlexx nfk" cx="2519.0078" cy="993.685" id="nf." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

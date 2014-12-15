@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom2" height="127" id="svg2985" version="1.1" viewBox="1419 541 319 278" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -256,11 +263,9 @@
   <g id="qa">
     <title>Qatar</title>
     <path class="landxx qat" d="M 1649.7863,540.78955 C 1649.7423,540.39955 1649.1783,538.00355 1650.2863,539.13355 1650.2233,538.74555 1649.9693,536.59155 1650.6563,538.41355 1650.7113,536.59755 1651.3583,531.80455 1653.8603,534.44755 1654.4873,535.11055 1655.6913,535.57555 1655.6973,536.61555 1655.6973,537.34155 1655.3433,537.80155 1655.1783,538.46455 1655.0343,539.03855 1655.3853,539.78455 1655.4413,540.35755 1655.4963,540.93055 1656.1053,540.94155 1656.2653,541.43755 1656.5293,542.24655 1656.3333,542.98055 1656.0063,543.72755 1655.4403,545.02055 1655.6263,545.96455 1654.2083,546.38955 1653.0303,546.74355 1651.9693,547.68055 1651.1803,545.95055 1650.4603,544.37255 1650.1603,542.47355 1649.7863,540.78955" id="qa-"/>
-    <circle class="circlexx qat" cx="1652.491" cy="541.99042" id="qa." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="sc">
     <title>Seychelles</title>
     <path class="landxx coastxx syc" d="M 1694.4963,800.99855 C 1694.5763,800.29855 1694.3073,799.42555 1693.4163,799.62855 1693.9503,799.90855 1694.3693,800.40255 1694.4963,800.99855" id="sc-"/>
-    <circle class="circlexx syc" cx="1695.2422" cy="795.02222" id="sc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

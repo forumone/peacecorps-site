@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom2" height="127" id="svg2985" version="1.1" viewBox="1894 644 425 159" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -407,16 +414,13 @@
       <path d="M 2171.518,764.928 C 2174.415,764.854 2175.417,762.288 2177.851,761.346 2178.934,760.927 2178.453,762.364 2177.991,762.737 2176.919,763.602 2176.714,763.763 2176.899,765.265 2176.914,765.386 2177.6,770.829 2175.873,769.622 2175.22,769.166 2173.759,768.158 2173.319,767.449 2172.682,766.428 2172.976,765.24 2171.518,764.928" id="path6824"/>
       <path d="M 2178.508,763.704 C 2178.288,762.381 2179,763.266 2179.368,762.192 2180.418,763.535 2180.867,765.48 2180.738,767.16 2179.076,766.787 2178.597,765.217 2178.508,763.704" id="path6826"/>
     </g>
-    <circle class="circlexx brn" cx="2145.6943" cy="720.98956" id="bn." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="pw">
     <title>Palau</title>
     <path class="landxx coastxx plw" d="M 2296.1363,695.94955 C 2296.7143,695.17055 2297.1793,693.93955 2296.7063,692.99755 2296.0783,693.74755 2295.3953,695.03055 2296.1363,695.94955" id="pw-"/>
-    <circle class="circlexx plw" cx="2292.3694" cy="691.09845" id="pw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="sg">
     <title>Singapore</title>
     <path class="landxx coastxx sgp" d="M 2063.4263,747.21355 C 2062.4673,747.46555 2063.9353,749.29255 2065.2263,747.57255 2064.6573,747.30155 2064.0573,747.18155 2063.4263,747.21355" id="sg-"/>
-    <circle class="circlexx sgp" cx="2065.0579" cy="748.10004" id="sg." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

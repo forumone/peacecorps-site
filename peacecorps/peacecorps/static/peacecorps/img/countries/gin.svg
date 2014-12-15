@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3" height="127" id="svg2985" version="1.1" viewBox="1105 607 157 132" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1105 607 157 132" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -209,6 +216,5 @@
   <g id="gm">
     <title>Gambia</title>
     <path class="landxx gmb" d="M 1143.6263,643.89355 C 1145.0423,642.78455 1144.8433,642.84655 1145.5523,644.40855 1146.0893,645.59155 1147.7603,644.00155 1148.5953,644.61455 1146.8033,643.68955 1152.2943,643.14555 1152.6253,642.95855 1151.2083,642.87055 1149.5063,642.92655 1148.1883,643.50555 1147.0543,644.00355 1146.4003,644.33355 1145.6863,643.01955 1145.0503,641.84855 1146.3273,641.83155 1147.1393,641.89355 1149.2763,642.05455 1151.4453,641.95155 1153.5873,641.95155 1154.1403,641.95155 1153.9073,640.22055 1155.1763,640.58055 1156.1973,640.87055 1157.1933,639.61955 1158.2433,640.17055 1158.7743,640.44955 1158.8963,641.13655 1159.4213,641.44855 1159.9283,641.74955 1160.4023,641.20355 1160.9303,641.45455 1161.4893,641.72055 1161.3153,642.56555 1161.9363,642.82855 1162.5953,643.10755 1163.4313,642.58255 1164.0423,642.39855 1164.7683,642.18055 1166.5203,642.32855 1166.4063,643.44855 1166.3023,644.47755 1164.6511,644.84355 1163.8403,644.96055 1160.4287,645.45285 1156.8136,641.51769 1156.3151,642.45664 1155.7368,643.54607 1155.5995,643.91181 1153.4831,643.88046 1152.734,643.86936 1150.6683,644.31955 1151.1233,645.45755 1151.2123,645.67955 1144.4432,644.91791 1144.1632,646.52291 1143.7542,645.72691 1143.4683,644.77755 1143.6263,643.89355" id="gm-"/>
-    <circle class="circlexx gmb" cx="1154.4216" cy="643.4812" id="gm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

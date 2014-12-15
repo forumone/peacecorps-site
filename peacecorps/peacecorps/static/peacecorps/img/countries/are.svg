@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1623 507 101 83" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1623 507 101 83" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -197,16 +204,13 @@
     <g class="landxx coastxx kwt" id="kw-" transform="translate(-29.9017,-45.0745)">
       <path class="landxx kwt" d="M 1645.708,552.815 C 1648.9117,551.6484 1647.4237,545.15368 1650.765,544.538 1652.0568,544.29996 1653.8993,544.17961 1655.596,545.58 1656.0351,545.94243 1657.164,548.288 1656.718,548.856 1655.766,547.521 1654.412,549.785 1653.908,550.44 1655.37,550.246 1656.997,550.814 1657.358,552.394 1657.798,554.315 1659.2662,556.02658 1659.9132,557.96658 1658.6748,557.25551 1655.5893,558.45287 1654.375,557.601 1653.4273,556.93614 1653.3114,555.49621 1652.936,554.501 1652.4342,553.17055 1647.646,553.52796 1645.708,552.815" id="path5486"/>
     </g>
-    <circle class="circlexx kwt" cx="1623.295" cy="505.14792" id="kw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="qa">
     <title>Qatar</title>
     <path class="landxx qat" d="M 1649.7863,540.78955 C 1649.7423,540.39955 1649.1783,538.00355 1650.2863,539.13355 1650.2233,538.74555 1649.9693,536.59155 1650.6563,538.41355 1650.7113,536.59755 1651.3583,531.80455 1653.8603,534.44755 1654.4873,535.11055 1655.6913,535.57555 1655.6973,536.61555 1655.6973,537.34155 1655.3433,537.80155 1655.1783,538.46455 1655.0343,539.03855 1655.3853,539.78455 1655.4413,540.35755 1655.4963,540.93055 1656.1053,540.94155 1656.2653,541.43755 1656.5293,542.24655 1656.3333,542.98055 1656.0063,543.72755 1655.4403,545.02055 1655.6263,545.96455 1654.2083,546.38955 1653.0303,546.74355 1651.9693,547.68055 1651.1803,545.95055 1650.4603,544.37255 1650.1603,542.47355 1649.7863,540.78955" id="qa-"/>
-    <circle class="circlexx qat" cx="1652.491" cy="541.99042" id="qa." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="bh">
     <title>Bahrain</title>
     <path class="landxx coastxx bhr" d="M 1646.9073,533.08555 C 1647.1363,533.56455 1647.2333,534.06755 1647.1963,534.59755 1647.0623,535.28855 1647.9003,535.78555 1648.0563,536.39755 1648.3523,535.63755 1648.3873,531.50555 1646.9073,533.08555" id="bh-"/>
-    <circle class="circlexx bhr" cx="1645.5894" cy="531.45422" id="bh." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

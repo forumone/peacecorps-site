@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="2517 827 43 158" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="2517 827 43 158" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -177,8 +184,7 @@
       <path d="M 2555.718,987.913 C 2556.582,987.228 2556.22,983.252 2554.559,983.813 2555.959,984.771 2554.237,984.797 2553.989,985.602 2553.604,986.846 2555.136,987.149 2555.718,987.913" id="path2574"/>
       <path d="M 2559.388,992.013 C 2560.304,992.044 2560.707,991.095 2560.899,990.364 2560.051,990.593 2560.125,989.526 2559.453,989.507 2558.071,989.466 2558.832,991.537 2559.388,992.013" id="path2576"/>
       </g>
-    <circle class="circlexx ncl" cx="2512.668" cy="942.85565" id="nc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="vu">
     <title>Vanuatu</title>
     <g class="world_map-is_selected landxx coastxx vut" id="vu-" transform="translate(-29.9017,-45.0745)">
@@ -197,6 +203,5 @@
       <path d="M 2574.428,974.733 C 2575.38,973.747 2573.981,972.846 2574.428,971.783 2572.664,971.967 2573.268,974.147 2574.428,974.733" id="path6078"/>
       <path d="M 2576.088,979.843 C 2576.33,979.63 2576.547,979.393 2576.738,979.133 2576.096,978.717 2575.19,979.406 2576.088,979.843" id="path6080"/>
     </g>
-    <circle class="world_map-is_selected circlexx vut" cx="2538.4497" cy="901.72656" id="vu." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

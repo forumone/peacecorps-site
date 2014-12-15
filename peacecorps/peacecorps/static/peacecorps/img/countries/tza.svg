@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3" height="127" id="svg2985" version="1.1" viewBox="1421 683 232 263" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1421 683 232 263" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -171,8 +178,7 @@
     <g id="yt">
       <title>Mayotte</title>
       <path class="landxx coastxx eu myt fra" d="M 1613.4263,871.98855 C 1613.9023,871.34555 1614.5063,869.97055 1613.4263,869.53855 1613.1543,870.10155 1613.0153,871.45555 1613.4263,871.98855" id="yt-"/>
-      <circle class="circlexx subxx eu myt fra" cx="1614.6058" cy="872.18304" id="yt_" r="4.2337999" rx="4.2337999" ry="4.2337999"/>
-    </g>
+      </g>
     </g>
   <g class="landxx coastxx mdg" id="mg" transform="translate(-29.9017,-45.0745)">
     <title>Madagascar</title>
@@ -249,6 +255,5 @@
       <path d="M 1633.758,911.813 C 1633.518,911.118 1632.877,910.565 1632.098,910.722 1632.098,911.719 1633.047,911.662 1633.758,911.813" id="path5752"/>
       <path d="M 1638.798,911.733 C 1639.645,909.539 1637.964,910.357 1636.639,910.003 1637.383,910.548 1638.189,911.024 1638.798,911.733" id="path5754"/>
     </g>
-    <circle class="circlexx com" cx="1603.8311" cy="862.79865" id="km." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom1" height="127" id="svg2985" version="1.1" viewBox="169 -43 1105 570" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -830,36 +837,29 @@
       <path d="M 1276.848,278.353 C 1277.147,277.715 1277.039,277.051 1276.128,277.705 1276.344,277.946 1276.584,278.162 1276.848,278.353" id="path4620"/>
       <path d="M 1278.078,275.04 C 1278.74,274.578 1278.76,273.967 1277.998,273.6 1277.98,274.082 1278.008,274.563 1278.078,275.04" id="path4622"/>
     </g>
-    <circle class="circlexx fro" cx="1245.1376" cy="231.957" id="fo." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="pm">
     <title>Saint Pierre and Miquelon</title>
     <path class="landxx coastxx spm" d="M 898.61629,353.30155 C 898.43129,354.07655 897.97229,354.74855 897.81629,355.53355 897.76129,354.75655 898.02129,354.00555 897.96629,353.22855 898.18229,353.25355 898.39929,353.27755 898.61629,353.30155" id="pm-"/>
-    <circle class="circlexx spm" cx="896.5238" cy="354.30203" id="pm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="je">
     <title>Jersey</title>
     <path class="landxx coastxx jey" d="M 1266.3863,335.58955 C 1266.4593,335.37355 1266.5333,335.15655 1266.6063,334.94155 1266.0333,334.73755 1265.6913,334.99155 1265.6663,335.58955 1265.9063,335.58955 1266.1463,335.58955 1266.3863,335.58955" id="je-"/>
-    <circle class="circlexx jey" cx="1268.2172" cy="338.91202" id="je." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="gg">
     <title>Guernsey</title>
     <path class="landxx coastxx ggy" d="M 1263.1886,333.11172 C 1263.6476,332.91272 1263.8166,332.91572 1263.6926,332.31172 1263.5246,332.57772 1263.3566,332.84472 1263.1886,333.11172" id="gg-"/>
-    <circle class="circlexx ggy" cx="1258.4613" cy="332.14261" id="gg." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="bm">
     <title>Bermuda</title>
     <path class="landxx coastxx bmu" d="M 802.05629,480.45355 C 802.30629,480.27955 802.57329,480.13555 802.85629,480.02055 802.58929,480.16555 802.32229,480.30955 802.05629,480.45355" id="bm-"/>
-    <circle class="circlexx bmu" cx="801.67419" cy="478.56589" id="bm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="gi">
     <title>Gibraltar</title>
     <path class="landxx eu gib" d="M 1237.1061,447.07116 C 1236.9109,447.93943 1236.6748,447.95755 1236.398,447.12906 1236.6331,447.11036 1236.8696,447.09076 1237.1061,447.07116" id="gi-"/>
-    <circle class="circlexx eu gib" cx="1236.2671" cy="447.5423" id="gi." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="im">
     <title>Isle of Man</title>
     <path class="landxx coastxx imn" d="M 1251.8463,294.98155 C 1252.7373,294.77855 1254.4583,294.25755 1254.8753,293.35555 1255.1573,292.74455 1254.2123,292.39255 1253.7633,292.57555 1252.8343,292.95355 1252.3033,294.16855 1251.8463,294.98155" id="im-"/>
-    <circle class="circlexx imn" cx="1252.4366" cy="294.51974" id="im." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

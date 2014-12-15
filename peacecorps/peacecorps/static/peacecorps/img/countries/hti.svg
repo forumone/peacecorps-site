@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="688 568 66 52" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="688 568 66 52" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -191,8 +198,7 @@
   <g id="jm">
     <title>Jamaica</title>
     <path class="landxx coastxx jam" d="M 681.45929,601.55755 C 683.46129,598.91755 687.16729,599.33655 690.02729,599.90155 691.78729,600.24955 693.15029,601.31055 694.81829,601.81655 696.54629,602.34055 696.64929,603.11055 697.51529,604.58255 696.74929,604.94555 695.93029,605.01455 695.09529,605.01455 694.32329,605.01455 693.94429,604.21855 693.12329,604.36755 694.18629,604.18755 692.86529,603.97755 692.56829,604.24155 692.25529,604.51955 691.98029,605.07155 691.50729,605.09155 690.58129,605.12955 689.37229,604.95955 690.17129,606.31155 689.21429,606.32055 689.08829,605.15755 688.18329,605.24055 687.30929,605.32055 685.79129,605.23055 685.31529,604.35655 685.02129,603.81655 684.52729,603.30755 684.12029,602.85255 683.41929,602.06855 682.00829,602.53255 681.45929,601.55755" id="jm-"/>
-    <circle class="circlexx jam" cx="690.41412" cy="602.46783" id="jm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="tc">
     <title>Turks and Caicos Islands</title>
     <g class="landxx coastxx tca" id="tc-">
@@ -200,6 +206,5 @@
       <path d="M 735.81528,571.46153 C 735.57528,571.31653 735.33528,571.17353 735.09528,571.02853 735.93828,570.33053 736.05228,570.81953 735.81528,571.46153" id="path5532"/>
       <path d="M 737.11628,572.18153 C 736.86128,571.95653 736.62128,571.71653 736.39628,571.46153 737.05728,571.40853 737.00128,571.66553 737.11628,572.18153" id="path5534"/>
     </g>
-    <circle class="circlexx tca" cx="735.59839" cy="568.05829" id="tc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

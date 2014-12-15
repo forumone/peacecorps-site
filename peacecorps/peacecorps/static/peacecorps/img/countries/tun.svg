@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1300 380 85 172" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1300 380 85 172" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -206,21 +213,17 @@
   <g id="mt">
     <title>Malta</title>
     <path class="landxx coastxx eu mlt" d="M 1379.3563,449.85355 C 1378.5643,449.77055 1377.8133,449.02955 1378.2063,448.19855 1378.7873,448.53855 1380.1533,448.96655 1379.3563,449.85355" id="mt-"/>
-    <circle class="circlexx eu mlt" cx="1379.9952" cy="450.23166" id="mt." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="sm">
     <title>San Marino</title>
     <path class="landxx smr" d="M 1363.2352,381.46247 1363.7119,380.77194 1364.3883,381.30769 1363.8343,381.90329 1363.2352,381.46247 z" id="sm-"/>
-    <circle class="circlexx smr" cx="1364.4362" cy="380.69287" id="sm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="mc">
     <title>Monaco</title>
     <path class="landxx mco" d="M 1328.8863,381.66955 C 1328.7726,381.52555 1329.0426,381.26527 1329.2832,381.22046 1329.4963,381.18076 1329.1757,381.77339 1328.8863,381.66955" id="mc-"/>
-    <circle class="circlexx mco" cx="1327.1534" cy="381.30396" id="mc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="va">
     <title>Holy See (Vatican City State)</title>
     <path class="landxx coastxx vat" d="M 1364.4789,398.71214 1364.3909,398.74024 1364.281,398.70324 1364.363,398.61974 1364.4669,398.60154" id="va-"/>
-    <circle class="circlexx vat" cx="1364.5283" cy="398.09601" id="va." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3" height="127" id="svg2985" version="1.1" viewBox="1356 752 251 242" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1356 752 251 242" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -233,8 +240,7 @@
   <g class="landxx swz" id="sz">
     <title>Swaziland</title>
     <path d="M 1500.9696,990.66205 C 1500.9696,990.66205 1501.1548,990.65805 1501.1548,990.65805 1502.1098,991.60105 1502.0022,991.42505 1502.7752,992.39905 1503.4422,993.24105 1503.5232,993.62325 1504.2252,994.31725 1505.1052,995.18925 1507.0375,996.40185 1508.5595,995.16785 1509.2255,994.62685 1508.9125,994.60115 1509.3279,993.78995 L 1510.2296,992.02895 1511.5128,992.03195 1511.4828,991.52055 C 1509.9335,985.34995 1511.8401,989.52605 1510.3873,985.51415 1509.5812,984.65525 1508.5528,983.70935 1507.823,983.37925 L 1505.4153,983.28285 C 1504.6133,984.31385 1503.9826,984.43115 1503.2666,985.51715 1502.8556,986.13915 1502.6982,986.62155 1502.5019,987.05145 1502.3055,987.48145 1501.537,990.24915 1500.97,990.66115 z" id="sz-"/>
-    <circle class="circlexx swz" cx="1506.7974" cy="989.40564" id="sz." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="km">
     <title>Comoros</title>
     <g class="landxx coastxx com" id="km-" transform="translate(-29.9017,-45.0745)">
@@ -242,6 +248,5 @@
       <path d="M 1633.758,911.813 C 1633.518,911.118 1632.877,910.565 1632.098,910.722 1632.098,911.719 1633.047,911.662 1633.758,911.813" id="path5752"/>
       <path d="M 1638.798,911.733 C 1639.645,909.539 1637.964,910.357 1636.639,910.003 1637.383,910.548 1638.189,911.024 1638.798,911.733" id="path5754"/>
     </g>
-    <circle class="circlexx com" cx="1603.8311" cy="862.79865" id="km." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

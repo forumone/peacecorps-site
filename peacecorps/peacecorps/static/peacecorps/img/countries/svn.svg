@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1350 342 60 37" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1350 342 60 37" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -212,8 +219,4 @@
   <path class="world_map-is_selected landxx eu svn" d="M 1371.0014,362.58227 C 1370.8698,361.96351 1371.4584,361.20919 1371.8663,360.86155 1371.1883,360.71055 1370.5923,360.33455 1369.9963,359.99755 1371.5081,358.35249 1370.7903,357.34841 1372.6623,357.79941 1373.3643,357.96841 1377.5543,359.44355 1378.1553,358.91155 1379.3503,357.85155 1380.4153,356.68255 1382.1433,356.79055 1383.0543,356.84755 1384.1583,357.29755 1385.0173,356.77455 1385.8983,356.23855 1386.9593,356.19055 1387.8573,356.75755 1387.0863,355.79055 1388.2873,354.27055 1389.3343,355.10755 1390.1473,355.75855 1391.1491,357.39128 1391.7551,358.27028 1390.9491,358.14728 1388.3073,357.47055 1389.7273,359.13355 1388.9273,359.10355 1388.4803,358.57455 1388.1473,359.50055 1387.9613,360.01755 1385.9703,360.48655 1385.3803,360.84255 1384.9223,361.11955 1385.7623,362.48555 1385.7263,363.07555 1385.6713,363.99655 1383.5233,364.06555 1382.6673,364.82055 1383.0183,364.93655 1383.3183,365.24355 1383.6773,365.32455 1383.0373,365.45555 1383.5003,367.76355 1382.2643,366.97255 1380.8453,366.06455 1379.4763,366.48155 1378.1273,365.18055 1377.6713,366.28455 1376.0803,367.22955 1374.8633,366.68455 1374.3623,366.46055 1374.3753,366.44555 1373.9793,366.83755 1373.3783,367.43255 1372.1213,366.92355 1371.4373,366.76455 1372.1933,366.09755 1373.7483,365.84555 1373.1673,364.82055 1372.7093,364.00955 1370.6223,364.22255 1371.6573,362.87755" id="si">
     <title>Slovenia</title>
   </path>
-  <g id="sm">
-    <title>San Marino</title>
-    <circle class="circlexx smr" cx="1364.4362" cy="380.69287" id="sm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
   </svg>

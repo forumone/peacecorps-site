@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom2" height="127" id="svg2985" version="1.1" viewBox="2239 690 326 250" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -318,8 +325,7 @@
       <path d="M 2555.718,987.913 C 2556.582,987.228 2556.22,983.252 2554.559,983.813 2555.959,984.771 2554.237,984.797 2553.989,985.602 2553.604,986.846 2555.136,987.149 2555.718,987.913" id="path2574"/>
       <path d="M 2503.798,972.003 C 2504.077,971.533 2504.271,971.029 2504.378,970.493 2503.99,970.856 2503.643,971.448 2503.798,972.003" id="path3370"/>
     </g>
-    <circle class="circlexx ncl" cx="2512.668" cy="942.85565" id="nc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="tl">
     <title>Timor-Leste</title>
     <g class="landxx tls" id="tl-" transform="translate(-29.9017,-45.0745)">
@@ -344,21 +350,17 @@
       <path d="M 2574.428,974.733 C 2575.38,973.747 2573.981,972.846 2574.428,971.783 2572.664,971.967 2573.268,974.147 2574.428,974.733" id="path6078"/>
       <path d="M 2576.088,979.843 C 2576.33,979.63 2576.547,979.393 2576.738,979.133 2576.096,978.717 2575.19,979.406 2576.088,979.843" id="path6080"/>
     </g>
-    <circle class="circlexx vut" cx="2538.4497" cy="901.72656" id="vu." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="fm">
     <title>Micronesia, Federated States of</title>
     <path class="landxx coastxx fsm" d="M 2477.2063,700.91755 C 2478.5223,700.60955 2477.5313,699.06255 2476.4853,699.40455 2476.5153,700.00955 2476.7553,700.51355 2477.2063,700.91755" id="fm-"/>
-    <circle class="circlexx fsm" cx="2477.9724" cy="695.96448" id="fm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="pw">
     <title>Palau</title>
     <path class="landxx coastxx plw" d="M 2296.1363,695.94955 C 2296.7143,695.17055 2297.1793,693.93955 2296.7063,692.99755 2296.0783,693.74755 2295.3953,695.03055 2296.1363,695.94955" id="pw-"/>
-    <circle class="circlexx plw" cx="2292.3694" cy="691.09845" id="pw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="nr">
     <title>Nauru</title>
     <path class="landxx coastxx nru" d="M 2531.0983,743.14595 C 2531.3153,743.04895 2531.5323,742.95295 2531.7483,742.85595 2531.5103,742.25895 2531.0003,742.00395 2530.4483,742.42595 2530.6383,742.69095 2530.8543,742.93095 2531.0983,743.14595" id="nr-"/>
-    <circle class="circlexx nru" cx="2532.7034" cy="741.48309" id="nr." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

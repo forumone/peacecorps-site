@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="794 608 35 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="803 621 8 10" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -169,57 +176,16 @@
       <title>Guadeloupe</title>
       <g class="landxx coastxx eu fra glp" id="gp-">
         <path d="M 806.52628,618.83753 C 806.18028,619.42153 805.64428,623.09153 804.73928,620.59553 804.23028,619.19053 805.02728,617.80753 806.52628,618.83753" id="path2582"/>
-        <path d="M 806.52628,618.69353 C 807.15628,618.12053 806.51128,617.00153 807.53628,616.82153 807.67228,617.73753 808.43428,618.39553 809.18528,618.83853 808.47828,619.08253 806.90828,619.80353 806.52628,618.69353" id="path2584"/>
         <path d="M 808.39528,622.22153 C 807.78728,621.59453 807.90728,621.28353 808.75528,621.28553 808.87628,621.69553 808.75628,622.00753 808.39528,622.22153" id="path2586"/>
       </g>
-      <circle class="circlexx subxx eu fra glp" cx="809.38892" cy="615.23083" id="gp_" r="4.2337999" rx="4.2337999" ry="4.2337999"/>
-    </g>
+      </g>
     <g id="mq">
       <title>Martinique</title>
       <path class="landxx coastxx eu mtq fra" d="M 810.33629,634.96555 C 809.75329,634.07255 809.03629,634.83255 808.75229,633.98655 808.47729,633.16755 808.10629,632.28055 808.09529,631.40355 808.08129,630.25455 809.27629,631.25955 809.58929,631.65355 810.19929,632.42055 811.05129,634.01455 810.33629,634.96555" id="mq-"/>
-      <circle class="circlexx subxx eu mtq fra" cx="813.59497" cy="635.3689" id="mq_" r="4.2337999" rx="4.2337999" ry="4.2337999"/>
+      </g>
     </g>
-    </g>
-  <g id="sx">
-    <title>Sint Maarten (Dutch Part)</title>
-    <circle class="circlexx sxm" cx="789.60205" cy="604.11444" id="sx." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
   <g id="dm">
     <title>Dominica</title>
     <path class="world_map-is_selected landxx coastxx dma" d="M 807.09629,628.05355 C 806.98529,626.91155 806.01229,625.52355 806.59629,624.38155 808.11329,624.76955 808.90829,627.49755 807.09629,628.05355" id="dm-"/>
-    <circle class="world_map-is_selected circlexx dma" cx="812.70441" cy="625.19409" id="dm." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="ag">
-    <title>Antigua and Barbuda</title>
-    <g class="landxx coastxx atg" id="ag-">
-      <path d="M 805.65628,612.57453 C 804.71628,612.61153 804.41328,611.23953 805.44628,611.13353 806.37328,611.03753 806.02128,612.18453 805.65628,612.57453" id="path6116"/>
-      </g>
-    <circle class="circlexx atg" cx="810.74518" cy="604.90936" id="ag." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="bb">
-    <title>Barbados</title>
-    <circle class="circlexx brb" cx="821.84271" cy="646.01306" id="bb." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="lc">
-    <title>Saint Lucia</title>
-    <path class="landxx coastxx lca" d="M 809.18529,640.94155 C 807.79529,640.38655 808.51929,638.96155 809.18529,638.13355 810.21029,638.67655 809.85929,640.27155 809.18529,640.94155" id="lc-"/>
-    <circle class="circlexx lca" cx="804.06543" cy="637.63452" id="lc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="kn">
-    <title>Saint Kitts and Nevis</title>
-    <g class="landxx coastxx kna" id="kn-">
-      <path d="M 798.88629,610.62953 C 798.38529,610.19553 797.90529,609.73953 797.44629,609.26153 798.30429,608.84953 798.93329,609.89253 798.88629,610.62953" id="path5926"/>
-      <path d="M 799.32629,611.70953 C 799.27629,611.44553 799.22629,611.18153 799.17629,610.91753 799.53029,611.26153 799.54629,611.34953 799.32629,611.70953" id="path5928"/>
     </g>
-    <circle class="circlexx kna" cx="790.21881" cy="616.65186" id="kn." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="ms">
-    <title>Montserrat</title>
-    <path class="landxx coastxx msr" d="M 801.60083,615.39785 C 801.55083,615.13385 801.71177,615.24486 801.66173,614.98086 801.83873,615.15286 801.92146,615.255 801.93245,615.35914 801.94345,615.46328 801.88265,615.51473 801.77267,615.69473" id="ms-"/>
-    <circle class="circlexx msr" cx="801.37207" cy="621.70612" id="ms." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="bl">
-    <title>Saint Barthelemy</title>
-    <circle class="circlexx eu blm" cx="799.96344" cy="609.9165" id="bl." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
   </svg>

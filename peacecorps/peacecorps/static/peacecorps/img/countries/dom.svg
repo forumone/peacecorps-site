@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="703 567 80 58" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="703 567 80 58" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -190,16 +197,14 @@
   <g id="pr">
     <title>Puerto Rico</title>
     <path class="landxx coastxx pri" d="M 774.76529,604.14955 C 772.33729,603.97155 769.21429,604.83055 766.89229,604.13355 766.36529,603.97555 765.22929,604.37655 765.57629,603.14455 765.77529,602.80755 765.91129,602.44555 765.98529,602.06155 765.93729,601.45755 765.17729,601.21755 765.26529,600.54955 765.56929,598.24455 773.01329,599.61255 774.20829,600.04355 775.17329,600.39155 777.45329,599.65555 777.43529,601.34155 777.42529,602.31455 775.59829,603.84555 774.76529,604.14955" id="pr-"/>
-    <circle class="circlexx pri" cx="769.00879" cy="600.85767" id="pr." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="vi">
     <title>Virgin Islands, U.S.</title>
     <g class="landxx coastxx vir" id="vi-">
       <path d="M 778.08628,603.07053 C 778.41028,602.58753 778.94228,602.30053 779.52628,602.49353 779.12928,602.89453 778.64928,603.08653 778.08628,603.07053" id="path4052"/>
       <path d="M 782.40628,606.59753 C 782.35828,605.07653 783.98628,606.18353 784.77628,605.87753 784.08728,606.40853 783.22328,606.45253 782.40628,606.59753" id="path5520"/>
     </g>
-    <circle class="circlexx vir" cx="778.38263" cy="608.82031" id="vi." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="tc">
     <title>Turks and Caicos Islands</title>
     <g class="landxx coastxx tca" id="tc-">
@@ -207,13 +212,11 @@
       <path d="M 735.81528,571.46153 C 735.57528,571.31653 735.33528,571.17353 735.09528,571.02853 735.93828,570.33053 736.05228,570.81953 735.81528,571.46153" id="path5532"/>
       <path d="M 737.11628,572.18153 C 736.86128,571.95653 736.62128,571.71653 736.39628,571.46153 737.05728,571.40853 737.00128,571.66553 737.11628,572.18153" id="path5534"/>
     </g>
-    <circle class="circlexx tca" cx="735.59839" cy="568.05829" id="tc." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="vg">
     <title>Virgin Islands, British</title>
     <g class="landxx coastxx vgb" id="vg-">
       <path d="M 783.12629,601.12553 C 782.88629,601.02953 782.64629,600.93353 782.40629,600.83753 783.10429,600.51853 783.34529,600.61453 783.12629,601.12553" id="path5522"/>
       </g>
-    <circle class="circlexx vgb" cx="779.89447" cy="596.52356" id="vg." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

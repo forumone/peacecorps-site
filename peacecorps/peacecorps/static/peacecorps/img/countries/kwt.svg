@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="1603 486 39 39" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="1603 486 39 39" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -181,6 +188,5 @@
       <path d="M 1657.008,545.256 C 1657.149,545.569 1655.306,548.614 1657.588,548.388 1659.563,548.192 1657.552,545.925 1657.008,545.256" id="path5440"/>
       <path class="world_map-is_selected landxx kwt" d="M 1645.708,552.815 C 1648.9117,551.6484 1647.4237,545.15368 1650.765,544.538 1652.0568,544.29996 1653.8993,544.17961 1655.596,545.58 1656.0351,545.94243 1657.164,548.288 1656.718,548.856 1655.766,547.521 1654.412,549.785 1653.908,550.44 1655.37,550.246 1656.997,550.814 1657.358,552.394 1657.798,554.315 1659.2662,556.02658 1659.9132,557.96658 1658.6748,557.25551 1655.5893,558.45287 1654.375,557.601 1653.4273,556.93614 1653.3114,555.49621 1652.936,554.501 1652.4342,553.17055 1647.646,553.52796 1645.708,552.815" id="path5486"/>
     </g>
-    <circle class="world_map-is_selected circlexx kwt" cx="1623.295" cy="505.14792" id="kw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

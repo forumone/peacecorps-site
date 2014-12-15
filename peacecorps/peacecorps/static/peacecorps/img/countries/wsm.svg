@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="2677 860 33 33" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="2681 870 26 15" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -169,15 +176,9 @@
       <path d="M 2721.678,921.533 C 2721.232,921.75 2720.776,921.773 2720.309,921.602 2720.748,923.131 2722.106,924.735 2723.805,923.721 2724.542,923.281 2724.645,922.405 2724.227,921.705 2723.647,920.737 2722.486,921.374 2721.678,921.533" id="path4782"/>
       <path d="M 2729.518,926.283 C 2729.949,924.215 2726.291,923.882 2725.128,924.772 2726.074,926.299 2727.977,926.096 2729.518,926.283" id="path4784"/>
     </g>
-    <circle class="world_map-is_selected circlexx wsm" cx="2694.5093" cy="877.04901" id="ws." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="wf">
-    <title>Wallis and Futuna</title>
-    <circle class="circlexx wlf" cx="2671.2219" cy="875.65875" id="wf." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   <g id="as">
     <title>American Samoa</title>
     <path class="landxx coastxx asm" d="M 2704.3673,883.93855 C 2704.7043,883.60255 2705.0403,883.26555 2705.3773,882.92855 2704.8323,883.00255 2704.4413,883.39455 2704.3673,883.93855" id="as-"/>
-    <circle class="circlexx asm" cx="2702.5823" cy="886.99432" id="as." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>

@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom4" height="127" id="svg2985" version="1.1" viewBox="732 631 33 35" width="127">
+<svg xmlns="http://www.w3.org/2000/svg" class="world_map zoom6 zoom5 zoom4 zoom3 zoom2" height="127" id="svg2985" version="1.1" viewBox="743 650 8 7" width="127">
   <title>World Map</title>
   <defs id="defs2987"/>
-  <defs>
-    <link xmlns="http://www.w3.org/1999/xhtml" href="../css/svg.css" type="text/css" rel="stylesheet"/>
-  </defs>
   <style id="style_css_sheet" type="text/css">
 /*
  * Below are Cascading Style Sheet (CSS) definitions in use in this file,
@@ -11,13 +8,22 @@
  *
  */
 /* --- Custom styles for Peace Corps --- */
-.world_map .world_map-is_selected {
+.world_map .world_map-is_selected.circlexx {
+  opacity:1;
+}
+.world_map .world_map-is_selected.landxx {
   fill: #C94112 !important;
 }
 .world_map .landxx {
   fill: #F2EFE8;
   stroke: #ffffff;
   fill-rule: evenodd;
+}
+.world_map.zoom6 .landxx {
+  stroke-width: 0.1px;
+}
+.world_map.zoom5 .landxx {
+  stroke-width: 1px;
 }
 .world_map.zoom4 .landxx {
   stroke-width: 2px;
@@ -56,6 +62,7 @@
 .circlexx
 {
    opacity:0;
+   fill-opacity:0;
    fill:#e0e0e0;
    stroke:#000000;
    stroke-width:0.5;
@@ -173,11 +180,5 @@
   <g id="cw">
     <title>Curacao</title>
     <path class="world_map-is_selected landxx coastxx cuw" d="M 748.99628,655.41353 C 747.75928,655.10953 746.07528,654.04153 746.04628,652.60453 746.71128,652.70453 748.81428,654.75353 748.99628,655.41353" id="cw-"/>
-    <circle class="world_map-is_selected circlexx cuw" cx="749.11151" cy="648.7829" id="cw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
-  <g id="aw">
-    <title>Aruba</title>
-    <path class="landxx coastxx abw" d="M 739.77629,651.52555 C 739.65629,651.28555 739.53629,651.04655 739.41629,650.80555 740.21129,650.49255 740.54529,651.64255 740.64529,652.17355 740.33029,651.99155 740.04029,651.77555 739.77629,651.52555" id="aw-"/>
-    <circle class="circlexx abw" cx="737.10852" cy="647.10742" id="aw." r="6.0130301" rx="6.0130301" ry="6.0130301"/>
-  </g>
+    </g>
   </svg>
