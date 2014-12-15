@@ -26,18 +26,20 @@
       <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="u-inline"
         style="width: 6em; margin-right: .5em" />
     </a>
-    <h1 class="t-title--1 u-inline
+    <div class="u-inline">
+      <h1 class="t-title--1 u-inline
+        {% if title %}
+          separator--r separator--white separator--hide_sm
+        {% endif %}
+      ">
+        <a href="/donate" class="t--white">
+          Peace Corps
+        </a>
+      </h1>
       {% if title %}
-        separator--r separator--white
+        <h2 class="t-title--2 u-inline u-block--at_sm">{{ title }}</h2>
       {% endif %}
-    ">
-      <a href="/donate" class="t--white">
-        Peace Corps
-      </a>
-    </h1>
-    {% if title %}
-      <h2 class="t-title--2 u-inline">{{ title }}</h2>
-    {% endif %}
+    </div>
   </header>
 
   {% block navigation %}{% endblock %}

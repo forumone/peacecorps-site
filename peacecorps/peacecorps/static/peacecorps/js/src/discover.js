@@ -27,7 +27,8 @@ Discover.prototype.init = function(root, $navLinks) {
   this.filters = [];
   $navLinks.each(function() {
     self.filters.push($(this).data('filter-type'));
-    $(this).on('click', function() {
+    $(this).on('click', function(ev) {
+      ev.preventDefault();
       self.select($(this));
     });
   });
