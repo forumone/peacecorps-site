@@ -27,3 +27,12 @@ takes around 5 minutes to run on a decent machine.
 
 TODO: It'd make sense to simplify the shapes/otherwise reduce the file size.
 The script removes unseen countries, but it could definitely be improved.
+
+## Crop To
+
+Similar to the above script, but zooms in to a particular area instead of a
+single country.
+
+```bash
+python croptoview.py ../static/peacecorps/img/BlankMap-World6.svg ../static/peacecorps/img/countries/esc.svg 725 550 125 125
+```

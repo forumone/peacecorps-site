@@ -574,3 +574,6 @@
 - fields: {code: KOS, name: Kosovo}
   model: peacecorps.country
   pk: 192
+- fields: {code: ESC, name: Eastern Caribbean}
+  model: peacecorps.country
+  pk: 193
