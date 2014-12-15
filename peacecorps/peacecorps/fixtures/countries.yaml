@@ -568,6 +568,6 @@
 - fields: {code: ZWE, name: Zimbabwe}
   model: peacecorps.country
   pk: 190
-- fields: {code: GAM, name: Gambia}
+- fields: {code: GMB, name: Gambia}
   model: peacecorps.country
   pk: 191
