@@ -30,6 +30,11 @@
   color: $white;
 }
 
+.banner--dark_transparent {
+  background-color: rgba($secondary_dark, 0.9);
+  color: $white;
+}
+
 .banner--no_line {
   border-top: none;
 }

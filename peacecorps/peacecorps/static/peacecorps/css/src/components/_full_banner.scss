@@ -13,9 +13,10 @@
 }
 
 .full_banner--support {
-  @extend .t--white;
+  border-bottom: none;
   border-top: none;
   background-color: rgba($primary_support, 0.75);
+  color: $white;
 }
 
 .full_banner--neutral {
