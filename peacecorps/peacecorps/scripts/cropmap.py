@@ -72,16 +72,15 @@ def crop_to(doc, bboxes):
     for key, bbox in bboxes.items():
         if not overlaps(left, top, right, bottom,
                         bbox[0].x, bbox[0].y, bbox[1].x, bbox[1].y):
-            parent = root.find(".//*[@id='%s']/.." % key)
-            parent.remove(parent.find("./*[@id='%s']" % key))
+            element = root.find(".//*[@id='%s']" % key)
+            element.getparent().remove(element)
     # Delete any groups which no longer have children. We run this five times
     # to account for nesting
     for _ in range(5):
-        for parent in root.iterfind(".//svg:g/..", namespaces):
-            for child in parent.iterfind("svg:g", namespaces):
-                if len(child) == 0 or (len(child) == 1
-                                       and child[0].tag.endswith('title')):
-                    parent.remove(child)
+        for group in root.iterfind(".//svg:g", namespaces):
+            if len(group) == 0 or (len(group) == 1
+                                   and group[0].tag.endswith('title')):
+                group.getparent().remove(group)
 
 
 def ids_to_bboxes(root):
@@ -96,17 +95,31 @@ def ids_to_bboxes(root):
     return mapping
 
 
-def bbox(svg_el):
+def bbox(xml_el):
     """Bounding box for this svg element. Accounts for transformations"""
-    if svg_el.tag.endswith("path"):
-        return svg.Path(svg_el).bbox()
-    elif svg_el.tag.endswith("circle"):
-        return svg.Circle(svg_el).bbox()
+    if xml_el.tag.endswith("path"):
+        svg_el = svg.Path(xml_el)
+    elif xml_el.tag.endswith("circle"):
+        svg_el = svg.Circle(xml_el)
     else:
-        group = svg.Group(svg_el)
-        group.append(svg_el)
-        group.transform()
-        return group.bbox()
+        svg_el = svg.Group(xml_el)
+        svg_el.append(xml_el)
+        svg_el.transform()
+        return svg_el.bbox()
+
+    top_el = svg_el
+    ancestor = xml_el.getparent()
+    while ancestor is not None:
+        if ancestor.tag.endswith("g"):
+            new_top = svg.Group(ancestor)
+            new_top.items.append(top_el)
+            top_el.matrix = new_top.matrix * top_el.matrix
+            top_el = new_top
+        ancestor = ancestor.getparent()
+
+    if top_el != svg_el:
+        top_el.transform()
+    return top_el.bbox()
 
 
 def country_code(xml_el, namespaces):
