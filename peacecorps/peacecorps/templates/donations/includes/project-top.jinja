@@ -11,34 +11,47 @@
       <h3 class="t--black">{{ project.tagline }}</h3>
     </div>
 
-    <section class="u-align_c">
-        <div class="mask mask--oval mask--bordered u-h_center--block">
-          <img class="mask__content"
-               src="{{project.volunteerpicture.url}}"
-               alt="{{project.volunteerpicture.description}}">
+    <div class="inline_grid l-bm--3 u-clearfix">
+      <section class="u-align_c inline_grid--15">
+          <div class="mask mask--oval mask--bordered u-h_center--block">
+            <img class="mask__content"
+                 src="{{project.volunteerpicture.url}}"
+                 alt="{{project.volunteerpicture.description}}">
+          </div>
+        <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+          volunteer from <strong>{{project.volunteerhomestate}}</strong>
+        </span>
+      </section>
+      <section class="u-align_c inline_grid--15">
+        <div class="mask mask--oval mask--bordered u-h_center--block map">
+          <img src="{{ static("peacecorps/img/countries/"
+                              + project.country.code.lower() + ".svg") }}"
+               class="mask__content" />
         </div>
-      <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
-        volunteer from <strong>{{project.volunteerhomestate}}</strong>
-      </span>
-    </section>
-    <section class="u-align_c">
-      <div class="mask mask--oval mask--bordered u-h_center--block map">
-        <img src="{{ static("peacecorps/img/countries/"
-                            + project.country.code.lower() + ".svg") }}"
-             class="mask__content" />
-      </div>
-      <span class="t-body--sm">
-        in <strong>{{project.country.name}}</strong>
-      </span>
-    </section>
-    <section class="u-align_c">
-      <div class="radialProgress radialProgress--progress-15 u-h_center--block">
-        <div class="radialProgress__overlay"></div>
-      </div>
-      <span class="t-body--sm">
-        $33,230 needed to reach $7,320 goal
-      </span>
-    </section>
+          <span class="t-body--sm">
+            in <strong>{{project.country.name}}</strong>
+          </span>
+      </section>
+      <section class="u-align_c inline_grid--15">
+        {% set percent_completed = project.account.percent_funded() %}
+        <div class="radialProgress u-h_center--block"
+          {% if percent_completed < 50 %}
+            {% set deg = 90 + (3.6 * percent_completed) %}
+          style="background-image: linear-gradient(90deg, #F2EFE8 50%, transparent 50%, transparent), linear-gradient({{ deg }}deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
+          {% else %}
+            {% set deg = -90 + (3.6 * (percent_completed - 50)) %}
+          style="background-image: linear-gradient({{ deg }}deg, #A12122 50%, transparent 50%, transparent), linear-gradient(270deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
+          {% endif %}
+        >
+          <div class="radialProgress__overlay">
+          </div>
+        </div>
+        <span class="t-body--sm">
+          {{ humanize_amount(account.remaining()) }} needed to reach
+          {{ humanize_amount(project.account.goal) }} goal
+        </span>
+      </section>
+    </div>
 
     <section class="section u-align_c">
       <a href="" {# TODO where does this link go? #}
