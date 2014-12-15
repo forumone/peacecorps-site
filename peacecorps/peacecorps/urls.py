@@ -18,6 +18,8 @@ urlpatterns = patterns(
         name='donate projects funds'),
     url(r'^donate/projects-funds/special/$',
         midterm_cache(views.special_funds), name='donate special funds'),
+    url(r'^donate/faq/$', midterm_cache(views.FAQs.as_view()),
+        name='donate faqs'),
 
     url(r'^donate/fund/' + _slug + r'/$',
         midterm_cache(views.fund_detail), name='donate campaign'),

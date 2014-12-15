@@ -14,5 +14,6 @@ pytz
 psycopg2==2.5.3
 boto
 python-logstash
+django-admin-sortable2
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
 -e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages

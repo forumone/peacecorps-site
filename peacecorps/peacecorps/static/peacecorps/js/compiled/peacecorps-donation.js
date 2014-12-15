@@ -17,10 +17,11 @@ var Collapsible = function($root) {
   this.init.apply(this, arguments);
 };
 
-Collapsible.prototype.init = function(root, $control) {
+Collapsible.prototype.init = function(root, $control, opts) {
   var self = this;
   this.id = this.$el.attr('id') || '';
   this.hidden = true;
+  this.hideControls = (opts && opts.hideControls) || false;
   this.$control = $control;
   if (this.$control) {
     this.$control.on('click', function(ev) {
@@ -47,6 +48,10 @@ Collapsible.prototype.render = function() {
   this.hideMultiple($('body').find(this.ccCollapsible));
   this.$el.attr('aria-hidden', this.hidden);
   this.$control && this.$control.attr('aria-expanded', true);
+  $('.js-collapsibleControls').attr('aria-hidden', false);
+  if (this.hideControls) {
+    this.$control.attr('aria-hidden', true);
+  }
 };
 
 module.exports = Collapsible;
@@ -223,7 +228,9 @@ $().ready(function() {
           id = $(this).attr('id'),
           $control = $('[aria-controls="'+ id +'"]');
 
-      collapsible = new Collapsible($(this), $control);
+      collapsible = new Collapsible($(this), $control, {
+        hideControls: true
+      });
       collapsible.render();
     });
   }

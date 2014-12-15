@@ -4,12 +4,12 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.views.decorators.csrf import csrf_exempt
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
-    Account, Campaign, FeaturedCampaign, FeaturedProjectFrontPage,
+    Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
     Issue, humanize_amount, Project, Vignette)
 from peacecorps.payxml import convert_to_paygov
 
@@ -152,7 +152,8 @@ def donate_projects_funds(request):
         {
             'countries': countries,
             'issues': issues,
-            'projects': projects
+            'projects': projects,
+            'humanize_amount': humanize_amount,
         })
 
 
@@ -236,3 +237,8 @@ class ProjectReturn(AbstractReturn):
 
 class CampaignReturn(AbstractReturn):
     queryset = Campaign.objects.select_related('account', 'featured_image')
+
+
+class FAQs(ListView):
+    model = FAQ
+    template_name = 'donations/faq.jinja'

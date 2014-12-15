@@ -1,0 +1,29 @@
+/*
+ * Column
+ *
+ * A vertical column of elements that changes to a row at sm breakpoint.
+ */
+
+@import "globals";
+
+.column {
+  width: 55%;
+
+  @include media($sm) {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.column__element {
+  @include media($sm) {
+    display: inline-block;
+    float: none;
+    margin-right: 2em !important;
+    vertical-align: middle;
+  }
+}
+
+.column--r {
+  float: right;
+}

@@ -20,6 +20,8 @@ def _wrap(callback):
             return callback(request, *args, **kwargs)
         else:   # Password expired and not in whitelist
             return HttpResponseRedirect(pass_change_url)
+    if hasattr(callback, 'csrf_exempt'):
+        inner.csrf_exempt = callback.csrf_exempt
     return inner
 
 

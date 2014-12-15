@@ -36,6 +36,13 @@
 
 .section__content--contain {
   padding: 2.5em;
+  @include media($sm) {
+    padding: 1em;
+  }
+}
+
+.section__content--no_space_r {
+  padding-right: 0;
 }
 
 .section__content--contain--sm {

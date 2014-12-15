@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'restless',
     'sirtrevor',
     'peacecorps',
+    'adminsortable',
 )
 
 
