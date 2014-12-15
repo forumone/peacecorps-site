@@ -29,7 +29,9 @@
 }
 
 .u-block--at_sm {
-  display: block;
+  @include media($sm) {
+    display: block;
+  }
 }
 
 // Classic clearfix
