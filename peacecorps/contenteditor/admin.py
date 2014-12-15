@@ -56,6 +56,10 @@ class FeaturedCampaignAdmin(admin.ModelAdmin):
     raw_id_fields = ['campaign']
 
 
+class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
+    raw_id_fields = ['project']
+
+
 class AccountInline(admin.StackedInline):
     model = models.Account
 
@@ -86,7 +90,8 @@ admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
 admin.site.register(models.FeaturedCampaign, FeaturedCampaignAdmin)
-admin.site.register(models.FeaturedProjectFrontPage)
+admin.site.register(models.FeaturedProjectFrontPage,
+                    FeaturedProjectFrontPageAdmin)
 admin.site.register(models.Media)
 admin.site.register(models.Project, ProjectAdmin)
 admin.site.register(models.Vignette, VignetteAdmin)

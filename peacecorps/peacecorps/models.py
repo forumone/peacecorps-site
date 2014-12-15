@@ -163,7 +163,7 @@ class Country(models.Model):
 
 
 class FeaturedCampaign(models.Model):
-    campaign = models.ForeignKey('Campaign')
+    campaign = models.ForeignKey('Campaign', to_field='account')
 
     # Much like the Highlander, there can be only one.
     def save(self):
@@ -178,7 +178,7 @@ class FeaturedCampaign(models.Model):
 
 
 class FeaturedProjectFrontPage(models.Model):
-    project = models.ForeignKey('Project',
+    project = models.ForeignKey('Project', to_field='account',
                                 limit_choices_to={'published': True})
 
     def __str__(self):
