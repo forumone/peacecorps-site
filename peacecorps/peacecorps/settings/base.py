@@ -137,7 +137,7 @@ SIRTREVOR = False
 
 # Sir Trevor image storage and processing:
 SIRTREVOR_UPLOAD_PATH = "attachments/"
-SIRTREVOR_ATTACHMENT_PROCESSOR = 'peacecorps.utils.image_sizes'
+SIRTREVOR_ATTACHMENT_PROCESSOR = 'contenteditor.imagesizing.resize'
 
 # Sir Trevor Blocks:
 SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
