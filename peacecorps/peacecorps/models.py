@@ -114,12 +114,8 @@ class Campaign(models.Model):
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
         'Media',
-        related_name="campaign-icon",
-        help_text="A small icon to represent this on the landing page.",
-        blank=True, null=True)
-    featured_image = models.ForeignKey(
-        'Media',
-        help_text="A large landscape image for use in banners, headers, etc",
+        # related_name="campaign-icon",
+        help_text="A small photo to represent this campaign on the site.",
         blank=True, null=True)
     tagline = models.CharField(
         max_length=140,

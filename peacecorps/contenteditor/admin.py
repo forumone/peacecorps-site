@@ -33,11 +33,8 @@ class CampaignAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Info', {
-            'fields': ['account', 'name', ('campaigntype', 'country')]
+            'fields': ['account', 'name', ('campaigntype', 'country'), 'icon']
             }),
-        ('Images', {
-            'fields': [('icon', 'featured_image')]
-        }),
         ('Text', {
             'fields': ['tagline', 'call','slug', 'description']
         }),
@@ -52,7 +49,7 @@ class CampaignAdmin(admin.ModelAdmin):
     list_display = ['account', 'name']
     list_filter = ['campaigntype']
     search_fields = ['account__code', 'name', 'country__name']
-    raw_id_fields = ['account', 'icon', 'featured_image', 'country']
+    raw_id_fields = ['account', 'icon', 'country']
     filter_horizontal = ['featuredprojects']
 
 
@@ -132,6 +129,7 @@ class FAQAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
+admin.site.register(models.FeaturedCampaign)
 admin.site.register(models.Country)
 admin.site.register(models.FeaturedProjectFrontPage,
                     FeaturedProjectFrontPageAdmin)

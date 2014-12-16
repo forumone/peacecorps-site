@@ -7,6 +7,7 @@
 {% block content %}
 
 {# @todo: We haven't re-implemented the campaign design #}
+{# commenting out the featured campaign logic, since the model has changed.
 {% if featuredcampaign %}
 <div class="full_bg full_bg--lg" style="
     background-image: url('{{featuredcampaign.featured_image.url}}');
@@ -36,7 +37,7 @@
       Explore projects and funds</a>
   </h4>
 </section>
-{% else %}
+{% else %} #}
 <div class="full_bg full_bg--lg" style="background-image:
     url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');
   ">
@@ -62,7 +63,7 @@
     elitr, sed diam nonumy eirmod.
   </div>
 </section>
-{% endif %}
+{# endif #}
 
 <section class="section">
   <section class="section__content full_banner full_banner--neutral">
