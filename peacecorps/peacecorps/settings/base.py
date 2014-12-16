@@ -139,5 +139,8 @@ SIRTREVOR = False
 SIRTREVOR_UPLOAD_PATH = "attachments/"
 SIRTREVOR_ATTACHMENT_PROCESSOR = 'peacecorps.utils.image_sizes'
 
+# Sir Trevor Blocks:
+SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
+
 # Used when generating tweets
 SHARE_TEMPLATE = "I just donated to a great cause! %s"

@@ -6,3 +6,10 @@ class ButtonBlock(BaseBlock):
 
     class Media:
         js = ['contenteditor/js/buttonblock.js']
+
+
+class Image508Block(BaseBlock):
+    name = 'Image508'
+
+    class Media:
+        js = ['contenteditor/js/image508block.js']
