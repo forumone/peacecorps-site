@@ -76,7 +76,7 @@
   }
 }
 
-// TODO hack
+// TODO :not(old) is a hack to ignore styles in old browsers
 .bubble_form {
   label {
     cursor: pointer;
@@ -94,11 +94,11 @@
     font-size: 1.2em;
     width: 70%;
   }
-  input[type=radio]:not(old):checked {
+  input[type=radio]:checked:not(old) {
     border-color: $white;
   }
 
-  input[type=radio]:not(old):checked + .bubble {
+  input[type=radio]:checked:not(old) + .bubble {
     background-color: $primary;
     border-color: $white;
 
