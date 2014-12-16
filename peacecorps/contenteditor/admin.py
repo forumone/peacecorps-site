@@ -129,7 +129,6 @@ class FAQAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
-admin.site.register(models.FeaturedCampaign)
 admin.site.register(models.Country)
 admin.site.register(models.FeaturedProjectFrontPage,
                     FeaturedProjectFrontPageAdmin)
