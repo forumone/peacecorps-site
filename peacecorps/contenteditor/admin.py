@@ -33,13 +33,10 @@ class CampaignAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Info', {
-            'fields': ['account', 'name', ('campaigntype', 'country')]
+            'fields': ['account', 'name', ('campaigntype', 'country'), 'icon']
             }),
-        ('Images', {
-            'fields': [('icon', 'featured_image')]
-        }),
         ('Text', {
-            'fields': ['tagline', 'call','slug', 'description']
+            'fields': ['slug', 'description']
         }),
         ('Projects', {
             'fields': ['featuredprojects'],
@@ -52,8 +49,9 @@ class CampaignAdmin(admin.ModelAdmin):
     list_display = ['account', 'name']
     list_filter = ['campaigntype']
     search_fields = ['account__code', 'name', 'country__name']
-    raw_id_fields = ['account', 'icon', 'featured_image', 'country']
+    raw_id_fields = ['account', 'icon', 'country']
     filter_horizontal = ['featuredprojects']
+    exclude = ['tagline', 'call']
 
 
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
