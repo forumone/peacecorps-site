@@ -36,7 +36,7 @@ class CampaignAdmin(admin.ModelAdmin):
             'fields': ['account', 'name', ('campaigntype', 'country'), 'icon']
             }),
         ('Text', {
-            'fields': ['tagline', 'call','slug', 'description']
+            'fields': ['slug', 'description']
         }),
         ('Projects', {
             'fields': ['featuredprojects'],
@@ -51,6 +51,7 @@ class CampaignAdmin(admin.ModelAdmin):
     search_fields = ['account__code', 'name', 'country__name']
     raw_id_fields = ['account', 'icon', 'country']
     filter_horizontal = ['featuredprojects']
+    exclude = ['tagline', 'call']
 
 
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):

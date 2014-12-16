@@ -125,7 +125,7 @@ class Campaign(models.Model):
         max_length=50, help_text="call to action for buttons (50 characters)",
         blank=True, null=True)
     slug = models.SlugField(
-        help_text="used for the campaign page url.",
+        help_text="Auto-generated. Used for the campaign page url.",
         max_length=100, unique=True)
     description = BraveSirTrevorField(help_text="the full description.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
