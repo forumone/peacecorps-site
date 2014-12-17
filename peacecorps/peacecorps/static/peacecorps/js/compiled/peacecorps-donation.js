@@ -218,23 +218,22 @@ $().ready(function() {
 
   new UpdatePercent($('.js-fundingBar'));
 
-  if ($discoverApp) {
+  if ($discoverApp.length > 0) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
       selected: 'volunteer'
     });
     discover.render();
-
-    $('.js-collapsibleItem').each(function() {
-      var collapsible,
-          id = $(this).attr('id'),
-          $control = $('[aria-controls="'+ id +'"]');
-
-      collapsible = new Collapsible($(this), $control, {
-        hideControls: true
-      });
-      collapsible.render();
-    });
   }
+  $('.js-collapsibleItem').each(function() {
+    var collapsible,
+        id = $(this).attr('id'),
+        $control = $('[aria-controls="'+ id +'"]');
+
+    collapsible = new Collapsible($(this), $control, {
+      hideControls: !($(this).hasClass('js-collapsibleNoHide'))
+    });
+    collapsible.render();
+  });
 });
 
 },{"./collapsible":1,"./discover":2,"./landing":4,"./update_donatepercent":5,"jquery":6}],4:[function(require,module,exports){
