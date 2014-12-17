@@ -16,11 +16,12 @@ LOGGED_FILE_STORAGE = 'contenteditor.backends.MediaS3Storage'
 # AWS_STORAGE_BUCKET_NAME = 'peace-corps'
 AWS_MEDIA_BUCKET_NAME = 'pc-media-dev'
 AWS_STATIC_BUCKET_NAME = 'pc-theme-dev'
+
 STATICFILES_STORAGE = 'contenteditor.backends.StaticS3Storage'
 
 AWS_QUERYSTRING_AUTH = False
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+#AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+#AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
