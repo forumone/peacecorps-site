@@ -9,19 +9,56 @@
 
 .grid {};
 
+.grid__omega {
+  @include omega;
+  margin-right: 0 !important;
+}
+
 .grid--80 {
   @include span-columns(8);
 
-  @include media($sm) {
-    @include span-columns(4);
+  @include media($md) {
+    @include span-columns(6);
   }
-}
-
-.grid--20 {
-  @include span-columns(4);
 
   @include media($sm) {
     @include span-columns(4);
+    margin-bottom: 3em;
+    padding-left: .5em;
+    padding-right: .5em;
+  }
+
+  .grid--25 {
+    @include span-columns(2 of 8);
+
+    @include media($md) {
+      @include span-columns(2 of 6);
+      margin-bottom: 1em;
+    }
+    @include media($sm) {
+      @include span-columns(2 of 4);
+
+      &:nth-child(2n + 1) {
+        @include omega;
+        margin-right: 0;
+      }
+      margin-bottom: 1em;
+    }
+  }
+  .grid--50 {
+    @include span-columns(4 of 8);
+
+    @include media($md) {
+      @include span-columns(4 of 6);
+      &:last-child {
+        clear: left;
+      }
+      margin-bottom: 1em;
+    }
+    @include media($sm) {
+      @include span-columns(4 of 4);
+      margin-bottom: 1em;
+    }
   }
 }
 
@@ -38,6 +75,21 @@
 
   @include media($sm) {
     @include span-columns(4);
+  }
+}
+
+.grid--20 {
+  @include span-columns(4);
+
+  @include media($md) {
+    @include span-columns(3);
+  }
+
+  @include media($sm) {
+    @include span-columns(4);
+    margin-bottom: 3em;
+    padding-left: .5em;
+    padding-right: .5em;
   }
 }
 

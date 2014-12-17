@@ -28,7 +28,7 @@ class AccountInline(admin.StackedInline):
 
 class CampaignAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        CharField: {'widget': TextInput(attrs={'size':'80'})},
+        CharField: {'widget': TextInput(attrs={'size': '80'})},
     }
 
     fieldsets = (
@@ -65,27 +65,28 @@ class IssueAdmin(admin.ModelAdmin):
 
 class MediaAdmin(admin.ModelAdmin):
     fieldsets = (
-    ('File', {
-        'fields': ['file']
-    }),
-    ('Info', {
-        'fields': ['title', ('mediatype', 'country'), 'caption']
+        ('File', {
+            'fields': ['file']
         }),
-    ('508 Compliance', {
-        'fields': ['description', 'transcript'],
-        'description': """<h4>Images must have a description.
-                            Audio/video files must be transcribed.</h4>"""
-    }),
-)
+        ('Info', {
+            'fields': ['title', ('mediatype', 'country'), 'caption']
+            }),
+        ('508 Compliance', {
+            'fields': ['description', 'transcript'],
+            'description': """<h4>Images must have a description.
+                                Audio/video files must be transcribed.</h4>"""
+        }),
+    )
 
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['account', 'title', 'country', 'volunteername']
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('campaigns',)
-    search_fields = ['account__code', 'volunteername', 'country__name', 'title']
+    search_fields = ['account__code', 'volunteername', 'country__name',
+                     'title']
     raw_id_fields = ['account', 'overflow',
-                    'volunteerpicture', 'featured_image']
+                     'volunteerpicture', 'featured_image']
     exclude = ['media']
 
     fieldsets = (
@@ -94,8 +95,8 @@ class ProjectAdmin(admin.ModelAdmin):
             }),
         ('Volunteer Info', {
             'fields': ['volunteername',
-                        ('volunteerhomecity', 'volunteerhomestate'),
-                        'volunteerpicture'],
+                       ('volunteerhomecity', 'volunteerhomestate'),
+                       'volunteerpicture'],
             'classes': ['wide']
 
         }),
@@ -104,7 +105,7 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
         ('Project Info', {
             'fields': ['title', 'tagline', 'slug',
-                        'description', 'abstract', 'published']
+                       'description', 'abstract', 'published']
             }),
         ('Campaigns', {
             'fields': ['campaigns']
@@ -135,7 +136,8 @@ admin.site.register(models.FeaturedProjectFrontPage,
                     FeaturedProjectFrontPageAdmin)
 admin.site.register(models.Media, MediaAdmin)
 admin.site.register(models.Project, ProjectAdmin)
-admin.site.register(models.Vignette, VignetteAdmin)
+# These aren't used anywhere yet
+# admin.site.register(models.Vignette, VignetteAdmin)
 admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.FAQ, FAQAdmin)
 admin.site.unregister(User)
