@@ -139,5 +139,8 @@ SIRTREVOR = False
 SIRTREVOR_UPLOAD_PATH = "attachments/"
 SIRTREVOR_ATTACHMENT_PROCESSOR = 'contenteditor.imagesizing.resize'
 
+# Sir Trevor Blocks:
+SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
+
 # Used when generating tweets
 SHARE_TEMPLATE = "I just donated to a great cause! %s"

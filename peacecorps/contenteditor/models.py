@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.db.models.signals import post_delete, post_save
 import sirtrevor
 
-from .blocks import ButtonBlock
+from .blocks import ButtonBlock, Image508Block
 
 
 def expires(initial=None):
@@ -101,3 +101,4 @@ def password_errors(password):
     return errors
 
 sirtrevor.register_block(ButtonBlock)
+sirtrevor.register_block(Image508Block)
