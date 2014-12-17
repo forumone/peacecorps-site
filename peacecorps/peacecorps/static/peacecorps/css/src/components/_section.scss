@@ -9,10 +9,15 @@
 
 .section {
   clear: left;
-  padding: 0 1em;
+
+  @include media($md) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
   @include media($sm) {
-    padding: 0 1em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 

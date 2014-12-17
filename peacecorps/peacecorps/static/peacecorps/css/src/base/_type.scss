@@ -125,7 +125,7 @@ h4 + h3 {
 }
 .t-body--sm {
   @extend .t-body;
-  @include font-size(1.6);
+  @include font-size(1.8);
   @include rem(margin, 1rem 0);
 }
 .t-body--xsm {
@@ -160,7 +160,7 @@ p + p {
 .t-title--2 {
   @extend .t-title;
   @include font-size(3.0);
-  @include rem(margin, 0 0 1.4rem 0);
+  @include rem(margin, 0 0 1rem 0);
 
   @include media($md) {
     @include font-size(2.5);
