@@ -24,7 +24,7 @@
           id="collapsible-{{faq.pk}}"
                  aria-hidden="true">
           <h3>{{faq.question}}</h3>
-          {{faq.answer}}
+          {{faq.answer.html|safe}}
         </article>
       </li>
   {% endfor %}
