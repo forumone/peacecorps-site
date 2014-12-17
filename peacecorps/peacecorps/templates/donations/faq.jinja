@@ -12,7 +12,7 @@
     </p>
   </div>
 </section>
-<section class="js-discoverApp">
+<section>
   <ul>
     {% for faq in object_list %}
       <li>
@@ -20,10 +20,11 @@
           <a aria-expanded="false" href="#"
              aria-controls="collapsible-{{faq.pk}}">{{faq.question}}</a>
         </header>
-        <article class="js-collapsibleItem" id="collapsible-{{faq.pk}}"
+        <article class="js-collapsibleItem js-collapsibleNoHide"
+          id="collapsible-{{faq.pk}}"
                  aria-hidden="true">
           <h3>{{faq.question}}</h3>
-          {{faq.answer.html|safe}}
+          {{faq.answer}}
         </article>
       </li>
   {% endfor %}
