@@ -6,6 +6,16 @@
 
 @import "globals";
 
+.separator--h {
+  margin-top: 1em;
+  margin-bottom: 2em;
+
+  @include media($sm) {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+}
+
 .separator--r {
   border-right-width: 2px;
   border-right-style: solid;
