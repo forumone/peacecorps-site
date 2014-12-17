@@ -47,7 +47,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Contributions to the Agriculture Fund support one of the most basic needs of communities worldwide: safe and sustainable food production.  Agriculture projects target areas such as community food production systems, pesticide safety, crop production, animal husbandry, apiculture, agriculture marketing, farm economics, and formation of agricultural cooperatives.  As food security continues to be a global concern, it is imperative to support communities'' agricultural development."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Agriculture Fund
@@ -60,7 +59,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Volunteers are posted throughout the developing world to help local businesses thrive in ways they never thought possible. Increasing the opportunities presented to local businesses promotes a sense of empowerment that can truly change a community. Contributions to this fund will support Volunteer and community projects such as microfinance, agribusiness, business education, and artisan collectives."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Business Development Fund
@@ -73,7 +71,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"The very basic needs of clean water and accessible sanitation are absent from many communities around the world. This often leads to severe community health problems. Volunteers work with their communities to design locally appropriate solutions to provide safe, affordable, and sustainable water and sanitation. Contributions to this fund will help Volunteer and community projects such as latrines, aqueducts and wells, and basic sanitation training."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Drinking Water and Sanitation Fund
@@ -86,7 +83,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Throughout the developing world, Peace Corps Volunteers are working in their communities to share the precious gift of education.  Often Volunteers'' dedication to teaching is matched by a severe lack of supplies and facilities in which to help. Contributions to this fund will help Volunteer and community projects such as school construction, English language training, school and library material, and adult literacy."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Education Fund
@@ -99,7 +95,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Communities around the world are challenged by the need to improve their development in an environmentally sustainable way. Peace Corps Volunteers are working with their communities to show that sustainable environmental management is not only good stewardship, but can be an engine of future economic growth.  Contributions to this fund will help Volunteer and community projects such as environmental conservation and ecotourism."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Environment Fund
@@ -112,7 +107,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Donations to the Health and HIV/AIDS Fund will help combat global health issues such as poor nutrition, the spread of infectious diseases, and the devastating social and economic impact of HIV/AIDS. In order to help alleviate these problems, Volunteers and their host communities are planning and implementing projects which focus on preventative health care, nutrition, and disease prevention and mitigation. The range of activities includes immunizations; nutrition and growth monitoring; promotion of breast-feeding; access to prenatal and postnatal care; training health workers; development of public awareness material; and culturally appropriate education strategies."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Health and HIV/AIDS Fund
@@ -125,7 +119,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Peace Corps Volunteers are working with men and women in communities throughout the developing world to help them gain access to information technology skills and resources. Consistent with all Peace Corps volunteer work, their efforts are aimed at the promotion of social and economic development and the reduction of poverty. To this aim, volunteers are using IT to enhance existing small, local entrepreneurial efforts, in order to allow once isolated communities to link to the world and find and capitalize on opportunities once completely out of their reach. Contributions to this fund will support Community and Volunteer projects such as creating school and public computer labs and teaching computer skills."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Information & Communication Technology Fund
@@ -138,7 +131,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"In communities that face very basic struggles, the specific needs of children and young adults often go unaddressed. Peace Corps Volunteers work with local youths to improve their education opportunities, make them aware of health and cultural issues they will face, and engage them in activities that will help them grow.  Contributions to this fund will help Volunteer and community projects such as camps, recreation centers, and after school clubs and sports."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Youth Fund
@@ -151,7 +143,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Contributions to the Municipal Development Fund will support overarching capacity building across all sectors, such as health, education, and waste management.  Projects range from improving public spaces and buildings, like classrooms, clinics, and parks to promoting civic education and participation in municipal decisions.  Municipal projects area foundation on which communities can increase their civic engagement and ultimately their overall economic development."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Municipal Development Fund
@@ -164,7 +155,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"Contributions to this Fund are committed to community-initiated and Volunteer-led projects such as establishing women''s cooperatives, increasing women''s access to resources and services, exploring gender roles, building shelters, and increasing training programs. The Loret Miller Ruppe and Loret, Jr. Fund for the Advancement of Women was established to celebrate the lives of Loret Miller Ruppe who was the longest serving Director in Peace Corps history and Loret Jr., her daughter.  Loret Miller Ruppe served as Director from 1981-89 and was a great, vocal advocate for the Peace Corps'' mission of \"world peace and friendship\" both globally and domestically. Her passion for service inspired her daughter, Loret, Jr., to serve as a Peace Corps Volunteer in Nepal. Their vision and hard work brought hope to communities around the world, especially for women.\n\nTo honor the outstanding contributions of Loret Miller Ruppe, this fund was established with a generous grant from her family to assist Peace Corps volunteers who wish to carry on the work that was so important to her: the empowerment of women and girls around the world.\n\nTo celebrate the life and service of Loret, Jr., the fund now highlights projects supporting girls'' education and camps for girls."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Ruppe Gender Development Fund
@@ -177,7 +167,6 @@
     call: null
     campaigntype: sec
     description: '{"data":[{"type":"text","data":{"text":"The Peace Corps Malaria Initiative for Africa is a targeted support program for malaria prevention activities across sub-Saharan Africa. Contributions to the Fund support community identified, volunteer facilitated malaria prevention Peace Corps Partnership Program projects such as training community health workers in malaria diagnosis and treatment, creating small businesses selling mosquito repellent crèmes, delivering insecticide treated nets, providing education to thousands of community members on how to protect oneself from malaria and many more.\n\nAccording to WHO statistics, Malaria kills 750,000 people annually and while large scale international efforts have seen notable success in the last decade, malaria is still the scourge of much of Africa.  Contributions to the Fund allow volunteers and their communities to pilot the next round of innovative best practices which will inform malaria prevention world-wide."}}]}'
-    featured_image: null
     featuredprojects: []
     icon: null
     name: Stomping Out Malaria in Africa
