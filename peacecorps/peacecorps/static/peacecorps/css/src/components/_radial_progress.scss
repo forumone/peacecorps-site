@@ -1,0 +1,31 @@
+/*
+ * Radial progress.
+ *
+ * A circular progress bar which fills up around a circle.
+ */
+
+@import "globals";
+
+$barColor: $primary;
+$overlayColor: $white;
+$backColor: $neutral_medium;
+
+.radialProgress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid $backColor;
+  background-color: $barColor;
+}
+
+.radialProgress__overlay {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: $overlayColor;
+  border-radius: 50%;
+  margin-left: 18px;
+  margin-top: 18px;
+  text-align: center;
+}

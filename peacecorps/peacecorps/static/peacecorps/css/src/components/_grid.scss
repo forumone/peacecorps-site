@@ -1,0 +1,125 @@
+/*
+ * Grid
+ *
+ * A layout module which allows setting up basic grid.
+ */
+
+@import "globals";
+@import "mixins";
+
+.grid {};
+
+.grid__omega {
+  @include omega;
+  margin-right: 0 !important;
+}
+
+.grid--80 {
+  @include span-columns(8);
+
+  @include media($md) {
+    @include span-columns(6);
+  }
+
+  @include media($sm) {
+    @include span-columns(4);
+    margin-bottom: 3em;
+    padding-left: .5em;
+    padding-right: .5em;
+  }
+
+  .grid--25 {
+    @include span-columns(2 of 8);
+
+    @include media($md) {
+      @include span-columns(2 of 6);
+      margin-bottom: 1em;
+    }
+    @include media($sm) {
+      @include span-columns(2 of 4);
+
+      &:nth-child(2n + 1) {
+        @include omega;
+        margin-right: 0;
+      }
+      margin-bottom: 1em;
+    }
+  }
+  .grid--50 {
+    @include span-columns(4 of 8);
+
+    @include media($md) {
+      @include span-columns(4 of 6);
+      &:last-child {
+        clear: left;
+      }
+      margin-bottom: 1em;
+    }
+    @include media($sm) {
+      @include span-columns(4 of 4);
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.grid--60 {
+  @include span-columns(7);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+}
+
+.grid--40 {
+  @include span-columns(5);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+}
+
+.grid--20 {
+  @include span-columns(4);
+
+  @include media($md) {
+    @include span-columns(3);
+  }
+
+  @include media($sm) {
+    @include span-columns(4);
+    margin-bottom: 3em;
+    padding-left: .5em;
+    padding-right: .5em;
+  }
+}
+
+.inline_grid {
+  margin: inherit auto;
+}
+
+.inline_grid--15 {
+  @include span-columns(2);
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+
+  @include media($md) {
+    @include span-columns(3);
+    display: inline-block;
+    float: none;
+  }
+  @include media($sm) {
+    @include span-columns(2);
+    display: inline-block;
+    float: none;
+    margin-top: 1em;
+  }
+}
+
+.grid__contain {
+  width: 100%
+}
+
+.grid__last {
+  margin-right: 0;
+}

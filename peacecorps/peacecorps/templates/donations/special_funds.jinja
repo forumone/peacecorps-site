@@ -1,0 +1,56 @@
+{% extends "donations/base.jinja" %}
+
+{% block title %}Peace Corps | Special Funds{% endblock %}
+{% block header %}PEACECORPS{% endblock %}
+{% block content_class %}special-funds{% endblock %}
+
+{% block content %}
+<div class="full_bg full_bg--lg" style="
+    background-image:
+    url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');
+  ">
+</div>
+{% for fund in general_funds %}
+  <section class="showcase--main showcase--neutral">
+    <section class="showcase--col3_centered">
+      <section class="showcase showcase--col3_centered__col">
+        {% if fund.featured_image %}
+          <div class="mask mask--oval u-h_center--block">
+            <img class="mask__content"
+                 src="{{fund.featured_image.url}}"
+                 alt="{{fund.featured_image.description}}" />
+          </div>
+        {% endif %}
+      </section>
+      <section class="showcase showcase--col3_centered__2col">
+        <h1 class="t-blurb--lg">{{fund.tagline}}</h1>
+        <div class="t-blurb--sm">{{fund.description.html|safe}}</div>
+        <a href="{{url("donate campaign", slug=fund.slug)}}"
+           class="button button--md button--secondary">{{fund.call}}</a>
+      </section>
+    </section>
+  </section>
+{% endfor %}
+<section class="showcase--main showcase--neutral">
+  <h1 class="t-title--1">Memorial Funds</h1>
+  <section class="showcase--col3_centered">
+  {% for fund in memorial_funds %}
+    <section class="showcase--col3_centered__col">
+      <a href="{{url("donate campaign", slug=fund.slug)}}">
+        {% if fund.featured_image %}
+          <div class="mask mask--oval u-h_center--block">
+            <img class="mask__content"
+                 src="{{fund.featured_image.url}}"
+                 alt="{{fund.featured_image.description}}" />
+          </div>
+        {% endif %}
+        <div class="inline_text--centered">{{fund.memorial_name}}</div>
+      </a>
+    </section>
+  {% endfor %}
+  </section>
+</section>
+<div>
+  <a href="{{url("donate projects funds")}}">Explore Projects and Funds</a>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "donations/base.jinja" %}
+
+{% block title %}Peace Corps | Donating FAQs{% endblock %}
+{% block header %}Peace Corps | Donating FAQs{% endblock %}
+{% block content_class %}faqs{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="section__content u-clearfix">
+    <p class="inset inset--md">
+      Wondering where your money goes once you donate to us? Or lorem ipsum
+      dolor amet? Browse these questions, and if you can't find your answer,
+      feel free to <a href="mailto:donations@peacecorps.gov">email us</a>.
+    </p>
+  </div>
+</section>
+<section class="js-discoverApp">
+  <ul>
+    {% for faq in object_list %}
+      <li>
+        <header>
+          <a aria-expanded="false" href="#"
+             aria-controls="collapsible-{{faq.pk}}">{{faq.question}}</a>
+        </header>
+        <article class="js-collapsibleItem" id="collapsible-{{faq.pk}}"
+                 aria-hidden="true">
+          <h3>{{faq.question}}</h3>
+          {{faq.answer.html|safe}}
+        </article>
+      </li>
+  {% endfor %}
+</section>
+<a href="{{url("donate projects funds")}}" class="t-title--4"
+   >Explore Projects and Funds</a>
+{% endblock %}

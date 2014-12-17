@@ -1,0 +1,93 @@
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+.donate-form form {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .donate-form form:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .donate-form form > div {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .donate-form form > div:last-child {
+      margin-right: 0; }
+  .donate-form form div > label {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .donate-form form div > label:last-child {
+      margin-right: 0; }
+  .donate-form form div > .value {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%; }
+    .donate-form form div > .value:last-child {
+      margin-right: 0; }
+  .donate-form form div > .checkbox {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%; }
+    .donate-form form div > .checkbox:last-child {
+      margin-right: 0; }
+  .donate-form form .checkbox + label {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%; }
+    .donate-form form .checkbox + label:last-child {
+      margin-right: 0; }
+  .donate-form form label.required::after {
+    content: ' *'; }
+  .donate-form form .dedication_details {
+    margin-left: 8.5298%;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+    border: solid 1px #000;
+    padding: 0.5em;
+    display: none;
+    /* Initially hidden */ }
+    .donate-form form .dedication_details:last-child {
+      margin-right: 0; }
+    .donate-form form .dedication_details > div, .donate-form form .dedication_details p {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .donate-form form .dedication_details > div:last-child, .donate-form form .dedication_details p:last-child {
+        margin-right: 0; }
+    .donate-form form .dedication_details #id_dedication_consent {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 82.94039%; }
+      .donate-form form .dedication_details #id_dedication_consent:last-child {
+        margin-right: 0; }
+  .donate-form form .shown-with-organization {
+    display: none;
+    /* Initially hidden */ }
+  .donate-form form ul {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+/*# sourceMappingURL=donation-form.css.map */

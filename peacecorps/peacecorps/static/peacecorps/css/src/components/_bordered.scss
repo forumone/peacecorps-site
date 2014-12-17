@@ -1,0 +1,29 @@
+/*
+ * Bordered block.
+ *
+ * Places a solid 1em border around an element.
+ */
+
+@import "globals";
+
+body {
+  border-color: $primary;
+}
+
+.bordered {
+  border-style: solid;
+  border-width: 1em;
+
+  @include media($sm) {
+    border-width: 0.5em;
+  }
+}
+
+.bordered--row {
+  border-top: .8em solid;
+}
+
+.bordered--white {
+  background-color: $white;
+  border-color: $white;
+}

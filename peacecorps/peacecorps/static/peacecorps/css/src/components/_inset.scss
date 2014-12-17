@@ -1,0 +1,54 @@
+/*
+ * Inset
+ *
+ * Inset a element on both sides.
+ */
+
+.inset {
+  @include omega;
+}
+
+.inset--lg {
+  @include shift(1);
+  @include span-columns(10);
+  @include omega;
+
+  @include media($sm) {
+    @include shift(0);
+    @include span-columns(4);
+    @include omega;
+  }
+}
+
+.inset--md {
+  @include span-columns(8);
+  @include shift(2);
+
+  @include media($md) {
+    @include span-columns(7);
+    @include shift(1);
+
+  }
+  @include media($sm) {
+    @include shift(0);
+    @include span-columns(4);
+    padding: 0 1em;
+  }
+}
+
+.inset--sm {
+  @include span-columns(6);
+  @include shift(3);
+  @include omega(1n);
+
+  @include media($md) {
+    @include shift(1);
+    @include span-columns(7);
+  }
+
+  @include media($sm) {
+    @include shift(0);
+    @include span-columns(4);
+    padding: 0 1em;
+  }
+}

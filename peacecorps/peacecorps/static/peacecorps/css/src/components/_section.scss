@@ -1,0 +1,68 @@
+/*
+ * Section
+ *
+ * Section(s) are for main, separated visual block of content.
+ */
+
+@import "globals";
+@import "mixins";
+
+.section {
+  clear: left;
+
+  @include media($md) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @include media($sm) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.section--white {
+  background-color: $white;
+}
+
+.section--neutral_dark {
+  background-color: $neutral_dark;
+  color: $gray-2;
+}
+
+.section--neutral_medium {
+  background-color: $neutral_medium;
+}
+
+.section__content {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+}
+
+.section__content--contain {
+  padding: 2.5em;
+  @include media($sm) {
+    padding: 1em;
+  }
+}
+
+.section__content--no_space_r {
+  padding-right: 0;
+}
+
+.section__content--contain--sm {
+  padding: .5em 1.5em;
+}
+
+.section__box {
+  padding: 1.9em;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  & + & {
+    margin-top: 3em;
+  }
+}
+

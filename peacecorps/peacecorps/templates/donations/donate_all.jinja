@@ -1,0 +1,248 @@
+{% extends "donations/base.jinja" %}
+
+{% block title %}Peace Corps{% endblock %}
+{% block header %}Peace Corps{% endblock %}
+{% block content_class %}landing{% endblock %}
+
+{% block content %}
+
+<section class="blurb u-clearfix">
+  <h2 class="t-blurb--md t--black">
+    Explore here and support the work that Peace Corps volunteers are doing
+    to improve our world.
+  </h2>
+</section>
+
+<nav class="js-discoverNav u-clearl banner banner--no_line banner--secondary">
+  <ul class="u-unmarked_list u-inline_list">
+    <li class="md-hide sm-hide">
+      <span class="t-title--4">Select a category to browse and give:</span>
+    </li>
+    <li class="t-title--4 sub_nav__link--horizontal">
+      <a class="t--white" href="#" data-filter-type="issue">Issues</a>
+    </li>
+    <li class="t-title--4 sub_nav__link--horizontal">
+      <a class="t--white" href="#" data-filter-type="country">Countries</a>
+    </li>
+    <li class="t-title--4 sub_nav__link--horizontal">
+      <a class="t--white" href="#" data-filter-type="volunteer">Volunteers</a>
+    </li>
+  </ul>
+</nav>
+
+<article class="js-discoverApp">
+  <ul class="js-filterable u-unmarked_list u-clearfix"
+      data-filter-type="issue">
+  {% for issue in issues %}
+    {% for campaign in issue.campaigns.all() %}
+      <li class="section--neutral_dark
+          u-clearfix
+          bordered--row
+          bordered--white">
+        {{ render_campaign(campaign, issue) }}
+      </li>
+    {% endfor %}
+      {# TODO figure out projects rather the featured projects #}
+    {% for project in issue.projects() %}
+      <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
+        {{ render_project_header(project, 'issue') }}
+        {{ render_project(project, 'issue') }}
+      </li>
+    {% endfor %}
+  {% endfor %}
+  </ul>
+  <ul class="js-filterable u-unmarked_list u-clearfix"
+       data-filter-type="volunteer">
+  {% for project in projects %}
+    <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
+      {{ render_volunteer_project_header(project, 'volunteer') }}
+      {{ render_project(project, 'volunteer') }}
+    </li>
+  {% endfor %}
+  </ul>
+  <ul  class="js-filterable u-unmarked_list u-clearfix"
+       data-filter-type="country">
+  {% for country in countries %}
+    <li class="section--neutral_dark
+          u-clearfix
+          bordered--row
+          bordered--white">
+      {{ render_country_campaign(country) }}
+    </li>
+    {# TODO figure out projects rather the featured projects #}
+    {% for project in country.project_set.all() %}
+      <li class="section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
+        {{ render_project_header(project, 'country') }}
+        {{ render_project(project, 'country') }}
+      </li>
+    {% endfor %}
+  {% endfor %}
+  </ul>
+</article>
+
+{% endblock %}
+
+{% macro country_map(code) -%}
+  <div class="mask mask--bordered mask--md mask--oval
+              mask--bordered mask--gray-1 u-h_center--block map">
+    <img src="{{ static("peacecorps/img/countries/" + code.lower()
+                        + ".svg") }}"
+         class="mask__content mask__content--md" />
+  </div>
+{%- endmacro %}
+
+{% macro render_campaign(campaign, issue) -%}
+  {# TODO find way to link to media urls #}
+  <aside class="grid--20 sm-hide
+      section__content--contain section__content--no_space_r">
+    <img class="u-pullr"
+      class="section__content--no_space_r"
+      style="width: 42%;"
+      src="{{ media('World-by-Ana-Maria-Lora-Macias-CC-BY.png') }}"
+      alt="{{ campaign.name }}" />
+  </aside>
+  <article class="grid--80 section__content--contain">
+    <h2 class="t-title--2">{{ issue.name }}</h2>
+    <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
+    {{ campaign.description.html|safe }}
+    <a class="button button--sm button--primary"
+       href="{{ url("donate campaign", slug=campaign.slug) }}">
+      Give to this fund</a>
+  </article>
+{%- endmacro %}
+
+{% macro render_country_campaign(campaign) -%}
+  <aside class="grid--20 sm-hide
+      section__content--contain section__content--no_space_r">
+    <div class="u-pullr"
+        class="section__content--no_space_r"
+        style="width: 50%;">
+      {{ country_map(campaign.country.code) }}
+    </div>
+  </aside>
+  <article class="grid--80 section__content--contain">
+    <h2 class="t-title--2">{{ campaign.country.name }}</h2>
+    <div class="content-block text-block">
+      <p>{{ campaign.description }}</p>
+    </div>
+    <a class="button button--sm button--primary"
+       href="{{ url("donate campaign", slug=campaign.slug) }}">
+      Give to this fund</a>
+  </article>
+{%- endmacro %}
+
+{% macro render_project_header(project, ptype) -%}
+  <a aria-expanded="false" href="#"
+     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
+     class="js-collapsibleControls">
+    <header>
+        {# TODO fix empty element #}
+        <div class="grid--20" style="height: 1em;"></div>
+        <h3 class="t-heading--3 t--gray--2 grid--80
+            section__content--contain--sm">
+          {{ project.title }}</h3>
+    </header>
+  </a>
+{%- endmacro %}
+
+{% macro render_volunteer_project_header(project, ptype) -%}
+  <a aria-expanded="false" href="#"
+     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
+     class="js-collapsibleControls">
+    <aside class="grid--20 sm-hide
+        section__content--contain--sm section__content--no_space_r">
+      <div class="mask mask--oval mask--gray-1 mask--bordered
+           u-clearfix section__content--no_space_r u-pullr"
+           style="width: 5em; height: 5em;">
+        <img class="u-pullr"
+          class="mask__content"
+          style="width: 100%;"
+          src="{{ project.volunteerpicture }}"
+          alt="{{ project.volunteername }}" />
+      </div>
+    </aside>
+    <header class="grid--80 section__content--contain--sm grid__last">
+        <h3 class="t-heading--3 t--gray--2">
+          {{ project.volunteername }}</h3>
+        <h4 class="t-heading--4 t--gray--2">
+          {{ project.title }} </h4>
+    </header>
+  </a>
+{%- endmacro %}
+
+{% macro render_project(project, ptype) -%}
+  <article class="js-collapsibleItem"
+        id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
+    <aside class="grid--20 u-clearfix
+        section__content--contain section__content--no_space_r">
+      <div class="column column--r clearfix">
+        <div class="mask mask--oval mask--gray-1 mask--bordered
+             u-clearfix u-h_center--block l-bm--1 column__element"
+             style="width: 12em; height: 12em;">
+          <img class="mask__content" style="width: 100%;"
+               src="{{ project.volunteerpicture.url }}"
+               alt="{{ project.volunteername }}" />
+        </div>
+        <div class="u-h_center--block column__element
+              section__content--no_space_r">
+          {{ country_map(project.country.code) }}
+        </div>
+      </div>
+    </aside>
+    <section class="grid--80 section__content--contain">
+      <h2>{{ project.title }}</h2>
+      {{ project.abstract_html()|safe }}
+
+      {# TODO make macro #}
+      <div class="rectangular_progress
+                  rectangular_progress--mini
+                  rectangular_progress--secondary">
+        {% set percent_completed = project.account.percent_funded() %}
+        {% set amount_completed = (project.account.community_contribution +
+            project.account.current) %}
+        <div class="rectangular_progress__bar">
+          <div class="rectangular_progress__filled"
+              style="width: {{ percent_completed }}%;">
+          </div>
+        </div>
+        <span style="left: {{ percent_completed }}%;"
+            class="rectangular_progress__line
+                  rectangular_progress__line--bottom">
+        </span>
+        <span class="rectangular_progress__point
+                     rectangular_progress__point--bottom
+                     t-title--4"
+            style="left: {{ percent_completed }}%;">
+          {{ humanize_amount(amount_completed) }} raised
+        </span>
+
+        <span class="rectangular_progress__point
+                     u-align_r t-heading--4 t--secondary" style="right: 0;">
+           {{ humanize_amount(project.account.remaining()) }} needed
+          <br><strong class="t-title--5 t--gray--2">
+            to reach {{ humanize_amount(project.account.goal) }} goal
+          </strong><br>
+        </span>
+        <span style="left: 100%;"
+            class="rectangular_progress__line
+                   rectangular_progress__line--neutral">
+        </span>
+      </div>
+      <a class="button button--sm button--primary" href="">
+       Give to the project</a>
+      <a class="t-single_nav u-pullr t-nom"
+         href="{{ url("donate project", slug=project.slug) }}">
+        Read more</a>
+    </section>
+  </article>
+{%- endmacro %}
+

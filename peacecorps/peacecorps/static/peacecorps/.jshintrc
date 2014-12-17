@@ -1,0 +1,33 @@
+{
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "latedef": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "plusplus": false,
+  "quotmark": true,
+  "sub": true,
+  "strict": true,
+  "undef": false,
+  "unused": true,
+  "validthis": true,
+  "boss": true,
+  "browser": true,
+  "globalstrict": true,
+  "sub": true,
+  "-W030": true,
+
+  "node" : true,
+  "browser": true,
+
+  "globals": {
+    "$": true,
+    "_": true,
+    "PC": true,
+    "jQuery": true
+  }
+}

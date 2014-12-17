@@ -290,7 +290,7 @@
     goal: 420000, name: Brick Oven Bakery}
   model: peacecorps.account
   pk: 74
-- fields: {category: proj, code: 15-527-002, community_contribution: 305279, current: 215130,
+- fields: {category: proj, code: 15-527-002, community_contribution: 305279, current: 295130,
     goal: 661555, name: Build Bathrooms}
   model: peacecorps.account
   pk: 75
@@ -298,15 +298,123 @@
     goal: null, name: General}
   model: peacecorps.account
   pk: 76
+- fields: {category: proj, code: 15-680-003, community_contribution: 500200, current: 32500,
+    goal: 999500, name: 'Benin Maternity '}
+  model: peacecorps.account
+  pk: 78
+- fields: {category: proj, code: 15-680-002, community_contribution: 1209082, current: 315898,
+    goal: 999898, name: 'Eastern Collines Classrooms Project '}
+  model: peacecorps.account
+  pk: 79
+- fields: {category: proj, code: 14-637-002, community_contribution: 315000, current: 101780,
+    goal: 797780, name: 'Local Preschool '}
+  model: peacecorps.account
+  pk: 80
+- fields: {category: proj, code: 14-303-021, community_contribution: 172500, current: 67000,
+    goal: 465000, name: 'Local Sports And Activities Education Court '}
+  model: peacecorps.account
+  pk: 81
+- fields: {category: proj, code: 14-641-010, community_contribution: 308871, current: 65086,
+    goal: 896586, name: 'Basic School Classrooms Renovation Project '}
+  model: peacecorps.account
+  pk: 82
+- fields: {category: proj, code: 15-520-001, community_contribution: 125458, current: 74988,
+    goal: 157730, name: 'Improved Stoves '}
+  model: peacecorps.account
+  pk: 83
+- fields: {category: proj, code: 14-684-009, community_contribution: 227271, current: 381114,
+    goal: 660114, name: 'Total Sanitation '}
+  model: peacecorps.account
+  pk: 84
+- fields: {category: proj, code: 15-684-003, community_contribution: 69290, current: 36500,
+    goal: 195470, name: 'Basketball court for HIV/STD education '}
+  model: peacecorps.account
+  pk: 85
+- fields: {category: proj, code: 15-261-002, community_contribution: 160870, current: 255000,
+    goal: 481884, name: 'Improving Opportunities for Exercise at Two Kindergartens '}
+  model: peacecorps.account
+  pk: 86
+- fields: {category: proj, code: 15-261-001, community_contribution: 109575, current: 101207,
+    goal: 291960, name: 'Kindergarten Bathroom Renovation Project '}
+  model: peacecorps.account
+  pk: 87
+- fields: {category: proj, code: 15-378-007, community_contribution: 648791, current: 25000,
+    goal: 213786, name: 'Recycled Grounds '}
+  model: peacecorps.account
+  pk: 88
+- fields: {category: proj, code: 15-378-006, community_contribution: 608894, current: 57000,
+    goal: 495509, name: 'Ability Camp '}
+  model: peacecorps.account
+  pk: 89
+- fields: {category: proj, code: 15-378-003, community_contribution: 308243, current: 321500,
+    goal: 499827, name: 'CLIMB (Creating Leadership in the Mountains and Beyond) '}
+  model: peacecorps.account
+  pk: 90
+- fields: {category: proj, code: 15-640-004, community_contribution: 323550, current: 0,
+    goal: 910003, name: 'Escolinha San Piedade '}
+  model: peacecorps.account
+  pk: 91
+- fields: {category: proj, code: 15-640-002, community_contribution: 66666, current: 43000,
+    goal: 172367, name: 'Sanitation Coalition '}
+  model: peacecorps.account
+  pk: 92
+- fields: {category: proj, code: 15-524-005, community_contribution: 339834, current: 113184,
+    goal: 916684, name: 'Camp GLOW 2015 '}
+  model: peacecorps.account
+  pk: 93
+- fields: {category: proj, code: 15-524-002, community_contribution: 244975, current: 381057,
+    goal: 662057, name: 'Youth Leadership Camp 2015: Preparing for Tomorrow '}
+  model: peacecorps.account
+  pk: 94
+- fields: {category: proj, code: 15-525-001, community_contribution: 205000, current: 0,
+    goal: 577000, name: 'Ultimate Without Borders Camp '}
+  model: peacecorps.account
+  pk: 95
+- fields: {category: proj, code: 15-525-003, community_contribution: 200000, current: 222100,
+    goal: 461100, name: 'Leadership Development for Global Education Educator''s Seminar '}
+  model: peacecorps.account
+  pk: 96
+- fields: {category: proj, code: 15-526-001, community_contribution: 232501, current: 237000,
+    goal: 674016, name: 'Campamento Deporte y Vida '}
+  model: peacecorps.account
+  pk: 97
+- fields: {category: proj, code: 14-527-015, community_contribution: 193714, current: 30000,
+    goal: 274679, name: 'Shumaq Markantsik '}
+  model: peacecorps.account
+  pk: 98
+- fields: {category: proj, code: 15-527-003, community_contribution: 212187, current: 17000,
+    goal: 279211, name: 'Latrines '}
+  model: peacecorps.account
+  pk: 99
+- fields: {category: proj, code: 15-696-001, community_contribution: 305971, current: 0,
+    goal: 679978, name: 'Connecting to the Source '}
+  model: peacecorps.account
+  pk: 100
+- fields: {category: proj, code: 14-645-003, community_contribution: 1607678, current: 1850774,
+    goal: 2982509, name: 'GLOW Camp Swaziland '}
+  model: peacecorps.account
+  pk: 101
+- fields: {category: proj, code: 14-693-017, community_contribution: 500000, current: 143625,
+    goal: 978125, name: 'Rural Primary School '}
+  model: peacecorps.account
+  pk: 102
+- fields: {category: proj, code: 14-693-016, community_contribution: 335459, current: 282001,
+    goal: 996901, name: 'Togo Clean Water Project '}
+  model: peacecorps.account
+  pk: 103
+- fields: {category: proj, code: 15-611-001, community_contribution: 335029, current: 157000,
+    goal: 995084, name: 'Community Preschool '}
+  model: peacecorps.account
+  pk: 112
 - fields:
-    account: 5
+    account: 307-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Azerbaijan Country Fund will support Volunteer
-      and community projects that will take place in Azerbaijan. These projects often
-      focus on developing the skills of youth, but may also cover other pressing needs
-      determined by the community.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Azerbaijan Country Fund will support Volunteer and community projects that will
+      take place in Azerbaijan. These projects often focus on developing the skills
+      of youth, but may also cover other pressing needs determined by the community."}}]}'
     featuredprojects: []
     icon: null
     name: Azerbaijan
@@ -315,13 +423,14 @@
   model: peacecorps.campaign
   pk: 1
 - fields:
-    account: 6
+    account: 308-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Belize Country Fund will support Volunteer and
-      community projects that will take place in Belize. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Belize Country Fund will support Volunteer and community projects that will
+      take place in Belize. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Belize
@@ -330,15 +439,16 @@
   model: peacecorps.campaign
   pk: 2
 - fields:
-    account: 7
+    account: 309-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Benin Country Fund will support Volunteer and
-      community projects in education, health, environment and small business. The
-      fund also supports initiatives, such as Gender and Development (GAD), which
-      cover all sectors. You can earmark your contribution to support girls' empowerment
-      camps and/or girls' scholarships and other GAD activities.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Benin Country Fund will support Volunteer and community projects in education,
+      health, environment and small business. The fund also supports initiatives,
+      such as Gender and Development (GAD), which cover all sectors. You can earmark
+      your contribution to support girls'' empowerment camps and/or girls'' scholarships
+      and other GAD activities."}}]}'
     featuredprojects: []
     icon: null
     name: Benin
@@ -347,13 +457,14 @@
   model: peacecorps.campaign
   pk: 3
 - fields:
-    account: 3
+    account: 305-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Albania Country Fund will support Volunteer
-      and community projects that will take place in Albania. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Albania Country Fund will support Volunteer and community projects that will
+      take place in Albania. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Albania
@@ -362,13 +473,14 @@
   model: peacecorps.campaign
   pk: 4
 - fields:
-    account: 4
+    account: 306-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Armenia Country Fund will support Volunteer
-      and community projects that will take place in Armenia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Armenia Country Fund will support Volunteer and community projects that will
+      take place in Armenia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Armenia
@@ -377,14 +489,14 @@
   model: peacecorps.campaign
   pk: 5
 - fields:
-    account: 8
+    account: 310-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Botswana Country Fund will support Volunteer
-      and community projects that will take place in Botswana. These projects support
-      reducing transmission of HIV and minimizing the impact of HIV and AIDS on individuals
-      and communities.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Botswana Country Fund will support Volunteer and community projects that will
+      take place in Botswana. These projects support reducing transmission of HIV
+      and minimizing the impact of HIV and AIDS on individuals and communities."}}]}'
     featuredprojects: []
     icon: null
     name: Botswana
@@ -393,13 +505,14 @@
   model: peacecorps.campaign
   pk: 6
 - fields:
-    account: 9
+    account: 311-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Burkina Faso Country Fund will support Volunteer
-      and community projects that will take place in Burkina Faso. These projects
-      include water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Burkina Faso Country Fund will support Volunteer and community projects that
+      will take place in Burkina Faso. These projects include water and sanitation,
+      agricultural development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Burkina Faso
@@ -408,13 +521,14 @@
   model: peacecorps.campaign
   pk: 7
 - fields:
-    account: 10
+    account: 312-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Cambodia Country Fund will support Volunteer
-      and community projects that will take place in Cambodia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Cambodia Country Fund will support Volunteer and community projects that will
+      take place in Cambodia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Cambodia
@@ -423,13 +537,14 @@
   model: peacecorps.campaign
   pk: 8
 - fields:
-    account: 11
+    account: 313-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Cameroon Country Fund will support Volunteer
-      and community projects that will take place in Cameroon. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Cameroon Country Fund will support Volunteer and community projects that will
+      take place in Cameroon. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Cameroon
@@ -438,17 +553,18 @@
   model: peacecorps.campaign
   pk: 9
 - fields:
-    account: 12
+    account: 314-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the China Country Fund will support Volunteer and
-      community projects that will take place in China. These projects are largely
-      built around the volunteer's assignment teaching English on university campuses.
-      Volunteer project activities include creating or expanding English Language
-      Resource rooms, programs to develop critical thinking skills, and teacher training
-      workshops. Volunteers also develop projects with focal areas that fall under
-      Peace Corps initiatives such as women in development and HIV/AIDS awareness.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      China Country Fund will support Volunteer and community projects that will take
+      place in China. These projects are largely built around the volunteer''s assignment
+      teaching English on university campuses. Volunteer project activities include
+      creating or expanding English Language Resource rooms, programs to develop critical
+      thinking skills, and teacher training workshops. Volunteers also develop projects
+      with focal areas that fall under Peace Corps initiatives such as women in development
+      and HIV/AIDS awareness."}}]}'
     featuredprojects: []
     icon: null
     name: China
@@ -457,13 +573,14 @@
   model: peacecorps.campaign
   pk: 10
 - fields:
-    account: 13
+    account: 315-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Colombia Country Fund will support Volunteer
-      and community projects that will take place in Colombia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Colombia Country Fund will support Volunteer and community projects that will
+      take place in Colombia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Colombia
@@ -472,21 +589,22 @@
   model: peacecorps.campaign
   pk: 11
 - fields:
-    account: 14
+    account: 316-CFD
     call: null
     campaigntype: coun
-    description: 'Contributions made to the Costa Rica Country Fund will support Volunteers
-      and their community partners with Children, Youth and Family; Community Economic
-      Development; and Rural Community Development projects. The types of projects
-      for which Volunteers and their communities solicit vary based on the unique
-      needs and priorities of their communities. Common Costa Rica projects include:
-      sports development camps and equipment, HIV/AIDS awareness and prevention workshops,
-      public infrastructure development including clinics and school playgrounds,
-      classrooms, sports fields, libraries, and computer labs; and capacity building
-      activities that develop knowledge and skills in one or more of the following
-      areas: youth development, gender empowerment, business, fine arts, performing
-      arts, music, English, information and communications technology, and life skills.'
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions made
+      to the Costa Rica Country Fund will support Volunteers and their community partners
+      with Children, Youth and Family; Community Economic Development; and Rural Community
+      Development projects. The types of projects for which Volunteers and their communities
+      solicit vary based on the unique needs and priorities of their communities.
+      Common Costa Rica projects include: sports development camps and equipment,
+      HIV/AIDS awareness and prevention workshops, public infrastructure development
+      including clinics and school playgrounds, classrooms, sports fields, libraries,
+      and computer labs; and capacity building activities that develop knowledge and
+      skills in one or more of the following areas: youth development, gender empowerment,
+      business, fine arts, performing arts, music, English, information and communications
+      technology, and life skills."}}]}'
     featuredprojects: []
     icon: null
     name: Costa Rica
@@ -495,14 +613,14 @@
   model: peacecorps.campaign
   pk: 12
 - fields:
-    account: 15
+    account: 317-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Dominican Republic Country Fund will support
-      Volunteer and community projects that will take place in Dominican Republic.
-      These projects include water and sanitation, agricultural development, and youth
-      programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Dominican Republic Country Fund will support Volunteer and community projects
+      that will take place in Dominican Republic. These projects include water and
+      sanitation, agricultural development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Dominican Republic
@@ -511,14 +629,15 @@
   model: peacecorps.campaign
   pk: 13
 - fields:
-    account: 16
+    account: 318-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Ecuador Country Fund will support Volunteer
-      and community projects that will take place in Ecuador. These projects support
-      our program work in Community Health, Natural Resources Conservation, Teaching
-      English as a Foreign Language (TEFL), and Youth & Families Development.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Ecuador Country Fund will support Volunteer and community projects that will
+      take place in Ecuador. These projects support our program work in Community
+      Health, Natural Resources Conservation, Teaching English as a Foreign Language
+      (TEFL), and Youth & Families Development."}}]}'
     featuredprojects: []
     icon: null
     name: Ecuador
@@ -527,13 +646,14 @@
   model: peacecorps.campaign
   pk: 14
 - fields:
-    account: 17
+    account: 319-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the El Salvador Country Fund will support Volunteer
-      and community projects that will take place in El Salvador. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      El Salvador Country Fund will support Volunteer and community projects that
+      will take place in El Salvador. These projects include water and sanitation,
+      agricultural development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: El Salvador
@@ -542,13 +662,14 @@
   model: peacecorps.campaign
   pk: 15
 - fields:
-    account: 18
+    account: 320-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Ethiopia Country Fund will support Volunteer
-      and community projects that will take place in Ethiopia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Ethiopia Country Fund will support Volunteer and community projects that will
+      take place in Ethiopia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Ethiopia
@@ -557,13 +678,14 @@
   model: peacecorps.campaign
   pk: 16
 - fields:
-    account: 19
+    account: 321-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Fiji Country Fund will support Volunteer and
-      community projects that will take place in Fiji. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Fiji Country Fund will support Volunteer and community projects that will take
+      place in Fiji. These projects include water and sanitation, agricultural development,
+      and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Fiji
@@ -572,13 +694,14 @@
   model: peacecorps.campaign
   pk: 17
 - fields:
-    account: 20
+    account: 322-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Georgia Country Fund will support Volunteer
-      and community projects that will take place in Georgia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Georgia Country Fund will support Volunteer and community projects that will
+      take place in Georgia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Georgia
@@ -587,13 +710,14 @@
   model: peacecorps.campaign
   pk: 18
 - fields:
-    account: 21
+    account: 323-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Ghana Country Fund will support Volunteer and
-      community projects that will take place in Ghana. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Ghana Country Fund will support Volunteer and community projects that will take
+      place in Ghana. These projects include water and sanitation, agricultural development,
+      and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Ghana
@@ -602,13 +726,14 @@
   model: peacecorps.campaign
   pk: 19
 - fields:
-    account: 22
+    account: 324-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Guatemala Country Fund will support Volunteer
-      and community projects that will take place in Guatemala. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Guatemala Country Fund will support Volunteer and community projects that will
+      take place in Guatemala. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Guatemala
@@ -617,13 +742,14 @@
   model: peacecorps.campaign
   pk: 20
 - fields:
-    account: 23
+    account: 325-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Guinea Country Fund will support Volunteer and
-      community projects that will take place in Guinea. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Guinea Country Fund will support Volunteer and community projects that will
+      take place in Guinea. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Guinea
@@ -632,13 +758,14 @@
   model: peacecorps.campaign
   pk: 21
 - fields:
-    account: 24
+    account: 326-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Guyana Country Fund will support Volunteer and
-      community projects that will take place in Guyana. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Guyana Country Fund will support Volunteer and community projects that will
+      take place in Guyana. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Guyana
@@ -647,13 +774,14 @@
   model: peacecorps.campaign
   pk: 22
 - fields:
-    account: 25
+    account: 327-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Indonesia Country Fund will support Volunteer
-      and community projects that will take place in Indonesia. These projects will
-      focus on English education and other pressing needs determined by the community.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Indonesia Country Fund will support Volunteer and community projects that will
+      take place in Indonesia. These projects will focus on English education and
+      other pressing needs determined by the community."}}]}'
     featuredprojects: []
     icon: null
     name: Indonesia
@@ -662,13 +790,14 @@
   model: peacecorps.campaign
   pk: 23
 - fields:
-    account: 26
+    account: 328-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Jamaica Country Fund will support Volunteer
-      and community projects that will take place in Jamaica. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Jamaica Country Fund will support Volunteer and community projects that will
+      take place in Jamaica. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Jamaica
@@ -677,13 +806,14 @@
   model: peacecorps.campaign
   pk: 24
 - fields:
-    account: 27
+    account: 329-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Jordan Country Fund will support Volunteer and
-      community projects that will take place in Jordan. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Jordan Country Fund will support Volunteer and community projects that will
+      take place in Jordan. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Jordan
@@ -692,13 +822,14 @@
   model: peacecorps.campaign
   pk: 25
 - fields:
-    account: 29
+    account: 331-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Lesotho Country Fund will support Volunteer
-      and community projects that will take place in Lesotho. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Lesotho Country Fund will support Volunteer and community projects that will
+      take place in Lesotho. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Lesotho
@@ -707,13 +838,14 @@
   model: peacecorps.campaign
   pk: 26
 - fields:
-    account: 30
+    account: 332-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Liberia Country Fund will support Volunteer
-      and community projects that will take place in Liberia. These projects include
-      secondary education and HIV/AIDS prevention and education programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Liberia Country Fund will support Volunteer and community projects that will
+      take place in Liberia. These projects include secondary education and HIV/AIDS
+      prevention and education programs."}}]}'
     featuredprojects: []
     icon: null
     name: Liberia
@@ -722,13 +854,14 @@
   model: peacecorps.campaign
   pk: 27
 - fields:
-    account: 31
+    account: 333-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Macedonia Country Fund will support Volunteer
-      and community projects that will take place in Macedonia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Macedonia Country Fund will support Volunteer and community projects that will
+      take place in Macedonia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Macedonia
@@ -737,13 +870,14 @@
   model: peacecorps.campaign
   pk: 28
 - fields:
-    account: 32
+    account: 334-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Madagascar Country Fund will support Volunteer
-      and community projects that will take place in Madagascar. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Madagascar Country Fund will support Volunteer and community projects that will
+      take place in Madagascar. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Madagascar
@@ -752,24 +886,25 @@
   model: peacecorps.campaign
   pk: 29
 - fields:
-    account: 33
+    account: 335-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Malawi Country Fund will support many varied
-      Volunteer projects in Malawi. Malawi is one of the poorest countries in the
-      world. Malawi is one of the poorest countries in the world. Apart from poverty,
-      Malawi is also heavily hit by HIV/AIDS. Typical projects include water and sanitation,
-      agricultural development, Income Generation Activities, youth and HIV/AIDS related
-      programs. Many such projects fail to materialise or be implemented better due
-      to lack of resources or the time/effort it takes to get them. You can make a
-      big difference for both the work of the volunteers and people of Malawi by contributions
-      to the Malawi Country Fund, which is designed for faster response to the Volunteers
-      and their communities. An example of country fund use was funding a local mini-camp
-      for a Volunteer's community, using resources and people that were trained at
-      one of the national camps, like Camp GLOW or Camp Sky. These can happen frequently
-      as $300 - $800 is above easy Volunteer fund raising, but it goes a long way
-      in developing motivation/skills of a local group of 30 young women or youth.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Malawi Country Fund will support many varied Volunteer projects in Malawi. Malawi
+      is one of the poorest countries in the world. Malawi is one of the poorest countries
+      in the world. Apart from poverty, Malawi is also heavily hit by HIV/AIDS. Typical
+      projects include water and sanitation, agricultural development, Income Generation
+      Activities, youth and HIV/AIDS related programs. Many such projects fail to
+      materialise or be implemented better due to lack of resources or the time/effort
+      it takes to get them. You can make a big difference for both the work of the
+      volunteers and people of Malawi by contributions to the Malawi Country Fund,
+      which is designed for faster response to the Volunteers and their communities.
+      An example of country fund use was funding a local mini-camp for a Volunteer''s
+      community, using resources and people that were trained at one of the national
+      camps, like Camp GLOW or Camp Sky. These can happen frequently as $300 - $800
+      is above easy Volunteer fund raising, but it goes a long way in developing motivation/skills
+      of a local group of 30 young women or youth."}}]}'
     featuredprojects: []
     icon: null
     name: Malawi
@@ -778,13 +913,14 @@
   model: peacecorps.campaign
   pk: 30
 - fields:
-    account: 34
+    account: 336-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Mexico Country Fund will support Volunteer and
-      community projects that will take place in Mexico. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Mexico Country Fund will support Volunteer and community projects that will
+      take place in Mexico. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Mexico
@@ -793,13 +929,14 @@
   model: peacecorps.campaign
   pk: 31
 - fields:
-    account: 35
+    account: 337-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Micronesia Country Fund will support Volunteer
-      and community projects that will take place in Micronesia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Micronesia Country Fund will support Volunteer and community projects that will
+      take place in Micronesia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Micronesia
@@ -808,13 +945,14 @@
   model: peacecorps.campaign
   pk: 32
 - fields:
-    account: 36
+    account: 338-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Moldova Country Fund will support Volunteer
-      and community projects that will take place in Moldova. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Moldova Country Fund will support Volunteer and community projects that will
+      take place in Moldova. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Moldova
@@ -823,13 +961,14 @@
   model: peacecorps.campaign
   pk: 33
 - fields:
-    account: 37
+    account: 339-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Mongolia Country Fund will support Volunteer
-      and community projects that will take place in Mongolia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Mongolia Country Fund will support Volunteer and community projects that will
+      take place in Mongolia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Mongolia
@@ -838,13 +977,14 @@
   model: peacecorps.campaign
   pk: 34
 - fields:
-    account: 38
+    account: 340-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Morocco Country Fund will support Volunteer
-      and community projects that will take place in Morocco. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Morocco Country Fund will support Volunteer and community projects that will
+      take place in Morocco. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Morocco
@@ -853,13 +993,14 @@
   model: peacecorps.campaign
   pk: 35
 - fields:
-    account: 39
+    account: 341-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Mozambique Country Fund will support Volunteer
-      and community projects that will take place in Mozambique. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Mozambique Country Fund will support Volunteer and community projects that will
+      take place in Mozambique. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Mozambique
@@ -868,13 +1009,14 @@
   model: peacecorps.campaign
   pk: 36
 - fields:
-    account: 40
+    account: 342-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Namibia Country Fund will support Volunteer
-      and community projects that will take place in Namibia. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Namibia Country Fund will support Volunteer and community projects that will
+      take place in Namibia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Namibia
@@ -883,15 +1025,16 @@
   model: peacecorps.campaign
   pk: 37
 - fields:
-    account: 41
+    account: 343-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Nepal Country Fund will support approved Volunteer
-      and community PCPP projects that will take place in Nepal. Volunteer projects
-      typically focus on food security components like nutrition, health, agriculture,
-      water sanitation and hygiene and income generation, but may also address other
-      important needs as determined by the community.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Nepal Country Fund will support approved Volunteer and community PCPP projects
+      that will take place in Nepal. Volunteer projects typically focus on food security
+      components like nutrition, health, agriculture, water sanitation and hygiene
+      and income generation, but may also address other important needs as determined
+      by the community."}}]}'
     featuredprojects: []
     icon: null
     name: Nepal
@@ -900,13 +1043,14 @@
   model: peacecorps.campaign
   pk: 38
 - fields:
-    account: 42
+    account: 344-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Nicaragua Country Fund will support Volunteer
-      and community projects that will take place in Nicaragua. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Nicaragua Country Fund will support Volunteer and community projects that will
+      take place in Nicaragua. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Nicaragua
@@ -915,19 +1059,20 @@
   model: peacecorps.campaign
   pk: 39
 - fields:
-    account: 43
+    account: 345-CFD
     call: null
     campaigntype: coun
-    description: 'Contributions to the Panama Country Fund will support Volunteers
-      and their community partners to implement on-going development projects in one
-      of our 5 programs: Sustainable Agriculture, Environmental Conservation, Tourism
-      and English Advising, Economic Development and Environmental Health. Within
-      these projects, Peace Corps Partnership Program supported activities and workshops
-      focus on critical areas of leadership development, project management, HIIV/AIDS
-      awareness, business plan design, and youth development. With your help, Volunteers
-      and community counterparts from all over the country are able to come together
-      to share and develop best practices for use in their own communities.'
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Panama Country Fund will support Volunteers and their community partners to
+      implement on-going development projects in one of our 5 programs: Sustainable
+      Agriculture, Environmental Conservation, Tourism and English Advising, Economic
+      Development and Environmental Health. Within these projects, Peace Corps Partnership
+      Program supported activities and workshops focus on critical areas of leadership
+      development, project management, HIIV/AIDS awareness, business plan design,
+      and youth development. With your help, Volunteers and community counterparts
+      from all over the country are able to come together to share and develop best
+      practices for use in their own communities."}}]}'
     featuredprojects: []
     icon: null
     name: Panama
@@ -936,13 +1081,14 @@
   model: peacecorps.campaign
   pk: 40
 - fields:
-    account: 44
+    account: 346-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Paraguay Country Fund will support Volunteer
-      and community projects that will take place in Paraguay. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Paraguay Country Fund will support Volunteer and community projects that will
+      take place in Paraguay. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Paraguay
@@ -951,13 +1097,14 @@
   model: peacecorps.campaign
   pk: 41
 - fields:
-    account: 45
+    account: 347-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Peru Country Fund will support Volunteer and
-      community projects that will take place in Peru. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Peru Country Fund will support Volunteer and community projects that will take
+      place in Peru. These projects include water and sanitation, agricultural development,
+      and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Peru
@@ -966,16 +1113,16 @@
   model: peacecorps.campaign
   pk: 42
 - fields:
-    account: 46
+    account: 348-CFD
     call: null
     campaigntype: coun
-    description: 'Contributions to the Philippines Country Fund will support Volunteer
-      and community projects in the Philippines.These development projects include,
-      but are not limited to the following: English language and basic education,
-      library development, alternative livelihood, HIV/AIDS and health, environmental
-      education, coastal resources development, capacity building, life skills, and
-      youth empowerment.'
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Philippines Country Fund will support Volunteer and community projects in the
+      Philippines.These development projects include, but are not limited to the following:
+      English language and basic education, library development, alternative livelihood,
+      HIV/AIDS and health, environmental education, coastal resources development,
+      capacity building, life skills, and youth empowerment."}}]}'
     featuredprojects: []
     icon: null
     name: Philippines
@@ -984,13 +1131,14 @@
   model: peacecorps.campaign
   pk: 43
 - fields:
-    account: 47
+    account: 349-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Rwanda Country Fund will support Volunteer and
-      community projects that will take place in Rwanda. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Rwanda Country Fund will support Volunteer and community projects that will
+      take place in Rwanda. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Rwanda
@@ -999,13 +1147,14 @@
   model: peacecorps.campaign
   pk: 44
 - fields:
-    account: 48
+    account: 350-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Samoa Country Fund will support Volunteer and
-      community projects that will take place in Samoa. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Samoa Country Fund will support Volunteer and community projects that will take
+      place in Samoa. These projects include water and sanitation, agricultural development,
+      and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Samoa
@@ -1014,13 +1163,14 @@
   model: peacecorps.campaign
   pk: 45
 - fields:
-    account: 49
+    account: 351-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Senegal Country Fund will support Volunteer
-      and community projects that will take place in Senegal. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Senegal Country Fund will support Volunteer and community projects that will
+      take place in Senegal. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Senegal
@@ -1029,13 +1179,14 @@
   model: peacecorps.campaign
   pk: 46
 - fields:
-    account: 50
+    account: 352-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Sierra Leone Country Fund will support Volunteer
-      and community projects that will take place in Sierra Leone. These projects
-      will focus on English education and other pressing needs determined by the community.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Sierra Leone Country Fund will support Volunteer and community projects that
+      will take place in Sierra Leone. These projects will focus on English education
+      and other pressing needs determined by the community."}}]}'
     featuredprojects: []
     icon: null
     name: Sierra Leone
@@ -1044,13 +1195,14 @@
   model: peacecorps.campaign
   pk: 47
 - fields:
-    account: 51
+    account: 353-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the South Africa Country Fund will support Volunteer
-      and community projects that will take place in South Africa. These projects
-      include water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      South Africa Country Fund will support Volunteer and community projects that
+      will take place in South Africa. These projects include water and sanitation,
+      agricultural development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: South Africa
@@ -1059,13 +1211,14 @@
   model: peacecorps.campaign
   pk: 48
 - fields:
-    account: 52
+    account: 354-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Swaziland Country Fund will support Volunteer
-      and community projects that will take place in Swaziland. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Swaziland Country Fund will support Volunteer and community projects that will
+      take place in Swaziland. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Swaziland
@@ -1074,13 +1227,14 @@
   model: peacecorps.campaign
   pk: 49
 - fields:
-    account: 53
+    account: 355-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Tanzania Country Fund will support Volunteer
-      and community projects that will take place in Tanzania. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Tanzania Country Fund will support Volunteer and community projects that will
+      take place in Tanzania. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Tanzania
@@ -1089,13 +1243,14 @@
   model: peacecorps.campaign
   pk: 50
 - fields:
-    account: 54
+    account: 356-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Thailand Country Fund will support Volunteer
-      and community projects that will take place in Thailand. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Thailand Country Fund will support Volunteer and community projects that will
+      take place in Thailand. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Thailand
@@ -1104,13 +1259,14 @@
   model: peacecorps.campaign
   pk: 51
 - fields:
-    account: 55
+    account: 357-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Togo Country Fund will support Volunteer and
-      community projects that will take place in Togo. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Togo Country Fund will support Volunteer and community projects that will take
+      place in Togo. These projects include water and sanitation, agricultural development,
+      and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Togo
@@ -1119,14 +1275,14 @@
   model: peacecorps.campaign
   pk: 52
 - fields:
-    account: 56
+    account: 358-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Tonga Country Fund will support Volunteer and
-      community projects that will take place in Tonga.These projects include youth
-      development, school library development, environmental education, public health
-      and IT education.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Tonga Country Fund will support Volunteer and community projects that will take
+      place in Tonga.These projects include youth development, school library development,
+      environmental education, public health and IT education."}}]}'
     featuredprojects: []
     icon: null
     name: Tonga
@@ -1135,13 +1291,14 @@
   model: peacecorps.campaign
   pk: 53
 - fields:
-    account: 57
+    account: 359-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Uganda Country Fund will support Volunteer and
-      community projects that will take place in Uganda. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Uganda Country Fund will support Volunteer and community projects that will
+      take place in Uganda. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Uganda
@@ -1150,13 +1307,14 @@
   model: peacecorps.campaign
   pk: 54
 - fields:
-    account: 58
+    account: 360-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Ukraine Country Fund will support Volunteer
-      and community projects that will take place in Ukraine. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Ukraine Country Fund will support Volunteer and community projects that will
+      take place in Ukraine. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Ukraine
@@ -1165,13 +1323,14 @@
   model: peacecorps.campaign
   pk: 55
 - fields:
-    account: 59
+    account: 361-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Vanuatu Country Fund will support Volunteer
-      and community projects that will take place in Vanuatu. These projects include
-      water and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Vanuatu Country Fund will support Volunteer and community projects that will
+      take place in Vanuatu. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Vanuatu
@@ -1180,13 +1339,14 @@
   model: peacecorps.campaign
   pk: 56
 - fields:
-    account: 60
+    account: 362-CFD
     call: null
     campaigntype: coun
-    description: Contributions to the Zambia Country Fund will support Volunteer and
-      community projects that will take place in Zambia. These projects include water
-      and sanitation, agricultural development, and youth programs.
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Zambia Country Fund will support Volunteer and community projects that will
+      take place in Zambia. These projects include water and sanitation, agricultural
+      development, and youth programs."}}]}'
     featuredprojects: []
     icon: null
     name: Zambia
@@ -1195,32 +1355,33 @@
   model: peacecorps.campaign
   pk: 57
 - fields:
-    account: 28
+    account: 330-CFD
     call: null
     campaigntype: coun
-    description: "<p>Contributions to the Kenya Country Fund will support Volunteer
-      Community projects in Kenya. The scope of projects to be funded would likely
-      fall within education, water/sanitation, health, agriculture, youth development,
-      vocational/special education and income-generating activities.&nbsp;</p>\r\n<p>Peace
-      Corps supports Kenya's goals of poverty eradication and industrialization as
-      well as Kenya's commitment to fight HIV/AIDS and malaria. Peace Corps Kenya's
-      current programs include Education (including Deaf Education), Public Health
-      and Small Enterprise Development/Information and Communications Technology.&nbsp;</p>\r\n<p>Insecurity,
-      poor infrastructure, access to clean water especially in rural areas, and adverse
-      poverty continues to be Kenya's major challenges. Changes in weather patterns
-      and high farming costs have compromised farmers' ability to plant and grow adequate
-      food, resulting in shortages of food and hunger in some parts of Kenya. The
-      demand for food continues to increase household poverty levels with more than
-      half of Kenyans (56%) living below the poverty level.&nbsp;</p>\r\n<p>HIV/AIDS
-      is another major social, economic and health problem in Kenya. Many young and
-      productive Kenyans die daily as a result of AIDS. Much productive time and resources
-      are spent in care and treatment for AIDS patients. The situation is worsened
-      when the patient is the household breadwinner.&nbsp;</p>\r\n<p>In addressing
-      these prevalent Kenya community needs, Peace Corps volunteers work hand in hand
-      with their Kenyan community counterparts in engaging the community to identify
-      their priority needs and possible interventions. The community also identifies
-      local resources and gaps within which external assistance is required.</p>"
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "<p>Contributions to
+      the Kenya Country Fund will support Volunteer Community projects in Kenya. The
+      scope of projects to be funded would likely fall within education, water/sanitation,
+      health, agriculture, youth development, vocational/special education and income-generating
+      activities.&nbsp;</p>\r\n<p>Peace Corps supports Kenya''s goals of poverty eradication
+      and industrialization as well as Kenya''s commitment to fight HIV/AIDS and malaria.
+      Peace Corps Kenya''s current programs include Education (including Deaf Education),
+      Public Health and Small Enterprise Development/Information and Communications
+      Technology.&nbsp;</p>\r\n<p>Insecurity, poor infrastructure, access to clean
+      water especially in rural areas, and adverse poverty continues to be Kenya''s
+      major challenges. Changes in weather patterns and high farming costs have compromised
+      farmers'' ability to plant and grow adequate food, resulting in shortages of
+      food and hunger in some parts of Kenya. The demand for food continues to increase
+      household poverty levels with more than half of Kenyans (56%) living below the
+      poverty level.&nbsp;</p>\r\n<p>HIV/AIDS is another major social, economic and
+      health problem in Kenya. Many young and productive Kenyans die daily as a result
+      of AIDS. Much productive time and resources are spent in care and treatment
+      for AIDS patients. The situation is worsened when the patient is the household
+      breadwinner.&nbsp;</p>\r\n<p>In addressing these prevalent Kenya community needs,
+      Peace Corps volunteers work hand in hand with their Kenyan community counterparts
+      in engaging the community to identify their priority needs and possible interventions.
+      The community also identifies local resources and gaps within which external
+      assistance is required.</p>"}}]}'
     featuredprojects: []
     icon: null
     name: Kenya
@@ -1229,20 +1390,20 @@
   model: peacecorps.campaign
   pk: 58
 - fields:
-    account: 76
+    account: pc-general
     call: null
     campaigntype: gen
-    description: "<p>This is a terrific opportunity to make a donation to the Peace
-      Corps and receive a collectible work of art by American contemporary artist
-      Shepard Fairey. This artwork depicts a Peace Corps agricultural Volunteer working
-      with a young person in Senegal. Fairey was inspired by his sister who served
-      in West Africa. Not only is this a great gift for family and friends, but your
-      donation supports the Peace Corps&rsquo; mission. First come, first served,
-      for this artwork so make your donation today!</p>\r\n<p>Why support our work?
-      One hundred percent of your contribution is tax-deductible and will advance
-      the Peace Corps mission of peace and friendship around the globe. Additionally,
-      you can donate in honor or in memory of a loved one.</p>"
-    featured_image: null
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "<p>This is a terrific
+      opportunity to make a donation to the Peace Corps and receive a collectible
+      work of art by American contemporary artist Shepard Fairey. This artwork depicts
+      a Peace Corps agricultural Volunteer working with a young person in Senegal.
+      Fairey was inspired by his sister who served in West Africa. Not only is this
+      a great gift for family and friends, but your donation supports the Peace Corps&rsquo;
+      mission. First come, first served, for this artwork so make your donation today!</p>\r\n<p>Why
+      support our work? One hundred percent of your contribution is tax-deductible
+      and will advance the Peace Corps mission of peace and friendship around the
+      globe. Additionally, you can donate in honor or in memory of a loved one.</p>"}}]}'
     featuredprojects: []
     icon: null
     name: Peace Corps
@@ -1251,16 +1412,16 @@
   model: peacecorps.campaign
   pk: 68
 - fields:
-    account: 64
+    account: SPF-EDU
     call: Support Education Projects
     campaigntype: sec
-    description: Throughout the developing world, Peace Corps Volunteers are working
-      in their communities to share the precious gift of education. Often Volunteers'
-      dedication to teaching is matched by a severe lack of supplies and facilities
-      in which to help. Contributions to this fund will help Volunteer and community
-      projects such as school construction, English language training, school and
-      library material, and adult literacy.
-    featured_image: 11
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Throughout the developing
+      world, Peace Corps Volunteers are working in their communities to share the
+      precious gift of education. Often Volunteers'' dedication to teaching is matched
+      by a severe lack of supplies and facilities in which to help. Contributions
+      to this fund will help Volunteer and community projects such as school construction,
+      English language training, school and library material, and adult literacy."}}]}'
     featuredprojects: []
     icon: 26
     name: Education
@@ -1270,17 +1431,17 @@
   model: peacecorps.campaign
   pk: 69
 - fields:
-    account: 68
+    account: SPF-YTH
     call: Support Youth Projects
     campaigntype: sec
-    description: In communities that face very basic struggles, the specific needs
-      of children and young adults often go unaddressed. Peace Corps Volunteers work
-      with local youths to improve their education opportunities, make them aware
-      of health and cultural issues they will face, and engage them in activities
-      that will help them grow. Contributions to this fund will help Volunteer and
-      community projects such as camps, recreation centers, and after school clubs
-      and sports.
-    featured_image: 11
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "In communities that
+      face very basic struggles, the specific needs of children and young adults often
+      go unaddressed. Peace Corps Volunteers work with local youths to improve their
+      education opportunities, make them aware of health and cultural issues they
+      will face, and engage them in activities that will help them grow. Contributions
+      to this fund will help Volunteer and community projects such as camps, recreation
+      centers, and after school clubs and sports."}}]}'
     featuredprojects: []
     icon: 22
     name: Youth
@@ -1289,20 +1450,20 @@
   model: peacecorps.campaign
   pk: 70
 - fields:
-    account: 67
+    account: SPF-ICT
     call: Support Technology Projects
     campaigntype: sec
-    description: Peace Corps Volunteers are working with men and women in communities
-      throughout the developing world to help them gain access to information technology
-      skills and resources. Consistent with all Peace Corps volunteer work, their
-      efforts are aimed at the promotion of social and economic development and the
-      reduction of poverty. To this aim, volunteers are using IT to enhance existing
-      small, local entrepreneurial efforts, in order to allow once isolated communities
-      to link to the world and find and capitalize on opportunities once completely
-      out of their reach. Contributions to this fund will support Community and Volunteer
-      projects such as creating school and public computer labs and teaching computer
-      skills.
-    featured_image: 14
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Peace Corps Volunteers
+      are working with men and women in communities throughout the developing world
+      to help them gain access to information technology skills and resources. Consistent
+      with all Peace Corps volunteer work, their efforts are aimed at the promotion
+      of social and economic development and the reduction of poverty. To this aim,
+      volunteers are using IT to enhance existing small, local entrepreneurial efforts,
+      in order to allow once isolated communities to link to the world and find and
+      capitalize on opportunities once completely out of their reach. Contributions
+      to this fund will support Community and Volunteer projects such as creating
+      school and public computer labs and teaching computer skills."}}]}'
     featuredprojects: []
     icon: 23
     name: Technology
@@ -1312,19 +1473,20 @@
   model: peacecorps.campaign
   pk: 71
 - fields:
-    account: 66
+    account: SPF-HHA
     call: Support Health Projects
     campaigntype: sec
-    description: Donations to the Health and HIV/AIDS Fund will help combat global
-      health issues such as poor nutrition, the spread of infectious diseases, and
-      the devastating social and economic impact of HIV/AIDS. In order to help alleviate
-      these problems, Volunteers and their host communities are planning and implementing
-      projects which focus on preventative health care, nutrition, and disease prevention
-      and mitigation. The range of activities includes immunizations; nutrition and
-      growth monitoring; promotion of breast-feeding; access to prenatal and postnatal
-      care; training health workers; development of public awareness material; and
-      culturally appropriate education strategies.
-    featured_image: 13
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Donations to the Health
+      and HIV/AIDS Fund will help combat global health issues such as poor nutrition,
+      the spread of infectious diseases, and the devastating social and economic impact
+      of HIV/AIDS. In order to help alleviate these problems, Volunteers and their
+      host communities are planning and implementing projects which focus on preventative
+      health care, nutrition, and disease prevention and mitigation. The range of
+      activities includes immunizations; nutrition and growth monitoring; promotion
+      of breast-feeding; access to prenatal and postnatal care; training health workers;
+      development of public awareness material; and culturally appropriate education
+      strategies."}}]}'
     featuredprojects: []
     icon: 24
     name: Health
@@ -1334,16 +1496,17 @@
   model: peacecorps.campaign
   pk: 72
 - fields:
-    account: 65
+    account: SPF-ENV
     call: Support Environmental Projects
     campaigntype: sec
-    description: Communities around the world are challenged by the need to improve
-      their development in an environmentally sustainable way. Peace Corps Volunteers
-      are working with their communities to show that sustainable environmental management
-      is not only good stewardship, but can be an engine of future economic growth.
-      Contributions to this fund will help Volunteer and community projects such as
-      environmental conservation and ecotourism.
-    featured_image: 12
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Communities around
+      the world are challenged by the need to improve their development in an environmentally
+      sustainable way. Peace Corps Volunteers are working with their communities to
+      show that sustainable environmental management is not only good stewardship,
+      but can be an engine of future economic growth. Contributions to this fund will
+      help Volunteer and community projects such as environmental conservation and
+      ecotourism."}}]}'
     featuredprojects: []
     icon: 25
     name: Environment Fund
@@ -1352,16 +1515,17 @@
   model: peacecorps.campaign
   pk: 73
 - fields:
-    account: 63
+    account: SPF-WAT
     call: Support Water Projects
     campaigntype: sec
-    description: <p>The very basic needs of clean water and accessible sanitation
-      are absent from many communities around the world. This often leads to severe
-      community health problems. Volunteers work with their communities to design
-      locally appropriate solutions to provide safe, affordable, and sustainable water
-      and sanitation. Contributions to this fund will help Volunteer and community
-      projects such as latrines, aqueducts and wells, and basic sanitation training.</p>
-    featured_image: 10
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "<p>The very basic needs
+      of clean water and accessible sanitation are absent from many communities around
+      the world. This often leads to severe community health problems. Volunteers
+      work with their communities to design locally appropriate solutions to provide
+      safe, affordable, and sustainable water and sanitation. Contributions to this
+      fund will help Volunteer and community projects such as latrines, aqueducts
+      and wells, and basic sanitation training.</p>"}}]}'
     featuredprojects: []
     icon: 27
     name: Drinking Water and Sanitation
@@ -1371,16 +1535,16 @@
   model: peacecorps.campaign
   pk: 74
 - fields:
-    account: 62
+    account: SPF-BUS
     call: Support Business Development Projects
     campaigntype: sec
-    description: Volunteers are posted throughout the developing world to help local
-      businesses thrive in ways they never thought possible. Increasing the opportunities
-      presented to local businesses promotes a sense of empowerment that can truly
-      change a community. Contributions to this fund will support Volunteer and community
-      projects such as microfinance, agribusiness, business education, and artisan
-      collectives.
-    featured_image: 9
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Volunteers are posted
+      throughout the developing world to help local businesses thrive in ways they
+      never thought possible. Increasing the opportunities presented to local businesses
+      promotes a sense of empowerment that can truly change a community. Contributions
+      to this fund will support Volunteer and community projects such as microfinance,
+      agribusiness, business education, and artisan collectives."}}]}'
     featuredprojects: []
     icon: 28
     name: Business Development
@@ -1390,16 +1554,17 @@
   model: peacecorps.campaign
   pk: 75
 - fields:
-    account: 61
+    account: SPF-AGG
     call: Support Agriculture Projects
     campaigntype: sec
-    description: "Contributions to the Agriculture Fund support one of the most basic
-      needs of communities worldwide: safe and sustainable food production. Agriculture
-      projects target areas such as community food production systems, pesticide safety,
-      crop production, animal husbandry, apiculture, agriculture marketing, farm economics,
-      and formation of agricultural cooperatives. As food security continues to be
-      a global concern, it is imperative to support communities' agricultural development.\r\n"
-    featured_image: 8
+    country: null
+    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
+      Agriculture Fund support one of the most basic needs of communities worldwide:
+      safe and sustainable food production. Agriculture projects target areas such
+      as community food production systems, pesticide safety, crop production, animal
+      husbandry, apiculture, agriculture marketing, farm economics, and formation
+      of agricultural cooperatives. As food security continues to be a global concern,
+      it is imperative to support communities'' agricultural development.\r\n"}}]}'
     featuredprojects: []
     icon: 29
     name: Agriculture
@@ -1409,24 +1574,25 @@
   model: peacecorps.campaign
   pk: 76
 - fields:
-    account: 1
-    call: null
+    account: DCC-0123
+    call: ''
     campaigntype: mem
-    description: "<p>The Stephanie Brown Memorial Fund was established to honor the
-      memory and service of Stephanie Brown, who volunteered with the Peace Corps
-      for two years in Cameroon before returning to New York. This fund, established
-      with a generous grant from the Thomas and Martha Wayne Foundation, enables those
-      inspired by Stephanie's story to contribute to ongoing work in her memory.</p>\r\n<p>All
-      contributions to the Stephanie Brown Memorial Fund go towards community-initiated
-      and volunteer-led projects that support women, such as establishing women's
-      cooperatives, increasing women's access to resources and services, exploring
-      gender roles, building shelters, and increasing training programs.&nbsp;</p>"
-    featured_image: 11
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"The Stephanie Brown Memorial
+      Fund was established to honor the memory and service of Stephanie Brown, who
+      volunteered with the Peace Corps for two years in Cameroon before returning
+      to New York. This fund, established with a generous grant from the Thomas and
+      Martha Wayne Foundation, enables those inspired by Stephanie''s story to contribute
+      to ongoing work in her memory.\n\nAll contributions to the Stephanie Brown Memorial
+      Fund go towards community\\-initiated and volunteer\\-led projects that support
+      women, such as establishing women''s cooperatives, increasing women''s access
+      to resources and services, exploring gender roles, building shelters, and increasing
+      training programs. \n\n"}}]}'
     featuredprojects: []
     icon: null
     name: Stephanie Brown
     slug: stephanie-brown
-    tagline: null
+    tagline: ''
   model: peacecorps.campaign
   pk: 77
 - fields: {code: USA, name: United States}
@@ -2005,18 +2171,18 @@
 - fields: {code: IRN, name: Iran}
   model: peacecorps.country
   pk: 192
-- fields: {campaign: 69}
-  model: peacecorps.featuredcampaign
-  pk: 1
-- fields: {project: 11}
+- fields: {project: 14-684-020}
   model: peacecorps.featuredprojectfrontpage
   pk: 4
-- fields: {project: 12}
+- fields: {project: 15-527-002}
   model: peacecorps.featuredprojectfrontpage
   pk: 5
-- fields: {project: 7}
+- fields: {project: 14-524-007}
   model: peacecorps.featuredprojectfrontpage
   pk: 6
+- fields: {project: 14-693-016}
+  model: peacecorps.featuredprojectfrontpage
+  pk: 7
 - fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
       user Merbabu, CC-BY-SA 3.0', country: 79, description: A picture of water buffalo
       pulling a plow., file: ./Agriculture-wikipedia-user-merbabu-cc-by-sa-3.jpg,
@@ -2137,38 +2303,39 @@
   model: peacecorps.media
   pk: 29
 - fields:
-    account: 69
-    campaigns: [7, 13, 10]
+    abstract: null
+    account: 14-680-030
+    campaigns: [10, 13, 7]
     country: 20
-    description: <p>Students at the agricultural secondary school, spend their days
-      accumulating knowledge and practice time with books and a variety of agricultural
-      techniques. However, they have very little opportunity to connect with places
-      that are not their own or to research beyond their experiences. This project
-      aims to transform one of the classrooms into a well-equipped, permanent computer
-      lab containing 10 computers with internet access, a photocopy machine, and a
-      printer. Students will be able to use this computer lab to receive adequate
-      hands-on exposure to practice the material they are learning. Through the improved
-      classes, students will be able to hone their skills with common programs such
-      as Microsoft Word, Excel, and Power Point, among others. They will also learn
-      how to navigate using the internet in order to conduct research, communicate
-      with others, and gain a much broader view of the world. The computer lab will
-      be operational year-round; open to students after normal classroom hours and
-      to the general public during weekends and school breaks. In addition, free or
-      low-cost training will be available to students unable to continue their studies
-      and peoples of low income. This project will be realized and sustained through
-      a partnership between the group STG Informatique and the school administration.
-      STG Informatique will help equip the computer lab with necessary accommodations
-      such as ceiling fans, networking cables, internet router, etc., and they will
-      oversee the functionality of the lab throughout the year. The school administration
-      will reserve a portion of its annual budget to provide for the overall maintenance
-      and upkeep of the computer lab, and it will create a new, full-time employment
-      for a computer lab assistant. In addition to this, profits from computer lab
-      services such as photocopies, printed documents, and navigation time will go
-      towards the growth of the computer lab, as well as towards additional campus
-      development projects. Donations to this project will help provide the students
-      with the proper means to develop their computer skills, and will go directly
-      towards the purchase of the computers, photocopy machine, and printer of the
-      new computer lab.</p>
+    description: '{"data": [{"type": "text", "data": {"text": "<p>Students at the
+      agricultural secondary school, spend their days accumulating knowledge and practice
+      time with books and a variety of agricultural techniques. However, they have
+      very little opportunity to connect with places that are not their own or to
+      research beyond their experiences. This project aims to transform one of the
+      classrooms into a well-equipped, permanent computer lab containing 10 computers
+      with internet access, a photocopy machine, and a printer. Students will be able
+      to use this computer lab to receive adequate hands-on exposure to practice the
+      material they are learning. Through the improved classes, students will be able
+      to hone their skills with common programs such as Microsoft Word, Excel, and
+      Power Point, among others. They will also learn how to navigate using the internet
+      in order to conduct research, communicate with others, and gain a much broader
+      view of the world. The computer lab will be operational year-round; open to
+      students after normal classroom hours and to the general public during weekends
+      and school breaks. In addition, free or low-cost training will be available
+      to students unable to continue their studies and peoples of low income. This
+      project will be realized and sustained through a partnership between the group
+      STG Informatique and the school administration. STG Informatique will help equip
+      the computer lab with necessary accommodations such as ceiling fans, networking
+      cables, internet router, etc., and they will oversee the functionality of the
+      lab throughout the year. The school administration will reserve a portion of
+      its annual budget to provide for the overall maintenance and upkeep of the computer
+      lab, and it will create a new, full-time employment for a computer lab assistant.
+      In addition to this, profits from computer lab services such as photocopies,
+      printed documents, and navigation time will go towards the growth of the computer
+      lab, as well as towards additional campus development projects. Donations to
+      this project will help provide the students with the proper means to develop
+      their computer skills, and will go directly towards the purchase of the computers,
+      photocopy machine, and printer of the new computer lab.</p>"}}]}'
     featured_image: 14
     media: []
     overflow: null
@@ -2183,19 +2350,21 @@
   model: peacecorps.project
   pk: 6
 - fields:
-    account: 70
+    abstract: null
+    account: 14-524-007
     campaigns: [12, 13]
     country: 125
-    description: "<p>This grant will assist my community in procuring a Portable Ultrasound
-      Machine for the health center. The apparatus will be used in antenatal care
-      to reduce still-births and neonatal deaths and to increase preparedness for
-      complications such as: risky fetal presentation (e.g. breach, transverse), position
-      of the placenta, quantity of amniotic fluid, any congenital diseases that make
-      survival of the fetus impossible after birth, etc. It will also serve to confirm
-      gestational age, which aids greatly in providing appropriate care.The community
-      contribution will be made in several parts.&nbsp;</p>\r\n<p>Part 1: The health
-      center will arrange and pay for the training of a permanent doctor in an intensive
-      8-week course in obstetric ultrasound technology at the regional hospital.&nbsp;</p>\r\n<p>Part
+    description: '{"data": [{"type": "text", "data": {"text": "<p>This grant will
+      assist my community in procuring a Portable Ultrasound Machine for the health
+      center. The apparatus will be used in antenatal care to reduce still-births
+      and neonatal deaths and to increase preparedness for complications such as:
+      risky fetal presentation (e.g. breach, transverse), position of the placenta,
+      quantity of amniotic fluid, any congenital diseases that make survival of the
+      fetus impossible after birth, etc. It will also serve to confirm gestational
+      age, which aids greatly in providing appropriate care.The community contribution
+      will be made in several parts.&nbsp;</p>\r\n<p>Part 1: The health center will
+      arrange and pay for the training of a permanent doctor in an intensive 8-week
+      course in obstetric ultrasound technology at the regional hospital.&nbsp;</p>\r\n<p>Part
       2: The director of the health center and I will have a one-time training for
       85 doctors, nurses, and volunteer health workers to promote the sonogram in
       the communities, and better patient - doctor communication.&nbsp;</p>\r\n<p>Part
@@ -2204,7 +2373,7 @@
       will pay for the transportation of the machine from the Capitol to the community
       and for the gas needed to transport the apparatus to each of the three outlying
       health posts at least once per month.&nbsp;</p>\r\n<p>Part 5: A cash contribution
-      of $1030 towards purchasing the ultrasound will be made by the mayor's office.</p>"
+      of $1030 towards purchasing the ultrasound will be made by the mayor''s office.</p>"}}]}'
     featured_image: 15
     media: []
     overflow: null
@@ -2219,30 +2388,32 @@
   model: peacecorps.project
   pk: 7
 - fields:
-    account: 71
+    abstract: null
+    account: 14-635-002
     campaigns: [12, 14]
     country: 191
-    description: "<p>The smallest country in Africa, The Gambia, is a young developing
-      nation with a high percentage of its population under the age of 14. Currently,
-      the official rate of HIV/AIDS remains relatively low in comparison to other
-      sub-Saharan countries. However, The Gambia possesses several high risk factors
-      which make the nation vulnerable to increased rates of infection; these include
-      an active transnational shipping route, active sex trade, little or no sex education
-      in the classroom along with high levels of illiteracy, access to media in general,
-      and polygamy. In order to combat these risk factors and rising rates of infection,
-      Peace Corps partnered with National Aids Secretariat (NAS) and a Gambian association
-      in 2010 for the first HIV Bike Trek. Due to success and impact of HIV Bike Trek
-      2010, Peace Corps Volunteers organized subsequent HIV Bike Treks in 2011, 2012,
-      and 2013, and is now organizing a trek for 2014.&nbsp;</p>\r\n<p>The ultimate
-      goals of HIV Bike Trek are: to educate and empower 808 Gambian youths with the
-      knowledge and confidence to protect themselves and their loved ones from HIV.
-      The Trek entails PCVs and Gambian counterparts biking across West Coast Region
-      and Lower River Region, to four Upper Basic Schools to teach Grade 8 or 9 students
-      about HIV/AIDS. Through a two-day intensive training, the students will learn
-      about the epidemiology of HIV/AIDS and the life skills to promote speaking out
-      and combating stigma and discrimination. By educating Gambian youths about HIV/AIDS
+    description: '{"data": [{"type": "text", "data": {"text": "<p>The smallest country
+      in Africa, The Gambia, is a young developing nation with a high percentage of
+      its population under the age of 14. Currently, the official rate of HIV/AIDS
+      remains relatively low in comparison to other sub-Saharan countries. However,
+      The Gambia possesses several high risk factors which make the nation vulnerable
+      to increased rates of infection; these include an active transnational shipping
+      route, active sex trade, little or no sex education in the classroom along with
+      high levels of illiteracy, access to media in general, and polygamy. In order
+      to combat these risk factors and rising rates of infection, Peace Corps partnered
+      with National Aids Secretariat (NAS) and a Gambian association in 2010 for the
+      first HIV Bike Trek. Due to success and impact of HIV Bike Trek 2010, Peace
+      Corps Volunteers organized subsequent HIV Bike Treks in 2011, 2012, and 2013,
+      and is now organizing a trek for 2014.&nbsp;</p>\r\n<p>The ultimate goals of
+      HIV Bike Trek are: to educate and empower 808 Gambian youths with the knowledge
+      and confidence to protect themselves and their loved ones from HIV. The Trek
+      entails PCVs and Gambian counterparts biking across West Coast Region and Lower
+      River Region, to four Upper Basic Schools to teach Grade 8 or 9 students about
+      HIV/AIDS. Through a two-day intensive training, the students will learn about
+      the epidemiology of HIV/AIDS and the life skills to promote speaking out and
+      combating stigma and discrimination. By educating Gambian youths about HIV/AIDS
       before they become sexual active, this project hopes to reduce new infections
-      rates and prevent HIV/AIDS from becoming a national epidemic.</p>"
+      rates and prevent HIV/AIDS from becoming a national epidemic.</p>"}}]}'
     featured_image: 16
     media: []
     overflow: null
@@ -2258,26 +2429,28 @@
   model: peacecorps.project
   pk: 8
 - fields:
-    account: 72
-    campaigns: [13, 14, 10]
+    abstract: null
+    account: 14-497-004
+    campaigns: [10, 13, 14]
     country: 79
-    description: "<p>The high school where I work in East Java, Indonesia currently
-      has a tiny library that is used to store old textbooks. We plan to expand the
-      existing structure, build shelves, buy relevant, engaging and age appropriate
-      resources, install an LCD projector and create an organized cataloging system
-      for students and teachers to check out books. We hope to promote learning in
-      a community where education is not the top priority, increase English engagement
-      through books, listening resources and games, and enrich general knowledge through
-      international resources such as the National Geographic magazine. We hope this
-      library will become a comfortable study space where we can hold workshops on
-      topics such as good study skills, how to write an essay and how to apply to
-      college. We also live in a community where very little reading is done outside
-      of class, so we would like to encourage reading for fun.&nbsp;</p>\r\n<p>My
-      school, MAN, has already set aside a computer for the new library and is planning
-      to build the additional shelves needed to house the new books and resources.
-      As part of their end of the year projects, students made bilingual, English-Indonesian,
-      posters which will be hung in the library to give inspiration and make the library
-      a friendly and inviting place to time.</p>"
+    description: '{"data": [{"type": "text", "data": {"text": "<p>The high school
+      where I work in East Java, Indonesia currently has a tiny library that is used
+      to store old textbooks. We plan to expand the existing structure, build shelves,
+      buy relevant, engaging and age appropriate resources, install an LCD projector
+      and create an organized cataloging system for students and teachers to check
+      out books. We hope to promote learning in a community where education is not
+      the top priority, increase English engagement through books, listening resources
+      and games, and enrich general knowledge through international resources such
+      as the National Geographic magazine. We hope this library will become a comfortable
+      study space where we can hold workshops on topics such as good study skills,
+      how to write an essay and how to apply to college. We also live in a community
+      where very little reading is done outside of class, so we would like to encourage
+      reading for fun.&nbsp;</p>\r\n<p>My school, MAN, has already set aside a computer
+      for the new library and is planning to build the additional shelves needed to
+      house the new books and resources. As part of their end of the year projects,
+      students made bilingual, English-Indonesian, posters which will be hung in the
+      library to give inspiration and make the library a friendly and inviting place
+      to time.</p>"}}]}'
     featured_image: 17
     media: []
     overflow: null
@@ -2292,29 +2465,30 @@
   model: peacecorps.project
   pk: 9
 - fields:
-    account: 73
+    abstract: null
+    account: 14-532-001
     campaigns: [12, 14]
     country: 84
-    description: <p>In April 2014, a primary school in Jamaica partnered with a non-profit
-      organization to build a multi-purpose court. Previously, the community and primary
-      school relied on a a small green field and a hard court at the high school for
-      sports and recreation. Now with the new multi-purpose court, another more functional
-      area is available for more of the community's residents and youth to participate
-      in recreational activities. However, in constructing the court, retaining walls
-      were built from the ground on three sides, to create a level plane, but also
-      created an unsafe precipice. The community has not been able to completely maximize
-      the use of the court, for fear of safety for the children, and the possibility
-      of balls/equipment falling over. This project proposal will fund the erection
-      of a perimeter fence around the multi-purpose court to keep the participants
-      and equipment within the court boundaries. The community's aim is to create
-      a safe recreational area for students and community members to develop healthy
-      lifestyle choices through sports. A fence will allow for increased access to
-      the court, resulting in positive community relationships and sportsmanship through
-      recreational activity. The beneficiaries are the school students, community
-      sports teams (netball, basketball) and the community members who are interested
-      in recreational play. The community will be fundraising to assist in the costs
-      of the fence, and will also be stakeholders in using and maintaining the fence
-      and court area.</p>
+    description: '{"data": [{"type": "text", "data": {"text": "<p>In April 2014, a
+      primary school in Jamaica partnered with a non-profit organization to build
+      a multi-purpose court. Previously, the community and primary school relied on
+      a a small green field and a hard court at the high school for sports and recreation.
+      Now with the new multi-purpose court, another more functional area is available
+      for more of the community''s residents and youth to participate in recreational
+      activities. However, in constructing the court, retaining walls were built from
+      the ground on three sides, to create a level plane, but also created an unsafe
+      precipice. The community has not been able to completely maximize the use of
+      the court, for fear of safety for the children, and the possibility of balls/equipment
+      falling over. This project proposal will fund the erection of a perimeter fence
+      around the multi-purpose court to keep the participants and equipment within
+      the court boundaries. The community''s aim is to create a safe recreational
+      area for students and community members to develop healthy lifestyle choices
+      through sports. A fence will allow for increased access to the court, resulting
+      in positive community relationships and sportsmanship through recreational activity.
+      The beneficiaries are the school students, community sports teams (netball,
+      basketball) and the community members who are interested in recreational play.
+      The community will be fundraising to assist in the costs of the fence, and will
+      also be stakeholders in using and maintaining the fence and court area.</p>"}}]}'
     featured_image: 18
     media: []
     overflow: null
@@ -2330,22 +2504,24 @@
   model: peacecorps.project
   pk: 10
 - fields:
-    account: 74
+    abstract: null
+    account: 14-684-020
     campaigns: [8]
     country: 102
-    description: <p>My villiage is the second most visited park in Madagascar. There
-      is a great opportunity for income generating activities with the number of tourists
-      and guides visiting the area. Bread is available in the village, but it is low-quality
-      and is only delivered every few weeks. The plan would be to work with local
-      people to develop a small-scale business. They would be trained in basic business
-      skills like pricing, marketing, and branding as well as accounting. The initial
-      product would be a baguette. However, the location of the oven will be in close
-      proximity to a few hotels and could be rented out for events to make pizza.
-      Currently, there is only one hotel in town that makes pizza and the times offered
-      and selection is limited. This business would allow for custom orders, but the
-      primary focus would be baking bread. A trained baker/chef would come and do
-      a 1-2 day training on french style. The community would provide some of the
-      building materials as well as meals and lodging for the various trainers.</p>
+    description: '{"data": [{"type": "text", "data": {"text": "<p>My villiage is the
+      second most visited park in Madagascar. There is a great opportunity for income
+      generating activities with the number of tourists and guides visiting the area.
+      Bread is available in the village, but it is low-quality and is only delivered
+      every few weeks. The plan would be to work with local people to develop a small-scale
+      business. They would be trained in basic business skills like pricing, marketing,
+      and branding as well as accounting. The initial product would be a baguette.
+      However, the location of the oven will be in close proximity to a few hotels
+      and could be rented out for events to make pizza. Currently, there is only one
+      hotel in town that makes pizza and the times offered and selection is limited.
+      This business would allow for custom orders, but the primary focus would be
+      baking bread. A trained baker/chef would come and do a 1-2 day training on french
+      style. The community would provide some of the building materials as well as
+      meals and lodging for the various trainers.</p>"}}]}'
     featured_image: 19
     media: []
     overflow: null
@@ -2360,29 +2536,30 @@
   model: peacecorps.project
   pk: 11
 - fields:
-    account: 75
-    campaigns: [9, 12]
+    abstract: null
+    account: 15-527-002
+    campaigns: [12, 9]
     country: 136
-    description: "<p>Our community does not have a basic sanitation system which forces
-      the 22 households to use their farmlands for defecation. Open defecation is
-      not only harmful for the environment, including the town's water, but also for
-      the health of the individual. In addition, the community is affected each year
-      by strong winds and heavy rains. The main objectives of this project revolve
-      around reducing risk in our community, which includes environmental, health,
-      and natural disasters risks.&nbsp;</p>\r\n<p>Through various education sessions
-      held in the community by the Volunteer, representatives from the municipality,
-      and the health post, each family will gain knowledge about hygiene practices,
-      global climate change, encouraging recycling and environmental consciousness,
-      preparing and reducing risk of natural disasters in their houses. Once the family
-      has attended four education sessions, they will work with the Volunteer and
-      local masons to build a bathroom for their household. In addition, the residents
-      will work together to build two bathrooms for the local elementary school which
-      has 21 students. The Volunteer and a representative of the health post will
-      teach the students about hand washing and maintain their new bathroom. The execution
-      of the project will result in better hygienic practices by the community members,
-      healthier farmlands free of open defecation, increased knowledge about climate
-      change, higher participation of recycling, and better preparation for future
-      strong winds and heavy rains.</p>\r\n<p>&nbsp;</p>"
+    description: '{"data": [{"type": "text", "data": {"text": "<p>Our community does
+      not have a basic sanitation system which forces the 22 households to use their
+      farmlands for defecation. Open defecation is not only harmful for the environment,
+      including the town''s water, but also for the health of the individual. In addition,
+      the community is affected each year by strong winds and heavy rains. The main
+      objectives of this project revolve around reducing risk in our community, which
+      includes environmental, health, and natural disasters risks.&nbsp;</p>\r\n<p>Through
+      various education sessions held in the community by the Volunteer, representatives
+      from the municipality, and the health post, each family will gain knowledge
+      about hygiene practices, global climate change, encouraging recycling and environmental
+      consciousness, preparing and reducing risk of natural disasters in their houses.
+      Once the family has attended four education sessions, they will work with the
+      Volunteer and local masons to build a bathroom for their household. In addition,
+      the residents will work together to build two bathrooms for the local elementary
+      school which has 21 students. The Volunteer and a representative of the health
+      post will teach the students about hand washing and maintain their new bathroom.
+      The execution of the project will result in better hygienic practices by the
+      community members, healthier farmlands free of open defecation, increased knowledge
+      about climate change, higher participation of recycling, and better preparation
+      for future strong winds and heavy rains.</p>\r\n<p>&nbsp;</p>"}}]}'
     featured_image: 20
     media: []
     overflow: null
@@ -2397,3 +2574,1221 @@
     volunteerpicture: null
   model: peacecorps.project
   pk: 12
+- fields:
+    abstract: null
+    account: 15-680-003
+    campaigns: [3]
+    country: 20
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/BENIN.jpg\" alt=\"Map of BENIN\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of BENIN</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>A
+      maternity building will help improve child and neonatal health, prevent childhood
+      illness and will encourage business development. This project will include educating
+      at least 30 women on essential maternal care practices and positive behaviors
+      to improve the care of a newborn. The current health center only has one room
+      available for mothers to give birth and it is located in the same area as those
+      who are sick, creating an unhealthy environment for delivering mothers and their
+      newborns. A maternity building will solve this issue and encourage those who
+      have babies in their homes to come to the health center to receive appropriate
+      care for themselves and their children. After building the maternity at least
+      30 children will be vaccinated by 12 months of age to prevent childhood illnesses.
+      A maternity building will give the community the space required to provide better
+      care for pregnant mothers and to educate them on healthy maternal practices.
+      This maternity will be a great improvement of the health care services that
+      are already available in the community.</p> \n\n\t\t\t<p>If you have questions
+      about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: benin-maternity
+    tagline: null
+    title: 'Benin Maternity '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Applegate, M.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 80
+- fields:
+    abstract: null
+    account: 15-680-002
+    campaigns: [3]
+    country: 20
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/BENIN.jpg\" alt=\"Map of BENIN\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of BENIN</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Our
+      local middle school is building a new four-classroom building that will enable
+      it to add another grade level and educate many more students. Enrollment has
+      been growing rapidly since the school opened in 2011, and already our seven-classroom
+      school is over capacity. Students are frequently forced to take classes held
+      outside, sometimes under the cover of a thatched roof and sometimes with only
+      the cover of cashew trees. While the administration and local community has
+      taken an active role in promoting the school and wants to build more space to
+      accommodate our growing numbers, this community of farmers struggles to find
+      the means.\n<br /><br />\nThis project will allow our school to educate over
+      200 more students and continue adding more advanced grade levels. Furthermore,
+      this project will help provide a public space that the community can be proud
+      of and help build the foundation for future development.\n<br /><br />\nThe
+      community has been actively engaged in this project and will be providing both
+      labor and materials to make it a reality. Our community will contribute over
+      half the cost of this project through cash and in-kind contributions. \n<br
+      /><br />\nWithout additional space more students and their families will face
+      a harrowing choice, either burden their children with hiking to a neighboring
+      town to continue their studies, or give up on an education. The local community
+      is ready and willing to promote a brighter future in this rural community, are
+      you? Your generosity will help give these students the opportunity to make their
+      own future.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: eastern-collines-classrooms-project
+    tagline: null
+    title: 'Eastern Collines Classrooms Project '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Engelsma, B.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 81
+- fields:
+    abstract: null
+    account: 14-637-002
+    campaigns: [6]
+    country: 24
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/BOTSWANA.jpg\" alt=\"Map of BOTSWANA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of BOTSWANA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Pre-school
+      education is not mandatory in Botswana. Students who have parents who can afford
+      school fees usually have the opportunity to attend pre-schools. Orphans and
+      vulnerable children (OVC''s) and destitute children often do not have the opportunity
+      to attend pre-school, which is often needed by these children. OVC''s and destitute
+      children often start behind their peers in education. About 30% of my community''s
+      population is OVC and destitute children.  From the support of the Village Development
+      Committee in my village, we chose a vacant building to renovate and transform
+      into an established pre-school by August 2014 that will offer affordable education
+      for the destitute children, special needs children, and orphans.  From recent
+      relocation of minority tribes, a high number of destitute and orphans live in
+      my village. Almost over 75% of students who are OVC''s and destitute suffer
+      from malnutrition, poor housing environments, lack of educational knowledge,
+      and low language literacy of Setswana and English. Setso''s (Culture) Pre-school
+      aims to: provide affordable and quality education to orphans and destitute children,
+      prepare children towards a pre-primary education with an emphasis on English
+      education, and teach critical developmental life skills to shape a new generation
+      of optimistic learners. Additionally our goal is to have at least 30 villagers
+      impacted with knowledge of grant writing, child development education, pre-school
+      teacher training, business operation skills, and negotiating and entrepreneurial
+      skills by August 2014 in order to maintain sustainability of Setso''s Pre-School
+      Program.\t\t\t\t\t\t\t\t\t\n</p> \n\n\t\t\t<p>If you have questions about this
+      or other projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: local-preschool
+    tagline: null
+    title: 'Local Preschool '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Weeks, B.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 82
+- fields:
+    abstract: null
+    account: 14-303-021
+    campaigns: [8]
+    country: 32
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/CAMBODIA.jpg\" alt=\"Map of CAMBODIA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of CAMBODIA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>We
+      will construct a School Sports Education and Recreation Center for the local
+      high school. The objective of our School Sports Education and Recreation Center
+      is to have a space at the school for sports as well as Physical Education and
+      Health exercise programs. The school director has begun organizing the teachers
+      that will be involved in the athletic education program. The athletic education
+      program will teach girls and boys new sports, exercises, ways to stay healthy
+      and develop team building skills. The court will serve as a basketball court,
+      volleyball court, and a soccer court among other games and activities.  The
+      deputy director coaches both a volleyball and soccer team. Once the court is
+      built the school deputy wants to develop his knowledge and skills in basketball
+      so he will be able to start possibly coaching a girls and boys basketball team.
+      Girl students showed a high interest in wanting a court to learn and play sports,
+      so the court will be a safe space to promote women''s sports. Sports education
+      is important for students because it improves overall health of the student
+      body and helps create involvement in sports and competitions. I will be teaching
+      a health education class this upcoming year. In my health class I will teach
+      students about the health benefits of sports. The school director wants the
+      court to be used recreationally by his students at the high school and secondary
+      school as well an assembly area for school and community members on a regular
+      basic. The school is providing the land and the students and teachers have already
+      committed to helping construct the court to lower the price. However, local
+      carpenters will be doing most of the work to make sure the court is strong and
+      will last for a long period of time. Having a School Sports Education and Recreation
+      Center will lead to an improvement of physical health throughout the student
+      body. Additionally, many students will learn teamwork, leadership skills, and
+      self-confidence.</p> \n\n\t\t\t<p>If you have questions about this or other
+      projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: local-sports-and-activities-education-court
+    tagline: null
+    title: 'Local Sports And Activities Education Court '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Youb, F.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 83
+- fields:
+    abstract: null
+    account: 14-641-010
+    campaigns: [19]
+    country: 66
+    description: '{"data": [{"type": "text", "data": {"text": "In this town there
+      are about 1200 residents, most of whom are subsistence farmers.  The only School
+      in town holds classes for 465 students in 6 cement classrooms and 3 makeshift
+      classrooms. The 3 makeshift classrooms were built about 5 years ago by communal
+      labor and are in disrepair. The wood pillars holding the roof are rotting, the
+      tin roof is slumping and the thatched roof leaks, the mud and two cement walls
+      are incomplete and crumbling, the floors are primarily uneven compacted dirt,
+      new blackboards are needed, and the school is in need of 78 ''single'' desk
+      and chairs for JHS and P5 and P6, 30 ''double'' desks and chairs for P1-P4,
+      and 23 round tables for KG. The community wants to reconstruct the old building
+      (with 3 classrooms and a small office and storage area) so that it will be safe
+      for the children and will improve school resources and learning environment.
+      The community will provide the land and labor needed to complete this project
+      and maintain the building."}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: basic-school-classrooms-renovation-project
+    tagline: null
+    title: 'Basic School Classrooms Renovation Project '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Meyers, S.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 84
+- fields:
+    abstract: null
+    account: 15-520-001
+    campaigns: [20]
+    country: 69
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/GUATEMALA.jpg\" alt=\"Map of GUATEMALA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of GUATEMALA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Improved
+      Stoves is a community project designed to give 12 families from rural areas
+      the opportunity to no longer cook over an open fire and improve the health of
+      the family by decreasing respiratory diseases and infections that are caused
+      by years of smoke exposure. Each participating family has a child under the
+      age of 5 who has been exposed to dangerous fumes every time the family prepares
+      a meal. By providing each family with an improved stove, the chances of the
+      children developing an illness such as asthma, pneumonia, bronchitis, tuberculosis,
+      etc. will significantly decrease. \n<br /><br />\nThe project has three implementation
+      components, <br /> \n1) Search for and select families with low socio-economic
+      resources who have children under the age of five and are currently cooking
+      over an open fire. <br />\n2) Fund and resource each stove through the Peace
+      Corps Partnership Program. <br />\n3) Provide education for each family within
+      a time span of two months over relevant health topics such as nutrition, the
+      importance of an improved stove, family planning, HIV/AIDS, hygiene in the kitchen,
+      etc. The community has come together and is supporting the project with the
+      construction of the stoves as well as by donating some materials needed for
+      the construction. \n<br /><br />\nThis small community has demonstrated their
+      commitment and interest in bettering the health of the families by aiding in
+      the improved stoves project.</p> \n\n\t\t\t<p>If you have questions about this
+      or other projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: improved-stoves
+    tagline: null
+    title: 'Improved Stoves '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Santos, V.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 85
+- fields:
+    abstract: null
+    account: 14-684-009
+    campaigns: [29]
+    country: 102
+    description: '{"data":[{"type":"text","data":{"text":"                The summary
+      below was provided by the Peace Corps Volunteer and the community administering
+      this project.\n\n                    Map of MADAGASCAR\n\n            According
+      to UNICEF''s statistics in 2012, diarrheal diseases and pneumonia are among
+      the leading causes of death in children under five years of age globally, accounting
+      for more than two million child mortalities or one\\-fourth of all deaths of
+      children under five. Approximately 90% of all these deaths are due to unsafe
+      water and poor hygiene. Madagascar is one of the poorest countries in the world
+      and only half of the population has access to safe drinking water. The water
+      consumed by the population is drawn from rivers and creeks located several kilometers
+      away from their homes without using proper cleaning methods. The Merina people
+      of the Vakinankaratra Region of Madagascar want and need latrines and wells;
+      they, however, do not have enough money to purchase the materials, with an average
+      daily income of less than $1. With help from family and friends in the United
+      States, we plan on building 18 latrines and 18 wells in 7 different communities
+      spread across 20 kilometers.   This Total Sanitation project has four components:
+      to instill behavior change methods in the local community, to provide access
+      to durable latrines in the most rural areas, to provide access to water sources
+      in the most rural areas, and to educate the local community on safe drinking
+      water and safe disposal of feces to reduce illnesses and improve sanitation.
+      The impact of this project is an improvement of water, sanitation, and a healthier
+      living situation for all who live in the region.\n\n            If you have
+      questions about this or other projects, [email our office](mailto:donate@peacecorps.gov).\n\n            [Back
+      to Volunteer Projects](index.cfm?shell=donate.contribute.donatenow)\n\n"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: total-sanitation
+    tagline: ''
+    title: 'Total Sanitation '
+    volunteerhomecity: ''
+    volunteerhomestate: null
+    volunteername: Robinson, R.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 86
+- fields:
+    abstract: null
+    account: 15-684-003
+    campaigns: [29]
+    country: 102
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MADAGASCAR.jpg\" alt=\"Map of MADAGASCAR\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MADAGASCAR</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>According
+      to USAID''s HIV Health Profile of Madagascar for 2010, the country \"has one
+      of the highest rates of sexually transmitted infections (STI''s) in the world.\"
+      The majority of STIs can be easily treated but if people are too afraid, intimidated,
+      or embarrassed to seek treatment, it can lead to serious problems. Since many
+      STIs have no symptoms at all, and because many women may not recognize if they
+      have a symptom, both genders need to be extra cautious. In addition, 10 years
+      ago, Madagascar was at the same prevalence of AIDS as South Africa, and we must
+      continue in the effort to decrease this rate here in Madagascar. With this in
+      mind, I would like to build a basketball court at my village''s middle school
+      to future educate the students about the prevalence of HIV/STD in their home
+      country. With a world map on HIV/STD rates of the world already displayed at
+      the CEG, this basketball court will go hand in hand with the map. The basketball
+      court will be used to play games such as condom races, Q&amp;A about HIV/STD,
+      etc all incorporated with a game of basketball or just shooting around. Lastly,
+      the students will be able to learn and participate in a new sport and hobby
+      - basketball. I would like to initiate the court on December 1, 2014 - World
+      Aids Day.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: basketball-court-for-hivstd-education
+    tagline: null
+    title: 'Basketball court for HIV/STD education '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Hejazi, B.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 87
+- fields:
+    abstract: null
+    account: 15-261-002
+    campaigns: [33]
+    country: 113
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOLDOVA.jpg\" alt=\"Map of MOLDOVA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOLDOVA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Construction/
+      installation of a covered area (pavilion) and the addition of playground equipment
+      are needed to provide a place for the children to exercise and play, to learn
+      social interaction skills in the course of recreation and to encourage healthy
+      daily exercise.  Kindergarten #1 has a total of 70 students ages 1.5 through
+      7.  In the past years, the town has made many improvements to this kindergarten
+      including renovations to the exterior and interior and the addition of a new
+      central biomass heating plant. Still remaining to be done are improvements to
+      the outdoor play area.  Kindergarten #2 is a State established preschool founded
+      in 1973.  This kindergarten was developed for 120 children but currently has
+      an enrollment of 140 children.  This kindergarten serves Russian speaking families.\n<br
+      /><br />\nKindergarten##1 lacks any covered outdoor area to provide protection
+      from the elements whether that be rain or sun.  Kindergarten #2 lacks enough
+      outdoor play equipment for its larger enrollment.  These improvements will help
+      fulfill the need for sufficient outdoor play areas as these two kindergartens.\n<br
+      /><br />\nOutdoor play is necessary for young children to exercise, to learn
+      social interaction skills in the course of recreation and to develop healthy
+      daily exercise habits.  Studies have shown that young children should engage
+      in at least one hour of exercise daily.  a playground is a key learning environment
+      that promotes cognitive, emotional, physical and social development.</p> \n\n\t\t\t<p>If
+      you have questions about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: improving-opportunities-for-exercise-at-two-kindergartens
+    tagline: null
+    title: 'Improving Opportunities for Exercise at Two Kindergartens '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Angus, A.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 88
+- fields:
+    abstract: null
+    account: 15-261-001
+    campaigns: [33]
+    country: 113
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOLDOVA.jpg\" alt=\"Map of MOLDOVA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOLDOVA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Our
+      goal is to create favorable health conditions for the children in the kindergarten
+      by giving them the much needed sanitary education, for their up keeping in the
+      future. Our first objective is to renovate the bathroom on the second floor
+      of the local kindergarten and teach about sanitation and cleaning habits among
+      kindergarten children from age three to six. Our second objective is to create
+      a new bathroom installing four toilets, four sinks, changing two doors, replacing
+      old tiles on the ceiling and walls, and changing two old sewer pipes by October
+      5, 2014. Our third objective is to run health education classes including hand
+      washing practices starting on October 6, 2014 through October 7, 2014. Our fourth
+      objective is to increase youth volunteerism\nby getting at least ten volunteer
+      to help with the hygiene education that will be given after the construction
+      work is completed. The community have agreed to generously finance 25% of the
+      projects costs demonstrating their commitment to the completion of this much
+      needed project.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: kindergarten-bathroom-renovation-project
+    tagline: null
+    title: 'Kindergarten Bathroom Renovation Project '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Pura, B.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 89
+- fields:
+    abstract: null
+    account: 15-378-007
+    campaigns: [35]
+    country: 117
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOROCCO.jpg\" alt=\"Map of MOROCCO\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOROCCO</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Our
+      plan is to build 8 tire playgrounds, each with 5-6 structures for the children.
+      The project includes both the builds, associated ''community days'' with the
+      town getting involved in the build and group art projects to paint all the structures.
+      The community''s contribution is currently set at 40.65% but we imagine more
+      material item donations will be made as the project begins. The project will
+      provide healthy, safe play spaces for children who have no such options, in
+      fairly destitute villages. Most notably, these will give children places to
+      go within walking distance, instead of a 25 km bus ride just to try to find
+      a place to be a kid.</p> \n\n\t\t\t<p>If you have questions about this or other
+      projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: recycled-grounds
+    tagline: null
+    title: 'Recycled Grounds '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Pohevitz, L.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 90
+- fields:
+    abstract: null
+    account: 15-378-006
+    campaigns: [35]
+    country: 117
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOROCCO.jpg\" alt=\"Map of MOROCCO\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOROCCO</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Youth
+      with special needs in rural Morocco are hindered by an extreme lack of extracurricular
+      and educational opportunities.  In response, a local special needs association
+      is partnering with Peace Corps in order to implement a service learning \"Ability
+      Camp\" for 30 at-risk youth with and without special needs. Youth will spend
+      every morning participating in art, sports, and theater activities exploring
+      themes of inclusion and respect. Then, campers will spend every afternoon working
+      together to build their community''s first accessible playground. Building the
+      playground will 1) provide youth with special needs an opportunity to present
+      themselves as contributors to their community as opposed to mere recipients
+      of care, 2) allow campers to apply the lessons they learned during their morning
+      activities to real life, and 3) provide a safe, low-maintenance space where
+      everyone, regardless of ability, is welcome to play, make friends, and continue
+      to build a community of inclusion.\n<br /><br />\nCampers will also host a final
+      event to share with the community what they learned and built, and a toolkit
+      will be made available to all Peace Corps volunteers and their counterparts
+      to encourage the creation of similar camps throughout Morocco.\n<br /><br />\nThe
+      community is digging deep to pay for the camp food, staff, transportation, and
+      lodging. However, they still need lots of help to pay for the playground and
+      morning activities.  Your donation will directly empower youth with special
+      needs while dismantling the attitudinal and environmental barriers that impede
+      them from achieving their full potential!\n</p> \n\n\t\t\t<p>If you have questions
+      about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: ability-camp
+    tagline: null
+    title: 'Ability Camp '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Evans, L.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 91
+- fields:
+    abstract: null
+    account: 15-378-003
+    campaigns: [35]
+    country: 117
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOROCCO.jpg\" alt=\"Map of MOROCCO\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOROCCO</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>As
+      Peace Corps Volunteers, we have observed a lack of knowledge about and appreciation
+      for the environment among Moroccan youth within our respective communities.
+      The goal of CLIMB is to work with two exceptional groups of underprivileged
+      youth to complete a seven month outdoor leadership program that incorporates
+      local environmental learning excursions and leadership building activities.
+      The project will culminate with the groups uniting from opposite corners of
+      the country to climb the tallest mountain in North Africa. CLIMB will encourage
+      Moroccan youth to analyze and contemplate their natural world critically and
+      creatively, modes of thinking often under-emphasized in the Moroccan education
+      system. Additionally, CLIMB will foster life skills such as self-confidence,
+      teamwork, and leadership, all of which will hopefully extend to our youth''s
+      future personal and professional endeavors.\n<br /><br />\nCLIMB has five main
+      goals: <br />\n- To foster an appreciation for the environment among youth in
+      our communities <br />\n- To provide an environment that encourages and supports
+      self-discovery and self-awareness <br />\n- To develop critical thinking and
+      decision-making skills <br />\n- To teach youth the skills necessary to safely
+      experience the natural world while incorporating sustainable practices <br />\n-
+      To create an extraordinary opportunity for youth to experience the geographic
+      and sociocultural diversity of Morocco\n<br /><br />\nWe will be working alongside
+      Moroccan counterparts and community members who will be donating their time
+      and expertise to this project. We thank you for helping to provide Moroccan
+      youth with a life-changing experience by supporting the successful implementation
+      of this program.</p> \n\n\t\t\t<p>If you have questions about this or other
+      projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: climb-creating-leadership-in-the-mountains-and-beyond
+    tagline: null
+    title: 'CLIMB (Creating Leadership in the Mountains and Beyond) '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Ayes, C.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 92
+- fields:
+    abstract: null
+    account: 15-640-004
+    campaigns: [36]
+    country: 118
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOZAMBIQUE.jpg\" alt=\"Map of MOZAMBIQUE\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOZAMBIQUE</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>The
+      first few years of school are arguable the most important as this is when the
+      basic foundation of academic, social, and life skills are taught and the mastery
+      of these skills have a direct impact on their future academic lives and beyond.
+      To successfully teach these essential skills each child needs to have access
+      to the teacher and a safe environment in which to learn. Although this village
+      has a preschool, it is currently over crowded which decreases the ability for
+      the teacher to teach effectively and is unsafe due to the high student to teacher
+      ratio. A locals recognized these issues with the current preschool that has
+      95 students from ages two to five. He began constructing a new school but needs
+      help completing this dream of a learning environment for twenty-five female
+      students and twenty-five male students. For this facility to be completed there
+      needs to be three bathrooms, a kitchen, a fence, a water system and electricity.
+      The teacher is also willing to have the new preschool open during the afternoons
+      to act as a library and meeting spot for primary school students.</p> \n\n\t\t\t<p>If
+      you have questions about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: escolinha-san-piedade
+    tagline: null
+    title: 'Escolinha San Piedade '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Cain-Mailly, J.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 93
+- fields:
+    abstract: null
+    account: 15-640-002
+    campaigns: [36]
+    country: 118
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/MOZAMBIQUE.jpg\" alt=\"Map of MOZAMBIQUE\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of MOZAMBIQUE</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>With
+      the need to improve the hygiene and sanitation in the community, a coalition
+      has been formed from native community members, ex-pat community members and
+      international supporters.  Within this coalition, a project has been presented
+      to create two public bathrooms: one in the market and one at the primary school.  Along
+      with these construction projects, the idea was presented to have two separate
+      training sessions at both locations on the topic of health, hygiene and sanitation.  Within
+      the training at the market, the target audience will be market vendors, market
+      consumers, community members, and all others interested in improving the health,
+      hygiene and sanitation. The community will contribute land and labor to the
+      construction of the bathrooms.  Also, community members will plan and execute
+      the second training at the primary school.  At the conclusion of the construction
+      project and trainings, the coalition hopes the community will adapt changes
+      to improve the quality of life and prevent diseases linked to poor sanitation
+      practices.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: sanitation-coalition
+    tagline: null
+    title: 'Sanitation Coalition '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Dizalowy, K.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 94
+- fields:
+    abstract: null
+    account: 15-524-005
+    campaigns: [39]
+    country: 125
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/NICARAGUA.jpg\" alt=\"Map of NICARAGUA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of NICARAGUA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Following
+      the success of last year''s Camp GLOW, Peace Corps Nicaragua aims to continue
+      a sustainable and interactive model for empowering the nation''s young women.
+      Camp GLOW will bring together adolescent women from across the country to encourage
+      them to work towards creating a society that reflects gender equality.\n<br
+      /><br />\nIn Nicaragua, certain cultural factors, such as machismo, prohibit
+      women from taking advantage of education and employment opportunities in order
+      to fill socially constructed gender roles in the home.  Camp GLOW aspires to
+      break these social frameworks by exposing young women to a wealth of opportunity
+      and providing tools for creating change in their society. At Camp GLOW, young
+      women will attend engaging workshops on topics such as sexual reproductive health,
+      gender equality and gender and global human rights, and strategies for future
+      planning. The camp will promote leadership skills and encourage the girls to
+      return to their communities to implement activities that stimulate gender equality
+      amongst their peers. \n<br /><br />\nCamp GLOW will be a four-day event created
+      in collaboration with Plan Nicaragua.  Plan has developed the agenda for Camp
+      GLOW 2015 based upon their most current campaign: \"Por Ser Nina\".  The campaign
+      focuses on overcoming three barriers that have been identified as impeding young
+      womens'' development potential; gender based violence, teenage pregnancy, and
+      unequal access to opportunities.  Addressing these barriers dovetails very nicely
+      with addressing the goals and objectives of Camp Glow 2015. The camp has been
+      designed for 60 participants (ages 12-17).  In order to attend the camp, participants
+      will have to fill out an application form.  This application form will show
+      us each young woman''s interest and motivation to participate in, contribute
+      to and take away from the information and experiences offered at camp. Participants
+      will be selected based on their compliance with the application deadline and
+      their ability to articulate past leadership skills and desire to be future leaders
+      in their communities. \n<br /><br />\nCommunities throughout the country have
+      pledged support in the form of supplies and snacks, transportation, and most
+      notably in human resources. Donations from the Partnership will fund the remaining
+      costs of the camp: lodging, meals, and remaining transportation costs.\n</p>
+      \n\n\t\t\t<p>If you have questions about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: camp-glow-2015
+    tagline: null
+    title: 'Camp GLOW 2015 '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Ryan, E.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 95
+- fields:
+    abstract: null
+    account: 15-524-002
+    campaigns: [39]
+    country: 125
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n    \t\t\t\n\n\t\t\t\t<div
+      id=\"project_photos\">\t\t\t\t\t\n\t\t\t\t\t<div id=\"lightboxlinks\">\n                    <ul
+      id=\"project-carousel\" class=\"clearfix\">\n                            \n                                \n                                    \n                                    \n                                     \t<li><div
+      id=\"inset_photoNoCaption\">\n                                               <div>\n                                                <div
+      class=\"overlay_link\">\n                                                            <a
+      href=\"/images/opsi/projectphotos/15-524-002/1.jpg\" title=\"\" class=\"image_icon\">\n                                                                <img
+      src=\"/images/main/magnifying_glass.png\" alt=\"Magnifying glass icon\" />\n                                                            </a>\n                                                        </div>\n                                                        <img
+      src=\"/images/opsi/projectphotos/15-524-002/1_th.jpg\" alt=\"Project Photo\"
+      />\n                                            </div>  </div>       \n                                        </li>\n\n                                                     \n                                    \n                            \n                                \n                                    \n                                    \n                                     \t<li><div
+      id=\"inset_photoNoCaption\">\n                                               <div>\n                                                <div
+      class=\"overlay_link\">\n                                                            <a
+      href=\"/images/opsi/projectphotos/15-524-002/2.jpg\" title=\"\" class=\"image_icon\">\n                                                                <img
+      src=\"/images/main/magnifying_glass.png\" alt=\"Magnifying glass icon\" />\n                                                            </a>\n                                                        </div>\n                                                        <img
+      src=\"/images/opsi/projectphotos/15-524-002/2_th.jpg\" alt=\"Project Photo\"
+      />\n                                            </div>  </div>       \n                                        </li>\n\n                                                     \n                                    \n                            \n                                \n                                    \n                                    \n                                     \t<li><div
+      id=\"inset_photoNoCaption\">\n                                               <div>\n                                                <div
+      class=\"overlay_link\">\n                                                            <a
+      href=\"/images/opsi/projectphotos/15-524-002/3.jpg\" title=\"\" class=\"image_icon\">\n                                                                <img
+      src=\"/images/main/magnifying_glass.png\" alt=\"Magnifying glass icon\" />\n                                                            </a>\n                                                        </div>\n                                                        <img
+      src=\"/images/opsi/projectphotos/15-524-002/3_th.jpg\" alt=\"Project Photo\"
+      />\n                                            </div>  </div>       \n                                        </li>\n\n                                                     \n                                    \n                            \n                \t</ul></div>\n\t\t\t\t</div>\n\n             \n        \t\n\n           \n\t\t\n\t\t\t<p>The
+      \"Youth Leadership Camp 2015: Preparing for Tomorrow\" is a four day camp targeted
+      at Nicaraguan youth, between ages 16 to 20. The camp consists of an array of
+      different educational and recreational activities that focus on the development
+      of young leaders and the promotion of active citizenship. This focus is propelled
+      by the severe lack of opportunity that faces Nicaraguan today; lack of access
+      to primary, secondary and higher level education,  lack of gainful employment
+      or promising career paths, as well as a lack of social freedom the inhibits
+      interactions between political parties, religions, and even between geographically
+      separated groups. This lack of opportunity is felt disproportionately by the
+      youth, who represent the largest segment of the population. This impact is further
+      highlight by the fact that 68% of Nicaraguan youth identify poverty as a main
+      inhibitor to their personal development, which leaves them stagnant and feeling
+      disabled to act. This demonstrates the importance of a camp where young leaders
+      can come together, learn, interact, and return to their communities to actively
+      change the opportunities available to them. The camp will be executed by Peace
+      Corps Volunteers in collaboration with a local NGO that is at the forefront
+      of youth development and the promotion of active citizenship, for the second
+      year in a row. The camp format includes educational sessions, a young professional''s
+      panel, central theme to analyze through multiple frames of reference, teamwork
+      activities, leadership development, and a planning ahead session to send the
+      participants home with the tools to replicate their experience. The educational
+      sessions include environmental leadership, professional development, gender
+      roles, sexual health, and community resources for advancement. The first objective
+      of the camp is that campers will use the learned skills and acquired resources
+      to implement projects in their communities, creating opportunities for active
+      citizenship and positive change models. The second objective is to connect youth
+      leaders throughout the country, encouraging the breakdown of social barriers
+      and creating more tolerance for collaboration. The 60 participants, from all
+      regions of the country, will be to rely on one another and learn from one another,
+      working collectively to triumph the obstacles facing the youth of Nicaragua.</p>
+      \n\n\t\t\t<p>If you have questions about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: youth-leadership-camp-2015-preparing-for-tomorrow
+    tagline: null
+    title: 'Youth Leadership Camp 2015: Preparing for Tomorrow '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Hoisington, T.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 96
+- fields:
+    abstract: null
+    account: 15-525-001
+    campaigns: [40]
+    country: 133
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/PANAMA.jpg\" alt=\"Map of PANAMA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of PANAMA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>During
+      the school break in January, 2015, Peace Corps Panama volunteers (PCVs) hope
+      to have the honor of coordinating a 5-day Ultimate Frisbee and leadership camp
+      for 80 under-served youth, ages 8-18, who have potential to be community leaders,
+      are dedicated to developing these skills, and are interested in learning more
+      about Ultimate Frisbee. Few of the youth have previously traveled so far from
+      home or participated in a sports and leadership camp that provides the opportunity
+      to form friendships with others from different places and cultures in Panama.
+      The PCV facilitators will teach the participants how to play Ultimate Frisbee
+      through Ultimate-based games and drills, culminating in a full game. Ultimate
+      is the ideal sport through which to encourage youth development because of its
+      unique base in the Spirit of the Game (SOTG). SOTG is the concept of mutual
+      respect, teamwork, and sportsmanship that is invaluable to Ultimate, as it is
+      self-refereed; it defines the integrity and motivation of the players. Additionally,
+      PCVs will train participants to be community leaders through workshops on leadership,
+      goal setting, decision-making, self-esteem, conflict resolution, and project
+      management.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: ultimate-without-borders-camp
+    tagline: null
+    title: 'Ultimate Without Borders Camp '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Meade, T.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 98
+- fields:
+    abstract: null
+    account: 15-525-003
+    campaigns: [40]
+    country: 133
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/PANAMA.jpg\" alt=\"Map of PANAMA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of PANAMA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>As
+      Panama struggles to keep up with its rapidly growing economy, critically thinking
+      leaders are more essential than ever. It is particularly important for educators
+      to be leaders and to be able to pass those critical thinking and leadership
+      skills onto their students. Educators need more than traditional methodology
+      seminars to gain the knowledge and skills necessary to meet this challenge.
+      With this in mind, we have designed a 4-day seminar to give outstanding and
+      motivated teachers the opportunity to meet like-minded educators and experience
+      leadership development.\n<br /><br />\nThrough the Leadership Development for
+      Global Education (LDGE) program, participants will:\n<br />\n-\tDevelop an understanding
+      of several aspects of professional and personal leadership, including emotional
+      intelligence, identification of strengths, and communication of a vision;\n-\tDefine
+      a personal \"vision for positive change\" to be implemented during the 2014
+      school year;\n-\tAcquire strategies for implementing their \"vision for positive
+      change\" including identification of allies, colleague support, networking,
+      and communicating a vision to others.\n-\tBuild a nation-wide network of like-minded
+      educators.\nPrevious participants will act as facilitator''s by leading activities
+      and discussions about articles and videos and by prompting participants to reflect
+      upon and apply personal experiences.\n<br /><br />\nThe requested funds will
+      provide lodging, transportation, meals, and supplies for the participants. Our
+      facilitators are generously donating their valuable to time to help their colleagues
+      have a beneficial experience. \n</p> \n\n\t\t\t<p>If you have questions about
+      this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: leadership-development-for-global-education-educators-seminar
+    tagline: null
+    title: 'Leadership Development for Global Education Educator''s Seminar '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Kealey, S.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 99
+- fields:
+    abstract: null
+    account: 15-526-001
+    campaigns: [41]
+    country: 135
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/PARAGUAY.jpg\" alt=\"Map of PARAGUAY\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of PARAGUAY</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>The
+      primary objective of Campamento Deporte y Vida (Sports and Life Camp) is to
+      create responsible Paraguayan leaders by providing them with the tools needed
+      to be agents of change in their respective communities. By using sports as a
+      platform with young men in Paraguay, we will show that the attributes necesssary
+      to be a good leader extend far beyond the playing field. The camp will also
+      focus on understanding gender equality and the importance of a healthy lifestyle
+      as essential capacities for young men to develop into a good leaders. Our community
+      partner organization, will provide a thematic backbone while lectures, guest
+      speakers, and activities woven through a variety of sports coordinated by Paraguay
+      Peace Corps Volunteers will round out the camp. After returning to their respective
+      communities the participants will organize with the volunteer from their area
+      to run a series of lectures or workshops in the schools or community centers
+      about what they covered during the four days. \t\t\t\t\t\t\t\t\t</p> \n\n\t\t\t<p>If
+      you have questions about this or other projects, <a href=\"mailto:donate@peacecorps.gov\">email
+      our office</a>.</p>\n            \n            \n\t\t\t<p id=\"opsi-back\"><a
+      href=\"index.cfm?shell=donate.contribute.donatenow\">Back to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: campamento-deporte-y-vida
+    tagline: null
+    title: 'Campamento Deporte y Vida '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Condon, Z.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 100
+- fields:
+    abstract: null
+    account: 14-527-015
+    campaigns: [42]
+    country: 136
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/PERU.jpg\" alt=\"Map of PERU\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of PERU</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>Shumaq
+      Markanstik is a Quechua phrase that translates to \"The Beauty of our Land\".
+      This project aims to capacitate youth in digital photography skills. The pictures
+      taken by the youth will then be compiled and published in a photography magazine
+      that demonstrates the natural beauty and cultural richness of the area. The
+      magazine is to be sold in the provincial capital to encourage tourism. The entire
+      project would be made possible through cohesive work with the youth department
+      of the municipality, the tourism department of the municipality, and the Peace
+      Corps Volunteer.\n<br /><br />\nThe project itself consists of three main stages.
+      The first stage is coordinating with the provincial school district to enter
+      at least one educational institution in each of the 11 districts of the province.
+      Once coordination is satisfactory, three visits will be implemented to each
+      selected school. The first two visits will consist of teaching digital photography
+      skills to the selected classroom(s). The third visit will be outside of school
+      hours wherein the capacitated students will lead a day-long hike around their
+      districts and will photograph compelling areas, activities, or people. The second
+      stage will include a committee of youth photographers compiling the photographs
+      into a document that represents the 11 districts. The document will be edited
+      and sent for printing as a magazine of photographs. In the third stage, the
+      magazines will be sold to passing national and international tourists in the
+      provincial capital. The generated funds will be divided with 60% retained in
+      the youth department of the municipality for further photography classes and
+      the continuation of the magazine the following year with the remaining 40% being
+      used to implement a short-term event benefiting the youth in need throughout
+      the province.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: shumaq-markantsik
+    tagline: null
+    title: 'Shumaq Markantsik '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Tompkins, E.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 102
+- fields:
+    abstract: null
+    account: 15-527-003
+    campaigns: [42]
+    country: 136
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/PERU.jpg\" alt=\"Map of PERU\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of PERU</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>In
+      the mountains of northern Peru lies a village that has been largely forgotten
+      about in recent years.  The village is classified as a zone of extreme poverty
+      and the inhabitants suffer from many illnesses due to unsanitary conditions.  The
+      objectives of the project are to train people in proper hand-washing techniques,
+      water treatment and storage, and proper latrine use and maintenance.  We also
+      aim to provide the villagers with the infrastructure (latrines) necessary to
+      protect their health and dignity.  The construction of latrines in conjunction
+      with the educational sessions will reduce the villager''s exposure to the environmental
+      contaminants that are causing them to be sick whilst giving them the dignity
+      of having a respectable place to use the bathroom.  The community and the municipality
+      have rallied behind this project and with the help of generous donations we
+      can make these people''s dream a reality, and at the same time improve their
+      well-being.</p> \n\n\t\t\t<p>If you have questions about this or other projects,
+      <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: latrines
+    tagline: null
+    title: 'Latrines '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Harrington,G.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 103
+- fields:
+    abstract: null
+    account: 15-696-001
+    campaigns: [44]
+    country: 143
+    description: '{"data": [{"type": "text", "data": {"text": "<div id=\"opsi-projectdetail\">\n        \t\n\t\t\t\t<p
+      id=\"opsi-subtitle\">The summary below was provided by the Peace Corps Volunteer
+      and the community administering this project.</p>\n           \t\n\n\t\n\n\t\t\t\n\t\t\n\t        \n\t\t\t\n                <div
+      class=\"opsi-aside\">\t\n                    \n                    <p class=\"opsi-image\"><img
+      src=\"/images/opsi/countries/RWANDA.jpg\" alt=\"Map of RWANDA\" /></p>\n                    <p
+      class=\"opsi-caption\">Map of RWANDA</p>\n                \n                \n                </div>\n\t\t\t\n\n           \n\t\t\n\t\t\t<p>The
+      \"Connecting to the Source\" water project will provide three villages with
+      access to tap water, creating six public water taps and reducing the burden
+      of fetching water from dirty streams or far distances which is borne by women
+      and children.  One of the targeted villages currently has only two water taps
+      for 159 families, and in the other village there is one remote water tap for
+      114 families-a tap so remote that it is only used by seven households.  Many
+      women and children carry water from streams, some contaminated by upstream mining
+      activities, or fetch water from far away, even walking an hour and a half or
+      two hours per trip.  This project has three goals: first, to connect three villages
+      to the main mountain water source and construct six public taps, providing 222
+      families with access to tap water, second to build the capacity of the beneficiaries
+      to maintain and repair the water infrastructure through the creation of a tap
+      committee system and a training program on clean water and tap maintenance,
+      and finally to increase the whole community''s ability to properly use water
+      sources through a training for community leaders and health workers.  The community
+      will contribute substantially to the project, digging the 2,757 meter long canal
+      for piping, transporting materials, and contributing monetarily for project
+      expenses.  This community has been waiting for years for an opportunity to get
+      water in these two villages, and is ready to do whatever it takes to make this
+      project happen.  This project could dramatically change the lives of beneficiaries-preventing
+      water-related illness like intestinal parasites and diarrhea and reducing the
+      heavy time burdens of fetching water from far away, while providing a community
+      committee system to ensure that the taps are properly maintained and functioning
+      for years to come.</p> \n\n\t\t\t<p>If you have questions about this or other
+      projects, <a href=\"mailto:donate@peacecorps.gov\">email our office</a>.</p>\n            \n            \n\t\t\t<p
+      id=\"opsi-back\"><a href=\"index.cfm?shell=donate.contribute.donatenow\">Back
+      to Volunteer Projects</a></p>\n\t\t</div>\n\t\n\n\n\t"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: connecting-to-the-source
+    tagline: null
+    title: 'Connecting to the Source '
+    volunteerhomecity: null
+    volunteerhomestate: null
+    volunteername: Hiemstra, R.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 104
+- fields:
+    abstract: ''
+    account: 14-645-003
+    campaigns: [49]
+    country: 165
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"\\nThe summary
+      below was provided by the Peace Corps Volunteer and the community administering
+      this project.\\n\\n\\n\\n                \\n\\n                    \\n\\n                    Map
+      of SWAZILAND\\n\\n\\n            For the fourth year, Peace Corps\\\\-Swaziland
+      is bringing Camp GLOW \\\\(Girls Leading our World\\\\) to our small African
+      Kingdom, however the GLOW team is shaking things up quite a bit. This year we
+      will host two five\\\\-day leadership and health camps, where 100 girls, ages
+      9\\\\-19 will have the opportunity to address issues that they face daily in
+      their communities, such as avoiding teen pregnancy, combating HIV/AIDS and empowering
+      other girls to become strong leaders. \\n\\n\\n\\nCamp would not be nearly as
+      successful without our dedicated counselors and senior counselors. This year,
+      we have a team of 18 senior counselors returning to take part in the training
+      and capacity building aspect of camp. Senior counselors will first undergo a
+      two\\\\-day training where they will learn important skills such as facilitation,
+      lesson planning, and public speaking. They will then work to plan the Training
+      of Trainers, where over 60 Swazi women will gain the skills necessary to act
+      as counselors at camp and in their clubs.  These women serve as strong role
+      models for the girls, and act as club organizers and leaders across Swaziland.
+      Thus, GLOW activities serve to not only unite girls nationwide, but also work
+      to standardize the curriculum and build partnership across the country.  \\n\\n\\nOnce
+      the essential training has taken place, the senior counselors and counselors
+      will return to their communities in order to select the girls who will attend
+      camp. As stated above, there will be two camps held this year. The first one
+      will be geared towards the older girls \\\\(aged 13\\\\-19\\\\), while the second
+      one will focus more on disseminating information to younger girls \\\\(aged
+      9\\\\-12\\\\). This idea was encouraged by the senior counselors, who mentioned
+      a specific need to teach and empower younger girls as a means to foster leadership
+      at an earlier age, and encourage the development of positive role models in
+      the communities. The two camps are a significant part of this PCPP, and are
+      treasured experiences for the girls and counselors who get to participate. Having
+      the opportunity to bring young women from across the Kingdom together is invaluable,
+      and nurtures empowerment in a way that many other interventions can't, because
+      these girls get to share their stories; fears and hopes for the future, and
+      begin the process of working to achieve not only their dreams, but those of
+      their sisters from all across Swaziland. \\n\\n\\nAdditionally, for the first
+      time ever, these leaders will serve on the GLOW committees alongside the Peace
+      Corps Volunteers. They are then provided the opportunity to learn book\\\\-keeping,
+      budgeting, organizing and planning, and most importantly, have the ability to
+      provide advice first\\\\-hand. This is crucial as it opens the door for sustainability,
+      ensuring that the communities\xBF needs are expressed and heard. \\n\\n\\nThe
+      participating communities will be contributing vast resources and knowledge
+      to the project, as well as the time, energy and skills of local facilitators.
+      The cost of lodging has been considerably discounted, and use of many facilities
+      are being provided for free. Other community and national organizations are
+      allowing use of their facilities or services without charge, including a local
+      farm, and many quest speakers are providing their own transportation and/or
+      waiving presentation fees. \\n\\n\\nGLOW Swaziland is requesting funds from
+      PCPP donations for the remaining cost of accommodation, as well as the cost
+      of transport for campers, staff, and some local speakers for both our training
+      of trainers\xBF workshops for the counselors and camp. We are also requesting
+      funds for curriculum printing and a small selection of activity costs. \\n\\n
+      \           If you have questions about this or other projects, [email our office](mailto:donate@peacecorps.gov).\\n\\n
+      \           [Back to Volunteer Projects](index.cfm?shell=donate.contribute.donatenow)\\n\\n\"}}]}"
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: glow-camp-swaziland
+    tagline: ''
+    title: 'GLOW Camp Swaziland '
+    volunteerhomecity: ''
+    volunteerhomestate: null
+    volunteername: League, R.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 105
+- fields:
+    abstract: null
+    account: 14-693-017
+    campaigns: [52]
+    country: 172
+    description: '{"data":[{"type":"text","data":{"text":"Our project team''s dream
+      is to build a primary school in effort to create easier access to higher education
+      for children from a small, rural village and surrounding villages in the northern
+      prefecture of Togo. The current Primary School is overrun with students, resulting
+      in several classes taking place under trees and in make\\-shift straw huts constructed
+      by parents. Consequently, students have a low retention rate and fail to meet
+      the educational standards for continuing their education. The community is extremely
+      motivated and energized to begin this project and improve the education of their
+      children. The community has agreed to contribute roughly a third of the price
+      through transportation of material, labor, and purchase of land.\n\nIf you have
+      questions about this or other projects, [email our office](mailto:donate@peacecorps.gov).\n\n"}}]}'
+    featured_image: null
+    media: []
+    overflow: null
+    published: true
+    slug: rural-primary-school
+    tagline: ''
+    title: 'Rural Primary School '
+    volunteerhomecity: ''
+    volunteerhomestate: null
+    volunteername: Johann-Reichart, L.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 106
+- fields:
+    abstract: ''
+    account: 14-693-016
+    campaigns: [52]
+    country: 172
+    description: '{"data":[{"type":"text","data":{"text":"Pellentesque **interdum**
+      turpis orci, a **suscipit** urna convallis sed. [Duis sollicitudin iaculis faucibus](http://www.lipsum.com/feed/html).
+      Duis lacinia, lacus et posuere eleifend, diam elit tempor metus, in laoreet
+      arcu tortor in neque. Ut scelerisque imperdiet risus non vehicula. Maecenas
+      non quam non sem facilisis placerat. Sed ac purus ac metus venenatis semper
+      non eget lacus. Ut gravida felis et arcu vehicula, quis condimentum diam tempor.
+      In elementum aliquet mattis.\n"}},{"type":"text","data":{"text":"Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Integer in sapien tempor, faucibus
+      lectus sed, luctus felis. Nam facilisis consectetur metus. Aliquam aliquam tempor
+      justo, vel tincidunt odio. Nulla accumsan suscipit nibh, quis pretium urna ullamcorper
+      vitae. Vestibulum auctor blandit odio sed placerat. Praesent convallis neque
+      ac neque maximus lacinia. Donec varius, neque luctus mollis efficitur, sem sapien
+      feugiat nunc, ut finibus tortor tortor consequat justo. Nullam ultricies odio
+      ut metus tempus, nec venenatis ipsum maximus. Integer in magna quis eros dapibus
+      vehicula. Fusce in congue lectus. Duis sit amet dapibus ante. Phasellus et sollicitudin
+      sem, in dignissim nisl. Quisque dignissim sem ac enim laoreet sodales.\n\nVivamus
+      euismod quis arcu eget sodales. Aliquam et tortor urna. Nam elit risus, iaculis
+      at tempor non, consectetur vitae risus. Nullam non placerat dolor, id ornare
+      felis. Donec sed imperdiet tellus, ut feugiat urna. Nullam ac leo ut odio venenatis
+      lacinia ac at neque. Nulla eget leo at ex hendrerit condimentum. Donec maximus
+      pretium luctus. Morbi lacinia sapien sed ante condimentum, nec molestie nunc
+      posuere. Vivamus finibus felis ac nunc fermentum, ac congue erat accumsan. Vivamus
+      a aliquam turpis, eu condimentum eros. Integer cursus commodo justo, ac tincidunt
+      turpis efficitur ut. Nulla facilisi. Nunc quis auctor lorem, ac fermentum dui.\n\n"}},{"type":"image","data":{"file":{"name":"rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg","size":820328,"type":"image/jpeg","url":"/media/attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg","path":"attachments/rubidia-learns-to-read-by-lee-shaver-cc-by-sa_zeVKRa2.jpg"}}}]}'
+    featured_image: 10
+    media: []
+    overflow: null
+    published: true
+    slug: togo-clean-water-project
+    tagline: Give the gift of clean water.
+    title: 'Togo Clean Water Project '
+    volunteerhomecity: ''
+    volunteerhomestate: null
+    volunteername: Corey, K.
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 107
+- fields:
+    campaigns: [69]
+    icon: ./Children-by-Sarah-Rudkin-CC-BY-3_5hvBVba.png
+    name: Education
+  model: peacecorps.issue
+  pk: 1
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"CHANGE?!!!"}}]}', order: 2,
+    question: 'How many python programmers does it take to change a light bulb?'}
+  model: peacecorps.faq
+  pk: 1
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"one to change it, ten
+      to try to do it in fewer lines."}}]}', order: 1, question: 'How many perl devs
+      does it take to change a lightbulb?'}
+  model: peacecorps.faq
+  pk: 2

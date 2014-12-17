@@ -1,0 +1,32 @@
+/*
+ * Class that has no base to deal with placing background images.
+ *
+ * To use, set the background image url inline.
+ */
+
+@import "globals";
+
+.bg_img--centered {
+  background-position-y: 50%;
+  background-size: 100% auto;
+}
+
+.bg_img--banner {
+  height: 18em;
+
+  @include media($sm) {
+    height: 10em;
+  }
+}
+
+// TODO move to icon class
+.bg_img--icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left, center;
+  padding-right: 3em; /* Until the icon size is solidified */
+
+  * {
+    margin-left: 1.5em;
+  }
+}

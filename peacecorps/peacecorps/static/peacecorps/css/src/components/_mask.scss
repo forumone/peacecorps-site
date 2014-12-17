@@ -1,0 +1,45 @@
+ /*
+ * Mask
+ */
+
+@import "globals";
+
+.mask {
+  @extend .u-hv_center--block;
+  overflow: hidden;
+  width: 8em;
+  height: 8em;
+}
+
+.mask--md {
+  width: 10em;
+  height: 10em;
+}
+
+.mask__content {
+  @extend .u-hv_center--block__content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mask__content--md {
+  @extend .u-hv_center--block__content;
+  position: absolute;
+  left: 70%;
+  top: 70%;
+  transform: translate(-70%, -70%);
+  width: 100%;
+}
+.mask--oval {
+  border-radius: 50%;
+}
+
+.mask--bordered {
+  border: .25em solid $neutral_dark;
+}
+
+.mask--gray-1 {
+  border-color: $gray-1;
+}

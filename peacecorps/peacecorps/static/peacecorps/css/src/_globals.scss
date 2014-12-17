@@ -1,0 +1,33 @@
+/*
+ * Global variables
+ */
+
+@import "neat/neat-helpers";
+
+/*
+ * Color
+ */
+$black: #222;
+$white: #fff;
+$gray-1: #888;
+$gray-2: #555;
+$primary: #A12122; // Darkish red
+$primary_support: #C94112; // Darkish orange
+$primary_support_lite: #F68B1F; // Light orange
+$secondary: #087A7E;
+$secondary_dark: #314263; // Dark blue
+$neutral_dark: #E5E1D4; // Gray brownish
+$neutral_medium: #F2EFE8; // Gray brownish lighter
+
+$max_img_width: 1900px;
+
+/*
+ * Z-Index
+ */
+$z_index-neg_1: -100;
+$z_index-neg_1: -200;
+$z_index-1: 100;
+
+$z_index-hide: $z_index-neg_1;
+$z_index-bg: $z_index-neg_1;
+$z_index-show: $z_index-1;

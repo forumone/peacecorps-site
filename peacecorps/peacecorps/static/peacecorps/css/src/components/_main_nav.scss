@@ -1,0 +1,40 @@
+/*
+ * Main nav module.
+ *
+ * The main nav is a horizontal row of links, which collapses to a centered
+ * vertical row for smaller screens.
+ */
+
+@import "globals";
+@import "mixins";
+
+.main_nav {
+  @extend .inline_text--centered;
+  @extend .u-unmarked_list;
+  width: 100%;
+
+  @include media($sm) {
+    @include u-visually_hidden;
+  }
+
+}
+.main_nav__list {
+  margin: 0 auto;
+}
+.main_nav__link {
+  @include span_columns(3);
+  @extend .inline_text__ele--centered;
+  border-left: 1px solid;
+  border-color: $gray-2;
+  margin: 0 auto;
+  text-align: center;
+
+  &:first-child {
+    border-left: none;
+  }
+
+  * {
+    @extend .t-link--gray;
+    text-decoration: none;
+  }
+}

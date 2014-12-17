@@ -1,0 +1,115 @@
+/*
+ * Rectangular progress bar
+ */
+@import "globals";
+@import "util";
+
+#djDebug{
+  display: none !important;
+}
+
+// TODO camel case this.
+.rectangular_progress {
+  @extend .u-hv_center--block;
+  height: 15em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.rectangular_progress--mini {
+  width: 70%;
+  height: 10em;
+
+  @include media($sm, $md) {
+    width: 100%;
+  }
+
+  .rectangular_progress__point {
+    top: 5%;
+  }
+  .rectangular_progress__point--bottom {
+    top: auto;
+  }
+  .rectangular_progress__line {
+    height: .5em;
+    top: 24.5%;
+  }
+  .rectangular_progress__line--bottom {
+    bottom: 25.5%;
+    top: auto;
+  }
+}
+
+.rectangular_progress__bar {
+  @extend .u-hv_center--block__content;
+  background-color: $neutral_dark;
+  height: 2em;
+  width: 100%;
+}
+.rectangular_progress__filled {
+  background-color: $primary;
+  height: 100%;
+}
+
+.rectangular_progress__point {
+  display: inline-block;
+  margin: 0;
+  margin-left: -20%;
+  position: absolute;
+  text-align: center;
+  top: 13%;
+  width: 40%;
+
+  @include media($md) {
+    font-size: 85%;
+    margin-left: -30%;
+    width: 60%;
+  }
+  @include media($sm) {
+    // TODO don't breakpoint font size here.
+    font-size: 80%;
+    margin-left: -30%;
+    width: 60%;
+    top: 17%;
+  }
+}
+.rectangular_progress__point--right {
+  text-align: right;
+}
+.rectangular_progress__point--bottom {
+  bottom: 13%;
+  top: auto;
+
+  @include media($md) {
+    bottom: 17%;
+  }
+
+  @include media($sm) {
+    bottom: 17%;
+  }
+}
+.rectangular_progress__line {
+  background-color: $secondary;
+  display: block;
+  height: .7em;
+  margin-left: -.32%;
+  position: absolute;
+  top: 30.5%;
+  width: .11em;
+}
+.rectangular_progress__line--bottom {
+  bottom: 30.5%;
+  top: auto;
+}
+.rectangular_progress__line--neutral {
+  background-color: $neutral_dark;
+}
+
+.rectangular_progress--secondary {
+  color: $gray-2;
+
+  .rectangular_progress__filled {
+    background-color: $secondary;
+  }
+}

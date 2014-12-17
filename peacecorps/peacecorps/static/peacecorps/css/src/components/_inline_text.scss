@@ -1,0 +1,26 @@
+/*
+ * Inline text module
+ *
+ * The inline text module helps style text inline. It has separate styles for
+ * centered inline text.
+ */
+
+@import "globals";
+
+// Inline text
+.inline_text {
+  @include span-columns(1);
+  @include media($sm) {
+    @include span-columns(4);
+    text-align: center;
+  }
+}
+
+.inline_text--centered {
+  text-align: center;
+
+  .inline_text__ele--centered {
+    display: inline-block;
+    float: none;
+  }
+}

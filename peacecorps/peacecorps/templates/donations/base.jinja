@@ -4,46 +4,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=0">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="{{ static("peacecorps/css/donation.css") }}" />
+    <link rel="stylesheet" href="{{ static(
+        "peacecorps/css/compiled/donation.css") }}" />
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
-    <script src="//use.typekit.net/dyt6gwn.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+<nav class="banner banner--dark_transparent banner--no_line"
+  style="position: absolute; top: 0; left: 0;">
+  <a href="http://peaceocorps.gov" class="t-single_nav t--white">
+    <span class="t-title--4">
+      Back to Peacecorps.gov home
+    </span>
+  </a>
+  <span class="t-body--xsm">This is a beta site</span>
+</nav>
 <div class="wrapper">
-    <header>
-        <h1>{% block header %}Peace Corps{% endblock %}</h1>
-        <nav>
-            <ul class="main_nav">
-                <li class="main_nav__link">
-                  <a href="/">Home</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="/about">About</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="http://passport.peacecorps.gov/">Blog</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="/volunteer">Volunteer</a>
-                </li>
-                <li class="main_nav__link">
-                  <a href="{{ url("donate landing") }}">Donate</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <header class="full_banner full_banner--support section__content"
+      style="margin-top: 3.4em;">
+    <a href="{{ url('donate landing') }}">
+      <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="u-inline"
+        style="width: 6em; margin-right: .5em" />
+    </a>
+    <div class="u-inline">
+      <h1 class="t-title--1 u-inline
+        {% if title %}
+          separator--r separator--white separator--hide_sm
+        {% endif %}
+      ">
+        <a href="/donate" class="t--white">
+          Peace Corps
+        </a>
+      </h1>
+      {% if title %}
+        <h2 class="t-title--2 u-inline u-block--at_sm">{{ title }}</h2>
+      {% endif %}
+    </div>
+  </header>
 
-{% block navigation %}{% endblock %}
+  {% block navigation %}{% endblock %}
 
-<main class="{% block content_class %}{% endblock %}">
-{% block content %}{% endblock %}
-</main>
+  <main class="{% block content_class %}{% endblock %}">
+  {% block content %}{% endblock %}
+  </main>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+  <div class="full_banner full_banner--rule full_banner--neutral">
+  </div>
+  <footer class="section section__content u-clearfix">
+    <section class="grid--20">
+      <h2 class="t-title--2">Donate</h2>
+      <p class="t-body--sm">beta website</p>
+      <hr class="separator--h" />
+      <nav class="sub_nav sub_nav--vertical">
+        <h3 class="t-title--3 t--gray--2">Projects and Funds</h3>
+        <ul class="u-unmarked_list">
+          <li class="sub_nav__link">
+            <a href="{{ url('donate projects funds') }}">By Issue</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="{{ url('donate projects funds') }}">By Country</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="{{ url('donate projects funds') }}">By Volunteer</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="{{ url('donate special funds') }}">Special and
+              Memorial Funds</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section class="grid--80 grid__omega">
+      <h2 class="t-title--2">Peacecorps.gov</h2>
+      <p class="t-body--sm">full site, all links return to peacecors.gov</p>
+      <hr class="separator--h" />
+      <nav class="grid--25 sub_nav sub_nav--vertical">
+        <h3 class="t-title--2 t--gray--2">Join</h3>
+        <ul class="u-unmarked_list">
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/apply/?from=applyby">Apply</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/volunteer/learn/meet/">
+              Talk to a recruiter</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/volunteer/learn/meet/events/">
+              Attend an event</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/openings/?from=hpb">
+              Current opportunities</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="grid--25 sub_nav sub_nav--vertical">
+        <h3 class="t-title--2 t--gray--2">Resources</h3>
+        <ul class="u-unmarked_list">
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/resources/returned/home/">
+              Returned Volunteers</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/resources/faf/">
+              Family & Friends</a>
+          </li>
+          <li class="sub_nav__link">
+            <a href="http://www.peacecorps.gov/wws/">Teachers</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="grid--50 sub_nav sub_nav--vertical">
+        <h3 class="t-title--2 t--gray--2">Contact</h3>
+        <ul class="u-unmarked_list">
+          <li class="sub_nav__link">Peace Corps<br>
+            Paul D. Coverdell Peace Corps Headquarters<br>
+            1111 20th Street, NW<br>
+            Washington, D.C. 20526</li>
+          <li class="sub_nav__link">Phone: 855-855-1961</li>
+          <li class="sub_nav__link">
+            <a href="https://www.peacecorps.gov/contact/quesandcom/">
+              Email Form</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <nav class="sub_nav sub_nav--horizontal">
+      <ul class="u-unmarked_list">
+        <li class="sub_nav__link">
+          <a href="http://www.peacecorps.gov/about/policies/general/">
+            Privacy Policy</a>
+        </li>
+        <li class="sub_nav__link">
+          <a href="http://www.peacecorps.gov/about/policies/foia/">
+            Freedom of Information Guide</a>
+        </li>
+        <li class="sub_nav__link">
+          All Rights Reserved.
+        </li>
+      </ul>
+    </nav>
+  </footer>
 </div>
+
+<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
+</script>
+
 {% block custom_js %}{% endblock %}
 
 </body>
