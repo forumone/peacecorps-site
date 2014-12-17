@@ -1,6 +1,6 @@
 SirTrevor.Blocks.Image508 = SirTrevor.Block.extend({
   type: 'image508',
-  title: 'Image508',
+  title: 'Image',
   droppable: true,
   uploadable: true,
   formattable: false,
