@@ -100,6 +100,14 @@
   </div>
 {%- endmacro %}
 
+{% macro url_or(field, default) -%}
+  {% if field %}
+    {{ field.url }}
+  {% else %}
+    {{ default }}
+  {% endif %}
+{%- endmacro %}
+
 {% macro render_campaign(campaign, issue) -%}
   {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
@@ -107,7 +115,7 @@
     <img class="u-pullr"
       class="section__content--no_space_r"
       style="width: 42%;"
-      src="{{ media('World-by-Ana-Maria-Lora-Macias-CC-BY.png') }}"
+      src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
   </aside>
   <article class="grid--80 section__content--contain">

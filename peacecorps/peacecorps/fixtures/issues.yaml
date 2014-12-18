@@ -176,61 +176,61 @@
   pk: 71
 - fields:
     campaigns: [63]
-    icon: ./Water-by-Monika-Ciapala-CC-BY.png
+    icon: icons/water.svg
     name: Water & Sanitation
   model: peacecorps.issue
   pk: 1
 - fields:
     campaigns: [64]
-    icon: ./Book-by-Dmitry-Baranovskiy-CC-BY.png
+    icon: icons/education.svg
     name: Education
   model: peacecorps.issue
   pk: 2
 - fields:
     campaigns: [68]
-    icon: ./Children-by-Sarah-Rudkin-CC-BY-3.png
+    icon: icons/youth.svg
     name: Youth
   model: peacecorps.issue
   pk: 3
 - fields:
     campaigns: [70]
-    icon: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png
+    icon: icons/women.svg
     name: Women & Gender
   model: peacecorps.issue
   pk: 4
 - fields:
     campaigns: [66, 71]
-    icon: ./Health-by-Christopher-Holm-Hansen-CC-BY.png
+    icon: icons/health.svg
     name: Health
   model: peacecorps.issue
   pk: 5
 - fields:
     campaigns: [67]
-    icon: ./Cell-Phone-Icon-By-Marwa-Boukarim-CC-BY.png
+    icon: icons/technology.svg
     name: Technology
   model: peacecorps.issue
   pk: 6
 - fields:
     campaigns: [62]
-    icon: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png
+    icon: icons/business.svg
     name: Business
   model: peacecorps.issue
   pk: 7
 - fields:
     campaigns: [65]
-    icon: ./World-by-Ana-Maria-Lora-Macias-CC-BY.png
+    icon: icons/environment.svg
     name: Environment
   model: peacecorps.issue
   pk: 8
 - fields:
     campaigns: [61]
-    icon: ./Agriculture-by-OCHA-Visual-Information-Unit-PD.png
+    icon: icons/agriculture.svg
     name: Agriculture
   model: peacecorps.issue
   pk: 9
 - fields:
     campaigns: [69]
-    icon: ./Livelihood-by-OCHA-Visual-Information-Unit-PD.png
+    icon: icons/community.svg
     name: Community Growth
   model: peacecorps.issue
   pk: 10
