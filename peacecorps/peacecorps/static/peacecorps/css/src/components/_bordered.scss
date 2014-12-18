@@ -13,6 +13,7 @@ body {
 .bordered {
   border-style: solid;
   border-width: 1em;
+  display: block;
 
   @include media($sm) {
     border-width: 0.5em;
@@ -20,7 +21,10 @@ body {
 }
 
 .bordered--row {
-  border-top: .8em solid;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: .8em;
 }
 
 .bordered--white {
