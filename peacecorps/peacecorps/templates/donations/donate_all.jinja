@@ -105,9 +105,10 @@
   {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
       section__content--contain section__content--no_space_r">
-    <img class="u-pullr"
-      class="section__content--no_space_r"
-      style="width: 42%;"
+    <img class="u-pullr section__content--no_space_r"
+      style="width: 42%;
+             background-image: url('{{issue.icon_background.url}}');
+             background-size: 100%;"
       src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
   </aside>
