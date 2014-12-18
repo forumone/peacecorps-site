@@ -1,4 +1,5 @@
 {% extends "donations/base.jinja" %}
+{% from "donations/includes/macros.jinja" import url_or %}
 
 {% block title %}Peace Corps{% endblock %}
 {% block header %}Peace Corps{% endblock %}
@@ -82,7 +83,7 @@
           {% if project.issue() %}
             <div class="issue">
               <img class="bg_img--icon"
-                   style="-webkit-mask-image: url('{{project.issue().icon.url}}');"
+                   style="-webkit-mask-image: url('{{ url_or(project.issue().icon, "") }}');"
                    alt="{{project.issue().name}}"
                    />
               <span class="t-icon">{{project.issue().name}}</span>

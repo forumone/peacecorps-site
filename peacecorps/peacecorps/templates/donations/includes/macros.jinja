@@ -1,0 +1,7 @@
+{% macro url_or(field, default) -%}
+  {% if field -%}
+    {{ field.url }}
+  {%- else %}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}

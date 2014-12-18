@@ -1,4 +1,5 @@
 {% extends "donations/base.jinja" %}
+{% from "donations/includes/macros.jinja" import url_or %}
 
 {% block title %}Peace Corps{% endblock %}
 {% block header %}Peace Corps{% endblock %}
@@ -98,14 +99,6 @@
                         + ".svg") }}"
          class="mask__content mask__content--md" />
   </div>
-{%- endmacro %}
-
-{% macro url_or(field, default) -%}
-  {% if field %}
-    {{ field.url }}
-  {% else %}
-    {{ default }}
-  {% endif %}
 {%- endmacro %}
 
 {% macro render_campaign(campaign, issue) -%}
