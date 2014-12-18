@@ -34,17 +34,30 @@
   <ul class="js-filterable u-unmarked_list u-clearfix"
       data-filter-type="issue">
   {% for issue in issues %}
+    <li aria-controls="collapsible-page-issue-{{ issue.id }}"
+        id="page-issue-{{ issue.id }}"
+        class="js-pageNav
+          section--neutral_medium
+          u-clearfix
+          bordered--row
+          bordered--white">
+      {{ issue.name }}
+    </li>
     {% for campaign in issue.campaigns.all() %}
-      <li class="section--neutral_dark
+    <li   data-page-id="collapsible-page-issue-{{ issue.id }}"
+          class="js-page
+          section--neutral_dark
           u-clearfix
           bordered--row
           bordered--white">
         {{ render_campaign(campaign, issue) }}
-      </li>
+    </li>
     {% endfor %}
       {# TODO figure out projects rather the featured projects #}
     {% for project in issue.projects() %}
-      <li class="section--neutral_medium
+      <li data-page-id="collapsible-page-issue-{{ issue.id }}"
+          class="js-page
+          section--neutral_medium
           u-clearfix
           bordered--row
           bordered--white">
@@ -104,6 +117,8 @@
   {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
       section__content--contain section__content--no_space_r">
+    <a href="#" class="js-pageBack" aria-controls="page-issue-{{ issue.id }}">
+      Back</a>
     <img class="u-pullr"
       class="section__content--no_space_r"
       style="width: 42%;"
