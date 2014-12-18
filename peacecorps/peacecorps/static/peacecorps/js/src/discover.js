@@ -27,9 +27,7 @@ Discover.prototype.init = function(root, $navLinks) {
 
   this.$navLinks = $navLinks;
   this.$pages = this.$(this.ccPage);
-  console.log('pages: ' + this.$pages.length);
   this.$pageLinks = this.$(this.ccPageNavs);
-  console.log('page links: ' + this.$pageLinks.length);
   this.filters = [];
   $navLinks.each(function() {
     self.filters.push($(this).data('filter-type'));

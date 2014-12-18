@@ -34,20 +34,19 @@
   <ul class="js-filterable u-unmarked_list u-clearfix"
       data-filter-type="issue">
   {% for issue in issues %}
-    <li aria-controls="collapsible-page-issue-{{ issue.id }}"
-        id="page-issue-{{ issue.id }}"
-        class="js-pageNav
-          section--neutral_medium
-          u-clearfix
-          bordered--row
-          bordered--white">
-      {{ issue.name }}
+    <li id="page-issue-{{ issue.id }}">
+      <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
+          class="js-pageNav section--neutral_medium bordered bordered--row
+          bordered--white u-clearfix">
+        {{ render_link_header(issue.icon.url, issue.name, issue.name) }}
+      </a>
     </li>
     {% for campaign in issue.campaigns.all() %}
     <li   data-page-id="collapsible-page-issue-{{ issue.id }}"
           class="js-page
           section--neutral_dark
           u-clearfix
+          bordered
           bordered--row
           bordered--white">
         {{ render_campaign(campaign, issue) }}
@@ -59,6 +58,7 @@
           class="js-page
           section--neutral_medium
           u-clearfix
+          bordered
           bordered--row
           bordered--white">
         {{ render_project_header(project, 'issue') }}
@@ -72,6 +72,7 @@
   {% for project in projects %}
     <li class="section--neutral_medium
           u-clearfix
+          bordered
           bordered--row
           bordered--white">
       {{ render_volunteer_project_header(project, 'volunteer') }}
@@ -82,8 +83,20 @@
   <ul  class="js-filterable u-unmarked_list u-clearfix"
        data-filter-type="country">
   {% for country in countries %}
-    <li class="section--neutral_dark
+    <li id="page-country-{{ country.id }}">
+      <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
+          class="js-pageNav section--neutral_medium bordered bordered--row
+          bordered--white u-clearfix">
+      {{ render_link_header(
+        static("peacecorps/img/countries/" + country.country.code.lower() + ".svg"),
+          country.country.name, country.country.name) }}
+      </a>
+    </li>
+    <li data-page-id="collapsible-page-country-{{ country.id }}"
+        class="js-page
+          section--neutral_dark
           u-clearfix
+          bordered
           bordered--row
           bordered--white">
       {{ render_country_campaign(country) }}
@@ -92,6 +105,7 @@
     {% for project in country.project_set.all() %}
       <li class="section--neutral_medium
           u-clearfix
+          bordered
           bordered--row
           bordered--white">
         {{ render_project_header(project, 'country') }}
@@ -117,8 +131,9 @@
   {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
       section__content--contain section__content--no_space_r">
-    <a href="#" class="js-pageBack" aria-controls="page-issue-{{ issue.id }}">
-      Back</a>
+    <a href="#" class="js-pageBack t-single_nav t-body--sm"
+        aria-controls="page-issue-{{ issue.id }}">
+      &lt; View all issues</a>
     <img class="u-pullr"
       class="section__content--no_space_r"
       style="width: 42%;"
@@ -143,6 +158,8 @@
         style="width: 50%;">
       {{ country_map(campaign.country.code) }}
     </div>
+    <a href="#" class="js-pageBack t-single_nav t-body--sm">
+      &lt; View all countries</a>
   </aside>
   <article class="grid--80 section__content--contain">
     <h2 class="t-title--2">{{ campaign.country.name }}</h2>
@@ -169,6 +186,26 @@
   </a>
 {%- endmacro %}
 
+{% macro render_link_header(url, alt, name) -%}
+  <aside class="grid--20 sm-hide
+      section__content--contain--sm section__content--no_space_r">
+    <div class="mask mask--oval mask--gray-1 mask--bordered
+         u-clearfix section__content--no_space_r u-pullr u-hv_center--block"
+         style="width: 5em; height: 5em;">
+      <img
+        class="mask__content u-hv_center--block__content"
+        style="width: 90%;"
+        src="{{ url }}"
+        alt="{{ alt }}" />
+    </div>
+  </aside>
+  <header class="grid--80 section__content--contain--sm grid__last
+      u-v_center--block">
+      <h3 class="t-heading--3 t--gray--2 u-v_center--block__content">
+        {{ name }}</h3>
+  </header>
+{%- endmacro %}
+
 {% macro render_volunteer_project_header(project, ptype) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
@@ -178,7 +215,7 @@
       <div class="mask mask--oval mask--gray-1 mask--bordered
            u-clearfix section__content--no_space_r u-pullr"
            style="width: 5em; height: 5em;">
-        <img class="u-pullr"
+        <img class=""
           class="mask__content"
           style="width: 100%;"
           src="{{ project.volunteerpicture }}"
