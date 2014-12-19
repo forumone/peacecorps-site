@@ -137,7 +137,9 @@
       &lt; View all issues</a>
     <img class="u-pullr"
       class="section__content--no_space_r"
-      style="width: 42%;"
+      style="width: 42%;
+             background-image: url('{{issue.icon_background.url}}');
+             background-size: 100%;"
       src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
   </aside>

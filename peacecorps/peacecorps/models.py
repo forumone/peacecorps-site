@@ -170,7 +170,7 @@ class FeaturedCampaign(models.Model):
 
     def __str__(self):
         return '%s: %s (Featured)' % (self.campaign.account_id,
-                                        self.campaign.name)
+                                      self.campaign.name)
 
 
 class FeaturedProjectFrontPage(models.Model):
@@ -304,7 +304,10 @@ class Issue(models.Model):
     """A categorization scheme. This could eventually house relationships with
     individual projects, but for now, just point to sector funds"""
     name = models.CharField(max_length=100)
-    icon = models.FileField()   # No need for any of the 'Media' fields
+    icon = models.FileField(    # No need for any of the 'Media' fields
+        help_text="Icon commonly used to represent this issue")
+    icon_background = models.FileField(
+        help_text="Background used when a large icon is present")
     campaigns = models.ManyToManyField(
         Campaign, limit_choices_to={'campaigntype': Campaign.SECTOR})
 

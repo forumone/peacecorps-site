@@ -177,60 +177,70 @@
 - fields:
     campaigns: [63]
     icon: icons/water.svg
+    icon_background: icons/water_bg.png
     name: Water & Sanitation
   model: peacecorps.issue
   pk: 1
 - fields:
     campaigns: [64]
     icon: icons/education.svg
+    icon_background: icons/education_bg.png
     name: Education
   model: peacecorps.issue
   pk: 2
 - fields:
     campaigns: [68]
     icon: icons/youth.svg
+    icon_background: icons/youth_bg.png
     name: Youth
   model: peacecorps.issue
   pk: 3
 - fields:
     campaigns: [70]
     icon: icons/women.svg
+    icon_background: icons/women_bg.png
     name: Women & Gender
   model: peacecorps.issue
   pk: 4
 - fields:
     campaigns: [66, 71]
     icon: icons/health.svg
+    icon_background: icons/health_bg.png
     name: Health
   model: peacecorps.issue
   pk: 5
 - fields:
     campaigns: [67]
     icon: icons/technology.svg
+    icon_background: icons/technology_bg.png
     name: Technology
   model: peacecorps.issue
   pk: 6
 - fields:
     campaigns: [62]
     icon: icons/business.svg
+    icon_background: icons/business_bg.png
     name: Business
   model: peacecorps.issue
   pk: 7
 - fields:
     campaigns: [65]
     icon: icons/environment.svg
+    icon_background: icons/environment_bg.png
     name: Environment
   model: peacecorps.issue
   pk: 8
 - fields:
     campaigns: [61]
     icon: icons/agriculture.svg
+    icon_background: icons/agriculture_bg.png
     name: Agriculture
   model: peacecorps.issue
   pk: 9
 - fields:
     campaigns: [69]
     icon: icons/community.svg
+    icon_background: icons/community_bg.png
     name: Community Growth
   model: peacecorps.issue
   pk: 10
