@@ -165,7 +165,7 @@
   <article class="grid--80 section__content--contain">
     <h2 class="t-title--2">{{ campaign.country.name }}</h2>
     <div class="content-block text-block">
-      <p>{{ campaign.description }}</p>
+      <p>{{ campaign.description.html|safe }}</p>
     </div>
     <a class="button button--sm button--primary"
        href="{{ url("donate campaign", slug=campaign.slug) }}">

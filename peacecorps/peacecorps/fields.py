@@ -1,9 +1,11 @@
+import json
 import logging
 
 from django.conf import settings
 from django.db import models
 import gnupg
 
+from sirtrevor import SirTrevorContent
 from sirtrevor.fields import SirTrevorField
 
 
@@ -60,8 +62,28 @@ class GPGField(models.Field, metaclass=models.SubfieldBase):
             return plain_text
 
 
+class BraveSirTrevorContent(SirTrevorContent):
+    """Django Sir Trevor is very sensitive about data integrity. Be a tad more
+    lenient"""
+    @property
+    def html(self):
+        try:
+            return super(BraveSirTrevorContent, self).html
+        except ValueError:
+            return SirTrevorContent(json.dumps({"data": [
+                {"type": "text",
+                 "data": {"text": "# ***DATA FORMAT INCORRECT***\n"
+                                  + self}}]})).html
+
+
 class BraveSirTrevorField(SirTrevorField):
+    """Extended version of the sir trevor django library"""
 
     def value_to_string(self, obj):
         sirtrev = self._get_val_from_obj(obj)
         return str(sirtrev)
+
+    def to_python(self, value):
+        if value is None:
+            value = ""
+        return BraveSirTrevorContent(value)
