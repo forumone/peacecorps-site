@@ -69,6 +69,8 @@ Discover.prototype.select = function($link) {
   var filter = $link.attr('data-filter-type') || $link.data('filter-type'),
       $otherLinks;
 
+  this.$pages.hide();
+  this.$pageLinks.show();
   this.selected = filter;
   this.render();
   $otherLinks = this.getOtherLinks($link);
