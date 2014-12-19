@@ -499,13 +499,14 @@ p + p {
       height: 10em; } }
 
 .bg_img--icon {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left, center;
-  padding-right: 3em;
-  /* Until the icon size is solidified */ }
-  .bg_img--icon * {
-    margin-left: 1.5em; }
+  display: none; }
+
+.bg_img--icon:not(old) {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #888;
+  -webkit-mask-size: 1.5em 1.5em; }
 
 /*
  * Banner

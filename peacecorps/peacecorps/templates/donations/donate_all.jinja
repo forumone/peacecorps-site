@@ -1,4 +1,5 @@
 {% extends "donations/base.jinja" %}
+{% from "donations/includes/macros.jinja" import url_or %}
 
 {% block title %}Peace Corps{% endblock %}
 {% block header %}Peace Corps{% endblock %}
@@ -137,7 +138,7 @@
     <img class="u-pullr"
       class="section__content--no_space_r"
       style="width: 42%;"
-      src="{{ media('World-by-Ana-Maria-Lora-Macias-CC-BY.png') }}"
+      src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
   </aside>
   <article class="grid--80 section__content--contain">
