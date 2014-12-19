@@ -15,8 +15,6 @@ DATABASES = {
     }
 }
 
-# We want contenteditor to appear before sir trevor, as it overrides templates
-INSTALLED_APPS = ('contenteditor',) + INSTALLED_APPS
 INSTALLED_APPS += (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,6 +23,7 @@ INSTALLED_APPS += (
     'tinymce',
     'paygov',
     'debug_toolbar.apps.DebugToolbarConfig',
+    'contenteditor',
 )
 
 MIDDLEWARE_CLASSES = (

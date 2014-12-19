@@ -21,8 +21,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',  # may be okay to remove
     'django.contrib.staticfiles',
     'restless',
-    'sirtrevor',
     'peacecorps',
+    'sirtrevor',
     'adminsortable',
 )
 
