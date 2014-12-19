@@ -195,6 +195,11 @@ button {
   background-color: #fff;
   color: #A12122; }
 
+.button-icon_close {
+  font-size: 275%;
+  line-height: 50%;
+  padding: .1em; }
+
 /*
  * All base rules concerning elements
  */
