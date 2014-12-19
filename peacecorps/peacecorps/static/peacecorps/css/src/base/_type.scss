@@ -264,6 +264,13 @@ p + p {
     color: lighten($primary, 10%);
   }
 }
+.t-link--white {
+  color: $white;
+
+  &:active {
+    color: darken($white, 5%);
+  }
+}
 
 a {
   @extend .t-link;

@@ -473,6 +473,11 @@ p + p {
   .t-link--gray:active, .main_nav__link :active {
     color: #cb2a2b; }
 
+.t-link--white {
+  color: #fff; }
+  .t-link--white:active {
+    color: #f2f2f2; }
+
 .t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button--md a {
   text-decoration: none; }
 
@@ -543,6 +548,11 @@ p + p {
 .banner--secondary {
   border-color: #F2EFE8;
   background-color: #087A7E;
+  color: #fff; }
+
+.banner--neutral_ex_dark {
+  border-color: #F2EFE8;
+  background-color: #ADA598;
   color: #fff; }
 
 .banner--dark_transparent {
