@@ -73,6 +73,8 @@ var Discover = function($root) {
     return this.$el.find(selector);
   };
   this.ccFilteredItem = '.js-filterable';
+  this.ccPage = '.js-page';
+  this.ccPageNavs = '.js-pageNav';
   this.init.apply(this, arguments);
 };
 
@@ -83,6 +85,8 @@ Discover.prototype.init = function(root, $navLinks) {
       $selectedLink;
 
   this.$navLinks = $navLinks;
+  this.$pages = this.$(this.ccPage);
+  this.$pageLinks = this.$(this.ccPageNavs);
   this.filters = [];
   $navLinks.each(function() {
     self.filters.push($(this).data('filter-type'));
@@ -91,6 +95,11 @@ Discover.prototype.init = function(root, $navLinks) {
       self.select($(this));
     });
   });
+  this.$pageLinks.on('click', function(ev) {
+    ev.preventDefault();
+    self.pageTo($(this));
+  });
+  this.createPages(this.$pages);
   $selectedLink = $(this.$navLinks[0]);
   this.selected = this.filters[0];
   this.select($selectedLink);
@@ -124,6 +133,33 @@ Discover.prototype.select = function($link) {
   $otherLinks = this.getOtherLinks($link);
   $otherLinks.attr('aria-selected', false);
   $link.attr('aria-selected', true);
+};
+
+Discover.prototype.createPages = function($pages) {
+  var self = this;
+
+  $pages.each(function() {
+    $(this).find('.js-pageBack').click(function(ev) {
+      ev.preventDefault();
+      self.pageBack();
+    });
+  });
+  $pages.hide();
+};
+
+Discover.prototype.pageTo = function($pageLink) {
+  var pageId,
+      $pagesToShow;
+
+  this.$pageLinks.hide();
+  pageId = $pageLink.attr('aria-controls');
+  $pagesToShow = this.$pages.filter(this.dataSelector('page-id', pageId));
+  $pagesToShow.show();
+};
+
+Discover.prototype.pageBack = function() {
+  this.$pages.hide();
+  this.$pageLinks.show();
 };
 
 Discover.prototype.dataSelector = function(dataAttr, dataVal) {

@@ -133,7 +133,7 @@ class Campaign(models.Model):
         'Country', related_name="campaign", blank=True, null=True, unique=True)
 
     def __str__(self):
-        return self.name
+        return '%s: %s' % (self.account_id, self.name )
 
     def save(self, *args, **kwargs):
         if not self.slug:
