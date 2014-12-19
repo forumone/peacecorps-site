@@ -43,7 +43,7 @@ class Account(models.Model):
     )
 
     name = models.CharField(max_length=120, unique=True)
-    code = models.CharField(max_length=25, unique=True)
+    code = models.CharField(max_length=25, primary_key=True)
     current = models.IntegerField(default=0)
     goal = models.IntegerField(blank=True, null=True)
     community_contribution = models.IntegerField(blank=True, null=True)
@@ -108,8 +108,7 @@ class Campaign(models.Model):
     )
 
     name = models.CharField(max_length=120)
-    account = models.ForeignKey(
-        'Account', to_field='code', unique=True, blank=True, null=True)
+    account = models.ForeignKey('Account', unique=True, blank=True, null=True)
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
@@ -133,7 +132,7 @@ class Campaign(models.Model):
         'Country', related_name="campaign", blank=True, null=True, unique=True)
 
     def __str__(self):
-        return '%s: %s' % (self.account_id, self.name )
+        return '%s: %s' % (self.account_id, self.name)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -238,9 +237,9 @@ class Project(models.Model):
         help_text="A large landscape image for use in banners, headers, etc")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    account = models.ForeignKey('Account', to_field='code', unique=True)
+    account = models.ForeignKey('Account', unique=True)
     overflow = models.ForeignKey(
-        'Account', related_name="overflow", blank=True, null=True,
+        'Account', blank=True, null=True, related_name='overflow',
         help_text="""Select another fund to which users will be directed to
                     donate if the project is already funded.""")
     volunteername = models.CharField(max_length=100)

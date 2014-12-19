@@ -171,7 +171,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(account.name, 'Some Proj')
         self.assertEqual(account.code, '121-212')
         self.assertEqual(account.category, Account.PROJECT)
-        self.assertIsNone(account.pk)
+        self.assertEqual(0, len(Account.objects.filter(pk=account.pk)))
 
     @patch('peacecorps.management.commands.sync_accounting.create_campaign')
     def test_create_account_campaign(self, create):
@@ -185,7 +185,7 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(account.name, 'Argentina Fund')
         self.assertEqual(account.code, '789-CFD')
         self.assertEqual(account.category, Account.COUNTRY)
-        self.assertIsNone(account.pk)
+        self.assertEqual(0, len(Account.objects.filter(pk=account.pk)))
 
     @patch('peacecorps.management.commands.sync_accounting.Campaign')
     def test_create_account_double(self, Campaign):

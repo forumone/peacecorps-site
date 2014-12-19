@@ -1,11 +1,11 @@
-- fields: {category: oth, code: PCF-GEN, community_contribution: null, current: 0,
+- fields: {category: oth, community_contribution: null, current: 0,
     goal: null, name: General}
   model: peacecorps.account
-  pk: 1
-- fields: {category: oth, code: SPF-GBL, community_contribution: null, current: 0,
+  pk: PCF-GEN
+- fields: {category: oth, community_contribution: null, current: 0,
     goal: null, name: Global}
   model: peacecorps.account
-  pk: 2
+  pk: SPF-GBL
 - fields:
     account: PCF-GEN
     call: Give Now
