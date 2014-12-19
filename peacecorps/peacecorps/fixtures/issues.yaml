@@ -1,47 +1,47 @@
-- fields: {category: sec, code: SPF-AGG, community_contribution: null, current: 0,
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Agriculture Fund}
   model: peacecorps.account
-  pk: 61
-- fields: {category: sec, code: SPF-BUS, community_contribution: null, current: 0,
+  pk: SPF-AGG
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Business Development Fund}
   model: peacecorps.account
-  pk: 62
-- fields: {category: sec, code: SPF-WAT, community_contribution: null, current: 0,
+  pk: SPF-BUS
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Drinking Water and Sanitation Fund}
   model: peacecorps.account
-  pk: 63
-- fields: {category: sec, code: SPF-EDU, community_contribution: null, current: 0,
+  pk: SPF-WAT
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Education Fund}
   model: peacecorps.account
-  pk: 64
-- fields: {category: sec, code: SPF-ENV, community_contribution: null, current: 0,
+  pk: SPF-EDU
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Environment Fund}
   model: peacecorps.account
-  pk: 65
-- fields: {category: sec, code: SPF-HHA, community_contribution: null, current: 0,
+  pk: SPF-ENV
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Health and HIV/AIDS Fund}
   model: peacecorps.account
-  pk: 66
-- fields: {category: sec, code: SPF-ICT, community_contribution: null, current: 0,
+  pk: SPF-HHA
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Information & Communication Technology Fund}
   model: peacecorps.account
-  pk: 67
-- fields: {category: sec, code: SPF-YTH, community_contribution: null, current: 0,
+  pk: SPF-ICT
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Youth Fund}
   model: peacecorps.account
-  pk: 68
-- fields: {category: sec, code: SPF-MDF, community_contribution: null, current: 0,
+  pk: SPF-YTH
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Municipal Development Fund}
   model: peacecorps.account
-  pk: 69
-- fields: {category: sec, code: SPF-GND, community_contribution: null, current: 0,
+  pk: SPF-MDF
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Ruppe Gender Development Fund}
   model: peacecorps.account
-  pk: 70
-- fields: {category: sec, code: SPF-MLR, community_contribution: null, current: 0,
+  pk: SPF-GND
+- fields: {category: sec, community_contribution: null, current: 0,
     goal: null, name: Stomping Out Malaria in Africa}
   model: peacecorps.account
-  pk: 71
+  pk: SPF-MLR
 - fields:
     account: SPF-AGG
     call: null
