@@ -12,7 +12,7 @@
     campaigntype: gen
     description: '{"data":[{"type":"text","data":{"text":"The Peace Corps has been a leader in international development and citizen diplomacy for more than 50 years across more than 139 countries. We tackle challenges that know no borders - such as climate change, pandemic disease, food security, and gender equality and empowerment. Althought times have changed since the Peace Corps'' founding in 1961, the agency''s mission - to promote world peace and friendship - has not. Your gift will help advance the Peace Corps mission and support the work of our Volunteers overseas. Your contribution to the Peace Corps is tax deductible, and is also a way to give in honor or in memory of a loved one."}}]}'
     featuredprojects: []
-    icon: null
+    icon: 100
     name: Peace Corps
     slug: peace-corps
     tagline: Give to the Peace Corps
@@ -24,9 +24,25 @@
     campaigntype: gen
     description: '{"data":[{"type":"text","data":{"text":"Through the generous support of donors across America, each year the Peace Corps Partnership Program funds hundreds of community-initiated projects all over the globe. If you are interested in helping Peace Corps Volunteers and communities accomplish amazing projects, but do not have a specific project in mind, you can contribute to the Global Fund. Donations to the Global Fund go towards a wide variety of Partnership Program projects that find that they are falling short of funding from other sources. Should a project or special fund receive full support from other sources or be canceled, any remaining funds will automatically be directed to the Global Fund and be used for Volunteer and community projects."}}]}'
     featuredprojects: []
-    icon: null
+    icon: 101
     name: Global
     slug: global
     tagline: The Global Fund
   model: peacecorps.campaign
   pk: 2
+- fields:
+    caption: A Volunteer laughing with a member of the community
+    description: A Volunteer laughing with a member of the community
+    file: icons/general.jpg
+    mediatype: IMG
+    title: Laughing Volunteer Square
+  model: peacecorps.media
+  pk: 100
+- fields:
+    caption: A Volunteer carries a child on her back from her village
+    description: A Volunteer carries a child on her back from her village
+    file: icons/global.jpg
+    mediatype: IMG
+    title: Volunteer with Child Square
+  model: peacecorps.media
+  pk: 101
