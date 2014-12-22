@@ -13,16 +13,16 @@
 {% for fund in general_funds %}
   <section class="showcase--main showcase--neutral">
     <section class="showcase--col3_centered">
-      <section class="showcase showcase--col3_centered__col">
-        {% if fund.featured_image %}
-          <div class="mask mask--oval u-h_center--block">
-            <img class="mask__content"
-                 src="{{fund.featured_image.url}}"
-                 alt="{{fund.featured_image.description}}" />
+      <section class="showcase--col3_centered__col">
+        {% if fund.icon %}
+          <div class="mask mask--oval mask--fill_square">
+            <img class="mask__content--md"
+                 src="{{fund.icon.url}}"
+                 alt="{{fund.icon.description}}" />
           </div>
         {% endif %}
       </section>
-      <section class="showcase showcase--col3_centered__2col">
+      <section class="showcase--col3_centered__2col">
         <h1 class="t-blurb--lg">{{fund.tagline}}</h1>
         <div class="t-blurb--sm">{{fund.description.html|safe}}</div>
         <a href="{{url("donate campaign", slug=fund.slug)}}"
@@ -37,11 +37,11 @@
   {% for fund in memorial_funds %}
     <section class="showcase--col3_centered__col">
       <a href="{{url("donate campaign", slug=fund.slug)}}">
-        {% if fund.featured_image %}
+        {% if fund.icon %}
           <div class="mask mask--oval u-h_center--block">
             <img class="mask__content"
-                 src="{{fund.featured_image.url}}"
-                 alt="{{fund.featured_image.description}}" />
+                 src="{{fund.icon.url}}"
+                 alt="{{fund.icon.description}}" />
           </div>
         {% endif %}
         <div class="inline_text--centered">{{fund.memorial_name}}</div>
