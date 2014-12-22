@@ -23,7 +23,7 @@ html {
 body {
   color: $primary;
   @include font-size(1.5);
-  font-family: Archer;
+  font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: $weight-book;
   line-height: $leading-md;
   text-transform: none;
