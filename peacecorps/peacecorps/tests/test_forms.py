@@ -17,7 +17,6 @@ class DonationPaymentTests(TestCase):
     def form_data(self, clear=[], **kwargs):
         """Create a form_data object with reasonable defaults"""
         form_data = {
-            'donor_type': 'Individual',
             'payer_name': 'William Williams',
             'billing_address': '1 Main Street',
             'billing_city': 'Anytown',
@@ -27,7 +26,7 @@ class DonationPaymentTests(TestCase):
             'payment_type': 'CreditCard',
             'project_code': '15-4FF',
             'payment_amount': '3000',
-            'information_consent': 'vol-consent-yes'
+            'information_consent': True,
         }
         for key in clear:
             del form_data[key]
@@ -51,14 +50,14 @@ class DonationPaymentTests(TestCase):
     def test_organization_donation_required(self):
         """ Check the minimum required data for the organization form. """
         form_data = self.form_data(
-            clear=['payer_name'], donor_type='Organization',
+            clear=['payer_name'], is_org=True,
             organization_name='Big Corporation',
             organization_contact='Mr A.  Suit')
         form = DonationPaymentForm(data=form_data)
         self.assertTrue(form.is_valid())
 
     def test_individual_requirements(self):
-        """Verify that "name" is required if donor_type is Individual.
+        """Verify that "name" is required if it is Individual.
         Further, verify that the organization fields get cleared"""
         form_data = self.form_data(
             clear=['payer_name'], organization_name='Big Corporation',
@@ -74,9 +73,9 @@ class DonationPaymentTests(TestCase):
 
     def test_organization_requirements(self):
         """Verify that "organization_name" and "organization_contact" are
-        required if donor_type is Organization. Also verify that the
+        required if it is an Organization. Also verify that the
         (Individual's) name field gets cleared"""
-        form_data = self.form_data(donor_type='Organization')
+        form_data = self.form_data(is_org=True)
         form = DonationPaymentForm(data=form_data)
         self.assertFalse(form.is_valid())
 
