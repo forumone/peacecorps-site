@@ -26,7 +26,7 @@ class DonationPaymentTests(TestCase):
             'payment_type': 'CreditCard',
             'project_code': '15-4FF',
             'payment_amount': '3000',
-            'information_consent': 'vol-consent-yes'
+            'information_consent': True,
         }
         for key in clear:
             del form_data[key]

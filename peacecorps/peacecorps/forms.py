@@ -15,11 +15,6 @@ class DonationPaymentForm(forms.Form):
         ('CreditACH', 'ACH Bank Check'),
     )
 
-    VOLUNTEER_CONSENT_CHOICES = (
-        ('vol-consent-yes', 'Share with Volunteer'),
-        ('vol-consent-no', "Don't share with Volunteer")
-    )
-
     is_org = forms.BooleanField(
         label="I'm donating on behalf of my organization", required=False)
     #   Will be hidden if "Organization" is selected
@@ -87,9 +82,9 @@ class DonationPaymentForm(forms.Form):
     # True if there might be a possible conflict of interest.
     interest_conflict = forms.BooleanField(initial=False, required=False)
 
-    information_consent = forms.ChoiceField(
-        widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
-        initial='vol-consent-yes')
+    information_consent = forms.BooleanField(
+        label='Make my contact info available to the volunteer',
+        required=False, initial=True)
 
     payment_amount = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())

@@ -93,7 +93,7 @@ class PayXMLGenerationTests(TestCase):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
         data = {'comments': 'CCCCCC', 'phone_number': '5555555555',
-                'information_consent': 'vol-consent-yes',
+                'information_consent': True,
                 'payment_amount': 2000, 'project_code': '14-54FF',
                 'interest_conflict': True, 'email_consent': True}
         memo = payxml.generate_agency_memo(data)

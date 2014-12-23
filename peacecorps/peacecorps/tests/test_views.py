@@ -61,7 +61,7 @@ class DonationsTests(TestCase):
             'payment_amount': 2000,
             'project_code': 'PC-SEC01',
             'payment_type': 'CreditCard',
-            'information_consent': 'vol-consent-yes'}
+            'information_consent': True}
 
         response = self.client.post(
             '/donations/contribute/?amount=2000&project=' + self.account.code,
