@@ -50,8 +50,8 @@ class DonationPaymentForm(forms.Form):
     # dedication is True
     dedication = forms.BooleanField(initial=False, required=False)
     DEDICATION_TYPE_CHOICES = (
-        ('in-honor', 'In Honor'),
-        ('in-memory', 'In Memory')
+        ('in-honor', 'in honor'),
+        ('in-memory', 'in memory')
     )
     ded_yes = "I authorize the Peace Corps to make my name and contact"
     ded_yes += " information available to the honoree."
@@ -71,7 +71,8 @@ class DonationPaymentForm(forms.Form):
     dedication_email = forms.EmailField(label="Email", required=False)
     dedication_address = forms.CharField(
         label="Mailing Address", max_length=255, required=False)
-    card_dedication = forms.CharField(max_length=150, required=False)
+    card_dedication = forms.CharField(max_length=150, required=False,
+                                widget=forms.Textarea(attrs={'rows': 2}))
     dedication_consent = forms.ChoiceField(
         widget=forms.RadioSelect, initial='yes-dedication-consent',
         choices=DEDICATION_CONSENT_CHOICES, required=False)

@@ -743,8 +743,8 @@ html {
   float: left;
   display: block;
   margin-right: 3.84615%;
-  width: 65.38462%;
-  margin-left: 17.30769%;
+  width: 82.69231%;
+  margin-left: 8.65385%;
   color: #222; }
   .form:last-child {
     margin-right: 0; }
@@ -756,19 +756,23 @@ html {
   margin: 1em 0; }
 
 .form__field--single {
+  display: inline-block;
   padding-left: 30%;
-  display: inline-block; }
+  width: 100%; }
   .form__field--single .form__field__label {
     text-align: left;
-    width: 95%; }
+    width: 92%; }
   .form__field--single .form__field__input {
-    width: inherit; }
+    width: 1em; }
 
 .form__field__label {
   display: inline-block;
   text-align: right;
   vertical-align: middle;
   width: 30%; }
+
+.form__field__label--align_t {
+  vertical-align: top; }
 
 .form__field__input {
   display: inline-block;
