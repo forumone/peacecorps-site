@@ -1,0 +1,192 @@
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Alden Landis Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-ALF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Craig Pollock Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-CPF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: 'Danielle "Dani" Dunlap Memorial Fund'}
+  model: peacecorps.account
+  pk: SPF-DDF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Emily Balog Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-EBF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Kate Puzey Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-KPF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Lena Jenison Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-LJF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Porter Knight Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-PKF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: Stephanie Chance Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-SCF
+- fields:
+    account: SPF-ALF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to the Alden Landis Memorial Fund will support approved Peace Corps Partnership Program (PCPP) projects in Mozambique including those with an emphasis on healthcare and safety."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 200
+    name: Alden Landis Memorial Fund
+    slug: alden-landis-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 200
+- fields:
+    account: SPF-CPF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to this Fund will support approved Peace Corps Partnership Program (PCPP) projects in South America with a focus on Health and Education."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 201
+    name: Craig Pollock Memorial Fund
+    slug: craig-pollock-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 201
+- fields:
+    account: SPF-DDF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "Donations to this fund will be used to equip and outfit the \"Mama Grace Memorial Clinic\" begun by Danielle; once the clinic is complete, contributions will support approved Peace Corps Partnership Program (PCPP) projects in Ghana for improving rural health care and preventing HIV/AIDS and malaria, in furtherance of Dani''s extraordinary work."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 202
+    name: 'Danielle "Dani" Dunlap Memorial Fund'
+    slug: danielle-dani-dunlap-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 202
+- fields:
+    account: SPF-EBF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to the Emily Balog Memorial Fund will support approved Peace Corps Partnership Program (PCPP) projects in Paraguay."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 203
+    name: Emily Balog Memorial Fund
+    slug: emily-balog-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 203
+- fields:
+    account: SPF-KPF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "The Kate Puzey Memorial Fund was established to honor the memory and service of Benin Volunteer, Kate Puzey.  This fund enables members of the public, as well as former Volunteers who have been inspired by Kate''s story, to support ongoing work in her memory. Donations to this fund will be used to support approved Peace Corps Partnership Program (PCPP) projects which focus on the empowerment and education of young girls in Benin, a cause that was very close to Kate''s heart.  Returned Peace Corps Volunteers who received contributions from the Fund for their previous PCPP projects are also welcome to contribute to ensure Kate''s continuing legacy."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 204
+    name: Kate Puzey Memorial Fund
+    slug: kate-puzey-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 204
+- fields:
+    account: SPF-LJF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to the Lena Jenison Memorial Fund will support approved Peace Corps Partnership Program (PCPP) projects in Mozambique with a focus on science education."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 205
+    name: Lena Jenison Memorial Fund
+    slug: lena-jenison-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 205
+- fields:
+    account: SPF-PKF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to the Porter Knight Memorial Fund will support approved Peace Corps Partnership Program (PCPP) projects in Paraguay that focus on the environment."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 206
+    name: Porter Knight Memorial Fund
+    slug: porter-knight-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 206
+- fields:
+    account: SPF-SCF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to this Fund will support approved Peace Corps Partnership Program (PCPP) projects around the world with a focus on gender, such as women''s empowerment and girls education."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 207
+    name: Stephanie Chance Memorial Fund
+    slug: stephanie-chance-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 207
+- fields:
+    caption: Alden Landis and child
+    description: Alden Landis and child
+    file: icons/spf-alf.jpg
+    mediatype: IMG
+    title: Alden Landis
+  model: peacecorps.media
+  pk: 200
+- fields:
+    caption: Craig Pollock in field
+    description: Craig Pollock in field
+    file: icons/spf-cpf.jpg
+    mediatype: IMG
+    title: Craig Pollock
+  model: peacecorps.media
+  pk: 201
+- fields:
+    caption: 'Danielle "Dani" Dunlap'
+    description: 'Danielle "Dani" Dunlap'
+    file: icons/spf-ddf.jpg
+    mediatype: IMG
+    title: 'Danielle "Dani" Dunlap'
+  model: peacecorps.media
+  pk: 202
+- fields:
+    caption: Emily Balog
+    description: Emily Balog
+    file: icons/spf-ebf.jpg
+    mediatype: IMG
+    title: Emily Balog
+  model: peacecorps.media
+  pk: 203
+- fields:
+    caption: Kate Puzey and child
+    description: Kate Puzey and child
+    file: icons/spf-kpf.jpg
+    mediatype: IMG
+    title: Kate Puzey
+  model: peacecorps.media
+  pk: 204
+- fields:
+    caption: Lena Jenison and child
+    description: Kate Puzey and child
+    file: icons/spf-ljf.jpg
+    mediatype: IMG
+    title: Lena Jenison
+  model: peacecorps.media
+  pk: 205
+- fields:
+    caption: Porter Knight
+    description: Porter Knight
+    file: icons/spf-pkf.jpg
+    mediatype: IMG
+    title: Porter Knight
+  model: peacecorps.media
+  pk: 206
+- fields:
+    caption: Stephanie Chance
+    description: Stephanie Chance
+    file: icons/spf-scf.jpg
+    mediatype: IMG
+    title: Stephanie Chance
+  model: peacecorps.media
+  pk: 207
