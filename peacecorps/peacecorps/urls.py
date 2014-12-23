@@ -2,7 +2,7 @@ from django.apps import apps
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView, TemplateView
 
 from peacecorps import api, views
 from peacecorps.cache import midterm_cache, shortterm_cache
@@ -54,6 +54,9 @@ urlpatterns = patterns(
     url(r'^failure/$',
         TemplateView.as_view(template_name='donations/failure.jinja'),
         name='donation failure'),
+
+    url(r'^favicon\.ico$',
+        RedirectView.as_view(url=settings.STATIC_URL + "favicon.ico")),
 
     url(r'^api/account/' + _slug + r'/$',
         shortterm_cache(api.GetAccountPercent.as_view())),
