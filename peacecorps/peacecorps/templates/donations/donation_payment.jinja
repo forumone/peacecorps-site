@@ -20,10 +20,10 @@
           <p class="t-body--sm">(so we can send you a tax receipt)</p>
         </legend>
         <div class="form__field">
-            {{form.donor_type.errors}}
+            {{form.is_org.errors}}
             <label for="id_donor_type" class="form__field__label">
-              type of donor</label>
-            <div class="form__field__input">{{form.donor_type}}</div>
+              {{form.is_org.label}}</label>
+            <div class="form__field__input">{{form.is_org}}</div>
         </div>
 
         <div class="form__field shown-with-organization">

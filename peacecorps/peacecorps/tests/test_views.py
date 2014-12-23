@@ -60,7 +60,6 @@ class DonationsTests(TestCase):
             'country': 'USA',
             'payment_amount': 2000,
             'project_code': 'PC-SEC01',
-            'donor_type': 'Individual',
             'payment_type': 'CreditCard',
             'information_consent': 'vol-consent-yes'}
 
