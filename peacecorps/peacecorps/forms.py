@@ -10,24 +10,13 @@ from .models import Country
 class DonationPaymentForm(forms.Form):
     """Collect contact information and dedication information about a donor"""
 
-    DONOR_TYPE_CHOICES = (
-        ('Individual', 'Individual'),
-        ('Organization', 'Organization'),
-    )
-
     PAYMENT_TYPE_CHOICES = (
         ('CreditCard', 'Credit Card'),
         ('CreditACH', 'ACH Bank Check'),
     )
 
-    VOLUNTEER_CONSENT_CHOICES = (
-        ('vol-consent-yes', 'Share with Volunteer'),
-        ('vol-consent-no', "Don't share with Volunteer")
-    )
-
-    donor_type = forms.ChoiceField(
-        widget=forms.RadioSelect, choices=DONOR_TYPE_CHOICES,
-        initial='Individual')
+    is_org = forms.BooleanField(
+        label="I'm donating on behalf of my organization", required=False)
     #   Will be hidden if "Organization" is selected
     payer_name = forms.CharField(label="Name", max_length=100, required=False)
     #   Will be hidden in "Individual is selected"
@@ -41,8 +30,8 @@ class DonationPaymentForm(forms.Form):
     country = forms.ModelChoiceField(
         queryset=Country.objects, to_field_name='code', initial='USA')
     billing_address = forms.CharField(label="Street Address", max_length=80)
-    billing_address_extra = forms.CharField(label="Street Address (cont)",
-        max_length=80)
+    billing_address_extra = forms.CharField(
+        label="Street Address (cont)", max_length=80, required=False)
     billing_city = forms.CharField(label="City", max_length=40)
     billing_state = forms.ChoiceField(
         label="State", choices=((('', ''),) + STATE_CHOICES), required=False)
@@ -93,9 +82,9 @@ class DonationPaymentForm(forms.Form):
     # True if there might be a possible conflict of interest.
     interest_conflict = forms.BooleanField(initial=False, required=False)
 
-    information_consent = forms.ChoiceField(
-        widget=forms.RadioSelect, choices=VOLUNTEER_CONSENT_CHOICES,
-        initial='vol-consent-yes')
+    information_consent = forms.BooleanField(
+        label='Make my contact info available to the volunteer',
+        required=False, initial=True)
 
     payment_amount = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
@@ -110,15 +99,13 @@ class DonationPaymentForm(forms.Form):
         return self.cleaned_data.get(check_field)
 
     def clean_payer_name(self):
-        return self.required_when('donor_type', 'Individual', 'payer_name')
+        return self.required_when('is_org', False, 'payer_name')
 
     def clean_organization_name(self):
-        return self.required_when('donor_type', 'Organization',
-                                  'organization_name')
+        return self.required_when('is_org', True, 'organization_name')
 
     def clean_organization_contact(self):
-        return self.required_when('donor_type', 'Organization',
-                                  'organization_contact')
+        return self.required_when('is_org', True, 'organization_contact')
 
     def clean_billing_state(self):
         """Can't use required_when because the country field returns a model"""
@@ -138,7 +125,7 @@ class DonationPaymentForm(forms.Form):
     def clean(self):
         """Only one of the organization/individual set of fields should be
         present. Blank out the other"""
-        if self.cleaned_data.get('donor_type') == 'Organization':
+        if self.cleaned_data.get('is_org'):
             del self.cleaned_data['payer_name']
         else:
             del self.cleaned_data['organization_name']

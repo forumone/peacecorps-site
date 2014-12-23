@@ -24,7 +24,7 @@ def generate_agency_memo(data):
     amount = humanize_amount(data['payment_amount'])
     memo += '(%s, %s)' % (data['project_code'], amount)
 
-    if data.get('information_consent', '') == 'vol-consent-yes':
+    if data.get('information_consent'):
         memo += '(yes)'
     else:
         memo += '(no)'
