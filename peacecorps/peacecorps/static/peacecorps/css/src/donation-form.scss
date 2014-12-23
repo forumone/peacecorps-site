@@ -1,53 +1,18 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 
-.donate-form form {
-  @include outer-container;
+.dedication_details {
+  border: solid 1px #000;
+  padding: 0.5em;
+  display: none;  /* Initially hidden */
 
-  & > div {
-    @include span-columns(12);
+  & > div, p {
   }
-
-  div > label {
-    @include span-columns(2);
+  #id_dedication_consent {
   }
-  div > .value {
-    @include span-columns(10);
-  }
-
-  div > .checkbox {
-    @include span-columns(1);
-  }
-  .checkbox + label {
-    @include span-columns(11);
-  }
-
-  label.required::after {
-    content: ' *';
-  }
-
-  .dedication_details {
-    @include shift(1);
-    @include span-columns(11);
-    border: solid 1px #000;
-    padding: 0.5em;
-    display: none;  /* Initially hidden */
-
-    & > div, p {
-      @include span-columns(12);
-    }
-    #id_dedication_consent {
-      @include span-columns(10);
-    }
-  }
-  .shown-with-organization {
-    display: none;  /* Initially hidden */
-  }
-
-  ul {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+}
+.shown-with-organization {
+  display: none;  /* Initially hidden */
 }
 
 

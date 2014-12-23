@@ -32,83 +32,15 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-.donate-form form {
-  max-width: 83em;
-  margin-left: auto;
-  margin-right: auto; }
-  .donate-form form:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .donate-form form > div {
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 100%; }
-    .donate-form form > div:last-child {
-      margin-right: 0; }
-  .donate-form form div > label {
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 13.46154%; }
-    .donate-form form div > label:last-child {
-      margin-right: 0; }
-  .donate-form form div > .value {
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 82.69231%; }
-    .donate-form form div > .value:last-child {
-      margin-right: 0; }
-  .donate-form form div > .checkbox {
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 4.80769%; }
-    .donate-form form div > .checkbox:last-child {
-      margin-right: 0; }
-  .donate-form form .checkbox + label {
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 91.34615%; }
-    .donate-form form .checkbox + label:last-child {
-      margin-right: 0; }
-  .donate-form form label.required::after {
-    content: ' *'; }
-  .donate-form form .dedication_details {
-    margin-left: 8.65385%;
-    float: left;
-    display: block;
-    margin-right: 3.84615%;
-    width: 91.34615%;
-    border: solid 1px #000;
-    padding: 0.5em;
-    display: none;
-    /* Initially hidden */ }
-    .donate-form form .dedication_details:last-child {
-      margin-right: 0; }
-    .donate-form form .dedication_details > div, .donate-form form .dedication_details p {
-      float: left;
-      display: block;
-      margin-right: 3.84615%;
-      width: 100%; }
-      .donate-form form .dedication_details > div:last-child, .donate-form form .dedication_details p:last-child {
-        margin-right: 0; }
-    .donate-form form .dedication_details #id_dedication_consent {
-      float: left;
-      display: block;
-      margin-right: 3.84615%;
-      width: 82.69231%; }
-      .donate-form form .dedication_details #id_dedication_consent:last-child {
-        margin-right: 0; }
-  .donate-form form .shown-with-organization {
-    display: none;
-    /* Initially hidden */ }
-  .donate-form form ul {
-    margin-top: 0;
-    margin-bottom: 0; }
+.dedication_details {
+  border: solid 1px #000;
+  padding: 0.5em;
+  display: none;
+  /* Initially hidden */ }
+
+.shown-with-organization {
+  display: none;
+  /* Initially hidden */ }
 
 /*
  * Global variables
@@ -308,12 +240,16 @@ body {
 .t-heading--1, h1 {
   font-size: 40px;
   font-size: 4rem;
-  margin-top: 0; }
+  margin-top: 0;
+  margin: 0 0 9px 0;
+  margin: 0 0 0.9rem 0; }
 
 .t-heading--2, h2 {
   font-size: 32px;
   font-size: 3.2rem;
-  margin-top: 0; }
+  margin-top: 0;
+  margin: 0 0 9px 0;
+  margin: 0 0 0.9rem 0; }
 
 .t-heading--3, h3 {
   font-size: 26px;
@@ -348,8 +284,8 @@ h4 + h3 {
   margin: 1.2rem 0; }
 
 .t-body--sm, .sub_nav .sub_nav__link {
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 17px;
+  font-size: 1.7rem;
   margin: 10px 0;
   margin: 1rem 0; }
 
@@ -772,8 +708,84 @@ body {
 /*
  * Forms.
  */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
 .form_hide--radio input[type=radio]:not(old) {
   display: none; }
+
+.form--required {
+  font-weight: 700; }
+
+.form {
+  font-size: 20px;
+  font-size: 2rem;
+  float: left;
+  display: block;
+  margin-right: 3.84615%;
+  width: 65.38462%;
+  margin-left: 17.30769%;
+  color: #222; }
+  .form:last-child {
+    margin-right: 0; }
+  .form legend {
+    margin-left: 30%; }
+
+.form__field {
+  clear: left;
+  margin: 1em 0; }
+
+.form__field--single {
+  padding-left: 30%;
+  display: inline-block; }
+  .form__field--single .form__field__label {
+    text-align: left;
+    width: 95%; }
+  .form__field--single .form__field__input {
+    width: inherit; }
+
+.form__field__label {
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+  width: 30%; }
+
+.form__field__input {
+  display: inline-block;
+  width: 69%; }
+  .form__field__input input[type=text], .form__field__input input[type=email] {
+    font-size: 20px;
+    font-size: 2rem;
+    height: 2em;
+    width: 22em; }
+  .form__field__input textarea {
+    font-size: 20px;
+    font-size: 2rem;
+    width: 22em; }
+  .form__field__input select {
+    height: 2em; }
+  .form__field__input.field--sm input[type=text], .form__field__input.field--sm input[type=email] {
+    width: 14em; }
 
 /*
  * Grid
@@ -1417,12 +1429,12 @@ body {
  *
  * Example: @include rem(margin, 1rem 0 2rem);
  */
-.u-unmarked_list, .main_nav {
+.u-unmarked_list, form ul, .main_nav {
   padding: 0; }
-  .u-unmarked_list li, .main_nav li {
+  .u-unmarked_list li, form ul li, .main_nav li {
     list-style: none; }
 
-.u-inline_list * {
+.u-inline_list *, form ul * {
   display: inline-block; }
 
 .u-inline {
@@ -1433,7 +1445,7 @@ body {
   .u-block--at_sm {
     display: block; } }
 
-.u-clearfix:after, .full_banner:after {
+.u-clearfix:after, .form__field:after, .full_banner:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -1709,12 +1721,12 @@ body {
  *
  * Example: @include rem(margin, 1rem 0 2rem);
  */
-.u-unmarked_list, .main_nav {
+.u-unmarked_list, form ul, .main_nav {
   padding: 0; }
-  .u-unmarked_list li, .main_nav li {
+  .u-unmarked_list li, form ul li, .main_nav li {
     list-style: none; }
 
-.u-inline_list * {
+.u-inline_list *, form ul * {
   display: inline-block; }
 
 .u-inline {
@@ -1725,7 +1737,7 @@ body {
   .u-block--at_sm {
     display: block; } }
 
-.u-clearfix:after, .full_banner:after {
+.u-clearfix:after, .form__field:after, .full_banner:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -2228,12 +2240,12 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
  *
  * Example: @include rem(margin, 1rem 0 2rem);
  */
-.u-unmarked_list, .main_nav {
+.u-unmarked_list, form ul, .main_nav {
   padding: 0; }
-  .u-unmarked_list li, .main_nav li {
+  .u-unmarked_list li, form ul li, .main_nav li {
     list-style: none; }
 
-.u-inline_list * {
+.u-inline_list *, form ul * {
   display: inline-block; }
 
 .u-inline {
@@ -2244,7 +2256,7 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
   .u-block--at_sm {
     display: block; } }
 
-.u-clearfix:after, .full_banner:after {
+.u-clearfix:after, .form__field:after, .full_banner:after {
   visibility: hidden;
   display: block;
   font-size: 0;

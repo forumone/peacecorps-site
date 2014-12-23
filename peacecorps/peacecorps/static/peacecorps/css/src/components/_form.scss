@@ -2,10 +2,89 @@
  * Forms.
  */
 
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+@import 'globals';
+
+$width_left: 30%;
+$width_right: 69%;
+
 // A hack class to hide form elements when the html is not accessible due to
 // django. Will only apply hiding to IE9+ and modern browsers.
 .form_hide--radio {
   input[type=radio]:not(old) {
     display: none;
+  }
+}
+
+form ul {
+  @extend .u-unmarked_list;
+  @extend .u-inline_list;
+}
+
+.form--required {
+  font-weight: $weight-bold;
+}
+
+.form {
+  @include font-size(2);
+  @include span-columns(8);
+  @include shift(2);
+  color: $black;
+
+  legend {
+    margin-left: $width_left;
+  }
+}
+
+.form__field {
+  @extend .u-clearfix;
+  clear: left;
+  margin: 1em 0;
+}
+
+.form__field--single {
+  padding-left: $width_left;
+  display: inline-block;
+
+  .form__field__label {
+    text-align: left;
+    width: 95%;
+  }
+
+  .form__field__input {
+    width: inherit;
+  }
+}
+
+.form__field__label {
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+  width: $width_left;
+}
+
+.form__field__input {
+  display: inline-block;
+  width: $width_right;
+
+  input[type=text], input[type=email] {
+    @include font-size(2);
+    height: 2em;
+    width: 22em;
+  }
+  textarea {
+    @include font-size(2);
+    width: 22em;
+  }
+  select {
+    height: 2em;
+  }
+
+  &.field--sm {
+    input[type=text], input[type=email] {
+      width: 14em;
+    }
   }
 }

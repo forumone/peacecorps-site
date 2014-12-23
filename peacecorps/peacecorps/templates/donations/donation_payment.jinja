@@ -6,138 +6,168 @@
 {% endblock %}
 
 {% block content %}
+  <section class="blurb blurb--sm">
     <p> Project Code: {{project_code }} </p>
     <p> Amount: {{amount}} </p>
+  </section>
 
-    <form action="" method="post">
-        {% csrf_token %}
+  <section class="section full_banner full_banner--neutral">
 
-        <div>
+    <form action="" method="post" class="form section__content">
+      {% csrf_token %}
+      <fieldset>
+        <legend><h2>Your information</h2>
+          <p class="t-body--sm">(so we can send you a tax receipt)</p>
+        </legend>
+        <div class="form__field">
             {{form.donor_type.errors}}
-            <label for="id_donor_type">Type of donor</label>
-            <div class="value">{{form.donor_type}}</div>
+            <label for="id_donor_type" class="form__field__label">
+              type of donor</label>
+            <div class="form__field__input">{{form.donor_type}}</div>
         </div>
 
-
-        <div class="shown-with-organization">
+        <div class="form__field shown-with-organization">
             {{form.organization_name.errors}}
-            <label for="id_organization_name" class="required">Organization Name</label>
-            <div class="value">{{form.organization_name}}</div>
+            <label for="id_organization_name" class="form--required
+                form__field__label">
+              organization Name</label>
+            <div class="form__field__input">{{form.organization_name}}</div>
         </div>
 
-        <div class="shown-with-organization">
+        <div class="form__field shown-with-organization">
             {{form.organization_contact.errors}}
-            <label for="id_organization_contact" class="required">Organization Contact</label>
-            <div class="value">{{form.organization_contact}}</div>
+            <label for="id_organization_contact" class="form--required
+              form__field__label">
+                organization Contact</label>
+            <div class="form__field__input">{{form.organization_contact}}</div>
         </div>
 
-        <div class="shown-with-individual">
+        <div class="form__field shown-with-individual">
             {{form.payer_name.errors}}
-            <label for="id_payer_name" class="required">Name</label>
-            <div class="value">{{form.payer_name}}</div>
+            <label for="id_payer_name" class="form--required form__field__label">
+              full name</label>
+            <div class="form__field__input">{{form.payer_name}}</div>
         </div>
 
-        <div>
+        <div class="form__field">
             {{form.billing_address.errors}}
-            <label for="id_billing_address" class="required">Street Address</label>
-            <div class="value">{{form.billing_address}}</div>
+            <label for="id_billing_address" class="form--required form__field__label">
+              street address</label>
+            <div class="form__field__input">{{form.billing_address_extra}}</div>
         </div>
 
-        <div>
+        <div class="form__field">
+            {{form.billing_address.errors}}
+            <label for="id_billing_address"
+                class="form--required form__field__label">
+              address cont.(optional)</label>
+            <div class="form__field__input">{{form.billing_address}}</div>
+        </div>
+
+        <div class="form__field">
             {{form.billing_city.errors}}
-            <label for="id_billing_city" class="required">City</label>
-            <div class="value">{{form.billing_city}}</div>
+            <label for="id_billing_city" class="form--required form__field__label">
+              city</label>
+            <div class="form__field__input field--sm">{{form.billing_city}}</div>
         </div>
-        <div>
+
+        <div class="form__field">
             {{form.billing_state.errors}}
-            <label for="id_billing_state" class="required">State</label>
-            <div class="value">{{form.billing_state}}</div>
+            <label for="id_billing_state" class="form--required form__field__label">
+              state</label>
+            <div class="form__field__input">{{form.billing_state}}</div>
         </div>
-        <div>
+
+        <div class="form__field">
             {{form.billing_zip.errors}}
-            <label for="id_billing_zip" class="required">Zip Code</label>
-            <div class="value">{{form.billing_zip}}</div>
+            <label for="id_billing_zip" class="form--required form__field__label">
+              zip code</label>
+            <div class="form__field__input field--sm">{{form.billing_zip}}</div>
         </div>
-        <div>
+
+        <div class="form__field">
             {{form.country.errors}}
-            <label for="id_country" class="required">Country</label>
-            <div class="value">{{form.country}}</div>
+            <label for="id_country" class="form--required form__field__label">
+              country</label>
+            <div class="form__field__input">{{form.country}}</div>
         </div>
 
-        <div>
+        <div class="form__field">
+            {{form.email.errors}}
+            <label class="form__field__label" for="id_email">email</label>
+            <div class="form__field__input">{{form.email}}</div>
+        </div>
+
+
+        <div class="form__field">
             {{form.phone_number.errors}}
-            <label for="id_phone_number">Phone</label>
-            <div class="value">{{form.phone_number}}</div>
+            <label class="form__field__label" for="id_phone_number">phone</label>
+            <div class="form__field__input">{{form.phone_number}}</div>
         </div>
+      </fieldset>
 
-        <div>
-            {{form.email_consent.errors}}
-            <div class="checkbox">{{form.email_consent}}</div>
-            <label for="id_email_consent">
-            Yes, I would like to stay informed of exciting Volunteer stories
-            from the field and upcoming opportunities to partner with the
-            Peace Corps. Peace Corps will not share your information  with
-            outside organizations.
-            </label>
-        </div>
-
-        <div>
+      <fieldset>
+        <legend><h2>Payment Method</h2></legend>
+        <div class="form__field">
             {{form.payment_type.errors}}
-            <label for='id_payment_type' class="required">Payment Type</label>
-            <div class="value">{{form.payment_type}}</div>
+            <label for='id_payment_type' class="form--required form__field__label">
+              </label>
+            <div class="form__field__input">{{form.payment_type}}</div>
         </div>
+      </fieldset>
 
-        <div>
-            {{form.comments.errors}}
-            <label for='id_comments'>Comments (special instructions regarding your donation or comments for the Volunteer.)</label>
-            <div class="value">{{form.comments}}</div>
-        </div>
+      <fieldset>
+        <legend><h2>Options</h2></legend>
 
-        <div>
+        <div class="form__field form__field--single">
             {{form.dedication.errors}}
-            <div class="checkbox">{{form.dedication}}</div>
-            <label for='id_dedication'>
-            I wish to donate in honor or in memory of someone.
+            <div class="form__field__input">
+              {{form.dedication}}
+            </div>
+            <label for="id_dedication" class="form__field__label">
+              I wish to donate in honor or in
+              memory of someone.
             </label>
         </div>
-
-        <div class='dedication_details'>
-
+        <fieldset class='dedication_details'>
+            <legend>Dedication Information</legend>
             <div>
                 {{form.dedication_name.errors}}
                 <label for='id_dedication_name'>Name</label>
-                <div class="value">{{form.dedication_name}}</div>
+                <div class="form__field__input">{{form.dedication_name}}</div>
             </div>
 
             <div>
                 {{form.dedication_type.errors}}
-                <div class="value" id="dedication_type">{{form.dedication_type}}</div>
+                <div class="form__field__input" id="dedication_type">
+                {{form.dedication_type}}</div>
             </div>
 
-            <p class="honoree_swap">Send the honoree a letter so they know you were thinking of them: </p>
+            <p class="honoree_swap">Send the honoree a letter so they know
+            you were thinking of them: </p>
             <div id="dedication_contact_wrapper">
                 {{form.dedication_contact.errors}}
                 <label for='id_dedication_contact'>Family Contact</label>
-                <div class="value">{{form.dedication_contact}}</div>
+                <div class="form__field__input">{{form.dedication_contact}}</div>
             </div>
 
             <div>
                 {{form.dedication_email.errors}}
                 <label for='id_dedication_email'>Email</label>
-                <div class="value">{{form.dedication_email}}</div>
+                <div class="form__field__input">{{form.dedication_email}}</div>
             </div>
 
             <div>
                 {{form.dedication_address.errors}}
                 <label for='id_dedication_address'>Mailing address</label>
                 <div
-                class="value">{{form.dedication_address}}</div>
+                class="form__field__input">{{form.dedication_address}}</div>
             </div>
 
             <div>
                 {{form.card_dedication.errors}}
                 <label for='id_card_dedication'>Message</label>
-                <div class="value">{{form.card_dedication}}</div>
+                <div class="form__field__input">{{form.card_dedication}}</div>
             </div>
 
             <div>
@@ -146,23 +176,60 @@
 
                 <ul id="id_dedication_consent">
                 <li><label for="id_dedication_consent_0" class="honoree_swap">
-                    <input checked="checked" id="id_dedication_consent_0" name="dedication_consent" type="radio" value="yes-dedication-consent" />
-                    I authorize the Peace Corps to make my name and contact information available to the honoree.
+                    <input checked="checked" id="id_dedication_consent_0"
+                     name="dedication_consent" type="radio"
+                     value="yes-dedication-consent" />
+                    I authorize the Peace Corps to make my name and contact
+                    information available to the honoree.
                     </label>
                 </li>
                 <li><label for="id_dedication_consent_1" class="honoree_swap">
-                    <input id="id_dedication_consent_1" name="dedication_consent" type="radio" value="no-dedication-consent" />
-                    I do not authorize the Peace Corps to make my name and contact information available to the honoree.
+                    <input id="id_dedication_consent_1" name="dedication_consent"
+                     type="radio" value="no-dedication-consent" />
+                    I do not authorize the Peace Corps to make my name and
+                    contact information available to the honoree.
                     </label>
                 </li>
                 </ul>
             </div>
+        </fieldset>
+
+        <div class="form__field form__field--single">
+            {{form.email_consent.errors}}
+            <div class="form__field__input">{{form.email_consent}}</div>
+            <label for="id_email_consent" class="form__field__label">
+              Please send me updates on this project and others.
+            </label>
         </div>
 
-        <div>
-            {{form.interest_conflict.errors}}
-            <div class="checkbox">{{form.interest_conflict}}</div>
-            <label for id='id_interest_conflict'>
+        <div class="form__field">
+          {{form.information_consent.errors}}
+          <label for="id_information_consent" class="form__field__label">
+            share info
+          </label>
+          <div class="form__field__input">{{ form.information_consent }}</div>
+        </div>
+
+        <div class="form__field">
+          {{form.comments.errors}}
+          <label for='id_comments' class="form__field__label">
+            comments (special instructions regarding
+            your donation or comments for the Volunteer.)
+          </label>
+          <div class="form__field__input">
+            {{form.comments}}
+          </div>
+        </div>
+
+        <div class="form__field form__field--single">
+          {{form.interest_conflict.errors}}
+          <div class="form__field__input">
+            {{form.interest_conflict}}
+          </div>
+          <label for id="id_interest_conflict" class="form__field__label">
+            I'm doing business with the Peace Corps
+          </label>
+          <p class="t-body--sm">
             If you, your business, your employer, or an immediate family
             member is currently doing business, or seeking to do business with
             Peace Corps, or otherwise have business or financial interests
@@ -170,29 +237,19 @@
             contact the Peace Corps Partnership Program at 202.692.2170 or
             <a href="mailto:donate@peacecorps.gov">donate@peacecorps.gov</a>. Note: Serving as a Peace Corps Volunteer is
             not a business or financial interest.
-            </label>
-        </div>
-
-        <div>
-            {{form.information_consent.errors}}
-            <ul id="id_information_consent">
-                <li><label for="id_information_consent_0">
-                    <input checked="checked" id="id_information_consent_0" name="information_consent" type="radio" value="vol-consent-yes" />
-                    I authorize the Peace Corps to make my name and contact information available to the honoree.
-                    </label>
-                </li>
-                <li><label for="id_information_consent_1">
-                    <input id="id_information_consent_1" name="information_consent" type="radio" value="vol-consent-no" />
-                    I do not authorize the Peace Corps to make my name and contact information available to the honoree.
-                    </label>
-                </li>
-            </ul>
+          </p>
         </div>
 
         {% for hidden in form.hidden_fields() %}
             {{hidden}}
         {% endfor %}
 
-        <div><input type="submit" value="Confirm Information" /></div>
+        <div class="u-align_c">
+          <button type="submit" class="button button--primary">
+            Confirm information</button>
+        </div>
+      </fieldset>
+
     </form>
+  </section>
 {% endblock %}

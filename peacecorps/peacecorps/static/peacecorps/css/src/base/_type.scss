@@ -74,10 +74,12 @@ body {
 .t-heading--1 {
   @include font-size(4.0);
   margin-top: 0;
+  @include rem(margin, 0 0 .9rem 0);
 }
 .t-heading--2 {
   @include font-size(3.2);
   margin-top: 0;
+  @include rem(margin, 0 0 .9rem 0);
 }
 .t-heading--3 {
   @include font-size(2.6);
@@ -125,7 +127,7 @@ h4 + h3 {
 }
 .t-body--sm {
   @extend .t-body;
-  @include font-size(1.8);
+  @include font-size(1.7);
   @include rem(margin, 1rem 0);
 }
 .t-body--xsm {

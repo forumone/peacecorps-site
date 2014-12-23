@@ -41,6 +41,8 @@ class DonationPaymentForm(forms.Form):
     country = forms.ModelChoiceField(
         queryset=Country.objects, to_field_name='code', initial='USA')
     billing_address = forms.CharField(label="Street Address", max_length=80)
+    billing_address_extra = forms.CharField(label="Street Address (cont)",
+        max_length=80)
     billing_city = forms.CharField(label="City", max_length=40)
     billing_state = forms.ChoiceField(
         label="State", choices=((('', ''),) + STATE_CHOICES), required=False)
