@@ -19,11 +19,11 @@
         <legend><h2>Your information</h2>
           <p class="t-body--sm">(so we can send you a tax receipt)</p>
         </legend>
-        <div class="form__field">
+        <div class="form__field form__field--single">
             {{form.is_org.errors}}
+            <div class="form__field__input">{{form.is_org}}</div>
             <label for="id_donor_type" class="form__field__label">
               {{form.is_org.label}}</label>
-            <div class="form__field__input">{{form.is_org}}</div>
         </div>
 
         <div class="form__field shown-with-organization">
@@ -129,52 +129,63 @@
               memory of someone.
             </label>
         </div>
-        <fieldset class='dedication_details'>
+        <fieldset class="dedication_details">
             <legend>Dedication Information</legend>
-            <div>
+            <div  class="form__field">
                 {{form.dedication_name.errors}}
-                <label for='id_dedication_name'>Name</label>
+                <label class="form__field__label" for='id_dedication_name'>
+                  name</label>
                 <div class="form__field__input">{{form.dedication_name}}</div>
             </div>
 
-            <div>
+            <div class="form__field">
                 {{form.dedication_type.errors}}
+                <label class="form__field__label" for='dedication_type'>
+                  type of dedication</label>
                 <div class="form__field__input" id="dedication_type">
                 {{form.dedication_type}}</div>
             </div>
 
-            <p class="honoree_swap">Send the honoree a letter so they know
-            you were thinking of them: </p>
+            <legend><p class="honoree_swap">Send the honoree a letter so they
+                know you were thinking of them: </p></legend>
+
             <div id="dedication_contact_wrapper">
                 {{form.dedication_contact.errors}}
-                <label for='id_dedication_contact'>Family Contact</label>
+                <label class="form__field__label" for='id_dedication_contact'>
+                  family contact</label>
                 <div class="form__field__input">{{form.dedication_contact}}</div>
             </div>
 
-            <div>
+            <div class="form__field">
                 {{form.dedication_email.errors}}
-                <label for='id_dedication_email'>Email</label>
+                <label class="form__field__label" for='id_dedication_email'>
+                  email</label>
                 <div class="form__field__input">{{form.dedication_email}}</div>
             </div>
 
-            <div>
+            <div class="form__field">
                 {{form.dedication_address.errors}}
-                <label for='id_dedication_address'>Mailing address</label>
-                <div
-                class="form__field__input">{{form.dedication_address}}</div>
+                <label class="form__field__label" for='id_dedication_address'>
+                  mailing address</label>
+                <div class="form__field__input">
+                  {{form.dedication_address}}</div>
             </div>
 
-            <div>
+            <div class="form__field">
                 {{form.card_dedication.errors}}
-                <label for='id_card_dedication'>Message</label>
+                <label class="form__field__label form__field__label--align_t"
+                    for='id_card_dedication'>
+                  message</label>
                 <div class="form__field__input">{{form.card_dedication}}</div>
             </div>
 
-            <div>
+            <div class="form__field">
                 {{form.dedication_consent.errors}}
-                <label for='id_dedication_consent'>Information Consent</label>
+                <label for='id_dedication_consent'
+                    class="form__field__label form__field__label--align_t">
+                  information consent</label>
 
-                <ul id="id_dedication_consent">
+                <ul id="id_dedication_consent" class="form__field__input">
                 <li><label for="id_dedication_consent_0" class="honoree_swap">
                     <input checked="checked" id="id_dedication_consent_0"
                      name="dedication_consent" type="radio"
@@ -202,19 +213,20 @@
             </label>
         </div>
 
-        <div class="form__field">
+        <div class="form__field form__field--single">
           {{form.information_consent.errors}}
-          <label for="id_information_consent" class="form__field__label">
-            share info
-          </label>
           <div class="form__field__input">{{ form.information_consent }}</div>
+          <label for="id_information_consent" class="form__field__label">
+            Make my contact info available to the volunteer
+          </label>
         </div>
 
         <div class="form__field">
           {{form.comments.errors}}
-          <label for='id_comments' class="form__field__label">
-            comments (special instructions regarding
-            your donation or comments for the Volunteer.)
+          <label for='id_comments' class="form__field__label
+              form__field__label--align_t">
+            please use this box if you want to send a message of encouragement
+            to this project's volunteer.
           </label>
           <div class="form__field__input">
             {{form.comments}}

@@ -29,8 +29,8 @@ form ul {
 
 .form {
   @include font-size(2);
-  @include span-columns(8);
-  @include shift(2);
+  @include span-columns(10);
+  @include shift(1);
   color: $black;
 
   legend {
@@ -45,16 +45,17 @@ form ul {
 }
 
 .form__field--single {
-  padding-left: $width_left;
   display: inline-block;
+  padding-left: $width_left;
+  width: 100%;
 
   .form__field__label {
     text-align: left;
-    width: 95%;
+    width: 92%;
   }
 
   .form__field__input {
-    width: inherit;
+    width: 1em;
   }
 }
 
@@ -63,6 +64,10 @@ form ul {
   text-align: right;
   vertical-align: middle;
   width: $width_left;
+}
+
+.form__field__label--align_t {
+  vertical-align: top;
 }
 
 .form__field__input {
