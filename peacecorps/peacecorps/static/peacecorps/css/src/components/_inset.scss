@@ -9,9 +9,15 @@
 }
 
 .inset--lg {
-  @include shift(1);
   @include span-columns(10);
   @include omega;
+  margin-left: 8.3333%;
+
+  @include media($md) {
+    @include shift(0);
+    @include span-columns(9);
+    @include omega;
+  }
 
   @include media($sm) {
     @include shift(0);
