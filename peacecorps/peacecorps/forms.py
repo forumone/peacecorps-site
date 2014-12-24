@@ -10,11 +10,6 @@ from .models import Country
 class DonationPaymentForm(forms.Form):
     """Collect contact information and dedication information about a donor"""
 
-    default_errors = {
-        'required': 'This field is required',
-        'invalid': 'Enter a valid value'
-    }
-
     PAYMENT_TYPE_CHOICES = (
         ('CreditCard', 'Credit Card'),
         ('CreditACH', 'ACH Bank Check'),
