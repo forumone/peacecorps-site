@@ -1,5 +1,5 @@
 {% extends "donations/base.jinja" %}
-{% from "donations/includes/macros.jinja" import url_or %}
+{% from "donations/includes/macros.jinja" import url_or, volunteer_photo %}
 
 {% block title %}Peace Corps{% endblock %}
 {% block header %}Peace Corps{% endblock %}
@@ -225,11 +225,9 @@
       <div class="mask mask--oval mask--gray-1 mask--bordered
            u-clearfix section__content--no_space_r u-pullr"
            style="width: 5em; height: 5em;">
-        <img class=""
-          class="mask__content"
-          style="width: 100%;"
-          src="{{ project.volunteerpicture }}"
-          alt="{{ project.volunteername }}" />
+        <div class="t-body--xsm">
+          {{ volunteer_photo(project) }}
+        </div>
       </div>
     </aside>
     <header class="grid--80 section__content--contain--sm grid__last">
@@ -250,9 +248,7 @@
         <div class="mask mask--oval mask--gray-1 mask--bordered
              u-clearfix u-h_center--block l-bm--1 column__element"
              style="width: 12em; height: 12em;">
-          <img class="mask__content" style="width: 100%;"
-               src="{{ project.volunteerpicture.url }}"
-               alt="{{ project.volunteername }}" />
+          {{ volunteer_photo(project) }}
         </div>
         <div class="u-h_center--block column__element
               section__content--no_space_r">
