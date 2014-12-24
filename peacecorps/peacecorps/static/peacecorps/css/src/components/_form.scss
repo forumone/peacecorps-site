@@ -29,12 +29,38 @@ form ul {
 
 .form {
   @include font-size(2);
-  @include span-columns(10);
-  @include shift(1);
   color: $black;
 
   legend {
     margin-left: $width_left;
+
+    @include media($sm) {
+      margin-left: inherit;
+      text-align: center;
+    }
+  }
+
+  fieldset {
+    padding: 0;
+  }
+
+  .errorlist {
+    @include font-size(1.6);
+    color: $error;
+    margin-left: $width_left;
+
+    @include media($sm) {
+      margin-left: inherit;
+    }
+
+    & ~ .form__field__label {
+      color: $error;
+    }
+    & ~ .form__field__input input,
+    & ~ .form__field__input select,
+    & ~ .form__field__input textarea {
+      border: 0.15em solid $error;
+    }
   }
 }
 
@@ -44,14 +70,29 @@ form ul {
   margin: 1em 0;
 }
 
+.form__field--together {
+  width: 68%;
+}
+
+.form__text {
+  width: 29em;
+  @include media($sm) {
+    width: 100%;
+  }
+}
+
 .form__field--single {
   display: inline-block;
   padding-left: $width_left;
   width: 100%;
 
+  @include media($sm) {
+    padding-left: inherit;
+  }
+
   .form__field__label {
     text-align: left;
-    width: 92%;
+    width: 90%;
   }
 
   .form__field__input {
@@ -64,6 +105,11 @@ form ul {
   text-align: right;
   vertical-align: middle;
   width: $width_left;
+
+  @include media($sm) {
+    text-align: left;
+    width: 100%;
+  }
 }
 
 .form__field__label--align_t {
@@ -74,14 +120,26 @@ form ul {
   display: inline-block;
   width: $width_right;
 
+  @include media($sm) {
+    width: 100%;
+  }
+
   input[type=text], input[type=email] {
     @include font-size(2);
     height: 2em;
-    width: 22em;
+    width: 24em;
+
+    @include media($sm) {
+      width: 100%;
+    }
   }
   textarea {
     @include font-size(2);
-    width: 22em;
+    width: 24em;
+
+    @include media($sm) {
+      width: 100%;
+    }
   }
   select {
     height: 2em;

@@ -18,30 +18,6 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
-.dedication_details {
-  border: solid 1px #000;
-  padding: 0.5em;
-  display: none;
-  /* Initially hidden */ }
-
-.shown-with-organization {
-  display: none;
-  /* Initially hidden */ }
-
 /*
  * Global variables
  */
@@ -740,28 +716,51 @@ html {
 .form {
   font-size: 20px;
   font-size: 2rem;
-  float: left;
-  display: block;
-  margin-right: 3.84615%;
-  width: 82.69231%;
-  margin-left: 8.65385%;
   color: #222; }
-  .form:last-child {
-    margin-right: 0; }
   .form legend {
     margin-left: 30%; }
+    @media screen and (min-width: 0px) and (max-width: 499px) {
+      .form legend {
+        margin-left: inherit;
+        text-align: center; } }
+  .form fieldset {
+    padding: 0; }
+  .form .errorlist {
+    font-size: 16px;
+    font-size: 1.6rem;
+    color: #AD3737;
+    margin-left: 30%; }
+    @media screen and (min-width: 0px) and (max-width: 499px) {
+      .form .errorlist {
+        margin-left: inherit; } }
+    .form .errorlist ~ .form__field__label {
+      color: #AD3737; }
+    .form .errorlist ~ .form__field__input input, .form .errorlist ~ .form__field__input select, .form .errorlist ~ .form__field__input textarea {
+      border: 0.15em solid #AD3737; }
 
 .form__field {
   clear: left;
   margin: 1em 0; }
 
+.form__field--together {
+  width: 68%; }
+
+.form__text {
+  width: 29em; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .form__text {
+      width: 100%; } }
+
 .form__field--single {
   display: inline-block;
   padding-left: 30%;
   width: 100%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .form__field--single {
+      padding-left: inherit; } }
   .form__field--single .form__field__label {
     text-align: left;
-    width: 92%; }
+    width: 90%; }
   .form__field--single .form__field__input {
     width: 1em; }
 
@@ -770,6 +769,10 @@ html {
   text-align: right;
   vertical-align: middle;
   width: 30%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .form__field__label {
+      text-align: left;
+      width: 100%; } }
 
 .form__field__label--align_t {
   vertical-align: top; }
@@ -777,15 +780,24 @@ html {
 .form__field__input {
   display: inline-block;
   width: 69%; }
+  @media screen and (min-width: 0px) and (max-width: 499px) {
+    .form__field__input {
+      width: 100%; } }
   .form__field__input input[type=text], .form__field__input input[type=email] {
     font-size: 20px;
     font-size: 2rem;
     height: 2em;
-    width: 22em; }
+    width: 24em; }
+    @media screen and (min-width: 0px) and (max-width: 499px) {
+      .form__field__input input[type=text], .form__field__input input[type=email] {
+        width: 100%; } }
   .form__field__input textarea {
     font-size: 20px;
     font-size: 2rem;
-    width: 22em; }
+    width: 24em; }
+    @media screen and (min-width: 0px) and (max-width: 499px) {
+      .form__field__input textarea {
+        width: 100%; } }
   .form__field__input select {
     height: 2em; }
   .form__field__input.field--sm input[type=text], .form__field__input.field--sm input[type=email] {
@@ -1145,14 +1157,24 @@ html {
   margin-right: 0; }
 
 .inset--lg {
-  margin-left: 28.125%;
   float: left;
   display: block;
   margin-right: 3.84615%;
   width: 82.69231%;
-  margin-right: 0; }
+  margin-right: 0;
+  margin-left: 8.3333%; }
   .inset--lg:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 500px) and (max-width: 899px) {
+    .inset--lg {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 5.19481%;
+      width: 100%;
+      margin-right: 0; }
+      .inset--lg:last-child {
+        margin-right: 0; } }
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .inset--lg {
       margin-left: 0%;

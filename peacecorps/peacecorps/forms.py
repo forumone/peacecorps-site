@@ -10,6 +10,11 @@ from .models import Country
 class DonationPaymentForm(forms.Form):
     """Collect contact information and dedication information about a donor"""
 
+    default_errors = {
+        'required': 'This field is required',
+        'invalid': 'Enter a valid value'
+    }
+
     PAYMENT_TYPE_CHOICES = (
         ('CreditCard', 'Credit Card'),
         ('CreditACH', 'ACH Bank Check'),
@@ -18,7 +23,8 @@ class DonationPaymentForm(forms.Form):
     is_org = forms.BooleanField(
         label="I'm donating on behalf of my organization", required=False)
     #   Will be hidden if "Organization" is selected
-    payer_name = forms.CharField(label="Name", max_length=100, required=False)
+    payer_name = forms.CharField(label="Name", max_length=100, required=False,
+            error_messages={'required': 'Please enter your full name'})
     #   Will be hidden in "Individual is selected"
     organization_name = forms.CharField(
         label='Organization Name', max_length=40, required=False)
@@ -29,10 +35,12 @@ class DonationPaymentForm(forms.Form):
     # Be sure that country is processed before billing_state/zip
     country = forms.ModelChoiceField(
         queryset=Country.objects, to_field_name='code', initial='USA')
-    billing_address = forms.CharField(label="Street Address", max_length=80)
+    billing_address = forms.CharField(label="Street Address", max_length=80,
+            error_messages={'required': 'Please enter a valid address'})
     billing_address_extra = forms.CharField(
         label="Street Address (cont)", max_length=80, required=False)
-    billing_city = forms.CharField(label="City", max_length=40)
+    billing_city = forms.CharField(label="City", max_length=40,
+            error_messages={'required': 'Please enter a valid city'})
     billing_state = forms.ChoiceField(
         label="State", choices=((('', ''),) + STATE_CHOICES), required=False)
     billing_zip = forms.CharField(required=False)
@@ -90,37 +98,41 @@ class DonationPaymentForm(forms.Form):
     payment_amount = forms.IntegerField(widget=forms.HiddenInput())
     project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
 
-    def required_when(self, guard_field, guard_value, check_field):
+    def required_when(self, guard_field, guard_value, check_field, field_name):
         """Raises a validation error when both the field with name guard_field
         is equal to guard_value and the field with name check_field is
         empty"""
         if (self.cleaned_data.get(guard_field) == guard_value
                 and not self.cleaned_data.get(check_field)):
-            raise ValidationError('This field is required.')
+            raise ValidationError('Please enter ' +
+                    field_name)
         return self.cleaned_data.get(check_field)
 
     def clean_payer_name(self):
-        return self.required_when('is_org', False, 'payer_name')
+        return self.required_when('is_org', False, 'payer_name',
+                'your full name')
 
     def clean_organization_name(self):
-        return self.required_when('is_org', True, 'organization_name')
+        return self.required_when('is_org', True, 'organization_name',
+                'your organization\'s name')
 
     def clean_organization_contact(self):
-        return self.required_when('is_org', True, 'organization_contact')
+        return self.required_when('is_org', True, 'organization_contact',
+                'your organization\'s contact')
 
     def clean_billing_state(self):
         """Can't use required_when because the country field returns a model"""
         country = self.cleaned_data.get('country')
         state = self.cleaned_data.get('billing_state')
         if country and country.code == 'USA' and not state:
-            raise ValidationError('This field is required.')
+            raise ValidationError('Please select a valid state')
         return state
 
     def clean_billing_zip(self):
         country = self.cleaned_data.get('country')
         zip = self.cleaned_data.get('billing_zip')
         if country and country.code == 'USA' and not zip:
-            raise ValidationError('This field is required.')
+            raise ValidationError('Please enter a valid zip code')
         return zip
 
     def clean(self):
