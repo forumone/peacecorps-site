@@ -225,9 +225,13 @@
       <div class="mask mask--oval mask--gray-1 mask--bordered
            u-clearfix section__content--no_space_r u-pullr"
            style="width: 5em; height: 5em;">
-        <div class="t-body--xsm">
+        {% if project.volunteerpicture %}
           {{ volunteer_photo(project) }}
-        </div>
+        {% else %}
+          <img src="{{ static("peacecorps/img/countries/"
+                      + project.country.code.lower() + ".svg") }}"
+               class="mask__content" style="width: 100%;" />
+        {% endif %}
       </div>
     </aside>
     <header class="grid--80 section__content--contain--sm grid__last">
