@@ -68,7 +68,7 @@ Collapsible.prototype.render = function() {
 
 module.exports = Collapsible;
 
-},{"jquery":6}],2:[function(require,module,exports){
+},{"jquery":7}],2:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -184,7 +184,7 @@ Discover.prototype.dataSelector = function(dataAttr, dataVal) {
 module.exports = Discover;
 
 
-},{"jquery":6}],3:[function(require,module,exports){
+},{"jquery":7}],3:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -193,6 +193,7 @@ var Collapsible = require('./collapsible');
 var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
+var form = require('./form');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -254,12 +255,13 @@ var Init = {
 };
 
 $().ready(function() {
-  var $discoverApp = $('.js-discoverApp');
+  var $discoverApp = $('.js-discoverApp'),
+      $form = $('.js-form');
+
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
     Init.donorTypeFields();
     Init.countryRequirements();
-    Init.dedicationFields();
     Init.inMemoryChanges();
   }
 
@@ -284,9 +286,44 @@ $().ready(function() {
     });
     collapsible.render();
   });
+
+  if ($form) {
+    form.initForm($form);
+  }
 });
 
-},{"./collapsible":1,"./discover":2,"./landing":4,"./update_donatepercent":5,"jquery":6}],4:[function(require,module,exports){
+},{"./collapsible":1,"./discover":2,"./form":4,"./landing":5,"./update_donatepercent":6,"jquery":7}],4:[function(require,module,exports){
+/*
+ * Functionality related to forms
+ */
+'use strict';
+
+var $ = require('jquery');
+
+var ccCollapsibleToggle = '.js-collapsibleToggle';
+
+var collapsibleToggles = function($el, $form) {
+  var id = $(this).attr('id'),
+      $control = $form.find('[aria-controls="'+ id +'"] input');
+
+  $control.change(function(ev) {
+    ev.preventDefault();
+    $el.attr('aria-hidden', !$control.is(':checked'));
+  }).change();
+};
+
+var initForm = function($form) {
+  $form.find(ccCollapsibleToggle).each(function() {
+    collapsibleToggles($(this), $form);
+  });
+};
+
+module.exports = {
+  initForm: initForm,
+  collapsibleToggles: collapsibleToggles
+};
+
+},{"jquery":7}],5:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -364,7 +401,7 @@ var Landing = {
 
 module.exports = Landing;
 
-},{"jquery":6}],5:[function(require,module,exports){
+},{"jquery":7}],6:[function(require,module,exports){
 /* Update donations percentages on project pages. */
 'use strict';
 
@@ -408,7 +445,7 @@ UpdatePercent.prototype.init = function(){
 
 module.exports = UpdatePercent;
 
-},{"jquery":6}],6:[function(require,module,exports){
+},{"jquery":7}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
