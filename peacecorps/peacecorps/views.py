@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
-    Issue, humanize_amount, Project, Vignette)
+    Issue, Project, Vignette)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -32,8 +32,6 @@ def donation_payment(request):
     if not account:
         return HttpResponseBadRequest('Invalid project')
 
-    readable_amount = humanize_amount(amount)
-
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
 
@@ -50,7 +48,7 @@ def donation_payment(request):
         request, 'donations/donation_payment.jinja',
         {
             'form': form,
-            'amount': readable_amount,
+            'amount': amount,
             'project_code': project_code
         })
 
@@ -99,7 +97,6 @@ def donate_landing(request):
                 campaigntype=Campaign.SECTOR).order_by('name'),
             'featuredprojects': featuredprojects,
             'projects': projects,
-            'humanize_amount': humanize_amount,
         })
 
 
@@ -133,7 +130,6 @@ def donate_project(request, slug):
             'project': project,
             'account': project.account,
             'donate_form': form,
-            'humanize_amount': humanize_amount,
             "IS_PROJECT": project.account.category == Account.PROJECT,
         })
 
@@ -155,7 +151,6 @@ def donate_projects_funds(request):
             'countries': countries,
             'issues': issues,
             'projects': projects,
-            'humanize_amount': humanize_amount,
         })
 
 
@@ -200,7 +195,6 @@ def fund_detail(request, slug):
             'campaign': campaign,
             'account': campaign.account,
             'donate_form': form,
-            'humanize_amount': humanize_amount,
             "IS_PROJECT": campaign.account.category == Account.PROJECT,
         })
 

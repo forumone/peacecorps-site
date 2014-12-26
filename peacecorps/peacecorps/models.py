@@ -13,21 +13,6 @@ from sirtrevor.fields import SirTrevorField
 from peacecorps.fields import GPGField, BraveSirTrevorField
 
 
-def percentfunded(current, goal):
-    try:
-        return round((current/goal)*100, 2)
-    except ZeroDivisionError:
-        return 0
-
-
-def humanize_amount(amount_cents):
-    """ Return a string that presents the donation amount in a humanized
-    format. """
-
-    amount_dollars = amount_cents/100.0
-    return "${:,.2f}".format(amount_dollars)
-
-
 class Account(models.Model):
     COUNTRY = 'coun'
     MEMORIAL = 'mem'
@@ -44,8 +29,12 @@ class Account(models.Model):
 
     name = models.CharField(max_length=120, unique=True)
     code = models.CharField(max_length=25, primary_key=True)
-    current = models.IntegerField(default=0)
-    goal = models.IntegerField(blank=True, null=True)
+    current = models.IntegerField(
+        default=0,
+        help_text="Amount from donations (excluding real-time), in cents")
+    goal = models.IntegerField(
+        blank=True, null=True,
+        help_text="Donations goal (excluding community contribution)")
     community_contribution = models.IntegerField(blank=True, null=True)
     category = models.CharField(
         max_length=10, choices=CATEGORY_CHOICES)
@@ -53,26 +42,47 @@ class Account(models.Model):
     def __str__(self):
         return '%s' % (self.code)
 
-    def total(self):
+    def total_donated(self):
+        """Total amount raised via donations (including real-time). Does not
+        include community contributions"""
         donations = self.donations.aggregate(Sum('amount'))
         if donations['amount__sum']:
             return self.current + donations['amount__sum']
         else:
             return self.current
 
-    def percent_funded(self):
+    def total_raised(self):
+        """Total amount raised, including donations and community
+        contributions"""
+        return self.total_donated() + self.community_contribution
+
+    def total_cost(self):
+        """Total cost of whatever we are raising funds for. This includes the
+        donations goal and the community contribution"""
         if self.goal:
-            return percentfunded(self.total() + self.community_contribution,
-                                 self.goal + self.community_contribution)
+            return self.goal + self.community_contribution
         else:
             return 0
 
-    def percent_community_funded(self):
-        return percentfunded(self.community_contribution,
-                             self.goal + self.community_contribution)
+    def percent_raised(self):
+        """What percent of the total cost has been raised through donations
+        and community contributions?"""
+        total_cost = self.total_cost()
+        if total_cost:
+            return round(self.total_raised() * 100 / total_cost, 2)
+        else:
+            return 0
+
+    def percent_community(self):
+        """What percent of the total cost was community contributions?"""
+        total_cost = self.total_cost()
+        if total_cost:
+            return round(self.community_contribution * 100 / total_cost, 2)
+        else:
+            return 0
 
     def funded(self):
-        if self.goal and self.total() >= self.goal:
+        if self.goal and self.total_donated() >= self.goal:
             return True
         else:
             return False
@@ -80,7 +90,7 @@ class Account(models.Model):
     def remaining(self):
         """This will be expanded later, and may involve more complicated
         calculations. As such, we don't want it to be a property"""
-        return self.goal - self.total()
+        return self.goal - self.total_donated()
 
 
 # @todo: this description isn't really accurate anymore. Probably worth

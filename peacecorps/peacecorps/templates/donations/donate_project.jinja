@@ -20,8 +20,8 @@
       <h4 class="t-title--4 t--gray--2">Help fund this project</h4>
       <h3 class="t-heading--3 t--gray--2">
         Give to {{project.title}}</h3>
-      {% set percent_completed = project.account.percent_funded() %}
-      {% set percent_community = project.account.percent_community_funded() %}
+      {% set percent_raised = project.account.percent_raised() %}
+      {% set percent_community = project.account.percent_community() %}
       <div class="rectangular_progress
           t--secondary
           rectangular_progress--secondary">
@@ -29,7 +29,7 @@
             style="left:{{percent_community}}%;">
           community contributions<br>
           <strong>
-            {{humanize_amount(project.account.community_contribution)}}
+            {{humanize_cents(project.account.community_contribution)}}
           </strong>
         </span>
         <span style="left: {{percent_community}}%;"
@@ -39,7 +39,7 @@
             t-title--4" style="right: 0;">
           goal
           <br><strong class="t-title--2 t--secondary">
-            {{humanize_amount(project.account.goal)}}
+            {{humanize_cents(project.account.goal)}}
           </strong><br>
         </span>
         <span style="left: 100%;"
@@ -48,19 +48,19 @@
         </span>
         <div class="rectangular_progress__bar">
           <div class="rectangular_progress__filled"
-              style="width: {{percent_completed}}%;">
+              style="width: {{percent_raised}}%;">
           </div>
         </div>
-        <span style="left: {{percent_completed}}%;"
+        <span style="left: {{percent_raised}}%;"
             class="rectangular_progress__line
                   rectangular_progress__line--bottom">
         </span>
         <span class="rectangular_progress__point
                      rectangular_progress__point--bottom
                      t-title--4"
-            style="left: {{percent_completed}}%;">
+            style="left: {{percent_raised}}%;">
           <strong>
-            {{humanize_amount(project.account.current)}}
+            {{humanize_cents(project.account.total_raised())}}
           </strong><br>
           total raised
         </span>

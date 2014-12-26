@@ -8,7 +8,7 @@
 {% block content %}
   <section class="blurb blurb--sm">
     <p> Project Code: {{project_code }} </p>
-    <p> Amount: {{amount}} </p>
+    <p> Amount: {{humanize_cents(amount)}} </p>
   </section>
 
   <section class="section full_banner full_banner--neutral">
