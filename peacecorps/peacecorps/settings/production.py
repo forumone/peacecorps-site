@@ -22,12 +22,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-# @todo switch to memcached/elasticache
-_backend = 'django.core.cache.backends.filebased.FileBasedCache'
-CACHES['shortterm']['BACKEND'] = _backend
-CACHES['shortterm']['LOCATION'] = '/tmp/shorttermcache/'
-CACHES['midterm']['BACKEND'] = _backend
-CACHES['midterm']['LOCATION'] = '/tmp/midtermcache/'
+MEMCACHED_URL = os.environ.get('MEMCACHED_URL', '')
+if MEMCACHED_URL:
+    _backend = 'django.core.cache.backends.memcached.MemcachedCache'
+    CACHES['shortterm']['BACKEND'] = _backend
+    CACHES['shortterm']['LOCATION'] = MEMCACHED_URL
+    CACHES['midterm']['BACKEND'] = _backend
+    CACHES['midterm']['LOCATION'] = MEMCACHED_URL
 
 # Note that MEDIA_ROOT is not needed since we're using S3
 MEDIA_URL = '//pc-media-dev.s3.amazonaws.com/'
