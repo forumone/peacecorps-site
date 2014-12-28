@@ -177,7 +177,8 @@ class FeaturedProjectFrontPage(models.Model):
                                 limit_choices_to={'published': True})
 
     def __str__(self):
-        return '%s (Featured)' % (self.project.title)
+        return '%s: %s (Featured)' % (self.project.account_id,
+                                      self.project.title)
 
 
 class Media(models.Model):

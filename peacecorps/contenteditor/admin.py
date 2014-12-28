@@ -91,7 +91,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Account Info', {
-            'fields': ['account', 'overflow'],
+            'fields': ['account', 'overflow', 'country'],
             }),
         ('Volunteer Info', {
             'fields': ['volunteername',
