@@ -40,7 +40,7 @@ class CampaignAdmin(admin.ModelAdmin):
         }),
         ('Projects', {
             'fields': ['featuredprojects'],
-            'description': """<h4>Add projects that you want to appear on this \
+            'description': """<h4>Add projects that you want to feature on this \
                                 campaign's page.</h4>"""
         }),
     )
