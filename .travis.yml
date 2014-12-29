@@ -5,6 +5,7 @@ cache:
   directories:
     - $HOME/.pip-cache/
 install:
+    - sudo apt-get install libmemcached-dev
     - pip install -r requirements.txt --download-cache $HOME/.pip-cache --use-mirrors
     - pip install -r requirements-dev.txt --download-cache $HOME/.pip-cache --use-mirrors
 script:
