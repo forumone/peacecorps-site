@@ -12,7 +12,7 @@
   </section>
 
   <section class="section">
-    <form action="" method="post" class="form section__content
+    <form action="" method="post" class="form js-form section__content
         full_banner full_banner--neutral">
       {% csrf_token %}
       <fieldset class="inset--lg">
@@ -121,7 +121,8 @@
 
         <div class="form__field form__field--single">
             {{form.dedication.errors}}
-            <div class="form__field__input">
+            <div class="form__field__input js-formCollapsible"
+                aria-controls="collapsible-dedication">
               {{form.dedication}}
             </div>
             <label for="id_dedication" class="form__field__label">
@@ -129,7 +130,8 @@
               memory of someone.
             </label>
         </div>
-        <fieldset class="dedication_details">
+        <fieldset class="js-collapsibleToggle" id="collapsible-dedication"
+          aria-hidden="true">
             <legend>Dedication Information</legend>
             <div  class="form__field">
                 {{form.dedication_name.errors}}
@@ -181,7 +183,7 @@
 
             <div class="form__field">
                 {{form.dedication_consent.errors}}
-                <label for='id_dedication_consent'
+                <label for="id_dedication_consent"
                     class="form__field__label form__field__label--align_t">
                   information consent</label>
 

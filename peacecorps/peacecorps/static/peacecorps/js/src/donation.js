@@ -6,6 +6,7 @@ var Collapsible = require('./collapsible');
 var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
+var form = require('./form');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -34,16 +35,6 @@ var Init = {
     }).change();
   },
 
-  //  Donations in dedication to someone have additional fields
-  dedicationFields: function() {
-    var dedication = $('#id_dedication'),
-        dedicationDiv = $('.dedication_details');
-
-    dedication.change(function() {
-      dedicationDiv.toggle(dedication.is(':checked'));
-    }).change();
-  },
-
   //  In-memory donations have a separate field + wording
   inMemoryChanges: function() {
     var honoreeSwap = $('.honoree_swap');
@@ -67,12 +58,13 @@ var Init = {
 };
 
 $().ready(function() {
-  var $discoverApp = $('.js-discoverApp');
+  var $discoverApp = $('.js-discoverApp'),
+      $form = $('.js-form');
+
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
     Init.donorTypeFields();
     Init.countryRequirements();
-    Init.dedicationFields();
     Init.inMemoryChanges();
   }
 
@@ -97,4 +89,8 @@ $().ready(function() {
     });
     collapsible.render();
   });
+
+  if ($form) {
+    form.initForm($form);
+  }
 });
