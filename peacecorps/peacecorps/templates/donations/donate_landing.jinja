@@ -7,44 +7,12 @@
 
 {% block content %}
 
-{# @todo: We haven't re-implemented the campaign design #}
-{# commenting out the featured campaign logic, since the model has changed.
-{% if featuredcampaign %}
-<div class="full_bg full_bg--lg" style="
-    background-image: url('{{featuredcampaign.featured_image.url}}');
-  ">
-</div>
-<section style="height: 27.75em;">
-  <section class="full_banner"
-      style="margin-top: 15em;">
-      <h2 class="t-blurb--lg">{{featuredcampaign.tagline}}</h2>
-      <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
-         style="margin-bottom: -1.5em"
-         class="button button--md button--secondary">
-        {{featuredcampaign.call}}
-      </a>
-  </section>
-</section>
-<section class="blurb">
-  <h2 class="t-blurb--md t--black">Archer 100 brief inspirational call to
-    action encouraging visitors to give to the general fund.
-  </h2>
-  <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}"
-     class="button button--md button--primary">
-    Give to {{featuredcampaign.name}}
-  </a>
-  <h4 class="t-title--4 blurb__spacing">
-    <a href="{{url("donate campaign", slug=featuredcampaign.slug)}}">
-      Explore projects and funds</a>
-  </h4>
-</section>
-{% else %} #}
-<div class="full_bg full_bg--lg" style="background-image:
-    url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');
+<div class="full_bg full_bg--top" style="background-image:
+    url('{{static("peacecorps/img/landing-top.png")}}');
   ">
 </div>
 {# The navigation should really belong in the base file somehow #}
-<nav class="main_nav" style="margin-top: 37em">
+<nav class="main_nav">
   <ul class="main_nav__list">
     <li class="main_nav__link t-title--4">
       <a href="#featured">
@@ -62,7 +30,6 @@
     Every day, thousands of Peace Corps Volunteers around the world work with local community members to build long-lasting and impactful projects. Through the Peace Corps Partnership Program, you can support these projects, and other Peace Corps programs.
   </div>
 </section>
-{# endif #}
 
 <section class="section">
   <section class="section__content full_banner full_banner--neutral">
@@ -108,7 +75,7 @@
   <section class="section__content">
     <h1 class="t-title--1">Projects &amp; Funds</h1>
     <div class="u-hv_center--block bg_img--centered bg_img--banner"
-         style="background-image: url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');">
+         style="background-image: url('{{static("peacecorps/img/funds-background.png")}}');">
       <a href="{{url("donate projects funds")}}"
          class="button button--sm button--primary u-hv_center--block__content">
          Explore and Give

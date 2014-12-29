@@ -1074,13 +1074,18 @@ html {
  * Z-Index
  */
 .full_bg {
-  background-position-y: 50%;
-  background-size: 100% auto;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 100%;
+  height: 0;
+  padding-bottom: 41.67%;
+  /* 5 / 12 aspect ratio */
+  background-size: 100%;
+  position: relative;
   z-index: -200; }
+
+.full_bg--top {
+  border-bottom: 0.75em solid #F2EFE8;
+  margin-top: -15em;
+  margin-bottom: 2em; }
 
 .full_bg--lg {
   height: 46em; }
