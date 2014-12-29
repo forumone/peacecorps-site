@@ -142,5 +142,6 @@ SIRTREVOR_ATTACHMENT_PROCESSOR = 'contenteditor.imagesizing.resize'
 # Sir Trevor Blocks:
 SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
 
-# Used when generating tweets
+# Used when generating tweets/emails
+SHARE_SUBJECT = "Peacecorps Donation"
 SHARE_TEMPLATE = "I just donated to a great cause! %s"
