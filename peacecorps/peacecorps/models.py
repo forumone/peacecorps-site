@@ -226,7 +226,7 @@ class Media(models.Model):
                 with tempfile.TemporaryFile() as buffer_file:
                     image.thumbnail((width, height), Image.ANTIALIAS)
                     path = os.path.join(
-                        settings.SIRTREVOR_UPLOAD_PATH,
+                        settings.RESIZED_IMAGE_UPLOAD_PATH,
                         filename + '-' + ext + '.' + image.format.lower())
                     image.save(buffer_file, image.format.lower())
                     default_storage.save(path, buffer_file)
