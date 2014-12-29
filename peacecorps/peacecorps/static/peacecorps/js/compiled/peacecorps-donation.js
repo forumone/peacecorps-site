@@ -222,16 +222,6 @@ var Init = {
     }).change();
   },
 
-  //  Donations in dedication to someone have additional fields
-  dedicationFields: function() {
-    var dedication = $('#id_dedication'),
-        dedicationDiv = $('.dedication_details');
-
-    dedication.change(function() {
-      dedicationDiv.toggle(dedication.is(':checked'));
-    }).change();
-  },
-
   //  In-memory donations have a separate field + wording
   inMemoryChanges: function() {
     var honoreeSwap = $('.honoree_swap');
