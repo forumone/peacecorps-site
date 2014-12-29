@@ -13,7 +13,7 @@
 
   <section class="section">
     <form action="" method="post" class="form js-form section__content
-        full_banner full_banner--neutral">
+        full_banner full_banner--neutral full_banner--flush">
       {% csrf_token %}
       <fieldset class="inset--lg">
         <legend><h2>Your information</h2>
@@ -109,10 +109,13 @@
       <fieldset class="inset--lg">
         <legend><h2>Payment Method</h2></legend>
         <div class="form__field">
-            {{form.payment_type.errors}}
-            <label for='id_payment_type' class="form--required form__field__label">
-              </label>
-            <div class="form__field__input">{{form.payment_type}}</div>
+          {{form.payment_type.errors}}
+          <label for='id_payment_type' class="form--required form__field__label">
+            </label>
+          <div class="form__field__input">
+            {{form.payment_type}}
+            <a href="{{ url('donate faqs') }}">pay by check?</a>
+          </div>
         </div>
       </fieldset>
 
@@ -260,11 +263,42 @@
             {{hidden}}
         {% endfor %}
 
-        <div class="u-align_c">
-          <button type="submit" class="button button--primary">
-            Confirm information</button>
-        </div>
       </fieldset>
+
+      <section class="section inset--lg separator separator--t">
+        <div class="form__field form__field--single">
+          <p class="form__text">
+            NOTE: We use Pay.gov as our trusted secure payment processor. We’ll
+            send you on to there and bring you back when you finish.</p>
+
+          <div class="u-align_c form__text section__content">
+            <button type="submit" class="button button--primary">
+              Confirm information</button>
+          </div>
+
+          <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
+          Expiration date:
+          </p>
+
+          <h4 class="form__text">This is a Secure Transaction</h4>
+          <p class="t-body--sm form__text t-break">
+          The secure server software (SSL) that processes Peace Corps donations is
+          the industry standard and among the best software available today for
+          secure commerce transactions. It encrypts all of your personal data
+          including credit card number, name, and address, so that it cannot be
+          read as the information travels over the Internet. You can tell when you
+          are protected by encryption — the lock or key at the bottom of your
+          browser changes color or is no longer broken.
+          </p>
+
+          <h4 class="form__text">Burden Statement</h4>
+          <p class="t-body--sm form__text">
+            Public reporting burden for this collection of information is
+            estimated to average 45 minutes per response
+          </p>
+
+        </div>
+      </section>
 
     </form>
   </section>

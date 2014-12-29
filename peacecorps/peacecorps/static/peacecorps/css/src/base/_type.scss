@@ -285,3 +285,7 @@ a {
 .t-nom {
   margin-bottom: 0;
 }
+
+.t-break {
+  @include rem(margin, 0 0 2rem 0);
+}

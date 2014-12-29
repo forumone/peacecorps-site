@@ -396,6 +396,10 @@ p + p {
 .t-nom {
   margin-bottom: 0; }
 
+.t-break {
+  margin: 0 0 20px 0;
+  margin: 0 0 2rem 0; }
+
 /*
  * Class that has no base to deal with placing background images.
  *
@@ -725,6 +729,8 @@ html {
         text-align: center; } }
   .form fieldset {
     padding: 0; }
+    .form fieldset:last-of-type {
+      margin-bottom: 3em; }
   .form .errorlist {
     font-size: 16px;
     font-size: 1.6rem;
@@ -746,7 +752,7 @@ html {
   width: 68%; }
 
 .form__text {
-  width: 29em; }
+  width: 70%; }
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .form__text {
       width: 100%; } }
@@ -1152,6 +1158,11 @@ html {
   .full_banner--rule + * {
     margin-top: 0;
     padding-top: 0 !important; }
+
+.full_banner--flush {
+  border-bottom: 0; }
+  .full_banner--flush + * {
+    margin-top: 0; }
 
 /*
  * Inset
@@ -1895,6 +1906,9 @@ html {
 /*
  * Z-Index
  */
+.separator {
+  border-color: #ADA598; }
+
 .separator--h {
   margin-top: 1em;
   margin-bottom: 2em; }
@@ -1902,6 +1916,12 @@ html {
     .separator--h {
       margin-top: 0.5em;
       margin-bottom: 1em; } }
+
+.separator--t {
+  border-top-width: 2px;
+  border-top-style: solid;
+  margin-top: 1em;
+  padding-top: 1em; }
 
 .separator--r {
   border-right-width: 2px;
