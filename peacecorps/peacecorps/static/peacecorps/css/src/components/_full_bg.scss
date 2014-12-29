@@ -8,13 +8,18 @@
 @import "globals";
 
 .full_bg {
-  background-position-y: 50%;
-  background-size: 100% auto;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 100%;
+  height: 0;
+  padding-bottom: 41.67%; /* 5 / 12 aspect ratio */
+  background-size: 100%;
+  position: relative;
   z-index: $z_index-bg;
+}
+
+.full_bg--top {
+  border-bottom: 12px solid $neutral_medium;
+  margin-top: -15em;
+  margin-bottom: 2em;
 }
 
 .full_bg--lg {
