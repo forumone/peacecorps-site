@@ -87,11 +87,13 @@ CACHES = {
     },
     'shortterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'TIMEOUT': 60*5    # 5 minutes
+        'TIMEOUT': 60*5,    # 5 minutes
+        'KEY_PREFIX': 'shortterm',
     },
     'midterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'TIMEOUT': 60*60    # 1 hour
+        'TIMEOUT': 60*60,    # 1 hour
+        'KEY_PREFIX': 'midterm',
     }
 }
 
