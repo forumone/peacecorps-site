@@ -1,411 +1,371 @@
-- fields: {category: mem, code: DCC-0123, community_contribution: null, current: 0,
-    goal: null, name: Stephanie Brown}
-  model: peacecorps.account
-  pk: 1
-- fields: {category: coun, code: 305-CFD, community_contribution: null, current: 0,
-    goal: null, name: Albania}
-  model: peacecorps.account
-  pk: 3
-- fields: {category: coun, code: 306-CFD, community_contribution: null, current: 0,
-    goal: null, name: Armenia}
-  model: peacecorps.account
-  pk: 4
-- fields: {category: coun, code: 307-CFD, community_contribution: null, current: 0,
-    goal: null, name: Azerbaijan}
-  model: peacecorps.account
-  pk: 5
-- fields: {category: coun, code: 308-CFD, community_contribution: null, current: 0,
-    goal: null, name: Belize}
-  model: peacecorps.account
-  pk: 6
-- fields: {category: coun, code: 309-CFD, community_contribution: null, current: 0,
-    goal: null, name: Benin}
-  model: peacecorps.account
-  pk: 7
-- fields: {category: coun, code: 310-CFD, community_contribution: null, current: 0,
-    goal: null, name: Botswana}
-  model: peacecorps.account
-  pk: 8
-- fields: {category: coun, code: 311-CFD, community_contribution: null, current: 0,
-    goal: null, name: Burkina Faso}
-  model: peacecorps.account
-  pk: 9
-- fields: {category: coun, code: 312-CFD, community_contribution: null, current: 0,
-    goal: null, name: Cambodia}
-  model: peacecorps.account
-  pk: 10
-- fields: {category: coun, code: 313-CFD, community_contribution: null, current: 0,
-    goal: null, name: Cameroon}
-  model: peacecorps.account
-  pk: 11
-- fields: {category: coun, code: 314-CFD, community_contribution: null, current: 0,
-    goal: null, name: China}
-  model: peacecorps.account
-  pk: 12
-- fields: {category: coun, code: 315-CFD, community_contribution: null, current: 0,
-    goal: null, name: Colombia}
-  model: peacecorps.account
-  pk: 13
-- fields: {category: coun, code: 316-CFD, community_contribution: null, current: 0,
-    goal: null, name: Costa Rica}
-  model: peacecorps.account
-  pk: 14
-- fields: {category: coun, code: 317-CFD, community_contribution: null, current: 0,
-    goal: null, name: Dominican Republic}
-  model: peacecorps.account
-  pk: 15
-- fields: {category: coun, code: 318-CFD, community_contribution: null, current: 0,
-    goal: null, name: Ecuador}
-  model: peacecorps.account
-  pk: 16
-- fields: {category: coun, code: 319-CFD, community_contribution: null, current: 0,
-    goal: null, name: El Salvador}
-  model: peacecorps.account
-  pk: 17
-- fields: {category: coun, code: 320-CFD, community_contribution: null, current: 0,
-    goal: null, name: Ethiopia}
-  model: peacecorps.account
-  pk: 18
-- fields: {category: coun, code: 321-CFD, community_contribution: null, current: 0,
-    goal: null, name: Fiji}
-  model: peacecorps.account
-  pk: 19
-- fields: {category: coun, code: 322-CFD, community_contribution: null, current: 0,
-    goal: null, name: Georgia}
-  model: peacecorps.account
-  pk: 20
-- fields: {category: coun, code: 323-CFD, community_contribution: null, current: 0,
-    goal: null, name: Ghana}
-  model: peacecorps.account
-  pk: 21
-- fields: {category: coun, code: 324-CFD, community_contribution: null, current: 0,
-    goal: null, name: Guatemala}
-  model: peacecorps.account
-  pk: 22
-- fields: {category: coun, code: 325-CFD, community_contribution: null, current: 0,
-    goal: null, name: Guinea}
-  model: peacecorps.account
-  pk: 23
-- fields: {category: coun, code: 326-CFD, community_contribution: null, current: 0,
-    goal: null, name: Guyana}
-  model: peacecorps.account
-  pk: 24
-- fields: {category: coun, code: 327-CFD, community_contribution: null, current: 0,
-    goal: null, name: Indonesia}
-  model: peacecorps.account
-  pk: 25
-- fields: {category: coun, code: 328-CFD, community_contribution: null, current: 0,
-    goal: null, name: Jamaica}
-  model: peacecorps.account
-  pk: 26
-- fields: {category: coun, code: 329-CFD, community_contribution: null, current: 0,
-    goal: null, name: Jordan}
-  model: peacecorps.account
-  pk: 27
-- fields: {category: coun, code: 330-CFD, community_contribution: null, current: 0,
-    goal: null, name: Kenya}
-  model: peacecorps.account
-  pk: 28
-- fields: {category: coun, code: 331-CFD, community_contribution: null, current: 0,
-    goal: null, name: Lesotho}
-  model: peacecorps.account
-  pk: 29
-- fields: {category: coun, code: 332-CFD, community_contribution: null, current: 0,
-    goal: null, name: Liberia}
-  model: peacecorps.account
-  pk: 30
-- fields: {category: coun, code: 333-CFD, community_contribution: null, current: 0,
-    goal: null, name: Macedonia}
-  model: peacecorps.account
-  pk: 31
-- fields: {category: coun, code: 334-CFD, community_contribution: null, current: 0,
-    goal: null, name: Madagascar}
-  model: peacecorps.account
-  pk: 32
-- fields: {category: coun, code: 335-CFD, community_contribution: null, current: 0,
-    goal: null, name: Malawi}
-  model: peacecorps.account
-  pk: 33
-- fields: {category: coun, code: 336-CFD, community_contribution: null, current: 0,
-    goal: null, name: Mexico}
-  model: peacecorps.account
-  pk: 34
-- fields: {category: coun, code: 337-CFD, community_contribution: null, current: 0,
-    goal: null, name: Micronesia}
-  model: peacecorps.account
-  pk: 35
-- fields: {category: coun, code: 338-CFD, community_contribution: null, current: 0,
-    goal: null, name: Moldova}
-  model: peacecorps.account
-  pk: 36
-- fields: {category: coun, code: 339-CFD, community_contribution: null, current: 0,
-    goal: null, name: Mongolia}
-  model: peacecorps.account
-  pk: 37
-- fields: {category: coun, code: 340-CFD, community_contribution: null, current: 0,
-    goal: null, name: Morocco}
-  model: peacecorps.account
-  pk: 38
-- fields: {category: coun, code: 341-CFD, community_contribution: null, current: 0,
-    goal: null, name: Mozambique}
-  model: peacecorps.account
-  pk: 39
-- fields: {category: coun, code: 342-CFD, community_contribution: null, current: 0,
-    goal: null, name: Namibia}
-  model: peacecorps.account
-  pk: 40
-- fields: {category: coun, code: 343-CFD, community_contribution: null, current: 0,
-    goal: null, name: Nepal}
-  model: peacecorps.account
-  pk: 41
-- fields: {category: coun, code: 344-CFD, community_contribution: null, current: 0,
-    goal: null, name: Nicaragua}
-  model: peacecorps.account
-  pk: 42
-- fields: {category: coun, code: 345-CFD, community_contribution: null, current: 0,
-    goal: null, name: Panama}
-  model: peacecorps.account
-  pk: 43
-- fields: {category: coun, code: 346-CFD, community_contribution: null, current: 0,
-    goal: null, name: Paraguay}
-  model: peacecorps.account
-  pk: 44
-- fields: {category: coun, code: 347-CFD, community_contribution: null, current: 0,
-    goal: null, name: Peru}
-  model: peacecorps.account
-  pk: 45
-- fields: {category: coun, code: 348-CFD, community_contribution: null, current: 0,
-    goal: null, name: Philippines}
-  model: peacecorps.account
-  pk: 46
-- fields: {category: coun, code: 349-CFD, community_contribution: null, current: 0,
-    goal: null, name: Rwanda}
-  model: peacecorps.account
-  pk: 47
-- fields: {category: coun, code: 350-CFD, community_contribution: null, current: 0,
-    goal: null, name: Samoa}
-  model: peacecorps.account
-  pk: 48
-- fields: {category: coun, code: 351-CFD, community_contribution: null, current: 0,
-    goal: null, name: Senegal}
-  model: peacecorps.account
-  pk: 49
-- fields: {category: coun, code: 352-CFD, community_contribution: null, current: 0,
-    goal: null, name: Sierra Leone}
-  model: peacecorps.account
-  pk: 50
-- fields: {category: coun, code: 353-CFD, community_contribution: null, current: 0,
-    goal: null, name: South Africa}
-  model: peacecorps.account
-  pk: 51
-- fields: {category: coun, code: 354-CFD, community_contribution: null, current: 0,
-    goal: null, name: Swaziland}
-  model: peacecorps.account
-  pk: 52
-- fields: {category: coun, code: 355-CFD, community_contribution: null, current: 0,
-    goal: null, name: Tanzania}
-  model: peacecorps.account
-  pk: 53
-- fields: {category: coun, code: 356-CFD, community_contribution: null, current: 0,
-    goal: null, name: Thailand}
-  model: peacecorps.account
-  pk: 54
-- fields: {category: coun, code: 357-CFD, community_contribution: null, current: 0,
-    goal: null, name: Togo}
-  model: peacecorps.account
-  pk: 55
-- fields: {category: coun, code: 358-CFD, community_contribution: null, current: 0,
-    goal: null, name: Tonga}
-  model: peacecorps.account
-  pk: 56
-- fields: {category: coun, code: 359-CFD, community_contribution: null, current: 0,
-    goal: null, name: Uganda}
-  model: peacecorps.account
-  pk: 57
-- fields: {category: coun, code: 360-CFD, community_contribution: null, current: 0,
-    goal: null, name: Ukraine}
-  model: peacecorps.account
-  pk: 58
-- fields: {category: coun, code: 361-CFD, community_contribution: null, current: 0,
-    goal: null, name: Vanuatu}
-  model: peacecorps.account
-  pk: 59
-- fields: {category: coun, code: 362-CFD, community_contribution: null, current: 0,
-    goal: null, name: Zambia}
-  model: peacecorps.account
-  pk: 60
-- fields: {category: sec, code: SPF-AGG, community_contribution: null, current: 0,
-    goal: null, name: Agriculture}
-  model: peacecorps.account
-  pk: 61
-- fields: {category: sec, code: SPF-BUS, community_contribution: null, current: 0,
-    goal: null, name: Business Development}
-  model: peacecorps.account
-  pk: 62
-- fields: {category: sec, code: SPF-WAT, community_contribution: null, current: 0,
-    goal: null, name: Water and Sanitation}
-  model: peacecorps.account
-  pk: 63
-- fields: {category: sec, code: SPF-EDU, community_contribution: null, current: 0,
-    goal: null, name: Education}
-  model: peacecorps.account
-  pk: 64
-- fields: {category: sec, code: SPF-ENV, community_contribution: null, current: 0,
-    goal: null, name: Environment}
-  model: peacecorps.account
-  pk: 65
-- fields: {category: sec, code: SPF-HHA, community_contribution: null, current: 0,
-    goal: null, name: Health}
-  model: peacecorps.account
-  pk: 66
-- fields: {category: sec, code: SPF-ICT, community_contribution: null, current: 0,
-    goal: null, name: Information Technology}
-  model: peacecorps.account
-  pk: 67
-- fields: {category: sec, code: SPF-YTH, community_contribution: null, current: 0,
-    goal: null, name: Youth}
-  model: peacecorps.account
-  pk: 68
-- fields: {category: proj, code: 14-680-030, community_contribution: 771459, current: 30000,
-    goal: 1242300, name: Computer Lab for Agricultural School}
-  model: peacecorps.account
-  pk: 69
-- fields: {category: proj, code: 14-524-007, community_contribution: 231000, current: 0,
-    goal: 612000, name: Ultrasound Machine}
-  model: peacecorps.account
-  pk: 70
-- fields: {category: proj, code: 14-635-002, community_contribution: 473823, current: 241471,
-    goal: 411471, name: HIV Bike Trek}
-  model: peacecorps.account
-  pk: 71
-- fields: {category: proj, code: 14-497-004, community_contribution: 117872, current: 214340,
-    goal: 347643, name: Man library}
-  model: peacecorps.account
-  pk: 72
-- fields: {category: proj, code: 14-532-001, community_contribution: 120273, current: 142500,
-    goal: 360163, name: Fencing the Ball Court}
-  model: peacecorps.account
-  pk: 73
-- fields: {category: proj, code: 14-684-020, community_contribution: 105000, current: 200000,
-    goal: 420000, name: Brick Oven Bakery}
-  model: peacecorps.account
-  pk: 74
-- fields: {category: proj, code: 15-527-002, community_contribution: 305279, current: 295130,
-    goal: 661555, name: Build Bathrooms}
-  model: peacecorps.account
-  pk: 75
-- fields: {category: oth, code: pc-general, community_contribution: null, current: 576000,
-    goal: null, name: General}
-  model: peacecorps.account
-  pk: 76
-- fields: {category: proj, code: 15-680-003, community_contribution: 500200, current: 32500,
-    goal: 999500, name: 'Benin Maternity '}
-  model: peacecorps.account
-  pk: 78
-- fields: {category: proj, code: 15-680-002, community_contribution: 1209082, current: 315898,
-    goal: 999898, name: 'Eastern Collines Classrooms Project '}
-  model: peacecorps.account
-  pk: 79
-- fields: {category: proj, code: 14-637-002, community_contribution: 315000, current: 101780,
-    goal: 797780, name: 'Local Preschool '}
+- fields: {category: proj, community_contribution: 172500, current: 67000, goal: 465000,
+    name: 'Local Sports And Activities Education Court '}
+  model: peacecorps.account
+  pk: 14-303-021
+- fields: {category: proj, community_contribution: 117872, current: 214340, goal: 347643,
+    name: Man library}
+  model: peacecorps.account
+  pk: 14-497-004
+- fields: {category: proj, community_contribution: 231000, current: 0, goal: 612000,
+    name: Ultrasound Machine}
+  model: peacecorps.account
+  pk: 14-524-007
+- fields: {category: proj, community_contribution: 193714, current: 30000, goal: 274679,
+    name: 'Shumaq Markantsik '}
+  model: peacecorps.account
+  pk: 14-527-015
+- fields: {category: proj, community_contribution: 120273, current: 142500, goal: 360163,
+    name: Fencing the Ball Court}
+  model: peacecorps.account
+  pk: 14-532-001
+- fields: {category: proj, community_contribution: 473823, current: 241471, goal: 411471,
+    name: HIV Bike Trek}
+  model: peacecorps.account
+  pk: 14-635-002
+- fields: {category: proj, community_contribution: 315000, current: 101780, goal: 797780,
+    name: 'Local Preschool '}
+  model: peacecorps.account
+  pk: 14-637-002
+- fields: {category: proj, community_contribution: 308871, current: 65086, goal: 896586,
+    name: 'Basic School Classrooms Renovation Project '}
+  model: peacecorps.account
+  pk: 14-641-010
+- fields: {category: proj, community_contribution: 1607678, current: 1850774, goal: 2982509,
+    name: 'GLOW Camp Swaziland '}
+  model: peacecorps.account
+  pk: 14-645-003
+- fields: {category: proj, community_contribution: 771459, current: 30000, goal: 1242300,
+    name: Computer Lab for Agricultural School}
   model: peacecorps.account
-  pk: 80
-- fields: {category: proj, code: 14-303-021, community_contribution: 172500, current: 67000,
-    goal: 465000, name: 'Local Sports And Activities Education Court '}
+  pk: 14-680-030
+- fields: {category: proj, community_contribution: 227271, current: 381114, goal: 660114,
+    name: 'Total Sanitation '}
   model: peacecorps.account
-  pk: 81
-- fields: {category: proj, code: 14-641-010, community_contribution: 308871, current: 65086,
-    goal: 896586, name: 'Basic School Classrooms Renovation Project '}
+  pk: 14-684-009
+- fields: {category: proj, community_contribution: 105000, current: 200000, goal: 420000,
+    name: Brick Oven Bakery}
   model: peacecorps.account
-  pk: 82
-- fields: {category: proj, code: 15-520-001, community_contribution: 125458, current: 74988,
-    goal: 157730, name: 'Improved Stoves '}
+  pk: 14-684-020
+- fields: {category: proj, community_contribution: 335459, current: 282001, goal: 996901,
+    name: 'Togo Clean Water Project '}
   model: peacecorps.account
-  pk: 83
-- fields: {category: proj, code: 14-684-009, community_contribution: 227271, current: 381114,
-    goal: 660114, name: 'Total Sanitation '}
+  pk: 14-693-016
+- fields: {category: proj, community_contribution: 500000, current: 143625, goal: 978125,
+    name: 'Rural Primary School '}
   model: peacecorps.account
-  pk: 84
-- fields: {category: proj, code: 15-684-003, community_contribution: 69290, current: 36500,
-    goal: 195470, name: 'Basketball court for HIV/STD education '}
+  pk: 14-693-017
+- fields: {category: proj, community_contribution: 109575, current: 101207, goal: 291960,
+    name: 'Kindergarten Bathroom Renovation Project '}
   model: peacecorps.account
-  pk: 85
-- fields: {category: proj, code: 15-261-002, community_contribution: 160870, current: 255000,
-    goal: 481884, name: 'Improving Opportunities for Exercise at Two Kindergartens '}
+  pk: 15-261-001
+- fields: {category: proj, community_contribution: 160870, current: 255000, goal: 481884,
+    name: 'Improving Opportunities for Exercise at Two Kindergartens '}
   model: peacecorps.account
-  pk: 86
-- fields: {category: proj, code: 15-261-001, community_contribution: 109575, current: 101207,
-    goal: 291960, name: 'Kindergarten Bathroom Renovation Project '}
+  pk: 15-261-002
+- fields: {category: proj, community_contribution: 308243, current: 321500, goal: 499827,
+    name: 'CLIMB (Creating Leadership in the Mountains and Beyond) '}
   model: peacecorps.account
-  pk: 87
-- fields: {category: proj, code: 15-378-007, community_contribution: 648791, current: 25000,
-    goal: 213786, name: 'Recycled Grounds '}
+  pk: 15-378-003
+- fields: {category: proj, community_contribution: 608894, current: 57000, goal: 495509,
+    name: 'Ability Camp '}
   model: peacecorps.account
-  pk: 88
-- fields: {category: proj, code: 15-378-006, community_contribution: 608894, current: 57000,
-    goal: 495509, name: 'Ability Camp '}
+  pk: 15-378-006
+- fields: {category: proj, community_contribution: 648791, current: 25000, goal: 213786,
+    name: 'Recycled Grounds '}
   model: peacecorps.account
-  pk: 89
-- fields: {category: proj, code: 15-378-003, community_contribution: 308243, current: 321500,
-    goal: 499827, name: 'CLIMB (Creating Leadership in the Mountains and Beyond) '}
+  pk: 15-378-007
+- fields: {category: proj, community_contribution: 125458, current: 74988, goal: 157730,
+    name: 'Improved Stoves '}
   model: peacecorps.account
-  pk: 90
-- fields: {category: proj, code: 15-640-004, community_contribution: 323550, current: 0,
-    goal: 910003, name: 'Escolinha San Piedade '}
+  pk: 15-520-001
+- fields: {category: proj, community_contribution: 244975, current: 381057, goal: 662057,
+    name: 'Youth Leadership Camp 2015: Preparing for Tomorrow '}
   model: peacecorps.account
-  pk: 91
-- fields: {category: proj, code: 15-640-002, community_contribution: 66666, current: 43000,
-    goal: 172367, name: 'Sanitation Coalition '}
+  pk: 15-524-002
+- fields: {category: proj, community_contribution: 339834, current: 113184, goal: 916684,
+    name: 'Camp GLOW 2015 '}
   model: peacecorps.account
-  pk: 92
-- fields: {category: proj, code: 15-524-005, community_contribution: 339834, current: 113184,
-    goal: 916684, name: 'Camp GLOW 2015 '}
+  pk: 15-524-005
+- fields: {category: proj, community_contribution: 205000, current: 0, goal: 577000,
+    name: 'Ultimate Without Borders Camp '}
   model: peacecorps.account
-  pk: 93
-- fields: {category: proj, code: 15-524-002, community_contribution: 244975, current: 381057,
-    goal: 662057, name: 'Youth Leadership Camp 2015: Preparing for Tomorrow '}
+  pk: 15-525-001
+- fields: {category: proj, community_contribution: 200000, current: 222100, goal: 461100,
+    name: 'Leadership Development for Global Education Educator''s Seminar '}
   model: peacecorps.account
-  pk: 94
-- fields: {category: proj, code: 15-525-001, community_contribution: 205000, current: 0,
-    goal: 577000, name: 'Ultimate Without Borders Camp '}
+  pk: 15-525-003
+- fields: {category: proj, community_contribution: 232501, current: 237000, goal: 674016,
+    name: 'Campamento Deporte y Vida '}
   model: peacecorps.account
-  pk: 95
-- fields: {category: proj, code: 15-525-003, community_contribution: 200000, current: 222100,
-    goal: 461100, name: 'Leadership Development for Global Education Educator''s Seminar '}
+  pk: 15-526-001
+- fields: {category: proj, community_contribution: 305279, current: 295130, goal: 661555,
+    name: Build Bathrooms}
   model: peacecorps.account
-  pk: 96
-- fields: {category: proj, code: 15-526-001, community_contribution: 232501, current: 237000,
-    goal: 674016, name: 'Campamento Deporte y Vida '}
+  pk: 15-527-002
+- fields: {category: proj, community_contribution: 212187, current: 17000, goal: 279211,
+    name: 'Latrines '}
   model: peacecorps.account
-  pk: 97
-- fields: {category: proj, code: 14-527-015, community_contribution: 193714, current: 30000,
-    goal: 274679, name: 'Shumaq Markantsik '}
+  pk: 15-527-003
+- fields: {category: proj, community_contribution: 335029, current: 157000, goal: 995084,
+    name: 'Community Preschool '}
   model: peacecorps.account
-  pk: 98
-- fields: {category: proj, code: 15-527-003, community_contribution: 212187, current: 17000,
-    goal: 279211, name: 'Latrines '}
+  pk: 15-611-001
+- fields: {category: proj, community_contribution: 66666, current: 43000, goal: 172367,
+    name: 'Sanitation Coalition '}
   model: peacecorps.account
-  pk: 99
-- fields: {category: proj, code: 15-696-001, community_contribution: 305971, current: 0,
-    goal: 679978, name: 'Connecting to the Source '}
+  pk: 15-640-002
+- fields: {category: proj, community_contribution: 323550, current: 0, goal: 910003,
+    name: 'Escolinha San Piedade '}
   model: peacecorps.account
-  pk: 100
-- fields: {category: proj, code: 14-645-003, community_contribution: 1607678, current: 1850774,
-    goal: 2982509, name: 'GLOW Camp Swaziland '}
+  pk: 15-640-004
+- fields: {category: proj, community_contribution: 1209082, current: 315898, goal: 999898,
+    name: 'Eastern Collines Classrooms Project '}
   model: peacecorps.account
-  pk: 101
-- fields: {category: proj, code: 14-693-017, community_contribution: 500000, current: 143625,
-    goal: 978125, name: 'Rural Primary School '}
+  pk: 15-680-002
+- fields: {category: proj, community_contribution: 500200, current: 32500, goal: 999500,
+    name: 'Benin Maternity '}
   model: peacecorps.account
-  pk: 102
-- fields: {category: proj, code: 14-693-016, community_contribution: 335459, current: 282001,
-    goal: 996901, name: 'Togo Clean Water Project '}
+  pk: 15-680-003
+- fields: {category: proj, community_contribution: 69290, current: 36500, goal: 195470,
+    name: 'Basketball court for HIV/STD education '}
   model: peacecorps.account
-  pk: 103
-- fields: {category: proj, code: 15-611-001, community_contribution: 335029, current: 157000,
-    goal: 995084, name: 'Community Preschool '}
+  pk: 15-684-003
+- fields: {category: proj, community_contribution: 305971, current: 0, goal: 679978,
+    name: 'Connecting to the Source '}
   model: peacecorps.account
-  pk: 112
+  pk: 15-696-001
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Albania}
+  model: peacecorps.account
+  pk: 305-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Armenia}
+  model: peacecorps.account
+  pk: 306-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Azerbaijan}
+  model: peacecorps.account
+  pk: 307-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Belize}
+  model: peacecorps.account
+  pk: 308-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Benin}
+  model: peacecorps.account
+  pk: 309-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Botswana}
+  model: peacecorps.account
+  pk: 310-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Burkina
+      Faso}
+  model: peacecorps.account
+  pk: 311-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Cambodia}
+  model: peacecorps.account
+  pk: 312-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Cameroon}
+  model: peacecorps.account
+  pk: 313-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: China}
+  model: peacecorps.account
+  pk: 314-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Colombia}
+  model: peacecorps.account
+  pk: 315-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Costa
+      Rica}
+  model: peacecorps.account
+  pk: 316-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Dominican
+      Republic}
+  model: peacecorps.account
+  pk: 317-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Ecuador}
+  model: peacecorps.account
+  pk: 318-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: El
+      Salvador}
+  model: peacecorps.account
+  pk: 319-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Ethiopia}
+  model: peacecorps.account
+  pk: 320-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Fiji}
+  model: peacecorps.account
+  pk: 321-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Georgia}
+  model: peacecorps.account
+  pk: 322-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Ghana}
+  model: peacecorps.account
+  pk: 323-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Guatemala}
+  model: peacecorps.account
+  pk: 324-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Guinea}
+  model: peacecorps.account
+  pk: 325-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Guyana}
+  model: peacecorps.account
+  pk: 326-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Indonesia}
+  model: peacecorps.account
+  pk: 327-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Jamaica}
+  model: peacecorps.account
+  pk: 328-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Jordan}
+  model: peacecorps.account
+  pk: 329-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Kenya}
+  model: peacecorps.account
+  pk: 330-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Lesotho}
+  model: peacecorps.account
+  pk: 331-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Liberia}
+  model: peacecorps.account
+  pk: 332-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Macedonia}
+  model: peacecorps.account
+  pk: 333-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Madagascar}
+  model: peacecorps.account
+  pk: 334-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Malawi}
+  model: peacecorps.account
+  pk: 335-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Mexico}
+  model: peacecorps.account
+  pk: 336-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Micronesia}
+  model: peacecorps.account
+  pk: 337-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Moldova}
+  model: peacecorps.account
+  pk: 338-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Mongolia}
+  model: peacecorps.account
+  pk: 339-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Morocco}
+  model: peacecorps.account
+  pk: 340-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Mozambique}
+  model: peacecorps.account
+  pk: 341-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Namibia}
+  model: peacecorps.account
+  pk: 342-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Nepal}
+  model: peacecorps.account
+  pk: 343-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Nicaragua}
+  model: peacecorps.account
+  pk: 344-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Panama}
+  model: peacecorps.account
+  pk: 345-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Paraguay}
+  model: peacecorps.account
+  pk: 346-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Peru}
+  model: peacecorps.account
+  pk: 347-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Philippines}
+  model: peacecorps.account
+  pk: 348-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Rwanda}
+  model: peacecorps.account
+  pk: 349-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Samoa}
+  model: peacecorps.account
+  pk: 350-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Senegal}
+  model: peacecorps.account
+  pk: 351-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Sierra
+      Leone}
+  model: peacecorps.account
+  pk: 352-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: South
+      Africa}
+  model: peacecorps.account
+  pk: 353-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Swaziland}
+  model: peacecorps.account
+  pk: 354-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Tanzania}
+  model: peacecorps.account
+  pk: 355-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Thailand}
+  model: peacecorps.account
+  pk: 356-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Togo}
+  model: peacecorps.account
+  pk: 357-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Tonga}
+  model: peacecorps.account
+  pk: 358-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Uganda}
+  model: peacecorps.account
+  pk: 359-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Ukraine}
+  model: peacecorps.account
+  pk: 360-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Vanuatu}
+  model: peacecorps.account
+  pk: 361-CFD
+- fields: {category: coun, community_contribution: null, current: 0, goal: null, name: Zambia}
+  model: peacecorps.account
+  pk: 362-CFD
+- fields: {category: mem, community_contribution: null, current: 0, goal: null, name: Stephanie
+      Brown}
+  model: peacecorps.account
+  pk: DCC-0123
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Agriculture
+      Fund}
+  model: peacecorps.account
+  pk: SPF-AGG
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Business
+      Development Fund}
+  model: peacecorps.account
+  pk: SPF-BUS
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Education
+      Fund}
+  model: peacecorps.account
+  pk: SPF-EDU
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Environment
+      Fund}
+  model: peacecorps.account
+  pk: SPF-ENV
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Ruppe
+      Gender Development Fund}
+  model: peacecorps.account
+  pk: SPF-GND
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Health
+      and HIV/AIDS Fund}
+  model: peacecorps.account
+  pk: SPF-HHA
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Information
+      & Communication Technology Fund}
+  model: peacecorps.account
+  pk: SPF-ICT
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Municipal
+      Development Fund}
+  model: peacecorps.account
+  pk: SPF-MDF
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Stomping
+      Out Malaria in Africa}
+  model: peacecorps.account
+  pk: SPF-MLR
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Drinking
+      Water and Sanitation Fund}
+  model: peacecorps.account
+  pk: SPF-WAT
+- fields: {category: sec, community_contribution: null, current: 0, goal: null, name: Youth
+      Fund}
+  model: peacecorps.account
+  pk: SPF-YTH
+- fields: {category: oth, community_contribution: null, current: 576000, goal: null,
+    name: General}
+  model: peacecorps.account
+  pk: pc-general
 - fields:
     account: 307-CFD
     call: null
@@ -1390,6 +1350,143 @@
   model: peacecorps.campaign
   pk: 58
 - fields:
+    account: SPF-AGG
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to the Agriculture
+      Fund support one of the most basic needs of communities worldwide: safe and
+      sustainable food production.  Agriculture projects target areas such as community
+      food production systems, pesticide safety, crop production, animal husbandry,
+      apiculture, agriculture marketing, farm economics, and formation of agricultural
+      cooperatives.  As food security continues to be a global concern, it is imperative
+      to support communities'' agricultural development."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Agriculture Fund
+    slug: agriculture-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 61
+- fields:
+    account: SPF-BUS
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Volunteers are posted throughout
+      the developing world to help local businesses thrive in ways they never thought
+      possible. Increasing the opportunities presented to local businesses promotes
+      a sense of empowerment that can truly change a community. Contributions to this
+      fund will support Volunteer and community projects such as microfinance, agribusiness,
+      business education, and artisan collectives."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Business Development Fund
+    slug: business-development-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 62
+- fields:
+    account: SPF-WAT
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"The very basic needs of
+      clean water and accessible sanitation are absent from many communities around
+      the world. This often leads to severe community health problems. Volunteers
+      work with their communities to design locally appropriate solutions to provide
+      safe, affordable, and sustainable water and sanitation. Contributions to this
+      fund will help Volunteer and community projects such as latrines, aqueducts
+      and wells, and basic sanitation training."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Drinking Water and Sanitation Fund
+    slug: drinking-water-sanitation-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 63
+- fields:
+    account: SPF-EDU
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Throughout the developing
+      world, Peace Corps Volunteers are working in their communities to share the
+      precious gift of education.  Often Volunteers'' dedication to teaching is matched
+      by a severe lack of supplies and facilities in which to help. Contributions
+      to this fund will help Volunteer and community projects such as school construction,
+      English language training, school and library material, and adult literacy."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Education Fund
+    slug: education-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 64
+- fields:
+    account: SPF-ENV
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Communities around the world
+      are challenged by the need to improve their development in an environmentally
+      sustainable way. Peace Corps Volunteers are working with their communities to
+      show that sustainable environmental management is not only good stewardship,
+      but can be an engine of future economic growth.  Contributions to this fund
+      will help Volunteer and community projects such as environmental conservation
+      and ecotourism."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Environment Fund
+    slug: environment-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 65
+- fields:
+    account: SPF-HHA
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Donations to the Health
+      and HIV/AIDS Fund will help combat global health issues such as poor nutrition,
+      the spread of infectious diseases, and the devastating social and economic impact
+      of HIV/AIDS. In order to help alleviate these problems, Volunteers and their
+      host communities are planning and implementing projects which focus on preventative
+      health care, nutrition, and disease prevention and mitigation. The range of
+      activities includes immunizations; nutrition and growth monitoring; promotion
+      of breast-feeding; access to prenatal and postnatal care; training health workers;
+      development of public awareness material; and culturally appropriate education
+      strategies."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Health and HIV/AIDS Fund
+    slug: health-hivaids-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 66
+- fields:
+    account: SPF-ICT
+    call: null
+    campaigntype: sec
+    country: null
+    description: '{"data":[{"type":"text","data":{"text":"Peace Corps Volunteers are
+      working with men and women in communities throughout the developing world to
+      help them gain access to information technology skills and resources. Consistent
+      with all Peace Corps volunteer work, their efforts are aimed at the promotion
+      of social and economic development and the reduction of poverty. To this aim,
+      volunteers are using IT to enhance existing small, local entrepreneurial efforts,
+      in order to allow once isolated communities to link to the world and find and
+      capitalize on opportunities once completely out of their reach. Contributions
+      to this fund will support Community and Volunteer projects such as creating
+      school and public computer labs and teaching computer skills."}}]}'
+    featuredprojects: []
+    icon: null
+    name: Information & Communication Technology Fund
+    slug: information-communication-technology-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 67
+- fields:
     account: pc-general
     call: null
     campaigntype: gen
@@ -1412,167 +1509,79 @@
   model: peacecorps.campaign
   pk: 68
 - fields:
-    account: SPF-EDU
-    call: Support Education Projects
+    account: SPF-MDF
+    call: null
     campaigntype: sec
     country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Throughout the developing
-      world, Peace Corps Volunteers are working in their communities to share the
-      precious gift of education. Often Volunteers'' dedication to teaching is matched
-      by a severe lack of supplies and facilities in which to help. Contributions
-      to this fund will help Volunteer and community projects such as school construction,
-      English language training, school and library material, and adult literacy."}}]}'
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to the Municipal
+      Development Fund will support overarching capacity building across all sectors,
+      such as health, education, and waste management.  Projects range from improving
+      public spaces and buildings, like classrooms, clinics, and parks to promoting
+      civic education and participation in municipal decisions.  Municipal projects
+      area foundation on which communities can increase their civic engagement and
+      ultimately their overall economic development."}}]}'
     featuredprojects: []
-    icon: 26
-    name: Education
-    slug: education
-    tagline: Peace Corps Volunteers are working in their communities to share the
-      precious gift of education.
+    icon: null
+    name: Municipal Development Fund
+    slug: municipal-development-fund
+    tagline: null
   model: peacecorps.campaign
   pk: 69
 - fields:
-    account: SPF-YTH
-    call: Support Youth Projects
+    account: SPF-GND
+    call: null
     campaigntype: sec
     country: null
-    description: '{"data": [{"type": "text", "data": {"text": "In communities that
-      face very basic struggles, the specific needs of children and young adults often
-      go unaddressed. Peace Corps Volunteers work with local youths to improve their
-      education opportunities, make them aware of health and cultural issues they
-      will face, and engage them in activities that will help them grow. Contributions
-      to this fund will help Volunteer and community projects such as camps, recreation
-      centers, and after school clubs and sports."}}]}'
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to this Fund
+      are committed to community-initiated and Volunteer-led projects such as establishing
+      women''s cooperatives, increasing women''s access to resources and services,
+      exploring gender roles, building shelters, and increasing training programs.
+      The Loret Miller Ruppe and Loret, Jr. Fund for the Advancement of Women was
+      established to celebrate the lives of Loret Miller Ruppe who was the longest
+      serving Director in Peace Corps history and Loret Jr., her daughter.  Loret
+      Miller Ruppe served as Director from 1981-89 and was a great, vocal advocate
+      for the Peace Corps'' mission of \"world peace and friendship\" both globally
+      and domestically. Her passion for service inspired her daughter, Loret, Jr.,
+      to serve as a Peace Corps Volunteer in Nepal. Their vision and hard work brought
+      hope to communities around the world, especially for women.\n\nTo honor the
+      outstanding contributions of Loret Miller Ruppe, this fund was established with
+      a generous grant from her family to assist Peace Corps volunteers who wish to
+      carry on the work that was so important to her: the empowerment of women and
+      girls around the world.\n\nTo celebrate the life and service of Loret, Jr.,
+      the fund now highlights projects supporting girls'' education and camps for
+      girls."}}]}'
     featuredprojects: []
-    icon: 22
-    name: Youth
-    slug: youth
-    tagline: Improve education and health for children and youth around the world.
+    icon: null
+    name: Ruppe Gender Development Fund
+    slug: ruppe-gender-development-fund
+    tagline: null
   model: peacecorps.campaign
   pk: 70
 - fields:
-    account: SPF-ICT
-    call: Support Technology Projects
+    account: SPF-MLR
+    call: null
     campaigntype: sec
     country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Peace Corps Volunteers
-      are working with men and women in communities throughout the developing world
-      to help them gain access to information technology skills and resources. Consistent
-      with all Peace Corps volunteer work, their efforts are aimed at the promotion
-      of social and economic development and the reduction of poverty. To this aim,
-      volunteers are using IT to enhance existing small, local entrepreneurial efforts,
-      in order to allow once isolated communities to link to the world and find and
-      capitalize on opportunities once completely out of their reach. Contributions
-      to this fund will support Community and Volunteer projects such as creating
-      school and public computer labs and teaching computer skills."}}]}'
+    description: "{\"data\":[{\"type\":\"text\",\"data\":{\"text\":\"The Peace Corps
+      Malaria Initiative for Africa is a targeted support program for malaria prevention
+      activities across sub-Saharan Africa. Contributions to the Fund support community
+      identified, volunteer facilitated malaria prevention Peace Corps Partnership
+      Program projects such as training community health workers in malaria diagnosis
+      and treatment, creating small businesses selling mosquito repellent cr\xE8mes,
+      delivering insecticide treated nets, providing education to thousands of community
+      members on how to protect oneself from malaria and many more.\\n\\nAccording
+      to WHO statistics, Malaria kills 750,000 people annually and while large scale
+      international efforts have seen notable success in the last decade, malaria
+      is still the scourge of much of Africa.  Contributions to the Fund allow volunteers
+      and their communities to pilot the next round of innovative best practices which
+      will inform malaria prevention world-wide.\"}}]}"
     featuredprojects: []
-    icon: 23
-    name: Technology
-    slug: technology
-    tagline: Enhance existing local entrepreneurial efforts, create school and public
-      computer labs, and teaching computer skills.
+    icon: null
+    name: Stomping Out Malaria in Africa
+    slug: stomping-out-malaria-africa
+    tagline: null
   model: peacecorps.campaign
   pk: 71
-- fields:
-    account: SPF-HHA
-    call: Support Health Projects
-    campaigntype: sec
-    country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Donations to the Health
-      and HIV/AIDS Fund will help combat global health issues such as poor nutrition,
-      the spread of infectious diseases, and the devastating social and economic impact
-      of HIV/AIDS. In order to help alleviate these problems, Volunteers and their
-      host communities are planning and implementing projects which focus on preventative
-      health care, nutrition, and disease prevention and mitigation. The range of
-      activities includes immunizations; nutrition and growth monitoring; promotion
-      of breast-feeding; access to prenatal and postnatal care; training health workers;
-      development of public awareness material; and culturally appropriate education
-      strategies."}}]}'
-    featuredprojects: []
-    icon: 24
-    name: Health
-    slug: health
-    tagline: Combat global health issues such as poor nutrition, the spread of infectious
-      diseases, and the devastating impact of HIV/AIDS.
-  model: peacecorps.campaign
-  pk: 72
-- fields:
-    account: SPF-ENV
-    call: Support Environmental Projects
-    campaigntype: sec
-    country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Communities around
-      the world are challenged by the need to improve their development in an environmentally
-      sustainable way. Peace Corps Volunteers are working with their communities to
-      show that sustainable environmental management is not only good stewardship,
-      but can be an engine of future economic growth. Contributions to this fund will
-      help Volunteer and community projects such as environmental conservation and
-      ecotourism."}}]}'
-    featuredprojects: []
-    icon: 25
-    name: Environment Fund
-    slug: environment-fund
-    tagline: 'Environmental stewardship spurs economic growth. '
-  model: peacecorps.campaign
-  pk: 73
-- fields:
-    account: SPF-WAT
-    call: Support Water Projects
-    campaigntype: sec
-    country: null
-    description: '{"data": [{"type": "text", "data": {"text": "<p>The very basic needs
-      of clean water and accessible sanitation are absent from many communities around
-      the world. This often leads to severe community health problems. Volunteers
-      work with their communities to design locally appropriate solutions to provide
-      safe, affordable, and sustainable water and sanitation. Contributions to this
-      fund will help Volunteer and community projects such as latrines, aqueducts
-      and wells, and basic sanitation training.</p>"}}]}'
-    featuredprojects: []
-    icon: 27
-    name: Drinking Water and Sanitation
-    slug: drinking-water-and-sanitation-fund
-    tagline: Safe, affordable, and sustainable water and sanitation are vital to communities
-      worldwide.
-  model: peacecorps.campaign
-  pk: 74
-- fields:
-    account: SPF-BUS
-    call: Support Business Development Projects
-    campaigntype: sec
-    country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Volunteers are posted
-      throughout the developing world to help local businesses thrive in ways they
-      never thought possible. Increasing the opportunities presented to local businesses
-      promotes a sense of empowerment that can truly change a community. Contributions
-      to this fund will support Volunteer and community projects such as microfinance,
-      agribusiness, business education, and artisan collectives."}}]}'
-    featuredprojects: []
-    icon: 28
-    name: Business Development
-    slug: business-development
-    tagline: Increasing opportunities for local businesses promotes a sense of empowerment
-      that can transform a community.
-  model: peacecorps.campaign
-  pk: 75
-- fields:
-    account: SPF-AGG
-    call: Support Agriculture Projects
-    campaigntype: sec
-    country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
-      Agriculture Fund support one of the most basic needs of communities worldwide:
-      safe and sustainable food production. Agriculture projects target areas such
-      as community food production systems, pesticide safety, crop production, animal
-      husbandry, apiculture, agriculture marketing, farm economics, and formation
-      of agricultural cooperatives. As food security continues to be a global concern,
-      it is imperative to support communities'' agricultural development.\r\n"}}]}'
-    featuredprojects: []
-    icon: 29
-    name: Agriculture
-    slug: agriculture
-    tagline: Safe and sustainable food production is one of the most basic needs of
-      communities worldwide.
-  model: peacecorps.campaign
-  pk: 76
 - fields:
     account: DCC-0123
     call: ''
@@ -1595,6 +1604,39 @@
     tagline: ''
   model: peacecorps.campaign
   pk: 77
+- fields: {campaign: 61}
+  model: peacecorps.sectormapping
+  pk: Agriulture
+- fields: {campaign: 62}
+  model: peacecorps.sectormapping
+  pk: Business Development
+- fields: {campaign: 64}
+  model: peacecorps.sectormapping
+  pk: Education
+- fields: {campaign: 65}
+  model: peacecorps.sectormapping
+  pk: Environment
+- fields: {campaign: 70}
+  model: peacecorps.sectormapping
+  pk: Gender and Development
+- fields: {campaign: 66}
+  model: peacecorps.sectormapping
+  pk: Health and HIV/AIDS
+- fields: {campaign: 67}
+  model: peacecorps.sectormapping
+  pk: IT
+- fields: {campaign: 71}
+  model: peacecorps.sectormapping
+  pk: Malaria Prevention
+- fields: {campaign: 69}
+  model: peacecorps.sectormapping
+  pk: Municipal Development
+- fields: {campaign: 63}
+  model: peacecorps.sectormapping
+  pk: Water & Sanitation
+- fields: {campaign: 68}
+  model: peacecorps.sectormapping
+  pk: Youth Development
 - fields: {code: USA, name: United States}
   model: peacecorps.country
   pk: 1
@@ -2305,7 +2347,7 @@
 - fields:
     abstract: null
     account: 14-680-030
-    campaigns: [10, 13, 7]
+    campaigns: [7, 10, 13]
     country: 20
     description: '{"data": [{"type": "text", "data": {"text": "<p>Students at the
       agricultural secondary school, spend their days accumulating knowledge and practice
@@ -2538,7 +2580,7 @@
 - fields:
     abstract: null
     account: 15-527-002
-    campaigns: [12, 9]
+    campaigns: [9, 12]
     country: 136
     description: '{"data": [{"type": "text", "data": {"text": "<p>Our community does
       not have a basic sanitation system which forces the 22 households to use their
@@ -3780,9 +3822,73 @@
 - fields:
     campaigns: [69]
     icon: ./Children-by-Sarah-Rudkin-CC-BY-3_5hvBVba.png
+    icon_background: ''
     name: Education
   model: peacecorps.issue
   pk: 1
+- fields:
+    campaigns: [64]
+    icon: icons/education.svg
+    icon_background: icons/education_bg.png
+    name: Education
+  model: peacecorps.issue
+  pk: 2
+- fields:
+    campaigns: [68]
+    icon: icons/youth.svg
+    icon_background: icons/youth_bg.png
+    name: Youth
+  model: peacecorps.issue
+  pk: 3
+- fields:
+    campaigns: [70]
+    icon: icons/women.svg
+    icon_background: icons/women_bg.png
+    name: Women & Gender
+  model: peacecorps.issue
+  pk: 4
+- fields:
+    campaigns: [66, 71]
+    icon: icons/health.svg
+    icon_background: icons/health_bg.png
+    name: Health
+  model: peacecorps.issue
+  pk: 5
+- fields:
+    campaigns: [67]
+    icon: icons/technology.svg
+    icon_background: icons/technology_bg.png
+    name: Technology
+  model: peacecorps.issue
+  pk: 6
+- fields:
+    campaigns: [62]
+    icon: icons/business.svg
+    icon_background: icons/business_bg.png
+    name: Business
+  model: peacecorps.issue
+  pk: 7
+- fields:
+    campaigns: [65]
+    icon: icons/environment.svg
+    icon_background: icons/environment_bg.png
+    name: Environment
+  model: peacecorps.issue
+  pk: 8
+- fields:
+    campaigns: [61]
+    icon: icons/agriculture.svg
+    icon_background: icons/agriculture_bg.png
+    name: Agriculture
+  model: peacecorps.issue
+  pk: 9
+- fields:
+    campaigns: [69]
+    icon: icons/community.svg
+    icon_background: icons/community_bg.png
+    name: Community Growth
+  model: peacecorps.issue
+  pk: 10
 - fields: {answer: '{"data":[{"type":"text","data":{"text":"CHANGE?!!!"}}]}', order: 2,
     question: 'How many python programmers does it take to change a light bulb?'}
   model: peacecorps.faq

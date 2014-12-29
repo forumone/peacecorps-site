@@ -8,9 +8,13 @@ def make_code_cp(model_name, field_name):
     """Copy over accounts from an int id to a str id"""
     def inner(apps, schema_editor):
         for model in apps.get_model("peacecorps", model_name).objects.all():
-            code = getattr(model, field_name).code
-            setattr(model, field_name + "_tmp", code)
-            model.save()
+            try:
+                code = getattr(model, field_name).code
+                setattr(model, field_name + "_tmp", code)
+                model.save()
+            except AttributeError: # (overflow can be None)
+                setattr(model, field_name + "_tmp", None)
+                model.save()
     return inner
 
 
@@ -19,11 +23,14 @@ def make_rev_code_cp(model_name, field_name):
     dealing with varchars, we'll need to do lookups"""
     def inner(apps, schema_editor):
         for model in apps.get_model("peacecorps", model_name).objects.all():
-            code = getattr(model, field_name + "_tmp")
-            setattr(model, field_name,
-                    apps.get_model("peacecorps", "account").objects.get(
-                        code=code))
-            model.save()
+            try:
+                code = getattr(model, field_name + "_tmp")
+                setattr(model, field_name,
+                        apps.get_model("peacecorps", "account").objects.get(
+                            code=code))
+                model.save()
+            except DoesNotExist: # (overflow can be None)
+                setattr(model, field_name, None)
     return inner
 
 
