@@ -222,6 +222,7 @@ class AbstractReturn(DetailView):
                         kwargs={'slug': context['object'].slug})
         context['share_url'] = path
         context['share_text'] = settings.SHARE_TEMPLATE % path
+        context['share_subject'] = settings.SHARE_SUBJECT
         return context
 
 
