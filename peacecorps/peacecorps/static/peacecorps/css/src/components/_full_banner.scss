@@ -56,3 +56,12 @@
     padding-top: 0 !important;
   }
 }
+
+.full_banner--flush {
+  border-bottom: 0;
+
+  & + * {
+    margin-top: 0;
+  }
+}
+

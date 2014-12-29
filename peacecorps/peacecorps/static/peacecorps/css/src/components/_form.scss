@@ -42,6 +42,10 @@ form ul {
 
   fieldset {
     padding: 0;
+
+    &:last-of-type {
+      margin-bottom: 3em;
+    }
   }
 
   .errorlist {
@@ -75,7 +79,7 @@ form ul {
 }
 
 .form__text {
-  width: 29em;
+  width: 70%;
   @include media($sm) {
     width: 100%;
   }
