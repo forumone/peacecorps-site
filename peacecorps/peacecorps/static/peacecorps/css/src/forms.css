@@ -1,0 +1,12 @@
+@import url('widgets.css');
+
+label {
+    font-weight: normal !important;
+    color: #2E2E2E;
+    font-size: 12px;
+}
+
+.required label, label.required {
+    font-weight: bold !important;
+    color: #333 !important;
+}

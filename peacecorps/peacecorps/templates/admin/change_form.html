@@ -1,0 +1,7 @@
+{% extends "/Users/annaleeflowerhorne/.virtualenvs/pc/lib/python3.4/site-packages/django/contrib/admin/templates/admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "peacecorps/css/src/forms.css" %}" />
+{% endblock %}
