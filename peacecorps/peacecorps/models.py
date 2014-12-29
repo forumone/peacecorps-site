@@ -28,6 +28,26 @@ def humanize_amount(amount_cents):
     return "${:,.2f}".format(amount_dollars)
 
 
+def imagesave(description):
+    """Saves images from Sir Trevor fields to the media model."""
+    description = json.loads(description)
+
+    for block in description['data']:
+        if block['type'] == 'image508':
+            title = block['data']['image_title']
+            thisfile = "foo"
+            desc = block['data']['image_description']
+
+            thisimage = Media(
+                title=title,
+                file=thisfile,
+                mediatype=Media.IMAGE,
+                description=desc,)
+            thisimage.save()
+
+    return True
+
+
 class Account(models.Model):
     COUNTRY = 'coun'
     MEMORIAL = 'mem'
@@ -283,6 +303,10 @@ class Project(models.Model):
                 slug__startswith=self.slug).order_by('-pk').first()
             if existing:
                 self.slug = self.slug + str(existing.pk)
+
+        """Save images to the Media model"""
+        # imagesave(self.description)
+
         super(Project, self).save(*args, **kwargs)
 
     def issue(self, check_cache=True):
