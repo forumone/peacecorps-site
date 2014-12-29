@@ -215,21 +215,21 @@ class Media(models.Model):
         return '%s' % (self.title)
 
     def save(self, *args, **kwargs):
-        SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
-         ('thm', 300, 300))
+        if self.mediatype == Media.IMAGE:
+            SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
+             ('thm', 300, 300))
 
-        filename = slugify(self.title)
-        image = Image.open(self.file)
+            filename = slugify(self.title)
+            image = Image.open(self.file)
 
-        for ext, width, height in SIZES:
-            with tempfile.TemporaryFile() as buffer_file:
-                image.thumbnail((width, height), Image.ANTIALIAS)
-                path = os.path.join(
-                    settings.SIRTREVOR_UPLOAD_PATH,
-                    filename + '-' + ext + '.' + image.format.lower())
-                image.save(buffer_file, image.format.lower())
-                default_storage.save(path, buffer_file)
-
+            for ext, width, height in SIZES:
+                with tempfile.TemporaryFile() as buffer_file:
+                    image.thumbnail((width, height), Image.ANTIALIAS)
+                    path = os.path.join(
+                        settings.SIRTREVOR_UPLOAD_PATH,
+                        filename + '-' + ext + '.' + image.format.lower())
+                    image.save(buffer_file, image.format.lower())
+                    default_storage.save(path, buffer_file)
         super(Media, self).save(*args, **kwargs)
 
     @property
