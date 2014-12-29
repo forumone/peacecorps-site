@@ -4,7 +4,7 @@
     <fieldset class="bubble_form">
       <legend class="t-title--3 t-nom">Give to this project</legend>
       {% if IS_PROJECT %}
-        <span>{{ humanize_amount(account.remaining()) }}
+        <span>{{ humanize_cents(account.remaining()) }}
           to meet goal</span>
       {% endif %}
       {{ donate_form.payment_amount.errors }}

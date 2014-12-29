@@ -35,13 +35,13 @@
           </span>
       </section>
       <section class="u-align_c inline_grid--15">
-        {% set percent_completed = project.account.percent_funded() %}
+        {% set percent_raised = project.account.percent_raised() %}
         <div class="radialProgress u-h_center--block"
-          {% if percent_completed < 50 %}
-            {% set deg = 90 + (3.6 * percent_completed) %}
+          {% if percent_raised < 50 %}
+            {% set deg = 90 + (3.6 * percent_raised) %}
           style="background-image: linear-gradient(90deg, #F2EFE8 50%, transparent 50%, transparent), linear-gradient({{ deg }}deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
           {% else %}
-            {% set deg = -90 + (3.6 * (percent_completed - 50)) %}
+            {% set deg = -90 + (3.6 * (percent_raised - 50)) %}
           style="background-image: linear-gradient({{ deg }}deg, #A12122 50%, transparent 50%, transparent), linear-gradient(270deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
           {% endif %}
         >
@@ -49,8 +49,8 @@
           </div>
         </div>
         <span class="t-body--sm">
-          {{ project.account.remaining() }} needed to reach
-          {{ project.account.goal }} goal
+          {{ humanize_cents(project.account.remaining()) }} needed to reach
+          {{ humanize_cents(project.account.total_cost()) }} goal
         </span>
       </section>
     </div>

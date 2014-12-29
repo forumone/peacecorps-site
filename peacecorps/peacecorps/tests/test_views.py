@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
 
 from peacecorps.models import Account, Campaign, Country, FAQ, Media, Project
-from peacecorps.views import humanize_amount
 
 
 class DonationsTests(TestCase):
@@ -81,12 +80,6 @@ class DonationsTests(TestCase):
         #   Also verify that the http host has been added
         donorinfo = account.donorinfos.get()
         self.assertTrue('://example.com' in donorinfo.xml)
-
-    def test_humanize_amount(self):
-        """ The humanize_amount function converts an amount in cents into
-        something that's human readable. """
-        self.assertEqual(humanize_amount(1520), '$15.20')
-        self.assertEqual(humanize_amount(0), '$0.00')
 
     def test_bad_request_donations(self):
         """ The donation information page should 400 if donation amount and

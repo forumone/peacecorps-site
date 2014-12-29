@@ -6,7 +6,8 @@ from uuid import uuid4
 from django.conf import settings
 from django.core.urlresolvers import reverse
 
-from peacecorps.models import Account, DonorInfo, humanize_amount
+from peacecorps.models import Account, DonorInfo
+from peacecorps.templatetags.humanize_cents import humanize_cents
 
 
 def add_subelements(parent, data, elements):
@@ -21,7 +22,7 @@ def generate_agency_memo(data):
     memo += '(' + data.get('comments', '').strip() + ')'
     memo += '(' + data.get('phone_number', '').strip() + ')'
 
-    amount = humanize_amount(data['payment_amount'])
+    amount = humanize_cents(data['payment_amount'])
     memo += '(%s, %s)' % (data['project_code'], amount)
 
     if data.get('information_consent'):
