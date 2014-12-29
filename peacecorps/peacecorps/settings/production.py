@@ -24,7 +24,7 @@ MIDDLEWARE_CLASSES = (
 
 MEMCACHED_URL = os.environ.get('MEMCACHED_URL', '')
 if MEMCACHED_URL:
-    _backend = 'django.core.cache.backends.memcached.MemcachedCache'
+    _backend = 'django_elasticache.memcached.ElastiCache'
     CACHES['shortterm']['BACKEND'] = _backend
     CACHES['shortterm']['LOCATION'] = MEMCACHED_URL
     CACHES['midterm']['BACKEND'] = _backend
