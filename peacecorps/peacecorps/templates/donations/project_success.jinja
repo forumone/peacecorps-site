@@ -1,4 +1,5 @@
 {% extends "donations/base.jinja" %}
+{% from "donations/includes/macros.jinja" import volunteer_photo %}
 
 {% block title %}Peace Corps | Thank You{% endblock %}
 {% block header %}Peace Corps | Thank You{% endblock %}
@@ -41,14 +42,14 @@
       <h3>{{project.title}}</h2>
       <section class="blurb">
         <section class="u-align_c">
-            <div class="mask mask--oval mask--bordered u-h_center--block">
-              <img class="mask__content"
-                   src="{{project.volunteerpicture.url}}"
-                   alt="{{project.volunteerpicture.description}}">
-            </div>
-          <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
-            volunteer from <strong>{{project.volunteerhomestate}}</strong>
-          </span>
+          <div class="mask mask--oval mask--bordered u-h_center--block">
+            {{ volunteer_photo(project) }}
+          </div>
+          {% if project.volunteerpicture %}
+            <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+              volunteer from <strong>{{project.volunteerhomestate}}</strong>
+            </span>
+          {% endif %}
         </section>
         <section class="u-align_c">
           <div class="mask mask--oval mask--bordered u-h_center--block map">

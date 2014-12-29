@@ -1,3 +1,5 @@
+{% from "donations/includes/macros.jinja" import volunteer_photo %}
+
 <div class="full_bg full_bg--lg" style="height: 37em;
     background-image: url('{{ project.featured_image.url or '' }}');
   ">
@@ -13,14 +15,14 @@
 
     <div class="inline_grid l-bm--3 u-clearfix">
       <section class="u-align_c inline_grid--15">
-          <div class="mask mask--oval mask--bordered u-h_center--block">
-            <img class="mask__content"
-                 src="{{project.volunteerpicture.url}}"
-                 alt="{{project.volunteerpicture.description}}">
-          </div>
-        <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
-          volunteer from <strong>{{project.volunteerhomestate}}</strong>
-        </span>
+        <div class="mask mask--oval mask--bordered u-h_center--block">
+          {{ volunteer_photo(project) }}
+        </div>
+        {% if project.volunteerpicture %}
+          <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+            volunteer from <strong>{{project.volunteerhomestate}}</strong>
+          </span>
+        {% endif %}
       </section>
       <section class="u-align_c inline_grid--15">
         <div class="mask mask--oval mask--bordered u-h_center--block map">
