@@ -90,18 +90,27 @@ test('init', function(t) {
 });
 
 test('render', function(t) {
-  t.test('should hide the element', function(t) {
+  t.test('should hide the element unless told not to', function(t) {
     var $testEl,
         actual,
         testCollapsible;
 
     $testEl = $('<div class="callapseMe"></div>');
+
     testCollapsible = new Collapsible($testEl);
     testCollapsible.render();
-
     actual = testCollapsible.$el.attr('aria-hidden');
-
     t.equals(actual, 'true', 'Element has the hidden class');
+
+    testCollapsible = new Collapsible($testEl, null, {startOpen: false});
+    testCollapsible.render();
+    actual = testCollapsible.$el.attr('aria-hidden');
+    t.equals(actual, 'true', 'Element has the hidden class');
+
+    testCollapsible = new Collapsible($testEl, null, {startOpen: true});
+    testCollapsible.render();
+    actual = testCollapsible.$el.attr('aria-hidden');
+    t.equals(actual, 'false', 'Element does not have the hidden class');
 
     t.end();
   });
