@@ -1,48 +1,101 @@
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment.\n"}}]}', order: 2, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Yes. All gifts or
+      bequests to the Peace Corps are gifts to the United States for
+      exclusively public purposes within the meaning of section 170(c)(1) of
+      the Internal Revenue Code and are deductible as charitable contributions
+      under section 170(a) of the Code. Once the donation has been processed a
+      thank you letter will be sent, which can be used as a tax receipt. The
+      name on the tax receipt will reflect the account owner on the credit
+      card or check."}}]}'
+    order: 1
+    question: Is my donation to the Peace Corps tax-deductible?
+    slug: tax-deductible
   model: peacecorps.faq
   pk: 1
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment.\n"}}]}', order: 1, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Yes. You will receive an
+      official thank you letter, stating the amount you donated, which can be
+      used as a receipt for tax purposes."}}]}'
+    order: 2
+    question: Will I get a receipt to use for my taxes?
+    slug: tax-receipt
   model: peacecorps.faq
   pk: 2
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment\n"}}]}', order: 3, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Every penny! Your entire
+      donation to the Partnership Program will be directed to a Volunteer
+      project. No part of your donation will be used to cover staff or
+      overhead costs of running the Partnership Program, as the office is
+      supported by congressionally appropriated funds to the Peace Corps."}}]}'
+    order: 3
+    question: How much of my donation will go to a Volunteer Project?
+    slug: how-much
   model: peacecorps.faq
   pk: 3
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment.\n"}}]}', order: 4, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"After a project has been
+      fully funded, Partnership Program staff work with the Peace Corps Budget
+      Office to obligate the funds. Once this is complete, funds must be
+      transferred to the Volunteer by check or Electronic Funds Transfer. The
+      whole process may take between two weeks to one month for money to be
+      received by a Volunteer."}}]}'
+    order: 4
+    question: My child/friend/relative has a project that was funded. Why haven't they received their money yet?
+    slug: friend-money-yet
   model: peacecorps.faq
   pk: 4
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment.\n"}}]}', order: 5, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"If you donated to a
+      Volunteer project, you may request a copy of the Final Report submitted by
+      the Volunteer once the project is completed. Send an e-mail to
+      donate@peacecorps.gov with your name, address, the Volunteer''s name, and
+      the project number that you donated to and we will provide you with
+      further information. Or, you may give us a call at 855.855.1961 ext. 2170
+      and a staff member would be happy to take your information."}}]}'
+    order: 5
+    question: I donated to a project and would like to know the results. How can I find out more?
+    slug: results
   model: peacecorps.faq
   pk: 5
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"A women''s development
-      NGO works with women living in Shirak Marz to overcome psychological and economic
-      hardship. Towards this end, the NGO gives them the tools to identify and solve
-      their communities'' problems. As in many places around the world, this region
-      has high unemployment.\n"}}]}', order: 6, question: 'Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit, sed do eiusmod?'}
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Although donating on-line
+      is the fastest way for Volunteer projects to get funded, you may also donate
+      by mail or over the phone:\n\n
+      Send a check to:\n\n
+      Peace Corps Headquarters Office of Gifts and Grants\n\n
+      Management 1111 20th Street, NW\n\n
+      Washington, DC 20526\n\n
+      Please make check payable to Peace Corps Partnership Program Please also
+      note the project number, Special Fund name, or Country Fund name in the
+      memo section of the check. (Please print and mail this donation form with
+      your check, so we may contact you with information regarding your
+      donation, if necessary.)\n\n
+      -or-\n\n
+      Call the office and we can take credit card information over the phone at
+      855.855.1961 x2170."}}]}'
+    order: 6
+    question: I don't want to donate online - how else can I donate?
+    slug: not-online
   model: peacecorps.faq
   pk: 6
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"At this time, Peace Corps
+      is not accepting un-solicited in-kind donations. Peace Corps staff or
+      Volunteers should contact the Office of Gifts and Grants Management if
+      they are interested in a potential in-kind donation, which supports
+      current Peace Corps programming."}}]}'
+    order: 7
+    question: Does Peace Corps accept in-kind donations?
+    slug: in-kind
+  model: peacecorps.faq
+  pk: 7
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"We are only able to fund a
+      project up to the amount that a Volunteer requests. Once a project becomes
+      fully funded, any extra funds will be allocated to the Global Fund where
+      they will be used to support Partnership Program projects Worldwide."}}]}'
+    order: 8
+    question: What happens if a project receives more than the requested amount?
+    slug: fully-funded
+  model: peacecorps.faq
+  pk: 8
