@@ -80,7 +80,6 @@ tfoot td {
     color: #2E2E2E;
     padding: 2px 5px;
     font-size: 11px;
-    background: #e1e1e1 url(../img/nav-bg.gif) top left repeat-x;
     border-left: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -96,6 +95,30 @@ tr.row-label td {
 
 thead th a:link, thead th a:visited {
     color: #2E2E2E;
+}
+
+table thead th.sorted .sortoptions a.sortremove {
+    background: url(/static/admin/img/sorting-icons.gif) -4px -5px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.sortremove:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -4px -27px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.ascending {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -50px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.ascending:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -72px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.descending {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -94px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.descending:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -115px no-repeat;
 }
 
 /* FORM DEFAULTS */
@@ -124,7 +147,7 @@ a.button {
 
 .button.default, input[type=submit].default, .submit-row input.default {
     border: 2px solid #234F8B;
-    background: #103763 bottom repeat-x;
+    background: #234F8B bottom repeat-x;
     font-weight: bold;
     color: #fff;
     float: right;
@@ -138,7 +161,7 @@ a.button {
     font-size: 11px;
     text-align: left;
     font-weight: bold;
-    background: #103763 top left repeat-x;
+    background: #234F8B top left repeat-x;
     color: #fff;
 }
 
@@ -150,7 +173,7 @@ ul.messagelist li {
     margin: 0 0 3px 0;
     border-bottom: 1px solid #ddd;
     color: #2E2E2E;
-    background: #dfd url(../img/icon_success.gif) 5px .3em no-repeat;
+    background: #dfd url(/peacecorps/img/icon_success.gif) 5px .3em no-repeat;
 }
 
 /* BREADCRUMBS */
@@ -179,7 +202,7 @@ div.breadcrumbs {
     float: left;
     color: #fff;
     padding: .2em 10px;
-    background: #2E2E2E;
+    background: #2E2E2E url(/static/peacecorps/img/tooltag-add.png) 95% center no-repeat;;
 }
 
 .object-tools a:hover, .object-tools li:hover a {
@@ -187,12 +210,12 @@ div.breadcrumbs {
 }
 
 .object-tools a.viewsitelink, .object-tools a.golink {
-    background: #2E2E2E url(../img/tooltag-arrowright.png) 95% center no-repeat;
+    background: #2E2E2E url(/static/admin/img/tooltag-arrowright.png) 95% center no-repeat;
     padding-right: 26px;
 }
 
 .object-tools a.addlink {
-    background: #2E2E2E url(../img/tooltag-add.png) 95% center no-repeat;
+    background: #2E2E2E url(/static/peacecorps/img/tooltag-add.png) 95% center no-repeat;
     padding-right: 26px;
 }
 

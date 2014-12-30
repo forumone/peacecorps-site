@@ -1,13 +1,13 @@
 from .production import *
 
 INSTALLED_APPS += (
+    'contenteditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'tinymce',
     'storages',
-    'contenteditor',
 )
 # Only media uploads are logged
 LOGGED_FILE_STORAGE = 'contenteditor.backends.MediaS3Storage'

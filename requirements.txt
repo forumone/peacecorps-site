@@ -1,6 +1,7 @@
 Django==1.7
 django-jinja==1.0.4
 django-localflavor
+django-overextends
 django-sirtrevor
 django-tinymce
 DjangoRestless

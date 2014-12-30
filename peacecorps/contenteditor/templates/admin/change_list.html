@@ -1,9 +1,9 @@
-{% extends "/Users/annaleeflowerhorne/.virtualenvs/pc/lib/python3.4/site-packages/django/contrib/admin/templates/admin/change_list.html" %}
+{% overextends "admin/change_list.html" %}
 {% load admin_static %}{% load firstof from future %}
 {% block extrastyle %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "peacecorps/css/src/changelists.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/src/changelists.css" %}" />
   {% if cl.formset %}
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
   {% endif %}
