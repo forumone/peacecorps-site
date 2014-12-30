@@ -85,7 +85,8 @@ $().ready(function() {
         $control = $('[aria-controls="'+ id +'"]');
 
     collapsible = new Collapsible($(this), $control, {
-      hideControls: !($(this).hasClass('js-collapsibleNoHide'))
+      hideControls: !($(this).hasClass('js-collapsibleNoHide')),
+      startOpen: id === window.location.hash.substr(1)
     });
     collapsible.render();
   });
