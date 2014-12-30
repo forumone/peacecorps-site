@@ -5,7 +5,13 @@
 {% block content_class %}project{% endblock %}
 
 {% block content %}
+<section class="blurb">
+  <div class="blurb">
+    <h2 class="t-blurb--lg t--black">{{ project.title }}</h2>
+    <h3 class="t--black">{{ project.tagline or "" }}</h3>
+  </div>
 {% include "donations/includes/project-top.jinja" %}
+</section>
 
 <article class="inset inset--sm">
   {{ project.description.html|safe }}

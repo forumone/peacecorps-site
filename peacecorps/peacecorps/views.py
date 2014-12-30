@@ -32,6 +32,9 @@ def donation_payment(request):
     if not account:
         return HttpResponseBadRequest('Invalid project')
 
+    project = None
+    project = account.project_set.first() or None
+
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
 
@@ -49,7 +52,9 @@ def donation_payment(request):
         {
             'form': form,
             'amount': amount,
-            'project_code': project_code
+            'project_code': project_code,
+            'project': project,
+            'account_name': account.name,
         })
 
 
