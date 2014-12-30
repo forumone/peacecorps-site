@@ -11,8 +11,4 @@
 
 #changelist .actions {
     color: #2E2E2E;
-    padding: 3px;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #ddd;
-    background: white url(../img/nav-bg-reverse.gif) 0 -10px repeat-x;
 }
