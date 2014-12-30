@@ -19,30 +19,39 @@
         <legend><h2>Your information</h2>
           <p class="t-body--sm">(so we can send you a tax receipt)</p>
         </legend>
+
         <div class="form__field form__field--single">
             {{form.is_org.errors}}
-            <div class="form__field__input">{{form.is_org}}</div>
+            <div class="form__field__input"
+                aria-controls="collapsible-isorganization">
+              {{form.is_org}}</div>
             <label for="id_is_org" class="form__field__label">
               {{form.is_org.label}}</label>
         </div>
 
-        <div class="form__field shown-with-organization">
-            {{form.organization_name.errors}}
-            <label for="id_organization_name" class="form--required
-                form__field__label">
-              organization Name</label>
-            <div class="form__field__input">{{form.organization_name}}</div>
-        </div>
-
-        <div class="form__field shown-with-organization">
-            {{form.organization_contact.errors}}
-            <label for="id_organization_contact" class="form--required
+        <div class="form__field js-formSwitch"
+            data-switch-id="collapsible-isorganization"
+            data-switch-on="true">
+          {{form.organization_name.errors}}
+          <label for="id_organization_name" class="form--required
               form__field__label">
-                organization Contact</label>
-            <div class="form__field__input">{{form.organization_contact}}</div>
+            organization name</label>
+          <div class="form__field__input">{{form.organization_name}}</div>
         </div>
 
-        <div class="form__field shown-with-individual">
+        <div class="form__field js-formSwitch"
+            data-switch-id="collapsible-isorganization"
+            data-switch-on="true">
+          {{form.organization_contact.errors}}
+          <label for="id_organization_contact" class="form--required
+            form__field__label">
+              organization contact</label>
+          <div class="form__field__input">{{form.organization_contact}}</div>
+        </div>
+
+        <div class="form__field js-formSwitch"
+              data-switch-id="collapsible-isorganization"
+              data-switch-on="false">
             {{form.payer_name.errors}}
             <label for="id_payer_name" class="form--required form__field__label">
               full name</label>
@@ -151,7 +160,8 @@
                 {{form.dedication_type}}</div>
             </div>
 
-            <legend><p class="honoree_swap ">Send the honoree a letter so they
+            <legend><p class="honoree_swap form__text">
+                Send the honoree a letter so they
                 know you were thinking of them: </p></legend>
 
             <div id="dedication_contact_wrapper">
