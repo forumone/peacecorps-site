@@ -22,6 +22,7 @@
           in <strong>{{project.country.name}}</strong>
         </span>
     </section>
+    {% if project.goal %}
     <section class="u-align_c inline_grid--15">
       {% set percent_raised = project.account.percent_raised() %}
       <div class="radialProgress u-h_center--block"
@@ -41,5 +42,6 @@
         {{ humanize_cents(project.account.total_cost()) }} goal
       </span>
     </section>
+    {% endif %}
   </div>
 </article>
