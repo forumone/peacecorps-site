@@ -214,8 +214,8 @@ body {
   line-height: 1.3; }
 
 .t-heading--1, h1 {
-  font-size: 40px;
-  font-size: 4rem;
+  font-size: 55px;
+  font-size: 5.5rem;
   margin-top: 0;
   margin: 0 0 9px 0;
   margin: 0 0 0.9rem 0; }
@@ -244,6 +244,10 @@ body {
 
 h4 + h3 {
   margin-top: 0; }
+
+.t-heading--stylized {
+  display: inline-block;
+  line-height: 1.25; }
 
 /*
  * Body is the main body text.
@@ -1528,6 +1532,9 @@ html {
     top: 50%;
     transform: translateY(50%); }
 
+.u-align_l {
+  text-align: left; }
+
 .u-align_r {
   text-align: right; }
 
@@ -1819,6 +1826,9 @@ html {
     position: absolute;
     top: 50%;
     transform: translateY(50%); }
+
+.u-align_l {
+  text-align: left; }
 
 .u-align_r {
   text-align: right; }
@@ -2347,6 +2357,9 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
     position: absolute;
     top: 50%;
     transform: translateY(50%); }
+
+.u-align_l {
+  text-align: left; }
 
 .u-align_r {
   text-align: right; }

@@ -5,10 +5,22 @@
 <script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
 {% endblock %}
 
+
 {% block content %}
-  <section class="blurb blurb--sm">
-    <p> Project Code: {{project_code }} </p>
-    <p> Amount: {{humanize_cents(amount)}} </p>
+  <section class="blurb">
+    {% if project %}
+      {% include "donations/includes/project-top.jinja" %}
+    {% else %}
+
+    {% endif %}
+      <div class="u-align_l inset--sm t--gray--2">
+        <h3 class="t-heading--stylized">You are donating</h3><br>
+        <h1 class="t-heading--stylized t--secondary">
+          {{ humanize_cents(amount) }}</h1>
+        <h4 class="t-heading--stylized">to</h4><br>
+        <h3 class="t-heading--stylized">
+          <strong>{{ project.title or account_name }}</strong></h3>
+      </div>
   </section>
 
   <section class="section">
