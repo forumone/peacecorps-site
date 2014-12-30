@@ -12,18 +12,6 @@ var form = require('./form');
 //  initial state
 //  TODO move Init to own module
 var Init = {
-  //  Individual and Organization have different fields
-  donorTypeFields: function() {
-    var orgFields = $('.shown-with-organization'),
-        indFields = $('.shown-with-individual');
-    $('input[name=donor_type]').change(function() {
-      var isOrg = $('input[name=donor_type]:checked').val() === 'Organization';
-
-      orgFields.toggle(isOrg);
-      indFields.toggle(!isOrg);
-    }).change();
-  },
-
   //  State/Zip are only marked "required" if country == USA
   countryRequirements: function() {
     var country = $('#id_country'),
@@ -63,7 +51,6 @@ $().ready(function() {
 
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
-    Init.donorTypeFields();
     Init.countryRequirements();
     Init.inMemoryChanges();
   }
