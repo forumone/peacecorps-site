@@ -19,7 +19,6 @@ def donation_payment(request):
 
     amount = request.GET.get('amount', None)
     project_code = request.GET.get('project', None)
-    project_id = request.GET.get('id', None)
 
     if amount is None or project_code is None:
         return HttpResponseBadRequest(
@@ -34,10 +33,7 @@ def donation_payment(request):
         return HttpResponseBadRequest('Invalid project')
 
     project = None
-    if project_id is not None:
-        project = get_object_or_404(
-            Project.published_objects.select_related('country', 'account'
-            'volunteerpicture', 'featured_image'), id=project_id)
+    project = account.project_set.first() or None
 
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
@@ -123,7 +119,6 @@ def donate_project(request, slug):
             else:
                 code = project.account.code
             params = {'project': code,
-                      'id': project.id,
                       # convert back into cents
                       'amount': int(round(
                           form.cleaned_data['payment_amount'] * 100))}
