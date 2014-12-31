@@ -18,7 +18,7 @@
       {% set anchor = faq.slug or "faq-" + faq.pk|string %}
       <li>
         <header>
-          <a aria-expanded="false" href="#"
+          <a aria-expanded="false" href="#{{anchor}}"
              aria-controls="{{anchor}}">{{faq.question}}</a>
         </header>
         <article class="js-collapsibleItem js-collapsibleNoHide"
