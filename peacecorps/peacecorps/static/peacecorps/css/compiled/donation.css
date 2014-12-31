@@ -1100,6 +1100,10 @@ html {
 .full_bg--lg {
   height: 46em; }
 
+.full_bg--sm {
+  border-bottom-width: 0;
+  padding-bottom: 18%; }
+
 /*
  * A full width banner with content that sits in its center.
  */
