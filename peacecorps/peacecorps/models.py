@@ -377,9 +377,16 @@ class FAQ(models.Model):
     question = models.CharField(max_length=256)
     answer = BraveSirTrevorField()
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
+    slug = models.SlugField(max_length=50, help_text="anchor", blank=True,
+                            null=True)
 
     class Meta(object):
         ordering = ('order', )
 
     def __str__(self):
         return self.question
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.question)[:50]
+        super(FAQ, self).save(*args, **kwargs)

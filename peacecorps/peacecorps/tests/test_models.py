@@ -150,3 +150,11 @@ class ProjectTests(TestCase):
 
         proj.abstract = "This is the abstract"
         self.assertEqual("This is the abstract", proj.abstract_html())
+
+
+class FAQTests(TestCase):
+    def test_slug(self):
+        q = 'Very Long Question Because Want Slug Greater Than Fifty'
+        faq = models.FAQ.objects.create(question=' '.join([q, q, q]))
+        self.assertEqual(len(faq.slug), 50)
+        faq.delete()
