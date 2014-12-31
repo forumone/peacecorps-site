@@ -1,5 +1,7 @@
 from datetime import timedelta
 import json
+import tempfile
+import os
 
 from django.conf import settings
 from django.db import models
@@ -7,8 +9,10 @@ from django.db.models import Sum
 from django.template.loader import render_to_string as django_render
 from django.utils import timezone
 from django.utils.text import slugify
+from django.core.files.storage import default_storage
 from localflavor.us.models import USPostalCodeField
 from sirtrevor.fields import SirTrevorField
+from PIL import Image
 
 from peacecorps.fields import GPGField, BraveSirTrevorField
 
@@ -219,6 +223,24 @@ class Media(models.Model):
 
     def __str__(self):
         return '%s' % (self.title)
+
+    def save(self, *args, **kwargs):
+        if self.mediatype == Media.IMAGE:
+            SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
+             ('thm', 300, 300))
+
+            filename = slugify(self.title)
+            image = Image.open(self.file)
+
+            for ext, width, height in SIZES:
+                with tempfile.TemporaryFile() as buffer_file:
+                    image.thumbnail((width, height), Image.ANTIALIAS)
+                    path = os.path.join(
+                        settings.RESIZED_IMAGE_UPLOAD_PATH,
+                        filename + '-' + ext + '.' + image.format.lower())
+                    image.save(buffer_file, image.format.lower())
+                    default_storage.save(path, buffer_file)
+        super(Media, self).save(*args, **kwargs)
 
     @property
     def url(self):
