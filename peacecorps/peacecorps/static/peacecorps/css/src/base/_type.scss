@@ -72,7 +72,7 @@ body {
   line-height: $leading-sm;
 }
 .t-heading--1 {
-  @include font-size(4.0);
+  @include font-size(5.5);
   margin-top: 0;
   @include rem(margin, 0 0 .9rem 0);
 }
@@ -110,6 +110,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h4 + h3 {
   margin-top: 0;
+}
+
+.t-heading--stylized {
+  display: inline-block;
+  line-height: 1.25;
 }
 
 /*
@@ -284,4 +289,8 @@ a {
 
 .t-nom {
   margin-bottom: 0;
+}
+
+.t-break {
+  @include rem(margin, 0 0 2rem 0);
 }

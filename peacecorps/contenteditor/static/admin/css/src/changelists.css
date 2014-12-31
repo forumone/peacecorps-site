@@ -1,0 +1,14 @@
+/* FILTER COLUMN */
+
+#changelist-filter a {
+    color: #2E2E2E;
+}
+
+#changelist-filter li.selected a {
+    color: #234F8B !important;
+    font-weight: bold;
+}
+
+#changelist .actions {
+    color: #2E2E2E;
+}

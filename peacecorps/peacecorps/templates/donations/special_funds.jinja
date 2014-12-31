@@ -5,52 +5,59 @@
 {% block content_class %}special-funds{% endblock %}
 
 {% block content %}
-<div class="full_bg full_bg--lg" style="
-    background-image:
-    url('{{media("Ultrasound-Machine-by-Clark-Maxwell-CC-BY-ND-NC.jpg")}}');
+<div class="full_bg full_bg--top" style="background-image:
+    url('{{static("peacecorps/img/special-funds-top.png")}}');
   ">
 </div>
+<section class="section">
 {% for fund in general_funds %}
-  <section class="showcase--main showcase--neutral">
-    <section class="showcase--col3_centered">
-      <section class="showcase--col3_centered__col">
-        {% if fund.icon %}
-          <div class="mask mask--oval mask--fill_square">
-            <img class="mask__content--md"
-                 src="{{fund.icon.url}}"
-                 alt="{{fund.icon.description}}" />
-          </div>
-        {% endif %}
-      </section>
-      <section class="showcase--col3_centered__2col">
-        <h1 class="t-blurb--lg">{{fund.tagline}}</h1>
-        <div class="t-blurb--sm">{{fund.description.html|safe}}</div>
-        <a href="{{url("donate campaign", slug=fund.slug)}}"
-           class="button button--md button--secondary">{{fund.call}}</a>
-      </section>
+  <article>
+    <aside class="grid--20 section__content">
+      {% if fund.icon %}
+        <div class="mask mask--oval mask--fill_square">
+          <img class="mask__content--md"
+               src="{{fund.icon.url}}"
+               alt="{{fund.icon.description}}" />
+        </div>
+      {% endif %}
+      &nbsp;
+    </aside>
+    <section class="grid--80 section__content">
+      <h1 class="t-blurb--lg">{{fund.tagline}}</h1>
+      <div class="t-blurb--sm">{{fund.description.html|safe}}</div>
+      <a href="{{url("donate campaign", slug=fund.slug)}}"
+         class="button button--md button--primary">{{fund.call}}</a>
     </section>
-  </section>
+  </article>
 {% endfor %}
-<section class="showcase--main showcase--neutral">
+</section>
+
+<section class="section__content
+    full_banner full_banner--neutral full_banner--flush">
   <h1 class="t-title--1">Memorial Funds</h1>
-  <section class="showcase--col3_centered">
   {% for fund in memorial_funds %}
-    <section class="showcase--col3_centered__col">
-      <a href="{{url("donate campaign", slug=fund.slug)}}">
+    <section class="section--white section__box u-clearfix">
         {% if fund.icon %}
-          <div class="mask mask--oval u-h_center--block">
-            <img class="mask__content--md"
-                 src="{{fund.icon.url}}"
-                 alt="{{fund.icon.description}}" />
-          </div>
+          <aside class="grid--20">
+            <div class="mask mask--oval u-h_center--block">
+              <img class="mask__content--md"
+                   src="{{fund.icon.url}}"
+                   alt="{{fund.icon.description}}" />
+            </div>
+          </aside>
         {% endif %}
-        <div class="inline_text--centered">{{fund.memorial_name}}</div>
-      </a>
+        <article class="grid--80 u-clearfix">
+          <a href="{{url("donate campaign", slug=fund.slug)}}">
+            <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
+          </a>
+          <p>{{ fund.description }}</p>
+        </article>
     </section>
   {% endfor %}
-  </section>
 </section>
-<div>
-  <a href="{{url("donate projects funds")}}">Explore Projects and Funds</a>
+
+<div class="full_banner banner--no_line banner--neutral_ex_dark u-align_c">
+  <a class="t-single_nav t-link--white"
+     href="{{url("donate projects funds")}}">Explore Projects and Funds</a>
 </div>
 {% endblock %}

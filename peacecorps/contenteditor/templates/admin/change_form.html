@@ -1,0 +1,7 @@
+{% overextends "admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/src/forms.css" %}" />
+{% endblock %}

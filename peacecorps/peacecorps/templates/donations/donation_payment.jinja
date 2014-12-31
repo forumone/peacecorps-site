@@ -5,44 +5,65 @@
 <script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
 {% endblock %}
 
+
 {% block content %}
-  <section class="blurb blurb--sm">
-    <p> Project Code: {{project_code }} </p>
-    <p> Amount: {{amount}} </p>
+  <section class="blurb">
+    {% if project %}
+      {% include "donations/includes/project-top.jinja" %}
+    {% else %}
+
+    {% endif %}
+      <div class="u-align_l inset--sm t--gray--2">
+        <h3 class="t-heading--stylized">You are donating</h3><br>
+        <h1 class="t-heading--stylized t--secondary">
+          {{ humanize_cents(amount) }}</h1>
+        <h4 class="t-heading--stylized">to</h4><br>
+        <h3 class="t-heading--stylized">
+          <strong>{{ project.title or account_name }}</strong></h3>
+      </div>
   </section>
 
   <section class="section">
-    <form action="" method="post" class="form section__content
-        full_banner full_banner--neutral">
+    <form action="" method="post" class="form js-form section__content
+        full_banner full_banner--neutral full_banner--flush">
       {% csrf_token %}
       <fieldset class="inset--lg">
         <legend><h2>Your information</h2>
           <p class="t-body--sm">(so we can send you a tax receipt)</p>
         </legend>
+
         <div class="form__field form__field--single">
             {{form.is_org.errors}}
-            <div class="form__field__input">{{form.is_org}}</div>
+            <div class="form__field__input"
+                aria-controls="collapsible-isorganization">
+              {{form.is_org}}</div>
             <label for="id_is_org" class="form__field__label">
               {{form.is_org.label}}</label>
         </div>
 
-        <div class="form__field shown-with-organization">
-            {{form.organization_name.errors}}
-            <label for="id_organization_name" class="form--required
-                form__field__label">
-              organization Name</label>
-            <div class="form__field__input">{{form.organization_name}}</div>
-        </div>
-
-        <div class="form__field shown-with-organization">
-            {{form.organization_contact.errors}}
-            <label for="id_organization_contact" class="form--required
+        <div class="form__field js-formSwitch"
+            data-switch-id="collapsible-isorganization"
+            data-switch-on="true">
+          {{form.organization_name.errors}}
+          <label for="id_organization_name" class="form--required
               form__field__label">
-                organization Contact</label>
-            <div class="form__field__input">{{form.organization_contact}}</div>
+            organization name</label>
+          <div class="form__field__input">{{form.organization_name}}</div>
         </div>
 
-        <div class="form__field shown-with-individual">
+        <div class="form__field js-formSwitch"
+            data-switch-id="collapsible-isorganization"
+            data-switch-on="true">
+          {{form.organization_contact.errors}}
+          <label for="id_organization_contact" class="form--required
+            form__field__label">
+              organization contact</label>
+          <div class="form__field__input">{{form.organization_contact}}</div>
+        </div>
+
+        <div class="form__field js-formSwitch"
+              data-switch-id="collapsible-isorganization"
+              data-switch-on="false">
             {{form.payer_name.errors}}
             <label for="id_payer_name" class="form--required form__field__label">
               full name</label>
@@ -109,10 +130,13 @@
       <fieldset class="inset--lg">
         <legend><h2>Payment Method</h2></legend>
         <div class="form__field">
-            {{form.payment_type.errors}}
-            <label for='id_payment_type' class="form--required form__field__label">
-              </label>
-            <div class="form__field__input">{{form.payment_type}}</div>
+          {{form.payment_type.errors}}
+          <label for='id_payment_type' class="form--required form__field__label">
+            </label>
+          <div class="form__field__input">
+            {{form.payment_type}}
+            <a href="{{ url('donate faqs') }}#not-online">pay by check?</a>
+          </div>
         </div>
       </fieldset>
 
@@ -121,7 +145,8 @@
 
         <div class="form__field form__field--single">
             {{form.dedication.errors}}
-            <div class="form__field__input">
+            <div class="form__field__input js-formCollapsible"
+                aria-controls="collapsible-dedication">
               {{form.dedication}}
             </div>
             <label for="id_dedication" class="form__field__label">
@@ -129,7 +154,8 @@
               memory of someone.
             </label>
         </div>
-        <fieldset class="dedication_details">
+        <fieldset class="js-collapsibleToggle" id="collapsible-dedication"
+          aria-hidden="true">
             <legend>Dedication Information</legend>
             <div  class="form__field">
                 {{form.dedication_name.errors}}
@@ -146,7 +172,8 @@
                 {{form.dedication_type}}</div>
             </div>
 
-            <legend><p class="honoree_swap ">Send the honoree a letter so they
+            <legend><p class="honoree_swap form__text">
+                Send the honoree a letter so they
                 know you were thinking of them: </p></legend>
 
             <div id="dedication_contact_wrapper">
@@ -181,7 +208,7 @@
 
             <div class="form__field">
                 {{form.dedication_consent.errors}}
-                <label for='id_dedication_consent'
+                <label for="id_dedication_consent"
                     class="form__field__label form__field__label--align_t">
                   information consent</label>
 
@@ -258,11 +285,42 @@
             {{hidden}}
         {% endfor %}
 
-        <div class="u-align_c">
-          <button type="submit" class="button button--primary">
-            Confirm information</button>
-        </div>
       </fieldset>
+
+      <section class="section inset--lg separator separator--t">
+        <div class="form__field form__field--single">
+          <p class="form__text">
+            NOTE: We use Pay.gov as our trusted secure payment processor. We’ll
+            send you on to there and bring you back when you finish.</p>
+
+          <div class="u-align_c form__text section__content">
+            <button type="submit" class="button button--primary">
+              Confirm information</button>
+          </div>
+
+          <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
+          Expiration date:
+          </p>
+
+          <h4 class="form__text">This is a Secure Transaction</h4>
+          <p class="t-body--sm form__text t-break">
+          The secure server software (SSL) that processes Peace Corps donations is
+          the industry standard and among the best software available today for
+          secure commerce transactions. It encrypts all of your personal data
+          including credit card number, name, and address, so that it cannot be
+          read as the information travels over the Internet. You can tell when you
+          are protected by encryption — the lock or key at the bottom of your
+          browser changes color or is no longer broken.
+          </p>
+
+          <h4 class="form__text">Burden Statement</h4>
+          <p class="t-body--sm form__text">
+            Public reporting burden for this collection of information is
+            estimated to average 45 minutes per response
+          </p>
+
+        </div>
+      </section>
 
     </form>
   </section>

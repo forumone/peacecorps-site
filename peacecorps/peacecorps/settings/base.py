@@ -24,6 +24,7 @@ INSTALLED_APPS = (
     'peacecorps',
     'sirtrevor',
     'adminsortable',
+    'overextends',
 )
 
 
@@ -87,11 +88,13 @@ CACHES = {
     },
     'shortterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'TIMEOUT': 60*5    # 5 minutes
+        'TIMEOUT': 60*5,    # 5 minutes
+        'KEY_PREFIX': 'shortterm',
     },
     'midterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'TIMEOUT': 60*60    # 1 hour
+        'TIMEOUT': 60*60,    # 1 hour
+        'KEY_PREFIX': 'midterm',
     }
 }
 
@@ -142,5 +145,6 @@ SIRTREVOR_ATTACHMENT_PROCESSOR = 'contenteditor.imagesizing.resize'
 # Sir Trevor Blocks:
 SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
 
-# Used when generating tweets
+# Used when generating tweets/emails
+SHARE_SUBJECT = "Peacecorps Donation"
 SHARE_TEMPLATE = "I just donated to a great cause! %s"

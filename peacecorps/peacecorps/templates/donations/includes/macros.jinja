@@ -5,3 +5,18 @@
     {{ default }}
   {%- endif %}
 {%- endmacro %}
+
+{% macro volunteer_photo(project) %}
+  {% if project.volunteerpicture %}
+    <img class="mask__content"
+         style="width: 100%;"
+         src="{{ project.volunteerpicture.url }}"
+         alt="{{ project.volunteername }}" />
+  {% else %}
+    <div class="mask__content u-align_c"
+         style="width: 100%;">
+      {{ project.volunteername }}<br />
+      volunteer from {{project.volunteerhomestate}}
+    </div>
+  {% endif %}
+{% endmacro %}

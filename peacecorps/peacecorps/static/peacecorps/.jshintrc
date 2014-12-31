@@ -6,6 +6,7 @@
   "immed": true,
   "latedef": true,
   "indent": 2,
+  "loopfunc": true,
   "newcap": true,
   "noarg": true,
   "plusplus": false,

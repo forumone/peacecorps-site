@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
 
 from peacecorps.models import Account, Campaign, Country, FAQ, Media, Project
-from peacecorps.views import humanize_amount
 
 
 class DonationsTests(TestCase):
@@ -82,12 +81,6 @@ class DonationsTests(TestCase):
         donorinfo = account.donorinfos.get()
         self.assertTrue('://example.com' in donorinfo.xml)
 
-    def test_humanize_amount(self):
-        """ The humanize_amount function converts an amount in cents into
-        something that's human readable. """
-        self.assertEqual(humanize_amount(1520), '$15.20')
-        self.assertEqual(humanize_amount(0), '$0.00')
-
     def test_bad_request_donations(self):
         """ The donation information page should 400 if donation amount and
         project code aren't included. """
@@ -126,7 +119,8 @@ class DonatePagesTests(TestCase):
 
     def test_fund_rendering(self):
         response = self.client.get(reverse('donate campaign',
-                                           kwargs={'slug': 'health'}))
+                                           kwargs={
+                                           'slug': 'health-hivaids-fund'}))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get(reverse('donate campaign',
@@ -215,11 +209,11 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
             reverse('project success',
-                    kwargs={'slug': 'local-ultrasound-machine'}))
+                    kwargs={'slug': 'togo-clean-water-project'}))
         self.assertEqual(response.status_code, 200)
         response = self.client.get(
             reverse('project failure',
-                    kwargs={'slug': 'local-ultrasound-machine'}))
+                    kwargs={'slug': 'togo-clean-water-project'}))
         self.assertEqual(response.status_code, 200)
 
     def test_campaign_success_failure(self):
@@ -230,17 +224,17 @@ class DonatePagesTests(TestCase):
             reverse('campaign failure', kwargs={'slug': 'nonproj'}))
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
-            reverse('campaign success', kwargs={'slug': 'education'}))
+            reverse('campaign success', kwargs={'slug': 'education-fund'}))
         self.assertEqual(response.status_code, 200)
         response = self.client.get(
-            reverse('campaign failure', kwargs={'slug': 'education'}))
+            reverse('campaign failure', kwargs={'slug': 'education-fund'}))
         self.assertEqual(response.status_code, 200)
 
     def test_post_redirect(self):
         """All POSTs to the project/campaign success/failure pages should get
         redirected to the same page as a GET"""
-        for proj_camp, slug in (('project', 'local-ultrasound-machine'),
-                                ('campaign', 'education')):
+        for proj_camp, slug in (('project', 'togo-clean-water-project'),
+                                ('campaign', 'education-fund')):
             for succ_fail in ('success', 'failure'):
                 url = reverse(proj_camp + ' ' + succ_fail,
                               kwargs={'slug': slug})
@@ -259,12 +253,12 @@ class DonatePagesTests(TestCase):
 
     def test_memorial_fund_name(self):
         response = self.client.get(reverse('donate special funds'))
-        self.assertNotContains(response, 'Stephanie Brown Memorial Fund')
+        self.assertNotContains(response, 'Stephanie Brown Memorial Fund</h3>')
         self.assertContains(response, 'Stephanie Brown')
 
     def test_success_render(self):
         """Verify that the donor's name and share links are present"""
-        url = reverse('campaign success', kwargs={'slug': 'education'})
+        url = reverse('campaign success', kwargs={'slug': 'education-fund'})
         url += '?donor_name=Billy'
         response = self.client.get(url, HTTP_HOST='example.com')
         self.assertContains(response, 'Thank you, Billy')
