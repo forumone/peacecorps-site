@@ -1,5 +1,4 @@
 from unittest.mock import patch
-import os
 
 from django.test import TestCase
 
@@ -12,7 +11,7 @@ class ResizeTests(TestCase):
     @patch('peacecorps.models.default_storage')
     def test_resize_saved(self, default_storage):
         """Verify that the default storage is getting all three images"""
-        imagepath = os.path.join('img', 'pc_logo.png')
+        imagepath = 'pc_logo.png'
         thisimage = Media(
             title="PC Logo",
             file=imagepath,
