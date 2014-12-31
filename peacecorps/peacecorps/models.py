@@ -15,17 +15,22 @@ from peacecorps.fields import GPGField, BraveSirTrevorField
 
 def imagesave(description):
     """Saves images from Sir Trevor fields to the media model."""
-    description = json.loads(description)
+    if not description:
+        # if description is empty for any reason, it has no images.
+        return False
+
+    description = eval(description)
 
     for block in description['data']:
         if block['type'] == 'image508':
             title = block['data']['image_title']
-            thisfile = "foo"
+            imagepath = block['data']['file']['path']
+
             desc = block['data']['image_description']
 
             thisimage = Media(
                 title=title,
-                file=thisfile,
+                file=imagepath,
                 mediatype=Media.IMAGE,
                 description=desc,)
             thisimage.save()
@@ -167,6 +172,10 @@ class Campaign(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+
+        """Save images to the Media model"""
+        imagesave(self.description)
+
         super(Campaign, self).save(*args, **kwargs)
 
 
@@ -316,7 +325,7 @@ class Project(models.Model):
                 self.slug = self.slug + str(existing.pk)
 
         """Save images to the Media model"""
-        # imagesave(self.description)
+        imagesave(self.description)
 
         super(Project, self).save(*args, **kwargs)
 
