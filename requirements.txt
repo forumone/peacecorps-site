@@ -15,6 +15,7 @@ psycopg2==2.5.3
 boto
 python-logstash
 django-admin-sortable2
-django-elasticache
+# The pypi version hasn't caught up yet. When possible, switch to django-elasticache>=0.0.3
+-e git://github.com/gusdan/django-elasticache.git#egg=django-elasticache
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
 -e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages
