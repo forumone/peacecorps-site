@@ -1,11 +1,16 @@
 {% extends "donations/base.jinja" %}
-{% from "donations/includes/macros.jinja" import url_or %}
+{% from "donations/includes/macros.jinja" import url_or, volunteer_photo %}
 
 {% block title %}Peace Corps{% endblock %}
 {% block header %}Peace Corps{% endblock %}
 {% block content_class %}landing{% endblock %}
 
 {% block content %}
+
+<div class="full_bg full_bg--top" style="background-image:
+    url('{{static("peacecorps/img/sorter-top.png")}}');
+  ">
+</div>
 
 <section class="blurb u-clearfix">
   <h2 class="t-blurb--md t--black">
@@ -225,11 +230,13 @@
       <div class="mask mask--oval mask--gray-1 mask--bordered
            u-clearfix section__content--no_space_r u-pullr"
            style="width: 5em; height: 5em;">
-        <img class=""
-          class="mask__content"
-          style="width: 100%;"
-          src="{{ project.volunteerpicture }}"
-          alt="{{ project.volunteername }}" />
+        {% if project.volunteerpicture %}
+          {{ volunteer_photo(project) }}
+        {% else %}
+          <img src="{{ static("peacecorps/img/countries/"
+                      + project.country.code.lower() + ".svg") }}"
+               class="mask__content" style="width: 100%;" />
+        {% endif %}
       </div>
     </aside>
     <header class="grid--80 section__content--contain--sm grid__last">
@@ -250,9 +257,7 @@
         <div class="mask mask--oval mask--gray-1 mask--bordered
              u-clearfix u-h_center--block l-bm--1 column__element"
              style="width: 12em; height: 12em;">
-          <img class="mask__content" style="width: 100%;"
-               src="{{ project.volunteerpicture.url }}"
-               alt="{{ project.volunteername }}" />
+          {{ volunteer_photo(project) }}
         </div>
         <div class="u-h_center--block column__element
               section__content--no_space_r">
@@ -271,30 +276,28 @@
       <div class="rectangular_progress
                   rectangular_progress--mini
                   rectangular_progress--secondary">
-        {% set percent_completed = project.account.percent_funded() %}
-        {% set amount_completed = (project.account.community_contribution +
-            project.account.current) %}
+        {% set percent_raised = project.account.percent_raised() %}
         <div class="rectangular_progress__bar">
           <div class="rectangular_progress__filled"
-              style="width: {{ percent_completed }}%;">
+              style="width: {{ percent_raised }}%;">
           </div>
         </div>
-        <span style="left: {{ percent_completed }}%;"
+        <span style="left: {{ percent_raised }}%;"
             class="rectangular_progress__line
                   rectangular_progress__line--bottom">
         </span>
         <span class="rectangular_progress__point
                      rectangular_progress__point--bottom
                      t-title--4"
-            style="left: {{ percent_completed }}%;">
-          {{ humanize_amount(amount_completed) }} raised
+            style="left: {{ percent_raised }}%;">
+          {{ humanize_cents(project.account.total_raised()) }} raised
         </span>
 
         <span class="rectangular_progress__point
                      u-align_r t-heading--4 t--secondary" style="right: 0;">
-           {{ humanize_amount(project.account.remaining()) }} needed
+           {{ humanize_cents(project.account.remaining()) }} needed
           <br><strong class="t-title--5 t--gray--2">
-            to reach {{ humanize_amount(project.account.goal) }} goal
+            to reach {{ humanize_cents(project.account.total_cost()) }} goal
           </strong><br>
         </span>
         <span style="left: 100%;"

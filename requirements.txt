@@ -1,6 +1,7 @@
 Django==1.7
 django-jinja==1.0.4
 django-localflavor
+django-overextends
 django-sirtrevor
 django-tinymce
 DjangoRestless
@@ -15,5 +16,6 @@ psycopg2==2.5.3
 boto
 python-logstash
 django-admin-sortable2
+django-elasticache
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
 -e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages

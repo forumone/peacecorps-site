@@ -1,0 +1,144 @@
+/* LINKS */
+
+a:link, a:visited {
+    color: #234F8B;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #036;
+}
+
+a img {
+    border: none;
+}
+
+/* HEADERS */
+
+h1 {
+    color: #2E2E2E;
+}
+
+h3 {
+    color: #2E2E2E;
+}
+
+h5 {
+    color: #2E2E2E;
+}
+
+/* HEADER BAR */
+
+code, pre {
+    color: #2E2E2E;
+}
+
+/* TEXT STYLES & MODIFIERS */
+
+.help, p.help {
+    color: #2E2E2E;
+}
+
+.quiet, a.quiet:link, a.quiet:visited {
+    color: #2E2E2E !important;
+}
+
+/* TABLES */
+
+thead th,
+tfoot td {
+    color: #2E2E2E;
+}
+
+tr.row-label td {
+    color: #2E2E2E;
+}
+
+thead th a:link, thead th a:visited {
+    color: #2E2E2E;
+}
+
+table thead th.sorted .sortoptions a.sortremove {
+    background: url(/static/admin/img/sorting-icons.gif) -4px -5px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.sortremove:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -4px -27px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.ascending {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -50px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.ascending:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -72px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.descending {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -94px no-repeat;
+}
+
+table thead th.sorted .sortoptions a.descending:hover {
+    background: url(/static/admin/img/sorting-icons.gif) -5px -115px no-repeat;
+}
+
+/* FORM BUTTONS */
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    border: 2px solid #234F8B;
+    background: #234F8B bottom repeat-x;
+}
+
+/* MODULES */ 
+
+.module h2, .module caption, .inline-group h2 {
+    background: #234F8B top left repeat-x;
+}
+
+ul.messagelist li {
+    color: #2E2E2E;
+}
+
+/* BREADCRUMBS */
+
+div.breadcrumbs {
+    color: #2E2E2E;
+}
+
+/* ACTION ICONS */
+
+.changelink, .inlinechangelink {
+    padding-left: 12px;
+}
+
+/* OBJECT TOOLS */ 
+
+.object-tools a:link, .object-tools a:visited {
+    background: #2E2E2E url(/static/admin/img/tooltag-add.png) 95% center no-repeat;;
+}
+
+.object-tools a:hover, .object-tools li:hover a {
+    background-color: #234F8B;
+}
+
+.object-tools a.viewsitelink, .object-tools a.golink {
+    background: #2E2E2E url(/static/admin/img/tooltag-arrowright.png) 95% center no-repeat;
+}
+
+.object-tools a.addlink {
+    background: #2E2E2E url(/static/admin/img/tooltag-add.png) 95% center no-repeat;
+}
+
+/* SIDEBAR */
+
+#content-related h3 {
+    color: #2E2E2E;
+}
+
+#content-related h4 {
+    font-size: 11px;
+}
+
+#content-related .module h2 {
+    color: #2E2E2E;
+}

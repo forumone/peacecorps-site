@@ -5,14 +5,6 @@ from django.test import TestCase
 from peacecorps import models
 
 
-class HumanizeTest(TestCase):
-    def test_humanize_amount(self):
-        self.assertEqual('$0.00', models.humanize_amount(0))
-        self.assertEqual('$0.12', models.humanize_amount(12))
-        self.assertEqual('$1.23', models.humanize_amount(123))
-        self.assertEqual('$12,345,678.90', models.humanize_amount(1234567890))
-
-
 class AccountTest(TestCase):
     def test_funded(self):
         account = models.Account()
@@ -26,7 +18,7 @@ class AccountTest(TestCase):
         account.goal = 99
         self.assertTrue(account.funded())
 
-    def test_track_total(self):
+    def test_track_total_donated(self):
         """Use fake data to verify that account totals are being
         kept up-to-date"""
         def makedonation(acct, amount):
@@ -41,25 +33,25 @@ class AccountTest(TestCase):
         makedonation(acc1, 100)
         makedonation(acc1, 1)
 
-        self.assertEqual(326, acc1.total())
+        self.assertEqual(326, acc1.total_donated())
 
-    def test_percent_funded(self):
+    def test_percent_raised(self):
         account = models.Account()
         account.donations = []
         account.current = 30
         account.community_contribution = 10
         account.goal = 70
-        self.assertEqual(50, account.percent_funded())
+        self.assertEqual(50, account.percent_raised())  # 40/80
         account.current += 20
-        self.assertEqual(75, account.percent_funded())
+        self.assertEqual(75, account.percent_raised())  # 60/80
 
-    def test_community_funded(self):
+    def test_percent_community(self):
         account = models.Account()
         account.community_contribution = 80
         account.goal = 80
-        self.assertEqual(50, account.percent_community_funded())
+        self.assertEqual(50, account.percent_community())   # 80/160
         account.community_contribution = 100
-        self.assertEqual(55.56, account.percent_community_funded())
+        self.assertEqual(55.56, account.percent_community())    # 100/180
 
 
 class ProjectTests(TestCase):
@@ -158,3 +150,11 @@ class ProjectTests(TestCase):
 
         proj.abstract = "This is the abstract"
         self.assertEqual("This is the abstract", proj.abstract_html())
+
+
+class FAQTests(TestCase):
+    def test_slug(self):
+        q = 'Very Long Question Because Want Slug Greater Than Fifty'
+        faq = models.FAQ.objects.create(question=' '.join([q, q, q]))
+        self.assertEqual(len(faq.slug), 50)
+        faq.delete()

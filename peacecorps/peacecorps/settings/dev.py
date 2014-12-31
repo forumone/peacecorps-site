@@ -16,6 +16,7 @@ DATABASES = {
 }
 
 INSTALLED_APPS += (
+    'contenteditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -23,7 +24,6 @@ INSTALLED_APPS += (
     'tinymce',
     'paygov',
     'debug_toolbar.apps.DebugToolbarConfig',
-    'contenteditor',
 )
 
 MIDDLEWARE_CLASSES = (

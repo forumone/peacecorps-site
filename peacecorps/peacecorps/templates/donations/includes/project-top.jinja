@@ -1,62 +1,47 @@
-<div class="full_bg full_bg--lg" style="height: 37em;
-    background-image: url('{{ project.featured_image.url or '' }}');
-  ">
-</div>
-<article class="u-clearfix" style="margin-top: 15em;">
-  {# TODO Figure out way to remove these inlines to global css #}
+{% from "donations/includes/macros.jinja" import volunteer_photo %}
 
-  <section class="blurb">
-    <div class="blurb">
-      <h2 class="t-blurb--lg t--black">{{ project.title }}</h2>
-      <h3 class="t--black">{{ project.tagline }}</h3>
-    </div>
-
-    <div class="inline_grid l-bm--3 u-clearfix">
-      <section class="u-align_c inline_grid--15">
-          <div class="mask mask--oval mask--bordered u-h_center--block">
-            <img class="mask__content"
-                 src="{{project.volunteerpicture.url}}"
-                 alt="{{project.volunteerpicture.description}}">
-          </div>
+<article class="u-clearfix">
+  <div class="inline_grid l-bm--3 u-clearfix">
+    <section class="u-align_c inline_grid--15">
+      <div class="mask mask--oval mask--bordered u-h_center--block">
+        {{ volunteer_photo(project) }}
+      </div>
+      {% if project.volunteerpicture %}
         <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
           volunteer from <strong>{{project.volunteerhomestate}}</strong>
         </span>
-      </section>
-      <section class="u-align_c inline_grid--15">
-        <div class="mask mask--oval mask--bordered u-h_center--block map">
-          <img src="{{ static("peacecorps/img/countries/"
-                              + project.country.code.lower() + ".svg") }}"
-               class="mask__content" />
-        </div>
-          <span class="t-body--sm">
-            in <strong>{{project.country.name}}</strong>
-          </span>
-      </section>
-      <section class="u-align_c inline_grid--15">
-        {% set percent_completed = project.account.percent_funded() %}
-        <div class="radialProgress u-h_center--block"
-          {% if percent_completed < 50 %}
-            {% set deg = 90 + (3.6 * percent_completed) %}
-          style="background-image: linear-gradient(90deg, #F2EFE8 50%, transparent 50%, transparent), linear-gradient({{ deg }}deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
-          {% else %}
-            {% set deg = -90 + (3.6 * (percent_completed - 50)) %}
-          style="background-image: linear-gradient({{ deg }}deg, #A12122 50%, transparent 50%, transparent), linear-gradient(270deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
-          {% endif %}
-        >
-          <div class="radialProgress__overlay">
-          </div>
-        </div>
-        <span class="t-body--sm">
-          {{ project.account.remaining() }} needed to reach
-          {{ project.account.goal }} goal
-        </span>
-      </section>
-    </div>
-
-    <section class="section u-align_c">
-      <a href="" {# TODO where does this link go? #}
-         class="button button--sm button--primary">
-        Give to this project</a>
+      {% endif %}
     </section>
-  </section>
+    <section class="u-align_c inline_grid--15">
+      <div class="mask mask--oval mask--bordered u-h_center--block map">
+        <img src="{{ static("peacecorps/img/countries/"
+                            + project.country.code.lower() + ".svg") }}"
+             class="mask__content" />
+      </div>
+        <span class="t-body--sm">
+          in <strong>{{project.country.name}}</strong>
+        </span>
+    </section>
+    {% if project.goal %}
+    <section class="u-align_c inline_grid--15">
+      {% set percent_raised = project.account.percent_raised() %}
+      <div class="radialProgress u-h_center--block"
+        {% if percent_raised < 50 %}
+          {% set deg = 90 + (3.6 * percent_raised) %}
+        style="background-image: linear-gradient(90deg, #F2EFE8 50%, transparent 50%, transparent), linear-gradient({{ deg }}deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
+        {% else %}
+          {% set deg = -90 + (3.6 * (percent_raised - 50)) %}
+        style="background-image: linear-gradient({{ deg }}deg, #A12122 50%, transparent 50%, transparent), linear-gradient(270deg, #A12122 50%, #F2EFE8 50%, #F2EFE8);"
+        {% endif %}
+      >
+        <div class="radialProgress__overlay">
+        </div>
+      </div>
+      <span class="t-body--sm">
+        {{ humanize_cents(project.account.remaining()) }} needed to reach
+        {{ humanize_cents(project.account.total_cost()) }} goal
+      </span>
+    </section>
+    {% endif %}
+  </div>
 </article>
