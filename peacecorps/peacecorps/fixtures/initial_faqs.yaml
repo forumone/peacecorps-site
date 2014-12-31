@@ -1,4 +1,26 @@
 - fields:
+    answer: '{"data":[{"type":"text","data":{"text":"The Peace Corps
+      Partnership Program connects Volunteers and their communities with the
+      private sector in the U.S. and around the world in order to fund small,
+      sustainable, grass roots projects.\n\n
+      Volunteers are invited to submit proposals to the Partnership Program to
+      obtain financial assistance in support of community projects. In order
+      to receive project funding through the Partnership Program, the
+      community must make a 25 percent contribution to the total project cost
+      and outline success indicators for the individual projects.  The Peace
+      Corps then posts the project online to raise funds for the project.\n\n
+      The Partnership Program is a proven mechanism for supporting small
+      community-based grants.  Over the past ten years, the Partnership
+      Program has funded 6,071 Volunteer projects in nearly every sector,
+      totaling more than $18 million dollars in grant funds. Last year alone,
+      the Partnership Program funded 776 projects in 59 countries, touching
+      the lives of 1.4 million people across the globe."}}]}'
+    order: 1
+    question: What is the Peace Corps Partnership Program?
+    slug: what-is-pcpp
+  model: peacecorps.faq
+  pk: 1
+- fields:
     answer: '{"data":[{"type":"text","data":{"text":"Yes. All gifts or
       bequests to the Peace Corps are gifts to the United States for
       exclusively public purposes within the meaning of section 170(c)(1) of
@@ -7,31 +29,56 @@
       thank you letter will be sent, which can be used as a tax receipt. The
       name on the tax receipt will reflect the account owner on the credit
       card or check."}}]}'
-    order: 1
+    order: 2
     question: Is my donation to the Peace Corps tax-deductible?
     slug: tax-deductible
   model: peacecorps.faq
-  pk: 1
+  pk: 2
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"Yes. You will receive an
       official thank you letter, stating the amount you donated, which can be
       used as a receipt for tax purposes."}}]}'
-    order: 2
+    order: 3
     question: Will I get a receipt to use for my taxes?
     slug: tax-receipt
   model: peacecorps.faq
-  pk: 2
+  pk: 3
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"Every penny! Your entire
       donation to the Partnership Program will be directed to a Volunteer
       project. No part of your donation will be used to cover staff or
       overhead costs of running the Partnership Program, as the office is
       supported by congressionally appropriated funds to the Peace Corps."}}]}'
-    order: 3
+    order: 4
     question: How much of my donation will go to a Volunteer Project?
     slug: how-much
   model: peacecorps.faq
-  pk: 3
+  pk: 4
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Our Projects and Funds
+      [page](/donate/projects-funds/) allows you to explore projects in a
+      number of ways. If you would like to find a project being implemented by
+      a specific volunteer, you can sort by “Volunteers” to see everything
+      listed alphabetically by the last name of the Volunteer."}}]}'
+    order: 5
+    question: I would like to search for a specific Volunteer project. How do I do that?
+    slug: volunteer-search
+  model: peacecorps.faq
+  pk: 5
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"There are a couple
+      reasons a project may not appear online. Occasionally, projects have not
+      yet been received by the Partnership Program and are not yet online. In
+      rare cases, the system may be undergoing maintenance, and as a result
+      some projects may not show up. If it is not there or if you need any
+      additional information call our office at 855.855.1961 x2170 or e-mail
+      ([donate@peacecorps.gov](mailto:donate@peacecorps.gov)) and a staff
+      member would be glad to confirm the status of the project."}}]}'
+    order: 6
+    question: Why isn't the project I’m looking for showing up on the site?
+    slug: where-is-my-project
+  model: peacecorps.faq
+  pk: 6
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"After a project has been
       fully funded, Partnership Program staff work with the Peace Corps Budget
@@ -39,63 +86,97 @@
       transferred to the Volunteer by check or Electronic Funds Transfer. The
       whole process may take between two weeks to one month for money to be
       received by a Volunteer."}}]}'
-    order: 4
+    order: 7
     question: My child/friend/relative has a project that was funded. Why haven't they received their money yet?
     slug: friend-money-yet
   model: peacecorps.faq
-  pk: 4
+  pk: 7
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"If you donated to a
       Volunteer project, you may request a copy of the Final Report submitted by
       the Volunteer once the project is completed. Send an e-mail to
-      donate@peacecorps.gov with your name, address, the Volunteer''s name, and
-      the project number that you donated to and we will provide you with
-      further information. Or, you may give us a call at 855.855.1961 ext. 2170
-      and a staff member would be happy to take your information."}}]}'
-    order: 5
+      [donate@peacecorps.gov](mailto:donate@peacecorps.gov) with your name,
+      address, the Volunteer''s name, and the project number that you donated
+      to and we will provide you with further information. Or, you may give us
+      a call at 855.855.1961 ext. 2170 and a staff member would be happy to
+      take your information."}}]}'
+    order: 8
     question: I donated to a project and would like to know the results. How can I find out more?
     slug: results
   model: peacecorps.faq
-  pk: 5
+  pk: 8
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Yes, you may donate if
+      you are outside of the United States. When you decide what project,
+      Special Fund, or Country Fund that you would like to donate to, you will
+      be asked to provide your contact information. Unfortunately, it will ask
+      you to provide a State (in the United States). If you do not fill in a
+      State, the website will not allow you to continue donating. In this
+      case, we ask that you fill in any State, to allow the donation to
+      continue. Once you have been transferred to the Pay.gov site, you will
+      be allowed to update your contact information.\n\n
+      **IMPORTANT NOTE:** The Pay.gov website only accepts Visa, MasterCard,
+      American Express, Discover, and Diner''s Club cards."}}]}'
+    order: 9
+    question: I would like to donate, but I don't live in the United States. How can I donate?
+    slug: outside-usa
+  model: peacecorps.faq
+  pk: 9
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"Although donating on-line
       is the fastest way for Volunteer projects to get funded, you may also donate
       by mail or over the phone:\n\n
       Send a check to:\n\n
-      Peace Corps Headquarters Office of Gifts and Grants\n\n
-      Management 1111 20th Street, NW\n\n
+      Peace Corps Headquarters\n\n
+      Office of Gifts and Grants Management\n\n
+      1111 20th Street, NW\n\n
       Washington, DC 20526\n\n
-      Please make check payable to Peace Corps Partnership Program Please also
-      note the project number, Special Fund name, or Country Fund name in the
-      memo section of the check. (Please print and mail this donation form with
-      your check, so we may contact you with information regarding your
+      Please make check payable to Peace Corps Partnership Program\n\n
+      Please also note the project number, Special Fund name, or Country Fund
+      name in the memo section of the check. (Please print and mail this
+      [donation form](http://files.peacecorps.gov/multimedia/pdf/donors/Peace_Corps_Donation_Form.pdf)
+      with your check, so we may contact you with information regarding your
       donation, if necessary.)\n\n
       -or-\n\n
       Call the office and we can take credit card information over the phone at
       855.855.1961 x2170."}}]}'
-    order: 6
+    order: 10
     question: I don't want to donate online - how else can I donate?
     slug: not-online
   model: peacecorps.faq
-  pk: 6
+  pk: 10
+- fields:
+    answer: '{"data":[{"type":"text","data":{"text":"Yes. If you are donating
+      on-line, please enter this information in the \"comments\" box. You will
+      receive a thank you letter for your donation. However, if you would like
+      us to send a letter to the person (or family of the person) that you are
+      honoring, please include their name and address in the \"comments\" box as
+      well. Or if you are going to mail a check you may fill in this
+      information on the donation form. Of course, you may also give us this
+      information over the phone at 855.855.1961 x2170."}}]}'
+    order: 11
+    question: I'd like to make a donation in honor of/in memory of someone. Is that possible?
+    slug: in-honor-memory
+  model: peacecorps.faq
+  pk: 11
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"At this time, Peace Corps
       is not accepting un-solicited in-kind donations. Peace Corps staff or
       Volunteers should contact the Office of Gifts and Grants Management if
       they are interested in a potential in-kind donation, which supports
       current Peace Corps programming."}}]}'
-    order: 7
+    order: 12
     question: Does Peace Corps accept in-kind donations?
     slug: in-kind
   model: peacecorps.faq
-  pk: 7
+  pk: 12
 - fields:
     answer: '{"data":[{"type":"text","data":{"text":"We are only able to fund a
       project up to the amount that a Volunteer requests. Once a project becomes
       fully funded, any extra funds will be allocated to the Global Fund where
       they will be used to support Partnership Program projects Worldwide."}}]}'
-    order: 8
+    order: 13
     question: What happens if a project receives more than the requested amount?
     slug: fully-funded
   model: peacecorps.faq
-  pk: 8
+  pk: 13

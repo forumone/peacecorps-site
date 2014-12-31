@@ -9,7 +9,7 @@
     url('{{static("peacecorps/img/special-funds-top.png")}}');
   ">
 </div>
-<section class="section">
+<section class="section u-clearfix">
 {% for fund in general_funds %}
   <article>
     <aside class="grid--20 section__content">
@@ -50,7 +50,7 @@
           <a href="{{url("donate campaign", slug=fund.slug)}}">
             <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
           </a>
-          <p>{{ fund.description }}</p>
+          <p>{{ fund.description.html|safe }}</p>
         </article>
     </section>
   {% endfor %}
