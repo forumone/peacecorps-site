@@ -24,7 +24,7 @@ test('init', function(t) {
     Discover.prototype.getOtherLinks.restore();
     t.end();
   });
-  t.test('should set all the filters and selected to first', function(t) {
+  t.test('should set all the filters and selected to configured', function(t) {
     var testDiscover,
         $testEls,
         expected,
@@ -40,8 +40,19 @@ test('init', function(t) {
 
     t.deepEquals(testDiscover.filters, expected, 'Filters set to the data of ' +
       'elements passed in');
+    // Defaults to the first
     t.equal(testDiscover.selected, expected1, 'Sets the selected to the first ' +
       'filter');
+    //  Including when a bad id is passed
+    testDiscover = new Discover($('<div></div>'), $($testEls), {
+      selected: 'non-exist'});
+    t.equal(testDiscover.selected, expected1,
+            'Sets the selected to the first filter');
+    // But can be configured otherwise
+    testDiscover = new Discover($('<div></div>'), $($testEls), {
+      selected: expected2});
+    t.equal(testDiscover.selected, expected2,
+            'Sets the selected to the second filter');
 
     t.end();
   });

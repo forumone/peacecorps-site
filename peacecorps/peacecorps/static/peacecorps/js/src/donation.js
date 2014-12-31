@@ -62,7 +62,7 @@ $().ready(function() {
 
   if ($discoverApp.length > 0) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: 'volunteer'
+      selected: window.location.hash.substr(1)
     });
     discover.render();
   }
