@@ -1,0 +1,5 @@
+{% overextends "admin/base.html" %}
+{% load admin_static %}{% load firstof from future %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/src/base.css" %}" />
+{% endblock %}

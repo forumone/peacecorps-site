@@ -24,6 +24,7 @@ INSTALLED_APPS = (
     'peacecorps',
     'sirtrevor',
     'adminsortable',
+    'overextends',
 )
 
 
