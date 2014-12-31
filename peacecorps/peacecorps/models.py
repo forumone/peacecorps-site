@@ -23,20 +23,19 @@ def imagesave(description):
         # if description is empty for any reason, it has no images.
         return False
 
-    description = eval(description)
+    description = json.loads(description)
 
     for block in description['data']:
         if block['type'] == 'image508':
-            title = block['data']['image_title']
             imagepath = block['data']['file']['path']
 
             desc = block['data']['image_description']
 
-            thisimage = Media(
-                title=title,
-                file=imagepath,
-                mediatype=Media.IMAGE,
-                description=desc,)
+            thisimage, created = Media.objects.get_or_create(file=imagepath)
+            thisimage.title = block['data']['image_title']
+            thisimage.mediatype=Media.IMAGE
+            thisimage.description=desc
+
             thisimage.save()
 
     return True
@@ -237,7 +236,7 @@ class Media(models.Model):
     )
 
     title = models.CharField(max_length=100)
-    file = models.FileField()  # TODO: Configure
+    file = models.FileField()
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
     caption = models.TextField(blank=True, null=True)
@@ -259,16 +258,21 @@ class Media(models.Model):
              ('thm', 300, 300))
 
             filename = slugify(self.title)
-            image = Image.open(self.file)
+            image = Image.open(os.path.join(settings.MEDIA_ROOT,
+                                            self.file.name))
 
             for ext, width, height in SIZES:
-                with tempfile.TemporaryFile() as buffer_file:
-                    image.thumbnail((width, height), Image.ANTIALIAS)
-                    path = os.path.join(
+                if not os.path.exists(os.path.join(
+                        settings.MEDIA_ROOT,
                         settings.RESIZED_IMAGE_UPLOAD_PATH,
-                        filename + '-' + ext + '.' + image.format.lower())
-                    image.save(buffer_file, image.format.lower())
-                    default_storage.save(path, buffer_file)
+                        filename + '-' + ext + '.' + image.format.lower())):
+                    with tempfile.TemporaryFile() as buffer_file:
+                        image.thumbnail((width, height), Image.ANTIALIAS)
+                        path = os.path.join(
+                            settings.RESIZED_IMAGE_UPLOAD_PATH,
+                            filename + '-' + ext + '.' + image.format.lower())
+                        image.save(buffer_file, image.format.lower())
+                        default_storage.save(path, buffer_file)
         super(Media, self).save(*args, **kwargs)
 
     @property
