@@ -257,21 +257,20 @@ class Media(models.Model):
             SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
              ('thm', 300, 300))
 
-            filename = slugify(self.title)
-            image = Image.open(os.path.join(settings.MEDIA_ROOT,
-                                            self.file.name))
+            img = Image.open(os.path.join(settings.MEDIA_ROOT, self.file.name))
+            filename, filetype = self.file.name.rsplit('.', 1)
+
 
             for ext, width, height in SIZES:
+                thisfile = filename + '-' + ext + '.' + filetype
                 if not os.path.exists(os.path.join(
                         settings.MEDIA_ROOT,
-                        settings.RESIZED_IMAGE_UPLOAD_PATH,
-                        filename + '-' + ext + '.' + image.format.lower())):
+                        settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)):
                     with tempfile.TemporaryFile() as buffer_file:
-                        image.thumbnail((width, height), Image.ANTIALIAS)
+                        img.thumbnail((width, height), Image.ANTIALIAS)
                         path = os.path.join(
-                            settings.RESIZED_IMAGE_UPLOAD_PATH,
-                            filename + '-' + ext + '.' + image.format.lower())
-                        image.save(buffer_file, image.format.lower())
+                            settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)
+                        img.save(buffer_file, img.format.lower())
                         default_storage.save(path, buffer_file)
         super(Media, self).save(*args, **kwargs)
 
