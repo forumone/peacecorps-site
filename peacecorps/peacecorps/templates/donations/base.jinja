@@ -33,7 +33,7 @@
           separator--r separator--white separator--hide_sm
         {% endif %}
       ">
-        <a href="/donate" class="t--white">
+        <a href="{{ url('donate landing') }}" class="t--white">
           Peace Corps
         </a>
       </h1>
@@ -61,13 +61,13 @@
         <h3 class="t-title--3 t--gray--2">Projects and Funds</h3>
         <ul class="u-unmarked_list">
           <li class="sub_nav__link">
-            <a href="{{ url('donate projects funds') }}">By Issue</a>
+            <a href="{{ url('donate projects funds') }}#issue">By Issue</a>
           </li>
           <li class="sub_nav__link">
-            <a href="{{ url('donate projects funds') }}">By Country</a>
+            <a href="{{ url('donate projects funds') }}#country">By Country</a>
           </li>
           <li class="sub_nav__link">
-            <a href="{{ url('donate projects funds') }}">By Volunteer</a>
+            <a href="{{ url('donate projects funds') }}#volunteer">By Volunteer</a>
           </li>
           <li class="sub_nav__link">
             <a href="{{ url('donate special funds') }}">Special and
