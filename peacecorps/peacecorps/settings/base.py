@@ -134,13 +134,15 @@ DEFAULT_FILE_STORAGE = 'contenteditor.backends.LoggingStorage'
 # The logging storage (above) must have a backend. Default to Django's default
 LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
+# Non-Sir Trevor Image Processing:
+RESIZED_IMAGE_UPLOAD_PATH = "attachments/"
+
 # Set SIRTREVOR var to exclude sirtrevor urls
 # (overwritten in admin settings)
 SIRTREVOR = False
 
 # Sir Trevor image storage and processing:
 SIRTREVOR_UPLOAD_PATH = "attachments/"
-SIRTREVOR_ATTACHMENT_PROCESSOR = 'contenteditor.imagesizing.resize'
 
 # Sir Trevor Blocks:
 SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
