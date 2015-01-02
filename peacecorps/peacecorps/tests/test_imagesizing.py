@@ -1,10 +1,11 @@
+import os
+import shutil
 from unittest.mock import patch
 
+from django.conf import settings
 from django.test import TestCase
 
-from django.core.files.storage import default_storage
 from peacecorps.models import Media
-from django.conf import settings
 
 
 class ResizeTests(TestCase):
@@ -12,6 +13,10 @@ class ResizeTests(TestCase):
     def test_resize_saved(self, default_storage):
         """Verify that the default storage is getting all three images"""
         imagepath = 'pc_logo.png'
+        # Copy a dummy png
+        shutil.copyfile(os.path.join('peacecorps', 'static', 'peacecorps',
+                                     'img', imagepath),
+                        os.path.join(settings.MEDIA_ROOT, imagepath))
         thisimage = Media(
             title="PC Logo",
             file=imagepath,
@@ -19,3 +24,4 @@ class ResizeTests(TestCase):
             description="The Peace Corps Logo.",)
         thisimage.save()
         self.assertTrue(default_storage.save.call_count, 4)
+        os.remove(os.path.join(settings.MEDIA_ROOT, imagepath))
