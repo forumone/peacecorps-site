@@ -1299,6 +1299,18 @@ html {
   color: #fff; }
 
 /*
+ * Isolate
+ *
+ * Have an element isolate itself positionally from those around it.
+ */
+.isolate {
+  display: block;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1em; }
+
+/*
  * Main nav module.
  *
  * The main nav is a horizontal row of links, which collapses to a centered

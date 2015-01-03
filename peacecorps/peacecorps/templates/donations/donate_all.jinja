@@ -141,16 +141,15 @@
 {%- endmacro %}
 
 {% macro render_campaign(campaign, issue) -%}
-  {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
       section__content--contain section__content--no_space_r">
     <a href="#" class="js-pageBack t-single_nav t-body--sm"
         aria-controls="page-issue-{{ issue.id }}">
       &lt; View all issues</a>
-    <img class="u-pullr"
-      class="section__content--no_space_r"
-      style="width: 42%;
-             background-image: url('{{issue.icon_background.url}}');
+    <img class="u-pullr section__content section__content--no_space_r isolate
+        mask mask--oval mask--gray-1 mask--bordered"
+      style="width: 14em; height: 14em;
+             background-image: url('{{ issue.icon_background.url }}');
              background-size: 100%;"
       src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
