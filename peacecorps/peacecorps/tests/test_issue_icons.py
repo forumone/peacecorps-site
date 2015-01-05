@@ -24,39 +24,39 @@ class MakeSquareTests(TestCase):
         self.assertIsNone(issue_icons.make_square(svg))
 
         svg = ElementTree.fromstring(
-            XML_HEADER + b'<svg width="abc" height="2222px"></svg>')
+            XML_HEADER + b'<svg widTH="abc" height="2222px"></svg>')
         self.assertIsNone(issue_icons.make_square(svg))
 
     def test_resized_no_viewbox(self):
         svg = ElementTree.fromstring(
             XML_HEADER
-            + b'<svg width="30" height="15"></svg>')
+            + b'<svg width="30" hEIght="15"></svg>')
         result = ElementTree.tostring(issue_icons.make_square(svg))
         self.assertTrue(b'width="80"' in result)
-        self.assertTrue(b'height="80"' in result)
+        self.assertTrue(b'hEIght="80"' in result)
         self.assertTrue(b'viewBox="0 -7 30 30"' in result)
 
     def test_resized_with_viewbox(self):
         svg = ElementTree.fromstring(
             XML_HEADER
-            + b'<svg width="30" height="15" viewBox="-15 10 60 30"></svg>')
+            + b'<svg width="30" height="15" vIewBox="-15 10 60 30"></svg>')
         result = ElementTree.tostring(issue_icons.make_square(svg))
         self.assertTrue(b'width="80"' in result)
         self.assertTrue(b'height="80"' in result)
-        self.assertTrue(b'viewBox="-15 -5 60 60"' in result)
+        self.assertTrue(b'vIewBox="-15 -5 60 60"' in result)
 
 
 class ColorIconTests(TestCase):
     def test_color_fill(self):
         svg = ElementTree.fromstring(
             XML_HEADER + b'<svg width="10" height="10">'
-            + b'<g stroke="none" fill="#123"></g></svg>')
+            + b'<g strOKe="none" fill="#123"></g></svg>')
         with self.settings(SVG_COLORS={'white': '#fff', 'green': '#0f5'}):
             result = issue_icons.color_icon(svg)
             self.assertEqual(2, len(result))
             self.assertTrue('white' in result)
             self.assertTrue('green' in result)
-            self.assertTrue(b'stroke="none"' in
+            self.assertTrue(b'strOKe="none"' in
                             ElementTree.tostring(result['white']))
             self.assertFalse(b'fill="#0f5"' in
                              ElementTree.tostring(result['white']))
@@ -66,13 +66,13 @@ class ColorIconTests(TestCase):
     def test_color_stroke(self):
         svg = ElementTree.fromstring(
             XML_HEADER + b'<svg width="10" height="10">'
-            + b'<g stroke="#000" fill="none"></g></svg>')
+            + b'<g stroke="#000" fill="noNE"></g></svg>')
         with self.settings(SVG_COLORS={'white': '#fff', 'green': '#0f5'}):
             result = issue_icons.color_icon(svg)
             self.assertEqual(2, len(result))
             self.assertTrue('white' in result)
             self.assertTrue('green' in result)
-            self.assertTrue(b'fill="none"' in
+            self.assertTrue(b'fill="noNE"' in
                             ElementTree.tostring(result['white']))
             self.assertFalse(b'stroke="#0f5"' in
                              ElementTree.tostring(result['white']))
@@ -82,19 +82,19 @@ class ColorIconTests(TestCase):
     def test_color_style(self):
         svg = ElementTree.fromstring(
             XML_HEADER + b'<svg width="10" height="10">'
-            + b'<g style="stroke: #123; fill: none;"></g></svg>')
+            + b'<g sTYle="strOKe: #123; fILL: none;"></g></svg>')
         with self.settings(SVG_COLORS={'white': '#fff', 'green': '#0f5'}):
             result = issue_icons.color_icon(svg)
             self.assertEqual(2, len(result))
             self.assertTrue('white' in result)
             self.assertTrue('green' in result)
-            self.assertTrue(b'style="stroke: #fff; fill: none;"' in
+            self.assertTrue(b'sTYle="stroke: #fff; fILL: none;"' in
                             ElementTree.tostring(result['white']))
 
     def test_color_embedded_stylesheet(self):
         svg = ElementTree.fromstring(
             XML_HEADER + b'<svg width="10" height="10">'
-            + b'<style>\n.some_class{\nfill: #123; stroke: grey;}\n</style>\n'
+            + b'<stYLe>\n.some_class{\nfill: #123; STroke: grey;}\n</stYLe>\n'
             + b'<g class="some_class"></g></svg>')
         with self.settings(SVG_COLORS={'white': '#fff', 'green': '#0f5'}):
             result = issue_icons.color_icon(svg)

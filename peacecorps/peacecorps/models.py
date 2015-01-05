@@ -14,6 +14,7 @@ from localflavor.us.models import USPostalCodeField
 from sirtrevor.fields import SirTrevorField
 from PIL import Image
 
+from peacecorps import issue_icons
 from peacecorps.fields import GPGField, BraveSirTrevorField
 
 
@@ -33,8 +34,8 @@ def imagesave(description):
 
             thisimage, created = Media.objects.get_or_create(file=imagepath)
             thisimage.title = block['data']['image_title']
-            thisimage.mediatype=Media.IMAGE
-            thisimage.description=desc
+            thisimage.mediatype = Media.IMAGE
+            thisimage.description = desc
 
             thisimage.save()
 
@@ -255,11 +256,10 @@ class Media(models.Model):
     def save(self, *args, **kwargs):
         if self.mediatype == Media.IMAGE:
             SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
-             ('thm', 300, 300))
+                     ('thm', 300, 300))
 
             img = Image.open(os.path.join(settings.MEDIA_ROOT, self.file.name))
             filename, filetype = self.file.name.rsplit('.', 1)
-
 
             for ext, width, height in SIZES:
                 thisfile = filename + '-' + ext + '.' + filetype
@@ -373,7 +373,8 @@ class Issue(models.Model):
     individual projects, but for now, just point to sector funds"""
     name = models.CharField(max_length=100)
     icon = models.FileField(    # No need for any of the 'Media' fields
-        help_text="Icon commonly used to represent this issue")
+        help_text="Icon commonly used to represent this issue",
+        upload_to='icons', validators=[issue_icons.full_validation])
     icon_background = models.FileField(
         help_text="Background used when a large icon is present")
     campaigns = models.ManyToManyField(
@@ -386,6 +387,21 @@ class Issue(models.Model):
         """Jump through the campaigns connection to get to a set of projects"""
         campaigns = self.campaigns.all()
         return Project.published_objects.filter(campaigns__in=campaigns)
+
+    def save(self, *args, **kwargs):
+        """Save other colors of the issue icon. We assume it is validated in
+        the clean function"""
+        if self.icon:
+            xml = issue_icons.validate_svg(self.icon.file.read())
+            square = issue_icons.make_square(xml)
+            colors = issue_icons.color_icon(square)
+            super(Issue, self).save(*args, **kwargs)
+            prefix, suffix = self.icon.name[:-4], self.icon.name[-4:]
+            for key, content in colors.items():
+                self.icon.storage.save(prefix + '-' + key + suffix,
+                                       issue_icons.as_file(content))
+        else:
+            super(Issue, self).save(*args, **kwargs)
 
 
 def default_expire_time():
