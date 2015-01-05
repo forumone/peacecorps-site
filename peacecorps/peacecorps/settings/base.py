@@ -148,3 +148,9 @@ SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
 # Used when generating tweets/emails
 SHARE_SUBJECT = "Peacecorps Donation"
 SHARE_TEMPLATE = "I just donated to a great cause! %s"
+
+# Used to color issue icons
+SVG_COLORS = {
+    'white': '#FFF',
+    'neutral_medium': '#F2EFE8',
+}
