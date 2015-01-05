@@ -36,3 +36,5 @@ SIRTREVOR = True
 
 # Verify that the django-storages lib is not broken
 import storages.backends.s3boto
+
+MEDIA_ROOT = './media/'

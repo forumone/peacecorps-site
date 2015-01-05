@@ -94,8 +94,9 @@ var Discover = function($root) {
 
 Discover.ccFilteredItem = '.js-filterable';
 
-Discover.prototype.init = function(root, $navLinks) {
+Discover.prototype.init = function(root, $navLinks, opts) {
   var self = this,
+      selectedIdx = 0,
       $selectedLink;
 
   this.$navLinks = $navLinks;
@@ -114,8 +115,14 @@ Discover.prototype.init = function(root, $navLinks) {
     self.pageTo($(this));
   });
   this.createPages(this.$pages);
-  $selectedLink = $(this.$navLinks[0]);
-  this.selected = this.filters[0];
+
+  for (var i = 0; i < this.filters.length; i++) {
+    if (this.filters[i] && this.filters[i] === (opts && opts.selected)) {
+      selectedIdx = i;
+    }
+  }
+  $selectedLink = $(this.$navLinks[selectedIdx]);
+  this.selected = this.filters[selectedIdx];
   this.select($selectedLink);
 };
 
@@ -251,7 +258,7 @@ $().ready(function() {
 
   if ($discoverApp.length > 0) {
     var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: 'volunteer'
+      selected: window.location.hash.substr(1)
     });
     discover.render();
   }

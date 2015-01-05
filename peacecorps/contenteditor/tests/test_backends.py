@@ -31,6 +31,7 @@ class LoggingStorageTests(TestCase):
             with self.assertLogs('peacecorps.files') as logger:
                 media = Media.objects.create(
                     title="Example", description="Example Content",
+                    mediatype=Media.OTHER,
                     file=SimpleUploadedFile('fILENAMe.txt', b'contents'))
             self.assertEqual(1, len(logger.output))
             self.assertTrue('Saved' in logger.output[0])

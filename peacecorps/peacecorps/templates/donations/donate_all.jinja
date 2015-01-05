@@ -25,13 +25,13 @@
       <span class="t-title--4">Select a category to browse and give:</span>
     </li>
     <li class="t-title--4 sub_nav__link--horizontal">
-      <a class="t--white" href="#" data-filter-type="issue">Issues</a>
+      <a class="t--white" href="#issue" data-filter-type="issue">Issues</a>
     </li>
     <li class="t-title--4 sub_nav__link--horizontal">
-      <a class="t--white" href="#" data-filter-type="country">Countries</a>
+      <a class="t--white" href="#country" data-filter-type="country">Countries</a>
     </li>
     <li class="t-title--4 sub_nav__link--horizontal">
-      <a class="t--white" href="#" data-filter-type="volunteer">Volunteers</a>
+      <a class="t--white" href="#volunteer" data-filter-type="volunteer">Volunteers</a>
     </li>
   </ul>
 </nav>
@@ -74,7 +74,7 @@
   {% endfor %}
   </ul>
   <ul class="js-filterable u-unmarked_list u-clearfix"
-       data-filter-type="volunteer">
+      data-filter-type="volunteer">
   {% for project in projects %}
     <li class="section--neutral_medium
           u-clearfix
@@ -86,8 +86,8 @@
     </li>
   {% endfor %}
   </ul>
-  <ul  class="js-filterable u-unmarked_list u-clearfix"
-       data-filter-type="country">
+  <ul class="js-filterable u-unmarked_list u-clearfix"
+      data-filter-type="country">
   {% for country in countries %}
     <li id="page-country-{{ country.id }}">
       <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
@@ -141,16 +141,15 @@
 {%- endmacro %}
 
 {% macro render_campaign(campaign, issue) -%}
-  {# TODO find way to link to media urls #}
   <aside class="grid--20 sm-hide
       section__content--contain section__content--no_space_r">
     <a href="#" class="js-pageBack t-single_nav t-body--sm"
         aria-controls="page-issue-{{ issue.id }}">
       &lt; View all issues</a>
-    <img class="u-pullr"
-      class="section__content--no_space_r"
-      style="width: 42%;
-             background-image: url('{{issue.icon_background.url}}');
+    <img class="u-pullr section__content section__content--no_space_r isolate
+        mask mask--oval mask--gray-1 mask--bordered"
+      style="width: 14em; height: 14em;
+             background-image: url('{{ issue.icon_background.url }}');
              background-size: 100%;"
       src="{{ url_or(issue.icon, "") }}"
       alt="{{ campaign.name }}" />
@@ -305,7 +304,8 @@
                    rectangular_progress__line--neutral">
         </span>
       </div>
-      <a class="button button--sm button--primary" href="">
+      <a class="button button--sm button--primary"
+         href="{{ url("donate project", slug=project.slug) }}#amount-form">
        Give to the project</a>
       <a class="t-single_nav u-pullr t-nom"
          href="{{ url("donate project", slug=project.slug) }}">

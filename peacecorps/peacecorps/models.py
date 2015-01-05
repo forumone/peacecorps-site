@@ -1,5 +1,7 @@
 from datetime import timedelta
 import json
+import tempfile
+import os
 
 from django.conf import settings
 from django.db import models
@@ -7,10 +9,36 @@ from django.db.models import Sum
 from django.template.loader import render_to_string as django_render
 from django.utils import timezone
 from django.utils.text import slugify
+from django.core.files.storage import default_storage
 from localflavor.us.models import USPostalCodeField
 from sirtrevor.fields import SirTrevorField
+from PIL import Image
 
 from peacecorps.fields import GPGField, BraveSirTrevorField
+
+
+def imagesave(description):
+    """Saves images from Sir Trevor fields to the media model."""
+    if not description:
+        # if description is empty for any reason, it has no images.
+        return False
+
+    description = json.loads(description)
+
+    for block in description['data']:
+        if block['type'] == 'image508':
+            imagepath = block['data']['file']['path']
+
+            desc = block['data']['image_description']
+
+            thisimage, created = Media.objects.get_or_create(file=imagepath)
+            thisimage.title = block['data']['image_title']
+            thisimage.mediatype=Media.IMAGE
+            thisimage.description=desc
+
+            thisimage.save()
+
+    return True
 
 
 class Account(models.Model):
@@ -147,6 +175,10 @@ class Campaign(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+
+        """Save images to the Media model"""
+        imagesave(self.description)
+
         super(Campaign, self).save(*args, **kwargs)
 
 
@@ -204,7 +236,7 @@ class Media(models.Model):
     )
 
     title = models.CharField(max_length=100)
-    file = models.FileField()  # TODO: Configure
+    file = models.FileField()
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
     caption = models.TextField(blank=True, null=True)
@@ -219,6 +251,28 @@ class Media(models.Model):
 
     def __str__(self):
         return '%s' % (self.title)
+
+    def save(self, *args, **kwargs):
+        if self.mediatype == Media.IMAGE:
+            SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
+             ('thm', 300, 300))
+
+            img = Image.open(os.path.join(settings.MEDIA_ROOT, self.file.name))
+            filename, filetype = self.file.name.rsplit('.', 1)
+
+
+            for ext, width, height in SIZES:
+                thisfile = filename + '-' + ext + '.' + filetype
+                if not os.path.exists(os.path.join(
+                        settings.MEDIA_ROOT,
+                        settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)):
+                    with tempfile.TemporaryFile() as buffer_file:
+                        img.thumbnail((width, height), Image.ANTIALIAS)
+                        path = os.path.join(
+                            settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)
+                        img.save(buffer_file, img.format.lower())
+                        default_storage.save(path, buffer_file)
+        super(Media, self).save(*args, **kwargs)
 
     @property
     def url(self):
@@ -294,6 +348,10 @@ class Project(models.Model):
                 slug__startswith=self.slug).order_by('-pk').first()
             if existing:
                 self.slug = self.slug + str(existing.pk)
+
+        """Save images to the Media model"""
+        imagesave(self.description)
+
         super(Project, self).save(*args, **kwargs)
 
     def issue(self, check_cache=True):
