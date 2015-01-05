@@ -1,3 +1,4 @@
+defusedxml
 Django==1.7
 django-jinja==1.0.4
 django-localflavor

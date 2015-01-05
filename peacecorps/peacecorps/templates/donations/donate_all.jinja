@@ -44,7 +44,7 @@
       <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
           class="js-pageNav section--neutral_medium bordered bordered--row
           bordered--white u-clearfix">
-        {{ render_link_header(issue.icon.url, issue.name, issue.name) }}
+        {{ render_link_header(issue.icon_color_url('grey'), issue.name, issue.name) }}
       </a>
     </li>
     {% for campaign in issue.campaigns.all() %}
@@ -151,7 +151,7 @@
       style="width: 14em; height: 14em;
              background-image: url('{{ issue.icon_background.url }}');
              background-size: 100%;"
-      src="{{ url_or(issue.icon, "") }}"
+      src="{{ issue.icon_color_url('white') }}"
       alt="{{ campaign.name }}" />
   </aside>
   <article class="grid--80 section__content--contain">

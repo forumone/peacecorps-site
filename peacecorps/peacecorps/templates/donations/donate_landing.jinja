@@ -51,13 +51,11 @@
           </a>
         </div>
         <div class="grid--40 u-clearfix">
-          {% if project.issue() %}
-            <div class="issue">
-              <img class="bg_img--icon"
-                   style="-webkit-mask-image: url('{{ url_or(project.issue().icon, "") }}');"
-                   alt="{{project.issue().name}}"
-                   />
-              <span class="t-icon">{{project.issue().name}}</span>
+          {% set issue = project.issue() %}
+          {% if issue %}
+            <div class="bg_img--icon issue"
+                 style="background-image: url({{issue.icon_color_url('grey')}})">
+              <span class="t-icon">{{issue.name}}</span>
             </div>
           {% endif %}
           <h2 class="t-heading--2">
