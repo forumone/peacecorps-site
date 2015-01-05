@@ -428,16 +428,6 @@ p + p {
     .bg_img--banner {
       height: 10em; } }
 
-.bg_img--icon {
-  display: none; }
-
-.bg_img--icon:not(old) {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  background-color: #888;
-  -webkit-mask-size: 1.5em 1.5em; }
-
 /*
  * Banner
  *

@@ -18,16 +18,3 @@
     height: 10em;
   }
 }
-
-// TODO move to icon class
-// Hide from IE
-.bg_img--icon {
-  display: none;
-}
-.bg_img--icon:not(old) {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  background-color: #888;
-  -webkit-mask-size: 1.5em 1.5em;
-}
