@@ -196,7 +196,7 @@ body {
   color: #fff; }
 
 .t--gray, .t-icon {
-  color: #888; }
+  color: #aaa698; }
 
 .t--gray--2 {
   color: #555; }
@@ -609,10 +609,10 @@ body {
   background-color: #E5E1D4; }
 
 .bubble--primary {
-  background-color: #fff;
+  background-color: #A12122;
   color: #fff; }
   .bubble--primary .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old) {
-    color: #A12122; }
+    color: #fff; }
 
 .bubble--white {
   background-color: #fff;
@@ -648,10 +648,10 @@ body {
 .bubble_form input[type=radio]:checked:not(old) {
   border-color: #fff; }
 .bubble_form input[type=radio]:checked:not(old) + .bubble {
-  background-color: #A12122;
+  background-color: #fff;
   border-color: #fff; }
   .bubble_form input[type=radio]:checked:not(old) + .bubble .bubble__content, .bubble_form input[type=radio]:checked:not(old) + .bubble input[type=number]:not(old) {
-    color: #fff; }
+    color: #A12122; }
 
 /*
  * Column
@@ -1411,7 +1411,7 @@ html {
   border: 0.25em solid #E5E1D4; }
 
 .mask--gray-1 {
-  border-color: #888; }
+  border-color: #aaa698; }
 
 /*
  * Radial progress.

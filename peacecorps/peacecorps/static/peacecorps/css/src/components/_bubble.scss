@@ -45,11 +45,11 @@
 }
 
 .bubble--primary {
-  background-color: $white;
+  background-color: $primary;
   color: $white;
 
   .bubble__content {
-    color: $primary;
+    color: $white;
   }
 }
 
@@ -99,11 +99,11 @@
   }
 
   input[type=radio]:checked:not(old) + .bubble {
-    background-color: $primary;
+    background-color: $white;
     border-color: $white;
 
     .bubble__content {
-      color: $white;
+      color: $primary;
     }
   }
 }
