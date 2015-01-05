@@ -1,5 +1,4 @@
 from copy import deepcopy
-from itertools import takewhile
 import re
 
 from defusedxml import ElementTree
@@ -29,33 +28,34 @@ def validate_svg(svg_bytes):
 def make_square(svg_xml):
     """Give the icon enough padding to be square. Resize to 80 x 80"""
     svg_xml = deepcopy(svg_xml)
+    view_box_attr = _case_insensitive_attr(svg_xml, 'viewBox')
     width_attr = _case_insensitive_attr(svg_xml, 'width')
     height_attr = _case_insensitive_attr(svg_xml, 'height')
-    view_box_attr = _case_insensitive_attr(svg_xml, 'viewBox') or 'viewBox'
 
-    if width_attr and height_attr:
-        try:
-            width = int(''.join(takewhile(lambda c: c.isdigit(),
-                                          svg_xml.get(width_attr))))
-            height = int(''.join(takewhile(lambda c: c.isdigit(),
-                                           svg_xml.get(height_attr))))
-            # we will assume aspect ratio is preserved
-            view_box = svg_xml.get(view_box_attr,
-                                   '%d %d %d %d' % (0, 0, width, height))
+    if view_box_attr:
+        view_box = svg_xml.get(view_box_attr)
+    elif width_attr and height_attr:
+        view_box = '0 0 %s %s' % (svg_xml.get(width_attr),
+                                  svg_xml.get(height_attr))
+        view_box_attr = 'viewBox'
+    else:
+        return  # Can't compute a height/width
 
-            vX, vY, vWidth, vHeight = map(int, view_box.split(' '))
-
-            if vHeight > vWidth:
-                svg_xml.set(view_box_attr, '%d %d %d %d' % (
-                    vX - (vHeight - vWidth)/2, vY, vHeight, vHeight))
-            else:
-                svg_xml.set(view_box_attr, '%d %d %d %d' % (
-                    vX, vY - (vWidth - vHeight)/2, vWidth, vWidth))
-            svg_xml.set(width_attr, '80')
-            svg_xml.set(height_attr, '80')
-            return svg_xml
-        except ValueError:
-            pass
+    # Strip non-numbers
+    view_box = re.sub(r"[^0-9\. -]", "", view_box)
+    try:
+        vX, vY, vWidth, vHeight = map(int, map(float, view_box.split(' ')))
+        if vHeight > vWidth:
+            svg_xml.set(view_box_attr, '%d %d %d %d' % (
+                vX - (vHeight - vWidth)/2, vY, vHeight, vHeight))
+        else:
+            svg_xml.set(view_box_attr, '%d %d %d %d' % (
+                vX, vY - (vWidth - vHeight)/2, vWidth, vWidth))
+        svg_xml.set(width_attr or 'width', '80')
+        svg_xml.set(height_attr or 'height', '80')
+        return svg_xml
+    except ValueError:
+        pass
 
 
 def full_validation(svg_file):
@@ -121,7 +121,7 @@ def color_icon(svg_xml):
                          _style_replacement(node.get(style_attr), hex_val))
 
             # Style tag, e.g. <style>.someClass{fill: #abc; other: value...
-            if node.tag.lower() == 'style':
+            if node.tag.lower().endswith('style'):
                 node.text = _style_replacement(node.text or '', hex_val)
 
         colored[color] = colored_svg

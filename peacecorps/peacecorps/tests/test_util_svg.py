@@ -36,6 +36,15 @@ class MakeSquareTests(TestCase):
         self.assertTrue(b'hEIght="80"' in result)
         self.assertTrue(b'viewBox="0 -7 30 30"' in result)
 
+    def test_resized_float_width_height(self):
+        svg = ElementTree.fromstring(
+            XML_HEADER
+            + b'<svg width="21.12" height="21.22"></svg>')
+        result = ElementTree.tostring(svg_util.make_square(svg))
+        self.assertTrue(b'width="80"' in result)
+        self.assertTrue(b'height="80"' in result)
+        self.assertTrue(b'viewBox="0 0 21 21"' in result)
+
     def test_resized_with_viewbox(self):
         svg = ElementTree.fromstring(
             XML_HEADER
@@ -44,6 +53,16 @@ class MakeSquareTests(TestCase):
         self.assertTrue(b'width="80"' in result)
         self.assertTrue(b'height="80"' in result)
         self.assertTrue(b'vIewBox="-15 -5 60 60"' in result)
+
+    def test_resized_viewbox_no_width_height(self):
+        """Truncate decimals"""
+        svg = ElementTree.fromstring(
+            XML_HEADER
+            + b'<svg viewBox="-10.23 32.18 75.876 75.956"></svg>')
+        result = ElementTree.tostring(svg_util.make_square(svg))
+        self.assertTrue(b'width="80"' in result)
+        self.assertTrue(b'height="80"' in result)
+        self.assertTrue(b'viewBox="-10 32 75 75"' in result)
 
 
 class ColorIconTests(TestCase):
@@ -94,7 +113,7 @@ class ColorIconTests(TestCase):
     def test_color_embedded_stylesheet(self):
         svg = ElementTree.fromstring(
             XML_HEADER + b'<svg width="10" height="10">'
-            + b'<stYLe>\n.some_class{\nfill: #123; STroke: grey;}\n</stYLe>\n'
+            + b'<stYLe>\n.some_class{\nfill:#123; STroke: grey;}\n</stYLe>\n'
             + b'<g class="some_class"></g></svg>')
         with self.settings(SVG_COLORS={'white': '#fff', 'green': '#0f5'}):
             result = svg_util.color_icon(svg)
