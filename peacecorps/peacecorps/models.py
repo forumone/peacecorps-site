@@ -388,6 +388,17 @@ class Issue(models.Model):
         campaigns = self.campaigns.all()
         return Project.published_objects.filter(campaigns__in=campaigns)
 
+    def icon_color(self, color):
+        """Relative path to a colored version of the icon"""
+        if self.icon:
+            prefix, suffix = self.icon.name[:-4], self.icon.name[-4:]
+            return prefix + '-' + color + suffix
+        return ""
+
+    def icon_color_url(self, color):
+        """Full url to a colored version of the icon"""
+        return self.icon.storage.url(self.icon_color(color))
+
     def save(self, *args, **kwargs):
         """Save other colors of the issue icon. We assume it is validated in
         the clean function"""
@@ -396,9 +407,8 @@ class Issue(models.Model):
             square = issue_icons.make_square(xml)
             colors = issue_icons.color_icon(square)
             super(Issue, self).save(*args, **kwargs)
-            prefix, suffix = self.icon.name[:-4], self.icon.name[-4:]
             for key, content in colors.items():
-                filename = prefix + '-' + key + suffix
+                filename = self.icon_color(key)
                 if self.icon.storage.exists(filename):
                     self.icon.storage.delete(filename)
                 self.icon.storage.save(filename, issue_icons.as_file(content))

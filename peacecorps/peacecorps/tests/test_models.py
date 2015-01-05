@@ -1,4 +1,5 @@
 import json
+from unittest.mock import Mock
 
 from django.test import TestCase
 
@@ -128,6 +129,15 @@ class ProjectTests(TestCase):
 
         models.Issue.objects.all().delete()     # cascades
         models.Account.objects.all().delete()
+
+    def test_issue_icon_color(self):
+        issue = models.Issue()
+        self.assertEqual("", issue.icon_color("blue"))
+        mock_file = Mock()
+        mock_file.name = 'somepath/to/icons/area/filename.bob.sVG'
+        issue.icon = mock_file
+        self.assertEqual('somepath/to/icons/area/filename.bob-blue.sVG',
+                         issue.icon_color('blue'))
 
     def test_abstract_html(self):
         """The first *text* paragraph should be returned (and rendered) if no
