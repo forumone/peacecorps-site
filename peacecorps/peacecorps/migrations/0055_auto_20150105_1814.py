@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import peacecorps.issue_icons
+import peacecorps.util.svg
 
 
 class Migration(migrations.Migration):
@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='issue',
             name='icon',
-            field=models.FileField(validators=[peacecorps.issue_icons.full_validation], upload_to='icons', help_text='Icon commonly used to represent this issue'),
+            field=models.FileField(validators=[peacecorps.util.svg.full_validation], upload_to='icons', help_text='Icon commonly used to represent this issue'),
         ),
     ]

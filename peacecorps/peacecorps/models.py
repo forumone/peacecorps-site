@@ -14,8 +14,8 @@ from localflavor.us.models import USPostalCodeField
 from sirtrevor.fields import SirTrevorField
 from PIL import Image
 
-from peacecorps import issue_icons
 from peacecorps.fields import GPGField, BraveSirTrevorField
+from peacecorps.util import svg
 
 
 def imagesave(description):
@@ -374,7 +374,7 @@ class Issue(models.Model):
     name = models.CharField(max_length=100)
     icon = models.FileField(    # No need for any of the 'Media' fields
         help_text="Icon commonly used to represent this issue",
-        upload_to='icons', validators=[issue_icons.full_validation])
+        upload_to='icons', validators=[svg.full_validation])
     icon_background = models.FileField(
         help_text="Background used when a large icon is present")
     campaigns = models.ManyToManyField(
@@ -403,15 +403,15 @@ class Issue(models.Model):
         """Save other colors of the issue icon. We assume it is validated in
         the clean function"""
         if self.icon:
-            xml = issue_icons.validate_svg(self.icon.file.read())
-            square = issue_icons.make_square(xml)
-            colors = issue_icons.color_icon(square)
+            xml = svg.validate_svg(self.icon.file.read())
+            square = svg.make_square(xml)
+            colors = svg.color_icon(square)
             super(Issue, self).save(*args, **kwargs)
             for key, content in colors.items():
                 filename = self.icon_color(key)
                 if self.icon.storage.exists(filename):
                     self.icon.storage.delete(filename)
-                self.icon.storage.save(filename, issue_icons.as_file(content))
+                self.icon.storage.save(filename, svg.as_file(content))
         else:
             super(Issue, self).save(*args, **kwargs)
 
