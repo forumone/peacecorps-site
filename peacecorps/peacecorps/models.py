@@ -398,8 +398,10 @@ class Issue(models.Model):
             super(Issue, self).save(*args, **kwargs)
             prefix, suffix = self.icon.name[:-4], self.icon.name[-4:]
             for key, content in colors.items():
-                self.icon.storage.save(prefix + '-' + key + suffix,
-                                       issue_icons.as_file(content))
+                filename = prefix + '-' + key + suffix
+                if self.icon.storage.exists(filename):
+                    self.icon.storage.delete(filename)
+                self.icon.storage.save(filename, issue_icons.as_file(content))
         else:
             super(Issue, self).save(*args, **kwargs)
 

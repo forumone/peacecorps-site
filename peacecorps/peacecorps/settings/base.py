@@ -154,6 +154,5 @@ SHARE_TEMPLATE = "I just donated to a great cause! %s"
 # Used to color issue icons
 SVG_COLORS = {
     'white': '#FFF',
-    'light': '#AAA698',
-    'dark': '#67655D'
+    'grey': '#67655D'
 }
