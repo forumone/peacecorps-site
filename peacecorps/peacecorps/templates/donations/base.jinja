@@ -11,18 +11,22 @@
     <link rel="icon" type="image/x-icon" href="{{ static("favicon.ico") }}" />
 </head>
 <body>
-<nav class="banner banner--dark_transparent banner--no_line"
-  style="position: absolute; top: 0; left: 0;">
-  <a href="http://peacecorps.gov" class="t-single_nav t--white">
-    <span class="t-title--4">
-      Back to Peacecorps.gov home
-    </span>
-  </a>
-  <span class="t-body--xsm">This is a beta site</span>
-</nav>
-<div class="wrapper">
-  <header class="full_banner full_banner--support section__content"
-      style="margin-top: 3.4em;">
+{% block top_most_banner %}{% endblock %}
+{% if custom_top_image %}
+<div class="top_image top_image--custom"
+     style="background-image: url('{{custom_top_image}}');">
+{% else %}
+<div class="top_image top_image--default">
+{% endif %}
+  <nav class="banner banner--dark_transparent banner--no_line">
+    <a href="http://peacecorps.gov" class="t-single_nav t--white">
+      <span class="t-title--4">
+        Back to Peacecorps.gov home
+      </span>
+    </a>
+    <span class="t-body--xsm">This is a beta site</span>
+  </nav>
+  <header class="full_banner full_banner--support section__content">
     <a href="{{ url('donate landing') }}">
       <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="u-inline"
         style="width: 6em; margin-right: .5em" />
@@ -43,7 +47,8 @@
       {% endif %}
     </div>
   </header>
-
+</div>
+<div class="wrapper">
   {% block navigation %}{% endblock %}
 
   <main class="{% block content_class %}{% endblock %}">

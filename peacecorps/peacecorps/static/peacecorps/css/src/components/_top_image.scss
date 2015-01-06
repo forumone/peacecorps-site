@@ -1,0 +1,26 @@
+/*
+ * Banner image shown on all pages
+ *
+ * There are two types of these images, custom and default. Custom images must
+ * be defined inline; the rest should be taken care of here. Custom images are
+ * expected to be much taller than the default image.
+ */
+
+@import "globals";
+
+.top_image {
+  border-bottom: 0.75em solid $neutral_medium;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 2em;
+}
+
+.top_image--default {
+  background-image: url(../../img/default_top.png);
+}
+
+.top_image--custom {
+  height: 85%;
+  min-height: 15em;
+  max-height: 50em;
+}
