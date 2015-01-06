@@ -1064,42 +1064,6 @@ html {
     float: none; }
 
 /*
- * Full background image
- *
- * To use, set the class and apply a background image url and height with
- * inline css.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Z-Index
- */
-.full_bg {
-  width: 100%;
-  height: 0;
-  padding-bottom: 41.67%;
-  /* 5 / 12 aspect ratio */
-  background-size: 100%;
-  position: relative;
-  z-index: -200; }
-
-.full_bg--top {
-  border-bottom: 0.75em solid #F2EFE8;
-  margin-top: -15em;
-  margin-bottom: 2em; }
-
-.full_bg--lg {
-  height: 46em; }
-
-.full_bg--sm {
-  border-bottom-width: 0;
-  padding-bottom: 18%; }
-
-/*
  * A full width banner with content that sits in its center.
  */
 /*
@@ -2260,6 +2224,36 @@ html {
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .showcase--line_25 {
       width: 35%; } }
+
+/*
+ * Banner image shown on all pages
+ *
+ * There are two types of these images, custom and default. Custom images must
+ * be defined inline; the rest should be taken care of here. Custom images are
+ * expected to be much taller than the default image.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+.top_image {
+  border-bottom: 0.75em solid #F2EFE8;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 2em; }
+
+.top_image--default {
+  background-image: url(../../img/default_top.png); }
+
+.top_image--custom {
+  height: 85%;
+  min-height: 15em;
+  max-height: 50em; }
 
 /*
  * image-block
