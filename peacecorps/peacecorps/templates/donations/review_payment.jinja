@@ -25,13 +25,16 @@
     </p>
 
 
-    <form action="{{oci_servlet_url}}" method="POST">
+    <form action="{{oci_servlet_url}}" method="POST" id="paygov_form">
         <input type="hidden" name="agency_id" value="{{agency_id}}"/>
         <input type="hidden" name="agency_tracking_id"
                              value="{{agency_tracking_id}}"/>
         <input type="hidden" name="app_name" value="{{app_name}}"/>
         <input type="submit" name="senddata" value="Enter Payment Information"/>
     </form>
+    <script type="text/javascript">
+      document.getElementById("paygov_form").submit();
+    </script>
 </body>
 </html>
 
