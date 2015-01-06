@@ -3,73 +3,93 @@
 {# There is no doubt a way to share fields with checkout_form, but we just
 repeat the layout here #}
 {% block form_content %}
-    <section class="section inset--lg separator">
-      <div class="form__field form__field--single">
-      Please double-check your info to continue:
-      </div>
+    <section class="inset inset--sm section__content">
+      <p>Please double-check your info to continue:</p>
 
-      <div class="form__field form__field--single" style="background-color:
-      white;">
-        <h2>Your Information</h2>
-        {% if data.is_org %}
-          <p>{{data.organization_name}} via {{data.organization_contact}}</p>
-        {% else %}
-          <p>{{data.payer_name}}</p>
-        {% endif %}
-
-        <p>{{data.billing_address}}</p>
-        {% if data.billing_address_extra %}
-          <p>{{data.billing_address_extra}}</p>
-        {% endif %}
-        <p>{{data.billing_city}}{% if data.billing_state %},
-          {{data.billing_state}}{% endif %}
-          {% if data.billing_zip %}{{data.billing_zip}}{% endif %}</p>
-        <p>{{data.country}}</p>
-        <p>{{data.email}}</p>
-        <p>{{data.phone_number}}</p>
-        
-        <h2>Payment Method</h2>
-        <p>{{data.payment_type}}</p>
-
-        <h2>Options</h2>
-        {% if data.dedication %}
-          {% if data.dedication_type == 'in-honor' %}
-            <p>Donating in honor of {{data.dedication_name}}</p>
-            {% set in_honor_term = 'honoree' %}
-          {% else %}
-            <p>Donating in memory of {{data.dedication_name}} via
-               {{data.dedication_contact}}</p>
-            {% set in_honor_term = 'family' %}
+      <div class="section--white">
+        <div class="section__content--contain">
+          <h2>Your Information</h2>
+          <p>
+            {% if data.is_org %}
+              {{data.organization_name}} via {{data.organization_contact}}
+            {% else %}
+              {{data.payer_name}}
+            {% endif %}
+            <br />
+            {{data.billing_address}}
+            {% if data.billing_address_extra %}
+              <br />{{data.billing_address_extra}}
+            {% endif %}
+            <br />
+            {{data.billing_city}}{% if data.billing_state %},
+              {{data.billing_state}}{% endif %}
+              {% if data.billing_zip %}{{data.billing_zip}}{% endif %}
+            <br />
+            {{data.country}}
+          </p>
+          <p>
+            {% if data.email %}{{data.email}}{% endif %}
+            {% if data.email and data.phone_number %}<br />{% endif %}
+            {% if data.phone_number %}{{data.phone_number}}{% endif %}
+          </p>
+        </div>
+        <div class="section__content--contain">
+          <h2 class="section_starter__content">Payment Method</h2>
+          <p>{{data.payment_type}}</p>
+        </div>
+        <div class="section__content--contain">
+          <h2 class="section_starter__content">Options</h2>
+          {% if data.dedication %}
+            <p>
+              {% if data.dedication_type == 'in-honor' %}
+                Donating in honor of {{data.dedication_name}}
+                {% set in_honor_term = 'honoree' %}
+              {% else %}
+                Donating in memory of {{data.dedication_name}} via
+                   {{data.dedication_contact}}
+                {% set in_honor_term = 'family' %}
+              {% endif %}
+              <br />
+              {{data.dedication_email}}<br />
+              {{data.dedication_address}}
+            </p>
+            <p>{{data.card_dedication}}</p>
+            {% if data.dedication_consent == 'yes-dedication-consent' %}
+              <p>I authorize the Peace Corps to make my name and contact
+              information available for the {{ in_honor_term }}.</p>
+            {% else %}
+              <p>I authorize the Peace Corps to make my name and contact
+              information available for the {{ in_honor_term }}.</p>
+            {% endif %}
           {% endif %}
-          <p>{{data.dedication_email}}</p>
-          <p>{{data.dedication_address}}</p>
-          <p>{{data.card_dedication}}</p>
-          {% if data.dedication_consent == 'yes-dedication-consent' %}
-            <p>I authorize the Peace Corps to make my name and contact
-            information available for the {{ in_honor_term }}.</p>
-          {% else %}
-            <p>I authorize the Peace Corps to make my name and contact
-            information available for the {{ in_honor_term }}.</p>
+          {% if data.email_consent %}
+            <p>Please send me updates on this project and others.</p>
           {% endif %}
-        {% endif %}
-        {% if data.email_consent %}
-          <p>Please send me updates on this project and others.</p>
-        {% endif %}
-        {% if data.information_consent %}
-          <p>Make my contact info available to the volunteer</p>
-        {% endif %}
-        {% if data.interest_conflict %}
-          <p>I'm doing business with the Peace Corps</p>
-        {% endif %}
+          {% if data.information_consent %}
+            <p>Make my contact info available to the volunteer</p>
+          {% endif %}
+          {% if data.interest_conflict %}
+            <p>I'm doing business with the Peace Corps</p>
+          {% endif %}
+        </div>
       </div>
     </section>
-  </section>
-    <form action="{{oci_servlet_url}}" method="POST" id="paygov_form">
+    <form action="{{oci_servlet_url}}" method="POST" id="paygov_form"
+          class="section inset--sm">
+        <p>
+          NOTE: We use Pay.gov as our trusted secure payment processor. We’ll
+          send you on to there and bring you back when you finish.</p>
         <input type="hidden" name="agency_id" value="{{agency_id}}"/>
         <input type="hidden" name="agency_tracking_id"
                              value="{{agency_tracking_id}}"/>
         <input type="hidden" name="app_name" value="{{app_name}}"/>
-        <input type="submit" name="senddata" value="Enter Payment Information"/>
+        <div class="section__content u-align_c">
+          <button type="submit" name="senddata" class="button button--primary">
+            Continue to Pay.gov</button>
+        </div>
     </form>
+    <script type="text/javascript">
+      document.getElementById("paygov_form").submit();
+    </script>
 {% endblock %}
 
