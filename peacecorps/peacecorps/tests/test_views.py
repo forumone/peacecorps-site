@@ -99,10 +99,6 @@ class DonationsTests(TestCase):
         response = self.client.get(reverse('donation success'))
         self.assertEqual(response.status_code, 200)
 
-    def test_completed_failure(self):
-        response = self.client.get(reverse('donation failure'))
-        self.assertEqual(response.status_code, 200)
-
 
 class DonatePagesTests(TestCase):
 
@@ -118,9 +114,8 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_fund_rendering(self):
-        response = self.client.get(reverse('donate campaign',
-                                           kwargs={
-                                           'slug': 'health-hivaids-fund'}))
+        response = self.client.get(reverse(
+            'donate campaign', kwargs={'slug': 'health-hivaids-fund'}))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get(reverse('donate campaign',
@@ -205,7 +200,8 @@ class DonatePagesTests(TestCase):
             reverse('project success', kwargs={'slug': 'nonproj'}))
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
-            reverse('project failure', kwargs={'slug': 'nonproj'}))
+            reverse('project failure', kwargs={'slug': 'nonproj'}),
+            follow=True)
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
             reverse('project success',
@@ -213,7 +209,7 @@ class DonatePagesTests(TestCase):
         self.assertEqual(response.status_code, 200)
         response = self.client.get(
             reverse('project failure',
-                    kwargs={'slug': 'togo-clean-water-project'}))
+                    kwargs={'slug': 'togo-clean-water-project'}), follow=True)
         self.assertEqual(response.status_code, 200)
 
     def test_campaign_success_failure(self):
@@ -221,35 +217,51 @@ class DonatePagesTests(TestCase):
             reverse('campaign success', kwargs={'slug': 'nonproj'}))
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
-            reverse('campaign failure', kwargs={'slug': 'nonproj'}))
+            reverse('campaign failure', kwargs={'slug': 'nonproj'}),
+            follow=True)
         self.assertEqual(response.status_code, 404)
         response = self.client.get(
             reverse('campaign success', kwargs={'slug': 'education-fund'}))
         self.assertEqual(response.status_code, 200)
         response = self.client.get(
-            reverse('campaign failure', kwargs={'slug': 'education-fund'}))
+            reverse('campaign failure', kwargs={'slug': 'education-fund'}),
+            follow=True)
         self.assertEqual(response.status_code, 200)
 
     def test_post_redirect(self):
-        """All POSTs to the project/campaign success/failure pages should get
+        """All POSTs to the project/campaign success pages should get
         redirected to the same page as a GET"""
         for proj_camp, slug in (('project', 'togo-clean-water-project'),
                                 ('campaign', 'education-fund')):
-            for succ_fail in ('success', 'failure'):
-                url = reverse(proj_camp + ' ' + succ_fail,
-                              kwargs={'slug': slug})
-                for enforce_csrf_checks in (False, True):
-                    client = Client(enforce_csrf_checks=enforce_csrf_checks)
-                    response = client.post(
-                        url, data={'agency_tracking_id': 'NEVERUSED'})
-                    self.assertEqual(response.status_code, 302)
-                    self.assertTrue(url in response['LOCATION'])
-                    response = client.post(
-                        url + '?something=else',
-                        data={'agency_tracking_id': 'NEVERUSED'})
-                    self.assertEqual(response.status_code, 302)
-                    self.assertTrue(url in response['LOCATION'])
-                    self.assertTrue('?something=else' in response['LOCATION'])
+            url = reverse(proj_camp + ' success', kwargs={'slug': slug})
+            for enforce_csrf_checks in (False, True):
+                client = Client(enforce_csrf_checks=enforce_csrf_checks)
+                response = client.post(
+                    url, data={'agency_tracking_id': 'NEVERUSED'})
+                self.assertEqual(response.status_code, 302)
+                self.assertTrue(url in response['LOCATION'])
+                response = client.post(
+                    url + '?something=else',
+                    data={'agency_tracking_id': 'NEVERUSED'})
+                self.assertEqual(response.status_code, 302)
+                self.assertTrue(url in response['LOCATION'])
+                self.assertTrue('?something=else' in response['LOCATION'])
+
+    def test_failure_redirect(self):
+        """All POSTS to the project/campaign failure page should get
+        redirected to a page with a big 'sorry' banner"""
+        for proj_camp, slug in (('project', 'togo-clean-water-project'),
+                                ('campaign', 'education-fund')):
+            url = reverse(proj_camp + ' failure', kwargs={'slug': slug})
+            for enforce_csrf_checks in (False, True):
+                client = Client(enforce_csrf_checks=enforce_csrf_checks)
+                response = client.post(
+                    url, data={'agency_tracking_id': 'NEVERUSED'}, follow=True)
+                self.assertContains(response, 'Unfortunately')
+                response = client.post(
+                    url + '?something=else',
+                    data={'agency_tracking_id': 'NEVERUSED'}, follow=True)
+                self.assertContains(response, 'Unfortunately')
 
     def test_memorial_fund_name(self):
         response = self.client.get(reverse('donate special funds'))

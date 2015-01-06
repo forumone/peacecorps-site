@@ -29,8 +29,7 @@ urlpatterns = patterns(
             template_name='donations/campaign_success.jinja'),
         name='campaign success'),
     url(r'^donate/fund/' + _slug + r'/failure/$',
-        views.CampaignReturn.as_view(
-            template_name='donations/campaign_failure.jinja'),
+        views.failure, {'redirect_to': 'donate campaign'},
         name='campaign failure'),
 
     url(r'^donate/project/' + _slug + r'/$',
@@ -41,8 +40,7 @@ urlpatterns = patterns(
             template_name='donations/project_success.jinja'),
         name='project success'),
     url(r'^donate/project/' + _slug + r'/failure/$',
-        views.ProjectReturn.as_view(
-            template_name='donations/project_failure.jinja'),
+        views.failure, {'redirect_to': 'donate project'},
         name='project failure'),
 
     url(r'^donations/contribute/$', midterm_cache(views.donation_payment),
