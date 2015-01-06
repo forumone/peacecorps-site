@@ -1,0 +1,75 @@
+{% extends "donations/checkout_base.jinja" %}
+
+{# There is no doubt a way to share fields with checkout_form, but we just
+repeat the layout here #}
+{% block form_content %}
+    <section class="section inset--lg separator">
+      <div class="form__field form__field--single">
+      Please double-check your info to continue:
+      </div>
+
+      <div class="form__field form__field--single" style="background-color:
+      white;">
+        <h2>Your Information</h2>
+        {% if data.is_org %}
+          <p>{{data.organization_name}} via {{data.organization_contact}}</p>
+        {% else %}
+          <p>{{data.payer_name}}</p>
+        {% endif %}
+
+        <p>{{data.billing_address}}</p>
+        {% if data.billing_address_extra %}
+          <p>{{data.billing_address_extra}}</p>
+        {% endif %}
+        <p>{{data.billing_city}}{% if data.billing_state %},
+          {{data.billing_state}}{% endif %}
+          {% if data.billing_zip %}{{data.billing_zip}}{% endif %}</p>
+        <p>{{data.country}}</p>
+        <p>{{data.email}}</p>
+        <p>{{data.phone_number}}</p>
+        
+        <h2>Payment Method</h2>
+        <p>{{data.payment_type}}</p>
+
+        <h2>Options</h2>
+        {% if data.dedication %}
+          {% if data.dedication_type == 'in-honor' %}
+            <p>Donating in honor of {{data.dedication_name}}</p>
+            {% set in_honor_term = 'honoree' %}
+          {% else %}
+            <p>Donating in memory of {{data.dedication_name}} via
+               {{data.dedication_contact}}</p>
+            {% set in_honor_term = 'family' %}
+          {% endif %}
+          <p>{{data.dedication_email}}</p>
+          <p>{{data.dedication_address}}</p>
+          <p>{{data.card_dedication}}</p>
+          {% if data.dedication_consent == 'yes-dedication-consent' %}
+            <p>I authorize the Peace Corps to make my name and contact
+            information available for the {{ in_honor_term }}.</p>
+          {% else %}
+            <p>I authorize the Peace Corps to make my name and contact
+            information available for the {{ in_honor_term }}.</p>
+          {% endif %}
+        {% endif %}
+        {% if data.email_consent %}
+          <p>Please send me updates on this project and others.</p>
+        {% endif %}
+        {% if data.information_consent %}
+          <p>Make my contact info available to the volunteer</p>
+        {% endif %}
+        {% if data.interest_conflict %}
+          <p>I'm doing business with the Peace Corps</p>
+        {% endif %}
+      </div>
+    </section>
+  </section>
+    <form action="{{oci_servlet_url}}" method="POST" id="paygov_form">
+        <input type="hidden" name="agency_id" value="{{agency_id}}"/>
+        <input type="hidden" name="agency_tracking_id"
+                             value="{{agency_tracking_id}}"/>
+        <input type="hidden" name="app_name" value="{{app_name}}"/>
+        <input type="submit" name="senddata" value="Enter Payment Information"/>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends "donations/base.jinja" %}
+
+{% block content_class %}donate-form{% endblock %}
+
+
+{% block content %}
+<div class="full_bg full_bg--top full_bg--sm" style="background-image:
+    url('{{ static("peacecorps/img/default_top.png") }}');
+  ">
+</div>
+  <section class="blurb">
+    {% if project %}
+      {% include "donations/includes/project-top.jinja" %}
+    {% else %}
+      {# todo #}
+    {% endif %}
+      <div class="u-align_l inset--sm t--gray--2">
+        <h3 class="t-heading--stylized">You are donating</h3><br>
+        <h1 class="t-heading--stylized t--secondary">
+          {{ humanize_cents(amount) }}</h1>
+        <h4 class="t-heading--stylized">to</h4><br>
+        <h3 class="t-heading--stylized">
+          <strong>{{ project.title or account_name }}</strong></h3>
+      </div>
+  </section>
+
+  <section class="section form full_banner full_banner--neutral full_banner--flush">
+    {% block form_content %}{% endblock %}
+    <section class="section inset--lg">
+      <div class="form__field form__field--single">
+        <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
+        Expiration date:
+        </p>
+
+        <h4 class="form__text">This is a Secure Transaction</h4>
+        <p class="t-body--sm form__text t-break">
+        The secure server software (SSL) that processes Peace Corps donations is
+        the industry standard and among the best software available today for
+        secure commerce transactions. It encrypts all of your personal data
+        including credit card number, name, and address, so that it cannot be
+        read as the information travels over the Internet. You can tell when you
+        are protected by encryption — the lock or key at the bottom of your
+        browser changes color or is no longer broken.
+        </p>
+
+        <h4 class="form__text">Burden Statement</h4>
+        <p class="t-body--sm form__text">
+          Public reporting burden for this collection of information is
+          estimated to average 45 minutes per response
+        </p>
+
+      </div>
+    </section>
+  </section>
+{% endblock %}
+

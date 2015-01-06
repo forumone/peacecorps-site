@@ -35,6 +35,16 @@ def donation_payment(request):
     project = None
     project = account.project_set.first() or None
 
+    template_context = {
+        'amount': amount,
+        'project_code': project_code,
+        'project': project,
+        'account_name': account.name,
+        'agency_id': settings.PAY_GOV_AGENCY_ID,
+        'app_name': settings.PAY_GOV_APP_NAME,
+        'oci_servlet_url': settings.PAY_GOV_OCI_URL,
+    }
+
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
 
@@ -42,38 +52,32 @@ def donation_payment(request):
             data = {}
             for k, v in form.cleaned_data.items():
                 data[k] = v
-            return donation_payment_review(request, data, account)
+            callback_base = request.scheme + "://" + request.get_host()
+            paygov = convert_to_paygov(data, account, callback_base)
+            paygov.save()
+            template_context['data'] = data
+            template_context['agency_tracking_id'] = paygov.agency_tracking_id
+            return render(request, 'donations/checkout_review.jinja',
+                          template_context)
+            return donation_payment_review(request, data, account, amount)
     else:
         data = {'payment_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
 
-    return render(
-        request, 'donations/donation_payment.jinja',
-        {
-            'form': form,
-            'amount': amount,
-            'project_code': project_code,
-            'project': project,
-            'account_name': account.name,
-        })
+    template_context['form'] = form
+    return render(request, 'donations/checkout_form.jinja', template_context)
 
 
-def donation_payment_review(request, data, account):
+def donation_payment_review(request, data, account, amount):
     """Save the payment information for future access; provide the user with a
     form that sends them over to pay.gov"""
-    callback_base = request.scheme + "://" + request.get_host()
-    paygov = convert_to_paygov(data, account, callback_base)
-    paygov.save()
 
     return render(
         request,
-        'donations/review_payment.jinja',
+        'donations/checkout_review.jinja',
         {
             'data': data,
-            'agency_id': settings.PAY_GOV_AGENCY_ID,
-            'agency_tracking_id': paygov.agency_tracking_id,
-            'app_name': settings.PAY_GOV_APP_NAME,
-            'oci_servlet_url': settings.PAY_GOV_OCI_URL,
+            'amount': amount,
         })
 
 
