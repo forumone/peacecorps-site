@@ -52,6 +52,16 @@ module.exports = function(grunt) {
         jshintrc: './.jshintrc'
       }
     },
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: [
+          { 'css/compiled/donation.css': 'css/src/donation.scss'}
+        ]
+      }
+    },
     browserify: {
       donation: {
         options: {
@@ -114,6 +124,10 @@ module.exports = function(grunt) {
       jshint: {
         files: '<%= jsSrcDir %>**/*.js',
         tasks: ['jshint']
+      },
+      css: {
+        files: ['css/src/**/*.scss', '!css/src/bourbon', '!css/src/neat'],
+        tasks: ['sass']
       }
     }
   });
@@ -126,6 +140,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-exorcise');
   grunt.loadNpmTasks('grunt-font-awesome-vars');
@@ -140,6 +155,7 @@ module.exports = function(grunt) {
       'fontAwesomeVars',
       'browserify:donation',
       'exorcise',
+      'sass',
       'uglify']);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);

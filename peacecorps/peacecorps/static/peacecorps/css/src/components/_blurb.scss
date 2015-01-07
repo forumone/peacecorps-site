@@ -5,8 +5,8 @@
  * for a blurb.
  */
 
-@import "globals";
-@import "mixins";
+@import "../globals";
+@import "../mixins";
 
 .blurb {
   @include span-columns(10);

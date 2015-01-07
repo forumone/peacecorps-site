@@ -4,10 +4,8 @@
  * A layout module which allows setting up basic grid.
  */
 
-@import "globals";
-@import "mixins";
-
-.grid {};
+@import "../globals";
+@import "../mixins";
 
 .grid__omega {
   @include omega;
