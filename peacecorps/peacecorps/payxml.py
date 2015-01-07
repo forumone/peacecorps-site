@@ -100,7 +100,7 @@ def generate_custom_fields(data):
     custom['custom_field_3'] = '(' + data.get('billing_city', '') + ')'
     custom['custom_field_3'] += '(' + data.get('billing_state', '') + ')'
     custom['custom_field_3'] += '(' + data.get('billing_zip', '') + ')'
-    custom['custom_field_4'] = '(' + data.get('organization_name', '') + ')'
+    custom['custom_field_4'] = '(' + data.get('organization_contact', '') + ')'
 
     custom['custom_field_5'] = '(' + data.get('dedication_name', '') + ')'
     custom['custom_field_5'] += '(' + data.get('dedication_contact', '') + ')'
@@ -144,6 +144,9 @@ def convert_to_paygov(data, account, callback_base):
     data['form_id'] = settings.PAY_GOV_FORM_ID
     # quick method of finding the donor's first name
     donor_first = data.get('payer_name', '').split(' ')[0]
+    # payer_name could be the individual or organization field
+    data['payer_name'] = data.get('payer_name',
+                                  data.get('organization_name', ''))
     data['success_url'], data['failure_url'] = (
         callback_base + url for url in redirect_urls(account, donor_first))
     data.update(generate_custom_fields(data))

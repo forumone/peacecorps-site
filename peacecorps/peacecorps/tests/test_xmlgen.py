@@ -10,7 +10,7 @@ def donor_custom_fields():
     data = {'phone_number': '1112223333', 'email': 'aaa@example.com',
             'billing_address': 'stttt', 'billing_city': 'ccc',
             'billing_state': 'ST',
-            'billing_zip': '90210', 'organization_name': 'OOO',
+            'billing_zip': '90210', 'organization_contact': 'Bob Jones',
             'dedication_name': 'Bob', 'dedication_contact': 'Patty',
             'dedication_email': 'family@example.com',
             'dedication_type': 'in-memory',
@@ -81,7 +81,7 @@ class PayXMLGenerationTests(TestCase):
         optg += '<custom_field_1 value="(1112223333)(aaa@example.com)" />'
         optg += '<custom_field_2 value="(stttt)" />'
         optg += '<custom_field_3 value="(ccc)(ST)(90210)" />'
-        optg += '<custom_field_4 value="(OOO)" />'
+        optg += '<custom_field_4 value="(Bob Jones)" />'
         optg += '<custom_field_5 value="(Bob)(Patty)(family@example.com)" />'
         optg += '<custom_field_6 value="(Memory)(no)(Good Jorb)" />'
         optg += '<custom_field_7 value="(111 Somewhere)" />'
@@ -113,7 +113,7 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_1': '(1112223333)(aaa@example.com)',
             'custom_field_2': '(stttt)',
             'custom_field_3': '(ccc)(ST)(90210)',
-            'custom_field_4': '(OOO)',
+            'custom_field_4': '(Bob Jones)',
             'custom_field_5': '(Bob)(Patty)(family@example.com)',
             'custom_field_6': '(Memory)(no)(Good Jorb)',
             'custom_field_7': '(111 Somewhere)'
@@ -161,3 +161,22 @@ class PayXMLGenerationTests(TestCase):
 
         campaign.delete()
         account.delete()
+
+    def test_convert_to_paygov_organization(self):
+        """Organization donors should also have all data present"""
+        data = donor_custom_fields()
+        data['organization_contact'] = 'Bob Smith'
+        data['organization_name'] = 'ABC Corp'
+        data['payment_amount'] = 1234
+        data['project_code'] = '111-222'
+        data['payment_type'] = 'CreditCard'
+        account = Account.objects.create(code='111-222',
+                                         category=Account.PROJECT)
+        Project.objects.create(
+            account=account, country=Country.objects.get(name='Canada'),
+            slug='proj-proj')
+
+        result = payxml.convert_to_paygov(data, account, "http://example.com")
+        xml = result.xml
+        self.assertTrue('(Bob Smith)' in xml)
+        self.assertTrue('ABC Corp' in xml)
