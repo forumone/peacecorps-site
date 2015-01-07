@@ -9,6 +9,13 @@
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
     <link rel="icon" type="image/x-icon" href="{{ static("favicon.ico") }}" />
+    <noscript>
+      <link rel="stylesheet" type="text/css"
+        href="{{
+          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css")
+          }}" />
+
+    </noscript>
 </head>
 <body>
 {% block top_most_banner %}{% endblock %}
@@ -21,6 +28,7 @@
   <nav class="banner banner--dark_transparent banner--no_line">
     <a href="http://peacecorps.gov" class="t-single_nav t--white">
       <span class="t-title--4">
+        <i class="fa fa-angle-left"></i>
         Back to Peacecorps.gov home
       </span>
     </a>
@@ -153,6 +161,17 @@
     </nav>
   </footer>
 </div>
+
+<script type="text/javascript">
+(function() {
+  var css = document.createElement('link');
+  css.href =
+    '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css") }}';
+  css.rel = 'stylesheet';
+  css.type = 'text/css';
+  document.getElementsByTagName('head')[0].appendChild(css);
+})();
+</script>
 
 <script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
 </script>
