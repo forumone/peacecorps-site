@@ -71,7 +71,23 @@ repeat the layout here #}
           {% if data.interest_conflict %}
             <p>I'm doing business with the Peace Corps</p>
           {% endif %}
+          {% if data.comments %}
+            <p>{{data.comments}}</p>
+          {% endif %}
         </div>
+        <form class="section__content u-align_c" method="POST">
+          {% csrf_token %}
+          {# forward along all other values #}
+          {% for name, value in request.POST.items() %}
+            {% if name != "csrfmiddlewaretoken" %}{# want a new one #}
+              <input type="hidden" name="{{name}}" value="{{value}}" />
+            {% endif %}
+          {% endfor %}
+          <button type="submit" name="force_form" value="true"
+                  class="button section--white t-link">
+            &lt; Make Changes
+          </button>
+        </form>
       </div>
     </section>
     <form action="{{oci_servlet_url}}" method="POST" id="paygov_form"
@@ -88,8 +104,10 @@ repeat the layout here #}
             Continue to Pay.gov</button>
         </div>
     </form>
+    {#
     <script type="text/javascript">
       document.getElementById("paygov_form").submit();
     </script>
+    #}
 {% endblock %}
 

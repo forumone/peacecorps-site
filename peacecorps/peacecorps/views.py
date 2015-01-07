@@ -17,25 +17,23 @@ from peacecorps.payxml import convert_to_paygov
 def donation_payment(request):
     """ Collect donor contact information. """
 
-    amount = request.GET.get('amount', None)
-    project_code = request.GET.get('project', None)
-
-    if amount is None or project_code is None:
-        return HttpResponseBadRequest(
-            'amount and project must be provided.')
-    try:
-        amount = int(amount)
-    except ValueError:
+    amount = request.GET.get('amount')
+    if amount is None:
+        return HttpResponseBadRequest('amount must be provided.')
+    elif not amount.isdigit():
         return HttpResponseBadRequest('amount must be an integer value')
+    else:
+        amount = int(amount)
 
+    project_code = request.GET.get('project')
+    if project_code is None:
+        return HttpResponseBadRequest('project must be provided.')
     account = Account.objects.filter(code=project_code).first()
     if not account:
         return HttpResponseBadRequest('Invalid project')
+    project = account.project_set.first()
 
-    project = None
-    project = account.project_set.first() or None
-
-    template_context = {
+    context = {
         'amount': amount,
         'project_code': project_code,
         'project': project,
@@ -47,38 +45,21 @@ def donation_payment(request):
 
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
-
-        if form.is_valid():
-            data = {}
-            for k, v in form.cleaned_data.items():
-                data[k] = v
-            callback_base = request.scheme + "://" + request.get_host()
-            paygov = convert_to_paygov(data, account, callback_base)
-            paygov.save()
-            template_context['data'] = data
-            template_context['agency_tracking_id'] = paygov.agency_tracking_id
-            return render(request, 'donations/checkout_review.jinja',
-                          template_context)
-            return donation_payment_review(request, data, account, amount)
     else:
         data = {'payment_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
+    context['form'] = form
 
-    template_context['form'] = form
-    return render(request, 'donations/checkout_form.jinja', template_context)
-
-
-def donation_payment_review(request, data, account, amount):
-    """Save the payment information for future access; provide the user with a
-    form that sends them over to pay.gov"""
-
-    return render(
-        request,
-        'donations/checkout_review.jinja',
-        {
-            'data': data,
-            'amount': amount,
-        })
+    if form.is_valid() and request.POST.get('force_form') != 'true':
+        data = {k: v for k, v in form.cleaned_data.items()}
+        paygov = convert_to_paygov(
+            data, account, "https://" + request.get_host())
+        paygov.save()
+        context['data'] = data
+        context['agency_tracking_id'] = paygov.agency_tracking_id
+        return render(request, 'donations/checkout_review.jinja', context)
+    else:
+        return render(request, 'donations/checkout_form.jinja', context)
 
 
 def donate_landing(request):
