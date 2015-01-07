@@ -189,9 +189,15 @@ def fund_detail(request, slug):
         })
 
 
+@csrf_exempt
+def failure(request, slug, redirect_to):
+    return HttpResponseRedirect(reverse(redirect_to, kwargs={'slug': slug})
+                                + '?payment_status=failed')
+
+
 class AbstractReturn(DetailView):
     """Shared by views related to users returning from pay.gov. This includes
-    success/failure pages for projects/funds"""
+    success pages for projects/funds"""
     def post(self, request, *args, **kwargs):
         path = request.path
         params = request.GET.urlencode()

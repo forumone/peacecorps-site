@@ -56,6 +56,8 @@ var initForm = function($form) {
         switchGroupIds[i],
         $form);
   }
+
+  $form.find('button[type="submit"]').text('Continue to Pay.gov');
 };
 
 module.exports = {

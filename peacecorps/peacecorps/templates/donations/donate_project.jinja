@@ -3,14 +3,13 @@
 {% block title %}Peace Corps - Donate{% endblock %}
 {% block header %}Peace Corps - Donate{% endblock %}
 {% block content_class %}project{% endblock %}
+{% if project.featured_image %}
+  {% set custom_top_image=project.featured_image.url %}
+{% endif %}
+
+{% include "donations/includes/donation-failed.jinja" %}
 
 {% block content %}
-
-<div class="full_bg full_bg--top" style="background-image:
-  url({{ project.featured_image.url or static('peacecorps/img/landing-top.png') }});
-">
-</div>
-
 <section class="blurb blurb--sm">
   <div class="blurb">
     <h2 class="t-blurb--lg t--black">{{ project.title }}</h2>

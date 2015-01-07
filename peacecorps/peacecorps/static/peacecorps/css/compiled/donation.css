@@ -196,7 +196,7 @@ body {
   color: #fff; }
 
 .t--gray, .t-icon {
-  color: #888; }
+  color: #aaa698; }
 
 .t--gray--2 {
   color: #555; }
@@ -609,10 +609,10 @@ body {
   background-color: #E5E1D4; }
 
 .bubble--primary {
-  background-color: #fff;
+  background-color: #A12122;
   color: #fff; }
   .bubble--primary .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old) {
-    color: #A12122; }
+    color: #fff; }
 
 .bubble--white {
   background-color: #fff;
@@ -648,10 +648,10 @@ body {
 .bubble_form input[type=radio]:checked:not(old) {
   border-color: #fff; }
 .bubble_form input[type=radio]:checked:not(old) + .bubble {
-  background-color: #A12122;
+  background-color: #fff;
   border-color: #fff; }
   .bubble_form input[type=radio]:checked:not(old) + .bubble .bubble__content, .bubble_form input[type=radio]:checked:not(old) + .bubble input[type=number]:not(old) {
-    color: #fff; }
+    color: #A12122; }
 
 /*
  * Column
@@ -1064,42 +1064,6 @@ html {
     float: none; }
 
 /*
- * Full background image
- *
- * To use, set the class and apply a background image url and height with
- * inline css.
- */
-/*
- * Global variables
- */
-/*
- * Color
- */
-/*
- * Z-Index
- */
-.full_bg {
-  width: 100%;
-  height: 0;
-  padding-bottom: 41.67%;
-  /* 5 / 12 aspect ratio */
-  background-size: 100%;
-  position: relative;
-  z-index: -200; }
-
-.full_bg--top {
-  border-bottom: 0.75em solid #F2EFE8;
-  margin-top: -15em;
-  margin-bottom: 2em; }
-
-.full_bg--lg {
-  height: 46em; }
-
-.full_bg--sm {
-  border-bottom-width: 0;
-  padding-bottom: 18%; }
-
-/*
  * A full width banner with content that sits in its center.
  */
 /*
@@ -1411,7 +1375,7 @@ html {
   border: 0.25em solid #E5E1D4; }
 
 .mask--gray-1 {
-  border-color: #888; }
+  border-color: #aaa698; }
 
 /*
  * Radial progress.
@@ -2260,6 +2224,36 @@ html {
   @media screen and (min-width: 0px) and (max-width: 499px) {
     .showcase--line_25 {
       width: 35%; } }
+
+/*
+ * Banner image shown on all pages
+ *
+ * There are two types of these images, custom and default. Custom images must
+ * be defined inline; the rest should be taken care of here. Custom images are
+ * expected to be much taller than the default image.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+.top_image {
+  border-bottom: 0.75em solid #F2EFE8;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 2em; }
+
+.top_image--default {
+  background-image: url(../../img/default_top.png); }
+
+.top_image--custom {
+  height: 85%;
+  min-height: 15em;
+  max-height: 50em; }
 
 /*
  * image-block

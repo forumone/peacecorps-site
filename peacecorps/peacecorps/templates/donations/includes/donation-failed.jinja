@@ -1,0 +1,15 @@
+{% block top_most_banner %}
+{% if request.GET.payment_status == 'failed' %}
+<section class="u-align_c t--white"
+         style="background-color: #333; padding: 5%; ">
+  <h2>Your donation didn't go through.</h2>
+  <div class="t-body--sm">
+    Unfortunately, your donation wasn't processed.<br/>
+    Please <a href="#amount-form" class="t-link--white">try again</a> or 
+       <a href="mailto:donate@peacecorps.gov"
+          class="t-link--white">email us</a> if you need help.
+  </div>
+</section>
+{% endif %}
+{% endblock %}
+
