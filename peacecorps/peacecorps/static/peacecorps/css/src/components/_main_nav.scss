@@ -5,8 +5,8 @@
  * vertical row for smaller screens.
  */
 
-@import "globals";
-@import "mixins";
+@import "../globals";
+@import "../mixins";
 
 .main_nav {
   @extend .inline_text--centered;

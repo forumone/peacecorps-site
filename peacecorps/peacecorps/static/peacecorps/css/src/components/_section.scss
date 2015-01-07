@@ -4,8 +4,8 @@
  * Section(s) are for main, separated visual block of content.
  */
 
-@import "globals";
-@import "mixins";
+@import "../globals";
+@import "../mixins";
 
 .section {
   clear: left;

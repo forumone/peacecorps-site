@@ -3,9 +3,8 @@
  * for the section.
  */
 
-@import "globals";
-
-@import "util";
+@import "../globals";
+@import "../util";
 
 .section_starter {
   @extend .u-hv_center--block;
