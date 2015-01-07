@@ -2,5 +2,6 @@
 node_modules
 css/src/bourbon
 css/src/neat
+css/src/lib
 !css/compiled/lib
 !css/compiled/lib/*

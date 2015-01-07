@@ -57,6 +57,10 @@ module.exports = function(grunt) {
         sourceMap: true
       },
       dist: {
+        options: {
+          includePaths: require('node-bourbon').includePaths.concat(
+            require('node-neat').includePaths)
+        },
         files: [
           { 'css/compiled/donation.css': 'css/src/donation.scss'}
         ]
