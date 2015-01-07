@@ -180,3 +180,4 @@ class PayXMLGenerationTests(TestCase):
         xml = result.xml
         self.assertTrue('(Bob Smith)' in xml)
         self.assertTrue('ABC Corp' in xml)
+        account.delete()
