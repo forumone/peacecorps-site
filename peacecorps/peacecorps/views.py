@@ -17,64 +17,49 @@ from peacecorps.payxml import convert_to_paygov
 def donation_payment(request):
     """ Collect donor contact information. """
 
-    amount = request.GET.get('amount', None)
-    project_code = request.GET.get('project', None)
-
-    if amount is None or project_code is None:
-        return HttpResponseBadRequest(
-            'amount and project must be provided.')
-    try:
-        amount = int(amount)
-    except ValueError:
+    amount = request.GET.get('amount')
+    if amount is None:
+        return HttpResponseBadRequest('amount must be provided.')
+    elif not amount.isdigit():
         return HttpResponseBadRequest('amount must be an integer value')
+    else:
+        amount = int(amount)
 
+    project_code = request.GET.get('project')
+    if project_code is None:
+        return HttpResponseBadRequest('project must be provided.')
     account = Account.objects.filter(code=project_code).first()
     if not account:
         return HttpResponseBadRequest('Invalid project')
+    project = account.project_set.first()
 
-    project = None
-    project = account.project_set.first() or None
+    context = {
+        'amount': amount,
+        'project_code': project_code,
+        'project': project,
+        'account_name': account.name,
+        'agency_id': settings.PAY_GOV_AGENCY_ID,
+        'app_name': settings.PAY_GOV_APP_NAME,
+        'oci_servlet_url': settings.PAY_GOV_OCI_URL,
+    }
 
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
-
-        if form.is_valid():
-            data = {}
-            for k, v in form.cleaned_data.items():
-                data[k] = v
-            return donation_payment_review(request, data, account)
     else:
         data = {'payment_amount': amount, 'project_code': project_code}
         form = DonationPaymentForm(initial=data)
+    context['form'] = form
 
-    return render(
-        request, 'donations/donation_payment.jinja',
-        {
-            'form': form,
-            'amount': amount,
-            'project_code': project_code,
-            'project': project,
-            'account_name': account.name,
-        })
-
-
-def donation_payment_review(request, data, account):
-    """Save the payment information for future access; provide the user with a
-    form that sends them over to pay.gov"""
-    callback_base = request.scheme + "://" + request.get_host()
-    paygov = convert_to_paygov(data, account, callback_base)
-    paygov.save()
-
-    return render(
-        request,
-        'donations/review_payment.jinja',
-        {
-            'data': data,
-            'agency_id': settings.PAY_GOV_AGENCY_ID,
-            'agency_tracking_id': paygov.agency_tracking_id,
-            'app_name': settings.PAY_GOV_APP_NAME,
-            'oci_servlet_url': settings.PAY_GOV_OCI_URL,
-        })
+    if form.is_valid() and request.POST.get('force_form') != 'true':
+        data = {k: v for k, v in form.cleaned_data.items()}
+        paygov = convert_to_paygov(
+            data, account, "https://" + request.get_host())
+        paygov.save()
+        context['data'] = data
+        context['agency_tracking_id'] = paygov.agency_tracking_id
+        return render(request, 'donations/checkout_review.jinja', context)
+    else:
+        return render(request, 'donations/checkout_form.jinja', context)
 
 
 def donate_landing(request):

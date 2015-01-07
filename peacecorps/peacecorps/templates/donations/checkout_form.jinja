@@ -1,31 +1,7 @@
-{% extends "donations/base.jinja" %}
+{% extends "donations/checkout_base.jinja" %}
 
-{% block content_class %}donate-form{% endblock %}
-{% block custom_js %}
-<script type="text/javascript" src="{{ static("peacecorps/js/donation.js") }}"></script>
-{% endblock %}
-
-
-{% block content %}
-  <section class="blurb">
-    {% if project %}
-      {% include "donations/includes/project-top.jinja" %}
-    {% else %}
-
-    {% endif %}
-      <div class="u-align_l inset--sm t--gray--2">
-        <h3 class="t-heading--stylized">You are donating</h3><br>
-        <h1 class="t-heading--stylized t--secondary">
-          {{ humanize_cents(amount) }}</h1>
-        <h4 class="t-heading--stylized">to</h4><br>
-        <h3 class="t-heading--stylized">
-          <strong>{{ project.title or account_name }}</strong></h3>
-      </div>
-  </section>
-
-  <section class="section">
-    <form action="" method="post" class="form js-form section__content
-        full_banner full_banner--neutral full_banner--flush">
+{% block form_content %}
+    <form action="" method="post" class="js-form section__content">
       {% csrf_token %}
       <fieldset class="inset--lg">
         <legend><h2>Your information</h2>
@@ -267,7 +243,7 @@
           <div class="form__field__input">
             {{form.interest_conflict}}
           </div>
-          <label for id="id_interest_conflict" class="form__field__label">
+          <label for="id_interest_conflict" class="form__field__label">
             I'm doing business with the Peace Corps
           </label>
           <p class="t-body--sm form__text">
@@ -297,31 +273,7 @@
             <button type="submit" class="button button--primary">
               Confirm information</button>
           </div>
-
-          <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
-          Expiration date:
-          </p>
-
-          <h4 class="form__text">This is a Secure Transaction</h4>
-          <p class="t-body--sm form__text t-break">
-          The secure server software (SSL) that processes Peace Corps donations is
-          the industry standard and among the best software available today for
-          secure commerce transactions. It encrypts all of your personal data
-          including credit card number, name, and address, so that it cannot be
-          read as the information travels over the Internet. You can tell when you
-          are protected by encryption — the lock or key at the bottom of your
-          browser changes color or is no longer broken.
-          </p>
-
-          <h4 class="form__text">Burden Statement</h4>
-          <p class="t-body--sm form__text">
-            Public reporting burden for this collection of information is
-            estimated to average 45 minutes per response
-          </p>
-
         </div>
       </section>
-
     </form>
-  </section>
 {% endblock %}

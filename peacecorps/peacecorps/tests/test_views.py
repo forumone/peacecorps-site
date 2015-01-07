@@ -60,7 +60,8 @@ class DonationsTests(TestCase):
             'payment_amount': 2000,
             'project_code': 'PC-SEC01',
             'payment_type': 'CreditCard',
-            'information_consent': True}
+            'information_consent': 'true',
+            'random': 'randVal'}
 
         response = self.client.post(
             '/donations/contribute/?amount=2000&project=' + self.account.code,
@@ -69,10 +70,10 @@ class DonationsTests(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertTrue('agency_tracking_id' in content)
         self.assertTrue('agency_id' in content)
-        self.assertTrue('1 Main Street' in content)
-        self.assertTrue('Anytown' in content)
-        self.assertTrue('MD' in content)
-        self.assertTrue('20852' in content)
+        # this isn't a hidden value as it has the comma
+        self.assertTrue('Anytown,' in content)
+        self.assertTrue('name="random"' in content)
+        self.assertTrue('value="randVal"' in content)
 
         #   Refetch the account so we can lookup its donorinfo
         account = Account.objects.get(pk=self.account.pk)
@@ -80,6 +81,30 @@ class DonationsTests(TestCase):
         #   Also verify that the http host has been added
         donorinfo = account.donorinfos.get()
         self.assertTrue('://example.com' in donorinfo.xml)
+
+    def test_review_page_not_appear(self):
+        """The review page should *not* appear if a flag is provided"""
+        form_data = {
+            'payer_name': 'William Williams',
+            'billing_address':  '1 Main Street',
+            'billing_city': 'Anytown',
+            'billing_state': 'MD',
+            'billing_zip':  '20852',
+            'country': 'USA',
+            'payment_amount': 2000,
+            'project_code': 'PC-SEC01',
+            'payment_type': 'CreditCard',
+            'information_consent': 'true'}
+
+        response = self.client.post(
+            reverse('donations_payment') + '?amount=2000&project='
+            + self.account.code, form_data)
+        self.assertContains(response, 'agency_tracking_id')
+        form_data['force_form'] = 'true'
+        response = self.client.post(
+            reverse('donations_payment') + '?amount=2000&project='
+            + self.account.code, form_data)
+        self.assertNotContains(response, 'agency_tracking_id')
 
     def test_bad_request_donations(self):
         """ The donation information page should 400 if donation amount and
