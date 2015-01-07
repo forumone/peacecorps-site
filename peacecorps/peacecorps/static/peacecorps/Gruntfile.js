@@ -84,6 +84,32 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      cssLibs: {
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['./node_modules/font-awesome/scss/*.scss'],
+            dest: './css/src/lib/font-awesome/',
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: ['./node_modules/font-awesome/fonts/*'],
+            dest: './fonts',
+          }
+        ]
+      }
+    },
+    fontAwesomeVars: {
+      main: {
+        variablesScssPath: './css/src/lib/font-awesome/_variables.scss',
+        faCssPrefix: 'ico',
+        fontPath: '../../../../fonts/'
+      }
+    },
     watch: {
       jshint: {
         files: '<%= jsSrcDir %>**/*.js',
@@ -94,6 +120,7 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -101,6 +128,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-exorcise');
+  grunt.loadNpmTasks('grunt-font-awesome-vars');
   grunt.loadNpmTasks('grunt-testling');
 
   // Default task.
@@ -108,6 +136,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
       'jshint',
       'clean',
+      'copy:cssLibs',
+      'fontAwesomeVars',
       'browserify:donation',
       'exorcise',
       'uglify']);
