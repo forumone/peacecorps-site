@@ -4,40 +4,9 @@ peacecorps-site-frontend
 The frontend portion of the peacecorp site, with CSS and JS dependencies.
 
 ## Development
-We use nodejs, SASS, Bourbon, and Neat for our front-end stack.
+We use nodejs, node-sass, Bourbon, and Neat for our front-end stack.
 
-### Sass
-To up Sass you will need ruby (and gem) installed. On a Debian/Linux box, this can be
-accomplished via:
-
-```bash
-sudo apt-get install ruby
-```
-
-You next need to install the appropriate ruby libraries. In this example, we
-will install them system wide, though you may prefer bundler, etc.
-
-```bash
-sudo gem install neat sass bourbon
-```
-
-You will then need to pull down the appropriate sass libraries for bourbon and
-neat:
-
-```bash
-cd peacecorps/peacecorps/static/peacecorps/sass
-bourbon install
-neat install
-```
-
-Finally, run the "watch" script, which will recompile CSS as you make SASS
-changes. From within the sass directory:
-
-```bash
-sass --watch .:../css
-```
-
-### Javascript
+### Javascript & CSS
 #### Install node
 
 ##### Mac & Windows
@@ -60,7 +29,7 @@ From the peacecorp/peacecorp/static/peacecorp directory, run the following from
 the command line:
 
 ```bash
-npm install --dev
+npm install
 ```
 
 Run JS tests
@@ -69,19 +38,15 @@ Run JS tests
 grunt test
 ```
 
-Build JS assets
+Build JS and CSS assets
 
 ```bash
 grunt build
 ```
 
-Watch all the JS files and build when changes have been detected. This will
+Watch all the JS & CSS files and build when changes have been detected. This will
 recompile files immediately as you work on them, easing development.
 
 ```bash
-grunt buildWatch
+grunt build-watch
 ```
-
-## Notes
-In the future, we will merge the build process so CSS and JS builds are not separate.
-
