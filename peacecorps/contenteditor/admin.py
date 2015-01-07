@@ -55,7 +55,14 @@ class CampaignAdmin(admin.ModelAdmin):
 
 
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
+    list_display = ["project", "funded_status"]
     raw_id_fields = ['project']
+
+    def funded_status(self, obj):
+        if obj.project.account.funded():
+            return "Funded"
+        else:
+            return "Not Funded"
 
 
 class IssueAdmin(admin.ModelAdmin):
@@ -80,7 +87,8 @@ class MediaAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['account', 'title', 'country', 'volunteername']
+    list_display = ['account', 'title', 'country',
+                    'volunteername', 'funded_status']
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('campaigns',)
     search_fields = ['account__code', 'volunteername', 'country__name',
@@ -88,10 +96,17 @@ class ProjectAdmin(admin.ModelAdmin):
     raw_id_fields = ['account', 'overflow',
                      'volunteerpicture', 'featured_image']
     exclude = ['media']
+    readonly_fields = ['funded_status']
+
+    def funded_status(self, obj):
+        if obj.account.funded():
+            return "Funded"
+        else:
+            return "Not Funded"
 
     fieldsets = (
         ('Account Info', {
-            'fields': ['account', 'overflow', 'country'],
+            'fields': ['account', 'overflow', 'country', 'funded_status'],
             }),
         ('Volunteer Info', {
             'fields': ['volunteername',
