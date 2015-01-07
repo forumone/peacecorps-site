@@ -258,7 +258,7 @@ class Media(models.Model):
             SIZES = (('lg', 1200, 1200), ('md', 900, 900), ('sm', 500, 500),
                      ('thm', 300, 300))
 
-            img = Image.open(os.path.join(settings.MEDIA_ROOT, self.file.name))
+            img = Image.open(self.file.file)
             filename, filetype = self.file.name.rsplit('.', 1)
 
             for ext, width, height in SIZES:
