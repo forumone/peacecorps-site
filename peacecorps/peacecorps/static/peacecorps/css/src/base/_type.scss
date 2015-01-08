@@ -124,6 +124,7 @@ h4 + h3 {
  */
 .t-body {
   line-height: $leading-md;
+  font-family: 'Lato', 'Verdana', sans-serif;
 }
 .t-body--md {
   @extend .t-body;
