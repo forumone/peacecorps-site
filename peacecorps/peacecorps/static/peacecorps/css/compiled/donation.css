@@ -1598,7 +1598,8 @@ body {
   .rectangular_progress--mini .rectangular_progress__point {
     top: 5%; }
   .rectangular_progress--mini .rectangular_progress__point--bottom {
-    top: auto; }
+    top: auto;
+    bottom: 5%; }
   .rectangular_progress--mini .rectangular_progress__line {
     height: 0.5em;
     top: 24.5%; }
