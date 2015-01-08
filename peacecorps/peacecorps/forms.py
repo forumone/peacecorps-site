@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from localflavor.us.us_states import STATE_CHOICES
 
 from .models import Country
+from .templatetags.humanize_cents import humanize_cents
 
 
 class DonationPaymentForm(forms.Form):
@@ -18,8 +19,9 @@ class DonationPaymentForm(forms.Form):
     is_org = forms.BooleanField(
         label="I'm donating on behalf of my organization", required=False)
     #   Will be hidden if "Organization" is selected
-    payer_name = forms.CharField(label="Name", max_length=100, required=False,
-            error_messages={'required': 'Please enter your full name'})
+    payer_name = forms.CharField(
+        label="Name", max_length=100, required=False,
+        error_messages={'required': 'Please enter your full name'})
     #   Will be hidden in "Individual is selected"
     organization_name = forms.CharField(
         label='Organization Name', max_length=40, required=False)
@@ -30,12 +32,14 @@ class DonationPaymentForm(forms.Form):
     # Be sure that country is processed before billing_state/zip
     country = forms.ModelChoiceField(
         queryset=Country.objects, to_field_name='code', initial='USA')
-    billing_address = forms.CharField(label="Street Address", max_length=80,
-            error_messages={'required': 'Please enter a valid address'})
+    billing_address = forms.CharField(
+        label="Street Address", max_length=80,
+        error_messages={'required': 'Please enter a valid address'})
     billing_address_extra = forms.CharField(
         label="Street Address (cont)", max_length=80, required=False)
-    billing_city = forms.CharField(label="City", max_length=40,
-            error_messages={'required': 'Please enter a valid city'})
+    billing_city = forms.CharField(
+        label="City", max_length=40,
+        error_messages={'required': 'Please enter a valid city'})
     billing_state = forms.ChoiceField(
         label="State", choices=((('', ''),) + STATE_CHOICES), required=False)
     billing_zip = forms.CharField(required=False)
@@ -74,8 +78,9 @@ class DonationPaymentForm(forms.Form):
     dedication_email = forms.EmailField(label="Email", required=False)
     dedication_address = forms.CharField(
         label="Mailing Address", max_length=255, required=False)
-    card_dedication = forms.CharField(max_length=150, required=False,
-                                widget=forms.Textarea(attrs={'rows': 2}))
+    card_dedication = forms.CharField(
+        max_length=150, required=False,
+        widget=forms.Textarea(attrs={'rows': 2}))
     dedication_consent = forms.ChoiceField(
         widget=forms.RadioSelect, initial='yes-dedication-consent',
         choices=DEDICATION_CONSENT_CHOICES, required=False)
@@ -99,21 +104,21 @@ class DonationPaymentForm(forms.Form):
         empty"""
         if (self.cleaned_data.get(guard_field) == guard_value
                 and not self.cleaned_data.get(check_field)):
-            raise ValidationError('Please enter ' +
-                    field_name)
+            raise ValidationError('Please enter ' + field_name)
         return self.cleaned_data.get(check_field)
 
     def clean_payer_name(self):
-        return self.required_when('is_org', False, 'payer_name',
-                'your full name')
+        return self.required_when(
+            'is_org', False, 'payer_name', 'your full name')
 
     def clean_organization_name(self):
-        return self.required_when('is_org', True, 'organization_name',
-                'your organization\'s name')
+        return self.required_when(
+            'is_org', True, 'organization_name', 'your organization\'s name')
 
     def clean_organization_contact(self):
-        return self.required_when('is_org', True, 'organization_contact',
-                'your organization\'s contact')
+        return self.required_when(
+            'is_org', True, 'organization_contact',
+            "your organization's contact")
 
     def clean_billing_state(self):
         """Can't use required_when because the country field returns a model"""
@@ -148,17 +153,47 @@ class DonationAmountForm(forms.Form):
         choices=(('preset-50', '50'),
                  ('preset-100', '100'),
                  ('custom', 'Custom')))
-    # required if "custom" is selected above. Min value of $1, as anything
-    # lower than that will cost too much money to process. Max value of
-    # $9,999.99, as anything above that can't be processed by pay.gov
-    payment_amount = forms.DecimalField(max_value=9999.99, min_value=1,
-                                        decimal_places=2, required=False)
+    # only required if "custom" is selected above. bounds checks are performed
+    # in the clean_payment_amount method
+    payment_amount = forms.DecimalField(decimal_places=2, required=False)
+
+    def __init__(self, *args, **kwargs):
+        """Note that project_max, if present, is in cents while payment_amount
+        is in dollars"""
+        self.project_max = kwargs.pop('project_max', None)
+        super(DonationAmountForm, self).__init__(*args, **kwargs)
 
     def clean_payment_amount(self):
         """Selecting a preset is identical to typing the exact amount"""
-        for amt in (50, 100):
-            if self.cleaned_data.get('presets') == 'preset-' + str(amt):
-                return Decimal(amt)
-        if self.cleaned_data.get('payment_amount'):
-            return self.cleaned_data.get('payment_amount')
-        raise ValidationError('This field is required.')
+        if not self.cleaned_data.get('presets'):
+            return  # presets is required elsewhere
+
+        if self.cleaned_data.get('presets') == 'preset-50':
+            amount = Decimal(50)
+        elif self.cleaned_data.get('presets') == 'preset-100':
+            amount = Decimal(100)
+        elif self.cleaned_data.get('payment_amount'):
+            amount = self.cleaned_data.get('payment_amount')
+        else:
+            raise ValidationError(
+                'Please fill in the amount you want to give', code='required')
+
+        # Pay.gov doesn't process anything above $9,999.99
+        if amount >= 10000:
+            raise ValidationError(
+                "Thank you for your generosity! While we can’t accept gifts "
+                + "that large through the website, we would love to talk "
+                + "with you about ways you can make that donation. Please "
+                + "give us a call at 202-692-2170.", code='max_value')
+        # Min value of $1, as anything lower than that will cost too much
+        # money to process.
+        elif amount < 1:
+            raise ValidationError(
+                "Sorry, we can't accept gifts of less than a dollar",
+                code="min_value")
+        # * 100 for cents
+        elif self.project_max is not None and amount * 100 > self.project_max:
+            raise ValidationError(
+                "Whoops, that's more than we need for this project ("
+                + humanize_cents(self.project_max) + " max)", code='max_value')
+        return amount

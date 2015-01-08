@@ -1,5 +1,5 @@
 <div class="u-clearfix island island--primary" id="amount-form" style="clear: both">
-  <form method="post" class="form_hide--radio">
+  <form method="post" class="form_hide--radio" action="#amount-form">
     {% csrf_token %}
     <fieldset class="bubble_form">
       <legend class="t-title--3 t-nom">Give to this project</legend>
@@ -7,7 +7,6 @@
         <span>{{ humanize_cents(account.remaining()) }}
           to meet goal</span>
       {% endif %}
-      {{ donate_form.payment_amount.errors }}
       <p class="t-title--5 t--white" style="text-align: left">
         Choose an amount</p>
       {% for radio in donate_form.presets %}
@@ -39,6 +38,11 @@
         {% endif %}
       {% endfor %}
     </fieldset>
+    {% if donate_form.payment_amount.errors %}
+      <div class="bubble--white section__content--contain--sm">
+        {{ donate_form.payment_amount.errors }}
+      </div>
+    {% endif %}
     <button class="button button--white" style="margin-top: 1em;">
       {% if account.funded() %}
         Donate to Help Similar Projects
