@@ -21,18 +21,21 @@ html {
   font-size: 62.5%;
 }
 body {
-  color: $primary;
   @include font-size(1.5);
-  font-family: Archer, Archer SSm A, Archer SSm B;
-  font-weight: $weight-book;
+  color: $primary;
+  font-family: 'Lato', 'Verdana', sans-serif;
+  font-weight: $weight-light;
   line-height: $leading-md;
   text-transform: none;
 }
 
 // Modfifier extensions
-.t--caps {
+@mixin t--caps {
   letter-spacing: .09em;
   text-transform: uppercase;
+}
+.t--caps {
+  @include t--caps;
 }
 
 .t--bold {
@@ -68,6 +71,7 @@ body {
  * Default style of <h1-6>
  */
 .t-heading {
+  font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: $weight-medium;
   line-height: $leading-sm;
 }
@@ -84,7 +88,6 @@ body {
 .t-heading--3 {
   @include font-size(2.6);
   @include rem(margin, 0 0 .9rem 0);
-  font-weight: $weight-medium;
   margin-top: 0;
 }
 .t-heading--4 {
@@ -122,24 +125,20 @@ h4 + h3 {
  *
  * Default style of <p>, <span>, <button>
  */
-.t-body {
-  line-height: $leading-md;
-  font-family: 'Lato', 'Verdana', sans-serif;
-}
 .t-body--md {
-  @extend .t-body;
   @include font-size(2.3);
   @include rem(margin, 1.2rem 0);
+  line-height: $leading-md;
 }
 .t-body--sm {
-  @extend .t-body;
   @include font-size(1.7);
   @include rem(margin, 1rem 0);
+  line-height: $leading-md;
 }
 .t-body--xsm {
-  @extend .t-body;
   @include font-size(1);
   @include rem(margin, .9rem 0);
+  line-height: $leading-md;
 }
 p, span, button {
   @extend .t-body--md;
@@ -156,17 +155,20 @@ p + p {
 /*
  * Title styles are for titles not associated with content.
  */
-.t-title {
-  @extend .t--caps;
+@mixin t-title {
+  @include t--caps;
   font-weight: $weight-medium;
 }
+.t-title {
+  @include t-title;
+}
 .t-title--1 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(3.8);
   @include rem(margin, 0 0 1.5rem 0);
 }
 .t-title--2 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(3.0);
   @include rem(margin, 0 0 1rem 0);
 
@@ -179,22 +181,22 @@ p + p {
   }
 }
 .t-title--3 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(2.2);
   @include rem(margin, 1rem 0);
 }
 .t-title--4 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(1.6);
   @include rem(margin, 0.8rem 0);
 }
 .t-title--5 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(1.2);
   @include rem(margin, 0.8rem 0);
 }
 .t-title--6 {
-  @extend .t-title;
+  @include t-title;
   @include font-size(0.9);
   @include rem(margin, 0.4rem 0);
 }
@@ -204,17 +206,18 @@ p + p {
  * Blurbs are large pieces of readable (not uppercased) text that call out
  * bits of important information.
  */
-.t-blurb {
+ @mixin t-blurb {
+  font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: $weight-light;
   line-height: $leading-md;
-}
+ }
 .t-blurb--lg {
-  @extend .t-blurb;
+  @include t-blurb;
   @include font-size(4.8);
   @include rem(margin, 2.5rem 0);
 }
 .t-blurb--md {
-  @extend .t-blurb;
+  @include t-blurb;
   @include font-size(3.8);
   @include rem(margin, 2rem 0);
 }
@@ -227,9 +230,9 @@ p + p {
  * Icon is for text that goes along with an icon
  */
 .t-icon {
-  @extend .t--caps;
-  @extend .t--gray;
+  @include t--caps;
   @include font-size(1.6);
+  color: $gray-1;
 }
 
 
@@ -237,7 +240,7 @@ p + p {
  * Single-nav are single navigational elements, such as links to more content.
  */
 .t-single_nav {
-  @extend .t--caps;
+  @include t--caps;
   @include font-size(1.6);
   font-weight: $weight-medium;
   margin: 1.5em 0;
@@ -283,11 +286,13 @@ p + p {
 a {
   @extend .t-link;
 }
-
-.t-title--1 a, .t-title--2 a, .t-title--3 a {
+.t-title--1 a, .t-title--2 a, .t-title--3 a, t-title--4 a, t-title--5 a {
   text-decoration: none;
 }
 
+/*
+ * Util styles
+ */
 .t-nom {
   margin-bottom: 0;
 }
