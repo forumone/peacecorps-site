@@ -62,7 +62,9 @@ module.exports = function(grunt) {
             require('node-neat').includePaths)
         },
         files: [
-          { 'css/compiled/donation.css': 'css/src/donation.scss'}
+          { 'css/compiled/donation.css': 'css/src/donation.scss'},
+          { 'css/compiled/lib/font-awesome/font-awesome.css':
+              'css/src/lib/font-awesome/font-awesome.scss'}
         ]
       }
     },
@@ -121,7 +123,7 @@ module.exports = function(grunt) {
       main: {
         variablesScssPath: './css/src/lib/font-awesome/_variables.scss',
         faCssPrefix: 'ico',
-        fontPath: '../../../../fonts/'
+        fontPath: '../../../../fonts'
       }
     },
     watch: {
