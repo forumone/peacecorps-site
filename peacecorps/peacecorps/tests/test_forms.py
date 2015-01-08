@@ -126,3 +126,45 @@ class DonationAmountTests(TestCase):
         data['payment_amount'] = 1250
         form = DonationAmountForm(data=data)
         self.assertTrue(form.is_valid())
+
+    def test_custom_required(self):
+        """Payment amount of some form is required"""
+        data = {'presets': 'custom'}
+        form = DonationAmountForm(data=data)
+        self.assertFalse(form.is_valid())
+        errors = form.errors.as_data()
+        self.assertTrue('payment_amount' in errors)
+        self.assertEqual('required', errors['payment_amount'][0].code)
+
+    def test_custom_lower_limit(self):
+        data = {'presets': 'custom', 'payment_amount': '0.99'}
+        form = DonationAmountForm(data=data)
+        self.assertFalse(form.is_valid())
+        errors = form.errors.as_data()
+        self.assertEqual('min_value', errors['payment_amount'][0].code)
+
+        data['payment_amount'] = '1.00'
+        self.assertTrue(DonationAmountForm(data=data).is_valid())
+
+    def test_custom_upper_limit(self):
+        """Ceiling of 9999.99"""
+        data = {'presets': 'custom', 'payment_amount': '10000'}
+        form = DonationAmountForm(data=data)
+        self.assertFalse(form.is_valid())
+        errors = form.errors.as_data()
+        self.assertEqual('max_value', errors['payment_amount'][0].code)
+
+        data['payment_amount'] = '9999.99'
+        self.assertTrue(DonationAmountForm(data=data).is_valid())
+
+    def test_custom_per_project_upper_limit(self):
+        """Error if trying to donate more than a project needs"""
+        data = {'presets': 'preset-50'}
+        form = DonationAmountForm(data=data, project_max=4000)
+        self.assertFalse(form.is_valid())
+        errors = form.errors.as_data()
+        self.assertEqual('max_value', errors['payment_amount'][0].code)
+        self.assertTrue('$40.00' in errors['payment_amount'][0].message)
+
+        form = DonationAmountForm(data=data, project_max=50000)
+        self.assertTrue(form.is_valid())

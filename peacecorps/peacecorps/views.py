@@ -97,7 +97,12 @@ def donate_project(request, slug):
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
     if request.method == 'POST':
-        form = DonationAmountForm(data=request.POST)
+        # only relevant during validation
+        if project.account.funded():
+            project_max = None
+        else:
+            project_max = project.account.remaining()
+        form = DonationAmountForm(data=request.POST, project_max=project_max)
         if form.is_valid():
             if project.account.funded() and project.overflow:
                 code = project.overflow.code
@@ -105,8 +110,7 @@ def donate_project(request, slug):
                 code = project.account.code
             params = {'project': code,
                       # convert back into cents
-                      'amount': int(round(
-                          form.cleaned_data['payment_amount'] * 100))}
+                      'amount': int(form.cleaned_data['payment_amount'] * 100)}
             return HttpResponseRedirect(
                 reverse('donations_payment') + '?' + urlencode(params))
     else:

@@ -119,7 +119,10 @@ class Account(models.Model):
     def remaining(self):
         """This will be expanded later, and may involve more complicated
         calculations. As such, we don't want it to be a property"""
-        return self.goal - self.total_donated()
+        if self.goal:
+            return self.goal - self.total_donated()
+        else:
+            return 0
 
 
 # @todo: this description isn't really accurate anymore. Probably worth
