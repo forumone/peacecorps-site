@@ -264,7 +264,8 @@ h4 + h3 {
  * Default style of <p>, <span>, <button>
  */
 .t-body, .t-body--md, p, span, button, .t-body--sm, .sub_nav .sub_nav__link, .t-body--xsm {
-  line-height: 1.4; }
+  line-height: 1.4;
+  font-family: 'Lato', 'Verdana', sans-serif; }
 
 .t-body--md, p, span, button {
   font-size: 23px;
@@ -1726,13 +1727,12 @@ body {
 .section__content {
   padding-top: 2.5em;
   padding-bottom: 2.5em; }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .section__content {
-      padding-bottom: 1em;
-      padding-top: 1em; } }
 
 .section__content--contain {
   padding: 2.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .section__content--contain {
+      padding: 1em; } }
 
 .section__content--no_space_r {
   padding-right: 0; }

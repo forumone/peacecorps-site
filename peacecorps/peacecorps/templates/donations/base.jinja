@@ -16,6 +16,10 @@
           }}" />
 
     </noscript>
+    <noscript>
+      <link href='http://fonts.googleapis.com/css?family=Lato:300,400'
+            rel='stylesheet' type='text/css'>
+    </noscript>
 </head>
 <body>
 {% block top_most_banner %}{% endblock %}
@@ -170,6 +174,18 @@
   css.rel = 'stylesheet';
   css.type = 'text/css';
   document.getElementsByTagName('head')[0].appendChild(css);
+})();
+WebFontConfig = {
+  google: { families: [ 'Lato:300,400:latin' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
 })();
 </script>
 
