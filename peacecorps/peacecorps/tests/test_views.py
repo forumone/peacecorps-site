@@ -215,6 +215,28 @@ class DonatePagesTests(TestCase):
         self.assertTrue("5000" in response['Location'])
         self.assertTrue('peace-corps' in response['Location'])
 
+    def test_project_fund_prepopulation(self):
+        """Prepopulate the form with amount from GET var"""
+        response = self.client.get(
+            reverse('donate project', kwargs={'slug': 'brick-oven-bakery'}),
+            {'payment_amount': '12.34'})
+        self.assertContains(response, '12.34')
+        response = self.client.get(
+            reverse('donate project', kwargs={'slug': 'brick-oven-bakery'}),
+            {'payment_amount': '.95'})
+        self.assertContains(response, '.95')
+        self.assertContains(response, 'error')
+
+        response = self.client.get(
+            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
+            {'payment_amount': '12.34'})
+        self.assertContains(response, '12.34')
+        response = self.client.get(
+            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
+            {'payment_amount': '10000'})
+        self.assertContains(response, '10000')
+        self.assertContains(response, 'error')
+
     def test_project_success_failure(self):
         response = self.client.get(
             reverse('project success', kwargs={'slug': 'nonproj'}))

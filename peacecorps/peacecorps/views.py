@@ -101,18 +101,23 @@ def donate_project(request, slug):
         Project.published_objects.select_related(
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
+
+    if project.account.funded():
+        project_max = None
+    else:
+        project_max = project.account.remaining()
+
     if request.method == 'POST':
-        # only relevant during validation
-        if project.account.funded():
-            project_max = None
-        else:
-            project_max = project.account.remaining()
         form = DonationAmountForm(data=request.POST, project_max=project_max)
         if form.is_valid():
             amount = int(form.cleaned_data['payment_amount'] * 100)
             return HttpResponseRedirect(
                 reverse('project form', kwargs={'slug': slug})
                 + '?amount=' + str(amount))
+    elif request.GET.get('payment_amount'):
+        data = {'presets': 'custom',
+                'payment_amount': request.GET.get('payment_amount')}
+        form = DonationAmountForm(data=data, project_max=project_max)
     else:
         form = DonationAmountForm()
 
@@ -177,6 +182,10 @@ def fund_detail(request, slug):
             return HttpResponseRedirect(
                 reverse('campaign form', kwargs={'slug': slug})
                 + '?amount=' + str(amount))
+    elif request.GET.get('payment_amount'):
+        data = {'presets': 'custom',
+                'payment_amount': request.GET.get('payment_amount')}
+        form = DonationAmountForm(data=data)
     else:
         form = DonationAmountForm()
 
