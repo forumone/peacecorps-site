@@ -1,5 +1,3 @@
-from urllib.parse import urlencode
-
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
@@ -14,9 +12,24 @@ from peacecorps.models import (
 from peacecorps.payxml import convert_to_paygov
 
 
-def donation_payment(request):
-    """ Collect donor contact information. """
+def project_form(request, slug):
+    """Wrapper around donation_payment which passes in the correct project"""
+    project = get_object_or_404(
+        Project.published_objects.select_related(
+            'volunteerpicture', 'featured_image', 'account', 'overflow'),
+        slug=slug)
+    return donation_payment(request, project.account, project=project)
 
+
+def campaign_form(request, slug):
+    """Wrapper around donation_payment which passes in the correct campaign"""
+    campaign = get_object_or_404(Campaign.objects.select_related('account'),
+                                 slug=slug)
+    return donation_payment(request, campaign.account, campaign=campaign)
+
+
+def donation_payment(request, account, project=None, campaign=None):
+    """ Collect donor contact information. """
     amount = request.GET.get('amount')
     if amount is None:
         return HttpResponseBadRequest('amount must be provided.')
@@ -25,17 +38,9 @@ def donation_payment(request):
     else:
         amount = int(amount)
 
-    project_code = request.GET.get('project')
-    if project_code is None:
-        return HttpResponseBadRequest('project must be provided.')
-    account = Account.objects.filter(code=project_code).first()
-    if not account:
-        return HttpResponseBadRequest('Invalid project')
-    project = account.project_set.first()
-
     context = {
         'amount': amount,
-        'project_code': project_code,
+        'project_code': account.code,
         'project': project,
         'account_name': account.name,
         'agency_id': settings.PAY_GOV_AGENCY_ID,
@@ -46,8 +51,8 @@ def donation_payment(request):
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
     else:
-        data = {'payment_amount': amount, 'project_code': project_code}
-        form = DonationPaymentForm(initial=data)
+        form = DonationPaymentForm(initial={
+            'payment_amount': amount, 'project_code': account.code})
     context['form'] = form
 
     if form.is_valid() and request.POST.get('force_form') != 'true':
@@ -104,15 +109,10 @@ def donate_project(request, slug):
             project_max = project.account.remaining()
         form = DonationAmountForm(data=request.POST, project_max=project_max)
         if form.is_valid():
-            if project.account.funded() and project.overflow:
-                code = project.overflow.code
-            else:
-                code = project.account.code
-            params = {'project': code,
-                      # convert back into cents
-                      'amount': int(form.cleaned_data['payment_amount'] * 100)}
+            amount = int(form.cleaned_data['payment_amount'] * 100)
             return HttpResponseRedirect(
-                reverse('donations_payment') + '?' + urlencode(params))
+                reverse('project form', kwargs={'slug': slug})
+                + '?amount=' + str(amount))
     else:
         form = DonationAmountForm()
 
@@ -173,12 +173,10 @@ def fund_detail(request, slug):
     if request.method == "POST":
         form = DonationAmountForm(data=request.POST)
         if form.is_valid():
-            params = {'project': campaign.account.code,
-                      # convert back into cents
-                      'amount': int(round(
-                          form.cleaned_data['payment_amount'] * 100))}
+            amount = int(form.cleaned_data['payment_amount'] * 100)
             return HttpResponseRedirect(
-                reverse('donations_payment') + '?' + urlencode(params))
+                reverse('campaign form', kwargs={'slug': slug})
+                + '?amount=' + str(amount))
     else:
         form = DonationAmountForm()
 
