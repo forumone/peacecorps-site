@@ -12,7 +12,8 @@ class DonationsTests(TestCase):
 
     def setUp(self):
         self.proj_acc = Account.objects.create(
-            name='PROJPROJ', code='PROJPROJ', category=Account.PROJECT)
+            name='PROJPROJ', code='PROJPROJ', category=Account.PROJECT,
+            goal=200000)
         self.cmpn_acc = Account.objects.create(
             name='CMPNCMPN', code='CMPNCMPN', category=Account.OTHER)
         self.project = Project.objects.create(
@@ -33,7 +34,7 @@ class DonationsTests(TestCase):
         the payment page."""
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=2000')
+            + '?payment_amount=20')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.00' in content)
@@ -42,24 +43,34 @@ class DonationsTests(TestCase):
 
         response = self.client.get(
             reverse('campaign form', kwargs={'slug': self.campaign.slug})
-            + '?amount=2000')
+            + '?payment_amount=20.01')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
-        self.assertTrue('$20.00' in content)
+        self.assertTrue('$20.01' in content)
         self.assertTrue(self.cmpn_acc.code)     # Check that this is nonempty
         self.assertTrue(self.cmpn_acc.code in content)
 
     def test_payment_type(self):
         """Check that the payment type values are rendered correctly."""
-
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=2000')
+            + '?payment_amount=2000')
         content = response.content.decode('utf-8')
         self.assertTrue('id_payment_type_0' in content)
         self.assertTrue('id_payment_type_1' in content)
         self.assertTrue('CreditCard' in content)
         self.assertTrue('CreditACH' in content)
+
+    def test_check_project_max(self):
+        """Shouldn't be able to donate more than a project's remaining"""
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=2000')
+        self.assertEqual(200, response.status_code)
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=2000.01')
+        self.assertEqual(302, response.status_code)
 
     def test_review_page(self):
         """ Test that the donation review page renders with the required
@@ -72,15 +83,13 @@ class DonationsTests(TestCase):
             'billing_state': 'MD',
             'billing_zip':  '20852',
             'country': 'USA',
-            'payment_amount': 2000,
-            'project_code': 'PC-SEC01',
             'payment_type': 'CreditCard',
             'information_consent': 'true',
             'random': 'randVal'}
 
         response = self.client.post(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=2000', form_data, HTTP_HOST='example.com')
+            + '?payment_amount=2000', form_data, HTTP_HOST='example.com')
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('agency_tracking_id' in content)
@@ -106,41 +115,58 @@ class DonationsTests(TestCase):
             'billing_state': 'MD',
             'billing_zip':  '20852',
             'country': 'USA',
-            'payment_amount': 2000,
-            'project_code': 'PC-SEC01',
             'payment_type': 'CreditCard',
             'information_consent': 'true'}
 
         response = self.client.post(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=2000', form_data)
+            + '?payment_amount=2000', form_data)
         self.assertContains(response, 'agency_tracking_id')
         form_data['force_form'] = 'true'
         response = self.client.post(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=2000', form_data)
+            + '?payment_amount=2000', form_data)
         self.assertNotContains(response, 'agency_tracking_id')
 
     def test_bad_request_donations(self):
-        """ The donation information page should 400 if donation amount isn't
+        """ The donation information page should redirect if amount isn't
         included."""
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug}))
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 302)
         response = self.client.get(
             reverse('campaign form', kwargs={'slug': self.campaign.slug}))
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 302)
 
     def test_bad_amount(self):
-        """If a non-integer amount is entered, the donation form should 400"""
+        """If a non-numeric amount is entered, the donation form should
+        redirect. Same applies with min/max bounds. Each of these should have
+        a unique nonce to break the cache"""
+        nonces = set()
+        nonce_from = lambda r: r['LOCATION'].split('nonce=')[1].split('&')[0]
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
-            + '?amount=aaa')
-        self.assertEqual(response.status_code, 400)
+            + '?payment_amount=aaa')
+        self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
         response = self.client.get(
             reverse('campaign form', kwargs={'slug': self.campaign.slug})
-            + '?amount=aaa')
-        self.assertEqual(response.status_code, 400)
+            + '?payment_amount=aaa')
+        self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
+
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=0.99')
+        self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=10000')
+        self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
+
+        self.assertEqual(len(nonces), 4)  # distinct nonces
 
     def test_completed_success(self):
         response = self.client.get(reverse('donation success'))
@@ -203,7 +229,7 @@ class DonatePagesTests(TestCase):
                                     {'presets': 'custom',
                                      'payment_amount': '123.45'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("12345" in response['Location'])
+        self.assertTrue("123.45" in response['Location'])
         self.assertTrue("brick-oven-bakery" in response['Location'])
 
     def test_fund_form_redirect(self):
@@ -212,8 +238,30 @@ class DonatePagesTests(TestCase):
             reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
             {'presets': 'preset-50'})
         self.assertEqual(response.status_code, 302)
-        self.assertTrue("5000" in response['Location'])
+        self.assertTrue("50" in response['Location'])
         self.assertTrue('peace-corps' in response['Location'])
+
+    def test_project_fund_prepopulation(self):
+        """Prepopulate the form with amount from GET var"""
+        response = self.client.get(
+            reverse('donate project', kwargs={'slug': 'brick-oven-bakery'}),
+            {'payment_amount': '12.34'})
+        self.assertContains(response, '12.34')
+        response = self.client.get(
+            reverse('donate project', kwargs={'slug': 'brick-oven-bakery'}),
+            {'payment_amount': '.95'})
+        self.assertContains(response, '.95')
+        self.assertContains(response, 'error')
+
+        response = self.client.get(
+            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
+            {'payment_amount': '12.34'})
+        self.assertContains(response, '12.34')
+        response = self.client.get(
+            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
+            {'payment_amount': '10000'})
+        self.assertContains(response, '10000')
+        self.assertContains(response, 'error')
 
     def test_project_success_failure(self):
         response = self.client.get(

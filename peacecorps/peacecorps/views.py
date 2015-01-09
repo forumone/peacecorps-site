@@ -1,7 +1,10 @@
+from urllib.parse import quote as urlquote
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponseBadRequest
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.utils.crypto import get_random_string
 from django.views.generic import DetailView, ListView
 from django.views.decorators.csrf import csrf_exempt
 
@@ -29,18 +32,24 @@ def campaign_form(request, slug):
 
 
 def donation_payment(request, account, project=None, campaign=None):
-    """ Collect donor contact information. """
-    amount = request.GET.get('amount')
-    if amount is None:
-        return HttpResponseBadRequest('amount must be provided.')
-    elif not amount.isdigit():
-        return HttpResponseBadRequest('amount must be an integer value')
-    else:
-        amount = int(amount)
+    """Collect donor contact information. Expects a GET param, payment_amount,
+    in dollars."""
+    payment_amount = request.GET.get('payment_amount', '')
+    data = {'presets': 'custom', 'payment_amount': payment_amount}
+    form = DonationAmountForm(data=data, account=account)
+    if not form.is_valid():
+        if project:
+            url = reverse('donate project', kwargs={'slug': project.slug})
+        else:
+            url = reverse('donate campaign', kwargs={'slug': campaign.slug})
+        return HttpResponseRedirect(
+            url + '?payment_amount=' + urlquote(payment_amount)
+            + '&nonce=' + get_random_string(12) + '#amount-form')
+    # convert to cents
+    payment_amount = int(form.cleaned_data['payment_amount'] * 100)
 
     context = {
-        'amount': amount,
-        'project_code': account.code,
+        'payment_amount': payment_amount,
         'project': project,
         'account_name': account.name,
         'agency_id': settings.PAY_GOV_AGENCY_ID,
@@ -51,12 +60,13 @@ def donation_payment(request, account, project=None, campaign=None):
     if request.method == 'POST':
         form = DonationPaymentForm(request.POST)
     else:
-        form = DonationPaymentForm(initial={
-            'payment_amount': amount, 'project_code': account.code})
+        form = DonationPaymentForm()
     context['form'] = form
 
     if form.is_valid() and request.POST.get('force_form') != 'true':
         data = {k: v for k, v in form.cleaned_data.items()}
+        data['payment_amount'] = payment_amount
+        data['project_code'] = account.code
         paygov = convert_to_paygov(
             data, account, "https://" + request.get_host())
         paygov.save()
@@ -101,20 +111,20 @@ def donate_project(request, slug):
         Project.published_objects.select_related(
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
+
     if request.method == 'POST':
-        # only relevant during validation
-        if project.account.funded():
-            project_max = None
-        else:
-            project_max = project.account.remaining()
-        form = DonationAmountForm(data=request.POST, project_max=project_max)
+        form = DonationAmountForm(data=request.POST, account=project.account)
         if form.is_valid():
-            amount = int(form.cleaned_data['payment_amount'] * 100)
             return HttpResponseRedirect(
                 reverse('project form', kwargs={'slug': slug})
-                + '?amount=' + str(amount))
+                + '?payment_amount='
+                + str(form.cleaned_data['payment_amount']))
+    elif request.GET.get('payment_amount') is not None:
+        data = {'presets': 'custom',
+                'payment_amount': request.GET.get('payment_amount')}
+        form = DonationAmountForm(data=data, account=project.account)
     else:
-        form = DonationAmountForm()
+        form = DonationAmountForm(account=project.account)
 
     return render(
         request,
@@ -171,14 +181,18 @@ def fund_detail(request, slug):
     campaign = get_object_or_404(Campaign.objects.select_related('account'),
                                  slug=slug)
     if request.method == "POST":
-        form = DonationAmountForm(data=request.POST)
+        form = DonationAmountForm(data=request.POST, account=campaign.account)
         if form.is_valid():
-            amount = int(form.cleaned_data['payment_amount'] * 100)
             return HttpResponseRedirect(
                 reverse('campaign form', kwargs={'slug': slug})
-                + '?amount=' + str(amount))
+                + '?payment_amount='
+                + str(form.cleaned_data['payment_amount']))
+    elif request.GET.get('payment_amount') is not None:
+        data = {'presets': 'custom',
+                'payment_amount': request.GET.get('payment_amount')}
+        form = DonationAmountForm(data=data, account=campaign.account)
     else:
-        form = DonationAmountForm()
+        form = DonationAmountForm(account=campaign.account)
 
     return render(
         request,

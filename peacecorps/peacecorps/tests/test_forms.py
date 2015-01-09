@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from django.test import TestCase
 
-from peacecorps.models import Country
+from peacecorps.models import Account, Country
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 
 
@@ -160,11 +160,13 @@ class DonationAmountTests(TestCase):
     def test_custom_per_project_upper_limit(self):
         """Error if trying to donate more than a project needs"""
         data = {'presets': 'preset-50'}
-        form = DonationAmountForm(data=data, project_max=4000)
+        account = Account(goal=8000, current=3001)
+        form = DonationAmountForm(data=data, account=account)
         self.assertFalse(form.is_valid())
         errors = form.errors.as_data()
         self.assertEqual('max_value', errors['payment_amount'][0].code)
-        self.assertTrue('$40.00' in errors['payment_amount'][0].message)
+        self.assertTrue('$49.99' in errors['payment_amount'][0].message)
 
-        form = DonationAmountForm(data=data, project_max=50000)
+        account.current = 3000
+        form = DonationAmountForm(data=data, account=account)
         self.assertTrue(form.is_valid())
