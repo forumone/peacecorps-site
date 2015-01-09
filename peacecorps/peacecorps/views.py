@@ -34,16 +34,15 @@ def campaign_form(request, slug):
 def donation_payment(request, account, project=None, campaign=None):
     """Collect donor contact information. Expects a GET param, payment_amount,
     in dollars."""
-    payment_amount = request.GET.get('payment_amount', '')
-    data = {'presets': 'custom', 'payment_amount': payment_amount}
-    form = DonationAmountForm(data=data, account=account)
+    form = DonationAmountForm(data=request.GET, account=account)
     if not form.is_valid():
         if project:
             url = reverse('donate project', kwargs={'slug': project.slug})
         else:
             url = reverse('donate campaign', kwargs={'slug': campaign.slug})
         return HttpResponseRedirect(
-            url + '?payment_amount=' + urlquote(payment_amount)
+            url + '?payment_amount='
+            + urlquote(request.GET.get('payment_amount', ''))
             + '&nonce=' + get_random_string(12) + '#amount-form')
     # convert to cents
     payment_amount = int(form.cleaned_data['payment_amount'] * 100)
@@ -120,9 +119,7 @@ def donate_project(request, slug):
                 + '?payment_amount='
                 + str(form.cleaned_data['payment_amount']))
     elif request.GET.get('payment_amount') is not None:
-        data = {'presets': 'custom',
-                'payment_amount': request.GET.get('payment_amount')}
-        form = DonationAmountForm(data=data, account=project.account)
+        form = DonationAmountForm(data=request.GET, account=project.account)
     else:
         form = DonationAmountForm(account=project.account)
 
@@ -188,9 +185,7 @@ def fund_detail(request, slug):
                 + '?payment_amount='
                 + str(form.cleaned_data['payment_amount']))
     elif request.GET.get('payment_amount') is not None:
-        data = {'presets': 'custom',
-                'payment_amount': request.GET.get('payment_amount')}
-        form = DonationAmountForm(data=data, account=campaign.account)
+        form = DonationAmountForm(data=request.GET, account=campaign.account)
     else:
         form = DonationAmountForm(account=campaign.account)
 

@@ -9,34 +9,17 @@
       {% endif %}
       <p class="t-title--5 t--white" style="text-align: left">
         Choose an amount</p>
-      {% for radio in donate_form.presets %}
-        {% if not account.funded() %}
-          <div class="inline_grid--15 island__content">
-            {{ radio.tag() }}
-            {% if radio.choice_value == 'custom' %}
-              <label class="bubble bubble--primary
-                            bubble--bordered bubble--square"
-                  for="{{radio.id_for_label}}" >
-                <span class="bubble__content" style="left: 10%">
-                  <strong>$</strong>
-                </span>
-                {{ donate_form.payment_amount }}
-              </label>
-            {% else %}
-              <label
-                  class="bubble
-                  bubble--primary
-                  bubble--bordered
-                  bubble--square"
-                  for="{{radio.id_for_label}}">
-                <span class="bubble__content"><strong>
-                  ${{radio.choice_label}}
-                </strong></span>
-              </label>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
+      {% if not account.funded() %}
+        <div class="inline_grid--15 island__content">
+            <label class="bubble bubble--primary
+                          bubble--bordered bubble--square">
+              <span class="bubble__content" style="left: 10%">
+                <strong>$</strong>
+              </span>
+              {{ donate_form.payment_amount }}
+            </label>
+        </div>
+      {% endif %}
     </fieldset>
     {% if donate_form.payment_amount.errors %}
       <div class="bubble--white section__content--contain--sm">

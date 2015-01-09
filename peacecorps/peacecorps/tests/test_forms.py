@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from django.test import TestCase
 
 from peacecorps.models import Account, Country
@@ -108,36 +106,17 @@ class DonationPaymentTests(TestCase):
 
 
 class DonationAmountTests(TestCase):
-    def test_preset_50(self):
-        """Selecting a preset should set the correct value in
-        payment_amount"""
-        data = {'presets': 'preset-50'}
-        form = DonationAmountForm(data=data)
-        self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data['payment_amount'], Decimal(50))
-
-    def test_preset_custom(self):
-        """Entering no value will result in an error. Entering a custom amount
-        will resolve"""
-        data = {'presets': 'custom'}
-        form = DonationAmountForm(data=data)
-        self.assertFalse(form.is_valid())
-
-        data['payment_amount'] = 1250
-        form = DonationAmountForm(data=data)
-        self.assertTrue(form.is_valid())
-
     def test_custom_required(self):
         """Payment amount of some form is required"""
-        data = {'presets': 'custom'}
-        form = DonationAmountForm(data=data)
-        self.assertFalse(form.is_valid())
-        errors = form.errors.as_data()
-        self.assertTrue('payment_amount' in errors)
-        self.assertEqual('required', errors['payment_amount'][0].code)
+        for data in ({}, {'payment_amount': ''}):
+            form = DonationAmountForm(data=data)
+            self.assertFalse(form.is_valid())
+            errors = form.errors.as_data()
+            self.assertTrue('payment_amount' in errors)
+            self.assertEqual('required', errors['payment_amount'][0].code)
 
     def test_custom_lower_limit(self):
-        data = {'presets': 'custom', 'payment_amount': '0.99'}
+        data = {'payment_amount': '0.99'}
         form = DonationAmountForm(data=data)
         self.assertFalse(form.is_valid())
         errors = form.errors.as_data()
@@ -148,7 +127,7 @@ class DonationAmountTests(TestCase):
 
     def test_custom_upper_limit(self):
         """Ceiling of 9999.99"""
-        data = {'presets': 'custom', 'payment_amount': '10000'}
+        data = {'payment_amount': '10000'}
         form = DonationAmountForm(data=data)
         self.assertFalse(form.is_valid())
         errors = form.errors.as_data()
@@ -159,7 +138,7 @@ class DonationAmountTests(TestCase):
 
     def test_custom_per_project_upper_limit(self):
         """Error if trying to donate more than a project needs"""
-        data = {'presets': 'preset-50'}
+        data = {'payment_amount': '50.00'}
         account = Account(goal=8000, current=3001)
         form = DonationAmountForm(data=data, account=account)
         self.assertFalse(form.is_valid())
