@@ -150,7 +150,7 @@ class Campaign(models.Model):
     )
 
     name = models.CharField(max_length=120)
-    account = models.ForeignKey('Account', unique=True, blank=True, null=True)
+    account = models.ForeignKey('Account', unique=True)
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
