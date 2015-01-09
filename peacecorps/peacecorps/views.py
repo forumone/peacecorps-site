@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.utils.crypto import get_random_string
 from django.views.generic import DetailView, ListView
 from django.views.decorators.csrf import csrf_exempt
 
@@ -43,7 +44,7 @@ def donation_payment(request, account, project=None, campaign=None):
             url = reverse('donate campaign', kwargs={'slug': campaign.slug})
         return HttpResponseRedirect(
             url + '?payment_amount=' + urlquote(payment_amount)
-            + '#amount-form')
+            + '&nonce=' + get_random_string(12) + '#amount-form')
     # convert to cents
     payment_amount = int(form.cleaned_data['payment_amount'] * 100)
 

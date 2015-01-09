@@ -140,24 +140,33 @@ class DonationsTests(TestCase):
 
     def test_bad_amount(self):
         """If a non-numeric amount is entered, the donation form should
-        redirect. Same applies with min/max bounds"""
+        redirect. Same applies with min/max bounds. Each of these should have
+        a unique nonce to break the cache"""
+        nonces = set()
+        nonce_from = lambda r: r['LOCATION'].split('nonce=')[1].split('&')[0]
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
             + '?payment_amount=aaa')
         self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
         response = self.client.get(
             reverse('campaign form', kwargs={'slug': self.campaign.slug})
             + '?payment_amount=aaa')
         self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
 
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
             + '?payment_amount=0.99')
         self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
         response = self.client.get(
             reverse('project form', kwargs={'slug': self.project.slug})
             + '?payment_amount=10000')
         self.assertEqual(response.status_code, 302)
+        nonces.add(nonce_from(response))
+
+        self.assertEqual(len(nonces), 4)  # distinct nonces
 
     def test_completed_success(self):
         response = self.client.get(reverse('donation success'))
