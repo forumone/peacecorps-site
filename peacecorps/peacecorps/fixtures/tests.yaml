@@ -1223,10 +1223,10 @@
     call: null
     campaigntype: coun
     country: null
-    description: '{"data": [{"type": "text", "data": {"text": "Contributions to the
-      Togo Country Fund will support Volunteer and community projects that will take
-      place in Togo. These projects include water and sanitation, agricultural development,
-      and youth programs."}}]}'
+    description: '{"data":[{"type":"text","data":{"text":"Contributions to the Togo
+      Country Fund will support Volunteer and community projects that will take place
+      in Togo. These projects include water and sanitation, agricultural development,
+      and youth programs.\n"}}]}'
     featuredprojects: []
     icon: null
     name: Togo
@@ -1360,7 +1360,7 @@
       food production systems, pesticide safety, crop production, animal husbandry,
       apiculture, agriculture marketing, farm economics, and formation of agricultural
       cooperatives.  As food security continues to be a global concern, it is imperative
-      to support communities'' agricultural development."}}]}'
+      to support communities'' agricultural development.\n"}}]}'
     featuredprojects: []
     icon: null
     name: Agriculture Fund
@@ -1415,7 +1415,7 @@
       precious gift of education.  Often Volunteers'' dedication to teaching is matched
       by a severe lack of supplies and facilities in which to help. Contributions
       to this fund will help Volunteer and community projects such as school construction,
-      English language training, school and library material, and adult literacy."}}]}'
+      English language training, school and library material, and adult literacy.\n"}}]}'
     featuredprojects: []
     icon: null
     name: Education Fund
@@ -3889,12 +3889,29 @@
     name: Community Growth
   model: peacecorps.issue
   pk: 10
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"CHANGE?!!!"}}]}', order: 2,
-    question: 'How many python programmers does it take to change a light bulb?'}
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"Yes. All gifts or bequests
+      to the Peace Corps are gifts to the United States for exclusively public purposes
+      within the meaning of section 170\\(c\\)\\(1\\) of the Internal Revenue Code
+      and are deductible as charitable contributions under section 170\\(a\\) of the
+      Code. Once the donation has been processed a thank you letter will be sent,
+      which can be used as a tax receipt. The name on the tax receipt will reflect
+      the account owner on the credit card or check.\n"}}]}', order: 1, question: 'Is
+      my donation to the Peace Corps tax-deductible?', slug: is-my-donation-to-the-peace-corps-tax-deductible}
   model: peacecorps.faq
-  pk: 1
-- fields: {answer: '{"data":[{"type":"text","data":{"text":"one to change it, ten
-      to try to do it in fewer lines."}}]}', order: 1, question: 'How many perl devs
-      does it take to change a lightbulb?'}
+  pk: 3
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"Every penny! Your entire
+      donation to the Partnership Program will be directed to a Volunteer project.
+      No part of your donation will be used to cover staff or overhead costs of running
+      the Partnership Program, as the office is supported by congressionally appropriated
+      funds to the Peace Corps.\n"}}]}', order: 2, question: 'How much of my donation
+      will go to a Volunteer Project?', slug: how-much-of-my-donation-will-go-to-a-volunteer-pro}
   model: peacecorps.faq
-  pk: 2
+  pk: 4
+- fields: {answer: '{"data":[{"type":"text","data":{"text":"We are only able to fund
+      a project up to the amount that a Volunteer requests. Once a project becomes
+      fully funded, any extra funds will be allocated to the Global Fund where they
+      will be used to support Partnership Program projects Worldwide.\n"}}]}', order: 3,
+    question: 'What happens if a project receives more than the requested amount?',
+    slug: what-happens-if-a-project-receives-more-than-the-r}
+  model: peacecorps.faq
+  pk: 5
