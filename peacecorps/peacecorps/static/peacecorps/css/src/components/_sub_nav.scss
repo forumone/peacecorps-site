@@ -14,9 +14,9 @@
     text-decoration: none;
   }
 
-  .sub_nav__link {
-    @extend .t-body--sm;
-  }
+}
+.sub_nav__link {
+  @extend .t-body--md;
 }
 
 .sub_nav--vertical {

@@ -2,9 +2,9 @@
   <form method="post" class="form_hide--radio" action="#amount-form">
     {% csrf_token %}
     <fieldset class="bubble_form">
-      <legend class="t-title--3 t-nom">Give to this project</legend>
+      <legend class="t-title--1 t-nom">Give to this project</legend>
       {% if IS_PROJECT %}
-        <span>{{ humanize_cents(account.remaining()) }}
+        <span class="t-title--2">{{ humanize_cents(account.remaining()) }}
           to meet goal</span>
       {% endif %}
       <p class="t-title--5 t--white" style="text-align: left">
