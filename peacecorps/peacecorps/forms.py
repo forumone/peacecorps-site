@@ -95,9 +95,6 @@ class DonationPaymentForm(forms.Form):
         label='Make my contact info available to the volunteer',
         required=False, initial=True)
 
-    payment_amount = forms.IntegerField(widget=forms.HiddenInput())
-    project_code = forms.CharField(max_length=40, widget=forms.HiddenInput())
-
     def required_when(self, guard_field, guard_value, check_field, field_name):
         """Raises a validation error when both the field with name guard_field
         is equal to guard_value and the field with name check_field is
@@ -160,7 +157,10 @@ class DonationAmountForm(forms.Form):
     def __init__(self, *args, **kwargs):
         """Note that project_max, if present, is in cents while payment_amount
         is in dollars"""
-        self.project_max = kwargs.pop('project_max', None)
+        self.project_max = None
+        account = kwargs.pop('account', None)
+        if account and account.goal:
+            self.project_max = account.remaining()
         super(DonationAmountForm, self).__init__(*args, **kwargs)
 
     def clean_payment_amount(self):
