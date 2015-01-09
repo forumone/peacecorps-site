@@ -18,15 +18,15 @@
 <nav class="js-discoverNav u-clearl banner banner--no_line banner--secondary">
   <ul class="u-unmarked_list u-inline_list">
     <li class="md-hide sm-hide">
-      <span class="t-title--2">Select a category to browse and give:</span>
+      <span class="t-title--3">Select a category to browse and give:</span>
     </li>
-    <li class="t-title--2 sub_nav__link--horizontal">
+    <li class="t-title--3 sub_nav__link--horizontal">
       <a class="t--white" href="#issue" data-filter-type="issue">Issues</a>
     </li>
-    <li class="t-title--2 sub_nav__link--horizontal">
+    <li class="t-title--3 sub_nav__link--horizontal">
       <a class="t--white" href="#country" data-filter-type="country">Countries</a>
     </li>
-    <li class="t-title--2 sub_nav__link--horizontal">
+    <li class="t-title--3 sub_nav__link--horizontal">
       <a class="t--white" href="#volunteer" data-filter-type="volunteer">Volunteers</a>
     </li>
   </ul>
@@ -189,9 +189,9 @@
     <header>
         {# TODO fix empty element #}
         <div class="grid--20" style="height: 1em;"></div>
-        <h1 class="t-heading--1 t--gray--2 grid--80
+        <h4 class="t-heading--4 t--gray--2 grid--80
             section__content--contain--sm">
-          {{ project.title }}</h1>
+          {{ project.title }}</h4>
     </header>
   </a>
 {%- endmacro %}
@@ -211,8 +211,8 @@
   </aside>
   <header class="grid--80 section__content--contain--sm grid__last
       u-v_center--block">
-      <h1 class="t-heading--1 t--gray--2 u-v_center--block__content">
-        {{ name }}</h1>
+      <h4 class="t-heading--4 t--gray--2 u-v_center--block__content">
+        {{ name }}</h4>
   </header>
 {%- endmacro %}
 
