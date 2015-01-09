@@ -24,6 +24,8 @@ urlpatterns = patterns(
     url(r'^donate/fund/' + _slug + r'/$',
         midterm_cache(views.fund_detail), name='donate campaign'),
     # not cached so the values are up-to-date
+    url(r'^donate/fund/' + _slug + r'/payment/$',
+        views.campaign_form, name='campaign form'),
     url(r'^donate/fund/' + _slug + r'/success/$',
         views.CampaignReturn.as_view(
             template_name='donations/campaign_success.jinja'),
@@ -35,6 +37,8 @@ urlpatterns = patterns(
     url(r'^donate/project/' + _slug + r'/$',
         midterm_cache(views.donate_project), name='donate project'),
     # not cached so the values are up-to-date
+    url(r'^donate/project/' + _slug + r'/payment/$',
+        views.project_form, name='project form'),
     url(r'^donate/project/' + _slug + r'/success/$',
         views.ProjectReturn.as_view(
             template_name='donations/project_success.jinja'),
@@ -43,8 +47,6 @@ urlpatterns = patterns(
         views.failure, {'redirect_to': 'donate project'},
         name='project failure'),
 
-    url(r'^donations/contribute/$', midterm_cache(views.donation_payment),
-        name='donations_payment'),
     # not cached so the values are up-to-date
     url(r'^success/$',
         TemplateView.as_view(template_name='donations/success.jinja'),
