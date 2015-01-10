@@ -1,0 +1,33 @@
+/*
+ * Icon
+ */
+
+@import "../globals";
+@import "../mixins";
+
+.icon {
+  @include font-size(1.75);
+  font-weight: 100;
+  text-decoration: none;
+
+  &.fa {
+    @include font-size(1.75);
+  }
+
+  &:hover, &:active {
+    text-decoration: none;
+  }
+}
+
+.icon--box {
+  padding: .2em;
+
+  &.icon--gray {
+    background-color: $gray-1;
+    color: $white;
+  }
+}
+
+.icon--gray {
+  color: $gray-1;
+}

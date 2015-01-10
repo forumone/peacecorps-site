@@ -1,0 +1,25 @@
+/*
+ * Enclose
+ *
+ * Similiar to section in that an element pads itself but right and left
+ * rather then top and bottom padding.
+ */
+
+.enclose {
+  padding: 2.5em;
+  @include media($sm) {
+    padding: 1em;
+  }
+}
+
+.enclose--sm {
+  padding: .5em 1.5em;
+  @include media($sm) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.enclose--flatten_r {
+  padding-right: 0;
+}
