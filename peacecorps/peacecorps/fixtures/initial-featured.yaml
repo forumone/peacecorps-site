@@ -1,0 +1,81 @@
+- fields:
+    category: proj
+    community_contribution: 187700
+    current: 457300
+    goal: 457300
+    name: Cottage Model Housing Program
+  model: peacecorps.account
+  pk: 14-492-001
+- fields:
+    category: proj
+    community_contribution: 112300
+    current: 157700
+    goal: 157700
+    name: The Gift of Vision
+  model: peacecorps.account
+  pk: 14-510-002
+- fields:
+    category: proj
+    community_contribution: 45600
+    current: 0
+    goal: 131600
+    name: Discovery English Language Lab
+  model: peacecorps.account
+  pk: 15-684-001
+- fields:
+    abstract: null
+    account: 14-492-001
+    campaigns: [68]
+    country: 137
+    description: '{"data": [{"type": "text", "data": {"text": ""}}]}'
+    featured_image: null
+    media: []
+    overflow: SPF-YTH
+    published: false
+    slug: cottage-model-housing-program
+    tagline: ''
+    title: Cottage Model Housing Program
+    volunteerhomecity: Unknown
+    volunteerhomestate: ??
+    volunteername: L. Mangum
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 200
+- fields:
+    abstract: null
+    account: 14-510-002
+    campaigns: [62]
+    country: 111
+    description: '{"data": [{"type": "text", "data": {"text": ""}}]}'
+    featured_image: null
+    media: []
+    overflow: SPF-BUS
+    published: false
+    slug: gift-vision
+    tagline: ''
+    title: The Gift of Vision
+    volunteerhomecity: Unknown
+    volunteerhomestate: ??
+    volunteername: M. Pickler
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 201
+- fields:
+    abstract: null
+    account: 15-684-001
+    campaigns: [64]
+    country: 102
+    description: '{"data": [{"type": "text", "data": {"text": ""}}]}'
+    featured_image: null
+    media: []
+    overflow: SPF-EDU
+    published: false
+    slug: discovery-english-language-lab
+    tagline: ''
+    title: Discovery English Language Lab
+    volunteerhomecity: Unknown
+    volunteerhomestate: ??
+    volunteername: Z. Knight
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 202
