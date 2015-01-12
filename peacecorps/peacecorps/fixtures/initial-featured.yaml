@@ -1,16 +1,16 @@
 - fields:
     category: proj
-    community_contribution: 187700
-    current: 457300
-    goal: 457300
+    community_contribution: 187778
+    current: 457333
+    goal: 457333
     name: Cottage Model Housing Program
   model: peacecorps.account
   pk: 14-492-001
 - fields:
     category: proj
-    community_contribution: 112300
-    current: 157700
-    goal: 157700
+    community_contribution: 118846
+    current: 157692
+    goal: 157692
     name: The Gift of Vision
   model: peacecorps.account
   pk: 14-510-002
@@ -22,6 +22,14 @@
     name: Discovery English Language Lab
   model: peacecorps.account
   pk: 15-684-001
+- fields:
+    category: proj
+    community_contribution: 2552495
+    current: 159049
+    goal: 159049
+    name: Equipping a Classroom to Empower Education
+  model: peacecorps.account
+  pk: 15-525-002
 - fields:
     abstract: null
     account: 14-492-001
@@ -36,7 +44,7 @@
     tagline: ''
     title: Cottage Model Housing Program
     volunteerhomecity: ''
-    volunteerhomestate: ??
+    volunteerhomestate: VA
     volunteername: L. Mangum
     volunteerpicture: null
   model: peacecorps.project
@@ -55,7 +63,7 @@
     tagline: ''
     title: The Gift of Vision
     volunteerhomecity: ''
-    volunteerhomestate: ??
+    volunteerhomestate: FL
     volunteername: M. Pickler
     volunteerpicture: null
   model: peacecorps.project
@@ -79,3 +87,22 @@
     volunteerpicture: null
   model: peacecorps.project
   pk: 202
+- fields:
+    abstract: null
+    account: 15-525-002
+    campaigns: [64]
+    country: 133
+    description: '{"data": [{"type": "text", "data": {"text": ""}}]}'
+    featured_image: null
+    media: []
+    overflow: SPF-EDU
+    published: false
+    slug: equipping-classroom-empower-education
+    tagline: ''
+    title: Equipping a Classroom to Empower Education
+    volunteerhomecity: ''
+    volunteerhomestate: UT
+    volunteername: R. Hayde
+    volunteerpicture: null
+  model: peacecorps.project
+  pk: 203
