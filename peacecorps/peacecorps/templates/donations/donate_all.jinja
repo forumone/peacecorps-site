@@ -32,7 +32,7 @@
   </ul>
 </nav>
 
-<article class="js-discoverApp">
+<article class="js-discoverApp discover">
   <ul class="js-filterable u-unmarked_list u-clearfix"
       data-filter-type="issue">
   {% for issue in issues %}
@@ -137,12 +137,18 @@
 {%- endmacro %}
 
 {% macro render_campaign(campaign, issue) -%}
-  <aside class="grid--20 sm-hide
-      section__content--contain section__content--no_space_r">
-    <a href="#" class="js-pageBack t-single_nav t-body--sm"
+  <aside class="column--third
+      enclose
+      enclose--flatten_r
+      discover__aside--lg
+      drift_corner
+      sm-hide
+      ">
+    <a href="#" class="js-pageBack t-single_nav drift_corner__tl"
         aria-controls="page-issue-{{ issue.id }}">
       &lt; View all issues</a>
-    <img class="u-pullr section__content section__content--no_space_r isolate
+    <img class="section__content
+        isolate
         mask mask--oval mask--gray-1 mask--bordered"
       style="width: 14em; height: 14em;
              background-image: url('{{ issue.icon_background.url }}');
@@ -150,7 +156,7 @@
       src="{{ issue.icon_color_url('white') }}"
       alt="{{ campaign.name }}" />
   </aside>
-  <article class="grid--80 section__content--contain">
+  <article class="column--half section__content">
     <h2 class="t-title--2">{{ issue.name }}</h2>
     <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
     {{ campaign.description.html|safe }}
@@ -244,26 +250,26 @@
 {%- endmacro %}
 
 {% macro render_project(project, ptype) -%}
-  <article class="js-collapsibleItem"
+  <article class="js-collapsibleItem u-clearfix drift_corner"
         id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
-    <aside class="grid--20 u-clearfix
-        section__content--contain section__content--no_space_r">
-      <div class="column column--r clearfix">
+    <aside class="column--third
+                  section__content
+                  u-clearfix
+                  enclose enclose--flatten_r
+                  discover__aside">
+      <div class="clearfix">
         <div class="mask mask--oval mask--gray-1 mask--bordered
-             u-clearfix u-h_center--block l-bm--1 column__element"
+             u-clearfix u-h_center--block l-bm--1"
              style="width: 12em; height: 12em;">
           {{ volunteer_photo(project) }}
         </div>
-        <div class="u-h_center--block column__element
+        <div class="u-h_center--block
               section__content--no_space_r">
           {{ country_map(project.country.code) }}
         </div>
       </div>
     </aside>
-    <section class="grid--80 section__content--contain">
-      <a href="#" class="button button--primary button-icon_close
-          u-pullr u-clearfix js-close"
-          title="Close">&times;</a>
+    <section class="column--half section__content">
       <h2>{{ project.title }}</h2>
       {{ project.abstract_html()|safe }}
 
@@ -306,6 +312,12 @@
          href="{{ url("donate project", slug=project.slug) }}">
         Read more</a>
     </section>
+    <a href="#" class="
+        icon icon--box icon--gray
+        fa fa-times
+        drift_corner__tr
+        js-close"
+        title="Close"></a>
   </article>
 {%- endmacro %}
 
