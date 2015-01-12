@@ -279,7 +279,7 @@ $().ready(function() {
     form.initForm($form);
   }
 
-  jsusers.showHideForJSUsers();
+  jsusers.progEnhcJSUsers($(document));
 });
 
 },{"./collapsible":1,"./discover":2,"./form":4,"./jsusers":5,"./landing":6,"./update_donatepercent":7,"jquery":8}],4:[function(require,module,exports){
@@ -361,22 +361,21 @@ module.exports = {
 
 },{"jquery":8}],5:[function(require,module,exports){
 /*
- * Show parts of a page which would otherwise be hidden if JS is present
+ * To accommodate non-JS users, certain elements are only shown (or are only
+ * hidden) if JS is present.
  */
 'use strict';
 
-var $ = require('jquery');
-
-var showHideForJSUsers = function() {
-  $('.js-showForJSUsers').attr('aria-hidden', false);
-  $('.js-hideForJSUsers').attr('aria-hidden', true);
+var progEnhcJSUsers = function($root) {
+  $root.find('.js-showForJSUsers').attr('aria-hidden', false);
+  $root.find('.js-hideForJSUsers').attr('aria-hidden', true);
 };
 
 module.exports = {
-  showHideForJSUsers: showHideForJSUsers
+  progEnhcJSUsers: progEnhcJSUsers
 };
 
-},{"jquery":8}],6:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');

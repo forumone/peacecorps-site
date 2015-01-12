@@ -27,7 +27,7 @@ similar. In that situation, we reverse the initial states for the form #}
              class="{{startHidden}} js-formSwitch"
              {# appears when control state is true #}
              data-switch-on="true" data-switch-id="collapsible-customamount">
-          <strong class="x-large">$</strong>
+          <strong class="bubble_form--x-large">$</strong>
             {{ donate_form.payment_amount }}
         </div>
              {# starts hidden for non-JS users #}
@@ -55,7 +55,7 @@ similar. In that situation, we reverse the initial states for the form #}
                 href="#" 
                 {# controls what's visible. Clicking sets the true state #}
                 aria-controls="collapsible-customamount" data-set-state="true">
-              <span class="bubble__content small">
+              <span class="bubble__content bubble_form--small">
                 enter another amount</span>
             </a>
           </div>

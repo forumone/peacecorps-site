@@ -1,15 +1,14 @@
 /*
- * Show parts of a page which would otherwise be hidden if JS is present
+ * To accommodate non-JS users, certain elements are only shown (or are only
+ * hidden) if JS is present.
  */
 'use strict';
 
-var $ = require('jquery');
-
-var showHideForJSUsers = function() {
-  $('.js-showForJSUsers').attr('aria-hidden', false);
-  $('.js-hideForJSUsers').attr('aria-hidden', true);
+var progEnhcJSUsers = function($root) {
+  $root.find('.js-showForJSUsers').attr('aria-hidden', false);
+  $root.find('.js-hideForJSUsers').attr('aria-hidden', true);
 };
 
 module.exports = {
-  showHideForJSUsers: showHideForJSUsers
+  progEnhcJSUsers: progEnhcJSUsers
 };

@@ -76,21 +76,20 @@
   }
 }
 
-// TODO :not(old) is a hack to ignore styles in old browsers
-.bubble_form {
-  .small {
-    @include font-size($leading-lg);
-  }
-  .x-large, input[type=number] {
-    @include font-size($leading-xlg);
-    color: $white;
-  }
-  input[type=number] {
-    border: none;
-    border-bottom-width: .05em;
-    border-bottom-style: solid;
-    background: none;
-    width: 70%;
-    text-align: center;
-  }
+.bubble_form--small {
+  @include font-size($leading-lg);
+}
+.bubble_form--x-large {
+  @include font-size($leading-xlg);
+  color: $white;
+}
+.bubble_form input[type=number] {
+  @include font-size($leading-xlg);
+  color: $white;
+  border: none;
+  border-bottom-width: .05em;
+  border-bottom-style: solid;
+  background: none;
+  width: 70%;
+  text-align: center;
 }

@@ -83,5 +83,5 @@ $().ready(function() {
     form.initForm($form);
   }
 
-  jsusers.showHideForJSUsers();
+  jsusers.progEnhcJSUsers($(document));
 });
