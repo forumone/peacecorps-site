@@ -313,11 +313,11 @@ var switchToggle = function($elOn, $elOff, id, $form) {
     $elOff.attr('aria-hidden', $control.is(':checked'));
   }).change();
   $anchorControls.click(function(ev) {
-    var setOn = $(ev.delegateTarget).data('set-state') || false;
+    var state = $(ev.delegateTarget).data('set-state') || false;
     ev.preventDefault();
 
-    $elOn.attr('aria-hidden', !setOn);
-    $elOff.attr('aria-hidden', setOn);
+    $elOn.attr('aria-hidden', !state);
+    $elOff.attr('aria-hidden', state);
   });
 
 };
