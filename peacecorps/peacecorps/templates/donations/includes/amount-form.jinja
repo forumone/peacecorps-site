@@ -1,3 +1,12 @@
+{# We need to have the custom amount visible if displaying an error message or
+similar. In that situation, we reverse the initial states for the form #}
+{% if donate_form.errors or donate_form.payment_amount.value() %}
+  {% set startHidden="js-showForJSUsers" %}
+  {% set startShown="js-hideForJSUsers" %}
+{% else %}
+  {% set startHidden="js-hideForJSUsers" %}
+  {% set startShown="js-showForJSUsers" %}
+{% endif %}
 <div class="u-clearfix island island--primary" id="amount-form" style="clear: both">
   {% if IS_PROJECT %}
     {% set form_url = url('project form', slug=project.slug) %}
@@ -15,7 +24,7 @@
              {# start open for non-JS users #}
         <div aria-hidden="false"  
              {# starts hidden for JS users #}
-             class="js-hideForJSUsers js-formSwitch"
+             class="{{startHidden}} js-formSwitch"
              {# appears when control state is true #}
              data-switch-on="true" data-switch-id="collapsible-customamount">
           <strong class="x-large">$</strong>
@@ -24,7 +33,7 @@
              {# starts hidden for non-JS users #}
         <div aria-hidden="true"
              {# starts shown for JS users #}
-             class="js-buttons js-formSwitch js-showForJSUsers"
+             class="js-buttons js-formSwitch {{startShown}}"
              {# appears when control state is false #}
              data-switch-on="false" data-switch-id="collapsible-customamount">
           <div class="inline_grid--15 island__content">
@@ -61,7 +70,7 @@
          {# start visible for non-JS users #}
     <div aria-hidden="false"
          {# but hidden for JS users #}
-         class="u-align_r js-hideForJSUsers js-formSwitch"
+         class="u-align_r {{startHidden}} js-formSwitch"
          {# visible when the state is true #}
          data-switch-on="true" data-switch-id="collapsible-customamount">
       <button class="button button--white" style="margin-top: 1em;">
@@ -73,7 +82,7 @@
       </button>
     </div>
          {# hidden for everyone initially #}
-    <div class="u-align_l js-formSwitch" aria-hidden="true"
+    <div class="u-align_l js-formSwitch {{startHidden}}" aria-hidden="true"
          {# visible when the state is true #}
          data-switch-on="true" data-switch-id="collapsible-customamount">
       <a href="#" class="t-link--white" data-set-state="false"
