@@ -35,7 +35,7 @@
     slug: cottage-model-housing-program
     tagline: ''
     title: Cottage Model Housing Program
-    volunteerhomecity: Unknown
+    volunteerhomecity: ''
     volunteerhomestate: ??
     volunteername: L. Mangum
     volunteerpicture: null
@@ -54,7 +54,7 @@
     slug: gift-vision
     tagline: ''
     title: The Gift of Vision
-    volunteerhomecity: Unknown
+    volunteerhomecity: ''
     volunteerhomestate: ??
     volunteername: M. Pickler
     volunteerpicture: null
@@ -73,7 +73,7 @@
     slug: discovery-english-language-lab
     tagline: ''
     title: Discovery English Language Lab
-    volunteerhomecity: Unknown
+    volunteerhomecity: ''
     volunteerhomestate: TX
     volunteername: Z. Knight
     volunteerpicture: null
