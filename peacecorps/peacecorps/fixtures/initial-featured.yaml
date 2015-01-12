@@ -16,9 +16,9 @@
   pk: 14-510-002
 - fields:
     category: proj
-    community_contribution: 45600
+    community_contribution: 44583
     current: 0
-    goal: 131600
+    goal: 132604
     name: Discovery English Language Lab
   model: peacecorps.account
   pk: 15-684-001
@@ -74,7 +74,7 @@
     tagline: ''
     title: Discovery English Language Lab
     volunteerhomecity: Unknown
-    volunteerhomestate: ??
+    volunteerhomestate: TX
     volunteername: Z. Knight
     volunteerpicture: null
   model: peacecorps.project
