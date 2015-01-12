@@ -206,28 +206,24 @@ class DonatePagesTests(TestCase):
 
     def test_project_form_empty_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'presets': 'custom',
-                                     'payment_amount': ''})
+                                    {'payment_amount': ''})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_low_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'presets': 'custom',
-                                     'payment_amount': '0.99'})
+                                    {'payment_amount': '0.99'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_high_amount(self):
         response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'presets': 'custom',
-                                     'payment_amount': '10000.00'})
+                                    {'payment_amount': '10000.00'})
         self.assertEqual(response.status_code, 200)
 
     def test_project_form_redirect_custom(self):
         """When selecting the fund-a-custom-amount option, everything should
         work"""
         response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'presets': 'custom',
-                                     'payment_amount': '123.45'})
+                                    {'payment_amount': '123.45'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("123.45" in response['Location'])
         self.assertTrue("brick-oven-bakery" in response['Location'])
@@ -236,7 +232,7 @@ class DonatePagesTests(TestCase):
         """Campaign page should work as the project page does"""
         response = self.client.post(
             reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
-            {'presets': 'preset-50'})
+            {'payment_amount': '50'})
         self.assertEqual(response.status_code, 302)
         self.assertTrue("50" in response['Location'])
         self.assertTrue('peace-corps' in response['Location'])

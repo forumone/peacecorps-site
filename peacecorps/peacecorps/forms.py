@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from django import forms
 from django.core.exceptions import ValidationError
 from localflavor.us.us_states import STATE_CHOICES
@@ -145,13 +143,7 @@ class DonationPaymentForm(forms.Form):
 
 class DonationAmountForm(forms.Form):
     """Validation of donation amounts."""
-    presets = forms.ChoiceField(
-        widget=forms.RadioSelect, initial='preset-50',
-        choices=(('preset-50', '50'),
-                 ('preset-100', '100'),
-                 ('custom', 'Custom')))
-    # only required if "custom" is selected above. bounds checks are performed
-    # in the clean_payment_amount method
+    # bounds checks are performed in the clean_payment_amount method
     payment_amount = forms.DecimalField(decimal_places=2, required=False)
 
     def __init__(self, *args, **kwargs):
@@ -164,19 +156,12 @@ class DonationAmountForm(forms.Form):
         super(DonationAmountForm, self).__init__(*args, **kwargs)
 
     def clean_payment_amount(self):
-        """Selecting a preset is identical to typing the exact amount"""
-        if not self.cleaned_data.get('presets'):
-            return  # presets is required elsewhere
-
-        if self.cleaned_data.get('presets') == 'preset-50':
-            amount = Decimal(50)
-        elif self.cleaned_data.get('presets') == 'preset-100':
-            amount = Decimal(100)
-        elif self.cleaned_data.get('payment_amount'):
-            amount = self.cleaned_data.get('payment_amount')
-        else:
+        """Check for bounds, including account-specific bounds"""
+        if self.cleaned_data.get('payment_amount') is None:
             raise ValidationError(
                 'Please fill in the amount you want to give', code='required')
+        else:
+            amount = self.cleaned_data.get('payment_amount')
 
         # Pay.gov doesn't process anything above $9,999.99
         if amount >= 10000:

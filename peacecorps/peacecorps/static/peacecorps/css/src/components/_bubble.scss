@@ -76,37 +76,20 @@
   }
 }
 
-// TODO :not(old) is a hack to ignore styles in old browsers
-.bubble_form {
-  label {
-    cursor: pointer;
-
-    span {
-      @include font-size(1.9);
-    }
-  }
-  input[type=number]:not(old) {
-    @extend .bubble__content;
-    border: none;
-    border-bottom-width: .15em;
-    border-bottom-style: solid;
-    color: $primary;
-    background: none;
-    left: 58%;
-    margin-top: 0;
-    padding-top: .1em;
-    width: 70%;
-  }
-  input[type=radio]:checked:not(old) {
-    border-color: $white;
-  }
-
-  input[type=radio]:checked:not(old) + .bubble {
-    background-color: $white;
-    border-color: $white;
-
-    .bubble__content {
-      color: $primary;
-    }
-  }
+.bubble_form--small {
+  @include font-size($leading-lg);
+}
+.bubble_form--x-large {
+  @include font-size($leading-xlg);
+  color: $white;
+}
+.bubble_form input[type=number] {
+  @include font-size($leading-xlg);
+  color: $white;
+  border: none;
+  border-bottom-width: .05em;
+  border-bottom-style: solid;
+  background: none;
+  width: 70%;
+  text-align: center;
 }

@@ -1,54 +1,92 @@
+{# We need to have the custom amount visible if displaying an error message or
+similar. In that situation, we reverse the initial states for the form #}
+{% if donate_form.errors or donate_form.payment_amount.value() %}
+  {% set startHidden="js-showForJSUsers" %}
+  {% set startShown="js-hideForJSUsers" %}
+{% else %}
+  {% set startHidden="js-hideForJSUsers" %}
+  {% set startShown="js-showForJSUsers" %}
+{% endif %}
 <div class="u-clearfix island island--primary" id="amount-form" style="clear: both">
-  <form method="post" class="form_hide--radio" action="#amount-form">
-    {% csrf_token %}
+  {% if IS_PROJECT %}
+    {% set form_url = url('project form', slug=project.slug) %}
+  {% else %}
+    {% set form_url = url('campaign form', slug=campaign.slug) %}
+  {% endif %}
+  <form action="{{ form_url }}" class="js-form">
     <fieldset class="bubble_form">
       <legend class="t-title--1 t-nom">Give to this project</legend>
-      {% if IS_PROJECT %}
-        <span class="t-title--2">{{ humanize_cents(account.remaining()) }}
-          to meet goal</span>
+      {% if account.goal %}
+        <div class="t-title--2">{{ humanize_cents(account.remaining()) }}
+          to meet goal</div>
       {% endif %}
-      <p class="t-title--5 t--white" style="text-align: left">
-        Choose an amount</p>
-      {% for radio in donate_form.presets %}
-        {% if not account.funded() %}
+      {% if not account.funded() %}
+             {# start open for non-JS users #}
+        <div aria-hidden="false"  
+             {# starts hidden for JS users #}
+             class="{{startHidden}} js-formSwitch"
+             {# appears when control state is true #}
+             data-switch-on="true" data-switch-id="collapsible-customamount">
+          <strong class="bubble_form--x-large">$</strong>
+            {{ donate_form.payment_amount }}
+        </div>
+             {# starts hidden for non-JS users #}
+        <div aria-hidden="true"
+             {# starts shown for JS users #}
+             class="js-buttons js-formSwitch {{startShown}}"
+             {# appears when control state is false #}
+             data-switch-on="false" data-switch-id="collapsible-customamount">
           <div class="inline_grid--15 island__content">
-            {{ radio.tag() }}
-            {% if radio.choice_value == 'custom' %}
-              <label class="bubble bubble--primary
-                            bubble--bordered bubble--square"
-                  for="{{radio.id_for_label}}" >
-                <span class="bubble__content" style="left: 10%">
-                  <strong>$</strong>
-                </span>
-                {{ donate_form.payment_amount }}
-              </label>
-            {% else %}
-              <label
-                  class="bubble
-                  bubble--primary
-                  bubble--bordered
-                  bubble--square"
-                  for="{{radio.id_for_label}}">
-                <span class="bubble__content"><strong>
-                  ${{radio.choice_label}}
-                </strong></span>
-              </label>
-            {% endif %}
+            <a class="bubble bubble--primary bubble--bordered
+                      bubble--square"
+               href="{{ form_url }}?payment_amount=50">
+                <span class="bubble__content t-title--1">$50</span>
+            </a>
           </div>
-        {% endif %}
-      {% endfor %}
+          <div class="inline_grid--15 island__content">
+            <a class="bubble bubble--primary bubble--bordered
+                      bubble--square"
+               href="{{ form_url }}?payment_amount=100">
+                <span class="bubble__content t-title--1">$100</span>
+            </a>
+          </div>
+          <div class="inline_grid--15 island__content">
+            <a class="bubble bubble--primary bubble--bordered bubble--square"
+                href="#" 
+                {# controls what's visible. Clicking sets the true state #}
+                aria-controls="collapsible-customamount" data-set-state="true">
+              <span class="bubble__content bubble_form--small">
+                enter another amount</span>
+            </a>
+          </div>
+        </div>
+      {% endif %}
     </fieldset>
     {% if donate_form.payment_amount.errors %}
       <div class="bubble--white section__content--contain--sm">
         {{ donate_form.payment_amount.errors }}
       </div>
     {% endif %}
-    <button class="button button--white" style="margin-top: 1em;">
-      {% if account.funded() %}
-        Donate to Help Similar Projects
-      {% else %}
-        Continue
-      {% endif %}
-    </button>
+         {# start visible for non-JS users #}
+    <div aria-hidden="false"
+         {# but hidden for JS users #}
+         class="u-align_r {{startHidden}} js-formSwitch"
+         {# visible when the state is true #}
+         data-switch-on="true" data-switch-id="collapsible-customamount">
+      <button class="button button--white" style="margin-top: 1em;">
+        {% if account.funded() %}
+          Donate to Help Similar Projects
+        {% else %}
+          Continue
+        {% endif %}
+      </button>
+    </div>
+         {# hidden for everyone initially #}
+    <div class="u-align_l js-formSwitch {{startHidden}}" aria-hidden="true"
+         {# visible when the state is true #}
+         data-switch-on="true" data-switch-id="collapsible-customamount">
+      <a href="#" class="t-link--white" data-set-state="false"
+         aria-controls="collapsible-customamount">Back</a>
+    </div>
   </form>
 </div>

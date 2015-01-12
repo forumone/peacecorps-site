@@ -70,7 +70,7 @@ Collapsible.prototype.render = function() {
 
 module.exports = Collapsible;
 
-},{"jquery":7}],2:[function(require,module,exports){
+},{"jquery":8}],2:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -193,7 +193,7 @@ Discover.prototype.dataSelector = function(dataAttr, dataVal) {
 module.exports = Discover;
 
 
-},{"jquery":7}],3:[function(require,module,exports){
+},{"jquery":8}],3:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -203,6 +203,7 @@ var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 var form = require('./form');
+var jsusers = require('./jsusers');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -277,9 +278,11 @@ $().ready(function() {
   if ($form) {
     form.initForm($form);
   }
+
+  jsusers.progEnhcJSUsers($(document));
 });
 
-},{"./collapsible":1,"./discover":2,"./form":4,"./landing":5,"./update_donatepercent":6,"jquery":7}],4:[function(require,module,exports){
+},{"./collapsible":1,"./discover":2,"./form":4,"./jsusers":5,"./landing":6,"./update_donatepercent":7,"jquery":8}],4:[function(require,module,exports){
 /*
  * Functionality related to forms
  */
@@ -301,13 +304,22 @@ var collapsibleToggles = function($el, $form) {
 };
 
 var switchToggle = function($elOn, $elOff, id, $form) {
-  var $control = $form.find('[aria-controls="' + id + '"] input');
+  var $control = $form.find('[aria-controls="' + id + '"] input'),
+      $anchorControls = $form.find('a[aria-controls="' + id + '"]');
 
   $control.change(function(ev) {
     ev.preventDefault();
     $elOn.attr('aria-hidden', !$control.is(':checked'));
     $elOff.attr('aria-hidden', $control.is(':checked'));
   }).change();
+  $anchorControls.click(function(ev) {
+    var state = $(ev.delegateTarget).data('set-state') || false;
+    ev.preventDefault();
+
+    $elOn.attr('aria-hidden', !state);
+    $elOff.attr('aria-hidden', state);
+  });
+
 };
 
 var initForm = function($form) {
@@ -347,7 +359,23 @@ module.exports = {
   collapsibleToggles: collapsibleToggles
 };
 
-},{"jquery":7}],5:[function(require,module,exports){
+},{"jquery":8}],5:[function(require,module,exports){
+/*
+ * To accommodate non-JS users, certain elements are only shown (or are only
+ * hidden) if JS is present.
+ */
+'use strict';
+
+var progEnhcJSUsers = function($root) {
+  $root.find('.js-showForJSUsers').attr('aria-hidden', false);
+  $root.find('.js-hideForJSUsers').attr('aria-hidden', true);
+};
+
+module.exports = {
+  progEnhcJSUsers: progEnhcJSUsers
+};
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -425,7 +453,7 @@ var Landing = {
 
 module.exports = Landing;
 
-},{"jquery":7}],6:[function(require,module,exports){
+},{"jquery":8}],7:[function(require,module,exports){
 /* Update donations percentages on project pages. */
 'use strict';
 
@@ -469,7 +497,7 @@ UpdatePercent.prototype.init = function(){
 
 module.exports = UpdatePercent;
 
-},{"jquery":7}],7:[function(require,module,exports){
+},{"jquery":8}],8:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/

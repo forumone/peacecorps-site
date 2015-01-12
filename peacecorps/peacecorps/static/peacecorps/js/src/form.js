@@ -19,13 +19,22 @@ var collapsibleToggles = function($el, $form) {
 };
 
 var switchToggle = function($elOn, $elOff, id, $form) {
-  var $control = $form.find('[aria-controls="' + id + '"] input');
+  var $control = $form.find('[aria-controls="' + id + '"] input'),
+      $anchorControls = $form.find('a[aria-controls="' + id + '"]');
 
   $control.change(function(ev) {
     ev.preventDefault();
     $elOn.attr('aria-hidden', !$control.is(':checked'));
     $elOff.attr('aria-hidden', $control.is(':checked'));
   }).change();
+  $anchorControls.click(function(ev) {
+    var state = $(ev.delegateTarget).data('set-state') || false;
+    ev.preventDefault();
+
+    $elOn.attr('aria-hidden', !state);
+    $elOff.attr('aria-hidden', state);
+  });
+
 };
 
 var initForm = function($form) {

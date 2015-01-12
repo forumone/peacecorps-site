@@ -7,6 +7,7 @@ var Discover = require('./discover');
 var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 var form = require('./form');
+var jsusers = require('./jsusers');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -81,4 +82,6 @@ $().ready(function() {
   if ($form) {
     form.initForm($form);
   }
+
+  jsusers.progEnhcJSUsers($(document));
 });

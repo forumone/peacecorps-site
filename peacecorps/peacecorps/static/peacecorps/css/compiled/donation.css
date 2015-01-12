@@ -674,7 +674,7 @@ body {
       padding-bottom: 90%;
       width: 90%; } }
 
-.bubble__content, .bubble_form input[type=number]:not(old) {
+.bubble__content {
   float: left;
   left: 50%;
   line-height: 1;
@@ -686,7 +686,7 @@ body {
   transform: translate(-50%, -50%);
   width: 96%; }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .bubble__content, .bubble_form input[type=number]:not(old) {
+    .bubble__content {
       padding-top: 20%; } }
 
 .bubble--neutral_dark {
@@ -695,7 +695,7 @@ body {
 .bubble--primary {
   background-color: #A12122;
   color: #fff; }
-  .bubble--primary .bubble__content, .bubble--primary .bubble_form input[type=number]:not(old), .bubble_form .bubble--primary input[type=number]:not(old) {
+  .bubble--primary .bubble__content {
     color: #fff; }
 
 .bubble--white {
@@ -716,28 +716,25 @@ body {
     .bubble--rectangle {
       padding-bottom: 67%; } }
 
-.bubble_form label {
-  cursor: pointer; }
-  .bubble_form label span {
-    font-size: 19px;
-    font-size: 1.9rem; }
-.bubble_form input[type=number]:not(old) {
+.bubble_form--small {
+  font-size: 18px;
+  font-size: 1.8rem; }
+
+.bubble_form--x-large {
+  font-size: 20px;
+  font-size: 2rem;
+  color: #fff; }
+
+.bubble_form input[type=number] {
+  font-size: 20px;
+  font-size: 2rem;
+  color: #fff;
   border: none;
-  border-bottom-width: 0.15em;
+  border-bottom-width: 0.05em;
   border-bottom-style: solid;
-  color: #A12122;
   background: none;
-  left: 58%;
-  margin-top: 0;
-  padding-top: 0.1em;
-  width: 70%; }
-.bubble_form input[type=radio]:checked:not(old) {
-  border-color: #fff; }
-.bubble_form input[type=radio]:checked:not(old) + .bubble {
-  background-color: #fff;
-  border-color: #fff; }
-  .bubble_form input[type=radio]:checked:not(old) + .bubble .bubble__content, .bubble_form input[type=radio]:checked:not(old) + .bubble input[type=number]:not(old) {
-    color: #A12122; }
+  width: 70%;
+  text-align: center; }
 
 /*
  * Column
