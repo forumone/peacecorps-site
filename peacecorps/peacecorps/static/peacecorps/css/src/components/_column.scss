@@ -5,25 +5,34 @@
  */
 
 @import "../globals";
+@import "../grid-settings";
+
+// Alias
+$cols: $grid-columns;
 
 .column {
-  width: 55%;
 
   @include media($sm) {
-    text-align: center;
-    width: 100%;
+    margin-top: 1em;
   }
 }
 
-.column__element {
-  @include media($sm) {
-    display: inline-block;
-    float: none;
-    margin-right: 2em !important;
-    vertical-align: middle;
-  }
+.column--half {
+  @include span-columns($cols / 2);
 }
 
-.column--r {
-  float: right;
+.column--third {
+  @include span-columns($cols / 3);
+}
+
+.column--two_third {
+  @include span-columns(round($cols * .6));
+}
+
+.column--sixth {
+  @include span-columns(2);
+}
+
+.column--quarter {
+  @include span-columns($cols / 4);
 }

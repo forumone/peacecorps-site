@@ -14,8 +14,11 @@
 @import "components/bordered";
 @import "components/bubble";
 @import "components/column";
+@import "components/drift_corner";
 @import "components/form";
 @import "components/grid";
+@import "components/enclose";
+@import "components/icon";
 @import "components/inline_text";
 @import "components/full_banner";
 @import "components/inset";
@@ -33,6 +36,7 @@
 @import "components/top_image";
 @import "content/image_block";
 @import "content/text_block";
+@import "modules/discover";
 @import "util";
 
 .wrapper {

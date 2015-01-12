@@ -1,0 +1,27 @@
+/*
+ * Drift
+ *
+ * An element that removes itself from document flow and drifts towards a corner
+ * of base.
+ */
+
+.drift_corner {
+  position: relative;
+}
+
+@mixin drift_corner_el {
+  position: absolute;
+  margin: 0;
+}
+
+.drift_corner__tl {
+  @include drift_corner_el;
+  left: 8%;
+  top: 5%;
+}
+
+.drift_corner__tr {
+  @include drift_corner_el;
+  right: 1em;
+  top: 1em;
+}

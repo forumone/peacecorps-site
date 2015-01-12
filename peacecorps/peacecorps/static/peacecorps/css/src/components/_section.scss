@@ -39,6 +39,7 @@
   padding-bottom: 2.5em;
 }
 
+// Deprecated, see enclose
 .section__content--contain {
   padding: 2.5em;
   @include media($sm) {
@@ -46,10 +47,12 @@
   }
 }
 
+// Deprecated, see enclose
 .section__content--no_space_r {
   padding-right: 0;
 }
 
+// Deprecated, see enclose
 .section__content--contain--sm {
   padding: .5em 1.5em;
 }
