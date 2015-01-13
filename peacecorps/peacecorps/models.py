@@ -124,6 +124,14 @@ class Account(models.Model):
         else:
             return 0
 
+    def project_or_fund(self):
+        """Given an account, we may need to get back to the project or
+        campaign/fund associated"""
+        if self.category == Account.PROJECT:
+            return self.project_set.first()
+        else:
+            return self.campaign_set.first()
+
 
 # @todo: this description isn't really accurate anymore. Probably worth
 # renaming

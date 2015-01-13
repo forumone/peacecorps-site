@@ -8,7 +8,7 @@ similar. In that situation, we reverse the initial states for the form #}
   {% set startShown="js-showForJSUsers" %}
 {% endif %}
 <div class="u-clearfix island island--primary" id="amount-form" style="clear: both">
-  {% if IS_PROJECT %}
+  {% if project %}
     {% set form_url = url('project form', slug=project.slug) %}
   {% else %}
     {% set form_url = url('campaign form', slug=campaign.slug) %}
