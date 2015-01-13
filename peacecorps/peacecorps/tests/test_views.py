@@ -204,39 +204,6 @@ class DonatePagesTests(TestCase):
                                            kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
-    def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': ''})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '0.99'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '10000.00'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_redirect_custom(self):
-        """When selecting the fund-a-custom-amount option, everything should
-        work"""
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '123.45'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("123.45" in response['Location'])
-        self.assertTrue("brick-oven-bakery" in response['Location'])
-
-    def test_fund_form_redirect(self):
-        """Campaign page should work as the project page does"""
-        response = self.client.post(
-            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
-            {'payment_amount': '50'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("50" in response['Location'])
-        self.assertTrue('peace-corps' in response['Location'])
-
     def test_project_fund_prepopulation(self):
         """Prepopulate the form with amount from GET var"""
         response = self.client.get(

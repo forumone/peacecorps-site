@@ -111,14 +111,7 @@ def donate_project(request, slug):
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
 
-    if request.method == 'POST':
-        form = DonationAmountForm(data=request.POST, account=project.account)
-        if form.is_valid():
-            return HttpResponseRedirect(
-                reverse('project form', kwargs={'slug': slug})
-                + '?payment_amount='
-                + str(form.cleaned_data['payment_amount']))
-    elif request.GET.get('payment_amount') is not None:
+    if 'payment_amount' in request.GET:
         form = DonationAmountForm(data=request.GET, account=project.account)
     else:
         form = DonationAmountForm(account=project.account)
@@ -177,14 +170,7 @@ def special_funds(request):
 def fund_detail(request, slug):
     campaign = get_object_or_404(Campaign.objects.select_related('account'),
                                  slug=slug)
-    if request.method == "POST":
-        form = DonationAmountForm(data=request.POST, account=campaign.account)
-        if form.is_valid():
-            return HttpResponseRedirect(
-                reverse('campaign form', kwargs={'slug': slug})
-                + '?payment_amount='
-                + str(form.cleaned_data['payment_amount']))
-    elif request.GET.get('payment_amount') is not None:
+    if 'payment_amount' in request.GET:
         form = DonationAmountForm(data=request.GET, account=campaign.account)
     else:
         form = DonationAmountForm(account=campaign.account)
