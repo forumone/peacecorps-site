@@ -37,6 +37,20 @@
 .section__content {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
+
+  @include media($sm) {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+}
+.section__content--xsm {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+}
+.section__content--sm {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 // Deprecated, see enclose

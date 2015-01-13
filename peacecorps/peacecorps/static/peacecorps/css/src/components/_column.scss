@@ -19,10 +19,18 @@ $cols: $grid-columns;
 
 .column--half {
   @include span-columns($cols / 2);
+
+  @include media($sm) {
+    @include span-columns($sm_cols);
+  }
 }
 
 .column--third {
   @include span-columns($cols / 3);
+
+  @include media($sm) {
+    @include span-columns($sm_cols);
+  }
 }
 
 .column--two_third {

@@ -6,14 +6,17 @@
  */
 
 .enclose {
-  padding: 2.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
   @include media($sm) {
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
 .enclose--sm {
-  padding: .5em 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
   @include media($sm) {
     padding-left: 1em;
     padding-right: 1em;
@@ -22,4 +25,8 @@
 
 .enclose--flatten_r {
   padding-right: 0;
+
+  @include media($sm) {
+    padding-right: 1em;
+  }
 }

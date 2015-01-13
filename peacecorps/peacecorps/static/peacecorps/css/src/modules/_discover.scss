@@ -12,5 +12,10 @@
   }
   .discover__aside--lg {
     padding-left: 8%;
+
+    @include media($sm) {
+      margin-bottom: -2em;
+      padding-top: 1.5em;
+    }
   }
 }

@@ -175,7 +175,7 @@ p + p {
 }
 .t-title--1 {
   @include t-title;
-  @include font-size(2.1);
+  @include font-size(2.3);
   @include rem(margin, 0 0 1.5rem 0);
 }
 .t-title--2 {
@@ -257,6 +257,10 @@ p + p {
   font-weight: $weight-medium;
   margin: 1.5em 0;
   text-decoration: none;
+
+  @include media($sm) {
+    @include font-size(1.3);
+  }
 }
 
 
