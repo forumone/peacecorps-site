@@ -298,9 +298,9 @@
       </div>
       {% if project.account.funded() %}
         <a class="button button--sm button--primary"
-           href="{{ url("donate project", slug=project.slug) }}>
+           href="{{ url("donate project", slug=project.slug) }}">
          Read more</a>
-      { % else %}
+      {% else %}
         <a class="button button--sm button--primary"
            href="{{ url("donate project", slug=project.slug) }}#amount-form">
          Give to the project</a>
