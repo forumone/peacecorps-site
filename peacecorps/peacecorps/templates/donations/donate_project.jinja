@@ -128,10 +128,12 @@
 
 {% endblock %}
 
+{# Until real-time JS is fixed
 {% block custom_js %}
 <script type="text/javascript" src="{{ static("peacecorps/js/update_donatepercent.js")
     }}"></script>
 {% endblock %}
+#}
 
 {% macro donate_select_form() -%}
 
