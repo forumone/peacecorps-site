@@ -64,6 +64,7 @@ class Account(models.Model):
     goal = models.IntegerField(
         blank=True, null=True,
         help_text="Donations goal (excluding community contribution)")
+    # @todo does it make sense for this to default zero?
     community_contribution = models.IntegerField(blank=True, null=True)
     category = models.CharField(
         max_length=10, choices=CATEGORY_CHOICES)
@@ -83,13 +84,13 @@ class Account(models.Model):
     def total_raised(self):
         """Total amount raised, including donations and community
         contributions"""
-        return self.total_donated() + self.community_contribution
+        return self.total_donated() + (self.community_contribution or 0)
 
     def total_cost(self):
         """Total cost of whatever we are raising funds for. This includes the
         donations goal and the community contribution"""
         if self.goal:
-            return self.goal + self.community_contribution
+            return self.goal + (self.community_contribution or 0)
         else:
             return 0
 
