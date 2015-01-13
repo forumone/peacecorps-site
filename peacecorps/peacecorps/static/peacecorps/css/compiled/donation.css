@@ -415,8 +415,8 @@ p + p {
 .t-single_nav {
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  font-size: 10px;
-  font-size: 1rem;
+  font-size: 11px;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 1.5em 0;
   text-decoration: none; }
@@ -1578,15 +1578,15 @@ body {
     .rectangular_progress--mini {
       width: 100%; } }
   .rectangular_progress--mini .rectangular_progress__point {
-    top: 5%; }
+    top: 12%; }
   .rectangular_progress--mini .rectangular_progress__point--bottom {
     top: auto;
-    bottom: 5%; }
+    bottom: 12%; }
   .rectangular_progress--mini .rectangular_progress__line {
     height: 0.5em;
-    top: 24.5%; }
+    top: 28.5%; }
   .rectangular_progress--mini .rectangular_progress__line--bottom {
-    bottom: 25.5%;
+    bottom: 27.5%;
     top: auto; }
 
 .rectangular_progress__bar {

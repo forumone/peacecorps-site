@@ -253,7 +253,7 @@ p + p {
  */
 .t-single_nav {
   @include t--caps;
-  @include font-size(1.0);
+  @include font-size(1.1);
   font-weight: $weight-medium;
   margin: 1.5em 0;
   text-decoration: none;
