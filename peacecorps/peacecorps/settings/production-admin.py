@@ -19,8 +19,10 @@ AWS_STATIC_BUCKET_NAME = 'pc-theme-dev'
 STATICFILES_STORAGE = 'contenteditor.backends.StaticS3Storage'
 
 AWS_QUERYSTRING_AUTH = False
-#AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-#AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+
+# Turn off caching for the admin app
+CACHES['shortterm']['BACKEND'] = 'django.core.cache.backends.dummy.DummyCache'
+CACHES['midterm']['BACKEND'] = 'django.core.cache.backends.dummy.DummyCache'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
