@@ -314,7 +314,6 @@ class Project(models.Model):
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)
     volunteerhomestate = USPostalCodeField(blank=True, null=True)
-    volunteerhomecity = models.CharField(max_length=120, blank=True, null=True)
     abstract = models.TextField(blank=True, null=True)
 
     published = models.BooleanField(default=False)
