@@ -21,7 +21,18 @@ def project_form(request, slug):
         Project.published_objects.select_related(
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
-    return donation_payment(request, project.account, project=project)
+    account = project.account
+    if account.funded() and project.overflow:
+        if project.overflow.category == Account.PROJECT:
+            path_name = 'donate project'
+        else:
+            path_name = 'donate campaign'
+        return HttpResponseRedirect(
+            reverse(path_name,
+                    kwargs={'slug': project.overflow.project_or_fund().slug})
+            + '?payment_status=full')
+    else:
+        return donation_payment(request, account, project=project)
 
 
 def campaign_form(request, slug):

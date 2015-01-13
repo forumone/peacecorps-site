@@ -18,14 +18,14 @@ class DonationsTests(TestCase):
             name='CMPNCMPN', code='CMPNCMPN', category=Account.OTHER)
         self.project = Project.objects.create(
             slug='sluggy', country=Country.objects.get(name='Egypt'),
-            account=self.proj_acc, published=True)
+            account=self.proj_acc, overflow=self.cmpn_acc, published=True)
         self.campaign = Campaign.objects.create(
             slug='cmpn', account=self.cmpn_acc)
 
     def tearDown(self):
         # Cascade
-        self.cmpn_acc.delete()
         self.proj_acc.delete()
+        self.cmpn_acc.delete()
 
     def test_contribution_parameters(self):
         """ To get to the page where name, address are filled out before being
@@ -171,6 +171,22 @@ class DonationsTests(TestCase):
     def test_completed_success(self):
         response = self.client.get(reverse('donation success'))
         self.assertEqual(response.status_code, 200)
+
+    def test_fully_funded(self):
+        """Don't allow donations to fully-funded projects"""
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=20')
+        self.assertEqual(200, response.status_code)
+
+        self.proj_acc.goal = 10
+        self.proj_acc.current = 10
+        self.proj_acc.save()
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=20')
+        self.assertEqual(302, response.status_code)
+        self.assertTrue(self.campaign.slug in response['LOCATION'])
 
 
 class DonatePagesTests(TestCase):
