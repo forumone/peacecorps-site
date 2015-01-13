@@ -38,27 +38,33 @@
   {% for issue in issues %}
     <li id="page-issue-{{ issue.id }}">
       <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
-          class="js-pageNav section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix">
+          class="js-pageNav section section--neutral_medium bordered bordered--row
+          bordered--white u-clearfix section__content--xsm">
         {{ render_link_header(issue.icon_color_url('grey'), issue.name, issue.name) }}
       </a>
     </li>
     {% for campaign in issue.campaigns.all() %}
+    {% set img = issue_img(issue.icon_background.url,
+        issue.icon_color_url('white'), campaign.name) %}
     <li   data-page-id="collapsible-page-issue-{{ issue.id }}"
           class="js-page
-          section--neutral_dark
+          section section--neutral_dark
           u-clearfix
           bordered
           bordered--row
           bordered--white">
-        {{ render_campaign(campaign, issue) }}
+        {{ render_campaign(
+            img,
+            'issues',
+            issue.name,
+            campaign) }}
     </li>
     {% endfor %}
       {# TODO figure out projects rather the featured projects #}
     {% for project in issue.projects() %}
       <li data-page-id="collapsible-page-issue-{{ issue.id }}"
           class="js-page
-          section--neutral_medium
+          section section--neutral_medium
           u-clearfix
           bordered
           bordered--row
@@ -72,7 +78,8 @@
   <ul class="js-filterable u-unmarked_list u-clearfix"
       data-filter-type="volunteer">
   {% for project in projects %}
-    <li class="section--neutral_medium
+    <li class="
+          section section--neutral_medium section__content--xsm
           u-clearfix
           bordered
           bordered--row
@@ -87,8 +94,8 @@
   {% for country in countries %}
     <li id="page-country-{{ country.id }}">
       <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
-          class="js-pageNav section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix">
+          class="js-pageNav section section--neutral_medium bordered bordered--row
+          bordered--white u-clearfix section__content--xsm">
       {{ render_link_header(
         static("peacecorps/img/countries/" + country.country.code.lower() + ".svg"),
           country.country.name, country.country.name) }}
@@ -96,16 +103,20 @@
     </li>
     <li data-page-id="collapsible-page-country-{{ country.id }}"
         class="js-page
-          section--neutral_dark
+          section section--neutral_dark
           u-clearfix
           bordered
           bordered--row
           bordered--white">
-      {{ render_country_campaign(country) }}
+      {{ render_campaign(
+        country_map(country.country.code),
+        'countries',
+        country.country.name,
+        country) }}
     </li>
     {# TODO figure out projects rather the featured projects #}
     {% for project in country.project_set.all() %}
-      <li class="section--neutral_medium
+      <li class="section section--neutral_medium
           u-clearfix
           bordered
           bordered--row
@@ -136,78 +147,57 @@
   </div>
 {%- endmacro %}
 
-{% macro render_campaign(campaign, issue) -%}
-  <aside class="column--third
-      enclose
-      enclose--flatten_r
+{% macro issue_img(url, icon_color_url, alt) -%}
+  <img class="mask mask--oval mask--gray-1 mask--bordered"
+    style="width: 14em; height: 14em;
+           background-image: url('{{ url }}');
+           background-size: 100%;"
+    src="{{ icon_color_url }}"
+    alt="{{ alt }}" />
+{%- endmacro %}
+
+{% macro render_campaign(img, type, title, campaign) -%}
+  <aside class="column column--third
+      enclose enclose--flatten_r
       discover__aside--lg
       drift_corner
-      sm-hide
       ">
-    <a href="#" class="js-pageBack t-single_nav drift_corner__tl"
-        aria-controls="page-issue-{{ issue.id }}">
-      &lt; View all issues</a>
-    <img class="section__content
-        isolate
-        mask mask--oval mask--gray-1 mask--bordered"
-      style="width: 14em; height: 14em;
-             background-image: url('{{ issue.icon_background.url }}');
-             background-size: 100%;"
-      src="{{ issue.icon_color_url('white') }}"
-      alt="{{ campaign.name }}" />
+    <a href="#" class="js-pageBack t-single_nav drift_corner__tl">
+      &lt; View all {{ type }}</a>
+    <div class="u-pullr sm-no_pullr isolate section__content--sm">
+      {{ img }}
+    </div>
   </aside>
   <article class="column--half section__content">
-    <h2 class="t-title--2">{{ issue.name }}</h2>
+    <h1 class="t-title--1">{{ title }}</h1>
     <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
     {{ campaign.description.html|safe }}
     <a class="button button--sm button--primary"
        href="{{ url("donate campaign", slug=campaign.slug) }}">
       Give to this fund</a>
   </article>
-{%- endmacro %}
 
-{% macro render_country_campaign(campaign) -%}
-  <aside class="grid--20 sm-hide
-      section__content--contain section__content--no_space_r">
-    <div class="u-pullr"
-        class="section__content--no_space_r"
-        style="width: 50%;">
-      {{ country_map(campaign.country.code) }}
-    </div>
-    <a href="#" class="js-pageBack t-single_nav t-body--sm">
-      &lt; View all countries</a>
-  </aside>
-  <article class="grid--80 section__content--contain">
-    <h2 class="t-title--2">{{ campaign.country.name }}</h2>
-    <div class="content-block text-block">
-      <p>{{ campaign.description.html|safe }}</p>
-    </div>
-    <a class="button button--sm button--primary"
-       href="{{ url("donate campaign", slug=campaign.slug) }}">
-      Give to this fund</a>
-  </article>
 {%- endmacro %}
 
 {% macro render_project_header(project, ptype) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-     class="js-collapsibleControls">
+     class="js-collapsibleControls section section__content--xsm u-clearfix">
     <header>
-        {# TODO fix empty element #}
-        <div class="grid--20" style="height: 1em;"></div>
-        <h4 class="t-heading--4 t--gray--2 grid--80
-            section__content--contain--sm">
+        <div class="column--third" style="height: 1em;"></div>
+        <h4 class="t-heading--4 t--gray--2 column--half t-nom">
           {{ project.title }}</h4>
     </header>
   </a>
 {%- endmacro %}
 
 {% macro render_link_header(url, alt, name) -%}
-  <aside class="grid--20 sm-hide
-      section__content--contain--sm section__content--no_space_r">
+  <aside class="column column--third
+      enclose--sm
+      sm-hide">
     <div class="mask mask--oval mask--gray-1 mask--bordered
-         u-clearfix section__content--no_space_r u-pullr u-hv_center--block"
-         style="width: 5em; height: 5em;">
+         u-clearfix  u-pullr u-hv_center--block"
+         style="width: 4em; height: 4em;">
       <img
         class="mask__content u-hv_center--block__content"
         style="width: 90%;"
@@ -215,9 +205,8 @@
         alt="{{ alt }}" />
     </div>
   </aside>
-  <header class="grid--80 section__content--contain--sm grid__last
-      u-v_center--block">
-      <h4 class="t-heading--4 t--gray--2 u-v_center--block__content">
+  <header class="column column--half" style="height: 4em;">
+      <h4 class="t-heading--4 t--gray--2 u-v_center--block t-nom">
         {{ name }}</h4>
   </header>
 {%- endmacro %}
@@ -226,11 +215,10 @@
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
      class="js-collapsibleControls">
-    <aside class="grid--20 sm-hide
-        section__content--contain--sm section__content--no_space_r">
+    <aside class="column column--third enclose--sm">
       <div class="mask mask--oval mask--gray-1 mask--bordered
-           u-clearfix section__content--no_space_r u-pullr"
-           style="width: 5em; height: 5em;">
+           u-clearfix u-pullr sm-hide"
+           style="width: 4em; height: 4em;">
         {% if project.volunteerpicture %}
           {{ volunteer_photo(project) }}
         {% else %}
@@ -240,11 +228,13 @@
         {% endif %}
       </div>
     </aside>
-    <header class="grid--80 section__content--contain--sm grid__last">
-        <h3 class="t-heading--3 t--gray--2">
-          {{ project.volunteername }}</h3>
-        <h4 class="t-heading--4 t--gray--2">
-          {{ project.title }} </h4>
+    <header class="column column--half" style="height: 4em;">
+      <h3 class="t-heading--3 t--gray--2 u-v_center--block">
+        {{ project.volunteername }}<br>
+        <span class="t-heading--4 t--gray--2">
+          {{ project.title }}
+        </span>
+      </h3>
     </header>
   </a>
 {%- endmacro %}
@@ -252,8 +242,8 @@
 {% macro render_project(project, ptype) -%}
   <article class="js-collapsibleItem u-clearfix drift_corner"
         id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
-    <aside class="column--third
-                  section__content
+    <aside class="column column--third
+                  section__content--sm
                   u-clearfix
                   enclose enclose--flatten_r
                   discover__aside">
@@ -263,8 +253,7 @@
              style="width: 12em; height: 12em;">
           {{ volunteer_photo(project) }}
         </div>
-        <div class="u-h_center--block
-              section__content--no_space_r">
+        <div class="u-h_center--block">
           {{ country_map(project.country.code) }}
         </div>
       </div>
@@ -307,14 +296,15 @@
           </span>
         {% endif %}
       </div>
-      {% if not project.account.funded() %}
+      {% if project.account.funded() %}
+        <a class="button button--sm button--primary"
+           href="{{ url("donate project", slug=project.slug) }}>
+         Read more</a>
+      { % else %}
         <a class="button button--sm button--primary"
            href="{{ url("donate project", slug=project.slug) }}#amount-form">
          Give to the project</a>
       {% endif %}
-      <a class="t-single_nav u-pullr t-nom"
-         href="{{ url("donate project", slug=project.slug) }}">
-        Read more</a>
     </section>
     <a href="#" class="
         icon icon--box icon--gray

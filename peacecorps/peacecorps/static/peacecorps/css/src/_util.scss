@@ -80,13 +80,9 @@
 }
 
 .u-v_center--block {
+  transform: translateY(-50%);
   position: relative;
-
-  .u-v_center--block__content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(50%);
-  }
+  top: 50%;
 }
 
 // Alignment
@@ -120,4 +116,7 @@
   @include media($sm) {
     display: none;
   }
+}
+.sm-no_pullr {
+  float: none;
 }

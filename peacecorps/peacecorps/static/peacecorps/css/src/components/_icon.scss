@@ -12,6 +12,10 @@
 
   &.fa {
     @include font-size(1.75);
+
+    @include media($sm) {
+      @include font-size(2.0);
+    }
   }
 
   &:hover, &:active {
@@ -21,6 +25,10 @@
 
 .icon--box {
   padding: .2em;
+
+  @include media($sm) {
+    padding: .3em;
+  }
 
   &.icon--gray {
     background-color: $gray-1;

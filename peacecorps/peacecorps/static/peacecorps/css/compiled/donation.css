@@ -310,8 +310,8 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
-  font-size: 21px;
-  font-size: 2.1rem;
+  font-size: 23px;
+  font-size: 2.3rem;
   margin: 0 0 15px 0;
   margin: 0 0 1.5rem 0; }
 
@@ -415,11 +415,15 @@ p + p {
 .t-single_nav {
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  font-size: 10px;
-  font-size: 1rem;
+  font-size: 11px;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 1.5em 0;
   text-decoration: none; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .t-single_nav {
+      font-size: 13px;
+      font-size: 1.3rem; } }
 
 /*
  * Generic link styles.
@@ -770,6 +774,14 @@ body {
   width: 49.3188010899%; }
   .column--half:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .column--half {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .column--half:last-child {
+        margin-right: 0; } }
 
 .column--third {
   float: left;
@@ -778,6 +790,14 @@ body {
   width: 32.4250681199%; }
   .column--third:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .column--third {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .column--third:last-child {
+        margin-right: 0; } }
 
 .column--two_third {
   float: left;
@@ -1051,13 +1071,16 @@ body {
  * rather then top and bottom padding.
  */
 .enclose {
-  padding: 2.5em; }
+  padding-left: 2.5em;
+  padding-right: 2.5em; }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .enclose {
-      padding: 1em; } }
+      padding-left: 1em;
+      padding-right: 1em; } }
 
 .enclose--sm {
-  padding: 0.5em 1.5em; }
+  padding-left: 1.5em;
+  padding-right: 1.5em; }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .enclose--sm {
       padding-left: 1em;
@@ -1065,6 +1088,9 @@ body {
 
 .enclose--flatten_r {
   padding-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .enclose--flatten_r {
+      padding-right: 1em; } }
 
 /*
  * Icon
@@ -1106,11 +1132,18 @@ body {
   .icon.fa {
     font-size: 17.5px;
     font-size: 1.75rem; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .icon.fa {
+        font-size: 20px;
+        font-size: 2rem; } }
   .icon:hover, .icon:active {
     text-decoration: none; }
 
 .icon--box {
   padding: 0.2em; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .icon--box {
+      padding: 0.3em; } }
   .icon--box.icon--gray {
     background-color: #aaa698;
     color: #fff; }
@@ -1545,15 +1578,15 @@ body {
     .rectangular_progress--mini {
       width: 100%; } }
   .rectangular_progress--mini .rectangular_progress__point {
-    top: 5%; }
+    top: 12%; }
   .rectangular_progress--mini .rectangular_progress__point--bottom {
     top: auto;
-    bottom: 5%; }
+    bottom: 12%; }
   .rectangular_progress--mini .rectangular_progress__line {
     height: 0.5em;
-    top: 24.5%; }
+    top: 28.5%; }
   .rectangular_progress--mini .rectangular_progress__line--bottom {
-    bottom: 25.5%;
+    bottom: 27.5%;
     top: auto; }
 
 .rectangular_progress__bar {
@@ -1681,6 +1714,18 @@ body {
 .section__content {
   padding-top: 2.5em;
   padding-bottom: 2.5em; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .section__content {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em; } }
+
+.section__content--xsm {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em; }
+
+.section__content--sm {
+  padding-top: 1em;
+  padding-bottom: 1em; }
 
 .section__content--contain {
   padding: 2.5em; }
@@ -1930,8 +1975,8 @@ body {
  * Note: The html for these classes is controlled in sir-trevor.
  */
 .text-block {
-  margin-top: 3em;
-  margin-bottom: 3em; }
+  margin-top: 1em;
+  margin-bottom: 1em; }
 
 div + .text-block {
   margin-top: -3em; }
@@ -1949,6 +1994,10 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
   padding-left: 10%; }
 .discover .discover__aside--lg {
   padding-left: 8%; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .discover .discover__aside--lg {
+      margin-bottom: -2em;
+      padding-top: 1.5em; } }
 
 /*
  * Forms.
@@ -2146,11 +2195,9 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
   margin-right: auto; }
 
 .u-v_center--block {
-  position: relative; }
-  .u-v_center--block .u-v_center--block__content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(50%); }
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%; }
 
 .u-align_l {
   text-align: left; }
@@ -2183,6 +2230,9 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block {
 @media screen and (min-width: 0px) and (max-width: 499px)  {
   .sm-hide {
     display: none; } }
+
+.sm-no_pullr {
+  float: none; }
 
 .wrapper {
   max-width: 73.333333333em;
