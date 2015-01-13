@@ -204,6 +204,24 @@ class DonatePagesTests(TestCase):
                                            kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
+    def test_project_fully_funded(self):
+        """Verify that there's a submission button if the project is not
+        funded and that this disappears if the project is funded"""
+        project = Project.objects.get(slug='brick-oven-bakery')
+        response = self.client.get(reverse('donate project',
+                                           kwargs={'slug': project.slug}))
+        self.assertContains(response, 'button')
+
+        account = project.account
+        old_amount, old_goal = account.current, account.goal
+        account.current, account.goal = 1, 1
+        account.save()
+        response = self.client.get(reverse('donate project',
+                                           kwargs={'slug': project.slug}))
+        self.assertNotContains(response, 'button')
+        account.current, account.goal = old_amount, old_goal
+        account.save()
+
     def test_project_fund_prepopulation(self):
         """Prepopulate the form with amount from GET var"""
         response = self.client.get(
