@@ -10,8 +10,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
-    Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage, Issue, Project,
-    Vignette)
+    Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
+    Issue, Project)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -94,8 +94,6 @@ def donate_landing(request):
         'donations/donate_landing.jinja',
         {
             'title': 'Donate',
-            'top_vignette': Vignette.for_slug('donate_landing_top'),
-            'bottom_vignette': Vignette.for_slug('donate_landing_bottom'),
             'featuredcampaign': featuredcampaign,
             'sectors': Campaign.objects.filter(
                 campaigntype=Campaign.SECTOR).order_by('name'),
@@ -131,7 +129,7 @@ def donate_project(request, slug):
             'project': project,
             'account': project.account,
             'donate_form': form,
-            "IS_PROJECT": True
+            "PROJECT": Account.PROJECT
         })
 
 
@@ -196,7 +194,7 @@ def fund_detail(request, slug):
             'campaign': campaign,
             'account': campaign.account,
             'donate_form': form,
-            "IS_PROJECT": False
+            "PROJECT": Account.PROJECT
         })
 
 
