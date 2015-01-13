@@ -295,19 +295,23 @@
           raised
         </span>
 
-        <span class="rectangular_progress__point
-                     u-align_r t-title--4" style="right: 0;">
-           Goal<br />
-           <strong class="t--secondary">{{ humanize_cents(project.account.total_cost()) }}</strong>
-        </span>
-        <span style="right: 0;"
-            class="rectangular_progress__line
-                   rectangular_progress__line--neutral">
-        </span>
+        {% if not project.account.funded() %}
+          <span class="rectangular_progress__point
+                       u-align_r t-title--4" style="right: 0;">
+             Goal<br />
+             <strong class="t--secondary">{{ humanize_cents(project.account.total_cost()) }}</strong>
+          </span>
+          <span style="right: 0;"
+              class="rectangular_progress__line
+                     rectangular_progress__line--neutral">
+          </span>
+        {% endif %}
       </div>
-      <a class="button button--sm button--primary"
-         href="{{ url("donate project", slug=project.slug) }}#amount-form">
-       Give to the project</a>
+      {% if not project.account.funded() %}
+        <a class="button button--sm button--primary"
+           href="{{ url("donate project", slug=project.slug) }}#amount-form">
+         Give to the project</a>
+      {% endif %}
       <a class="t-single_nav u-pullr t-nom"
          href="{{ url("donate project", slug=project.slug) }}">
         Read more</a>
