@@ -110,7 +110,7 @@ class ProjectAdmin(admin.ModelAdmin):
             }),
         ('Volunteer Info', {
             'fields': ['volunteername',
-                       ('volunteerhomecity', 'volunteerhomestate'),
+                       'volunteerhomestate',
                        'volunteerpicture'],
             'classes': ['wide']
 
