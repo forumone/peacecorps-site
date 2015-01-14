@@ -1,0 +1,44 @@
+/*
+ * All element specific rules.
+ *
+ * When this file starts to get large it should be made into a folder with
+ * files specific to each thing, such as elememts/_text.scss
+ */
+
+
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  border-color: $primary;
+}
+
+[aria-hidden=true] {
+  display: none;
+}
+[aria-hidden=false] {
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+form ul {
+  @extend .u-unmarked_list;
+  @extend .u-inline_list;
+}
+
+fieldset {
+  border-width: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}

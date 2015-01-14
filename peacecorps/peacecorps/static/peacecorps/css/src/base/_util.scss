@@ -2,8 +2,8 @@
  * Contains all sass utilities such as floats, clears, etc.
  */
 
-@import "globals";
-@import "mixins";
+@import "../globals";
+@import "../mixins";
 
 
 // A list with no list style and list spacing.
@@ -53,14 +53,6 @@
   @include u-visually_hidden;
 }
 
-[aria-hidden=true] {
-  display: none;
-}
-[aria-hidden=false] {
-  display: block;
-}
-
-
 // Centers an block element vertically and horizontally.
 .u-hv_center--block {
   position: relative;
@@ -107,16 +99,3 @@
   float: right;
 }
 
-.md-hide {
-  @include media($md) {
-    display: none;
-  }
-}
-.sm-hide {
-  @include media($sm) {
-    display: none;
-  }
-}
-.sm-no_pullr {
-  float: none;
-}

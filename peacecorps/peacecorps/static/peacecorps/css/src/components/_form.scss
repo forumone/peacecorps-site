@@ -18,11 +18,6 @@ $width_right: 69%;
   }
 }
 
-form ul {
-  @extend .u-unmarked_list;
-  @extend .u-inline_list;
-}
-
 .form--required {
   font-weight: $weight-bold;
 }
