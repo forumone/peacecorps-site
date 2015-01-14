@@ -31,7 +31,10 @@ html {
  * Z-Index
  */
 /*
- * All base rules concerning elements
+ * All element specific rules.
+ *
+ * When this file starts to get large it should be made into a folder with
+ * files specific to each thing, such as elememts/_text.scss
  */
 html, body {
   margin: 0;
