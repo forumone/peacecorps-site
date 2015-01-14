@@ -18,46 +18,6 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-body:before {
-  content: '';
-  display: inline-block;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.0844686649%, rgba(0, 0, 0, 0) 7.0844686649%, rgba(0, 0, 0, 0) 8.446866485%, #EEE 8.446866485%, #EEE 15.5313351499%, rgba(0, 0, 0, 0) 15.5313351499%, rgba(0, 0, 0, 0) 16.89373297%, #EEE 16.89373297%, #EEE 23.9782016349%, rgba(0, 0, 0, 0) 23.9782016349%, rgba(0, 0, 0, 0) 25.340599455%, #EEE 25.340599455%, #EEE 32.4250681199%, rgba(0, 0, 0, 0) 32.4250681199%, rgba(0, 0, 0, 0) 33.7874659401%, #EEE 33.7874659401%, #EEE 40.8719346049%, rgba(0, 0, 0, 0) 40.8719346049%, rgba(0, 0, 0, 0) 42.2343324251%, #EEE 42.2343324251%, #EEE 49.3188010899%, rgba(0, 0, 0, 0) 49.3188010899%, rgba(0, 0, 0, 0) 50.6811989101%, #EEE 50.6811989101%, #EEE 57.7656675749%, rgba(0, 0, 0, 0) 57.7656675749%, rgba(0, 0, 0, 0) 59.1280653951%, #EEE 59.1280653951%, #EEE 66.2125340599%, rgba(0, 0, 0, 0) 66.2125340599%, rgba(0, 0, 0, 0) 67.5749318801%, #EEE 67.5749318801%, #EEE 74.659400545%, rgba(0, 0, 0, 0) 74.659400545%, rgba(0, 0, 0, 0) 76.0217983651%, #EEE 76.0217983651%, #EEE 83.10626703%, rgba(0, 0, 0, 0) 83.10626703%, rgba(0, 0, 0, 0) 84.4686648501%, #EEE 84.4686648501%, #EEE 91.553133515%, rgba(0, 0, 0, 0) 91.553133515%, rgba(0, 0, 0, 0) 92.9155313351%, #EEE 92.9155313351%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-  height: 100%;
-  left: 0;
-  margin: 0 auto;
-  max-width: 73.333333333em;
-  opacity: 0.4;
-  position: fixed;
-  right: 0;
-  width: 100%;
-  pointer-events: none;
-  z-index: -1; }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    body:before {
-      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.8487394958%, rgba(0, 0, 0, 0) 21.8487394958%, rgba(0, 0, 0, 0) 26.0504201681%, #EEE 26.0504201681%, #EEE 47.8991596639%, rgba(0, 0, 0, 0) 47.8991596639%, rgba(0, 0, 0, 0) 52.1008403361%, #EEE 52.1008403361%, #EEE 73.9495798319%, rgba(0, 0, 0, 0) 73.9495798319%, rgba(0, 0, 0, 0) 78.1512605042%, #EEE 78.1512605042%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    body:before {
-      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.4890510949%, rgba(0, 0, 0, 0) 9.4890510949%, rgba(0, 0, 0, 0) 11.3138686131%, #EEE 11.3138686131%, #EEE 20.802919708%, rgba(0, 0, 0, 0) 20.802919708%, rgba(0, 0, 0, 0) 22.6277372263%, #EEE 22.6277372263%, #EEE 32.1167883212%, rgba(0, 0, 0, 0) 32.1167883212%, rgba(0, 0, 0, 0) 33.9416058394%, #EEE 33.9416058394%, #EEE 43.4306569343%, rgba(0, 0, 0, 0) 43.4306569343%, rgba(0, 0, 0, 0) 45.2554744526%, #EEE 45.2554744526%, #EEE 54.7445255474%, rgba(0, 0, 0, 0) 54.7445255474%, rgba(0, 0, 0, 0) 56.5693430657%, #EEE 56.5693430657%, #EEE 66.0583941606%, rgba(0, 0, 0, 0) 66.0583941606%, rgba(0, 0, 0, 0) 67.8832116788%, #EEE 67.8832116788%, #EEE 77.3722627737%, rgba(0, 0, 0, 0) 77.3722627737%, rgba(0, 0, 0, 0) 79.197080292%, #EEE 79.197080292%, #EEE 88.6861313869%, rgba(0, 0, 0, 0) 88.6861313869%, rgba(0, 0, 0, 0) 90.5109489051%, #EEE 90.5109489051%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
-  @media screen and (min-width: 900px)  {
-    body:before {
-      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.0844686649%, rgba(0, 0, 0, 0) 7.0844686649%, rgba(0, 0, 0, 0) 8.446866485%, #EEE 8.446866485%, #EEE 15.5313351499%, rgba(0, 0, 0, 0) 15.5313351499%, rgba(0, 0, 0, 0) 16.89373297%, #EEE 16.89373297%, #EEE 23.9782016349%, rgba(0, 0, 0, 0) 23.9782016349%, rgba(0, 0, 0, 0) 25.340599455%, #EEE 25.340599455%, #EEE 32.4250681199%, rgba(0, 0, 0, 0) 32.4250681199%, rgba(0, 0, 0, 0) 33.7874659401%, #EEE 33.7874659401%, #EEE 40.8719346049%, rgba(0, 0, 0, 0) 40.8719346049%, rgba(0, 0, 0, 0) 42.2343324251%, #EEE 42.2343324251%, #EEE 49.3188010899%, rgba(0, 0, 0, 0) 49.3188010899%, rgba(0, 0, 0, 0) 50.6811989101%, #EEE 50.6811989101%, #EEE 57.7656675749%, rgba(0, 0, 0, 0) 57.7656675749%, rgba(0, 0, 0, 0) 59.1280653951%, #EEE 59.1280653951%, #EEE 66.2125340599%, rgba(0, 0, 0, 0) 66.2125340599%, rgba(0, 0, 0, 0) 67.5749318801%, #EEE 67.5749318801%, #EEE 74.659400545%, rgba(0, 0, 0, 0) 74.659400545%, rgba(0, 0, 0, 0) 76.0217983651%, #EEE 76.0217983651%, #EEE 83.10626703%, rgba(0, 0, 0, 0) 83.10626703%, rgba(0, 0, 0, 0) 84.4686648501%, #EEE 84.4686648501%, #EEE 91.553133515%, rgba(0, 0, 0, 0) 91.553133515%, rgba(0, 0, 0, 0) 92.9155313351%, #EEE 92.9155313351%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
-
 /*
  * Global variables
  */
@@ -77,6 +37,15 @@ html, body {
   margin: 0;
   overflow-x: hidden; }
 
+body {
+  border-color: #A12122; }
+
+[aria-hidden=true] {
+  display: none; }
+
+[aria-hidden=false] {
+  display: block; }
+
 figure {
   margin: 0; }
 
@@ -88,20 +57,6 @@ ul {
 
 button {
   cursor: pointer; }
-
-/*
- * Layout
- *
- * Base rules that are specific to layout, such as spacing.
- */
-.l-bm--1 {
-  margin-bottom: 1em; }
-
-.l-bm--2 {
-  margin-bottom: 2em; }
-
-.l-bm--3 {
-  margin-bottom: 3em; }
 
 /*
  * Type styles.
@@ -411,7 +366,7 @@ p + p {
   .t-link--white:active {
     color: #f2f2f2; }
 
-.t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button--md a, t-title--4 a, t-title--5 a {
+.t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button--md a, .t-title--4 a, .button--sm a, .t-title--5 a {
   text-decoration: none; }
 
 /*
@@ -423,6 +378,111 @@ p + p {
 .t-break {
   margin: 0 0 20px 0;
   margin: 0 0 2rem 0; }
+
+/*
+ * Contains all sass utilities such as floats, clears, etc.
+ */
+/*
+ * Global variables
+ */
+/*
+ * Font awesome
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
+/*
+ * Global mixins.
+ */
+/*
+ * Sets the font-size in rems with a px fallback.
+ */
+/*
+ * Parses a text value to an int.
+ */
+/*
+ * Sets the property to the values in rem, with a px fallback for old browsers.
+ *
+ * $property The css property to set the values on
+ * $values A list of rem values to set on the property.
+ *
+ * Example: @include rem(margin, 1rem 0 2rem);
+ */
+.u-unmarked_list, form ul, .main_nav {
+  padding: 0; }
+  .u-unmarked_list li, form ul li, .main_nav li {
+    list-style: none; }
+
+.u-inline_list *, form ul * {
+  display: inline-block; }
+
+.u-inline {
+  display: inline-block;
+  vertical-align: middle; }
+
+@media screen and (min-width: 0px) and (max-width: 499px)  {
+  .u-block--at_sm {
+    display: block; } }
+
+.u-clearfix:after, .full_banner:after, .form__field:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.u-clearl {
+  clear: left; }
+
+.u-visually_hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important; }
+
+.u-hv_center--block, .mask, .rectangular_progress {
+  position: relative; }
+  .u-hv_center--block .u-hv_center--block__content, .mask .u-hv_center--block__content, .rectangular_progress .u-hv_center--block__content, .u-hv_center--block .mask__content, .mask .mask__content, .rectangular_progress .mask__content, .u-hv_center--block .mask__content--md, .mask .mask__content--md, .rectangular_progress .mask__content--md, .u-hv_center--block .rectangular_progress__bar, .mask .rectangular_progress__bar, .rectangular_progress .rectangular_progress__bar {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%; }
+
+.u-h_center--block {
+  margin-left: auto;
+  margin-right: auto; }
+
+.u-v_center--block {
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%; }
+
+.u-align_l {
+  text-align: left; }
+
+.u-align_r {
+  text-align: right; }
+
+.u-align_c {
+  text-align: center; }
+
+.u-wrap {
+  max-width: 73.333333333em;
+  margin-left: auto;
+  margin-right: auto; }
+  .u-wrap:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.u-pull {
+  float: left; }
+
+.u-pullr {
+  float: right; }
 
 /*
  * Class that has no base to deal with placing background images.
@@ -582,9 +642,6 @@ p + p {
 /*
  * Z-Index
  */
-body {
-  border-color: #A12122; }
-
 .bordered {
   border-style: solid;
   border-width: 1em;
@@ -1502,6 +1559,9 @@ body {
   margin-right: 1em;
   margin-top: 1em; }
 
+.isolate--b {
+  margin-bottom: 1em; }
+
 /*
  * Main nav module.
  *
@@ -1848,65 +1908,6 @@ body {
     margin-top: 2.6em; }
 
 /*
- * A visual separator at the start of a section. Allows space for a title header
- * for the section.
- */
-/*
- * Global variables
- */
-/*
- * Font awesome
- */
-/*
- * Color
- */
-/*
- * Z-Index
- */
-.section_starter {
-  border-top: 0.7em #E5E1D4 solid;
-  height: 0.5em;
-  margin: 0 auto 1em;
-  padding-bottom: 20%;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  z-index: 100; }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .section_starter {
-      padding-bottom: 28.5%; } }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .section_starter {
-      padding-bottom: 50%; } }
-  .section_starter:after {
-    background-color: #E5E1D4;
-    border-radius: 0 0 50% 50%;
-    content: ' ';
-    display: block;
-    height: 0;
-    left: 29%;
-    margin: 0 auto 2em;
-    padding-bottom: 40%;
-    position: absolute;
-    top: -105%;
-    width: 40%;
-    z-index: -200; }
-    @media screen and (min-width: 500px) and (max-width: 899px)  {
-      .section_starter:after {
-        left: 21.5%;
-        padding-bottom: 55%;
-        width: 55%; } }
-    @media screen and (min-width: 0px) and (max-width: 499px)  {
-      .section_starter:after {
-        left: 0;
-        padding-bottom: 100%;
-        top: -100%;
-        width: 100%; } }
-
-.section_starter__content {
-  top: 17% !important; }
-
-/*
  * Separator
  *
  * Creates a separate between elements.
@@ -2088,21 +2089,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   margin-top: 0; }
 
 /*
- * Discover
- *
- * The discover module, a js/css module for finding sorted and categorized
- * information.
- */
-.discover .discover__aside {
-  padding-left: 10%; }
-.discover .discover__aside--lg {
-  padding-left: 8%; }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .discover .discover__aside--lg {
-      margin-bottom: -2em;
-      padding-top: 1.5em; } }
-
-/*
  * Forms.
  */
 /*
@@ -2216,116 +2202,24 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     width: 14em; }
 
 /*
- * Contains all sass utilities such as floats, clears, etc.
- */
-/*
- * Global variables
- */
-/*
- * Font awesome
- */
-/*
- * Color
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-/*
- * Sets the font-size in rems with a px fallback.
- */
-/*
- * Parses a text value to an int.
- */
-/*
- * Sets the property to the values in rem, with a px fallback for old browsers.
+ * Discover
  *
- * $property The css property to set the values on
- * $values A list of rem values to set on the property.
- *
- * Example: @include rem(margin, 1rem 0 2rem);
+ * The discover module, a js/css module for finding sorted and categorized
+ * information.
  */
-.u-unmarked_list, .main_nav, form ul {
-  padding: 0; }
-  .u-unmarked_list li, .main_nav li, form ul li {
-    list-style: none; }
+.discover .discover__aside {
+  padding-left: 10%; }
+.discover .discover__aside--lg {
+  padding-left: 8%; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .discover .discover__aside--lg {
+      margin-bottom: -2em;
+      padding-top: 1.5em; } }
 
-.u-inline_list *, form ul * {
-  display: inline-block; }
-
-.u-inline {
-  display: inline-block;
-  vertical-align: middle; }
-
-@media screen and (min-width: 0px) and (max-width: 499px)  {
-  .u-block--at_sm {
-    display: block; } }
-
-.u-clearfix:after, .full_banner:after, .form__field:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0; }
-
-.u-clearl {
-  clear: left; }
-
-.u-visually_hidden {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
-
-[aria-hidden=true] {
-  display: none; }
-
-[aria-hidden=false] {
-  display: block; }
-
-.u-hv_center--block, .mask, .rectangular_progress, .section_starter {
-  position: relative; }
-  .u-hv_center--block .u-hv_center--block__content, .mask .u-hv_center--block__content, .rectangular_progress .u-hv_center--block__content, .section_starter .u-hv_center--block__content, .u-hv_center--block .mask__content, .mask .mask__content, .rectangular_progress .mask__content, .section_starter .mask__content, .u-hv_center--block .mask__content--md, .mask .mask__content--md, .rectangular_progress .mask__content--md, .section_starter .mask__content--md, .u-hv_center--block .rectangular_progress__bar, .mask .rectangular_progress__bar, .rectangular_progress .rectangular_progress__bar, .section_starter .rectangular_progress__bar, .u-hv_center--block .section_starter__content, .mask .section_starter__content, .rectangular_progress .section_starter__content, .section_starter .section_starter__content {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 50%; }
-
-.u-h_center--block {
-  margin-left: auto;
-  margin-right: auto; }
-
-.u-v_center--block {
-  transform: translateY(-50%);
-  position: relative;
-  top: 50%; }
-
-.u-align_l {
-  text-align: left; }
-
-.u-align_r {
-  text-align: right; }
-
-.u-align_c {
-  text-align: center; }
-
-.u-wrap {
-  max-width: 73.333333333em;
-  margin-left: auto;
-  margin-right: auto; }
-  .u-wrap:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-.u-pull {
-  float: left; }
-
-.u-pullr {
-  float: right; }
-
+/*
+ * Breakpoint specific classes, to do things, such as hide, at specific
+ * breakpoints.
+ */
 @media screen and (min-width: 500px) and (max-width: 899px)  {
   .md-hide {
     display: none; } }

@@ -8,8 +8,24 @@ html, body {
   overflow-x: hidden;
 }
 
+body {
+  border-color: $primary;
+}
+
+[aria-hidden=true] {
+  display: none;
+}
+[aria-hidden=false] {
+  display: block;
+}
+
 figure {
   margin: 0;
+}
+
+form ul {
+  @extend .u-unmarked_list;
+  @extend .u-inline_list;
 }
 
 fieldset {
