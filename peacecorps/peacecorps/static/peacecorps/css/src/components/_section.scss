@@ -72,14 +72,14 @@
 }
 
 .section__box {
-  padding: 1.9em;
+  padding: $gutter;
 
   > *:last-child {
     margin-bottom: 0;
   }
 
   & + & {
-    margin-top: 3em;
+    margin-top: 2.6em;
   }
 }
 

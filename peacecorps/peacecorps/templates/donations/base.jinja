@@ -24,12 +24,12 @@
 <body>
 {% block top_most_banner %}{% endblock %}
 {% if custom_top_image %}
-<div class="top_image top_image--custom"
+<div class="top_image top_image--custom wrapper"
      style="background-image: url('{{custom_top_image}}');">
 {% else %}
-<div class="top_image top_image--default">
+<div class="top_image top_image--default wrapper">
 {% endif %}
-  <nav class="banner banner--dark_transparent banner--no_line">
+  <nav class="full_banner full_banner--no_border banner--dark_transparent">
     <a href="http://peacecorps.gov" class="t-single_nav t--white">
       <span class="t-title--4">
         <i class="fa fa-angle-left"></i>
@@ -38,7 +38,7 @@
     </a>
     <span class="t-body--xsm">This is a beta site</span>
   </nav>
-  <header class="full_banner full_banner--support section__content">
+  <header class="banner banner--support banner--no_line section__content">
     <a href="{{ url('donate landing') }}">
       <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="u-inline"
         style="width: 6em; margin-right: .5em" />
@@ -63,12 +63,10 @@
 <div class="wrapper">
   {% block navigation %}{% endblock %}
 
-  <main class="{% block content_class %}{% endblock %}">
+  <main class="{% block content_class %}{% endblock %} u-clearfix">
   {% block content %}{% endblock %}
   </main>
 
-  <div class="full_banner full_banner--rule full_banner--neutral">
-  </div>
   <footer class="section section__content u-clearfix">
     <section class="grid--20">
       <h2 class="t-title--2">Donate</h2>

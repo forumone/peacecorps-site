@@ -29,45 +29,44 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section inset--lg">
   <section class="section__content full_banner full_banner--neutral">
     <h1 id="featured" class="t-title--1">Featured Projects</h1>
     {% for project in featuredprojects %}
       <article class="section__box section--white u-clearfix">
-        <div class="u-hv_center--block grid--60 u-clearfix"
-              {# Remove height once image works #}
-            style="height: 25em;
-              background-image: url('{{project.featured_image.url}}')">
-          <a href="{{url("donate project", slug=project.slug)}}#amount-form"
+        <div class="column nested_column--lg_greater_half
+            u-clearfix u-hv_center--block">
+          <img src="{{ project.featured_image.url }}"
+            style="width: 100%; height: auto" />
+          <a href="{{ url("donate project", slug=project.slug) }}#amount-form"
                class="button button--sm button--primary
                u-hv_center--block__content">
              Give to this Project
           </a>
         </div>
-        <div class="grid--40 u-clearfix">
+        <div class="column nested_column--lg_two_lesser_half u-clearfix">
           {% set issue = project.issue() %}
           {% if issue %}
-            <div class="bg_img--icon issue"
+            <div class="bg_img--icon section__content--sm"
                  style="background-image: url({{issue.icon_color_url('grey')}})">
               <span class="t-icon">{{issue.name}}</span>
             </div>
           {% endif %}
-          <h2 class="t-heading--2">
-            {% if project.tagline %}{{project.tagline}}
+          <h3 class="t-heading--3">
+            {% if project.tagline %}{{ project.tagline }}
             {% else %}Help this Project{%endif%}
-          </h2>
-          <div class="abstract">{{project.abstract_html()|safe}}</div>
-          <a class="t-single_nav u-pullr t-nom"
+          </h3>
+          {{ project.abstract_html()|safe }}
+          <a class="t-single_nav t-nom"
               href="{{url("donate project", slug=project.slug)}}">
-            Read Their
-          Story</a>
+            Read Their Story</a>
         </div>
       </article>
     {% endfor %}
   </section>
 </section>
 
-<section class="section">
+<section class="section inset--lg">
   <section class="section__content">
     <h1 class="t-title--1">Projects &amp; Funds</h1>
     <div class="u-hv_center--block bg_img--centered bg_img--banner"
@@ -83,10 +82,10 @@
   </section>
 </section>
 
-<section class="section">
+<section class="section inset--lg">
   <div class="section__content full_banner full_banner--neutral">
     <h1 class="t-title--1">About Donating</h1>
-    <div class="blurb">
+    <div class="blurb blurb--sm">
       <h2 class="t-blurb--md t--black">
        100% of your tax-deductible donation to the Peace Corps Partnership Program goes directly towards funding volunteer projects around the world.</h2>
     </div>

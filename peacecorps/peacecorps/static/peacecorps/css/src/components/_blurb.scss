@@ -9,8 +9,8 @@
 @import "../mixins";
 
 .blurb {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(8);
+  @include shift(2);
   padding-bottom: em(75, $base);
   padding-top: em(75, $base);
   text-align: center;
@@ -21,5 +21,6 @@
 }
 
 .blurb--sm {
+  padding-bottom: em(30, $base);
   padding-top: em(30, $base);
 }

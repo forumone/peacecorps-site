@@ -30,6 +30,12 @@
   color: $white;
 }
 
+.banner--support {
+  border-color: $neutral_medium;
+  background-color: rgba($primary_support, 0.75);
+  color: $white;
+}
+
 .banner--neutral_ex_dark {
   border-color: $neutral_medium;
   background-color: $neutral_ex_dark;

@@ -1,0 +1,28 @@
+/*
+ * Column nested
+ *
+ * A column thats nested in another piece of content, usually an inset
+ */
+
+.nested_column {
+  @include media($sm) {
+    margin-top: 1em;
+  }
+}
+
+// lg = inset--lg
+.nested_column--lg_greater_half {
+  @include span-columns(6 of 10);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+}
+
+.nested_column--lg_two_lesser_half {
+  @include span-columns(4 of 10);
+
+  @include media($sm) {
+    @include span-columns(4);
+  }
+}

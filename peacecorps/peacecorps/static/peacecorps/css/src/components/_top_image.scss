@@ -11,7 +11,7 @@
 .top_image {
   border-bottom: 0.75em solid $neutral_medium;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center center;
   margin-bottom: 2em;
 }
 
@@ -20,7 +20,9 @@
 }
 
 .top_image--custom {
-  height: 85%;
-  min-height: 15em;
-  max-height: 50em;
+  height: auto;
+  max-height: 40em;
+  max-width: $max-width;
+  min-height: 31em;
+  width: 100%;
 }
