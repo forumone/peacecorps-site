@@ -4,7 +4,6 @@
 
 // TODO add "sass-globbing" to allow globbing here
 @import "globals";
-@import "base/buttons";
 @import "base/elements";
 @import "base/layout";
 @import "base/type";
@@ -13,7 +12,9 @@
 @import "components/blurb";
 @import "components/bordered";
 @import "components/bubble";
+@import "components/buttons";
 @import "components/column";
+@import "components/column_nested";
 @import "components/drift_corner";
 @import "components/grid";
 @import "components/enclose";

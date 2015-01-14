@@ -34,7 +34,11 @@ $cols: $grid-columns;
 }
 
 .column--two_third {
-  @include span-columns(round($cols * .6));
+  @include span-columns(round($cols * .66));
+
+  @include media($sm) {
+    @include span-columns($sm_cols);
+  }
 }
 
 .column--sixth {
