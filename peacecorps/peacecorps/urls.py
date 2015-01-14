@@ -58,8 +58,8 @@ urlpatterns = patterns(
     url(r'^favicon\.ico$',
         RedirectView.as_view(url=settings.STATIC_URL + "favicon.ico")),
 
-    url(r'^api/account/' + _slug + r'/$',
-        shortterm_cache(api.GetAccountPercent.as_view())),
+    url(r'^api/project/' + _slug + r'/$',
+        shortterm_cache(api.ProjectDetail.as_view())),
 )
 
 
