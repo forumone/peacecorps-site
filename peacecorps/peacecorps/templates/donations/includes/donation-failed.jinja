@@ -10,6 +10,16 @@
           class="t-link--white">email us</a> if you need help.
   </div>
 </section>
+{% elif request.GET.payment_status == 'full' %}
+<section class="u-align_c t--white"
+         style="background-color: #333; padding: 5%; ">
+  <h2>That project has already been funded.</h2>
+  <div class="t-body--sm">
+    You can still help fund similar projects, though.<br />
+    Please direct your donation to this
+    {% if project %}project{% else %}fund{% endif %} instead.
+  </div>
+</section>
 {% endif %}
 {% endblock %}
 

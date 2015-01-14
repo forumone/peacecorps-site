@@ -21,7 +21,18 @@ def project_form(request, slug):
         Project.published_objects.select_related(
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
-    return donation_payment(request, project.account, project=project)
+    account = project.account
+    if account.funded() and project.overflow:
+        if project.overflow.category == Account.PROJECT:
+            path_name = 'donate project'
+        else:
+            path_name = 'donate campaign'
+        return HttpResponseRedirect(
+            reverse(path_name,
+                    kwargs={'slug': project.overflow.project_or_fund().slug})
+            + '?payment_status=full')
+    else:
+        return donation_payment(request, account, project=project)
 
 
 def campaign_form(request, slug):
@@ -109,14 +120,7 @@ def donate_project(request, slug):
             'volunteerpicture', 'featured_image', 'account', 'overflow'),
         slug=slug)
 
-    if request.method == 'POST':
-        form = DonationAmountForm(data=request.POST, account=project.account)
-        if form.is_valid():
-            return HttpResponseRedirect(
-                reverse('project form', kwargs={'slug': slug})
-                + '?payment_amount='
-                + str(form.cleaned_data['payment_amount']))
-    elif request.GET.get('payment_amount') is not None:
+    if 'payment_amount' in request.GET:
         form = DonationAmountForm(data=request.GET, account=project.account)
     else:
         form = DonationAmountForm(account=project.account)
@@ -175,14 +179,7 @@ def special_funds(request):
 def fund_detail(request, slug):
     campaign = get_object_or_404(Campaign.objects.select_related('account'),
                                  slug=slug)
-    if request.method == "POST":
-        form = DonationAmountForm(data=request.POST, account=campaign.account)
-        if form.is_valid():
-            return HttpResponseRedirect(
-                reverse('campaign form', kwargs={'slug': slug})
-                + '?payment_amount='
-                + str(form.cleaned_data['payment_amount']))
-    elif request.GET.get('payment_amount') is not None:
+    if 'payment_amount' in request.GET:
         form = DonationAmountForm(data=request.GET, account=campaign.account)
     else:
         form = DonationAmountForm(account=campaign.account)

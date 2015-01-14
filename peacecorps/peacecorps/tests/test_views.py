@@ -18,14 +18,14 @@ class DonationsTests(TestCase):
             name='CMPNCMPN', code='CMPNCMPN', category=Account.OTHER)
         self.project = Project.objects.create(
             slug='sluggy', country=Country.objects.get(name='Egypt'),
-            account=self.proj_acc, published=True)
+            account=self.proj_acc, overflow=self.cmpn_acc, published=True)
         self.campaign = Campaign.objects.create(
             slug='cmpn', account=self.cmpn_acc)
 
     def tearDown(self):
         # Cascade
-        self.cmpn_acc.delete()
         self.proj_acc.delete()
+        self.cmpn_acc.delete()
 
     def test_contribution_parameters(self):
         """ To get to the page where name, address are filled out before being
@@ -172,6 +172,22 @@ class DonationsTests(TestCase):
         response = self.client.get(reverse('donation success'))
         self.assertEqual(response.status_code, 200)
 
+    def test_fully_funded(self):
+        """Don't allow donations to fully-funded projects"""
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=20')
+        self.assertEqual(200, response.status_code)
+
+        self.proj_acc.goal = 10
+        self.proj_acc.current = 10
+        self.proj_acc.save()
+        response = self.client.get(
+            reverse('project form', kwargs={'slug': self.project.slug})
+            + '?payment_amount=20')
+        self.assertEqual(302, response.status_code)
+        self.assertTrue(self.campaign.slug in response['LOCATION'])
+
 
 class DonatePagesTests(TestCase):
 
@@ -204,30 +220,6 @@ class DonatePagesTests(TestCase):
                                            kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
-    def test_project_form_empty_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': ''})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_low_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '0.99'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_high_amount(self):
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '10000.00'})
-        self.assertEqual(response.status_code, 200)
-
-    def test_project_form_redirect_custom(self):
-        """When selecting the fund-a-custom-amount option, everything should
-        work"""
-        response = self.client.post('/donate/project/brick-oven-bakery/',
-                                    {'payment_amount': '123.45'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("123.45" in response['Location'])
-        self.assertTrue("brick-oven-bakery" in response['Location'])
-
     def test_project_fully_funded(self):
         """Verify that there's a submission button if the project is not
         funded and that this disappears if the project is funded"""
@@ -245,15 +237,6 @@ class DonatePagesTests(TestCase):
         self.assertNotContains(response, 'button')
         account.current, account.goal = old_amount, old_goal
         account.save()
-
-    def test_fund_form_redirect(self):
-        """Campaign page should work as the project page does"""
-        response = self.client.post(
-            reverse('donate campaign', kwargs={'slug': 'peace-corps'}),
-            {'payment_amount': '50'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue("50" in response['Location'])
-        self.assertTrue('peace-corps' in response['Location'])
 
     def test_project_fund_prepopulation(self):
         """Prepopulate the form with amount from GET var"""
