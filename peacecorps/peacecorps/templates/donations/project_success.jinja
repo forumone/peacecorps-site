@@ -9,19 +9,19 @@
 {% endif %}
 
 {% block content %}
-<section class="section">
-  <div class="section__content u-clearfix">
-    <article class="inset inset--sm u-align_c">
-      {% if request.GET.donor_name %}
-        <h2>Thank you, {{ request.GET.donor_name }}!</h2>
-      {% else %}
-        <h2>Thank you!</h2>
-      {% endif %}
-      Your donation is helping promote {{project.issue().name}} in
-      {{project.country.name}}.
-    </article>
-    <div class="inset inset--sm">Tell Your Friends</div>
-    <ul class="inset inset--sm">
+<section class="section t--black u-clearfix">
+  <div class="blurb">
+    {% if request.GET.donor_name %}
+      <h1>Thank you, {{ request.GET.donor_name }}!</h1>
+    {% else %}
+      <h1>Thank you!</h1>
+    {% endif %}
+    <h4>Your donation is helping promote {{project.issue().name}} in
+      {{project.country.name}}.</h4>
+  </div>
+  <div class="blurb blurb--flatten_t u-clearfix u-align_c">
+    <h4 class="t-title--3">Tell Your Friends</h4>
+    <ul class="main_nav">
       <li class="main_nav__link">
         <a target="_blank"
               href="//www.facebook.com/sharer/sharer.php?u={{share_url|urlencode}}"
@@ -32,21 +32,26 @@
               >Twitter</a></li>
       <li class="main_nav__link">
         <a target="_blank"
-              href="mailto:?subject={{share_subject|urlencode}}&body={{share_text|urlencode}}"
-              >Email</a></li>
+          href="mailto:?subject={{share_subject|urlencode}}&body={{share_text|urlencode}}">
+            Email</a></li>
     </ul>
-    <a href="{{url("donate project", slug=project.slug)}}" class="t-title--4"
-       >View Project</a>
   </div>
 </section>
 
-<section class="section">
+<section class="section section__content t--black
+      full_banner full_banner--neutral">
+  <div class="inset inset--lg">
+    <a href="{{url("donate project", slug=project.slug)}}"
+        class="t-title--4 t-single_nav">
+      <i class="fa fa-angle-left icon icon--text"></i>
+      View Project</a>
+  </div>
   <div class="section__content u-clearfix">
     <div class="inset inset--sm">
       {# @TODO Photo #}
-      <div>You Helped Fund This Project</div>
-      <h3>{{project.title}}</h2>
-      <section class="blurb">
+      <h4 class="t-title--4">You Helped Fund This Project</h4>
+      <h3 class="t--secondary">{{ project.title }}</h2>
+      <section class="section__content">
         {% include "donations/includes/project-top.jinja" %}
       </section>
     </div>

@@ -124,6 +124,9 @@ body {
 .t--white {
   color: #fff; }
 
+.t--error {
+  color: #AD3737; }
+
 .t--gray {
   color: #aaa698; }
 
@@ -1155,6 +1158,10 @@ p + p {
         font-size: 2rem; } }
   .icon:hover, .icon:active {
     text-decoration: none; }
+
+.icon--text.fa {
+  font-size: 140%;
+  vertical-align: bottom; }
 
 .icon--box {
   padding: 0.2em; }

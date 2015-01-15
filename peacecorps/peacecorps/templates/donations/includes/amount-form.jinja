@@ -72,7 +72,7 @@ similar. In that situation, we reverse the initial states for the form #}
       {% endif %}
     </fieldset>
     {% if donate_form.payment_amount.errors %}
-      <div class="bubble--white section__content enclose">
+      <div class="bubble--white isolate section__content--sm t--error">
         {{ donate_form.payment_amount.errors }}
       </div>
     {% endif %}
@@ -94,8 +94,10 @@ similar. In that situation, we reverse the initial states for the form #}
     <div class="u-align_l js-formSwitch {{startHidden}}" aria-hidden="true"
          {# visible when the state is true #}
          data-switch-on="true" data-switch-id="collapsible-customamount">
-      <a href="#" class="t-link--white" data-set-state="false"
-         aria-controls="collapsible-customamount">Back</a>
+      <a href="#" class="t-link--white t-single_nav" data-set-state="false"
+         aria-controls="collapsible-customamount">
+      <i class="fa fa-angle-left icon icon--text"></i>
+      Back</a>
     </div>
   </form>
 </div>
