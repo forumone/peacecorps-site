@@ -63,9 +63,13 @@ urlpatterns = patterns(
 )
 
 
+handler404 = TemplateView.as_view(template_name='404.jinja')
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+    urlpatterns += patterns('', url(r'^404/$', handler404))
 
 if apps.is_installed('paygov'):
     urlpatterns += patterns(
