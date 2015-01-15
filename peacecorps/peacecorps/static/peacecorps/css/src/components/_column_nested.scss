@@ -27,6 +27,22 @@
   }
 }
 
+.nested_column--lg_fourth {
+  @include span-columns(3 of 10);
+
+  @include media($sm) {
+    @include span-columns(4 of 4);
+  }
+}
+
+.nested_column--lg_greater_fourth {
+  @include span-columns(7 of 10);
+
+  @include media($sm) {
+    @include span-columns(4 of 4);
+  }
+}
+
 .nested_column--md_fourth {
   @include span-columns(2 of 8);
 

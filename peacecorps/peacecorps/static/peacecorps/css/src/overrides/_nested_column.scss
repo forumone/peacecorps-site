@@ -1,0 +1,24 @@
+/*
+ * Nested Columns overrides
+ *
+ * Care should be taken when using this class. It's often better to create a
+ * module then write an override here.
+ */
+
+// A specific column override to deal with a very specific layout for the footer
+// where columns are nested in 7 of 10.
+.o-nested_column--sevens {
+  .nested_column--fourth {
+    @include span-columns(2 of 7);
+    @include media($sm) {
+      @include span-columns(4 of 4);
+    }
+  }
+
+  .nested_column_half {
+    @include span-columns(3 of 7);
+    @include media($sm) {
+      @include span-columns(4 of 4);
+    }
+  }
+}

@@ -11,15 +11,6 @@
   margin-bottom: 1em;
 }
 
-.article .text-block {
-  @extend .inset--md;
-}
-
-.t-body--lg .text-block {
-  margin-top: 4em;
-  margin-bottom: 5em;
-}
-
 h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   margin-top: 0;
 }
