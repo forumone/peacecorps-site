@@ -253,3 +253,7 @@ class FAQs(ListView):
         context = super(FAQs, self).get_context_data(**kwargs)
         context['title'] = 'Donating FAQs'
         return context
+
+
+def four_oh_four(request):
+    return render(request, '404.jinja', status=404)
