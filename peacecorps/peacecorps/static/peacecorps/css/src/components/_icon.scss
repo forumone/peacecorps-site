@@ -23,6 +23,13 @@
   }
 }
 
+.icon--text {
+  &.fa {
+    font-size: 140%;
+    vertical-align: bottom;
+  }
+}
+
 .icon--box {
   padding: .2em;
 

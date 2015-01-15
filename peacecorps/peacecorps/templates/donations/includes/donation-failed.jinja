@@ -3,9 +3,9 @@
 <section class="u-align_c t--white"
          style="background-color: #333; padding: 5%; ">
   <h2>Your donation didn't go through.</h2>
-  <div class="t-body--sm">
+  <p class="t-body--md t--white">
     Unfortunately, your donation wasn't processed.<br/>
-    Please <a href="#amount-form" class="t-link--white">try again</a> or 
+    Please <a href="#amount-form" class="t-link--white">try again</a> or
        <a href="mailto:donate@peacecorps.gov"
           class="t-link--white">email us</a> if you need help.
   </div>
@@ -14,11 +14,11 @@
 <section class="u-align_c t--white"
          style="background-color: #333; padding: 5%; ">
   <h2>That project has already been funded.</h2>
-  <div class="t-body--sm">
+  <p class="t-body--md t--white">
     You can still help fund similar projects, though.<br />
     Please direct your donation to this
     {% if project %}project{% else %}fund{% endif %} instead.
-  </div>
+  </p>
 </section>
 {% endif %}
 {% endblock %}
