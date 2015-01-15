@@ -72,7 +72,7 @@ similar. In that situation, we reverse the initial states for the form #}
       {% endif %}
     </fieldset>
     {% if donate_form.payment_amount.errors %}
-      <div class="bubble--white section__content--contain--sm">
+      <div class="bubble--white section__content enclose">
         {{ donate_form.payment_amount.errors }}
       </div>
     {% endif %}
