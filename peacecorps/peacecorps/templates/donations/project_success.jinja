@@ -1,8 +1,6 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import volunteer_photo %}
 
-{% block title %}Peace Corps | Thank You{% endblock %}
-{% block header %}Peace Corps | Thank You{% endblock %}
 {% block content_class %}thankyou{% endblock %}
 {% if project.featured_image %}
   {% set custom_top_image=project.featured_image.url %}
