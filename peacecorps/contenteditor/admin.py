@@ -38,11 +38,6 @@ class CampaignAdmin(admin.ModelAdmin):
         ('Text', {
             'fields': ['slug', 'description']
         }),
-        ('Projects', {
-            'fields': ['featuredprojects'],
-            'description': """<h4>Add projects that you want to feature on this \
-                                campaign's page.</h4>"""
-        }),
     )
 
     prepopulated_fields = {"slug": ("name",)}
@@ -50,8 +45,8 @@ class CampaignAdmin(admin.ModelAdmin):
     list_filter = ['campaigntype']
     search_fields = ['account__code', 'name', 'country__name']
     raw_id_fields = ['account', 'icon', 'country']
-    filter_horizontal = ['featuredprojects']
-    exclude = ['tagline', 'call']
+    # filter_horizontal = ['featuredprojects']
+    exclude = ['tagline', 'call', 'featuredprojects']
 
 
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
