@@ -18,6 +18,46 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
+body:before {
+  content: '';
+  display: inline-block;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.0844686649%, rgba(0, 0, 0, 0) 7.0844686649%, rgba(0, 0, 0, 0) 8.446866485%, #EEE 8.446866485%, #EEE 15.5313351499%, rgba(0, 0, 0, 0) 15.5313351499%, rgba(0, 0, 0, 0) 16.89373297%, #EEE 16.89373297%, #EEE 23.9782016349%, rgba(0, 0, 0, 0) 23.9782016349%, rgba(0, 0, 0, 0) 25.340599455%, #EEE 25.340599455%, #EEE 32.4250681199%, rgba(0, 0, 0, 0) 32.4250681199%, rgba(0, 0, 0, 0) 33.7874659401%, #EEE 33.7874659401%, #EEE 40.8719346049%, rgba(0, 0, 0, 0) 40.8719346049%, rgba(0, 0, 0, 0) 42.2343324251%, #EEE 42.2343324251%, #EEE 49.3188010899%, rgba(0, 0, 0, 0) 49.3188010899%, rgba(0, 0, 0, 0) 50.6811989101%, #EEE 50.6811989101%, #EEE 57.7656675749%, rgba(0, 0, 0, 0) 57.7656675749%, rgba(0, 0, 0, 0) 59.1280653951%, #EEE 59.1280653951%, #EEE 66.2125340599%, rgba(0, 0, 0, 0) 66.2125340599%, rgba(0, 0, 0, 0) 67.5749318801%, #EEE 67.5749318801%, #EEE 74.659400545%, rgba(0, 0, 0, 0) 74.659400545%, rgba(0, 0, 0, 0) 76.0217983651%, #EEE 76.0217983651%, #EEE 83.10626703%, rgba(0, 0, 0, 0) 83.10626703%, rgba(0, 0, 0, 0) 84.4686648501%, #EEE 84.4686648501%, #EEE 91.553133515%, rgba(0, 0, 0, 0) 91.553133515%, rgba(0, 0, 0, 0) 92.9155313351%, #EEE 92.9155313351%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  max-width: 73.333333333em;
+  opacity: 0.4;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    body:before {
+      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.84874%, rgba(0, 0, 0, 0) 21.84874%, rgba(0, 0, 0, 0) 26.05042%, #EEE 26.05042%, #EEE 47.89916%, rgba(0, 0, 0, 0) 47.89916%, rgba(0, 0, 0, 0) 52.10084%, #EEE 52.10084%, #EEE 73.94958%, rgba(0, 0, 0, 0) 73.94958%, rgba(0, 0, 0, 0) 78.15126%, #EEE 78.15126%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 21.8487394958%, rgba(0, 0, 0, 0) 21.8487394958%, rgba(0, 0, 0, 0) 26.0504201681%, #EEE 26.0504201681%, #EEE 47.8991596639%, rgba(0, 0, 0, 0) 47.8991596639%, rgba(0, 0, 0, 0) 52.1008403361%, #EEE 52.1008403361%, #EEE 73.9495798319%, rgba(0, 0, 0, 0) 73.9495798319%, rgba(0, 0, 0, 0) 78.1512605042%, #EEE 78.1512605042%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    body:before {
+      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.48905%, rgba(0, 0, 0, 0) 9.48905%, rgba(0, 0, 0, 0) 11.31387%, #EEE 11.31387%, #EEE 20.80292%, rgba(0, 0, 0, 0) 20.80292%, rgba(0, 0, 0, 0) 22.62774%, #EEE 22.62774%, #EEE 32.11679%, rgba(0, 0, 0, 0) 32.11679%, rgba(0, 0, 0, 0) 33.94161%, #EEE 33.94161%, #EEE 43.43066%, rgba(0, 0, 0, 0) 43.43066%, rgba(0, 0, 0, 0) 45.25547%, #EEE 45.25547%, #EEE 54.74453%, rgba(0, 0, 0, 0) 54.74453%, rgba(0, 0, 0, 0) 56.56934%, #EEE 56.56934%, #EEE 66.05839%, rgba(0, 0, 0, 0) 66.05839%, rgba(0, 0, 0, 0) 67.88321%, #EEE 67.88321%, #EEE 77.37226%, rgba(0, 0, 0, 0) 77.37226%, rgba(0, 0, 0, 0) 79.19708%, #EEE 79.19708%, #EEE 88.68613%, rgba(0, 0, 0, 0) 88.68613%, rgba(0, 0, 0, 0) 90.51095%, #EEE 90.51095%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 9.4890510949%, rgba(0, 0, 0, 0) 9.4890510949%, rgba(0, 0, 0, 0) 11.3138686131%, #EEE 11.3138686131%, #EEE 20.802919708%, rgba(0, 0, 0, 0) 20.802919708%, rgba(0, 0, 0, 0) 22.6277372263%, #EEE 22.6277372263%, #EEE 32.1167883212%, rgba(0, 0, 0, 0) 32.1167883212%, rgba(0, 0, 0, 0) 33.9416058394%, #EEE 33.9416058394%, #EEE 43.4306569343%, rgba(0, 0, 0, 0) 43.4306569343%, rgba(0, 0, 0, 0) 45.2554744526%, #EEE 45.2554744526%, #EEE 54.7445255474%, rgba(0, 0, 0, 0) 54.7445255474%, rgba(0, 0, 0, 0) 56.5693430657%, #EEE 56.5693430657%, #EEE 66.0583941606%, rgba(0, 0, 0, 0) 66.0583941606%, rgba(0, 0, 0, 0) 67.8832116788%, #EEE 67.8832116788%, #EEE 77.3722627737%, rgba(0, 0, 0, 0) 77.3722627737%, rgba(0, 0, 0, 0) 79.197080292%, #EEE 79.197080292%, #EEE 88.6861313869%, rgba(0, 0, 0, 0) 88.6861313869%, rgba(0, 0, 0, 0) 90.5109489051%, #EEE 90.5109489051%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
+  @media screen and (min-width: 900px)  {
+    body:before {
+      background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.08447%, rgba(0, 0, 0, 0) 7.08447%, rgba(0, 0, 0, 0) 8.44687%, #EEE 8.44687%, #EEE 15.53134%, rgba(0, 0, 0, 0) 15.53134%, rgba(0, 0, 0, 0) 16.89373%, #EEE 16.89373%, #EEE 23.9782%, rgba(0, 0, 0, 0) 23.9782%, rgba(0, 0, 0, 0) 25.3406%, #EEE 25.3406%, #EEE 32.42507%, rgba(0, 0, 0, 0) 32.42507%, rgba(0, 0, 0, 0) 33.78747%, #EEE 33.78747%, #EEE 40.87193%, rgba(0, 0, 0, 0) 40.87193%, rgba(0, 0, 0, 0) 42.23433%, #EEE 42.23433%, #EEE 49.3188%, rgba(0, 0, 0, 0) 49.3188%, rgba(0, 0, 0, 0) 50.6812%, #EEE 50.6812%, #EEE 57.76567%, rgba(0, 0, 0, 0) 57.76567%, rgba(0, 0, 0, 0) 59.12807%, #EEE 59.12807%, #EEE 66.21253%, rgba(0, 0, 0, 0) 66.21253%, rgba(0, 0, 0, 0) 67.57493%, #EEE 67.57493%, #EEE 74.6594%, rgba(0, 0, 0, 0) 74.6594%, rgba(0, 0, 0, 0) 76.0218%, #EEE 76.0218%, #EEE 83.10627%, rgba(0, 0, 0, 0) 83.10627%, rgba(0, 0, 0, 0) 84.46866%, #EEE 84.46866%, #EEE 91.55313%, rgba(0, 0, 0, 0) 91.55313%, rgba(0, 0, 0, 0) 92.91553%, #EEE 92.91553%, #EEE 100%, rgba(0, 0, 0, 0) 100%);
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0, #EEE 0, #EEE 7.0844686649%, rgba(0, 0, 0, 0) 7.0844686649%, rgba(0, 0, 0, 0) 8.446866485%, #EEE 8.446866485%, #EEE 15.5313351499%, rgba(0, 0, 0, 0) 15.5313351499%, rgba(0, 0, 0, 0) 16.89373297%, #EEE 16.89373297%, #EEE 23.9782016349%, rgba(0, 0, 0, 0) 23.9782016349%, rgba(0, 0, 0, 0) 25.340599455%, #EEE 25.340599455%, #EEE 32.4250681199%, rgba(0, 0, 0, 0) 32.4250681199%, rgba(0, 0, 0, 0) 33.7874659401%, #EEE 33.7874659401%, #EEE 40.8719346049%, rgba(0, 0, 0, 0) 40.8719346049%, rgba(0, 0, 0, 0) 42.2343324251%, #EEE 42.2343324251%, #EEE 49.3188010899%, rgba(0, 0, 0, 0) 49.3188010899%, rgba(0, 0, 0, 0) 50.6811989101%, #EEE 50.6811989101%, #EEE 57.7656675749%, rgba(0, 0, 0, 0) 57.7656675749%, rgba(0, 0, 0, 0) 59.1280653951%, #EEE 59.1280653951%, #EEE 66.2125340599%, rgba(0, 0, 0, 0) 66.2125340599%, rgba(0, 0, 0, 0) 67.5749318801%, #EEE 67.5749318801%, #EEE 74.659400545%, rgba(0, 0, 0, 0) 74.659400545%, rgba(0, 0, 0, 0) 76.0217983651%, #EEE 76.0217983651%, #EEE 83.10626703%, rgba(0, 0, 0, 0) 83.10626703%, rgba(0, 0, 0, 0) 84.4686648501%, #EEE 84.4686648501%, #EEE 91.553133515%, rgba(0, 0, 0, 0) 91.553133515%, rgba(0, 0, 0, 0) 92.9155313351%, #EEE 92.9155313351%, #EEE 100%, rgba(0, 0, 0, 0) 100%); } }
+
 /*
  * Global variables
  */
@@ -1012,6 +1052,38 @@ p + p {
       .nested_column--lg_two_lesser_half:last-child {
         margin-right: 0; } }
 
+.nested_column--lg_fourth {
+  float: left;
+  display: block;
+  margin-right: 1.6393442623%;
+  width: 28.8524590164%; }
+  .nested_column--lg_fourth:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .nested_column--lg_fourth {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .nested_column--lg_fourth:last-child {
+        margin-right: 0; } }
+
+.nested_column--lg_greater_fourth {
+  float: left;
+  display: block;
+  margin-right: 1.6393442623%;
+  width: 69.5081967213%; }
+  .nested_column--lg_greater_fourth:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .nested_column--lg_greater_fourth {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .nested_column--lg_greater_fourth:last-child {
+        margin-right: 0; } }
+
 .nested_column--md_fourth {
   float: left;
   display: block;
@@ -1048,191 +1120,6 @@ p + p {
   margin: 0;
   right: 1em;
   top: 1em; }
-
-/*
- * Deprecated - Grid
- *
- * A layout module which allows setting up basic grid.
- */
-/*
- * Global variables
- */
-/*
- * Font awesome
- */
-/*
- * Color
- */
-/*
- * Z-Index
- */
-/*
- * Global mixins.
- */
-/*
- * Sets the font-size in rems with a px fallback.
- */
-/*
- * Parses a text value to an int.
- */
-/*
- * Sets the property to the values in rem, with a px fallback for old browsers.
- *
- * $property The css property to set the values on
- * $values A list of rem values to set on the property.
- *
- * Example: @include rem(margin, 1rem 0 2rem);
- */
-.grid__omega {
-  margin-right: 0;
-  margin-right: 0 !important; }
-
-.grid--80 {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 66.2125340599%; }
-  .grid--80:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .grid--80 {
-      float: left;
-      display: block;
-      margin-right: 1.8248175182%;
-      width: 66.0583941606%; }
-      .grid--80:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .grid--80 {
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%;
-      margin-bottom: 3em;
-      padding-left: 0.5em;
-      padding-right: 0.5em; }
-      .grid--80:last-child {
-        margin-right: 0; } }
-  .grid--80 .grid--25 {
-    float: left;
-    display: block;
-    margin-right: 2.0576131687%;
-    width: 23.4567901235%; }
-    .grid--80 .grid--25:last-child {
-      margin-right: 0; }
-    @media screen and (min-width: 500px) and (max-width: 899px)  {
-      .grid--80 .grid--25 {
-        float: left;
-        display: block;
-        margin-right: 2.7624309392%;
-        width: 31.4917127072%;
-        margin-bottom: 1em; }
-        .grid--80 .grid--25:last-child {
-          margin-right: 0; } }
-    @media screen and (min-width: 0px) and (max-width: 499px)  {
-      .grid--80 .grid--25 {
-        float: left;
-        display: block;
-        margin-right: 4.2016806723%;
-        width: 47.8991596639%;
-        margin-bottom: 1em; }
-        .grid--80 .grid--25:last-child {
-          margin-right: 0; }
-        .grid--80 .grid--25:nth-child(2n+1) {
-          margin-right: 0;
-          margin-right: 0; } }
-  .grid--80 .grid--50 {
-    float: left;
-    display: block;
-    margin-right: 2.0576131687%;
-    width: 48.9711934156%; }
-    .grid--80 .grid--50:last-child {
-      margin-right: 0; }
-    @media screen and (min-width: 500px) and (max-width: 899px)  {
-      .grid--80 .grid--50 {
-        float: left;
-        display: block;
-        margin-right: 2.7624309392%;
-        width: 65.7458563536%;
-        margin-bottom: 1em; }
-        .grid--80 .grid--50:last-child {
-          margin-right: 0; }
-        .grid--80 .grid--50:last-child {
-          clear: left; } }
-    @media screen and (min-width: 0px) and (max-width: 499px)  {
-      .grid--80 .grid--50 {
-        float: left;
-        display: block;
-        margin-right: 4.2016806723%;
-        width: 100%;
-        margin-bottom: 1em; }
-        .grid--80 .grid--50:last-child {
-          margin-right: 0; } }
-
-.grid--60 {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 57.7656675749%; }
-  .grid--60:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .grid--60 {
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%; }
-      .grid--60:last-child {
-        margin-right: 0; } }
-
-.grid--40 {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 40.8719346049%; }
-  .grid--40:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .grid--40 {
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%; }
-      .grid--40:last-child {
-        margin-right: 0; } }
-
-.grid--20 {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 32.4250681199%; }
-  .grid--20:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .grid--20 {
-      float: left;
-      display: block;
-      margin-right: 1.8248175182%;
-      width: 43.4306569343%; }
-      .grid--20:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .grid--20 {
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%;
-      margin-bottom: 3em;
-      padding-left: 0.5em;
-      padding-right: 0.5em; }
-      .grid--20:last-child {
-        margin-right: 0; } }
-
-.grid__contain {
-  width: 100%; }
-
-.grid__last {
-  margin-right: 0; }
 
 /*
  * Enclose
@@ -1450,32 +1337,32 @@ p + p {
       .inset--lg:last-child {
         margin-right: 0; } }
 
-.inset--md, .article .text-block {
+.inset--md {
   float: left;
   display: block;
   margin-right: 1.3623978202%;
   width: 66.2125340599%;
   margin-left: 16.89373297%; }
-  .inset--md:last-child, .article .text-block:last-child {
+  .inset--md:last-child {
     margin-right: 0; }
   @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .inset--md, .article .text-block {
+    .inset--md {
       float: left;
       display: block;
       margin-right: 1.8248175182%;
       width: 77.3722627737%;
       margin-left: 11.3138686131%; }
-      .inset--md:last-child, .article .text-block:last-child {
+      .inset--md:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .inset--md, .article .text-block {
+    .inset--md {
       margin-left: 0%;
       float: left;
       display: block;
       margin-right: 4.2016806723%;
       width: 100%;
       padding: 0 1em; }
-      .inset--md:last-child, .article .text-block:last-child {
+      .inset--md:last-child {
         margin-right: 0; } }
 
 .inset--sm {
@@ -2076,10 +1963,6 @@ p + p {
   margin-top: 1em;
   margin-bottom: 1em; }
 
-.t-body--lg .text-block {
-  margin-top: 4em;
-  margin-bottom: 5em; }
-
 h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   margin-top: 0; }
 
@@ -2197,6 +2080,59 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     width: 14em; }
 
 /*
+ * Article
+ *
+ * A class for styling text and image articles, used for project pages
+ * currently.
+ */
+/*
+ * Global mixins.
+ */
+/*
+ * Sets the font-size in rems with a px fallback.
+ */
+/*
+ * Parses a text value to an int.
+ */
+/*
+ * Sets the property to the values in rem, with a px fallback for old browsers.
+ *
+ * $property The css property to set the values on
+ * $values A list of rem values to set on the property.
+ *
+ * Example: @include rem(margin, 1rem 0 2rem);
+ */
+.article .text-block {
+  float: left;
+  display: block;
+  margin-right: 1.3623978202%;
+  width: 66.2125340599%;
+  margin-left: 16.89373297%;
+  margin-top: 4em;
+  margin-bottom: 5em; }
+  .article .text-block:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .article .text-block {
+      float: left;
+      display: block;
+      margin-right: 1.8248175182%;
+      width: 77.3722627737%;
+      margin-left: 11.3138686131%; }
+      .article .text-block:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .article .text-block {
+      margin-left: 0%;
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%;
+      padding: 0 1em; }
+      .article .text-block:last-child {
+        margin-right: 0; } }
+
+/*
  * Discover
  *
  * The discover module, a js/css module for finding sorted and categorized
@@ -2225,6 +2161,43 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
 
 .sm-no_pullr {
   float: none; }
+
+/*
+ * Nested Columns overrides
+ *
+ * Care should be taken when using this class. It's often better to create a
+ * module then write an override here.
+ */
+.o-nested_column--sevens .nested_column--fourth {
+  float: left;
+  display: block;
+  margin-right: 2.358490566%;
+  width: 26.8867924528%; }
+  .o-nested_column--sevens .nested_column--fourth:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .o-nested_column--sevens .nested_column--fourth {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .o-nested_column--sevens .nested_column--fourth:last-child {
+        margin-right: 0; } }
+.o-nested_column--sevens .nested_column_half {
+  float: left;
+  display: block;
+  margin-right: 2.358490566%;
+  width: 41.5094339623%; }
+  .o-nested_column--sevens .nested_column_half:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .o-nested_column--sevens .nested_column_half {
+      float: left;
+      display: block;
+      margin-right: 4.2016806723%;
+      width: 100%; }
+      .o-nested_column--sevens .nested_column_half:last-child {
+        margin-right: 0; } }
 
 /*
  * Override Utils

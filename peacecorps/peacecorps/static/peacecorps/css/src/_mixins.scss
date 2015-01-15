@@ -16,6 +16,22 @@
   left: -9999px !important;
 }
 
+@mixin inset--md {
+  @include span-columns(8);
+  @include shift(2);
+
+  @include media($md) {
+    @include span-columns(7);
+    @include shift(1);
+
+  }
+  @include media($sm) {
+    @include shift(0);
+    @include span-columns(4);
+    padding: 0 1em;
+  }
+}
+
 /*
  * Parses a text value to an int.
  */
