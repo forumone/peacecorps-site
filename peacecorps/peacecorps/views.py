@@ -256,4 +256,5 @@ class FAQs(ListView):
 
 
 def four_oh_four(request):
-    return render(request, '404.jinja', status=404)
+    return render(request, '404.jinja', {'title': 'Page Not Found'},
+                  status=404)
