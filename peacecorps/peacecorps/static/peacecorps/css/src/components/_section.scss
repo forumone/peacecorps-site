@@ -53,24 +53,6 @@
   padding-bottom: 1em;
 }
 
-// Deprecated, see enclose
-.section__content--contain {
-  padding: 2.5em;
-  @include media($sm) {
-    padding: 1em;
-  }
-}
-
-// Deprecated, see enclose
-.section__content--no_space_r {
-  padding-right: 0;
-}
-
-// Deprecated, see enclose
-.section__content--contain--sm {
-  padding: .5em 1.5em;
-}
-
 .section__box {
   padding: $gutter;
 

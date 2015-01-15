@@ -54,7 +54,7 @@
   margin-left: -20%;
   position: absolute;
   text-align: center;
-  top: 13%;
+  top: 17%;
   width: 40%;
 
   @include media($md) {
@@ -78,7 +78,7 @@
   text-align: right;
 }
 .rectangular_progress__point--bottom {
-  bottom: 13%;
+  bottom: 17%;
   top: auto;
 
   @include media($md) {
@@ -95,11 +95,11 @@
   height: .7em;
   margin-left: -.32%;
   position: absolute;
-  top: 30.5%;
+  top: 34.5%;
   width: .11em;
 }
 .rectangular_progress__line--bottom {
-  bottom: 30.5%;
+  bottom: 33.8%;
   top: auto;
 }
 .rectangular_progress__line--neutral {

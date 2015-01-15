@@ -24,24 +24,6 @@
   border-color: $neutral_dark !important;
 }
 
-.full_banner--img {
-  border-top: 0.8em solid;
-  height: 40em;
-  margin: 0 -200%;
-  overflow: hidden;
-  padding: 0px 200%;
-  position: relative;
-
-  img {
-    @include transform(translateY(-50%));
-    @include transform(translatex(-50%));
-    left: 50%;
-    max-width: $max_img_width;
-    position: absolute;
-    top: -100%;
-    width: 70%;
-  }
-}
 
 .full_banner--rule {
   border-top: .8em solid;

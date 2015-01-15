@@ -37,14 +37,13 @@
 }
 
 .button--is_hovered {
-  position:relative;
 
-  &:before {
+  &:after {
     background-color: rgba($white, .12);
     content: " ";
     height: 100%;
     left: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0;
   }
