@@ -6,6 +6,10 @@
  */
 
 .image-block {
-  @extend .full_banner--neutral;
-  @extend .full_banner--img;
+  clear: left;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
 }

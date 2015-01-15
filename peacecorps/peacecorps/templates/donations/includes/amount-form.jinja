@@ -15,17 +15,19 @@ similar. In that situation, we reverse the initial states for the form #}
   {% endif %}
   <form action="{{ form_url }}" class="js-form">
     <fieldset class="bubble_form">
-      <legend class="t-title--1 t-nom">Give to this 
-      {% if project %}project{% else %}fund{% endif %}</legend>
-      {% if account.goal %}
-        <div class="t-title--2">{{ humanize_cents(account.remaining()) }}
-          to meet goal</div>
-      {% endif %}
+      <legend class="isolate">
+        <span class="t-title--1 t-nom">Give to this
+        {% if project %}project{% else %}fund{% endif %}</span>
+        {% if account.goal %}
+          <div class="t-heading--2">{{ humanize_cents(account.remaining()) }}
+            to meet goal</div>
+        {% endif %}
+      </legend>
       {% if not account.funded() %}
              {# start open for non-JS users #}
-        <div aria-hidden="false"  
+        <div aria-hidden="false"
              {# starts hidden for JS users #}
-             class="{{startHidden}} js-formSwitch"
+             class="{{startHidden}} js-formSwitch uo-h_center--multiple"
              {# appears when control state is true #}
              data-switch-on="true" data-switch-id="collapsible-customamount">
           <strong class="bubble_form--x-large">$</strong>
@@ -34,26 +36,32 @@ similar. In that situation, we reverse the initial states for the form #}
              {# starts hidden for non-JS users #}
         <div aria-hidden="true"
              {# starts shown for JS users #}
-             class="js-buttons js-formSwitch {{startShown}}"
+             class="js-buttons js-formSwitch {{ startShown }}
+                uo-h_center--multiple"
              {# appears when control state is false #}
              data-switch-on="false" data-switch-id="collapsible-customamount">
-          <div class="inline_grid--15 island__content">
+          <p class="uo-align_l t--white t-title--5">
+            Choose an amount:</p>
+          <div class="uo-h_center__content column nested_column--md_fourth
+              island__content">
             <a class="bubble bubble--primary bubble--bordered
                       bubble--square"
                href="{{ form_url }}?payment_amount=50">
                 <span class="bubble__content t-title--1">$50</span>
             </a>
           </div>
-          <div class="inline_grid--15 island__content">
+          <div class="column uo-h_center__content
+              nested_column--md_fourth island__content">
             <a class="bubble bubble--primary bubble--bordered
                       bubble--square"
                href="{{ form_url }}?payment_amount=100">
                 <span class="bubble__content t-title--1">$100</span>
             </a>
           </div>
-          <div class="inline_grid--15 island__content">
+          <div class="uo-h_center__content column nested_column--md_fourth
+              island__content">
             <a class="bubble bubble--primary bubble--bordered bubble--square"
-                href="#" 
+                href="#"
                 {# controls what's visible. Clicking sets the true state #}
                 aria-controls="collapsible-customamount" data-set-state="true">
               <span class="bubble__content bubble_form--small">

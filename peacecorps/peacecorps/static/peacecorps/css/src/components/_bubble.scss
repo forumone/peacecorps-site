@@ -32,7 +32,7 @@
   position: absolute;
   text-align: center;
   top: 50%;
-  transform: translate(-50%, -50%);
+  @include transform(translate(-50%, -50%));
   width: 96%;
 
   @include media($sm) {
@@ -46,7 +46,9 @@
 
 .bubble--primary {
   background-color: $primary;
+  border-color: $white;
   color: $white;
+  outline-color: $white;
 
   .bubble__content {
     color: $white;

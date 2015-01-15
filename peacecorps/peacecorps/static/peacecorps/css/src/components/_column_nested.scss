@@ -26,3 +26,11 @@
     @include span-columns(4);
   }
 }
+
+.nested_column--md_fourth {
+  @include span-columns(2 of 8);
+
+  @include media($sm) {
+    @include span-columns(4 of 4);
+  }
+}

@@ -11,14 +11,14 @@
 
 {% block content %}
 <section class="blurb blurb--sm">
-  <div class="blurb">
-    <h2 class="t-blurb--lg t--black">{{ project.title }}</h2>
-    <h3 class="t--black t--light">{{ project.tagline or "" }}</h3>
-  </div>
-{% include "donations/includes/project-top.jinja" %}
+  <h2 class="t-blurb t-blurb--lg t--black">{{ project.title }}</h2>
+  <h2 class="t-blurb t--black t--light">{{ project.tagline or "" }}</h2>
+</section>
+<section class="blurb blurb--flatten_t">
+  {% include "donations/includes/project-top.jinja" %}
 </section>
 
-<article class="inset inset--sm t-body--lg">
+<article class="inset t-body--lg">
   {{ project.description.html|safe }}
 </article>
 
@@ -29,7 +29,7 @@
               u-clearfix">
     <div class="inset--md u-clearfix">
       <h4 class="t-title--2 t--gray--2">Help fund this project</h4>
-      <h2 class="t-heading--2 t--gray--2">
+      <h2 class="t-heading--2 t--secondary">
         Give to {{project.title}}</h2>
       {% if project.account.funded() %}
         <div class="rectangular_progress
@@ -74,7 +74,7 @@
           <span style="left: {{percent_community}}%;"
               class="rectangular_progress__line">
           </span>
-          <span class="rectangular_progress__point u-align_r
+          <span class="rectangular_progress__point uo-align_r
               t-title--2" style="right: 0;">
             goal
             <br><strong class="t-title--2 t--secondary">

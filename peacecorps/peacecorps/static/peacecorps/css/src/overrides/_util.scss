@@ -1,0 +1,22 @@
+/*
+ * Override Utils
+ *
+ */
+
+.uo-align_r.uo-align_r {
+  text-align: right;
+}
+.uo-align_l.uo-align_l {
+  text-align: left;
+}
+
+// Refactor to a column class if not used elsewhere.
+.uo-h_center--multiple {
+  text-align: center;
+
+  & > .uo-h_center__content {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+}

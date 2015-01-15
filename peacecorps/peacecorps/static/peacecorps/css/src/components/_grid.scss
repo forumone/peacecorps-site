@@ -80,7 +80,7 @@
   @include span-columns(4);
 
   @include media($md) {
-    @include span-columns(3);
+    @include span-columns(4);
   }
 
   @include media($sm) {

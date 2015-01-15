@@ -1,29 +1,33 @@
 {% from "donations/includes/macros.jinja" import volunteer_photo %}
 
 <article class="u-clearfix">
-  <div class="inline_grid u-clearfix">
-    <section class="u-align_c inline_grid--15">
+  <div class="u-clearfix uo-h_center--multiple">
+    <section class="u-align_c uo-h_center__content
+        column nested_column--md_fourth">
       <div class="mask mask--oval mask--bordered u-h_center--block">
         {{ volunteer_photo(project) }}
       </div>
       {% if project.volunteerpicture %}
-        <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
+        <span class="t-body--sm t--black">
+          <strong>{{project.volunteername}}</strong><br>
           volunteer from <strong>{{project.volunteerhomestate}}</strong>
         </span>
       {% endif %}
     </section>
-    <section class="u-align_c inline_grid--15">
+    <section class="u-align_c uo-h_center__content
+        column nested_column--md_fourth">
       <div class="mask mask--oval mask--bordered u-h_center--block map">
         <img src="{{ static("peacecorps/img/countries/"
                             + project.country.code.lower() + ".svg") }}"
              class="mask__content" />
       </div>
-        <span class="t-body--sm">
+        <span class="t-body--sm t--black">
           in <strong>{{project.country.name}}</strong>
         </span>
     </section>
     {% if project.goal %}
-    <section class="u-align_c inline_grid--15">
+    <section class="u-align_c uo-h_center__content
+        column--fourth">
       {% set percent_raised = project.account.percent_raised() %}
       <div class="radialProgress u-h_center--block"
         {% if percent_raised < 50 %}
@@ -37,7 +41,7 @@
         <div class="radialProgress__overlay">
         </div>
       </div>
-      <span class="t-body--sm">
+      <span class="t-body--sm t--black">
         {{ humanize_cents(project.account.remaining()) }} needed to reach
         {{ humanize_cents(project.account.total_cost()) }} goal
       </span>
