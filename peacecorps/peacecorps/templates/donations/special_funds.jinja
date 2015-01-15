@@ -8,8 +8,10 @@
 {% block content %}
 <section class="section u-clearfix">
 {% for fund in general_funds %}
-  <article>
-    <aside class="grid--20 section__content">
+  <article class="u-clearfix">
+    <aside class="column column--quarter column--shift_1
+        enclose
+        section__content">
       {% if fund.icon %}
         <div class="mask mask--oval mask--fill_square">
           <img class="mask__content--md"
@@ -19,8 +21,8 @@
       {% endif %}
       &nbsp;
     </aside>
-    <section class="grid--80 section__content">
-      <h1 class="t-blurb--lg">{{fund.tagline}}</h1>
+    <section class="column column--half section__content">
+      <h2 class="t-title--2">{{fund.tagline}}</h2>
       <div class="t-blurb--sm">{{fund.description.html|safe}}</div>
       <a href="{{url("donate campaign", slug=fund.slug)}}"
          class="button button--md button--primary">{{fund.call}}</a>
@@ -31,26 +33,26 @@
 
 <section class="section__content
     full_banner full_banner--neutral full_banner--flush">
-  <h1 class="t-title--1">Memorial Funds</h1>
-  {% for fund in memorial_funds %}
-    <section class="section--white section__box u-clearfix">
-        {% if fund.icon %}
-          <aside class="grid--20">
-            <div class="mask mask--oval u-h_center--block">
-              <img class="mask__content--md"
-                   src="{{fund.icon.url}}"
-                   alt="{{fund.icon.description}}" />
-            </div>
-          </aside>
-        {% endif %}
-        <article class="grid--80 u-clearfix">
-          <a href="{{url("donate campaign", slug=fund.slug)}}">
-            <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
-          </a>
-          <p>{{ fund.description.html|safe }}</p>
-        </article>
-    </section>
-  {% endfor %}
+  <div class="inset inset--lg">
+    <h1 class="t-title--1">Memorial Funds</h1>
+    {% for fund in memorial_funds %}
+      <section class="section--white section__box u-clearfix">
+            <aside class="column nested_column--lg_two_lesser_half">
+              <div class="mask mask--oval u-h_center--block">
+                <img class="mask__content--md"
+                     src="{{fund.icon.url}}"
+                     alt="{{fund.icon.description}}" />
+              </div>
+            </aside>
+          <article class="column nested_column--lg_greater_half u-clearfix">
+            <a href="{{url("donate campaign", slug=fund.slug)}}">
+              <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
+            </a>
+            <p>{{ fund.description.html|safe }}</p>
+          </article>
+      </section>
+    {% endfor %}
+  </div>
 </section>
 
 <div class="full_banner banner--no_line banner--neutral_ex_dark u-align_c">

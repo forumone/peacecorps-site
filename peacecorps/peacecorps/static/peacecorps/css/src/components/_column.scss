@@ -17,6 +17,13 @@ $cols: $grid-columns;
   }
 }
 
+.column--shift_1 {
+  @include shift(1);
+  @include media($sm) {
+    @include shift(0);
+  }
+}
+
 .column--half {
   @include span-columns($cols / 2);
 
@@ -47,4 +54,7 @@ $cols: $grid-columns;
 
 .column--quarter {
   @include span-columns($cols / 4);
+  @include media($sm) {
+    @include span-columns(4);
+  }
 }

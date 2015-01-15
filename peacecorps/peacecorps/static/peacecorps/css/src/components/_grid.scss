@@ -91,29 +91,6 @@
   }
 }
 
-.inline_grid {
-  margin: inherit auto;
-}
-
-.inline_grid--15 {
-  @include span-columns(2);
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-
-  @include media($md) {
-    @include span-columns(3);
-    display: inline-block;
-    float: none;
-  }
-  @include media($sm) {
-    @include span-columns(2);
-    display: inline-block;
-    float: none;
-    margin-top: 1em;
-  }
-}
-
 .grid__contain {
   width: 100%
 }

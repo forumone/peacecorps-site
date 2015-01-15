@@ -7,7 +7,7 @@ repeat the layout here #}
       <p>Please double-check your info to continue:</p>
 
       <div class="section--white">
-        <div class="section__content--contain">
+        <div class="section__content enclose">
           <h2>Your Information</h2>
           <p>
             {% if data.is_org %}
@@ -33,11 +33,11 @@ repeat the layout here #}
             {% if data.phone_number %}{{data.phone_number}}{% endif %}
           </p>
         </div>
-        <div class="section__content--contain">
+        <div class="section__content enclose">
           <h2 class="section_starter__content">Payment Method</h2>
           <p>{{data.payment_type}}</p>
         </div>
-        <div class="section__content--contain">
+        <div class="section__content enclose">
           <h2 class="section_starter__content">Options</h2>
           {% if data.dedication %}
             <p>
