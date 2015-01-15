@@ -11,7 +11,7 @@
 {% block content %}
 <section class="section">
   <div class="section__content u-clearfix">
-    <article class="inset inset--sm">
+    <article class="inset inset--sm u-align_c">
       {% if request.GET.donor_name %}
         <h2>Thank you, {{ request.GET.donor_name }}!</h2>
       {% else %}
@@ -22,24 +22,23 @@
     </article>
     <div class="inset inset--sm">Tell Your Friends</div>
     <ul class="inset inset--sm">
-      <li class="main_nav__link"
-          ><a target="_blank"
+      <li class="main_nav__link">
+        <a target="_blank"
               href="//www.facebook.com/sharer/sharer.php?u={{share_url|urlencode}}"
               >Facebook</a></li>
-      <li class="main_nav__link"
-          ><a target="_blank"
+      <li class="main_nav__link">
+        <a target="_blank"
               href="//twitter.com/intent/tweet?text={{share_text|urlencode}}"
               >Twitter</a></li>
-      <li class="main_nav__link"
-          ><a target="_blank"
+      <li class="main_nav__link">
+        <a target="_blank"
               href="mailto:?subject={{share_subject|urlencode}}&body={{share_text|urlencode}}"
               >Email</a></li>
     </ul>
+    <a href="{{url("donate project", slug=project.slug)}}" class="t-title--4"
+       >View Project</a>
   </div>
 </section>
-
-<a href="{{url("donate project", slug=project.slug)}}" class="t-title--4"
-   >View Project</a>
 
 <section class="section">
   <div class="section__content u-clearfix">
@@ -48,29 +47,7 @@
       <div>You Helped Fund This Project</div>
       <h3>{{project.title}}</h2>
       <section class="blurb">
-        <section class="u-align_c">
-          <div class="mask mask--oval mask--bordered u-h_center--block">
-            {{ volunteer_photo(project) }}
-          </div>
-          {% if project.volunteerpicture %}
-            <span class="t-body--sm"><strong>{{project.volunteername}}</strong><br>
-              volunteer from <strong>{{project.volunteerhomestate}}</strong>
-            </span>
-          {% endif %}
-        </section>
-        <section class="u-align_c">
-          <div class="mask mask--oval mask--bordered u-h_center--block map">
-            <img src="{{ static("peacecorps/img/countries/"
-                                + project.country.code.lower() + ".svg") }}"
-                 class="mask__content" />
-          </div>
-            <span class="t-body--sm">
-              in <strong>{{project.country.name}}</strong>
-            </span>
-        </section>
-        <section class="u-align_c">
-          {# radial progress #}
-        </section>
+        {% include "donations/includes/project-top.jinja" %}
       </section>
     </div>
   </div>

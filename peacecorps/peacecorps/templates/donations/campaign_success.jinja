@@ -7,7 +7,7 @@
 {% block content %}
 <section class="section">
   <div class="section__content u-clearfix">
-    <article class="inset inset--sm">
+    <article class="inset inset--sm u-align_c">
       {% if request.GET.donor_name %}
         <h2>Thank you, {{ request.GET.donor_name }}!</h2>
       {% else %}
@@ -31,11 +31,11 @@
               href="mailto:?subject={{share_subject|urlencode}}&body={{share_text|urlencode}}"
               >Email</a></li>
     </ul>
+    <a href="{{url("donate campaign", slug=campaign.slug)}}" class="t-title--4"
+       >View Fund</a>
   </div>
 </section>
 
-<a href="{{url("donate campaign", slug=campaign.slug)}}" class="t-title--4"
-   >View Fund</a>
 <section class="section">
   <div class="section__content u-clearfix">
     <div class="inset inset--sm">
