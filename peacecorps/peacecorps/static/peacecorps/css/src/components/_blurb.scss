@@ -14,6 +14,11 @@
   padding-bottom: em(75, $base);
   padding-top: em(75, $base);
   text-align: center;
+
+  @include media($sm) {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .blurb__spacing {

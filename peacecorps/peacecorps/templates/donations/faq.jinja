@@ -3,20 +3,19 @@
 {% block content_class %}faqs{% endblock %}
 
 {% block content %}
-<section class="section">
-  <div class="section__content u-clearfix">
-    <p class="inset inset--md">
-     Can't find the answer you need? <a href="mailto:donations@peacecorps.gov">Email us</a>!
-    </p>
-  </div>
+<section class="blurb blurb--sm">
+  <h1 class="inset inset--md">
+    Browse these questions, and if you can't find your answer feel free to
+    <a href="mailto:donations@peacecorps.gov">email us</a>!
+  </h1>
 </section>
-<section>
-  <ul>
+<section class="section inset inset--lg">
+  <ul class="section__content u-unmarked_list">
     {% for faq in object_list %}
       {% set anchor = faq.slug or "faq-" + faq.pk|string %}
       <li>
-        <header>
-          <a aria-expanded="false" href="#{{anchor}}"
+        <header class="section__content--xsm">
+          <a class="t-link--no_underline" aria-expanded="false" href="#{{anchor}}"
              aria-controls="{{anchor}}">{{faq.question}}</a>
         </header>
         <article class="js-collapsibleItem js-collapsibleNoHide"
@@ -27,6 +26,4 @@
       </li>
   {% endfor %}
 </section>
-<a href="{{url("donate projects funds")}}" class="t-title--4"
-   >Explore Projects and Funds</a>
 {% endblock %}
