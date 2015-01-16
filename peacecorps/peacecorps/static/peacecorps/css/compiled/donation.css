@@ -633,6 +633,10 @@ p + p {
   text-align: center; }
   .blurb:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .blurb {
+      margin-left: 0;
+      width: 100%; } }
 
 .blurb__spacing {
   margin-top: 8em; }
@@ -1785,8 +1789,14 @@ p + p {
 .separator--r {
   border-right-width: 2px;
   border-right-style: solid;
-  margin-right: 0.5em;
-  padding-right: 0.5em; }
+  margin-right: 0.75em;
+  padding-right: 0.75em; }
+
+.separator--l {
+  border-left-width: 2px;
+  border-left-style: solid;
+  margin-left: 0.75em;
+  padding-left: 0.75em; }
 
 .separator--white {
   border-color: #fff; }
@@ -2113,6 +2123,49 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     .discover .discover__aside--lg {
       margin-bottom: -2em;
       padding-top: 1.5em; } }
+
+/*
+ * Logo
+ */
+/*
+ * Global mixins.
+ */
+/*
+ * Sets the font-size in rems with a px fallback.
+ */
+/*
+ * Parses a text value to an int.
+ */
+/*
+ * Sets the property to the values in rem, with a px fallback for old browsers.
+ *
+ * $property The css property to set the values on
+ * $values A list of rem values to set on the property.
+ *
+ * Example: @include rem(margin, 1rem 0 2rem);
+ */
+.logo {
+  margin-top: 0.45em; }
+  .logo .logo__text {
+    font-size: 35px;
+    font-size: 3.5rem;
+    font-family: 'Georgia';
+    font-weight: 100; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .logo .logo__text {
+        padding-top: 0.5em; } }
+    .logo .logo__text a {
+      text-decoration: none; }
+  .logo .logo__suplementary {
+    font-weight: 100;
+    overflow: elipsis;
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+    vertical-align: baseline; }
+
+@media screen and (min-width: 0px) and (max-width: 499px)  {
+  .logo__img {
+    vertical-align: top; } }
 
 /*
  * Breakpoint specific classes, to do things, such as hide, at specific
