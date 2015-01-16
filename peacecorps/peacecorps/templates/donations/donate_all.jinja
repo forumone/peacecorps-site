@@ -1,8 +1,6 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import url_or, volunteer_photo %}
 
-{% block title %}Peace Corps{% endblock %}
-{% block header %}Peace Corps{% endblock %}
 {% block content_class %}landing{% endblock %}
 {% set custom_top_image=static("peacecorps/img/sorter-top.png") %}
 
@@ -302,7 +300,7 @@
          Read more</a>
       {% else %}
         <a class="button button--sm button--primary"
-           href="{{ url("donate project", slug=project.slug) }}#amount-form">
+           href="{{ url("donate project", slug=project.slug) }}">
          Give to the project</a>
       {% endif %}
     </section>

@@ -59,6 +59,7 @@ def donation_payment(request, account, project=None, campaign=None):
     payment_amount = int(form.cleaned_data['payment_amount'] * 100)
 
     context = {
+        'title': 'Giving Checkout',
         'payment_amount': payment_amount,
         'project': project,
         'account_name': account.name,
@@ -151,6 +152,7 @@ def donate_projects_funds(request):
         request,
         'donations/donate_all.jinja',
         {
+            'title': 'Projects and Funds',
             'countries': countries,
             'issues': issues,
             'projects': projects,
@@ -173,7 +175,9 @@ def special_funds(request):
         fund.sort_name = " ".join(name_parts[-1:] + name_parts[:-1])
     memorial_funds = sorted(memorial_funds, key=lambda f: f.sort_name)
     return render(request, "donations/special_funds.jinja", {
-        "general_funds": general_funds, "memorial_funds": memorial_funds})
+        "general_funds": general_funds,
+        "memorial_funds": memorial_funds,
+        'title': 'Special Funds'})
 
 
 def fund_detail(request, slug):
@@ -188,6 +192,7 @@ def fund_detail(request, slug):
         request,
         'donations/fund_detail.jinja',
         {
+            'title': 'Donate',
             'campaign': campaign,
             'account': campaign.account,
             'donate_form': form,
@@ -225,6 +230,7 @@ class AbstractReturn(DetailView):
         context['share_url'] = path
         context['share_text'] = settings.SHARE_TEMPLATE % path
         context['share_subject'] = settings.SHARE_SUBJECT
+        context['title'] = 'Thank You'
         return context
 
 
@@ -241,3 +247,14 @@ class CampaignReturn(AbstractReturn):
 class FAQs(ListView):
     model = FAQ
     template_name = 'donations/faq.jinja'
+
+    def get_context_data(self, **kwargs):
+        """Add title"""
+        context = super(FAQs, self).get_context_data(**kwargs)
+        context['title'] = 'Donating FAQs'
+        return context
+
+
+def four_oh_four(request):
+    return render(request, '404.jinja', {'title': 'Page Not Found'},
+                  status=404)
