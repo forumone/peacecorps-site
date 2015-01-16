@@ -586,11 +586,16 @@ p + p {
   color: #fff; }
 
 .banner--dark_transparent {
-  background-color: rgba(49, 66, 99, 0.9);
+  background-color: rgba(111, 111, 111, 0.05);
   color: #fff; }
 
 .banner--no_line {
   border-top: none; }
+
+.banner--sitewide_notification {
+  padding: 1em; }
+  .banner--sitewide_notification .t-body--xsm {
+    padding-left: 1em; }
 
 /*
  * layout/Blurb
