@@ -184,7 +184,8 @@
 {% macro render_project_header(project, ptype) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-     class="js-collapsibleControls section section__content--xsm u-clearfix">
+     class="js-collapsibleControls section section__content--xsm u-clearfix
+     t-link--no_underline t-link--gray">
     <header>
         <div class="column--third" style="height: 1em;"></div>
         <h4 class="t-heading--4 t--gray--2 column--half t-nom">
