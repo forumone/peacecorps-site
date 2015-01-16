@@ -8,7 +8,7 @@
   margin-top: .45em;
   .logo__text {
     @include font-size(3.5);
-    font-family: 'Georgia';
+    font-family: georgia,times,"times new roman",serif;
     font-weight: 100;
     @include media($sm) {
       padding-top: .5em;
@@ -27,6 +27,8 @@
 }
 
 .logo__img {
+  margin-right: .5em;
+  width: 6em;
   @include media($sm) {
     vertical-align: top;
   }
