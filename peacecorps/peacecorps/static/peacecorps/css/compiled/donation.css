@@ -452,9 +452,9 @@ p + p {
   clear: left; }
 
 .u-visually_hidden {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
+  left: -9999px;
+  position: absolute;
+  top: -9999px; }
 
 .u-hv_center--block, .mask, .rectangular_progress {
   position: relative; }
