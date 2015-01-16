@@ -67,6 +67,7 @@ body {
 }
 .t--gray--2 {
   color: $gray-2;
+  text-decoration-color: $gray-2;
 }
 
 .t--black {
@@ -82,6 +83,7 @@ body {
   font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: $weight-medium;
   line-height: $leading-sm;
+  text-decoration: none;
 }
 .t-heading--1 {
   @include font-size(2.7);
@@ -291,7 +293,7 @@ p + p {
     color: lighten($gray-2, 15%);
   }
   &:hover {
-    color: $primary;
+    color: $gray-2;
   }
   &:active {
     color: lighten($primary, 10%);

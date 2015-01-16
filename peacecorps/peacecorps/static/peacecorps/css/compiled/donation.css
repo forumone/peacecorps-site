@@ -131,7 +131,8 @@ body {
   color: #aaa698; }
 
 .t--gray--2 {
-  color: #555; }
+  color: #555;
+  text-decoration-color: #555; }
 
 .t--black {
   color: #222; }
@@ -144,7 +145,8 @@ body {
 .t-heading, h1, h2, h3, h4, h5, h6 {
   font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: 500;
-  line-height: 1.3; }
+  line-height: 1.3;
+  text-decoration: none; }
 
 .t-heading--1, h1 {
   font-size: 27px;
@@ -365,7 +367,7 @@ p + p {
   .t-link--gray:visited, .main_nav__link :visited {
     color: #7b7b7b; }
   .t-link--gray:hover, .main_nav__link :hover {
-    color: #A12122; }
+    color: #555; }
   .t-link--gray:active, .main_nav__link :active {
     color: #cb2a2b; }
 
