@@ -50,7 +50,9 @@
 
 // Visually hide information but keep available for screen readers.
 .u-visually_hidden {
-  @include u-visually_hidden;
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
 }
 
 // Centers an block element vertically and horizontally.

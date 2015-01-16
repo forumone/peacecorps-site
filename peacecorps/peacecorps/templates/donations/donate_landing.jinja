@@ -4,8 +4,7 @@
 {% block content_class %}landing{% endblock %}
 {% set custom_top_image=static("peacecorps/img/landing-top.png") %}
 
-{% block content %}
-{# The navigation should really belong in the base file somehow #}
+{% block navigation %}
 <nav class="main_nav">
   <ul class="main_nav__list">
     <li class="main_nav__link t-title--4">
@@ -19,6 +18,10 @@
         Donating FAQs</a></li>
   </ul>
 </nav>
+{% endblock %}
+
+{% block content %}
+{# The navigation should really belong in the base file somehow #}
 <section class="blurb blurb--sm">
   <div class="t-blurb--md t--black">
     Peace Corps Volunteers help build clinics in villages, put books in
