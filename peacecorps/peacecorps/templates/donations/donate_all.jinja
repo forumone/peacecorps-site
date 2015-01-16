@@ -1,8 +1,6 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import url_or, volunteer_photo %}
 
-{% block title %}Peace Corps{% endblock %}
-{% block header %}Peace Corps{% endblock %}
 {% block content_class %}landing{% endblock %}
 {% set custom_top_image=static("peacecorps/img/sorter-top.png") %}
 
@@ -33,13 +31,14 @@
 </nav>
 
 <article class="js-discoverApp discover">
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="issue"
       data-filter-type="issue">
   {% for issue in issues %}
     <li id="page-issue-{{ issue.id }}">
       <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
           class="js-pageNav section section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix section__content--xsm">
+          bordered--white u-clearfix section__content--xsm t-link--no_underline
+          t-link--gray">
         {{ render_link_header(issue.icon_color_url('grey'), issue.name, issue.name) }}
       </a>
     </li>
@@ -75,7 +74,7 @@
     {% endfor %}
   {% endfor %}
   </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="volunteer"
       data-filter-type="volunteer">
   {% for project in projects %}
     <li class="
@@ -89,13 +88,14 @@
     </li>
   {% endfor %}
   </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="country"
       data-filter-type="country">
   {% for country in countries %}
     <li id="page-country-{{ country.id }}">
       <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
           class="js-pageNav section section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix section__content--xsm">
+          bordered--white u-clearfix section__content--xsm t-link--no_underline
+          t-link--gray">
       {{ render_link_header(
         static("peacecorps/img/countries/" + country.country.code.lower() + ".svg"),
           country.country.name, country.country.name) }}
@@ -182,7 +182,8 @@
 {% macro render_project_header(project, ptype) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-     class="js-collapsibleControls section section__content--xsm u-clearfix">
+     class="js-collapsibleControls section section__content--xsm u-clearfix
+     t-link--no_underline t-link--gray">
     <header>
         <div class="column--third" style="height: 1em;"></div>
         <h4 class="t-heading--4 t--gray--2 column--half t-nom">
@@ -214,7 +215,7 @@
 {% macro render_volunteer_project_header(project, ptype) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-     class="js-collapsibleControls">
+     class="js-collapsibleControls t-link--no_underline t-link--gray">
     <aside class="column column--third enclose--sm">
       <div class="mask mask--oval mask--gray-1 mask--bordered
            u-clearfix u-pullr sm-hide"
@@ -240,8 +241,8 @@
 {%- endmacro %}
 
 {% macro render_project(project, ptype) -%}
-  <article class="js-collapsibleItem u-clearfix drift_corner"
-        id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
+  <article class="js-collapsibleItem js-hideForJSUsers u-clearfix drift_corner"
+        id="collapsible-{{ ptype }}-{{ project.id }}">
     <aside class="column column--third
                   section__content--sm
                   u-clearfix
@@ -302,7 +303,7 @@
          Read more</a>
       {% else %}
         <a class="button button--sm button--primary"
-           href="{{ url("donate project", slug=project.slug) }}#amount-form">
+           href="{{ url("donate project", slug=project.slug) }}">
          Give to the project</a>
       {% endif %}
     </section>

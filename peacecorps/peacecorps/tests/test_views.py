@@ -168,10 +168,6 @@ class DonationsTests(TestCase):
 
         self.assertEqual(len(nonces), 4)  # distinct nonces
 
-    def test_completed_success(self):
-        response = self.client.get(reverse('donation success'))
-        self.assertEqual(response.status_code, 200)
-
     def test_fully_funded(self):
         """Don't allow donations to fully-funded projects"""
         response = self.client.get(

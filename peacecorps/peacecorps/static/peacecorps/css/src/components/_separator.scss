@@ -30,8 +30,15 @@
 .separator--r {
   border-right-width: 2px;
   border-right-style: solid;
-  margin-right: 0.5em;
-  padding-right: 0.5em;
+  margin-right: 0.75em;
+  padding-right: 0.75em;
+}
+
+.separator--l {
+  border-left-width: 2px;
+  border-left-style: solid;
+  margin-left: 0.75em;
+  padding-left: 0.75em;
 }
 
 .separator--white {

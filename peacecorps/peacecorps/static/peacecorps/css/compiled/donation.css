@@ -131,7 +131,8 @@ body {
   color: #aaa698; }
 
 .t--gray--2 {
-  color: #555; }
+  color: #555;
+  text-decoration-color: #555; }
 
 .t--black {
   color: #222; }
@@ -144,7 +145,8 @@ body {
 .t-heading, h1, h2, h3, h4, h5, h6 {
   font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: 500;
-  line-height: 1.3; }
+  line-height: 1.3;
+  text-decoration: none; }
 
 .t-heading--1, h1 {
   font-size: 27px;
@@ -365,7 +367,7 @@ p + p {
   .t-link--gray:visited, .main_nav__link :visited {
     color: #7b7b7b; }
   .t-link--gray:hover, .main_nav__link :hover {
-    color: #A12122; }
+    color: #555; }
   .t-link--gray:active, .main_nav__link :active {
     color: #cb2a2b; }
 
@@ -373,6 +375,9 @@ p + p {
   color: #fff; }
   .t-link--white:active {
     color: #f2f2f2; }
+
+.t-link--no_underline {
+  text-decoration: none; }
 
 .t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button--md a, .t-title--4 a, .button--sm a, .t-title--5 a {
   text-decoration: none; }
@@ -638,6 +643,10 @@ p + p {
   text-align: center; }
   .blurb:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .blurb {
+      margin-left: 0;
+      width: 100%; } }
 
 .blurb__spacing {
   margin-top: 8em; }
@@ -1790,8 +1799,14 @@ p + p {
 .separator--r {
   border-right-width: 2px;
   border-right-style: solid;
-  margin-right: 0.5em;
-  padding-right: 0.5em; }
+  margin-right: 0.75em;
+  padding-right: 0.75em; }
+
+.separator--l {
+  border-left-width: 2px;
+  border-left-style: solid;
+  margin-left: 0.75em;
+  padding-left: 0.75em; }
 
 .separator--white {
   border-color: #fff; }
@@ -2118,6 +2133,52 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     .discover .discover__aside--lg {
       margin-bottom: -2em;
       padding-top: 1.5em; } }
+
+/*
+ * Logo
+ */
+/*
+ * Global mixins.
+ */
+/*
+ * Sets the font-size in rems with a px fallback.
+ */
+/*
+ * Parses a text value to an int.
+ */
+/*
+ * Sets the property to the values in rem, with a px fallback for old browsers.
+ *
+ * $property The css property to set the values on
+ * $values A list of rem values to set on the property.
+ *
+ * Example: @include rem(margin, 1rem 0 2rem);
+ */
+.logo {
+  margin-top: 0.45em; }
+  .logo .logo__text {
+    font-size: 35px;
+    font-size: 3.5rem;
+    font-family: georgia, times, "times new roman", serif;
+    font-weight: 100; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .logo .logo__text {
+        padding-top: 0.5em; } }
+    .logo .logo__text a {
+      text-decoration: none; }
+  .logo .logo__suplementary {
+    font-weight: 100;
+    overflow: elipsis;
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+    vertical-align: baseline; }
+
+.logo__img {
+  margin-right: 0.5em;
+  width: 6em; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .logo__img {
+      vertical-align: top; } }
 
 /*
  * Breakpoint specific classes, to do things, such as hide, at specific

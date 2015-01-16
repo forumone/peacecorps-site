@@ -1,8 +1,6 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import url_or %}
 
-{% block title %}Peace Corps{% endblock %}
-{% block header %}Peace Corps{% endblock %}
 {% block content_class %}landing{% endblock %}
 {% set custom_top_image=static("peacecorps/img/landing-top.png") %}
 
@@ -38,7 +36,7 @@
             u-clearfix u-hv_center--block">
           <img src="{{ project.featured_image.url }}"
             style="width: 100%; height: auto" />
-          <a href="{{ url("donate project", slug=project.slug) }}#amount-form"
+          <a href="{{ url("donate project", slug=project.slug) }}"
                class="button button--sm button--primary
                u-hv_center--block__content">
              Give to this Project
