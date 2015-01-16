@@ -38,18 +38,18 @@
     </a>
     <span class="t-body--xsm">This is a beta site</span>
   </nav>
-  <header class="banner banner--support banner--no_line section__content">
+  <header class="banner banner--header banner--support banner--no_line section__content">
     <a href="{{ url('donate landing') }}">
-      <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="u-inline"
-        style="width: 6em; margin-right: .5em" alt="Peace Corps Logo" />
+      <img src="{{ static('peacecorps/img/pc_logo.png') }}" class="pc-logo u-inline"
+        style="width: 6em; margin-right: .5em; margin-bottom: 0;" alt="Peace Corps Logo" />
     </a>
-    <div class="u-inline">
+    <div class="u-inline" style="margin-top:1em;">
       <h1 class="t-title--1 u-inline
         {% if title %}
           separator--r separator--white separator--hide_sm
         {% endif %}
       ">
-        <a href="{{ url('donate landing') }}" class="t--white">
+        <a href="{{ url('donate landing') }}" class="t--white t--peace--corps">
           Peace Corps
         </a>
       </h1>

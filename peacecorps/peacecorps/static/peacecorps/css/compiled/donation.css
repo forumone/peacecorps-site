@@ -136,6 +136,12 @@ body {
 .t--black {
   color: #222; }
 
+.t--peace--corps {
+  font-family: Georgia;
+  font-size: 1.5em;
+  font-weight: 100;
+  text-transform: Capitalize; }
+
 /*
  * Headings are in the main content, serving as titles to body text.
  *
@@ -1726,8 +1732,8 @@ p + p {
   background-color: #F2EFE8; }
 
 .section__content {
-  padding-top: 2.5em;
-  padding-bottom: 2.5em; }
+  padding-top: 2em;
+  padding-bottom: 2em; }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .section__content {
       padding-top: 1.5em;

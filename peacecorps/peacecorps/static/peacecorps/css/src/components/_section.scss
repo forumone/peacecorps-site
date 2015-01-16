@@ -35,8 +35,8 @@
 }
 
 .section__content {
-  padding-top: 2.5em;
-  padding-bottom: 2.5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 
   @include media($sm) {
     padding-top: 1.5em;
