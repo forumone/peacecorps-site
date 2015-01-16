@@ -33,7 +33,7 @@
 </nav>
 
 <article class="js-discoverApp discover">
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="issue"
       data-filter-type="issue">
   {% for issue in issues %}
     <li id="page-issue-{{ issue.id }}">
@@ -75,7 +75,7 @@
     {% endfor %}
   {% endfor %}
   </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="volunteer"
       data-filter-type="volunteer">
   {% for project in projects %}
     <li class="
@@ -89,7 +89,7 @@
     </li>
   {% endfor %}
   </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix"
+  <ul class="js-filterable u-unmarked_list u-clearfix" id="country"
       data-filter-type="country">
   {% for country in countries %}
     <li id="page-country-{{ country.id }}">
@@ -240,8 +240,8 @@
 {%- endmacro %}
 
 {% macro render_project(project, ptype) -%}
-  <article class="js-collapsibleItem u-clearfix drift_corner"
-        id="collapsible-{{ ptype }}-{{ project.id }}" aria-hidden="true">
+  <article class="js-collapsibleItem .js-hideForJSUsers u-clearfix drift_corner"
+        id="collapsible-{{ ptype }}-{{ project.id }}">
     <aside class="column column--third
                   section__content--sm
                   u-clearfix
