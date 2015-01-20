@@ -79,10 +79,11 @@ def create_campaign(account, row, name, acc_type):
             return
 
     account.save()
+    summary = clean_description(row['SUMMARY'])
     campaign = Campaign.objects.create(
         name=name, account=account, campaigntype=acc_type,
         description=json.dumps({"data": [{"type": "text",
-                                          "data": {"text": row['SUMMARY']}}]}),
+                                          "data": {"text": summary}}]}),
         country=country)
     if acc_type == Account.SECTOR:
         # Make sure we remember the sector this is marked as
@@ -111,8 +112,8 @@ def create_pcpp(account, row, issue_map):
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
 
-        sirtrevorobj = {"data": [{"type": "text", "data": {"text": ""}}]}
-        sirtrevorobj['data'][0]['data']['text'] = row['SUMMARY']
+        summary = clean_description(row['SUMMARY'])
+        sirtrevorobj = {"data": [{"type": "text", "data": {"text": summary}}]}
         description = json.dumps(sirtrevorobj)
 
         project = Project.objects.create(
@@ -178,6 +179,15 @@ def process_rows_in(reader):
         else:
             logger.info('Creating %s', row['PROJ_NO'])
             create_account(row, issue_map)
+
+
+def clean_description(text):
+    """The original datasource introduces some common, incorrect encodings.
+    Fix them here"""
+    text = text.replace("\u00c2\u00bf", "'")
+    text = re.sub(r"<\s*br\s*/?>", "\n", text, flags=re.IGNORECASE)
+    text = re.sub(r"</\s*br>", "", text, flags=re.IGNORECASE)
+    return text
 
 
 class Command(BaseCommand):

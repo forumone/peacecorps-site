@@ -328,3 +328,15 @@ class SyncAccountingTests(TestCase):
                'LOCATION': 'D/OSP/GGM', 'PROJ_NAME1': 'General Fund',
                'PCV_NAME': 'General Fund', 'OVERS_PART': ''}
         self.assertEqual(Account.OTHER, sync.account_type(row))
+
+    def test_clean_description(self):
+        """Clean description replaces bad bytes and BRs"""
+        text = '!@#$%^&*()_+1234567890-='
+        self.assertEqual(sync.clean_description(text),
+                         '!@#$%^&*()_+1234567890-=')
+
+        text = "Darwin\u00c2\u00bfs Bulldog"
+        self.assertEqual(sync.clean_description(text), "Darwin's Bulldog")
+
+        text = "\n\r\nSome<BR><br /></BR>Text"
+        self.assertEqual(sync.clean_description(text), "\n\r\nSome\n\nText")
