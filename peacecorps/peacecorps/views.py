@@ -1,3 +1,4 @@
+from collections import defaultdict
 from urllib.parse import quote as urlquote
 
 from django.conf import settings
@@ -147,6 +148,9 @@ def donate_projects_funds(request):
     issues = Issue.objects.all().order_by('name')
     projects = Project.published_objects.select_related(
         'country', 'account').order_by('volunteername')
+    projects_by_country = defaultdict(list)
+    for project in projects:
+        projects_by_country[project.country.code].append(project)
 
     return render(
         request,
@@ -156,6 +160,7 @@ def donate_projects_funds(request):
             'countries': countries,
             'issues': issues,
             'projects': projects,
+            'projects_by_country': projects_by_country,
         })
 
 
