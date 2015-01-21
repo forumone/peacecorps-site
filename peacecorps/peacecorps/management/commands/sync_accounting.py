@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand, CommandError
 import pytz
 
 from peacecorps.models import (
-    Account, Campaign, Country, Project, SectorMapping)
+    Account, Campaign, Country, NAME_LENGTH, Project, SectorMapping)
 
 
 def datetime_from(text):
@@ -79,10 +79,11 @@ def create_campaign(account, row, name, acc_type):
             return
 
     account.save()
+    summary = clean_description(row['SUMMARY'])
     campaign = Campaign.objects.create(
         name=name, account=account, campaigntype=acc_type,
         description=json.dumps({"data": [{"type": "text",
-                                          "data": {"text": row['SUMMARY']}}]}),
+                                          "data": {"text": summary}}]}),
         country=country)
     if acc_type == Account.SECTOR:
         # Make sure we remember the sector this is marked as
@@ -111,8 +112,8 @@ def create_pcpp(account, row, issue_map):
         if volunteername.startswith(row['STATE']):
             volunteername = volunteername[len(row['STATE']):].strip()
 
-        sirtrevorobj = {"data": [{"type": "text", "data": {"text": ""}}]}
-        sirtrevorobj['data'][0]['data']['text'] = row['SUMMARY']
+        summary = clean_description(row['SUMMARY'])
+        sirtrevorobj = {"data": [{"type": "text", "data": {"text": summary}}]}
         description = json.dumps(sirtrevorobj)
 
         project = Project.objects.create(
@@ -154,6 +155,19 @@ def account_type(row):
     return Account.OTHER
 
 
+def trim_row(row, logger):
+    """Trim columns in this row to lengths appropriate for our models"""
+    limits = {'PROJ_NO': 25, 'LOCATION': NAME_LENGTH,
+              'PROJ_NAME1': NAME_LENGTH, 'PCV_NAME': NAME_LENGTH,
+              'STATE': 2, 'SECTOR': 50}
+    for key, length in limits.items():
+        if key in row and len(row[key]) > length:
+            logger.warning("%s's %s column is too long: %s/%s", row['PROJ_NO'],
+                           key, len(row[key]), length)
+            row[key] = row[key][:length]
+    return row
+
+
 def process_rows_in(reader):
     """Run through rows in the CSV file, creating/updating accounts. Delay
     processing of PROJECT accounts until the end (as they may rely on funds
@@ -169,6 +183,7 @@ def process_rows_in(reader):
     issue_map = IssueCache()
     logger = logging.getLogger('peacecorps.sync_accounting')
     for row in other_rows + project_rows:
+        row = trim_row(row, logger)
         account = Account.objects.filter(code=row['PROJ_NO']).first()
         if account:
             logger.info(
@@ -178,6 +193,15 @@ def process_rows_in(reader):
         else:
             logger.info('Creating %s', row['PROJ_NO'])
             create_account(row, issue_map)
+
+
+def clean_description(text):
+    """The original datasource introduces some common, incorrect encodings.
+    Fix them here"""
+    text = text.replace("\u00c2\u00bf", "'")
+    text = re.sub(r"<\s*br\s*/?>", "\n", text, flags=re.IGNORECASE)
+    text = re.sub(r"</\s*br>", "", text, flags=re.IGNORECASE)
+    return text
 
 
 class Command(BaseCommand):
