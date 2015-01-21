@@ -114,8 +114,8 @@
         country.country.name,
         country) }}
     </li>
-    {# TODO figure out projects rather the featured projects #}
-    {% for project in country.project_set.all() %}
+    {# Must use "get" as they key is a variable #}
+    {% for project in projects_by_country.get(country.country.code, []) %}
       <li class="section section--neutral_medium
           u-clearfix
           bordered
