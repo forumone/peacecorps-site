@@ -69,12 +69,6 @@ if apps.is_installed('paygov'):
 
 if apps.is_installed('contenteditor'):
     urlpatterns += patterns(
-        '', url(r'^admin/', include('contenteditor.urls')))
-
-if apps.is_installed('tinymce'):
-    urlpatterns += patterns(
-        '', url(r'^tinymce/', include('tinymce.urls')))
-
-if settings.SIRTREVOR:
-    urlpatterns += patterns(
-        '', url(r'^sirtrevor/', include('sirtrevor.urls')))
+        '',
+        url(r'^admin/', include('contenteditor.urls')),
+        url(r'^admin/sirtrevor/', include('sirtrevor.urls')))
