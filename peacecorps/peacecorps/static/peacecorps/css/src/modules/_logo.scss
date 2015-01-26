@@ -27,9 +27,18 @@
 }
 
 .logo__img {
-  margin-right: .5em;
-  width: 6em;
-  @include media($sm) {
-    vertical-align: top;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+
+  img {
+    border: 0;
+    margin-right: .5em;
+    outline: 0;
+    text-decoration: none;
+    width: 6em;
+    @include media($sm) {
+      vertical-align: top;
+    }
   }
 }
