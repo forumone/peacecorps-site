@@ -75,7 +75,6 @@ STATIC_ROOT = '/var/www/static/'
 
 SIRTREVOR_DEFAULT_TYPE = 'Text'
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
@@ -137,10 +136,6 @@ LOGGED_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 # Non-Sir Trevor Image Processing:
 RESIZED_IMAGE_UPLOAD_PATH = "attachments/"
-
-# Set SIRTREVOR var to exclude sirtrevor urls
-# (overwritten in admin settings)
-SIRTREVOR = False
 
 # Sir Trevor image storage and processing:
 SIRTREVOR_UPLOAD_PATH = "attachments/"

@@ -35,7 +35,9 @@ def imagesave(description):
 
             desc = block['data']['image_description']
 
-            thisimage, created = Media.objects.get_or_create(file=imagepath)
+            thisimage = Media.objects.filter(file=imagepath).first()
+            if thisimage is None:
+                thisimage = Media(file=imagepath)
             thisimage.title = block['data']['image_title']
             thisimage.mediatype = Media.IMAGE
             thisimage.description = desc
@@ -287,6 +289,7 @@ class Media(models.Model):
                             settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)
                         img.save(buffer_file, img.format.lower())
                         default_storage.save(path, buffer_file)
+            self.file.file.seek(0)
         super(Media, self).save(*args, **kwargs)
 
     @property
