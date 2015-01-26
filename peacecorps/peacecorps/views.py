@@ -143,8 +143,8 @@ def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
-    countries = Campaign.objects.filter(
-        campaigntype=Campaign.COUNTRY).order_by('name')
+    countries = Campaign.objects.select_related('country').filter(
+        campaigntype=Campaign.COUNTRY).order_by('country__name')
     issues = Issue.objects.all().order_by('name')
     projects = Project.published_objects.select_related(
         'country', 'account').order_by('volunteername')

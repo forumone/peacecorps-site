@@ -184,6 +184,23 @@ class DonationsTests(TestCase):
         self.assertEqual(302, response.status_code)
         self.assertTrue(self.campaign.slug in response['LOCATION'])
 
+    def test_the_gambia_order(self):
+        """We should be sorting by country name, not campaign name"""
+        acc_a = Account.objects.create(name='AAA', code='AAA')
+        acc_b = Account.objects.create(name='BBB', code='BBB')
+        Campaign.objects.create(
+            campaigntype=Campaign.COUNTRY, slug='aaa', account=acc_a,
+            country=Country.objects.get(name='Mexico'), name='AAA')
+        Campaign.objects.create(
+            campaigntype=Campaign.COUNTRY, slug='bbb', account=acc_b,
+            country=Country.objects.get(name='Gambia'), name='BBB')
+        response = self.client.get(reverse('donate projects funds'))
+        response = response.content.decode('utf-8')
+        self.assertTrue(response.index('Mexico') > response.index('Gambia'))
+        self.assertTrue(response.index('AAA') > response.index('BBB'))
+        acc_b.delete()
+        acc_a.delete()
+
 
 class DonatePagesTests(TestCase):
 
