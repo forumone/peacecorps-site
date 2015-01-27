@@ -176,6 +176,10 @@ class DonationAmountForm(forms.Form):
             raise ValidationError(
                 "Sorry, we can't accept gifts of less than a dollar",
                 code="min_value")
+        elif self.project_max is 0:
+            raise ValidationError(
+                "Sorry, this project is already fully funded",
+                code="full")
         # * 100 for cents
         elif self.project_max is not None and amount * 100 > self.project_max:
             raise ValidationError(

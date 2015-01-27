@@ -37,9 +37,38 @@ var switchToggle = function($elOn, $elOff, id, $form) {
 
 };
 
+var submitForm = function($form, $submitButton) {
+  var url = $form.data('ajax-url');
+  $submitButton.text('Processing').attr('disabled', true);
+  $.post(url, $form.serialize())
+    .done(function(data) {
+      //  Generate a form to submit to pay.gov
+      var $payGovForm = $('<form>', {
+        'method': 'POST',
+        'action': data['oci_servlet_url']
+      });
+      $.each(data, function(key, value) {
+        if (key !== 'oci_servlet_url') {
+          $('<input>', {
+            'type': 'hidden',
+            'name': key,
+            'value': value}).appendTo($payGovForm);
+        }
+      });
+      $payGovForm.insertAfter($form).submit();
+    })
+    .fail(function() {
+      //  Fall back to normal HTTP calls. Remove the submit handler to let our
+      //  request through
+      $form.off('submit');
+      $form.submit();
+    });
+};
+
 var initForm = function($form) {
   var $switchGroup,
       switchGroupIds = [],
+      $submitButton = $form.find('.js-submit'),
       i,
       ilen;
 
@@ -66,7 +95,11 @@ var initForm = function($form) {
         $form);
   }
 
-  $form.find('button[type="submit"]').text('Continue to Pay.gov');
+  $form.submit(function(ev) {
+    ev.preventDefault();
+    submitForm($form, $submitButton);
+  });
+  $submitButton.text('Continue to Pay.gov');
 };
 
 module.exports = {
