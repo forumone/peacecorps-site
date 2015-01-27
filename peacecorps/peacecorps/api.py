@@ -1,10 +1,16 @@
 import json
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
+from restless.http import Http400
 from restless.models import serialize
 from restless.modelviews import DetailEndpoint
+from restless.views import Endpoint
 
-from peacecorps.models import Account, Project
+from peacecorps.forms import DonationAmountForm, DonationPaymentForm
+from peacecorps.models import Account, Campaign, Project
+from peacecorps.payxml import convert_to_paygov
 
 
 def _serialize_volunteer(project):
@@ -76,3 +82,58 @@ class ProjectDetail(DetailEndpoint):
             ),
 
         )
+
+
+class AbstractDonation(Endpoint):
+    """Base class for fund and project donations; contains all of the form
+    validation checks. @todo this duplicates a lot of the views functionality;
+    the views should be calling here instead"""
+    def serialize_errors(self, form):
+        """Taken from django's as_json"""
+        return {f: e.get_json_data() for f, e in form.errors.items()}
+
+    def errors_or_paygov(self, account, data, host):
+        """Return a 400 or the paygov data"""
+        amount_form = DonationAmountForm(data, account=account)
+        if not amount_form.is_valid():
+            errors = self.serialize_errors(amount_form)
+            return Http400(
+                "validation error", error_form="amount", errors=errors)
+        donorinfo_form = DonationPaymentForm(data)
+        if not donorinfo_form.is_valid():
+            errors = self.serialize_errors(donorinfo_form)
+            return Http400(
+                "validation error", error_form="donorinfo", errors=errors)
+
+        # convert to cents
+        payment_amount = int(amount_form.cleaned_data['payment_amount'] * 100)
+
+        payment_data = dict(donorinfo_form.cleaned_data)
+        payment_data['payment_amount'] = payment_amount
+        payment_data['project_code'] = account.code
+        paygov = convert_to_paygov(payment_data, account, "https://" + host)
+        paygov.save()
+        return {
+            "agency_id": settings.PAY_GOV_AGENCY_ID,
+            "agency_tracking_id": paygov.agency_tracking_id,
+            "app_name": settings.PAY_GOV_APP_NAME,
+            "oci_servlet_url": settings.PAY_GOV_OCI_URL,
+        }
+
+
+class ProjectDonation(AbstractDonation):
+    def post(self, request, slug):
+        project = get_object_or_404(
+            Project.published_objects.select_related('account'),
+            slug=slug)
+        return self.errors_or_paygov(project.account, request.data,
+                                     request.get_host())
+
+
+class FundDonation(AbstractDonation):
+    def post(self, request, slug):
+        campaign = get_object_or_404(
+            Campaign.objects.select_related('account'),
+            slug=slug)
+        return self.errors_or_paygov(campaign.account, request.data,
+                                     request.get_host())

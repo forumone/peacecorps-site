@@ -9,6 +9,17 @@ from peacecorps.cache import midterm_cache, shortterm_cache
 
 _slug = r'(?P<slug>[a-zA-Z0-9_-]+)'
 
+apipatterns = patterns(
+    '',
+    url(r'^project/' + _slug + r'/$',
+        shortterm_cache(api.ProjectDetail.as_view()), name='project_detail'),
+    url(r'^project/' + _slug + r'/payment/$',
+        api.ProjectDonation.as_view(), name='project_payment'),
+    url(r'^fund/' + _slug + r'/payment/$',
+        api.FundDonation.as_view(), name='fund_payment'),
+)
+
+
 urlpatterns = patterns(
     '',
     url(r'^donate/$', midterm_cache(views.donate_landing),
@@ -50,8 +61,7 @@ urlpatterns = patterns(
     url(r'^favicon\.ico$',
         RedirectView.as_view(url=settings.STATIC_URL + "favicon.ico")),
 
-    url(r'^api/project/' + _slug + r'/$',
-        shortterm_cache(api.ProjectDetail.as_view())),
+    url(r'^api/', include(apipatterns, namespace='api')),
 )
 
 

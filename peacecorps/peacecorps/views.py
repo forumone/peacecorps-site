@@ -75,6 +75,13 @@ def donation_payment(request, account, project=None, campaign=None):
         form = DonationPaymentForm()
     context['form'] = form
 
+    if project:
+        context['ajax_url'] = reverse('api:project_payment',
+                                      kwargs={'slug': project.slug})
+    else:
+        context['ajax_url'] = reverse('api:fund_payment',
+                                      kwargs={'slug': campaign.slug})
+
     if form.is_valid() and request.POST.get('force_form') != 'true':
         data = {k: v for k, v in form.cleaned_data.items()}
         data['payment_amount'] = payment_amount
