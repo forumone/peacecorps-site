@@ -7,13 +7,13 @@
 {% block navigation %}
 <nav class="main_nav">
   <ul class="main_nav__list">
-    <li class="main_nav__link t-title--4">
+    <li class="main_nav__link t-title--3">
       <a href="#featured">
         Featured Projects</a></li>
-    <li class="main_nav__link t-title--4">
+    <li class="main_nav__link t-title--3">
       <a href="{{url("donate projects funds")}}">
         Projects and Funds</a></li>
-    <li class="main_nav__link t-title--4">
+    <li class="main_nav__link t-title--3">
       <a href="{{url("donate faqs")}}">
         Donating FAQs</a></li>
   </ul>
@@ -22,7 +22,7 @@
 
 {% block content %}
 {# The navigation should really belong in the base file somehow #}
-<section class="blurb blurb--sm">
+<section class="blurb blurb--lg">
   <div class="t-blurb--md t--black">
     Peace Corps Volunteers help build clinics in villages, put books in
     schools, and improve access to nutritious food. Give today and help
@@ -31,7 +31,8 @@
 </section>
 
 <section class="section inset--lg">
-  <section class="section__content full_banner full_banner--neutral">
+  <section class="section__content section__content--lg
+      full_banner full_banner--neutral">
     <h1 id="featured" class="t-title--1">Featured Projects</h1>
     {% for project in featuredprojects %}
       <article class="section__box section--white u-clearfix">
@@ -57,10 +58,12 @@
             {% if project.tagline %}{{ project.tagline }}
             {% else %}Help this Project{%endif%}
           </h3>
-          {{ project.abstract_html()|safe }}
+          <p class="">{{ project.abstract_html()|safe }}</p>
           <a class="t-single_nav t-nom"
               href="{{url("donate project", slug=project.slug)}}">
-            Read Their Story</a>
+            Read Their Story
+            <i class="fa fa-angle-right icon icon--text"></i>
+          </a>
         </div>
       </article>
     {% endfor %}
@@ -68,7 +71,7 @@
 </section>
 
 <section class="section inset--lg">
-  <section class="section__content">
+  <section class="section__content section__content--lg">
     <h1 class="t-title--1">Projects &amp; Funds</h1>
     <div class="u-hv_center--block bg_img--centered bg_img--banner"
          style="background-image: url('{{static("peacecorps/img/funds-background.png")}}');">
@@ -78,13 +81,15 @@
       </a>
     </div>
     <div class="u-hv_center--block">
-      <p>Explore Volunteer Projects, Country and Issue Funds, and other ways to support the Peace Corps.</p>
+      <p class="t-body--md">Explore Volunteer Projects, Country and Issue Funds,
+        and other ways to support the Peace Corps.</p>
     </div>
   </section>
 </section>
 
 <section class="section inset--lg">
-  <div class="section__content full_banner full_banner--neutral">
+  <div class="section__content section__content--lg
+      full_banner full_banner--neutral">
     <h1 class="t-title--1">About Donating</h1>
     <div class="blurb blurb--sm">
       <h2 class="t-blurb--md t--black">
