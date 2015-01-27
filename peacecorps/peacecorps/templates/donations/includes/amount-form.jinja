@@ -16,10 +16,10 @@ similar. In that situation, we reverse the initial states for the form #}
   <form action="{{ form_url }}" class="js-form">
     <fieldset class="bubble_form">
       <legend class="isolate">
-        <span class="t-title--1 t-nom">Give to this
+        <span class="t-title--1 t-nom t--white">Give to this
         {% if project %}project{% else %}fund{% endif %}</span>
         {% if account.goal %}
-          <div class="t-heading--2">{{ humanize_cents(account.remaining()) }}
+          <div class="t-heading--2 t--white">{{ humanize_cents(account.remaining()) }}
             to meet goal</div>
         {% endif %}
       </legend>
