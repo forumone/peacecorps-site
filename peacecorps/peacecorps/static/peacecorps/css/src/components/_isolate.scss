@@ -12,6 +12,18 @@
   margin-top: 1em;
 }
 
+.isolate--lg {
+  margin-bottom: 2.5em;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+  margin-top: 2.5em;
+
+  &.isolate--b {
+    margin: 0;
+    margin-bottom: 2.5em;
+  }
+}
+
 .isolate--b {
   margin-bottom: 1em;
 }
