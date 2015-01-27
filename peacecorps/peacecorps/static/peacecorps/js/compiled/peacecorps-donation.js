@@ -389,6 +389,7 @@ var initForm = function($form) {
 
 module.exports = {
   initForm: initForm,
+  submitForm: submitForm,
   collapsibleToggles: collapsibleToggles
 };
 
