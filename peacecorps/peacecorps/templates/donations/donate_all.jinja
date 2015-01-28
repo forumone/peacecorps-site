@@ -178,7 +178,12 @@
   </aside>
   <article class="column--half section__content">
     <h1 class="t-title--1">{{ title }}</h1>
-    <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
+    <h3 class="t-heading--3 t--primary">
+      <a class="t-link--no_underline"
+         href="{{ url("donate campaign", slug=campaign.slug) }}">
+        {{ campaign.name }}
+      </a>
+    </h3>
     {{ campaign.description.html|safe }}
     <a class="button button--sm button--primary"
        href="{{ url("donate campaign", slug=campaign.slug) }}">
@@ -273,7 +278,12 @@
       </div>
     </aside>
     <section class="column--half section__content">
-      <h2>{{ project.title }}</h2>
+      <h2>
+        <a class="t-link--no_underline"
+           href="{{ url("donate project", slug=project.slug) }}">
+          {{ project.title }}
+        </a>
+      </h2>
       {{ project.abstract_html()|safe }}
 
       {# TODO make macro #}
