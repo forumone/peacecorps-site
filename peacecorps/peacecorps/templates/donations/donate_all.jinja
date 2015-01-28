@@ -34,12 +34,14 @@
   <ul class="js-filterable u-unmarked_list u-clearfix" id="issue"
       data-filter-type="issue">
   {% for issue in issues %}
+    {% set issue_projects = issue.projects() %}
     <li id="page-issue-{{ issue.id }}">
       <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
           class="js-pageNav section section--neutral_medium bordered bordered--row
           bordered--white u-clearfix section__content--xsm t-link--no_underline
           t-link--gray">
-        {{ render_link_header(issue.icon_color_url('grey'), issue.name, issue.name) }}
+        {{ render_link_header(issue.icon_color_url('grey'), issue.name,
+                              issue.name, issue_projects|length) }}
       </a>
     </li>
     {% for campaign in issue.campaigns.all() %}
@@ -60,7 +62,7 @@
     </li>
     {% endfor %}
       {# TODO figure out projects rather the featured projects #}
-    {% for project in issue.projects() %}
+    {% for project in issue_projects %}
       <li data-page-id="collapsible-page-issue-{{ issue.id }}"
           class="js-page
           section section--neutral_medium
@@ -91,14 +93,19 @@
   <ul class="js-filterable u-unmarked_list u-clearfix" id="country"
       data-filter-type="country">
   {% for country in countries %}
+    {# Must use "get" as they key is a variable #}
+    {% set country_projects = projects_by_country.get(country.country.code,
+                                                      []) %}
     <li id="page-country-{{ country.id }}">
       <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
           class="js-pageNav section section--neutral_medium bordered bordered--row
           bordered--white u-clearfix section__content--xsm t-link--no_underline
           t-link--gray">
       {{ render_link_header(
-        static("peacecorps/img/countries/" + country.country.code.lower() + ".svg"),
-          country.country.name, country.country.name) }}
+          static("peacecorps/img/countries/" + country.country.code.lower()
+                 + ".svg"),
+          country.country.name, country.country.name,
+          country_projects|length) }}
       </a>
     </li>
     <li data-page-id="collapsible-page-country-{{ country.id }}"
@@ -114,9 +121,10 @@
         country.country.name,
         country) }}
     </li>
-    {# TODO figure out projects rather the featured projects #}
-    {% for project in country.project_set.all() %}
-      <li class="section section--neutral_medium
+    {% for project in country_projects %}
+      <li data-page-id="collapsible-page-country-{{ country.id }}"
+          class="js-page
+          section section--neutral_medium
           u-clearfix
           bordered
           bordered--row
@@ -170,7 +178,12 @@
   </aside>
   <article class="column--half section__content">
     <h1 class="t-title--1">{{ title }}</h1>
-    <h3 class="t-heading--3 t--primary">{{ campaign.name }}</h3>
+    <h3 class="t-heading--3 t--primary">
+      <a class="t-link--no_underline"
+         href="{{ url("donate campaign", slug=campaign.slug) }}">
+        {{ campaign.name }}
+      </a>
+    </h3>
     {{ campaign.description.html|safe }}
     <a class="button button--sm button--primary"
        href="{{ url("donate campaign", slug=campaign.slug) }}">
@@ -192,7 +205,7 @@
   </a>
 {%- endmacro %}
 
-{% macro render_link_header(url, alt, name) -%}
+{% macro render_link_header(url, alt, name, count) -%}
   <aside class="column column--third
       enclose--sm
       sm-hide">
@@ -208,7 +221,12 @@
   </aside>
   <header class="column column--half" style="height: 4em;">
       <h4 class="t-heading--4 t--gray--2 u-v_center--block t-nom">
-        {{ name }}</h4>
+        {% if count is defined %}
+        {{ name }} ({{count}})
+        {% else %}
+        {{ name }}
+        {% endif %}
+      </h4>
   </header>
 {%- endmacro %}
 
@@ -260,7 +278,12 @@
       </div>
     </aside>
     <section class="column--half section__content">
-      <h2>{{ project.title }}</h2>
+      <h2>
+        <a class="t-link--no_underline"
+           href="{{ url("donate project", slug=project.slug) }}">
+          {{ project.title }}
+        </a>
+      </h2>
       {{ project.abstract_html()|safe }}
 
       {# TODO make macro #}

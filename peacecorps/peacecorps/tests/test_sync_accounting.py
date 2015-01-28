@@ -328,3 +328,35 @@ class SyncAccountingTests(TestCase):
                'LOCATION': 'D/OSP/GGM', 'PROJ_NAME1': 'General Fund',
                'PCV_NAME': 'General Fund', 'OVERS_PART': ''}
         self.assertEqual(Account.OTHER, sync.account_type(row))
+
+    def test_clean_description(self):
+        """Clean description replaces bad bytes and BRs"""
+        text = '!@#$%^&*()_+1234567890-='
+        self.assertEqual(sync.clean_description(text),
+                         '!@#$%^&*()_+1234567890-=')
+
+        text = "Darwin\u00c2\u00bfs Bulldog"
+        self.assertEqual(sync.clean_description(text), "Darwin's Bulldog")
+
+        text = "\n\r\nSome<BR><br /></BR>Text"
+        self.assertEqual(sync.clean_description(text), "\n\r\nSome\n\nText")
+
+    def test_trim_row(self):
+        """Verify that rows are trimmed to the required length and logs are
+        emitted"""
+        row = {'PROJ_NO': 'A'*500, 'LOCATION': 'B'*500, 'CHANGE_DATE': 'C'*500,
+               'PROJ_NAME1': 'D'*500, 'PCV_NAME': 'E'*500, 'SUMMARY': 'F'*500,
+               'STATE': 'G'*500, 'OVERS_PART': 'H'*500, 'OVERS_PCT': 'I'*500,
+               'PROJ_REQ': 'J'*500, 'UNIDENT_BAL': 'K'*500,
+               'ATTRIBUTE4': 'L'*500, 'SECTOR': 'M'*500, 'SUB_SECTOR': 'N'*500,
+               'LAST_UPDATED_FROM_PAYGOV': 'O'*500}
+        should_trim = ('PROJ_NO', 'LOCATION', 'PROJ_NAME1', 'PCV_NAME',
+                       'STATE', 'SECTOR')
+        no_trim = [key for key in row if key not in should_trim]
+        logger = Mock()
+        row = sync.trim_row(row, logger)
+        for key in should_trim:
+            self.assertTrue(len(row[key]) < 500)
+        for key in no_trim:
+            self.assertEqual(len(row[key]), 500)
+        self.assertEqual(logger.warning.call_count, len(should_trim))

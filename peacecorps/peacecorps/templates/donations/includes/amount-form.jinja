@@ -16,10 +16,10 @@ similar. In that situation, we reverse the initial states for the form #}
   <form action="{{ form_url }}" class="js-form">
     <fieldset class="bubble_form">
       <legend class="isolate">
-        <span class="t-title--1 t-nom">Give to this
+        <span class="t-title--1 t-nom t--white">Give to this
         {% if project %}project{% else %}fund{% endif %}</span>
         {% if account.goal %}
-          <div class="t-heading--2">{{ humanize_cents(account.remaining()) }}
+          <div class="t-heading--2 t--white">{{ humanize_cents(account.remaining()) }}
             to meet goal</div>
         {% endif %}
       </legend>
@@ -40,7 +40,7 @@ similar. In that situation, we reverse the initial states for the form #}
                 uo-h_center--multiple"
              {# appears when control state is false #}
              data-switch-on="false" data-switch-id="collapsible-customamount">
-          <p class="uo-align_l t--white t-title--5">
+          <p class="uo-align_l t--white t-title--5" style="margin-left: 4%;">
             Choose an amount:</p>
           <div class="uo-h_center__content column nested_column--md_fourth
               island__content">

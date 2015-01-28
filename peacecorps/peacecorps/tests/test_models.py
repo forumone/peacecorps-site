@@ -1,6 +1,9 @@
 import json
-from unittest.mock import Mock
+import os
+import shutil
+from unittest.mock import Mock, patch
 
+from django.conf import settings
 from django.test import TestCase
 
 from peacecorps import models
@@ -168,3 +171,54 @@ class FAQTests(TestCase):
         faq = models.FAQ.objects.create(question=' '.join([q, q, q]))
         self.assertEqual(len(faq.slug), 50)
         faq.delete()
+
+
+class ImageSaveTests(TestCase):
+    @patch.object(models.Media, 'save')
+    def test_no_two_save_calls(self, media_save):
+        description = json.dumps({"data": [
+            {"type": "image508",
+             "data": {"file": {"path": "pathpath"},
+                      "image_description": "descdesc",
+                      "image_title": "titletitle"}}]})
+        models.imagesave(description)
+        self.assertEqual(1, media_save.call_count)
+
+
+class MediaTests(TestCase):
+    @patch('peacecorps.models.default_storage')
+    def test_reset_seek(self, default_storage):
+        """The file head position should get reset. We can confirm this by
+        saving the same media model twice."""
+        imagepath = 'pc_logo.png'
+        # Copy a dummy png
+        shutil.copyfile(os.path.join('peacecorps', 'static', 'peacecorps',
+                                     'img', imagepath),
+                        os.path.join(settings.MEDIA_ROOT, imagepath))
+        thisimage = models.Media(
+            title="PC Logo",
+            file=imagepath,
+            mediatype=models.Media.IMAGE,
+            description="The Peace Corps Logo.",)
+        thisimage.save()
+        try:
+            thisimage.save()
+        except OSError:
+            self.fail("Should *not* receive a IOError when saving twice")
+
+    @patch('peacecorps.models.default_storage')
+    def test_resize_saved(self, default_storage):
+        """Verify that the default storage is getting all three images"""
+        imagepath = 'pc_logo.png'
+        # Copy a dummy png
+        shutil.copyfile(os.path.join('peacecorps', 'static', 'peacecorps',
+                                     'img', imagepath),
+                        os.path.join(settings.MEDIA_ROOT, imagepath))
+        thisimage = models.Media(
+            title="PC Logo",
+            file=imagepath,
+            mediatype=models.Media.IMAGE,
+            description="The Peace Corps Logo.",)
+        thisimage.save()
+        self.assertTrue(default_storage.save.call_count, 4)
+        os.remove(os.path.join(settings.MEDIA_ROOT, imagepath))

@@ -5,8 +5,8 @@
 @import "../globals";
 
 .full_banner {
-  border-top: .8em solid;
-  border-bottom: .8em solid;
+  border-top: 0.7em solid;
+  border-bottom: 0.7em solid;
   margin: 0 -500%;
   padding: 0.5em 500%;
   @extend .u-clearfix;

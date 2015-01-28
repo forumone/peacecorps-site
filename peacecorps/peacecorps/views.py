@@ -1,3 +1,4 @@
+from collections import defaultdict
 from urllib.parse import quote as urlquote
 
 from django.conf import settings
@@ -74,6 +75,13 @@ def donation_payment(request, account, project=None, campaign=None):
         form = DonationPaymentForm()
     context['form'] = form
 
+    if project:
+        context['ajax_url'] = reverse('api:project_payment',
+                                      kwargs={'slug': project.slug})
+    else:
+        context['ajax_url'] = reverse('api:fund_payment',
+                                      kwargs={'slug': campaign.slug})
+
     if form.is_valid() and request.POST.get('force_form') != 'true':
         data = {k: v for k, v in form.cleaned_data.items()}
         data['payment_amount'] = payment_amount
@@ -142,11 +150,14 @@ def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
-    countries = Campaign.objects.filter(
-        campaigntype=Campaign.COUNTRY).order_by('name')
+    countries = Campaign.objects.select_related('country').filter(
+        campaigntype=Campaign.COUNTRY).order_by('country__name')
     issues = Issue.objects.all().order_by('name')
     projects = Project.published_objects.select_related(
         'country', 'account').order_by('volunteername')
+    projects_by_country = defaultdict(list)
+    for project in projects:
+        projects_by_country[project.country.code].append(project)
 
     return render(
         request,
@@ -156,6 +167,7 @@ def donate_projects_funds(request):
             'countries': countries,
             'issues': issues,
             'projects': projects,
+            'projects_by_country': projects_by_country,
         })
 
 

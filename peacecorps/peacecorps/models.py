@@ -18,6 +18,9 @@ from peacecorps.fields import GPGField, BraveSirTrevorField
 from peacecorps.util import svg
 
 
+NAME_LENGTH = 120   # Consistent length for project/account/fund names
+
+
 def imagesave(description):
     """Saves images from Sir Trevor fields to the media model."""
     if not description:
@@ -32,7 +35,9 @@ def imagesave(description):
 
             desc = block['data']['image_description']
 
-            thisimage, created = Media.objects.get_or_create(file=imagepath)
+            thisimage = Media.objects.filter(file=imagepath).first()
+            if thisimage is None:
+                thisimage = Media(file=imagepath)
             thisimage.title = block['data']['image_title']
             thisimage.mediatype = Media.IMAGE
             thisimage.description = desc
@@ -56,7 +61,7 @@ class Account(models.Model):
         (PROJECT, 'Project'),
     )
 
-    name = models.CharField(max_length=120, unique=True)
+    name = models.CharField(max_length=NAME_LENGTH, unique=True)
     code = models.CharField(max_length=25, primary_key=True)
     current = models.IntegerField(
         default=0,
@@ -158,7 +163,7 @@ class Campaign(models.Model):
         (TAG, 'Tag')
     )
 
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=NAME_LENGTH)
     account = models.ForeignKey('Account', unique=True)
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
@@ -176,7 +181,7 @@ class Campaign(models.Model):
         blank=True, null=True)
     slug = models.SlugField(
         help_text="Auto-generated. Used for the campaign page url.",
-        max_length=100, unique=True)
+        max_length=NAME_LENGTH, unique=True)
     description = BraveSirTrevorField(help_text="the full description.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
@@ -206,7 +211,7 @@ class SectorMapping(models.Model):
 
 class Country(models.Model):
     code = models.CharField(max_length=5)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=NAME_LENGTH)
 
     def __str__(self):
         return '%s (%s)' % (self.name, self.code)
@@ -248,7 +253,7 @@ class Media(models.Model):
         (OTHER, "Other"),
     )
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=NAME_LENGTH)
     file = models.FileField()
     mediatype = models.CharField(
         max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
@@ -284,6 +289,7 @@ class Media(models.Model):
                             settings.RESIZED_IMAGE_UPLOAD_PATH, thisfile)
                         img.save(buffer_file, img.format.lower())
                         default_storage.save(path, buffer_file)
+            self.file.file.seek(0)
         super(Media, self).save(*args, **kwargs)
 
     @property
@@ -298,11 +304,12 @@ class PublishedManager(models.Manager):
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=NAME_LENGTH)
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.",
         blank=True, null=True)
-    slug = models.SlugField(max_length=100, help_text="for the project url.")
+    slug = models.SlugField(max_length=NAME_LENGTH,
+                            help_text="for the project url.")
     description = BraveSirTrevorField(help_text="the full description.")
     country = models.ForeignKey('Country', related_name="projects")
     campaigns = models.ManyToManyField(
@@ -319,7 +326,7 @@ class Project(models.Model):
         'Account', blank=True, null=True, related_name='overflow',
         help_text="""Select another fund to which users will be directed to
                     donate if the project is already funded.""")
-    volunteername = models.CharField(max_length=100)
+    volunteername = models.CharField(max_length=NAME_LENGTH)
     volunteerpicture = models.ForeignKey(
         'Media', related_name="volunteer", blank=True, null=True)
     volunteerhomestate = USPostalCodeField(blank=True, null=True)
@@ -382,7 +389,7 @@ class Project(models.Model):
 class Issue(models.Model):
     """A categorization scheme. This could eventually house relationships with
     individual projects, but for now, just point to sector funds"""
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=NAME_LENGTH)
     icon = models.FileField(    # No need for any of the 'Media' fields
         help_text="Icon commonly used to represent this issue",
         upload_to='icons', validators=[svg.full_validation])

@@ -1,8 +1,11 @@
 {% extends "donations/checkout_base.jinja" %}
 
 {% block form_content %}
-    <form action="" method="post" class="js-form section__content">
+    <form action="" method="post" class="js-form section__content"
+          data-ajax-url="{{ajax_url}}">
       {% csrf_token %}
+      <input type="hidden" name="payment_amount"
+             value="{{request.GET.payment_amount}}" />
       <fieldset class="inset--lg">
         <legend><h2>Your information</h2>
           <p class="t-body--md">(so we can send you a tax receipt)</p>
@@ -270,7 +273,7 @@
             send you on to there and bring you back when you finish.</p>
 
           <div class="u-align_c form__text section__content">
-            <button type="submit" class="button button--primary">
+            <button type="submit" class="button button--primary js-submit">
               Confirm information</button>
           </div>
         </div>
