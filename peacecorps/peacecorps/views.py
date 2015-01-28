@@ -63,7 +63,7 @@ def donation_payment(request, account, project=None, campaign=None):
         'title': 'Giving Checkout',
         'payment_amount': payment_amount,
         'project': project,
-        'account_name': account.name,
+        'campaign': campaign,
         'agency_id': settings.PAY_GOV_AGENCY_ID,
         'app_name': settings.PAY_GOV_APP_NAME,
         'oci_servlet_url': settings.PAY_GOV_OCI_URL,
