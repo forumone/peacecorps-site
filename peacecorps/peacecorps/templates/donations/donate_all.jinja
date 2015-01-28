@@ -70,8 +70,8 @@
           bordered
           bordered--row
           bordered--white">
-        {{ render_project_header(project, 'issue') }}
-        {{ render_project(project, 'issue') }}
+        {{ render_project_header(project, 'issue-' ~ issue.id) }}
+        {{ render_project(project, 'issue-' ~ issue.id) }}
       </li>
     {% endfor %}
   {% endfor %}
