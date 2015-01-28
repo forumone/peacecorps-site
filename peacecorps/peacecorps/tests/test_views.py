@@ -4,11 +4,11 @@ from urllib.parse import quote as urlquote
 from django.core.urlresolvers import reverse
 from django.test import Client, TestCase
 
-from peacecorps.models import Account, Campaign, Country, FAQ, Project
+from peacecorps.models import Account, Campaign, Country, FAQ, Issue, Project
 
 
 class DonationsTests(TestCase):
-    fixtures = ['countries.yaml']
+    fixtures = ['countries', 'issues']
 
     def setUp(self):
         self.proj_acc = Account.objects.create(
@@ -17,10 +17,11 @@ class DonationsTests(TestCase):
         self.cmpn_acc = Account.objects.create(
             name='CMPNCMPN', code='CMPNCMPN', category=Account.OTHER)
         self.project = Project.objects.create(
+            title='Project Name Here',
             slug='sluggy', country=Country.objects.get(name='Egypt'),
             account=self.proj_acc, overflow=self.cmpn_acc, published=True)
         self.campaign = Campaign.objects.create(
-            slug='cmpn', account=self.cmpn_acc)
+            slug='cmpn', name='Campaign Name Here', account=self.cmpn_acc)
 
     def tearDown(self):
         # Cascade
@@ -38,8 +39,7 @@ class DonationsTests(TestCase):
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.00' in content)
-        self.assertTrue(self.proj_acc.code)     # Check that this is nonempty
-        self.assertTrue(self.proj_acc.code in content)
+        self.assertTrue(self.project.title in content)
 
         response = self.client.get(
             reverse('campaign form', kwargs={'slug': self.campaign.slug})
@@ -47,8 +47,7 @@ class DonationsTests(TestCase):
         content = response.content.decode('utf-8')
         self.assertEqual(200, response.status_code)
         self.assertTrue('$20.01' in content)
-        self.assertTrue(self.cmpn_acc.code)     # Check that this is nonempty
-        self.assertTrue(self.cmpn_acc.code in content)
+        self.assertTrue(self.campaign.name in content)
 
     def test_payment_type(self):
         """Check that the payment type values are rendered correctly."""
@@ -200,6 +199,32 @@ class DonationsTests(TestCase):
         self.assertTrue(response.index('AAA') > response.index('BBB'))
         acc_b.delete()
         acc_a.delete()
+
+    def test_project_multiple_funds(self):
+        """If a project is in multiple issues, it should appear multiple times
+        but have different ids"""
+        self.cmpn_acc.category = Account.PROJECT
+        self.cmpn_acc.save()
+        cmpn_acc2 = Account.objects.create(
+            name='CMPN2', code='CMPN2', category=Account.PROJECT)
+        cmpn2 = Campaign.objects.create(slug='cmpn2', account=cmpn_acc2)
+        iss1 = Issue.objects.get(name='Agriculture')
+        iss2 = Issue.objects.get(name='Community Growth')
+        iss1.campaigns.add(self.campaign)
+        iss2.campaigns.add(cmpn2)
+        self.project.campaigns.add(self.campaign, cmpn2)
+
+        response = self.client.get(reverse('donate projects funds'))
+        response = response.content.decode('utf-8')
+        self.assertEqual(2, response.count('Project Name Here</h4>'))
+        ident = 'collapsible-issue-%d-%d' % (iss1.id, self.project.id)
+        self.assertEqual(1, response.count('aria-controls="' + ident))
+        self.assertEqual(1, response.count('id="' + ident))
+        ident = 'collapsible-issue-%d-%d' % (iss2.id, self.project.id)
+        self.assertEqual(1, response.count('aria-controls="' + ident))
+        self.assertEqual(1, response.count('id="' + ident))
+
+        cmpn_acc2.delete()
 
 
 class DonatePagesTests(TestCase):
