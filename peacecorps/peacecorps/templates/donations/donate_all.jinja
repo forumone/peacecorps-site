@@ -137,11 +137,15 @@
   </ul>
 </article>
 
-<div class="banner banner--no_line banner--neutral_ex_dark u-align_r"
-    {# TODO find a place for this in CSS #}
-    style="margin-top: 1em">
+<div class="banner banner--no_line banner--neutral_dark u-align_c"
+    style="margin-top: 1em;">
   <a href="{{ url('donate special funds') }}" title="Special funds"
-    class="t-single_nav t-link--white">Special funds </a>
+      class="t-single_nav t-link--white">
+    <h4 class="t-title--3">
+      Special funds
+      <i class="fa fa-angle-right icon icon--text"></i>
+    </h4>
+  </a>
 </div>
 
 {% endblock %}
@@ -156,12 +160,15 @@
 {%- endmacro %}
 
 {% macro issue_img(url, icon_color_url, alt) -%}
-  <img class="mask mask--oval mask--gray-1 mask--bordered"
+  <div class="mask mask--oval mask--gray-1 mask--bordered u-hv_center--block"
     style="width: 14em; height: 14em;
            background-image: url('{{ url }}');
-           background-size: 100%;"
-    src="{{ icon_color_url }}"
-    alt="{{ alt }}" />
+           background-size: 100%;">
+    <img  class="u-hv_center--block__content"
+          style="width: 60%;"
+          src="{{ icon_color_url }}"
+          alt="{{ alt }}" />
+  </div>
 {%- endmacro %}
 
 {% macro render_campaign(img, type, title, campaign) -%}
