@@ -4,26 +4,29 @@
 
 {% block content %}
 <section class="blurb blurb--sm">
-  <h1 class="inset inset--md">
+  <h1 class="inset inset--md t-blurb--md t--black">
     Browse these questions, and if you can't find your answer feel free to
     <a href="mailto:donate@peacecorps.gov">email us</a>!
   </h1>
 </section>
-<section class="section inset inset--lg">
+<section class="">
   <ul class="section__content u-unmarked_list">
     {% for faq in object_list %}
       {% set anchor = faq.slug or "faq-" + faq.pk|string %}
-      <li>
-        <header class="section__content--xsm">
-          <a class="t-link--no_underline" aria-expanded="false" href="#{{anchor}}"
-             aria-controls="{{anchor}}">{{faq.question}}</a>
+      <li class="u-clearfix section section--neutral_medium bordered bordered--row bordered--white t-link--no_underline t-link--gray">
+        <header class="section__content--xsm" style="height: 4em;">
+          <h3 class="inset inset--md u-v_center--block t-nom"><a class="t-heading--4 t--gray--2 t-link--no_underline" aria-expanded="false" href="#{{anchor}}" aria-controls="{{anchor}}">{{faq.question}}</a></h3>
         </header>
         <article class="js-collapsibleItem js-collapsibleNoHide"
           id="{{anchor}}">
-          <h3>{{faq.question}}</h3>
+          <div class="inset inset--md">
           {{faq.answer.html|safe}}
+          </div>
         </article>
       </li>
   {% endfor %}
+<div class="banner banner--no_line banner--neutral_ex_dark u-align_c" style="margin-top: 1em">
+  <a href="/donate/projects-funds/" title="Projects and Funds" class="t-single_nav t-link--white"><i class="fa fa-angle-left icon icon--text"></i> Explore Projects and Funds</a>
+</div>
 </section>
 {% endblock %}
