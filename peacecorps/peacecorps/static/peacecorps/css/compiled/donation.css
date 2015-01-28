@@ -125,8 +125,8 @@ body {
   color: #aaa698; }
 
 .t--gray--2 {
-  color: #555;
-  text-decoration-color: #555; }
+  color: #67655D;
+  text-decoration-color: #67655D; }
 
 .t--black {
   color: #222; }
@@ -333,7 +333,7 @@ p + p {
   font-size: 10.5px;
   font-size: 1.05rem;
   font-weight: 500;
-  color: #aaa698; }
+  color: #67655D; }
 
 /*
  * Single-nav are single navigational elements, such as links to more content.
@@ -360,11 +360,11 @@ p + p {
     text-decoration: underline; }
 
 .t-link--gray, .main_nav__link * {
-  color: #555; }
+  color: #67655D; }
   .t-link--gray:visited, .main_nav__link :visited {
-    color: #7b7b7b; }
+    color: #8e8c82; }
   .t-link--gray:hover, .main_nav__link :hover {
-    color: #555; }
+    color: #67655D; }
   .t-link--gray:active, .main_nav__link :active {
     color: #cb2a2b; }
 
@@ -585,7 +585,7 @@ p + p {
 
 .banner--neutral_dark {
   border-color: #F2EFE8;
-  background-color: #555;
+  background-color: #67655D;
   color: #ffffff; }
 
 .banner--dark_transparent {
@@ -1190,11 +1190,11 @@ p + p {
     .icon--box {
       padding: 0.3em; } }
   .icon--box.icon--gray {
-    background-color: #aaa698;
+    background-color: #67655D;
     color: #ffffff; }
 
 .icon--gray {
-  color: #aaa698; }
+  color: #67655D; }
 
 /*
  * Inline text module
@@ -1489,7 +1489,7 @@ p + p {
   margin-right: 1.3623978202%;
   width: 23.9782016349%;
   border-left: 1px solid;
-  border-color: #555;
+  border-color: #67655D;
   margin: 0 auto;
   text-align: center; }
   .main_nav__link:last-child {
@@ -1696,7 +1696,7 @@ p + p {
   background-color: #E5E1D4; }
 
 .rectangular_progress--secondary {
-  color: #555; }
+  color: #67655D; }
   .rectangular_progress--secondary .rectangular_progress__filled {
     background-color: #087A7E; }
 
@@ -1750,7 +1750,7 @@ p + p {
 
 .section--neutral_dark {
   background-color: #E5E1D4;
-  color: #555; }
+  color: #67655D; }
 
 .section--neutral_medium {
   background-color: #F2EFE8; }
@@ -1858,9 +1858,9 @@ p + p {
  * Z-Index
  */
 .sub_nav {
-  color: #555; }
+  color: #67655D; }
   .sub_nav a {
-    color: #555;
+    color: #67655D;
     text-decoration: none; }
 
 .sub_nav--vertical .sub_nav__link {
