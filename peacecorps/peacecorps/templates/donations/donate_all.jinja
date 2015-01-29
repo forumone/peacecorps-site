@@ -284,14 +284,16 @@
         </div>
       </div>
     </aside>
-    <section class="column--half section__content">
+    <section class="column--half section__content t--black">
       <h2>
         <a class="t-link--no_underline"
            href="{{ url("donate project", slug=project.slug) }}">
           {{ project.title }}
         </a>
       </h2>
-      {{ project.abstract_html()|safe }}
+      <p>
+        {{ project.abstract_html()|safe }}
+      </p>
 
       {# TODO make macro #}
       <div class="rectangular_progress

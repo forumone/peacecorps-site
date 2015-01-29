@@ -7,14 +7,14 @@
 {% block content %}
 <section class="section">
   <div class="section__content u-clearfix">
-    <article class="inset inset--sm">
+    <article class="inset article t-body--lg">
       <h2>{{campaign.name}}</h2>
       {{campaign.description.html|safe}}
     </article>
   </div>
 </section>
 
-<section class="section">
+<section class="section section--no_tm">
   <div class="section__content u-clearfix">
     {% include "donations/includes/amount-form.jinja" %}
   </div>

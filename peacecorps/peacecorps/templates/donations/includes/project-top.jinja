@@ -8,7 +8,7 @@
         {{ volunteer_photo(project) }}
       </div>
       {% if project.volunteerpicture %}
-        <span class="t-body--sm t--black">
+        <span class="t-body--md t--black">
           <strong>{{project.volunteername}}</strong><br>
           volunteer from <strong>{{project.volunteerhomestate}}</strong>
         </span>
@@ -21,7 +21,7 @@
                             + project.country.code.lower() + ".svg") }}"
              class="mask__content" />
       </div>
-        <span class="t-body--sm t--black">
+        <span class="t-body--md t--black">
           in <strong>{{project.country.name}}</strong>
         </span>
     </section>
@@ -41,7 +41,7 @@
         <div class="radialProgress__overlay">
         </div>
       </div>
-      <span class="t-body--sm t--black">
+      <span class="t-body--md t--black">
         {{ humanize_cents(project.account.remaining()) }} needed to reach
         {{ humanize_cents(project.account.total_cost()) }} goal
       </span>
