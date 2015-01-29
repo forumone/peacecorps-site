@@ -5,10 +5,10 @@
 @import "../globals";
 @import "../mixins";
 
-$leading-xsm: 1.1;
+$leading-xsm: 1.2;
 $leading-sm: 1.3;
-$leading-md: 1.5;
-$leading-body: 1.7;
+$leading-md: 1.6;
+$leading-body: 1.8;
 $leading-lg: 1.8;
 $leading-xlg: 2;
 
@@ -130,25 +130,25 @@ h4 + h3 {
  */
 .t-body--lg {
   p {
-    @include font-size(1.6);
-    @include rem(margin, 2.2rem 0);
+    @include font-size(1.8);
+    @include rem(margin, 2.4rem 0);
     line-height: $leading-body;
   }
 }
 .t-body--md {
-  @include font-size(1.4);
+  @include font-size(1.6);
   @include rem(margin, 1.2rem 0);
   line-height: $leading-md;
 }
 .t-body--sm {
-  @include font-size(1.1);
+  @include font-size(1.4);
   @include rem(margin, 1rem 0);
   line-height: $leading-md;
 }
 .t-body--xsm {
-  @include font-size(1);
+  @include font-size(1.2);
   @include rem(margin, .9rem 0);
-  line-height: $leading-md;
+  line-height: $leading-xsm;
 }
 p, span, button {
   @extend .t-body--md;

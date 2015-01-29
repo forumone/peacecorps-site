@@ -7,6 +7,7 @@
 
 .button {
   @include user-select(none);
+  @extend .t-title--3;
   border: 0;
   display: inline-block;
   padding: 1.3em 2.0em;

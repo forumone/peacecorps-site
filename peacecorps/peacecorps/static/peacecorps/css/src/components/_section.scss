@@ -34,6 +34,12 @@
   background-color: $neutral_medium;
 }
 
+.section--no_tm {
+  .section__content {
+    padding-top: 0;
+  }
+}
+
 .section__content {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
