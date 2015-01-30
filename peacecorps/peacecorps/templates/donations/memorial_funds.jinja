@@ -28,7 +28,7 @@
               <a href="{{url("donate campaign", slug=fund.slug)}}">
                 <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
               </a>
-              <p>{{ fund.description.html|safe }}</p>
+              <p>{{ fund.abstract_html()|safe }}</p>
             </article>
         </section>
       {% endfor %}
