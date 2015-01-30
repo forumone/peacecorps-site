@@ -13,25 +13,22 @@
 <section class="section inset--lg">
   <section class="section__content
       full_banner full_banner--neutral full_banner--flush">
-    <div class="inset inset--lg">
+    <div class="">
       <h1 class="t-title--1">Memorial Funds</h1>
+      <ul class="u-clearfix">
       {% for fund in memorial_funds %}
-        <section class="section--white section__box u-clearfix">
-              <aside class="column nested_column--lg_two_lesser_half">
-                <div class="mask mask--oval u-h_center--block">
-                  <img class="mask__content--md"
-                       src="{{fund.icon.url}}"
-                       alt="{{fund.icon.description}}" />
-                </div>
-              </aside>
-            <article class="column nested_column--lg_greater_half u-clearfix">
-              <a href="{{url("donate campaign", slug=fund.slug)}}">
-                <h3 class="t-heading--3 t--primary">{{ fund.memorial_name }}</h3>
-              </a>
-              <p>{{ fund.description.html|safe }}</p>
-            </article>
-        </section>
+        <li class="column column--quarter u-align_c" style="margin-right:0; margin-bottom:4em;">
+          <a href="{{url("donate campaign", slug=fund.slug)}}" class="t-link--gray t-link--no_underline">
+            <div class="mask mask--md mask--oval u-h_center--block" style="margin-bottom:0.5em;">
+              <img class="mask__content--md"
+                   src="{{fund.icon.url}}"
+                   alt="{{fund.icon.description}}" />
+            </div>
+            {{fund.memorial_name}}
+          </a>
+        </li>
       {% endfor %}
+      </ul>
     </div>
   </section>
 </section>
