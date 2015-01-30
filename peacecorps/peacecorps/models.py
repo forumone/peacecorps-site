@@ -47,6 +47,27 @@ def imagesave(description):
     return True
 
 
+class AbstractHTMLMixin(object):
+    """Adds the abstract_html method. Assumes the object has an abstract and
+    description field, where the description field is sir-trevor json"""
+    def abstract_html(self):
+        """If an explicit abstract is present, return it. Otherwise, return
+        the formatted first paragraph of the description"""
+        if self.abstract:
+            return self.abstract
+        elif self.description:
+            for block in json.loads(self.description)['data']:
+                if block.get('type') == 'text':
+                    data = block['data']
+                    # Naive string shortener
+                    if len(data['text']) > settings.ABSTRACT_LENGTH:
+                        trimmed = data['text'][:settings.ABSTRACT_LENGTH]
+                        trimmed = trimmed[:trimmed.rindex(' ')]
+                        data = {'text': trimmed + '...'}
+                    return django_render('sirtrevor/blocks/text.html', data)
+        return ''
+
+
 class Account(models.Model):
     COUNTRY = 'coun'
     MEMORIAL = 'mem'
@@ -141,7 +162,7 @@ class Account(models.Model):
 
 # @todo: this description isn't really accurate anymore. Probably worth
 # renaming
-class Campaign(models.Model):
+class Campaign(models.Model, AbstractHTMLMixin):
     """
     A campaign is any fundraising effort. Campaigns can collect donations
     to a separate account that can be distributed to projects (sector, country,
@@ -186,6 +207,7 @@ class Campaign(models.Model):
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
         'Country', related_name="campaign", blank=True, null=True, unique=True)
+    abstract = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return '%s: %s' % (self.account_id, self.name)
@@ -303,7 +325,7 @@ class PublishedManager(models.Manager):
             published=True)
 
 
-class Project(models.Model):
+class Project(models.Model, AbstractHTMLMixin):
     title = models.CharField(max_length=NAME_LENGTH)
     tagline = models.CharField(
         max_length=240, help_text="a short description for subheadings.",
@@ -339,23 +361,6 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-
-    def abstract_html(self):
-        """If an explicit abstract is present, return it. Otherwise, return
-        the formatted first paragraph of the description"""
-        if self.abstract:
-            return self.abstract
-        elif self.description:
-            for block in json.loads(self.description)['data']:
-                if block.get('type') == 'text':
-                    data = block['data']
-                    # Naive string shortener
-                    if len(data['text']) > settings.ABSTRACT_LENGTH:
-                        trimmed = data['text'][:settings.ABSTRACT_LENGTH]
-                        trimmed = trimmed[:trimmed.rindex(' ')]
-                        data = {'text': trimmed + '...'}
-                    return django_render('sirtrevor/blocks/text.html', data)
-        return ''
 
     def save(self, *args, **kwargs):
         """Set slug, but make sure it is distinct"""
