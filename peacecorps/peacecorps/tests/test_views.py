@@ -367,7 +367,7 @@ class DonatePagesTests(TestCase):
                 self.assertContains(response, 'Unfortunately')
 
     def test_memorial_fund_name(self):
-        response = self.client.get(reverse('donate special funds'))
+        response = self.client.get(reverse('donate memorial funds'))
         self.assertNotContains(response, 'Stephanie Brown Memorial Fund</h3>')
         self.assertContains(response, 'Stephanie Brown')
 
