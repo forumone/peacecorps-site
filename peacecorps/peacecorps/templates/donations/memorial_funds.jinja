@@ -19,7 +19,7 @@
       {% for fund in memorial_funds %}
         <li class="column column--quarter u-align_c" style="margin-right:0; margin-bottom:4em;">
           <a href="{{url("donate campaign", slug=fund.slug)}}" class="t-link--gray t-link--no_underline">
-            <div class="mask mask--md mask--oval u-h_center--block" style="margin-bottom:0.5em;">
+            <div class="mask mask--md mask--bordered mask--oval u-h_center--block" style="margin-bottom:0.5em;">
               <img class="mask__content--md"
                    src="{{fund.icon.url}}"
                    alt="{{fund.icon.description}}" />
