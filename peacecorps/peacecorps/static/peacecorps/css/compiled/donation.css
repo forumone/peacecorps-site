@@ -596,9 +596,10 @@ p + p {
   border-top: none; }
 
 .banner--sitewide_notification {
-  padding: 1em; }
-  .banner--sitewide_notification .t-body--xsm {
-    padding-left: 1em; }
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em; }
 
 /*
  * layout/Blurb
