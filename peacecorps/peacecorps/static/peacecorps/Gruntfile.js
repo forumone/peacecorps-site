@@ -126,6 +126,11 @@ module.exports = function(grunt) {
         fontPath: '../../../../fonts'
       }
     },
+    exec: {
+      styleguide: {
+        cmd: 'kss-node css/src/ styleguide/ --template css/src/donation-styleguide/'
+      }
+    },
     watch: {
       jshint: {
         files: '<%= jsSrcDir %>**/*.js',
@@ -133,7 +138,11 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['css/src/**/*.scss', '!css/src/bourbon', '!css/src/neat'],
-        tasks: ['sass']
+        tasks: ['sass', 'styleguide']
+      },
+      styleguide: {
+        files: ['css/src/styleguide.md', 'css/src/donation-styleguide/**/*'],
+        tasks: ['sass', 'styleguide']
       }
     }
   });
@@ -148,6 +157,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-env');
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-exorcise');
   grunt.loadNpmTasks('grunt-font-awesome-vars');
   grunt.loadNpmTasks('grunt-testling');
@@ -162,7 +172,9 @@ module.exports = function(grunt) {
       'browserify:donation',
       'exorcise',
       'sass',
-      'uglify']);
+      'uglify',
+      'styleguide']);
+  grunt.registerTask('styleguide', ['env:test', 'exec:styleguide']);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
 };

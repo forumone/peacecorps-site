@@ -6,6 +6,12 @@
 @import "elements";
 @import "base/type";
 @import "base/util";
+// Components
+//
+// Components are small modular piecies of functionality and styling that can
+// be used to build up larger modules.
+//
+// Styleguide components.
 @import "components/bg_img";
 @import "components/banner";
 @import "components/blurb";
@@ -35,6 +41,12 @@
 @import "content/text_block";
 // TODO Form needs refactoring and is inbetween component and module now.
 @import "components/form";
+// Modules
+//
+// Modules are larger, more specific resuable pieces that style specific parts
+// of the site, such as the logo or main navigation.
+//
+// Styleguide modules.
 @import "modules/article";
 @import "modules/discover";
 @import "modules/logo";

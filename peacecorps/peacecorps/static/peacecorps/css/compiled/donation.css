@@ -36,6 +36,18 @@ html {
  * When this file starts to get large it should be made into a folder with
  * files specific to each thing, such as elememts/_text.scss
  */
+/*
+ * Global variables
+ */
+/*
+ * Font awesome
+ */
+/*
+ * Color
+ */
+/*
+ * Z-Index
+ */
 html, body {
   margin: 0;
   overflow-x: hidden; }
@@ -239,7 +251,7 @@ p + p {
   margin: 0 0 15px 0;
   margin: 0 0 1.5rem 0; }
 
-.t-title--2, .button--lg {
+.t-title--2 {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
@@ -249,15 +261,15 @@ p + p {
   margin: 0 0 10px 0;
   margin: 0 0 1rem 0; }
   @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .t-title--2, .button--lg {
+    .t-title--2 {
       font-size: 25px;
       font-size: 2.5rem; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .t-title--2, .button--lg {
+    .t-title--2 {
       font-size: 20px;
       font-size: 2rem; } }
 
-.t-title--3, .button, .button--md {
+.t-title--3, .button--md {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
@@ -267,7 +279,7 @@ p + p {
   margin: 10px 0;
   margin: 1rem 0; }
 
-.t-title--4, .button--sm {
+.t-title--4 {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
@@ -379,7 +391,7 @@ p + p {
 .t-link--no_underline {
   text-decoration: none; }
 
-.t-title--1 a, .t-title--2 a, .button--lg a, .t-title--3 a, .button a, .button--md a, .t-title--4 a, .button--sm a, .t-title--5 a {
+.t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .t-title--5 a {
   text-decoration: none; }
 
 /*
@@ -857,11 +869,21 @@ p + p {
  * Example: @include rem(margin, 1rem 0 2rem);
  */
 .button {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: 'Lato', 'Verdana', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  font-size: 1.3rem;
+  margin: 10px 0;
+  margin: 1rem 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #A12122;
   border: 0;
+  color: #ffffff;
   display: inline-block;
   padding: 1.3em 2em;
   text-align: center;
@@ -877,14 +899,29 @@ p + p {
 .button--is_active, .button:active {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset, 0 -3px 6px 1px rgba(0, 0, 0, 0.1) inset; }
 
-.button--is_hovered:after, .button:hover:after {
-  background-color: rgba(255, 255, 255, 0.12);
-  content: " ";
-  height: 100%;
-  left: 0;
-  position: relative;
-  width: 100%;
-  top: 0; }
+.button--is_hovered, .button:hover {
+  box-shadow: 0 8px 20px 0 rgba(255, 255, 255, 0.15) inset, 0 -4px 18px 1px rgba(255, 255, 255, 0.15) inset;
+  text-decoration: none; }
+
+.button--sm {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: 'Lato', 'Verdana', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  font-size: 1.1rem;
+  margin: 8px 0;
+  margin: 0.8rem 0; }
+
+.button--lg {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: 'Lato', 'Verdana', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin: 0 0 10px 0;
+  margin: 0 0 1rem 0; }
 
 .button--primary {
   background-color: #A12122;
@@ -893,10 +930,16 @@ p + p {
 .button--secondary {
   background-color: #ffffff;
   color: #C94112; }
+  .button--secondary.button--is_hovered, .button--secondary.button:hover {
+    box-shadow: 0 1px 30px 0px rgba(0, 0, 0, 0.05) inset, 0 -3px 4px 1px rgba(255, 255, 255, 0.01) inset;
+    color: #a6360f; }
 
 .button--white {
   background-color: #ffffff;
   color: #A12122; }
+  .button--white.button--is_hovered, .button--white.button:hover {
+    box-shadow: 0 1px 30px 0px rgba(0, 0, 0, 0.05) inset, 0 -3px 4px 1px rgba(255, 255, 255, 0.01) inset;
+    color: #8c1d1e; }
 
 /*
  * Column
