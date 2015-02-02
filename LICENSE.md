@@ -34,3 +34,5 @@ author or the affirmer.
 ## Exceptions
 - [jQuery](http://jquery.com/) and [Sizzle](http://sizzlejs.com/) by The jQuery
   Foundation are licensed under the MIT License.
+- [kss-node] (https://github.com/kss-node/kss-node) are licensed under the MIT
+  License.
