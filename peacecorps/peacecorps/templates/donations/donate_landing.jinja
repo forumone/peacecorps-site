@@ -55,8 +55,10 @@
             </div>
           {% endif %}
           <h3 class="t-heading--3">
-            {% if project.tagline %}{{ project.tagline }}
-            {% else %}Help this Project{%endif%}
+            <a href="{{ url("donate project", slug=project.slug) }}">
+              {% if project.tagline %}{{ project.tagline }}
+              {% else %}Help this Project{% endif %}
+            </a>
           </h3>
           <p class="">{{ project.abstract_html()|safe }}</p>
           <a class="t-single_nav t-nom"
