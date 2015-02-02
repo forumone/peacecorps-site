@@ -598,6 +598,10 @@ p + p {
 .banner--no_line {
   border-top: none; }
 
+.banner--short {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em; }
+
 .banner--sitewide_notification {
   padding-left: 1em;
   padding-right: 1em;
