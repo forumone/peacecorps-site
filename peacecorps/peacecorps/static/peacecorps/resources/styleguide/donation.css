@@ -2109,12 +2109,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     width: 14em; }
 
 /*
- * Article
- *
- * A class for styling text and image articles, used for project pages
- * currently.
- */
-/*
  * Global mixins.
  */
 /*
