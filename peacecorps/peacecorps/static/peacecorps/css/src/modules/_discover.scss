@@ -1,10 +1,19 @@
-/*
- * Discover
- *
- * The discover module, a js/css module for finding sorted and categorized
- * information.
- */
-
+// Discover
+//
+// The discover module, a js/css module for finding sorted and categorized
+// information.
+//
+// Markup:
+// <div class="discover">
+//   <aside class="discover__aside--lg">
+//     <h2>Side content</h2>
+//     <p>Suspendisse ullamcorper gravida dolor in efficitur. Curabitur eget
+//      ipsum vel urna eleifend viverra. Curabitur vitae ligula quis orci
+//      vehicula ultricies vitae sit amet velit.</p>
+//   </aside>
+// </div>
+//
+// Styleguide modules.discover
 .discover {
 
   .discover__aside {

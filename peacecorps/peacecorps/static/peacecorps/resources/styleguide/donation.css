@@ -2186,12 +2186,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
 .article:last-child .text-block {
   margin-bottom: 0; }
 
-/*
- * Discover
- *
- * The discover module, a js/css module for finding sorted and categorized
- * information.
- */
 .discover .discover__aside {
   padding-left: 10%; }
 .discover .discover__aside--lg {
@@ -2201,9 +2195,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
       margin-bottom: -2em;
       padding-top: 1.5em; } }
 
-/*
- * Logo
- */
 /*
  * Global mixins.
  */
