@@ -117,6 +117,12 @@ module.exports = function(grunt) {
             dest: './fonts',
           }
         ]
+      },
+      stylesheetCss: {
+        src: './css/compiled/donation.css',
+        dest: './resources/styleguide/',
+        flatten: true,
+        expand: true
       }
     },
     fontAwesomeVars: {
@@ -126,9 +132,15 @@ module.exports = function(grunt) {
         fontPath: '../../../../fonts'
       }
     },
+    'gh-pages': {
+      options: {
+        base: './resources'
+      },
+      src: ['**']
+    },
     exec: {
       styleguide: {
-        cmd: 'kss-node css/src/ styleguide/ --template css/src/donation-styleguide/'
+        cmd: 'kss-node css/src/ resources/styleguide/ --template css/src/donation-styleguide/'
       }
     },
     watch: {
@@ -155,6 +167,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-exec');
@@ -173,8 +186,13 @@ module.exports = function(grunt) {
       'exorcise',
       'sass',
       'uglify',
-      'styleguide']);
-  grunt.registerTask('styleguide', ['env:test', 'exec:styleguide']);
+      'styleguide'
+      ]);
+  grunt.registerTask('styleguide', ['env:test',
+      'exec:styleguide',
+      'copy:stylesheetCss'
+      ]);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
+  grunt.registerTask('publish-resources', ['gh-pages']);
 };
