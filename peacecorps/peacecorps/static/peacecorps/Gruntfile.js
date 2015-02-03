@@ -117,6 +117,12 @@ module.exports = function(grunt) {
             dest: './fonts',
           }
         ]
+      },
+      stylesheetCss: {
+        src: './css/compiled/donation.css',
+        dest: './resources/styleguide/',
+        flatten: true,
+        expand: true
       }
     },
     fontAwesomeVars: {
@@ -181,7 +187,10 @@ module.exports = function(grunt) {
       'sass',
       'uglify',
       'styleguide']);
-  grunt.registerTask('styleguide', ['env:test', 'exec:styleguide', 'gh-pages']);
+  grunt.registerTask('styleguide', ['env:test',
+      'exec:styleguide',
+      'copy:stylesheetCss',
+      'gh-pages']);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
 };
