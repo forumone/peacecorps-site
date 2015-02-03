@@ -186,11 +186,13 @@ module.exports = function(grunt) {
       'exorcise',
       'sass',
       'uglify',
-      'styleguide']);
+      'styleguide'
+      ]);
   grunt.registerTask('styleguide', ['env:test',
       'exec:styleguide',
-      'copy:stylesheetCss',
-      'gh-pages']);
+      'copy:stylesheetCss'
+      ]);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
+  grunt.retisterTask('publish-resources', ['gh-pages']);
 };
