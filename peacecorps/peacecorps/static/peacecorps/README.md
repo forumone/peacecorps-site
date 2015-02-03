@@ -3,6 +3,11 @@ peacecorps-site-frontend
 
 The frontend portion of the peacecorp site, with CSS and JS dependencies.
 
+## Styleguide
+
+[styleguide] (https://rawgit.com/18F/peacecorps-site/master/peacecorps/peacecorps/static/peacecorps/resources/styleguide/section-base.html)
+
+
 ## Development
 We use nodejs, node-sass, Bourbon, and Neat for our front-end stack.
 
