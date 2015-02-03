@@ -77,9 +77,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
   text-decoration: none; }
 
 /*
- * Type styles.
- */
-/*
  * Global variables
  */
 /*
@@ -146,11 +143,6 @@ body {
 .t--black {
   color: #222; }
 
-/*
- * Headings are in the main content, serving as titles to body text.
- *
- * Default style of <h1-6>
- */
 .t-heading, h1, h2, h3, h4, h5, h6 {
   font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: 500;
@@ -192,17 +184,18 @@ h4 + h3 {
   display: inline-block;
   line-height: 1.25; }
 
-/*
- * Body is the main body text.
- *
- * Default style of <p>, <span>, <button>
- */
-.t-body--lg p {
+.t-body--lg {
   font-size: 18px;
   font-size: 1.8rem;
   margin: 24px 0;
   margin: 2.4rem 0;
   line-height: 1.8; }
+  .t-body--lg p {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin: 24px 0;
+    margin: 2.4rem 0;
+    line-height: 1.8; }
 
 .t-body--md, p, span, button {
   font-size: 16px;
@@ -232,9 +225,6 @@ p {
 p + p {
   margin-top: 1em; }
 
-/*
- * Title styles are for titles not associated with content.
- */
 .t-title {
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -309,10 +299,6 @@ p + p {
   margin: 4px 0;
   margin: 0.4rem 0; }
 
-/*
- * Blurbs are large pieces of readable (not uppercased) text that call out
- * bits of important information.
- */
 .t-blurb--lg {
   font-family: Archer, Archer SSm A, Archer SSm B;
   font-weight: 100;
@@ -339,9 +325,6 @@ p + p {
   margin-top: -20px;
   margin-top: -2rem; }
 
-/*
- * Icon is for text that goes along with an icon
- */
 .t-icon {
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -350,9 +333,6 @@ p + p {
   font-weight: 500;
   color: #67655D; }
 
-/*
- * Single-nav are single navigational elements, such as links to more content.
- */
 .t-single_nav {
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -366,9 +346,6 @@ p + p {
       font-size: 13px;
       font-size: 1.3rem; } }
 
-/*
- * Generic link styles.
- */
 .t-link, a {
   color: #A12122; }
   .t-link:hover, a:hover {
@@ -394,9 +371,6 @@ p + p {
 .t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .t-title--5 a {
   text-decoration: none; }
 
-/*
- * Util styles
- */
 .t-nom {
   margin-bottom: 0; }
 
@@ -410,9 +384,6 @@ p + p {
 .t--bold {
   font-weight: 700; }
 
-/*
- * Contains all sass utilities such as floats, clears, etc.
- */
 /*
  * Global variables
  */
@@ -558,12 +529,6 @@ p + p {
   padding-left: 10%;
   padding-top: 0.5em; }
 
-/*
- * Banner
- *
- * A full width to wrap banner of differnt colors and sizes. This differs from
- * full banner in that it doesn't span the whole width of the viewport.
- */
 /*
  * Global variables
  */

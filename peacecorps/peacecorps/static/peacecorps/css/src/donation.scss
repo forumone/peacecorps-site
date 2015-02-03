@@ -4,6 +4,12 @@
 
 @import "globals";
 @import "elements";
+// Base
+//
+// Parts of styling that are the essential pieces of the site, are dictating
+// by theme and are used extensively elsewhere.
+//
+// Styleguide base.
 @import "base/type";
 @import "base/util";
 // Components

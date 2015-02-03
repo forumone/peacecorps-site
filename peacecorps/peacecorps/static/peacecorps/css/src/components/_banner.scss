@@ -1,12 +1,31 @@
-/*
- * Banner
- *
- * A full width to wrap banner of differnt colors and sizes. This differs from
- * full banner in that it doesn't span the whole width of the viewport.
- */
+
+// Banner
+//
+// A full width to wrap banner of differnt colors and sizes. This differs from
+// full banner in that it doesn't span the whole width of the viewport. The
+// banner has a top line of a different color.
+//
+// Markup:
+// <div class="banner {{ modifier_class }}">
+//   <h4>Some content in the banner</h4>
+// </div>
+//
+// .banner--primary  - Banner with primary color border and dark neutral
+//   background.
+// .banner--secondary  - Neutral background with secondary border and white
+//   foreground.
+// .banner--support -- Support background with .75 opacity, medium neutral
+//   border and white forground.
+// .banner--neutral_dark  - Deprecated
+// .banner--dark_transparent  - Secondary dark color with transparency on white.
+// .banner--no_line  - A border without the usual top line.
+// .banner--short  - A shorter version of the banner.
+// .banner--sitewide_notification  - A specific banner used on the top of the
+//   site serving as a notification.
+//
+// Styleguide components.banner
 
 // TODO combine some logic in full banner with this.
-
 @import "../globals";
 
 .banner {
