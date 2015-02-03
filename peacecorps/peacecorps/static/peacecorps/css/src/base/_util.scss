@@ -1,12 +1,23 @@
-/*
- * Contains all sass utilities such as floats, clears, etc.
- */
+// Util
+//
+// Contains all sass utilities such as floats, clears, etc.
+//
+// Styleguide base.util
 
 @import "../globals";
 @import "../mixins";
 
-
+// Unmarked List
+//
 // A list with no list style and list spacing.
+//
+// Markup:
+// <ul class="u-unmarked_list">
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+// </ul>
+//
+// Styleguide base.util.unmarked_list
 @mixin u-unmarked_list {
   padding: 0;
   li {
@@ -17,24 +28,52 @@
   @include u-unmarked_list;
 }
 
+// Inline List
+//
+// A list that doesn't break on elements but is inline.
+//
+// Markup:
+// <ul class="u-inline_list">
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+// </ul>
+//
+// Styleguide base.util.inline_list
 .u-inline_list {
   * {
     display: inline-block;
   }
 }
 
+// Inline
+//
+// Deprecated: Should used u-inline_list instead.
+//
+// Styleguide base.util.inline
 .u-inline {
   display: inline-block;
   vertical-align: middle;
 }
 
+// Block At Small
+//
+// Deprecated: Shoudl just remove this as its only used once.
+//
+// Styleguide base.util.block_at_sm
 .u-block--at_sm {
   @include media($sm) {
     display: block;
   }
 }
 
-// Classic clearfix
+// Clearfix
+//
+// A classic clearfix, apply to any element that should clear itself.
+//
+// Markup:
+// <div class="u-clearfix"></div>
+//
+// Styleguide base.util.clearfix
 .u-clearfix:after {
   visibility: hidden;
   display: block;
@@ -44,18 +83,44 @@
   height: 0;
 }
 
+// Clear left
+//
+// Simple clear left.
+//
+// Markup:
+// <div class="u-clearl"></div>
+//
+// Styleguide base.util.clearl
 .u-clearl {
   clear: left;
 }
 
+// Visually hidden
+//
 // Visually hide information but keep available for screen readers.
+//
+// Markup:
+// <div class="u-visually_hidden">Content you can't see</div>
+//
+// Styleguide base.util.visually_hidden
 .u-visually_hidden {
   left: -9999px;
   position: absolute;
   top: -9999px;
 }
 
-// Centers an block element vertically and horizontally.
+// Horizontal & Vertical Block Center
+//
+// Center a block element horizontally and vertically.
+//
+// Markup:
+// <div class="u-hv_center--block">
+//  <div class="u-hv_center--block__content">Content in the middle</div>
+// </div>
+//
+// Styleguide base.util.hv_center--block
+
+// TODO remove the two levels of nesting.
 .u-hv_center--block {
   position: relative;
 
@@ -67,36 +132,101 @@
   }
 }
 
-// Centers a block element horizontally.
+// Horizontal Block Center
+//
+// Center a block element horizontally.
+//
+// Markup:
+// <div class="u-h_center--block">
+//   Horizontally centered content
+// </div>
+//
+// Styleguide base.util.h_center--block
 .u-h_center--block {
   margin-left: auto;
   margin-right: auto;
 }
 
+// Vertically Block Center
+//
+// Center a block element vertically.
+//
+// Markup:
+// <div class="u-v_center--block">
+//   Vertically centered content
+// </div>
+//
+// Styleguide base.util.v_center--block
 .u-v_center--block {
   @include transform(translateY(-50%));
   position: relative;
   top: 50%;
 }
 
-// Alignment
+// Align left
+//
+// Text alignment to the left.
+//
+// Markup:
+// <p class="u-align_l">Some content</p>
+//
+// Styleguide base.util.alignl
 .u-align_l {
   text-align: left;
 }
+
+// Align Right
+//
+// Text alignment to the right.
+//
+// Markup:
+// <p class="u-align_r">Some content</p>
+//
+// Styleguide base.util.alignr
 .u-align_r {
   text-align: right;
 }
+
+// Align Center
+//
+// Text alignment to the center.
+//
+// Markup:
+// <p class="u-align_c">Some content</p>
+//
+// Styleguide base.util.alignc
 .u-align_c {
   text-align: center;
 }
 
+// Wrap
+//
+// Wrap content in a max width container. Controlled through neat.
+//
+// Styleguide base.util.wrap
 .u-wrap {
   @include outer-container;
 }
 
+// Pull left
+//
+// Pull content to the left with a float.
+//
+// Markup:
+// <p class="u-pull">Some content</p>
+//
+// Styleguide base.util.pull
 .u-pull {
   float: left;
 }
+// Pull right
+//
+// Pull content to the right with a float.
+//
+// Markup:
+// <p class="u-pullr">Some content</p>
+//
+// Styleguide base.util.pullr
 .u-pullr {
   float: right;
 }
