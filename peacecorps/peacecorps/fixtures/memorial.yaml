@@ -30,6 +30,10 @@
     goal: null, name: Stephanie Chance Memorial Fund}
   model: peacecorps.account
   pk: SPF-SCF
+- fields: {category: mem, community_contribution: null, current: 0,
+    goal: null, name: John D. L. Petersen Memorial Fund}
+  model: peacecorps.account
+  pk: SPF-JPF
 - fields:
     account: SPF-ALF
     call: Give to this Fund
@@ -127,6 +131,18 @@
   model: peacecorps.campaign
   pk: 207
 - fields:
+    account: SPF-JPF
+    call: Give to this Fund
+    campaigntype: mem
+    description: '{"data": [{"data": {"text": "All donations to the John D. L. Petersen Memorial Fund will support approved Peace Corps Partnership Program (PCPP) projects in Namibia."}, "type": "text"}]}'
+    featuredprojects: []
+    icon: 209
+    name: John D. L. Petersen Memorial Fund
+    slug: john-d-l-petersen-memorial-fund
+    tagline: null
+  model: peacecorps.campaign
+  pk: 209
+- fields:
     caption: Alden Landis and child
     description: Alden Landis and child
     file: icons/spf-alf.jpg
@@ -190,3 +206,11 @@
     title: Stephanie Chance
   model: peacecorps.media
   pk: 207
+- fields:
+    caption: John D. L. Petersen
+    description: John D. L. Petersen
+    file: icons/spf-jpf.jpg
+    mediatype: IMG
+    title: John D. L. Petersen
+  model: peacecorps.media
+  pk: 209
