@@ -15,5 +15,6 @@ This guide can be used as a reference to use the CSS system as well as a testing
 environment for visuals of the site.
 
 ## Contents
+##### [base](section-base.html)
 ##### [components](section-components.html)
 ##### [modules](section-modules.html)

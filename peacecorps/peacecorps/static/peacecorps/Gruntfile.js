@@ -132,12 +132,6 @@ module.exports = function(grunt) {
         fontPath: '../../../../fonts'
       }
     },
-    'gh-pages': {
-      options: {
-        base: './resources'
-      },
-      src: ['**']
-    },
     exec: {
       styleguide: {
         cmd: 'kss-node css/src/ resources/styleguide/ --template css/src/donation-styleguide/'
@@ -167,7 +161,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-exec');
@@ -188,11 +181,11 @@ module.exports = function(grunt) {
       'uglify',
       'styleguide'
       ]);
-  grunt.registerTask('styleguide', ['env:test',
+  grunt.registerTask('styleguide', [
+      'env:test',
       'exec:styleguide',
       'copy:stylesheetCss'
       ]);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
-  grunt.registerTask('publish-resources', ['gh-pages']);
 };
