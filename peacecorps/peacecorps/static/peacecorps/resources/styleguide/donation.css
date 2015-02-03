@@ -2222,18 +2222,23 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
  * Example: @include rem(margin, 1rem 0 2rem);
  */
 .logo {
-  margin-top: 0.45em; }
+  display: inline-block;
+  margin-top: 0.45em;
+  vertical-align: middle; }
   .logo .logo__text {
     font-size: 35px;
     font-size: 3.5rem;
+    display: inline-block;
     font-family: georgia, times, "times new roman", serif;
-    font-weight: 100; }
+    font-weight: 100;
+    vertical-align: middle; }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo .logo__text {
         padding-top: 0.5em; } }
     .logo .logo__text a {
       text-decoration: none; }
   .logo .logo__suplementary {
+    display: inline-block;
     font-weight: 100;
     overflow: elipsis;
     padding-bottom: 0.4em;
@@ -2246,9 +2251,11 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   text-decoration: none; }
   .logo__img img {
     border: 0;
+    display: inline-block;
     margin-right: 0.5em;
     outline: 0;
     text-decoration: none;
+    vertical-align: middle;
     width: 6em; }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo__img img {

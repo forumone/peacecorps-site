@@ -4,12 +4,30 @@
 
 @import '../mixins';
 
+// Logo
+//
+// The main Peace Corp logo, just the text part.
+//
+// Markup:
+// <a class="logo__img">
+//   <img src="public/pc_logo.png" alt="Peace Corps Logo">
+// </a>
+// <div class="logo">
+//   <h1 class="logo__text">Peace Corps</h1>
+//   <h2 class="logo__suplementary">Extra text next to logo</h2>
+// </div>
+//
+// Styleguide modules.logo
 .logo {
+  display: inline-block;
   margin-top: .45em;
+  vertical-align: middle;
   .logo__text {
     @include font-size(3.5);
+    display: inline-block;
     font-family: georgia,times,"times new roman",serif;
     font-weight: 100;
+    vertical-align: middle;
     @include media($sm) {
       padding-top: .5em;
     }
@@ -18,6 +36,7 @@
     }
   }
   .logo__suplementary {
+    display: inline-block;
     font-weight: $weight-light;
     overflow: elipsis;
     padding-bottom: .4em;
@@ -33,9 +52,11 @@
 
   img {
     border: 0;
+    display: inline-block;
     margin-right: .5em;
     outline: 0;
     text-decoration: none;
+    vertical-align: middle;
     width: 6em;
     @include media($sm) {
       vertical-align: top;
