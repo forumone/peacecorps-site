@@ -194,5 +194,5 @@ module.exports = function(grunt) {
       ]);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
-  grunt.retisterTask('publish-resources', ['gh-pages']);
+  grunt.registerTask('publish-resources', ['gh-pages']);
 };
