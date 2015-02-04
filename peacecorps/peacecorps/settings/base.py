@@ -50,6 +50,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 INSTALLED_APPS += ('django_jinja',)
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
 JINJA2_CONSTANTS = {}
+JINJA2_CONSTANTS['MINIFIED'] = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

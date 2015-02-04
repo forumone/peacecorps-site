@@ -10,17 +10,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=0">
     <meta name="viewport" content="width=device-width">
+    {% if MINIFIED %}
+    <link rel="stylesheet" href="{{ static(
+        "peacecorps/css/compiled/donation.min.css") }}" />
+    {% else %}
     <link rel="stylesheet" href="{{ static(
         "peacecorps/css/compiled/donation.css") }}" />
+    {% endif %}
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
     <link rel="icon" type="image/x-icon" href="{{ static("favicon.ico") }}" />
     <noscript>
       <link rel="stylesheet" type="text/css"
+        {% if MINIFIED %}
+        href="{{
+          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.min.css")
+          }}" />
+        {% else %}
         href="{{
           static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css")
           }}" />
-
+        {% endif %}
     </noscript>
     <noscript>
       <link href='http://fonts.googleapis.com/css?family=Lato:300,400'
@@ -181,8 +191,13 @@
 <script type="text/javascript">
 (function() {
   var css = document.createElement('link');
+  {% if MINIFIED %}
+  css.href =
+    '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.min.css") }}';
+  {% else %}
   css.href =
     '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css") }}';
+  {% endif %}
   css.rel = 'stylesheet';
   css.type = 'text/css';
   document.getElementsByTagName('head')[0].appendChild(css);
@@ -201,8 +216,13 @@ WebFontConfig = {
 })();
 </script>
 
+{% if MINIFIED %}
+<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.min.js") }}">
+</script>
+{% else %}
 <script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
 </script>
+{% endif %}
 {% if ANALYTICS_ID %}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
