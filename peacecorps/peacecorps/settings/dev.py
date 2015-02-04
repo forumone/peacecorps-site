@@ -68,6 +68,8 @@ LOGGING = {
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
 
+JINJA2_CONSTANTS['DEBUG'] = True
+
 try:
     from .local_settings import *
 except ImportError:
