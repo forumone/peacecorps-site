@@ -398,6 +398,14 @@
 #kss-node .kss-modifier__example:last-child {
   margin: 0;
 }
+#kss-node .kss-modifier__example:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 #kss-node .kss-markup {
   clear: both;
   margin: -1px 0 24px 0;

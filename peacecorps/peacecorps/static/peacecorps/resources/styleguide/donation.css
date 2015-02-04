@@ -586,12 +586,6 @@ p + p {
   padding-bottom: 0.75em; }
 
 /*
- * layout/Blurb
- *
- * Blurb is a layout module that puts a large amount of padding and spacing
- * for a blurb.
- */
-/*
  * Global variables
  */
 /*
@@ -1121,12 +1115,6 @@ p + p {
   right: 1em;
   top: 1em; }
 
-/*
- * Enclose
- *
- * Similiar to section in that an element pads itself but right and left
- * rather then top and bottom padding.
- */
 .enclose {
   padding-left: 2.5em;
   padding-right: 2.5em; }
@@ -1303,11 +1291,6 @@ p + p {
 .full_banner--no_border {
   border: 0; }
 
-/*
- * Inset
- *
- * Inset a element on both sides.
- */
 .inset {
   margin-right: 0; }
 
@@ -1401,9 +1384,6 @@ p + p {
       .inset--sm:last-child {
         margin-right: 0; } }
 
-/*
- * Island
- */
 .island {
   margin: 0 auto;
   padding: 2em 1em;
@@ -1429,11 +1409,6 @@ p + p {
   background-color: #A12122;
   color: #ffffff; }
 
-/*
- * Isolate
- *
- * Have an element isolate itself positionally from those around it.
- */
 .isolate {
   display: block;
   margin-bottom: 1em;
