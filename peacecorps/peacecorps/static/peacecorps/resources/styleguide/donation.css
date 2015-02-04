@@ -1685,11 +1685,6 @@ p + p {
     background-color: #087A7E; }
 
 /*
- * Section
- *
- * Section(s) are for main, separated visual block of content.
- */
-/*
  * Global variables
  */
 /*
@@ -1769,11 +1764,6 @@ p + p {
   .section__box + .section__box {
     margin-top: 2.6em; }
 
-/*
- * Separator
- *
- * Creates a separate between elements.
- */
 /*
  * Global variables
  */
