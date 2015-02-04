@@ -10,25 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=0">
     <meta name="viewport" content="width=device-width">
-    {% if DEBUG %}
-    <link rel="stylesheet" href="{{ static(
-        "peacecorps/css/compiled/donation.css") }}" />
-    {% else %}
+    {% if MINIFIED %}
     <link rel="stylesheet" href="{{ static(
         "peacecorps/css/compiled/donation.min.css") }}" />
+    {% else %}
+    <link rel="stylesheet" href="{{ static(
+        "peacecorps/css/compiled/donation.css") }}" />
     {% endif %}
     <link rel="stylesheet" type="text/css"
         href="//cloud.typography.com/6638272/662206/css/fonts.css" />
     <link rel="icon" type="image/x-icon" href="{{ static("favicon.ico") }}" />
     <noscript>
       <link rel="stylesheet" type="text/css"
-        {% if DEBUG %}
+        {% if MINIFIED %}
         href="{{
-          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css")
+          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.min.css")
           }}" />
         {% else %}
         href="{{
-          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.min.css")
+          static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css")
           }}" />
         {% endif %}
     </noscript>
@@ -191,12 +191,12 @@
 <script type="text/javascript">
 (function() {
   var css = document.createElement('link');
-  {% if DEBUG %}
-  css.href =
-    '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css") }}';
-  {% else %}
+  {% if MINIFIED %}
   css.href =
     '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.min.css") }}';
+  {% else %}
+  css.href =
+    '{{ static("peacecorps/css/compiled/lib/font-awesome/font-awesome.css") }}';
   {% endif %}
   css.rel = 'stylesheet';
   css.type = 'text/css';
@@ -216,11 +216,11 @@ WebFontConfig = {
 })();
 </script>
 
-{% if DEBUG %}
-<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
+{% if MINIFIED %}
+<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.min.js") }}">
 </script>
 {% else %}
-<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.min.js") }}">
+<script src="{{ static("peacecorps/js/compiled/peacecorps-donation.js") }}">
 </script>
 {% endif %}
 {% if ANALYTICS_ID %}

@@ -68,7 +68,7 @@ LOGGING = {
 MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
 
-JINJA2_CONSTANTS['DEBUG'] = True
+JINJA2_CONSTANTS['MINIFIED'] = False
 
 try:
     from .local_settings import *
