@@ -1,13 +1,22 @@
-/*
- * Main nav module.
- *
- * The main nav is a horizontal row of links, which collapses to a centered
- * vertical row for smaller screens.
- */
 
 @import "../globals";
 @import "../mixins";
 
+// Main nav
+//
+// The main nav is a horizontal row of links, which collapses to a centered
+// vertical row for smaller screens.
+//
+// Markup:
+// <nav class="main_nav">
+//   <ul class="main_nav__list">
+//     <li class="main_nav__link"><a>Link A</a></li>
+//     <li class="main_nav__link"><a>Link B</a></li>
+//     <li class="main_nav__link"><a>Link C</a></li>
+//   </ul>
+// </nav>
+//
+// Styleguide components.main_nav
 .main_nav {
   @extend .inline_text--centered;
   @extend .u-unmarked_list;
