@@ -32,8 +32,13 @@ module.exports = function(grunt) {
     jsBuildDir: './js/compiled/',
     jsSrcDir: './js/src/',
     jsTestDir: '<%= jsSrcDir %>test/',
+    cssBuildDir: './css/compiled/',
+    cssSrcDir: './css/src/',
     // Task configuration.
-    clean: ['<%= jsBuildDir %>'],
+    clean: [
+      '<%= jsBuildDir %>',
+      '<%= cssBuildDir %>'
+    ],
     uglify: {
       options: {
         report: 'gzip',
@@ -62,9 +67,9 @@ module.exports = function(grunt) {
             require('node-neat').includePaths)
         },
         files: [
-          { 'css/compiled/donation.css': 'css/src/donation.scss'},
-          { 'css/compiled/lib/font-awesome/font-awesome.css':
-              'css/src/lib/font-awesome/font-awesome.scss'}
+          { '<%= cssBuildDir %>donation.css': '<%= cssSrcDir %>donation.scss'},
+          { '<%= cssBuildDir %>lib/font-awesome/font-awesome.css':
+              '<%= cssSrcDir %>lib/font-awesome/font-awesome.scss'}
         ]
       }
     },
@@ -107,7 +112,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             src: ['./node_modules/font-awesome/scss/*.scss'],
-            dest: './css/src/lib/font-awesome/',
+            dest: '<%= cssSrcDir %>lib/font-awesome/',
             filter: 'isFile'
           },
           {
@@ -119,7 +124,7 @@ module.exports = function(grunt) {
         ]
       },
       stylesheetCss: {
-        src: './css/compiled/donation.css',
+        src: '.<%= cssBuildDir %>donation.css',
         dest: './resources/styleguide/',
         flatten: true,
         expand: true
@@ -127,14 +132,17 @@ module.exports = function(grunt) {
     },
     fontAwesomeVars: {
       main: {
-        variablesScssPath: './css/src/lib/font-awesome/_variables.scss',
+        variablesScssPath: '<%= cssSrcDir %>lib/font-awesome/_variables.scss',
         faCssPrefix: 'ico',
         fontPath: '../../../../fonts'
       }
     },
     exec: {
       styleguide: {
-        cmd: 'kss-node css/src/ resources/styleguide/ --template css/src/donation-styleguide/'
+        cmd: 'kss-node <%= cssSrcDir %> resources/styleguide/ --template <%= cssSrcDir %>donation-styleguide/'
+      },
+      cssmin: {
+        cmd: 'cleancss -o <%= cssBuildDir %>donation.min.css --source-map <%= cssBuildDir %>donation.css.map <%= cssBuildDir %>donation.css'
       }
     },
     watch: {
@@ -143,12 +151,12 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       },
       css: {
-        files: ['css/src/**/*.scss', '!css/src/bourbon', '!css/src/neat'],
-        tasks: ['sass', 'styleguide']
+        files: ['<%= cssSrcDir %>**/*.scss', '!<%= cssSrcDir %>bourbon', '!<%= cssSrcDir %>neat'],
+        tasks: ['build-css', 'styleguide']
       },
       styleguide: {
-        files: ['css/src/styleguide.md', 'css/src/donation-styleguide/**/*'],
-        tasks: ['sass', 'styleguide']
+        files: ['<%= cssSrcDir %>styleguide.md', '<%= cssSrcDir %>donation-styleguide/**/*'],
+        tasks: ['build-css', 'styleguide']
       }
     }
   });
@@ -173,11 +181,9 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
       'jshint',
       'clean',
-      'copy:cssLibs',
-      'fontAwesomeVars',
       'browserify:donation',
       'exorcise',
-      'sass',
+      'build-css',
       'uglify',
       'styleguide'
       ]);
@@ -186,6 +192,13 @@ module.exports = function(grunt) {
       'exec:styleguide',
       'copy:stylesheetCss'
       ]);
+  grunt.registerTask('build-css', [
+      'sass',
+      'copy:cssLibs',
+      'fontAwesomeVars',
+      'env:test',
+      'exec:cssmin'
+  ]);
   grunt.registerTask('test', ['env:test', 'jshint', 'testling']);
   grunt.registerTask('build-watch', ['browserify:withWatch', 'watch']);
 };
