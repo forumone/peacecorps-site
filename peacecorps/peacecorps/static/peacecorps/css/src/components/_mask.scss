@@ -4,6 +4,22 @@
 
 @import "../globals";
 
+// Mask
+//
+// An image mask that provides a window into sub content but blocks everything
+// else off.
+//
+// Markup:
+// <div class="mask {{ modifier_class }}">
+//   <p class="mask__content">Some content in the middle of the mask</p>
+//
+// .mask--md  - A larger size mask.
+// .mask--fill_square  - Make a square with height/width equal to container's width
+// .mask--oval  - An oval or circular mask.
+// .mask--bordered  - A mask with a border.
+// .mask--gray-1  - A mask with a medium gray border color.
+//
+// Styleguide components.mask
 .mask {
   @extend .u-hv_center--block;
   overflow: hidden;
@@ -16,7 +32,6 @@
   height: 10em;
 }
 
-/* Make a square with height/width equal to container's width */
 .mask--fill_square {
   width: 100%;
   height: 0;

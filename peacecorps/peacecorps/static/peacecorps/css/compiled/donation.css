@@ -586,12 +586,6 @@ p + p {
   padding-bottom: 0.75em; }
 
 /*
- * layout/Blurb
- *
- * Blurb is a layout module that puts a large amount of padding and spacing
- * for a blurb.
- */
-/*
  * Global variables
  */
 /*
@@ -1121,12 +1115,6 @@ p + p {
   right: 1em;
   top: 1em; }
 
-/*
- * Enclose
- *
- * Similiar to section in that an element pads itself but right and left
- * rather then top and bottom padding.
- */
 .enclose {
   padding-left: 2.5em;
   padding-right: 2.5em; }
@@ -1303,11 +1291,6 @@ p + p {
 .full_banner--no_border {
   border: 0; }
 
-/*
- * Inset
- *
- * Inset a element on both sides.
- */
 .inset {
   margin-right: 0; }
 
@@ -1401,9 +1384,6 @@ p + p {
       .inset--sm:last-child {
         margin-right: 0; } }
 
-/*
- * Island
- */
 .island {
   margin: 0 auto;
   padding: 2em 1em;
@@ -1429,11 +1409,6 @@ p + p {
   background-color: #A12122;
   color: #ffffff; }
 
-/*
- * Isolate
- *
- * Have an element isolate itself positionally from those around it.
- */
 .isolate {
   display: block;
   margin-bottom: 1em;
@@ -1453,12 +1428,6 @@ p + p {
 .isolate--b {
   margin-bottom: 1em; }
 
-/*
- * Main nav module.
- *
- * The main nav is a horizontal row of links, which collapses to a centered
- * vertical row for smaller screens.
- */
 /*
  * Global variables
  */
@@ -1539,7 +1508,6 @@ p + p {
   width: 10em;
   height: 10em; }
 
-/* Make a square with height/width equal to container's width */
 .mask--fill_square {
   width: 100%;
   height: 0;
@@ -1717,11 +1685,6 @@ p + p {
     background-color: #087A7E; }
 
 /*
- * Section
- *
- * Section(s) are for main, separated visual block of content.
- */
-/*
  * Global variables
  */
 /*
@@ -1801,11 +1764,6 @@ p + p {
   .section__box + .section__box {
     margin-top: 2.6em; }
 
-/*
- * Separator
- *
- * Creates a separate between elements.
- */
 /*
  * Global variables
  */
@@ -2109,12 +2067,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     width: 14em; }
 
 /*
- * Article
- *
- * A class for styling text and image articles, used for project pages
- * currently.
- */
-/*
  * Global mixins.
  */
 /*
@@ -2192,12 +2144,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
 .article:last-child .text-block {
   margin-bottom: 0; }
 
-/*
- * Discover
- *
- * The discover module, a js/css module for finding sorted and categorized
- * information.
- */
 .discover .discover__aside {
   padding-left: 10%; }
 .discover .discover__aside--lg {
@@ -2207,9 +2153,6 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
       margin-bottom: -2em;
       padding-top: 1.5em; } }
 
-/*
- * Logo
- */
 /*
  * Global mixins.
  */
@@ -2228,18 +2171,23 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
  * Example: @include rem(margin, 1rem 0 2rem);
  */
 .logo {
-  margin-top: 0.45em; }
+  display: inline-block;
+  margin-top: 0.45em;
+  vertical-align: middle; }
   .logo .logo__text {
     font-size: 35px;
     font-size: 3.5rem;
+    display: inline-block;
     font-family: georgia, times, "times new roman", serif;
-    font-weight: 100; }
+    font-weight: 100;
+    vertical-align: middle; }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo .logo__text {
         padding-top: 0.5em; } }
     .logo .logo__text a {
       text-decoration: none; }
   .logo .logo__suplementary {
+    display: inline-block;
     font-weight: 100;
     overflow: elipsis;
     padding-bottom: 0.4em;
@@ -2252,9 +2200,11 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   text-decoration: none; }
   .logo__img img {
     border: 0;
+    display: inline-block;
     margin-right: 0.5em;
     outline: 0;
     text-decoration: none;
+    vertical-align: middle;
     width: 6em; }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo__img img {

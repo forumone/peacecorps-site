@@ -1,9 +1,17 @@
-/*
- * Inset
- *
- * Inset a element on both sides.
- */
-
+// Inset
+//
+// Make an element a smaller width and center, insetting it on the page.
+//
+// Markup:
+// <div class="inset {{ modifier_class }}">
+//   <p>Some content insetted</p>
+// </div>
+//
+// .inset--lg  - Largest width version of inset, spans 10 of 12 columns.
+// .inset--md  - Medium width version of inset, spans 8 of 12 columns
+// .inset--sm  - Medium width version of inset, spans 6 of 12 columns
+//
+// Styleguide components.inset
 .inset {
   @include omega;
 }

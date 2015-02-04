@@ -1,8 +1,16 @@
-/*
- * Isolate
- *
- * Have an element isolate itself positionally from those around it.
- */
+// Isolate
+//
+// Have an element isolate itself positionally from those around it.
+//
+// Markup:
+// <div class="isolate {{ modifier_class }}">
+//   <p>Some content</p>
+// </div>
+//
+// .isolate--lg  - A greater margin to isolate.
+// .isolate--b  - More marging on the bottom.
+//
+// Styleguide components.isolate
 
 .isolate {
   display: block;

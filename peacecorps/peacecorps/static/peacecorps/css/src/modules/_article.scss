@@ -1,12 +1,23 @@
-/*
- * Article
- *
- * A class for styling text and image articles, used for project pages
- * currently.
- */
-
 @import "../mixins";
 
+// Article
+//
+// A class for styling text and image articles, used for project pages
+// currently.
+//
+// Markup:
+// <section class="article">
+//   <h3>Some heading</h3>
+//   <div class="text-block">
+//     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sem mauris
+//      , tempor eget pretium at, interdum id ante. Donec a consectetur orci.
+//      Nullam in neque vel libero interdum egestas. Donec laoreet dui eu
+//        consequat laoreet.
+//     </p>
+//   </div>
+// </section>
+//
+// Styleguide modules.article
 .article {
   .text-block {
     @include inset--md;
