@@ -1,13 +1,24 @@
-/*
- * layout/Blurb
- *
- * Blurb is a layout module that puts a large amount of padding and spacing
- * for a blurb.
- */
 
 @import "../globals";
 @import "../mixins";
 
+// Blurb
+//
+// Blurb is a layout module that puts a large amount of padding and spacing
+// for a blurb.
+//
+// Markup:
+// <section class="blurb {{ modifier_class }}">
+//   <h2 class="t-blurb--md">
+//     Lorem Ipsum ut at diam tristique, vestibulum velit eu, congue urna.
+//   </h2>
+// </section>
+//
+// .blurb--sm  - A smaller version of the blurb, equal amount of space.
+// .blurb--lg  - Larger version of the blurb, more space on bottom then top.
+// .blurb--flatten_t  - No padding on the top.
+//
+// Styleguide components.blurb
 .blurb {
   @include span-columns(8);
   @include shift(2);

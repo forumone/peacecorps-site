@@ -1,11 +1,26 @@
-/*
- * Separator
- *
- * Creates a separate between elements.
- */
 
 @import "../globals";
 
+// Separator
+//
+// Creates a separator between elements
+//
+// Markup:
+// <span class="separator {{ modifier_class }}">
+//   <span>Some content</span>
+// </span>
+// <span class="separator {{ modifier_class }}">
+//   <span>Some content</span>
+// </span>
+//
+// .separator--h  - More margin on the bottom.
+// .separator--t  - Top separator.
+// .separator--r  - Right separator.
+// .separator--l  - Left separator.
+// .separator--white  - White separator.
+// .separator--hide_sm  - Hide the separator at mobile breakpoints.
+//
+// Styleguide components.separator
 .separator {
   border-color: $neutral_ex_dark;
 }

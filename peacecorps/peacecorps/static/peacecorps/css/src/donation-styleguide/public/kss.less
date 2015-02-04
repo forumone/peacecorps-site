@@ -356,6 +356,14 @@
     border: 1px solid #ccc;
     padding: 10px;
   }
+  .kss-modifier__wrapper:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
   .kss-modifier__heading {
     color: #fff;
     margin: -10px -10px 10px -10px;
@@ -385,8 +393,17 @@
       margin: 0;
     }
   }
+  .kss-modifier__example:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
 
   .kss-markup {
+    clear: both;
     margin: -1px 0 @kss-vertical-rhythm 0;
     border: 1px solid #999;
   }

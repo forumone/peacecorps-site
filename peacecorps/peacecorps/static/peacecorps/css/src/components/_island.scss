@@ -1,7 +1,19 @@
-/*
- * Island
- */
 
+// Island
+//
+// A small width section separated from everything around it.
+//
+// Markup:
+// <div class="island {{ modifier_class }}">
+//   <div class="island__content">
+//     <h2>Some heading</h4>
+//     <p>Some content</p>
+//   </div>
+// </div>
+//
+// .island--primary  - Island with a primary background and white foreground.
+//
+// Styleguide components.island
 .island {
   margin: 0 auto;
   padding: 2em 1em;

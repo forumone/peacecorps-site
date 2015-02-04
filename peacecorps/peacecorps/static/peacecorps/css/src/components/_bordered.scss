@@ -6,6 +6,20 @@
 
 @import "../globals";
 
+// Bordered
+//
+// Places a solid 1em border around an element.
+//
+// Markup:
+// <div class="bordered {{ modifier_class }}">
+//   <p>Content</p>
+// </div>
+//
+// .bordered--row  - A row in a table style layout thats bordered, so only
+//   has a border on the top.
+// .bordered--white  - White as border color and background.
+//
+// Styleguide components.bordered
 .bordered {
   border-style: solid;
   border-width: 1em;

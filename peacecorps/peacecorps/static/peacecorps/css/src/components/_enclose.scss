@@ -1,10 +1,17 @@
-/*
- * Enclose
- *
- * Similiar to section in that an element pads itself but right and left
- * rather then top and bottom padding.
- */
-
+// Enclose
+//
+// Similiar to a section in that an element pads itself but right and left
+// rather then top and bottom padding.
+//
+// Markup:
+// <div class="enclose {{ modifier_class }}">
+//   <p>Some content here</p>
+// </div>
+//
+// .enclose--sm  - A smaller amount of padding.
+// .enclose--flatten_r  - Remove padding on the right.
+//
+// Styleguide components.enclose
 .enclose {
   padding-left: 2.5em;
   padding-right: 2.5em;

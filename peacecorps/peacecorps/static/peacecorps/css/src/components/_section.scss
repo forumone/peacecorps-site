@@ -1,12 +1,25 @@
-/*
- * Section
- *
- * Section(s) are for main, separated visual block of content.
- */
 
 @import "../globals";
 @import "../mixins";
 
+// Section
+//
+// Section(s) are for main, separated visual block of content.
+//
+// Markup:
+// <div class="section {{ modifier_class }}">
+//   <p class="section__content">Lorem ipsum gravida dolor in efficitur.
+//     Curabitur eget ipsum vel urna eleifend viverra. Curabitur vitae
+//     ligula quis orci vehicula
+//   </p>
+// </div>
+//
+// .section--white  - White background.
+// .section--neutral_dark  - Neutral dark background with dark gray foreground.
+// .section--neutral_medium  - Neutral medium background.
+// .section__box  - An element for stacked section content.
+//
+// Styleguide components.section
 .section {
   clear: left;
 
