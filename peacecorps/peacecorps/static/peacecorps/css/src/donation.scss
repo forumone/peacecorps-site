@@ -62,4 +62,5 @@
 
 .wrapper {
   @include outer-container;
+  background-color: $white;
 }

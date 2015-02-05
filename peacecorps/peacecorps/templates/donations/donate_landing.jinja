@@ -5,8 +5,8 @@
 {% set custom_top_image=static("peacecorps/img/landing-top.png") %}
 
 {% block navigation %}
-<nav class="main_nav">
-  <ul class="main_nav__list">
+<nav class="main_nav section section--no_bm">
+  <ul class="main_nav__list section__content">
     <li class="main_nav__link t-title--3">
       <a href="#featured">
         Featured Projects</a></li>
@@ -22,7 +22,7 @@
 
 {% block content %}
 {# The navigation should really belong in the base file somehow #}
-<section class="blurb blurb--lg">
+<section class=" section blurb blurb--lg">
   <div class="t-blurb--md t--black">
     Peace Corps Volunteers help build clinics in villages, put books in
     schools, and improve access to nutritious food. Give today and help
@@ -72,8 +72,8 @@
   </section>
 </section>
 
-<section class="section inset--lg">
-  <section class="section__content section__content--lg">
+<section class="section">
+  <section class="section__content section__content--lg inset--lg">
     <h1 class="t-title--1">Projects &amp; Funds</h1>
     <div class="u-hv_center--block bg_img--centered bg_img--banner"
          style="background-image: url('{{static("peacecorps/img/funds-background.png")}}');">
@@ -97,7 +97,7 @@
       <h2 class="t-blurb--md t--black">
        100% of your tax-deductible donation to the Peace Corps Partnership Program goes directly towards funding volunteer projects around the world.</h2>
     </div>
-    <aside class="section">
+    <aside>
       <h2 class="t-title--2 u-pullr"
           ><a href="{{url("donate faqs")}}">Donating FAQs</h2></a></h2>
     </aside>

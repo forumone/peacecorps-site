@@ -18,9 +18,13 @@
 // .section--neutral_dark  - Neutral dark background with dark gray foreground.
 // .section--neutral_medium  - Neutral medium background.
 // .section__box  - An element for stacked section content.
+// ..section--no_tm  - No top padding.
+// ..section--no_bm  - No bottom padding.
 //
 // Styleguide components.section
 .section {
+  @include clearfix;
+  background: $white;
   clear: left;
 
   @include media($md) {
@@ -50,6 +54,11 @@
 .section--no_tm {
   .section__content {
     padding-top: 0;
+  }
+}
+.section--no_bm {
+  .section__content {
+    padding-bottom: 0;
   }
 }
 
