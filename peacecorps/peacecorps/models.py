@@ -11,6 +11,7 @@ from django.utils import timezone
 from django.utils.text import slugify
 from django.core.files.storage import default_storage
 from localflavor.us.models import USPostalCodeField
+from localflavor.us.us_states import USPS_CHOICES
 from sirtrevor.fields import SirTrevorField
 from PIL import Image
 
@@ -19,6 +20,7 @@ from peacecorps.util import svg
 
 
 NAME_LENGTH = 120   # Consistent length for project/account/fund names
+ABBR_TO_STATE = dict(USPS_CHOICES)
 
 
 def imagesave(description):
@@ -389,6 +391,12 @@ class Project(models.Model, AbstractHTMLMixin):
             else:
                 self._issue = None
         return self._issue
+
+    def volunteer_statename(self):
+        """Look up the volunteer's state name by abbreviation. If it
+        can't be found, just use the abbreviation"""
+        return ABBR_TO_STATE.get(self.volunteerhomestate,
+                                 self.volunteerhomestate)
 
 
 class Issue(models.Model):

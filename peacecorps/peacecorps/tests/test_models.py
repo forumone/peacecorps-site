@@ -164,6 +164,16 @@ class ProjectTests(TestCase):
         proj.abstract = "This is the abstract"
         self.assertEqual("This is the abstract", proj.abstract_html())
 
+    def test_volunteer_statename(self):
+        """This should expand to the whole state name, if we know the
+        translation. If not, we should return the text unmodified"""
+        proj = models.Project()
+        self.assertEqual(proj.volunteer_statename(), None)
+        proj.volunteerhomestate = 'RR'
+        self.assertEqual(proj.volunteer_statename(), 'RR')
+        proj.volunteerhomestate = 'IN'
+        self.assertEqual(proj.volunteer_statename(), 'Indiana')
+
 
 class FAQTests(TestCase):
     def test_slug(self):
