@@ -22,7 +22,6 @@ test('showOnce', function(t) {
         $el2 = $('<span data-show-once="secondId" />');
     $root.append($el1, $el2);
     showOnce.showOnce($root, false);
-    console.log($el1);
     t.equals($el1.attr('aria-hidden'), 'false');
     t.equals($el2.attr('aria-hidden'), 'false');
     t.end();
@@ -34,7 +33,6 @@ test('showOnce', function(t) {
         storage = mockStorage();
     $root.append($el1, $el2);
     showOnce.showOnce($root, storage);
-    console.log($el1);
     t.equals($el1.attr('aria-hidden'), 'false');
     t.equals($el2.attr('aria-hidden'), 'false');
     t.equals(storage.getItem('show-once:firstId'), true);
@@ -49,7 +47,6 @@ test('showOnce', function(t) {
     storage.setItem('show-once:secondId', true);
     $root.append($el1, $el2);
     showOnce.showOnce($root, storage);
-    console.log($el1);
     t.equals($el1.attr('aria-hidden'), 'false');
     t.equals($el2.attr('aria-hidden'), 'true');
     t.equals(storage.getItem('show-once:firstId'), true);
