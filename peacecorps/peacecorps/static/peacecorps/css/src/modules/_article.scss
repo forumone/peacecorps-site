@@ -19,6 +19,7 @@
 //
 // Styleguide modules.article
 .article {
+  clear: both;
   .text-block {
     @include inset--md;
     margin-top: 4em;

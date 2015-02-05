@@ -1,16 +1,21 @@
-/*
- * Banner image shown on all pages
- *
- * There are two types of these images, custom and default. Custom images must
- * be defined inline; the rest should be taken care of here. Custom images are
- * expected to be much taller than the default image.
- */
 
 @import "../globals";
 
+// Top image
+//
+// There are two types of these images, custom and default. Custom images must
+// be defined inline; the rest should be taken care of here. Custom images are
+// expected to be much taller than the default image.
+//
+// Markup:
+// <div class="top_image {{ modifier_class }}">
+// </div>
+//
+// Styleguide components.top_image
 .top_image {
   background-repeat: no-repeat;
   background-position: center center;
+  border-bottom: .75em solid $neutral_dark;
 }
 
 .top_image--default {

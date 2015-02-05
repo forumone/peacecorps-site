@@ -12,6 +12,12 @@
   @extend .u-clearfix;
 }
 
+.full_banner--width {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .full_banner--support {
   border-bottom: none;
   border-top: none;

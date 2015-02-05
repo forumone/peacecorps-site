@@ -1276,6 +1276,11 @@ p + p {
   margin: 0px -10.3%;
   padding: 0.5em 10.3%; }
 
+.full_banner--width {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
 .full_banner--support {
   border-bottom: none;
   border-top: none;
@@ -1918,13 +1923,6 @@ p + p {
   text-align: center; }
 
 /*
- * Banner image shown on all pages
- *
- * There are two types of these images, custom and default. Custom images must
- * be defined inline; the rest should be taken care of here. Custom images are
- * expected to be much taller than the default image.
- */
-/*
  * Global variables
  */
 /*
@@ -1938,7 +1936,8 @@ p + p {
  */
 .top_image {
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center;
+  border-bottom: 0.75em solid #E5E1D4; }
 
 .top_image--default {
   background-image: url(../../img/default_top.png); }
@@ -2106,66 +2105,68 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
  *
  * Example: @include rem(margin, 1rem 0 2rem);
  */
-.article .text-block {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 66.2125340599%;
-  margin-left: 16.89373297%;
-  margin-top: 4em;
-  margin-bottom: 5em; }
-  .article .text-block:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .article .text-block {
-      float: left;
-      display: block;
-      margin-right: 1.8248175182%;
-      width: 77.3722627737%;
-      margin-left: 11.3138686131%; }
-      .article .text-block:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .article .text-block {
-      margin-left: 0%;
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%;
-      padding: 0 1em; }
-      .article .text-block:last-child {
-        margin-right: 0; } }
-.article h1, .article h2, .article h3, .article h4, .article h5 {
-  float: left;
-  display: block;
-  margin-right: 1.3623978202%;
-  width: 66.2125340599%;
-  margin-left: 16.89373297%; }
-  .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .article h1, .article h2, .article h3, .article h4, .article h5 {
-      float: left;
-      display: block;
-      margin-right: 1.8248175182%;
-      width: 77.3722627737%;
-      margin-left: 11.3138686131%; }
-      .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .article h1, .article h2, .article h3, .article h4, .article h5 {
-      margin-left: 0%;
-      float: left;
-      display: block;
-      margin-right: 4.2016806723%;
-      width: 100%;
-      padding: 0 1em; }
-      .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
-        margin-right: 0; } }
-  .article h1 + .text-block, .article h2 + .text-block, .article h3 + .text-block, .article h4 + .text-block, .article h5 + .text-block {
-    margin-top: 0; }
-.article:last-child .text-block {
-  margin-bottom: 0; }
+.article {
+  clear: both; }
+  .article .text-block {
+    float: left;
+    display: block;
+    margin-right: 1.3623978202%;
+    width: 66.2125340599%;
+    margin-left: 16.89373297%;
+    margin-top: 4em;
+    margin-bottom: 5em; }
+    .article .text-block:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 500px) and (max-width: 899px)  {
+      .article .text-block {
+        float: left;
+        display: block;
+        margin-right: 1.8248175182%;
+        width: 77.3722627737%;
+        margin-left: 11.3138686131%; }
+        .article .text-block:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .article .text-block {
+        margin-left: 0%;
+        float: left;
+        display: block;
+        margin-right: 4.2016806723%;
+        width: 100%;
+        padding: 0 1em; }
+        .article .text-block:last-child {
+          margin-right: 0; } }
+  .article h1, .article h2, .article h3, .article h4, .article h5 {
+    float: left;
+    display: block;
+    margin-right: 1.3623978202%;
+    width: 66.2125340599%;
+    margin-left: 16.89373297%; }
+    .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 500px) and (max-width: 899px)  {
+      .article h1, .article h2, .article h3, .article h4, .article h5 {
+        float: left;
+        display: block;
+        margin-right: 1.8248175182%;
+        width: 77.3722627737%;
+        margin-left: 11.3138686131%; }
+        .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .article h1, .article h2, .article h3, .article h4, .article h5 {
+        margin-left: 0%;
+        float: left;
+        display: block;
+        margin-right: 4.2016806723%;
+        width: 100%;
+        padding: 0 1em; }
+        .article h1:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child {
+          margin-right: 0; } }
+    .article h1 + .text-block, .article h2 + .text-block, .article h3 + .text-block, .article h4 + .text-block, .article h5 + .text-block {
+      margin-top: 0; }
+  .article:last-child .text-block {
+    margin-bottom: 0; }
 
 .discover .discover__aside {
   padding-left: 10%; }
