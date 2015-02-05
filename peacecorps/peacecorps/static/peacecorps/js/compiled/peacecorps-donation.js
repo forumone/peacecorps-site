@@ -70,7 +70,7 @@ Collapsible.prototype.render = function() {
 
 module.exports = Collapsible;
 
-},{"jquery":8}],2:[function(require,module,exports){
+},{"jquery":9}],2:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -193,7 +193,7 @@ Discover.prototype.dataSelector = function(dataAttr, dataVal) {
 module.exports = Discover;
 
 
-},{"jquery":8}],3:[function(require,module,exports){
+},{"jquery":9}],3:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -204,6 +204,7 @@ var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 var form = require('./form');
 var jsusers = require('./jsusers');
+var showOnce = require('./showOnce');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -244,7 +245,8 @@ var Init = {
 
 $().ready(function() {
   var $discoverApp = $('.js-discoverApp'),
-      $form = $('.js-form');
+      $form = $('.js-form'),
+      $doc = $(document);
 
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
@@ -279,10 +281,11 @@ $().ready(function() {
     form.initForm($form);
   }
 
-  jsusers.progEnhcJSUsers($(document));
+  jsusers.progEnhcJSUsers($doc);
+  showOnce.showOnce($doc, 'localStorage' in window && window.localStorage);
 });
 
-},{"./collapsible":1,"./discover":2,"./form":4,"./jsusers":5,"./landing":6,"./update_donatepercent":7,"jquery":8}],4:[function(require,module,exports){
+},{"./collapsible":1,"./discover":2,"./form":4,"./jsusers":5,"./landing":6,"./showOnce":7,"./update_donatepercent":8,"jquery":9}],4:[function(require,module,exports){
 /*
  * Functionality related to forms
  */
@@ -393,7 +396,7 @@ module.exports = {
   collapsibleToggles: collapsibleToggles
 };
 
-},{"jquery":8}],5:[function(require,module,exports){
+},{"jquery":9}],5:[function(require,module,exports){
 /*
  * To accommodate non-JS users, certain elements are only shown (or are only
  * hidden) if JS is present.
@@ -487,7 +490,32 @@ var Landing = {
 
 module.exports = Landing;
 
-},{"jquery":8}],7:[function(require,module,exports){
+},{"jquery":9}],7:[function(require,module,exports){
+/**
+ * Content that should only be shown once per user. A flag is set in
+ * localstorage, and, if present, the content is hidden.
+ **/
+'use strict';
+
+var $ = require('jquery');
+
+var showOnce = function($root, storage) {
+  $root.find('[data-show-once]').each(function() {
+    var $el = $(this),
+        key = 'show-once:' + $el.attr('data-show-once'),
+        seen = !!(storage && storage.getItem(key));
+    $el.attr('aria-hidden', seen);
+    if (!seen && storage) {
+      storage.setItem(key, true);
+    }
+  });
+};
+
+module.exports = {
+  showOnce: showOnce
+};
+
+},{"jquery":9}],8:[function(require,module,exports){
 /* Update donations percentages on project pages. */
 'use strict';
 
@@ -531,7 +559,7 @@ UpdatePercent.prototype.init = function(){
 
 module.exports = UpdatePercent;
 
-},{"jquery":8}],8:[function(require,module,exports){
+},{"jquery":9}],9:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.3
  * http://jquery.com/
