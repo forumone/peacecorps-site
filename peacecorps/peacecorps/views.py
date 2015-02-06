@@ -38,8 +38,8 @@ def project_form(request, slug):
 
 def campaign_form(request, slug):
     """Wrapper around donation_payment which passes in the correct campaign"""
-    campaign = get_object_or_404(Campaign.objects.select_related('account'),
-                                 slug=slug)
+    campaign = get_object_or_404(
+        Campaign.published_objects.select_related('account'), slug=slug)
     return donation_payment(request, campaign.account, campaign=campaign)
 
 
@@ -115,7 +115,7 @@ def donate_landing(request):
         {
             'title': 'Donate',
             'featuredcampaign': featuredcampaign,
-            'sectors': Campaign.objects.filter(
+            'sectors': Campaign.published_objects.filter(
                 campaigntype=Campaign.SECTOR).order_by('name'),
             'featuredprojects': featuredprojects,
             'projects': projects,
@@ -150,7 +150,7 @@ def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
-    countries = Campaign.objects.select_related('country').filter(
+    countries = Campaign.published_objects.select_related('country').filter(
         campaigntype=Campaign.COUNTRY).order_by('country__name')
     issues = Issue.objects.all().order_by('name')
     projects = Project.published_objects.select_related(
@@ -173,7 +173,8 @@ def donate_projects_funds(request):
 
 def memorial_funds(request):
     """Contains memorial funds"""
-    memorial_funds = Campaign.objects.filter(campaigntype=Campaign.MEMORIAL)
+    memorial_funds = Campaign.published_objects.filter(
+        campaigntype=Campaign.MEMORIAL)
     # Quick hack to pull out the volunteer's name. Replace when we have a new
     # model
     for fund in memorial_funds:
@@ -190,8 +191,8 @@ def memorial_funds(request):
 
 
 def fund_detail(request, slug):
-    campaign = get_object_or_404(Campaign.objects.select_related('account'),
-                                 slug=slug)
+    campaign = get_object_or_404(
+        Campaign.published_objects.select_related('account'), slug=slug)
     if 'payment_amount' in request.GET:
         form = DonationAmountForm(data=request.GET, account=campaign.account)
     else:
@@ -250,7 +251,8 @@ class ProjectReturn(AbstractReturn):
 
 
 class CampaignReturn(AbstractReturn):
-    queryset = Campaign.objects.select_related('account', 'featured_image')
+    queryset = Campaign.published_objects.select_related(
+        'account', 'featured_image')
 
 
 class FAQs(ListView):
