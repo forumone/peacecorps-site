@@ -24,7 +24,6 @@
 // Styleguide components.section
 .section {
   @include clearfix;
-  background: $white;
   clear: left;
 
   @include media($md) {

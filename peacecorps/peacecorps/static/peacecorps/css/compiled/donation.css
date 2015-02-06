@@ -1733,7 +1733,6 @@ p + p {
  * Example: @include rem(margin, 1rem 0 2rem);
  */
 .section {
-  background: #ffffff;
   clear: left; }
   .section:after {
     clear: both;
