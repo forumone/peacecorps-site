@@ -36,7 +36,7 @@ class CampaignAdmin(admin.ModelAdmin):
             'fields': ['account', 'name', ('campaigntype', 'country'), 'icon']
             }),
         ('Text', {
-            'fields': ['slug', 'description', 'abstract']
+            'fields': ['slug', 'description', 'abstract', 'published']
         }),
     )
 
