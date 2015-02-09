@@ -1,3 +1,4 @@
+# @todo split into smaller files; remove "donate_" prefix
 from collections import defaultdict
 from urllib.parse import quote as urlquote
 
@@ -151,6 +152,7 @@ def donate_projects_funds(request):
     """
     The page that displays a sorter for all projects, issues, volunteers.
     """
+    # @todo - hide some of the prefetching logic?
     countries = Campaign.objects.prefetch_related('country').filter(
         campaigntype=Campaign.COUNTRY).order_by('country__name')
     issues = Issue.objects.prefetch_related('campaigns').order_by('name')
@@ -159,6 +161,8 @@ def donate_projects_funds(request):
         'campaigns',
         'country',
     ).order_by('volunteername')
+    # Before we can build projects_by_issue, we need to know which funds are
+    # associated with which issues
     issues_by_campaign = defaultdict(list)
     for issue in issues:
         for campaign in issue.campaigns.all():
