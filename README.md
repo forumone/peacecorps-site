@@ -73,9 +73,7 @@ Next, you will want to load fixtures related to countries, issues, and special
 funds:
 
 ```bash
-python manage.py loaddata countries
-python manage.py loaddata issues
-python manage.py loaddata global-general
+python manage.py loaddata countries issues global-general
 ```
 
 Now the database will contain a list of countries, several issues (and their
@@ -93,7 +91,7 @@ their goal.
 
 ```bash
 python manage.py dbshell
-    update peacecorps_project set published=True where account_id in (select id from peacecorps_account where goal > current);
+    update peacecorps_project set published=1 where account_id in (select id from peacecorps_account where goal > current);
 ```
 
 
