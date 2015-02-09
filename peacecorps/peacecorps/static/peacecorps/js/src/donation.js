@@ -8,6 +8,7 @@ var UpdatePercent = require('./update_donatepercent');
 var Landing = require('./landing');
 var form = require('./form');
 var jsusers = require('./jsusers');
+var showOnce = require('./showOnce');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -48,7 +49,8 @@ var Init = {
 
 $().ready(function() {
   var $discoverApp = $('.js-discoverApp'),
-      $form = $('.js-form');
+      $form = $('.js-form'),
+      $doc = $(document);
 
   // TODO I want to rebuild the Init class to remove this check at some point.
   if ($('.landing').length < 1) {
@@ -83,5 +85,6 @@ $().ready(function() {
     form.initForm($form);
   }
 
-  jsusers.progEnhcJSUsers($(document));
+  jsusers.progEnhcJSUsers($doc);
+  showOnce.showOnce($doc, 'localStorage' in window && window.localStorage);
 });

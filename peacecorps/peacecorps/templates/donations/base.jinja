@@ -46,15 +46,37 @@
 {% else %}
 <div class="top_image top_image--default wrapper">
 {% endif %}
-  <nav class="banner--dark_transparent banner--sitewide_notification">
+  <header class="banner--dark_transparent banner--sitewide_notification
+                 u-clearfix drift_corner">
     <a href="http://peacecorps.gov" class="t-single_nav t--white enclose">
       <span class="t-title--4">
         <i class="fa fa-angle-left icon icon--text"></i>
         Back to Peacecorps.gov home
       </span>
     </a>
-    <span class="t-body--xsm">This is a beta site</span>
-  </nav>
+    <span class="t-body--xsm">This site is in beta, 
+      <a href="#beta-info" class="t-link--white"
+         aria-controls="beta-info">learn more</a></span>
+    <section id="beta-info" class="js-collapsibleItem js-collapsibleNoHide"
+             data-show-once="beta-banner">
+      <div class="blurb blurb--sm">
+        <h2>This site is in beta, tell us what you think!</h2>
+        <p class="t-body--md t--white">
+          We're rebuilding, and would love to get your thoughts on what we have
+          so far. Email us at
+          <a href="mailto:donate@peacecorps.gov"
+             class="t-link--white">donate@peacecorps.gov</a> to let us know how
+           it's working for you!
+        </p>
+      </div>
+      <a href="#" class="
+          icon icon--box icon--gray
+          fa fa-times
+          drift_corner__tr
+          js-close"
+          title="Close"></a>
+    </section>
+  </header>
   <header class="banner banner--support banner--no_line">
     <a class="logo__img" href="{{ url('donate landing') }}">
       <img src="{{ static('peacecorps/img/pc_logo.png') }}"

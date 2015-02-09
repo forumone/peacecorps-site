@@ -98,11 +98,23 @@ class PayXMLGenerationTests(TestCase):
                 'interest_conflict': True, 'email_consent': True}
         memo = payxml.generate_agency_memo(data)
         self.assertEqual(
-            "(CCCCCC)(5555555555)(14-54FF, $20.00)(yes)(yes)(yes)", memo)
+            "(CCCCCC)(14-54FF,$20.00/)(5555555555)(yes)(yes)(yes)", memo)
 
         memo = payxml.generate_agency_memo({
             'payment_amount': 2000, 'project_code': '14-54FF'})
-        self.assertEqual("()()(14-54FF, $20.00)(no)(no)(no)", memo)
+        self.assertEqual("()(14-54FF,$20.00/)()(no)(no)(no)", memo)
+
+        memo = payxml.generate_agency_memo({
+            'comments': 'This is a good project.',
+            'project_code': '15-680-008',
+            'payment_amount': 4000,
+            'phone_number': '1234567890',
+            'information_consent': True, 'interest_conflict': False,
+            'email_consent': False})
+        self.assertEqual(
+            "(This is a good project.)(15-680-008,$40.00/)(1234567890)"
+            "(yes)(no)(no)",
+            memo)
 
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.

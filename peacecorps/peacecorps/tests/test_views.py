@@ -2,7 +2,9 @@ import json
 from urllib.parse import quote as urlquote
 
 from django.core.urlresolvers import reverse
-from django.test import Client, TestCase
+from django.db import connections, DEFAULT_DB_ALIAS
+from django.test import Client, TestCase, TransactionTestCase
+from django.test.utils import CaptureQueriesContext
 
 from peacecorps.models import Account, Campaign, Country, FAQ, Issue, Project
 
@@ -258,6 +260,21 @@ class DonatePagesTests(TestCase):
                                            kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
+    def test_fund_not_published(self):
+        fund = Campaign.objects.get(slug='health-hivaids-fund')
+        fund.published = False
+        fund.save()
+
+        response = self.client.get(reverse(
+            'donate campaign', kwargs={'slug': 'health-hivaids-fund'}))
+        self.assertEqual(response.status_code, 404)
+
+        fund.published = True
+        fund.save()
+        response = self.client.get(reverse(
+            'donate campaign', kwargs={'slug': 'health-hivaids-fund'}))
+        self.assertEqual(response.status_code, 200)
+
     def test_project_fully_funded(self):
         """Verify that there's a submission button if the project is not
         funded and that this disappears if the project is funded"""
@@ -378,6 +395,18 @@ class DonatePagesTests(TestCase):
         response = self.client.get(url, HTTP_HOST='example.com')
         self.assertContains(response, 'Thank you, Billy')
         self.assertContains(response, urlquote('http://example.com/'))
+
+
+class QueryCountTests(TransactionTestCase):
+    fixtures = ['tests', 'countries', 'issues']
+
+    def test_sorter_query_count(self):
+        """Place an upper bounds on the number of queries that can be present
+        on the sorter page"""
+        with CaptureQueriesContext(connections[DEFAULT_DB_ALIAS]) as cap:
+            self.client.get(reverse('donate projects funds'))
+            # We're currently at 8
+            self.assertTrue(len(cap) < 10)
 
 
 class FAQTests(TestCase):

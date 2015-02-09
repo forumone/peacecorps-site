@@ -10,6 +10,11 @@ from peacecorps import models
 
 
 class AccountTest(TestCase):
+    def _make_donation(self, acct, amount):
+        donation = models.Donation.objects.create(account=acct, amount=amount)
+        donation.save()
+        return donation
+
     def test_funded(self):
         account = models.Account()
         self.assertFalse(account.funded())
@@ -25,19 +30,35 @@ class AccountTest(TestCase):
     def test_track_total_donated(self):
         """Use fake data to verify that account totals are being
         kept up-to-date"""
-        def makedonation(acct, amount):
-            donation = models.Donation.objects.create(
-                account=acct, amount=amount)
-            donation.save()
-            return donation
-
         acc1 = models.Account.objects.create(
             name='Account1', code='112-358', current=150)
-        makedonation(acc1, 75)
-        makedonation(acc1, 100)
-        makedonation(acc1, 1)
+        self._make_donation(acc1, 75)
+        self._make_donation(acc1, 100)
+        self._make_donation(acc1, 1)
 
         self.assertEqual(326, acc1.total_donated())
+        acc1.delete()
+
+    def test_dynamic_total(self):
+        """We expect dynamic total to be on any retrieved objects. We expect
+        calling `total_donated` to also set this field"""
+        acc1 = models.Account.objects.create(
+            name='Account1', code='112-358', current=150)
+
+        self._make_donation(acc1, 75)
+        self._make_donation(acc1, 100)
+        self._make_donation(acc1, 1)
+        self.assertFalse(hasattr(acc1, 'dynamic_total'))
+
+        acc1_retrieved = models.Account.objects.get(code='112-358')
+        self.assertTrue(hasattr(acc1_retrieved, 'dynamic_total'))
+        self.assertEqual(acc1_retrieved.dynamic_total, 176)
+
+        self.assertEqual(acc1.total_donated(), 326)
+        self.assertTrue(hasattr(acc1, 'dynamic_total'))
+        self.assertEqual(acc1.dynamic_total, 176)
+
+        acc1.delete()
 
     def test_percent_raised(self):
         account = models.Account()
