@@ -160,6 +160,7 @@ def donate_projects_funds(request):
         Prefetch('account', queryset=Account.objects.all()),
         'campaigns',
         'country',
+        'volunteerpicture'
     ).order_by('volunteername')
     # Before we can build projects_by_issue, we need to know which funds are
     # associated with which issues
