@@ -91,7 +91,7 @@ their goal.
 
 ```bash
 python manage.py dbshell
-    update peacecorps_project set published=True where account_id in (select id from peacecorps_account where goal > current);
+    update peacecorps_project set published=1 where account_id in (select id from peacecorps_account where goal > current);
 ```
 
 
