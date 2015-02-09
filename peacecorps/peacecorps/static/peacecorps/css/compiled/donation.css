@@ -1928,6 +1928,7 @@ p + p {
   margin-bottom: 2em; }
 
 .top_image--default {
+  background-position-y: bottom;
   background-image: url(../../img/default_top.png); }
 
 .top_image--custom {
