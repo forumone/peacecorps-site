@@ -1,3 +1,4 @@
+# @todo split this file up, perhaps into smaller apps?
 from datetime import timedelta
 import json
 import tempfile
@@ -68,6 +69,12 @@ class AbstractHTMLMixin(object):
                         data = {'text': trimmed + '...'}
                     return django_render('sirtrevor/blocks/text.html', data)
         return ''
+
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(
+            published=True)
 
 
 class AccountManager(models.Manager):
@@ -171,28 +178,24 @@ class Account(models.Model):
             return self.campaign_set.first()
 
 
-# @todo: this description isn't really accurate anymore. Probably worth
-# renaming
+# @todo: Probably worth renaming
 class Campaign(models.Model, AbstractHTMLMixin):
     """
-    A campaign is any fundraising effort. Campaigns can collect donations
-    to a separate account that can be distributed to projects (sector, country,
-    special, and memorial funds, the general fund), or they can exist simply to
-    group related projects to highlight them to interested parties.
+    A campaign is any fundraising effort. Campaigns collect donations to a
+    separate account that can be distributed to projects (sector, country,
+    special, and memorial funds, the general fund).
     """
     COUNTRY = 'coun'
     GENERAL = 'gen'
     MEMORIAL = 'mem'
     OTHER = 'oth'
     SECTOR = 'sec'
-    TAG = 'tag'  # a group of campaigns that doesn't have an account attached.
     CAMPAIGNTYPE_CHOICES = (
         (COUNTRY, 'Country'),
         (GENERAL, 'General'),
         (SECTOR, 'Sector'),
         (MEMORIAL, 'Memorial'),
         (OTHER, 'Other'),
-        (TAG, 'Tag')
     )
 
     name = models.CharField(max_length=NAME_LENGTH)
@@ -219,6 +222,12 @@ class Campaign(models.Model, AbstractHTMLMixin):
     country = models.ForeignKey(
         'Country', related_name="campaign", blank=True, null=True, unique=True)
     abstract = models.TextField(blank=True, null=True)
+
+    # Unlike projects, funds start published
+    published = models.BooleanField(default=True)
+
+    objects = models.Manager()
+    published_objects = PublishedManager()
 
     def __str__(self):
         return '%s: %s' % (self.account_id, self.name)
@@ -251,7 +260,8 @@ class Country(models.Model):
 
 
 class FeaturedCampaign(models.Model):
-    campaign = models.ForeignKey('Campaign', to_field='account')
+    campaign = models.ForeignKey('Campaign', to_field='account',
+                                 limit_choices_to={'published': True})
 
     # Much like the Highlander, there can be only one.
     def save(self):
@@ -330,12 +340,6 @@ class Media(models.Model):
         return self.file.url
 
 
-class PublishedManager(models.Manager):
-    def get_queryset(self):
-        return super(PublishedManager, self).get_queryset().filter(
-            published=True)
-
-
 class Project(models.Model, AbstractHTMLMixin):
     title = models.CharField(max_length=NAME_LENGTH)
     tagline = models.CharField(
@@ -365,6 +369,7 @@ class Project(models.Model, AbstractHTMLMixin):
     volunteerhomestate = USPostalCodeField(blank=True, null=True)
     abstract = models.TextField(blank=True, null=True)
 
+    # Unlike funds, projects start unpublished
     published = models.BooleanField(default=False)
 
     objects = models.Manager()

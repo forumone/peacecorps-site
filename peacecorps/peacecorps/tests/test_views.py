@@ -260,6 +260,21 @@ class DonatePagesTests(TestCase):
                                            kwargs={'slug': 'peace-corps'}))
         self.assertEqual(response.status_code, 200)
 
+    def test_fund_not_published(self):
+        fund = Campaign.objects.get(slug='health-hivaids-fund')
+        fund.published = False
+        fund.save()
+
+        response = self.client.get(reverse(
+            'donate campaign', kwargs={'slug': 'health-hivaids-fund'}))
+        self.assertEqual(response.status_code, 404)
+
+        fund.published = True
+        fund.save()
+        response = self.client.get(reverse(
+            'donate campaign', kwargs={'slug': 'health-hivaids-fund'}))
+        self.assertEqual(response.status_code, 200)
+
     def test_project_fully_funded(self):
         """Verify that there's a submission button if the project is not
         funded and that this disappears if the project is funded"""

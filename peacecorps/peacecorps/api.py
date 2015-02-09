@@ -133,7 +133,7 @@ class ProjectDonation(AbstractDonation):
 class FundDonation(AbstractDonation):
     def post(self, request, slug):
         campaign = get_object_or_404(
-            Campaign.objects.select_related('account'),
+            Campaign.published_objects.select_related('account'),
             slug=slug)
         return self.errors_or_paygov(campaign.account, request.data,
                                      request.get_host())
