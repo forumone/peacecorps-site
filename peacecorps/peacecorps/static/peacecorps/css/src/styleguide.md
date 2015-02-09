@@ -18,3 +18,19 @@ environment for visuals of the site.
 ##### [base](section-base.html)
 ##### [components](section-components.html)
 ##### [modules](section-modules.html)
+
+## Setup
+This styleguide was setup with [KSS node](https://github.com/kss-node/kss-node).
+To integrate it into your project, here are some simple instructions:
+
+```bash
+npm install --save-dev kss
+kss-node --init /path/to/custom_template
+kss-node /path/to/sass /path/to/styleguide --template /path/to/custom_template
+## Edit the /path/to/sass/styleguide.md file to your liking.
+## Modify the /path/to/custom_template/public files to your liking.
+```
+
+KSS will only process comments in sass files that adhere to its format. More
+about the format can be found on the [kss
+site](http://warpspire.com/kss/syntax/)
