@@ -382,7 +382,7 @@ class DonatePagesTests(TestCase):
         self.assertContains(response, urlquote('http://example.com/'))
 
 
-class QueryCoundTests(TransactionTestCase):
+class QueryCountTests(TransactionTestCase):
     fixtures = ['tests', 'countries', 'issues']
 
     def test_sorter_query_count(self):
