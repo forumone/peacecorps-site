@@ -10,6 +10,17 @@
   font-size: $sizeValue + rem;
 }
 
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
 @mixin u-visually_hidden {
   position: absolute !important;
   top: -9999px !important;

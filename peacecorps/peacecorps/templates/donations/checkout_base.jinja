@@ -24,33 +24,36 @@
       </div>
   </section>
 
-  <section class="section form full_banner full_banner--neutral full_banner--flush">
-    {% block form_content %}{% endblock %}
-    <section class="section inset--lg">
-      <div class="form__field form__field--single">
-        <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
-        Expiration date:
-        </p>
+  <section class="section form
+      full_banner full_banner--width full_banner--neutral full_banner--flush">
+    <div class="inset inset--lg">
+      {% block form_content %}{% endblock %}
+      <section class="section">
+        <div class="form__field form__field--single">
+          <p class="t-body--sm form__text t-break">OMB no. 0420-XXXX<br>
+          Expiration date:
+          </p>
 
-        <h4 class="form__text">This is a Secure Transaction</h4>
-        <p class="t-body--sm form__text t-break">
-        The secure server software (SSL) that processes Peace Corps donations is
-        the industry standard and among the best software available today for
-        secure commerce transactions. It encrypts all of your personal data
-        including credit card number, name, and address, so that it cannot be
-        read as the information travels over the Internet. You can tell when you
-        are protected by encryption — the lock or key at the bottom of your
-        browser changes color or is no longer broken.
-        </p>
+          <h4 class="form__text">This is a Secure Transaction</h4>
+          <p class="t-body--sm form__text t-break">
+          The secure server software (SSL) that processes Peace Corps donations is
+          the industry standard and among the best software available today for
+          secure commerce transactions. It encrypts all of your personal data
+          including credit card number, name, and address, so that it cannot be
+          read as the information travels over the Internet. You can tell when you
+          are protected by encryption — the lock or key at the bottom of your
+          browser changes color or is no longer broken.
+          </p>
 
-        <h4 class="form__text">Burden Statement</h4>
-        <p class="t-body--sm form__text">
-          Public reporting burden for this collection of information is
-          estimated to average 45 minutes per response
-        </p>
+          <h4 class="form__text">Burden Statement</h4>
+          <p class="t-body--sm form__text">
+            Public reporting burden for this collection of information is
+            estimated to average 45 minutes per response
+          </p>
 
-      </div>
-    </section>
+        </div>
+      </section>
+    </div>
   </section>
 {% endblock %}
 
