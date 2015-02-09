@@ -70,6 +70,14 @@ class AbstractHTMLMixin(object):
         return ''
 
 
+class AccountManager(models.Manager):
+    """We more or less always want to aggregate the dynamic number of
+    donations, so add it to the default query set"""
+    def get_queryset(self):
+        return super(AccountManager, self).get_queryset().annotate(
+            dynamic_total=Sum('donations__amount'))
+
+
 class Account(models.Model):
     COUNTRY = 'coun'
     MEMORIAL = 'mem'
@@ -97,17 +105,20 @@ class Account(models.Model):
     category = models.CharField(
         max_length=10, choices=CATEGORY_CHOICES)
 
+    objects = AccountManager()
+
     def __str__(self):
         return '%s' % (self.code)
 
     def total_donated(self):
         """Total amount raised via donations (including real-time). Does not
         include community contributions"""
-        donations = self.donations.aggregate(Sum('amount'))
-        if donations['amount__sum']:
-            return self.current + donations['amount__sum']
+        if hasattr(self, 'dynamic_total'):
+            dynamic_total = self.dynamic_total or 0
         else:
-            return self.current
+            agg = self.donations.aggregate(Sum('amount'))
+            dynamic_total = agg['amount__sum'] or 0
+        return self.current + dynamic_total
 
     def total_raised(self):
         """Total amount raised, including donations and community
