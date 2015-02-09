@@ -113,12 +113,10 @@ class Account(models.Model):
     def total_donated(self):
         """Total amount raised via donations (including real-time). Does not
         include community contributions"""
-        if hasattr(self, 'dynamic_total'):
-            dynamic_total = self.dynamic_total or 0
-        else:
+        if not hasattr(self, 'dynamic_total'):
             agg = self.donations.aggregate(Sum('amount'))
-            dynamic_total = agg['amount__sum'] or 0
-        return self.current + dynamic_total
+            self.dynamic_total = agg['amount__sum']
+        return self.current + (self.dynamic_total or 0)
 
     def total_raised(self):
         """Total amount raised, including donations and community
