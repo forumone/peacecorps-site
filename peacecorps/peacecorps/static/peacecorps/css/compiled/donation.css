@@ -1939,6 +1939,7 @@ p + p {
   border-bottom: 0.75em solid #E5E1D4; }
 
 .top_image--default {
+  background-position-y: bottom;
   background-image: url(../../img/default_top.png); }
 
 .top_image--custom {
