@@ -17,13 +17,17 @@ def add_subelements(parent, data, elements):
 
 
 def generate_agency_memo(data):
-    """Build the memo field from selections on the form"""
+    """Build the memo field from selections on the form. Format should be
+        (Donor Comment)(Project Number, Amount)(Donor Phone Number)
+        (Contact info consent)(Bus Interest Conflict)(Contact Email Consent).
+    """
     memo = ''
     memo += '(' + data.get('comments', '').strip() + ')'
-    memo += '(' + data.get('phone_number', '').strip() + ')'
 
     amount = humanize_cents(data['payment_amount'])
-    memo += '(%s, %s)' % (data['project_code'], amount)
+    memo += '(%s,%s/)' % (data['project_code'], amount)
+
+    memo += '(' + data.get('phone_number', '').strip() + ')'
 
     if data.get('information_consent'):
         memo += '(yes)'
@@ -91,15 +95,24 @@ def generate_collection_request(data):
 
 def generate_custom_fields(data):
     """Return a dictionary composed of 'custom' fields, formatted the way we
-    expect."""
+    expect. Format is
+        Custom Field #1: Phone_Number,Email_Address
+        Custom Field #2: Address
+        Custom Field #3: City, State, Zip
+        Custom Field #4: Organization_Name
+        Custom Field #5: Dedication_Name, Contact, Email
+        Custom Field #6: Dedication_Type, Consent, Message
+        Custom Field #7: Dedication_Address"""
     custom = {}
     custom['custom_field_1'] = '(' + data.get('phone_number', '') + ')'
     custom['custom_field_1'] += '(' + data.get('email', '') + ')'
+
     custom['custom_field_2'] = '(' + data.get('billing_address', '') + ')'
 
     custom['custom_field_3'] = '(' + data.get('billing_city', '') + ')'
     custom['custom_field_3'] += '(' + data.get('billing_state', '') + ')'
     custom['custom_field_3'] += '(' + data.get('billing_zip', '') + ')'
+
     custom['custom_field_4'] = '(' + data.get('organization_contact', '') + ')'
 
     custom['custom_field_5'] = '(' + data.get('dedication_name', '') + ')'
@@ -115,7 +128,9 @@ def generate_custom_fields(data):
     else:
         custom['custom_field_6'] += '(yes)'
     custom['custom_field_6'] += '(' + data.get('card_dedication', '') + ')'
+
     custom['custom_field_7'] = '(' + data.get('dedication_address', '') + ')'
+
     return custom
 
 
