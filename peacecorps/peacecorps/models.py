@@ -77,6 +77,14 @@ class PublishedManager(models.Manager):
             published=True)
 
 
+class AccountManager(models.Manager):
+    """We more or less always want to aggregate the dynamic number of
+    donations, so add it to the default query set"""
+    def get_queryset(self):
+        return super(AccountManager, self).get_queryset().annotate(
+            dynamic_total=Sum('donations__amount'))
+
+
 class Account(models.Model):
     COUNTRY = 'coun'
     MEMORIAL = 'mem'
@@ -104,17 +112,18 @@ class Account(models.Model):
     category = models.CharField(
         max_length=10, choices=CATEGORY_CHOICES)
 
+    objects = AccountManager()
+
     def __str__(self):
         return '%s' % (self.code)
 
     def total_donated(self):
         """Total amount raised via donations (including real-time). Does not
         include community contributions"""
-        donations = self.donations.aggregate(Sum('amount'))
-        if donations['amount__sum']:
-            return self.current + donations['amount__sum']
-        else:
-            return self.current
+        if not hasattr(self, 'dynamic_total'):
+            agg = self.donations.aggregate(Sum('amount'))
+            self.dynamic_total = agg['amount__sum']
+        return self.current + (self.dynamic_total or 0)
 
     def total_raised(self):
         """Total amount raised, including donations and community

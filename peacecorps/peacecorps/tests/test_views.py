@@ -2,7 +2,9 @@ import json
 from urllib.parse import quote as urlquote
 
 from django.core.urlresolvers import reverse
-from django.test import Client, TestCase
+from django.db import connections, DEFAULT_DB_ALIAS
+from django.test import Client, TestCase, TransactionTestCase
+from django.test.utils import CaptureQueriesContext
 
 from peacecorps.models import Account, Campaign, Country, FAQ, Issue, Project
 
@@ -393,6 +395,18 @@ class DonatePagesTests(TestCase):
         response = self.client.get(url, HTTP_HOST='example.com')
         self.assertContains(response, 'Thank you, Billy')
         self.assertContains(response, urlquote('http://example.com/'))
+
+
+class QueryCountTests(TransactionTestCase):
+    fixtures = ['tests', 'countries', 'issues']
+
+    def test_sorter_query_count(self):
+        """Place an upper bounds on the number of queries that can be present
+        on the sorter page"""
+        with CaptureQueriesContext(connections[DEFAULT_DB_ALIAS]) as cap:
+            self.client.get(reverse('donate projects funds'))
+            # We're currently at 8
+            self.assertTrue(len(cap) < 10)
 
 
 class FAQTests(TestCase):

@@ -37,7 +37,7 @@
   <ul class="js-filterable u-unmarked_list u-clearfix" id="issue"
       data-filter-type="issue">
   {% for issue in issues %}
-    {% set issue_projects = issue.projects() %}
+    {% set issue_projects = projects_by_issue[issue.id] %}
     <li id="page-issue-{{ issue.id }}">
       <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
           class="js-pageNav section section--neutral_medium bordered bordered--row
