@@ -651,6 +651,10 @@ p + p {
   padding-bottom: 2em;
   padding-top: 2em; }
 
+.blurb--md {
+  padding-bottom: 4em;
+  padding-top: 4em; }
+
 .blurb--lg {
   padding-bottom: 5.5em;
   padding-top: 3em; }

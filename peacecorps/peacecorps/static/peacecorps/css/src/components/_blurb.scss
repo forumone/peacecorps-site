@@ -41,6 +41,11 @@
   padding-top: em(30, $base);
 }
 
+.blurb--md {
+  padding-bottom: em(60, $base);
+  padding-top: em(60, $base);
+}
+
 .blurb--lg {
   padding-bottom: 5.5em;
   padding-top: 3em;
