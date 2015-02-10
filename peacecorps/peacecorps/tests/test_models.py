@@ -168,7 +168,7 @@ class ProjectTests(TestCase):
         abstract is present. Otherwise, the abstract should be returned."""
         description = {'data': [{'type': 'other'}]}
         proj = models.Project(description=json.dumps(description))
-        self.assertEqual('', proj.abstract_html())
+        self.assertTrue('<p></p>' in proj.abstract_html())
 
         description['data'].append({'type': 'text',
                                     'data': {'text': 'He*llo*'}})
@@ -176,14 +176,15 @@ class ProjectTests(TestCase):
         self.assertTrue('He<em>llo</em>' in proj.abstract_html())
 
         # Should also trim the result
-        description['data'][1]['data']['text'] = "hello " * 100
+        description['data'][1]['data']['text'] = "hello " * 1000
         proj.description = json.dumps(description)
         # The text has been shortened, but markup's been added
-        self.assertTrue(len(proj.abstract_html()) < 350)
+        self.assertTrue(len(proj.abstract_html()) < 400)
         self.assertTrue("..." in proj.abstract_html())
+        self.assertTrue(proj.slug in proj.abstract_html())
 
         proj.abstract = "This is the abstract"
-        self.assertEqual("This is the abstract", proj.abstract_html())
+        self.assertTrue("This is the abstract" in proj.abstract_html())
 
     def test_volunteer_statename(self):
         """This should expand to the whole state name, if we know the
