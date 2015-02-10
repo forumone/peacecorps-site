@@ -142,8 +142,8 @@ module.exports = function(grunt) {
         cmd: 'kss-node <%= cssSrcDir %> resources/styleguide/ --template <%= cssSrcDir %>donation-styleguide/'
       },
       cssmin: {
-        cmd: 'cleancss -o <%= cssBuildDir %>donation.min.css --source-map <%= cssBuildDir %>donation.css.map <%= cssBuildDir %>donation.css &&' +
-          'cleancss -o <%= cssBuildDir %>lib/font-awesome/font-awesome.min.css --source-map <%= cssBuildDir %>lib/font-awesome/font-awesome.css.map <%= cssBuildDir %>lib/font-awesome/font-awesome.css'
+        cmd: 'cleancss -o <%= cssBuildDir %>donation.min.css --source-map <%= cssBuildDir %>donation.css &&' +
+          'cleancss -o <%= cssBuildDir %>lib/font-awesome/font-awesome.min.css --source-map <%= cssBuildDir %>lib/font-awesome/font-awesome.css'
       }
     },
     watch: {
