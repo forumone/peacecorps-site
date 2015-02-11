@@ -5,6 +5,7 @@ import tempfile
 import os
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Sum
 from django.template.loader import render_to_string as django_render
@@ -52,12 +53,16 @@ def imagesave(description):
 
 class AbstractHTMLMixin(object):
     """Adds the abstract_html method. Assumes the object has an abstract and
-    description field, where the description field is sir-trevor json"""
+    description field, where the description field is sir-trevor json. Also
+    assumes that the object has a primary_url method (for the read-more
+    link)."""
+
     def abstract_html(self):
         """If an explicit abstract is present, return it. Otherwise, return
         the formatted first paragraph of the description"""
+        context = {'text': ''}
         if self.abstract:
-            return self.abstract
+            context['text'] = self.abstract
         elif self.description:
             for block in json.loads(self.description)['data']:
                 if block.get('type') == 'text':
@@ -66,9 +71,13 @@ class AbstractHTMLMixin(object):
                     if len(data['text']) > settings.ABSTRACT_LENGTH:
                         trimmed = data['text'][:settings.ABSTRACT_LENGTH]
                         trimmed = trimmed[:trimmed.rindex(' ')]
-                        data = {'text': trimmed + '...'}
-                    return django_render('sirtrevor/blocks/text.html', data)
-        return ''
+                        context['text'] = trimmed
+                        context['shortened'] = True
+                        context['more_url'] = self.primary_url()
+                    else:
+                        context['text'] = data['text']
+                    break
+        return django_render('donations/includes/abstract.html', context)
 
 
 class PublishedManager(models.Manager):
@@ -241,6 +250,12 @@ class Campaign(models.Model, AbstractHTMLMixin):
 
         super(Campaign, self).save(*args, **kwargs)
 
+    def primary_url(self):
+        if self.slug:
+            return reverse('donate campaign', kwargs={'slug': self.slug})
+        else:
+            return reverse('donate projects funds')
+
 
 class SectorMapping(models.Model):
     """When importing data from the accounting software, a 'sector' field
@@ -411,6 +426,12 @@ class Project(models.Model, AbstractHTMLMixin):
         can't be found, just use the abbreviation"""
         return ABBR_TO_STATE.get(self.volunteerhomestate,
                                  self.volunteerhomestate)
+
+    def primary_url(self):
+        if self.slug:
+            return reverse('donate project', kwargs={'slug': self.slug})
+        else:
+            return reverse('donate projects funds')
 
 
 class Issue(models.Model):

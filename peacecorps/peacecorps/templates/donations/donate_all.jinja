@@ -197,7 +197,7 @@
     </h3>
     {{ campaign.abstract_html()|safe }}
     <a class="button button--sm button--primary"
-       href="{{ url("donate campaign", slug=campaign.slug) }}">
+       href="{{ url("donate campaign", slug=campaign.slug) }}#amount-form">
       Give to this fund</a>
   </article>
 
@@ -339,7 +339,7 @@
          Read more</a>
       {% else %}
         <a class="button button--sm button--primary"
-           href="{{ url("donate project", slug=project.slug) }}">
+           href="{{ url("donate project", slug=project.slug) }}#amount-form">
          Give to the project</a>
       {% endif %}
     </section>
