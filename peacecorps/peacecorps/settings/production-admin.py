@@ -1,3 +1,4 @@
+import os
 from .production import *
 
 INSTALLED_APPS += (
@@ -13,8 +14,8 @@ INSTALLED_APPS += (
 LOGGED_FILE_STORAGE = 'contenteditor.backends.MediaS3Storage'
 # We are not using this setting in favor of the two below it
 # AWS_STORAGE_BUCKET_NAME = 'peace-corps'
-AWS_MEDIA_BUCKET_NAME = 'pc-media-dev'
-AWS_STATIC_BUCKET_NAME = 'pc-theme-dev'
+AWS_MEDIA_BUCKET_NAME = os.environ.get('AWS_MEDIA_BUCKET_NAME', 'pc-media-dev')
+AWS_STATIC_BUCKET_NAME = os.environ.get('AWS_STATIC_BUCKET_NAME', 'pc-theme-dev')
 
 STATICFILES_STORAGE = 'contenteditor.backends.StaticS3Storage'
 
