@@ -113,7 +113,7 @@ def donate_landing(request):
 
     return render(
         request,
-        'donations/donate_landing.jinja',
+        'donations/landing.jinja',
         {
             'title': 'Donate',
             'featuredcampaign': featuredcampaign,

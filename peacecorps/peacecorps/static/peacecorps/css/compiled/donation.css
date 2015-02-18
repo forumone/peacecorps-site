@@ -599,6 +599,10 @@ p + p {
   padding-top: 0.75em;
   padding-bottom: 0.75em; }
 
+.banner--align_bottom {
+  position: absolute;
+  bottom: 10%; }
+
 /*
  * Global variables
  */
@@ -1940,7 +1944,8 @@ p + p {
 .top_image {
   background-repeat: no-repeat;
   background-position: center center;
-  border-bottom: 0.75em solid #E5E1D4; }
+  border-bottom: 0.75em solid #E5E1D4;
+  position: relative; }
 
 .top_image--default {
   background-position-y: bottom;
