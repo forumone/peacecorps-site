@@ -77,11 +77,11 @@
           title="Close"></a>
     </section>
   </header>
+  {% block banner %}
   <header class="banner banner--support banner--no_line">
     <a class="logo__img" href="{{ url('donate landing') }}">
       <img src="{{ static('peacecorps/img/pc_logo.png') }}"
-      class="u-inline"afsdfasdfaasdfadfaaasdfasdf
-        alt="Peace Corps Logo" />
+           class="u-inline" alt="Peace Corps Logo" />
     </a>
     <div class="logo">
       <h1 class="logo__text
@@ -98,6 +98,7 @@
       {% endif %}
     </div>
   </header>
+  {% endblock %}
 </div>
 <div class="wrapper">
   {% block navigation %}{% endblock %}

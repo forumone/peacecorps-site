@@ -2,7 +2,47 @@
 {% from "donations/includes/macros.jinja" import url_or %}
 
 {% block content_class %}landing{% endblock %}
-{% set custom_top_image=static("peacecorps/img/landing-top.png") %}
+{% if featuredcampaign %}
+  {% set custom_top_image=featuredcampaign.featured_image.url %}
+{% else %}
+  {% set custom_top_image=static("peacecorps/img/landing-top.png") %}
+{% endif %}
+
+{% block banner %}
+  {% if featuredcampaign %}
+  <header class="banner banner--no_line t--white">
+    <a class="logo__img" href="{{ url('donate landing') }}">
+      <img src="{{ static('peacecorps/img/pc_logo.png') }}"
+           class="u-inline" alt="Peace Corps Logo" />
+    </a>
+    <div class="logo">
+      <h1 class="logo__text
+      ">
+        <a href="{{ url('donate landing') }}" class="t--white">
+          Peace Corps
+        </a>
+      </h1>
+      {% if title %}
+        <h2 class="t-title--2 u-inline u-block--at_sm logo__suplementary
+            separator--l separator--white separator--hide_sm"
+            style="max-width: 26em">
+          {{ title }}</h2>
+      {% endif %}
+    </div>
+  </header>
+  <header class="banner banner--support banner--no_line banner--align_bottom">
+    <div class="t-heading--2 inset inset--lg u-align_c">
+      {{ featuredcampaign.tagline }}
+    </div>
+    <div class="u-align_c" style="margin-bottom: -3em;">
+      <a href="{{ url('donate campaign', slug=featuredcampaign.slug) }}"
+         class="button button--sm button--secondary">
+        {{ featuredcampaign.call }}</a>
+    </div>
+  </header>
+  {% else %}{# Proceed normally #}{{ super() }}
+  {% endif %}
+{% endblock %}
 
 {% block navigation %}
 <nav class="main_nav section section--no_bm">

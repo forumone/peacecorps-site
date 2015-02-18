@@ -212,10 +212,11 @@ class Campaign(models.Model, AbstractHTMLMixin):
     campaigntype = models.CharField(
         max_length=10, choices=CAMPAIGNTYPE_CHOICES)
     icon = models.ForeignKey(
-        'Media',
-        # related_name="campaign-icon",
-        help_text="A small photo to represent this campaign on the site.",
-        blank=True, null=True)
+        'Media', null=True, blank=True, related_name="campaign-icons",
+        help_text="A small photo shown on listing pages")
+    featured_image = models.ForeignKey(
+        'Media', null=True, blank=True, related_name="campaign-headers",
+        help_text="A large landscape image for use in banners, headers, etc")
     tagline = models.CharField(
         max_length=140,
         help_text="a short phrase for banners (140 characters)",
@@ -270,6 +271,9 @@ class Country(models.Model):
     code = models.CharField(max_length=5)
     name = models.CharField(max_length=NAME_LENGTH)
 
+    class Meta:
+        verbose_name_plural = 'Countries'
+
     def __str__(self):
         return '%s (%s)' % (self.name, self.code)
 
@@ -277,6 +281,10 @@ class Country(models.Model):
 class FeaturedCampaign(models.Model):
     campaign = models.ForeignKey('Campaign', to_field='account',
                                  limit_choices_to={'published': True})
+
+    class Meta:
+        verbose_name = 'Featured Campaign'
+        verbose_name_plural = 'Featured Campaign'   # There is no plural
 
     # Much like the Highlander, there can be only one.
     def save(self):
@@ -293,6 +301,10 @@ class FeaturedCampaign(models.Model):
 class FeaturedProjectFrontPage(models.Model):
     project = models.ForeignKey('Project', to_field='account',
                                 limit_choices_to={'published': True})
+
+    class Meta:
+        verbose_name = 'Featured Project'
+        verbose_name_plural = 'Featured Projects'
 
     def __str__(self):
         return '%s: %s (Featured)' % (self.project.account_id,
@@ -324,6 +336,9 @@ class Media(models.Model):
     transcript = models.TextField(
         help_text="Please transcribe audio for users with disabilities.",
         blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Media'
 
     def __str__(self):
         return '%s' % (self.title)
