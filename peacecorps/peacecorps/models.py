@@ -281,6 +281,8 @@ class Country(models.Model):
 class FeaturedCampaign(models.Model):
     campaign = models.ForeignKey('Campaign', to_field='account',
                                  limit_choices_to={'published': True})
+    image = models.ForeignKey(
+        'Media', help_text='Image shown on the landing page. Roughly 1100x640')
 
     class Meta:
         verbose_name = 'Featured Campaign'

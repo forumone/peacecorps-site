@@ -3,13 +3,14 @@
 
 {% block content_class %}landing{% endblock %}
 {% if featuredcampaign %}
-  {% set custom_top_image=featuredcampaign.featured_image.url %}
+  {% set featured_top_image=featuredcampaign.image.url %}
 {% else %}
   {% set custom_top_image=static("peacecorps/img/landing-top.jpg") %}
 {% endif %}
 
 {% block banner %}
   {% if featuredcampaign %}
+  {% set campaign=featuredcampaign.campaign %}
   <header class="banner banner--no_line t--white">
     <a class="logo__img" href="{{ url('donate landing') }}">
       <img src="{{ static('peacecorps/img/pc_logo.png') }}"
@@ -32,12 +33,12 @@
   </header>
   <header class="banner banner--support banner--no_line banner--align_bottom">
     <div class="t-heading--2 inset inset--lg u-align_c">
-      {{ featuredcampaign.tagline }}
+      {{ campaign.tagline }}
     </div>
     <div class="u-align_c" style="margin-bottom: -3em;">
-      <a href="{{ url('donate campaign', slug=featuredcampaign.slug) }}"
+      <a href="{{ url('donate campaign', slug=campaign.slug) }}"
          class="button button--sm button--secondary">
-        {{ featuredcampaign.call }}</a>
+        {{ campaign.call }}</a>
     </div>
   </header>
   {% else %}{# Proceed normally #}{{ super() }}
