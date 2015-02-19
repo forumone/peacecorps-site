@@ -22,6 +22,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'restless',
     'peacecorps',
+    'site_configuration',
     'sirtrevor',
     'adminsortable',
     'overextends',

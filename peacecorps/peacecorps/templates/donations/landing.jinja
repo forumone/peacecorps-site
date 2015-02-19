@@ -1,5 +1,6 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import url_or %}
+{% get_site_configuration 'site_configuration.Donate' as donate_config %}
 
 {% block content_class %}landing{% endblock %}
 {% if featuredcampaign %}
