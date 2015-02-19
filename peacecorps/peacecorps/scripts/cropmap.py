@@ -1,7 +1,11 @@
 """Separates an SVG map into files to represent each of its component
 countries, while retaining some context. This script is tied heavily into our
 country map file, but the script could be modified to resize images, provide
-more context, etc."""
+more context, etc.
+
+TODO: this script has several bugs, including generating multiple zoom classes
+and failing to generate a square viewport. It'd probably be easier to use the
+croptoview.py script for one-offs"""
 import copy
 import itertools
 import logging

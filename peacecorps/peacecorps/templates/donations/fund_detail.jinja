@@ -1,6 +1,9 @@
 {% extends "donations/base.jinja" %}
 
 {% block content_class %}fund-detail{% endblock %}
+{% if campaign.featured_image %}
+  {% set custom_top_image=campaign.featured_image.url %}
+{% endif %}
 
 {% include "donations/includes/donation-failed.jinja" %}
 
