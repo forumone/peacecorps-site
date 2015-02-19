@@ -126,6 +126,7 @@ body {
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 100;
   line-height: 1.6;
+  text-shadow: 0px 1px 1px white;
   text-transform: none; }
 
 .t--caps {
@@ -240,13 +241,15 @@ p + p {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
-  font-weight: 500; }
+  font-weight: 500;
+  text-shadow: 0px 1px 1px white; }
 
 .t-title--1 {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 23px;
   font-size: 2.3rem;
   margin: 0 0 15px 0;
@@ -257,6 +260,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 16px;
   font-size: 1.6rem;
   margin: 0 0 10px 0;
@@ -275,6 +279,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 13px;
   font-size: 1.3rem;
   margin: 10px 0;
@@ -285,6 +290,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 11px;
   font-size: 1.1rem;
   margin: 8px 0;
@@ -295,6 +301,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 9px;
   font-size: 0.9rem;
   margin: 8px 0;
@@ -305,6 +312,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 7px;
   font-size: 0.7rem;
   margin: 4px 0;
@@ -854,6 +862,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 13px;
   font-size: 1.3rem;
   margin: 10px 0;
@@ -889,6 +898,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 11px;
   font-size: 1.1rem;
   margin: 8px 0;
@@ -899,6 +909,7 @@ p + p {
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: 500;
+  text-shadow: 0px 1px 1px white;
   font-size: 16px;
   font-size: 1.6rem;
   margin: 0 0 10px 0;
