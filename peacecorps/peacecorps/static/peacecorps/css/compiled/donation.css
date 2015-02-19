@@ -1963,10 +1963,13 @@ p + p {
   background-image: url(../../img/default_top.png); }
 
 .top_image--custom {
-  height: auto;
-  max-height: 40em;
+  height: 31em;
   max-width: 73.333333333em;
-  min-height: 31em;
+  width: 100%; }
+
+.top_image--featured {
+  height: 40em;
+  max-width: 73.333333333em;
   width: 100%; }
 
 /*

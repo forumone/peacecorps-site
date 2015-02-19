@@ -106,10 +106,7 @@ def donate_landing(request):
             'project__featured_image')))
     projects = Project.published_objects.select_related('country', 'account')
 
-    try:
-        featuredcampaign = FeaturedCampaign.objects.get(id=1).campaign
-    except FeaturedCampaign.DoesNotExist:
-        featuredcampaign = None
+    featuredcampaign = FeaturedCampaign.objects.filter(pk=1).first()
 
     return render(
         request,
