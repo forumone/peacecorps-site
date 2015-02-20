@@ -29,7 +29,6 @@ body {
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: $weight-light;
   line-height: $leading-md;
-  text-shadow: 0px 1px 1px white;
   text-transform: none;
 }
 
@@ -224,7 +223,6 @@ p + p {
   @include t--caps;
   font-family: 'Lato', 'Verdana', sans-serif;
   font-weight: $weight-medium;
-  text-shadow: 0px 1px 1px white;
 }
 .t-title {
   @include t-title;
