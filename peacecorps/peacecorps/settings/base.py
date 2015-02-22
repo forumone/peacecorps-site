@@ -87,10 +87,18 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     },
+    'zipped_shortterm': {
+        'BACKEND': 'django_gzipping_cache.cache.GzippingCache',
+        'LOCATION': 'shortterm',
+    },
     'shortterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         'TIMEOUT': 60*5,    # 5 minutes
         'KEY_PREFIX': 'shortterm',
+    },
+    'zipped_midterm': {
+        'BACKEND': 'django_gzipping_cache.cache.GzippingCache',
+        'LOCATION': 'midterm',
     },
     'midterm': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
