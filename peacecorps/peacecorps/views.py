@@ -176,7 +176,7 @@ def donate_projects_funds(request):
 
     return render(
         request,
-        'donations/donate_all.jinja',
+        'donations/all.jinja',
         {
             'title': 'Projects and Funds',
             'countries': countries,
