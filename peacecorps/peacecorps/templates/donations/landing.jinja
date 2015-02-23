@@ -1,10 +1,11 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import url_or %}
-{% get_site_configuration 'site_configuration.Donate' as donate_config %}
 
 {% block content_class %}landing{% endblock %}
 {% if featuredcampaign %}
   {% set custom_top_image=featuredcampaign.featured_image.url %}
+{% elif get_config('Donate').featured_image %}
+  {% set custom_top_image=get_config('Donate').featured_image.url %}
 {% else %}
   {% set custom_top_image=static("peacecorps/img/landing-top.png") %}
 {% endif %}
@@ -65,9 +66,7 @@
 {# The navigation should really belong in the base file somehow #}
 <section class=" section blurb blurb--lg">
   <div class="t-blurb--md t--black">
-    Peace Corps Volunteers help build clinics in villages, put books in
-    schools, and improve access to nutritious food. Give today and help
-    support projects like these.
+    {{ get_config('Donate').intro_text }}
   </div>
 </section>
 
@@ -136,7 +135,7 @@
     <h1 class="t-title--1">About Donating</h1>
     <div class="blurb blurb--sm">
       <h2 class="t-blurb--md t--black">
-       100% of your tax-deductible donation to the Peace Corps Partnership Program goes directly towards funding volunteer projects around the world.</h2>
+       {{ get_config('Donate').about_donating }}</h2>
     </div>
     <aside>
       <h2 class="t-title--2 u-pullr"

@@ -2,7 +2,11 @@
 {% from "donations/includes/macros.jinja" import url_or, volunteer_photo %}
 
 {% block content_class %}landing{% endblock %}
-{% set custom_top_image=static("peacecorps/img/sorter-top.png") %}
+{% if get_config('Donate').sorter_featured_image %}
+  {% set custom_top_image=get_config('Donate').sorter_featured_image.url %}
+{% else %}
+  {% set custom_top_image=static("peacecorps/img/sorter-top.png") %}
+{% endif %}
 
 {% block content %}
 

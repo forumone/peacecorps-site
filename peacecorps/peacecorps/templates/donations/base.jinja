@@ -46,6 +46,7 @@
 {% else %}
 <div class="top_image top_image--default wrapper">
 {% endif %}
+{% if get_config('SitewideNotification').enable %}
   <header class="banner--dark_transparent banner--sitewide_notification
                  u-clearfix drift_corner">
     <a href="http://www.peacecorps.gov" class="t-single_nav t--white enclose">
@@ -60,13 +61,9 @@
     <section id="beta-info" class="js-collapsibleItem js-collapsibleNoHide"
              data-show-once="beta-banner">
       <div class="blurb blurb--md">
-        <h2>This site is in beta, tell us what you think!</h2>
+        <h2>{{ get_config('SitewideNotification').header }}</h2>
         <p class="t-body--md t--white">
-          We're rebuilding, and would love to get your thoughts on what we have
-          so far. Email us at
-          <a href="mailto:donate@peacecorps.gov"
-             class="t-link--white">donate@peacecorps.gov</a> to let us know how
-           it's working for you!
+          {{ get_config('SitewideNotification').body }}
         </p>
       </div>
       <a href="#" class="
@@ -77,6 +74,7 @@
           title="Close"></a>
     </section>
   </header>
+  {% endif %}
   {% block banner %}
   <header class="banner banner--support banner--no_line">
     <a class="logo__img" href="{{ url('donate landing') }}">

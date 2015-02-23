@@ -7,17 +7,9 @@ import jinja2
 
 register = template.Library()
 
-@register.assignment_tag(name='get_site_configuration')
 @library.global_function
-def get_singleton(model_path):
-    try:
-        app_label, model_name = model_path.rsplit('.', 1)
-    except ValueError:
-        raise template.TemplateSyntaxError(_(
-            "Templatetag requires the model dotted path: 'app_label.ModelName'. "
-            "Received '%s'." % model_path
-        ))
-    model_class = models.get_model(app_label, model_name)
+def get_config(model_name):
+    model_class = models.get_model('site_configuration', model_name)
     if not model_class:
         raise template.TemplateSyntaxError(_(
             "Could not get the model name '%(model)s' from the application "
@@ -26,4 +18,4 @@ def get_singleton(model_path):
                 'app': app_label,
             }
         ))
-    return model_class.get_singleton()
+    return model_class.get_obj()

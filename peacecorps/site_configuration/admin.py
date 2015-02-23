@@ -57,4 +57,5 @@ class SingletonModelAdmin(admin.ModelAdmin):
             extra_context=extra_context,
         )
 
+admin.site.register(models.SitewideNotification, SingletonModelAdmin)
 admin.site.register(models.Donate, SingletonModelAdmin)
