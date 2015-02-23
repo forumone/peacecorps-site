@@ -36,7 +36,7 @@
     "grunt-exec": "^0.4.6",
     "grunt-exorcise": "^0.2.0",
     "grunt-font-awesome-vars": "^1.0.1",
-    "grunt-sass": "^0.17.0",
+    "grunt-sass": "^0.18.0",
     "grunt-testling": "^1.0.0",
     "grunt-timer": "^0.5.8",
     "kss": "^2.0.1",
