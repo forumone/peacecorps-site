@@ -141,24 +141,41 @@ class SyncAccountingTests(TestCase):
         count = Project.objects.count()
         issue_cache = Mock()
         issue_cache.find.return_value = Campaign.objects.get(name='Technology')
-        row = {'LOCATION': 'NONEXISTENT', 'SECTOR': 'MOCKED'}
+        row = {'LOCATION': 'NONEXISTENT', 'SECTOR': 'MOCKED', 'PROJ_NO': '111'}
         with self.assertLogs('peacecorps.sync_accounting',
                              level=logging.WARN) as logger:
             sync.create_pcpp(None, row, issue_cache)
         self.assertEqual(count, Project.objects.count())    # nothing created
         self.assertEqual(1, len(logger.output))
         self.assertTrue('NONEXISTENT' in logger.output[0])
-        self.assertTrue('MOCKED' in logger.output[0])
+        self.assertFalse('MOCKED' in logger.output[0])
 
         issue_cache.find.return_value = None
-        row = {'LOCATION': 'IRELAND', 'SECTOR': 'MOCKED'}
+        row = {'LOCATION': 'IRELAND', 'SECTOR': 'MOCKED', 'PROJ_NO': '111'}
         with self.assertLogs('peacecorps.sync_accounting',
                              level=logging.WARN) as logger:
             sync.create_pcpp(None, row, issue_cache)
         self.assertEqual(count, Project.objects.count())    # nothing created
-        self.assertEqual(1, len(logger.output))
+        self.assertEqual(2, len(logger.output))
         self.assertTrue('IRELAND' in logger.output[0])
-        self.assertTrue('MOCKED' in logger.output[0])
+        self.assertTrue('MOCKED' in logger.output[1])
+
+    def test_create_pcpp_no_sector(self):
+        """The ominous "None" sector has special significance"""
+        account = Account(name='New Project Effort', code='098-765',
+                          category=Account.PROJECT)
+        row = {
+            'PROJ_NO': '098-765', 'LOCATION': 'CHINA',
+            'PROJ_NAME1': 'New Project Effort', 'PCV_NAME': 'IN Jones, B.',
+            'STATE': 'IN', 'OVERS_PART': '', 'PROJ_REQ': '3,434',
+            'UNIDENT_BAL': '1,111', 'SECTOR': 'None', 'SUMMARY': 'sum sum sum'}
+        issue_cache = Mock()
+        issue_cache.find.return_value = None
+        sync.create_pcpp(account, row, issue_cache)
+        project = Project.objects.get(title='New Project Effort')
+        self.assertEqual(project.overflow, None)
+        self.assertEqual(project.campaigns.all().count(), 0)
+        account.delete()    # cascades
 
     @patch('peacecorps.management.commands.sync_accounting.create_pcpp')
     def test_create_account_project(self, create):
