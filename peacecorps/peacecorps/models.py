@@ -67,7 +67,7 @@ class AbstractHTMLMixin(object):
             for block in json.loads(self.description)['data']:
                 if block.get('type') == 'text':
                     data = block['data']
-                    # Naive string shortener 
+                    # Naive string shortener
                     if len(data['text']) > settings.ABSTRACT_LENGTH:
                         trimmed = data['text'][:settings.ABSTRACT_LENGTH]
                         trimmed = trimmed[:trimmed.rindex(' ')]
