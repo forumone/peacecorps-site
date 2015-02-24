@@ -100,8 +100,7 @@
     {% for project in projects %}
       <li class="section section--neutral_medium section__content--xsm
                  u-clearfix bordered bordered--row bordered--white"
-          data-in-filter="volunteer,country-{{
-            project.country.code ~ issue_strings.get(project.id)}}">
+          data-in-filter="volunteer,{{project_filters.get(project.id)}}">
         {{ render_project_header(project) }}
         {{ render_project(project) }}
       </li>
@@ -178,8 +177,7 @@
      class="js-collapsibleControls section section__content--xsm u-clearfix
      t-link--no_underline t-link--gray">
     {# shown when issue or country is selected #}
-    <header data-in-filter="country-{{project.country.code ~
-                                      issue_strings.get(project.id)}}">
+    <header data-in-filter="{{project_filters.get(project.id)}}">
         <div class="column--third" style="height: 1em;"></div>
         <h4 class="t-heading--4 t--gray--2 column--half t-nom">
           {{ project.title }}</h4>

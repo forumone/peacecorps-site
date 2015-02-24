@@ -170,12 +170,14 @@ def donate_projects_funds(request):
 
     projects_by_issue = defaultdict(int)
     projects_by_country = defaultdict(int)
-    issue_strings = defaultdict(str)
+    # This will be used to indicate which issues a project is a part of
+    project_filters = {}
     for project in projects:
         projects_by_country[project.country.code] += 1
+        project_filters[project.id] = 'country-' + project.country.code
         for campaign in project.campaigns.all():
             for issue_id in issues_by_campaign[campaign.id]:
-                issue_strings[project.id] += ",issue-" + str(issue_id)
+                project_filters[project.id] += ",issue-" + str(issue_id)
                 projects_by_issue[issue_id] += 1
 
     return render(
@@ -185,10 +187,10 @@ def donate_projects_funds(request):
             'title': 'Projects and Funds',
             'country_funds': country_funds,
             'issues': issues,
-            'issue_strings': issue_strings,
             'projects': projects,
             'projects_by_country': projects_by_country,
             'projects_by_issue': projects_by_issue,
+            'project_filters': project_filters,
         })
 
 
