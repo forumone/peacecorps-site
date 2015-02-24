@@ -1,7 +1,11 @@
 {% load sirtrevor %}
 <div class="content-block text-block">
   {% if shortened %}
-    {{ text|add:" ..."|add:"([read more]("|add:more_url|add:"))"|markdown }}
+	{% if more_url %}
+	  {{ text|add:" ..."|add:"([read more]("|add:more_url|add:"))"|markdown }}
+	{% else %}
+	  {{ text|add:" ..."|markdown }}
+	{% endif %}
   {% else %}
     {{ text|markdown }}
   {% endif %}

@@ -101,7 +101,7 @@
               {% else %}Help this Project{% endif %}
             </a>
           </h3>
-          <p class="">{{ project.abstract_html()|safe }}</p>
+          <p class="">{{ project.abstract_html(read_more_link=False)|safe }}</p>
           <a class="t-single_nav t-nom"
               href="{{url("donate project", slug=project.slug)}}">
             Read Their Story
