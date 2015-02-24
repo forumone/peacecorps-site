@@ -114,7 +114,7 @@
             </label>
           <div class="form__field__input">
             {{form.payment_type}}
-            <a href="{{ url('donate faqs') }}#not-online">pay by check?</a>
+            <a href="{{ url('donate faqs') }}#not-online">Pay by check?</a>
           </div>
         </div>
       </fieldset>
@@ -233,7 +233,7 @@
           {{form.comments.errors}}
           <label for='id_comments' class="form__field__label
               form__field__label--align_t">
-            please use this box if you want to send a message of encouragement
+            Please use this box if you want to send a message of encouragement
             to this project's volunteer.
           </label>
           <div class="form__field__input">
@@ -268,14 +268,15 @@
 
       <section class="section inset--lg separator separator--t">
         <div class="form__field form__field--single">
-          <p class="form__text">
-            NOTE: We use Pay.gov as our trusted secure payment processor. We’ll
-            send you on to there and bring you back when you finish.</p>
 
           <div class="u-align_c form__text section__content">
             <button type="submit" class="button button--primary js-submit">
               Confirm information</button>
           </div>
+          
+          <p class="form__text">
+            NOTE: We use Pay.gov as our trusted secure payment processor. We’ll
+            send you on to there and bring you back when you finish.</p>
         </div>
       </section>
     </form>
