@@ -73,7 +73,7 @@ class AbstractHTMLMixin(object):
                         trimmed = trimmed[:trimmed.rindex(' ')]
                         context['text'] = trimmed
                         context['shortened'] = True
-                        if read_more_link is True:
+                        if read_more_link:
                             context['more_url'] = self.primary_url()
                     else:
                         context['text'] = data['text']
