@@ -57,7 +57,7 @@ class AbstractHTMLMixin(object):
     assumes that the object has a primary_url method (for the read-more
     link)."""
 
-    def abstract_html(self):
+    def abstract_html(self, **kwargs):
         """If an explicit abstract is present, return it. Otherwise, return
         the formatted first paragraph of the description"""
         context = {'text': ''}
@@ -67,13 +67,18 @@ class AbstractHTMLMixin(object):
             for block in json.loads(self.description)['data']:
                 if block.get('type') == 'text':
                     data = block['data']
-                    # Naive string shortener
+                    # Naive string shortener 
                     if len(data['text']) > settings.ABSTRACT_LENGTH:
                         trimmed = data['text'][:settings.ABSTRACT_LENGTH]
                         trimmed = trimmed[:trimmed.rindex(' ')]
                         context['text'] = trimmed
                         context['shortened'] = True
                         context['more_url'] = self.primary_url()
+                        try:
+                            if kwargs['read_more_link'] is False:
+                                context['read_more_link'] = False
+                        except KeyError:
+                            context['read_more_link'] = True
                     else:
                         context['text'] = data['text']
                     break

@@ -182,6 +182,7 @@ class ProjectTests(TestCase):
         self.assertTrue(len(proj.abstract_html()) < 400)
         self.assertTrue("..." in proj.abstract_html())
         self.assertTrue(proj.slug in proj.abstract_html())
+        self.assertFalse("read more" in proj.abstract_html(read_more_link=False))
 
         proj.abstract = "This is the abstract"
         self.assertTrue("This is the abstract" in proj.abstract_html())
