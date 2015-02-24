@@ -231,7 +231,7 @@ class Campaign(models.Model, AbstractHTMLMixin):
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
         'Country', related_name="campaign", blank=True, null=True, unique=True)
-    abstract = models.TextField(blank=True, null=True)
+    abstract = models.TextField(blank=True, null=True, max_length=256)
 
     # Unlike projects, funds start published
     published = models.BooleanField(default=True)
