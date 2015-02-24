@@ -57,7 +57,7 @@ class AbstractHTMLMixin(object):
     assumes that the object has a primary_url method (for the read-more
     link)."""
 
-    def abstract_html(self):
+    def abstract_html(self, read_more_link=False):
         """If an explicit abstract is present, return it. Otherwise, return
         the formatted first paragraph of the description"""
         context = {'text': ''}
@@ -73,7 +73,8 @@ class AbstractHTMLMixin(object):
                         trimmed = trimmed[:trimmed.rindex(' ')]
                         context['text'] = trimmed
                         context['shortened'] = True
-                        context['more_url'] = self.primary_url()
+                        if read_more_link:
+                            context['more_url'] = self.primary_url()
                     else:
                         context['text'] = data['text']
                     break
@@ -231,7 +232,7 @@ class Campaign(models.Model, AbstractHTMLMixin):
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
         'Country', related_name="campaign", blank=True, null=True, unique=True)
-    abstract = models.TextField(blank=True, null=True)
+    abstract = models.TextField(blank=True, null=True, max_length=256)
 
     # Unlike projects, funds start published
     published = models.BooleanField(default=True)

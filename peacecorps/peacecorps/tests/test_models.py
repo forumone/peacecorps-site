@@ -181,7 +181,8 @@ class ProjectTests(TestCase):
         # The text has been shortened, but markup's been added
         self.assertTrue(len(proj.abstract_html()) < 400)
         self.assertTrue("..." in proj.abstract_html())
-        self.assertTrue(proj.slug in proj.abstract_html())
+        self.assertTrue(proj.slug in proj.abstract_html(read_more_link=True))
+        self.assertFalse("read more" in proj.abstract_html())
 
         proj.abstract = "This is the abstract"
         self.assertTrue("This is the abstract" in proj.abstract_html())
