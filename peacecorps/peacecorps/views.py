@@ -150,8 +150,10 @@ def donate_projects_funds(request):
     The page that displays a sorter for all projects, issues, volunteers.
     """
     # @todo - hide some of the prefetching logic?
-    countries = Campaign.published_objects.prefetch_related('country').filter(
-        campaigntype=Campaign.COUNTRY).order_by('country__name')
+    country_funds = Campaign.published_objects.prefetch_related('country')
+    country_funds = country_funds.filter(campaigntype=Campaign.COUNTRY)
+    country_funds = country_funds.order_by('country__name')
+
     issues = Issue.objects.prefetch_related('campaigns').order_by('name')
     projects = Project.published_objects.prefetch_related(
         Prefetch('account', queryset=Account.objects.all()),
@@ -166,21 +168,24 @@ def donate_projects_funds(request):
         for campaign in issue.campaigns.all():
             issues_by_campaign[campaign.id].append(issue.id)
 
-    projects_by_country = defaultdict(list)
-    projects_by_issue = defaultdict(list)
+    projects_by_issue = defaultdict(int)
+    projects_by_country = defaultdict(int)
+    issue_strings = defaultdict(str)
     for project in projects:
-        projects_by_country[project.country.code].append(project)
+        projects_by_country[project.country.code] += 1
         for campaign in project.campaigns.all():
             for issue_id in issues_by_campaign[campaign.id]:
-                projects_by_issue[issue_id].append(project)
+                issue_strings[project.id] += ",issue-" + str(issue_id)
+                projects_by_issue[issue_id] += 1
 
     return render(
         request,
         'donations/all.jinja',
         {
             'title': 'Projects and Funds',
-            'countries': countries,
+            'country_funds': country_funds,
             'issues': issues,
+            'issue_strings': issue_strings,
             'projects': projects,
             'projects_by_country': projects_by_country,
             'projects_by_issue': projects_by_issue,

@@ -67,7 +67,7 @@ body {
   border-color: #A12122; }
 
 [aria-hidden=true] {
-  display: none; }
+  display: none !important; }
 
 [aria-hidden=false] {
   display: block; }

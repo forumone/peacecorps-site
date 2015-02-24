@@ -27,7 +27,7 @@ body {
 
 
 [aria-hidden=true] {
-  display: none;
+  display: none !important;
 }
 [aria-hidden=false] {
   display: block;

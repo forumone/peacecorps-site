@@ -64,17 +64,16 @@ $().ready(function() {
   new UpdatePercent($('.js-fundingBar'));
 
   if ($discoverApp.length > 0) {
-    var discover = new Discover($discoverApp, $('.js-discoverNav a'), {
-      selected: window.location.hash.substr(1)
-    });
-    discover.render();
+    var discover = new Discover($discoverApp);
+    discover.select(window.location.hash.substr(1) || 'issue');
   }
   $('.js-collapsibleItem').each(function() {
     var collapsible,
-        id = $(this).attr('id'),
+        $this = $(this),
+        id = $this.attr('id'),
         $control = $('[aria-controls="'+ id +'"]');
 
-    collapsible = new Collapsible($(this), $control, {
+    collapsible = new Collapsible($this, $control, {
       hideControls: !($(this).hasClass('js-collapsibleNoHide')),
       startOpen: id === window.location.hash.substr(1)
     });

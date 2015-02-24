@@ -4,108 +4,81 @@ var setup = require('./setup');
 setup = setup; // HACK not using module yet.
 
 var $ = require('jquery');
-var sinon = require('sinon');
 var test = require('tapes');
 
 var Discover = require('../discover');
 
 test('init', function(t) {
-  t.test('should set $navLinks attr to navLinks passed in', function(t) {
-    var testDiscover,
-        expected;
-
-    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
-    expected = $('<a></a>');
-    testDiscover = new Discover($('<div></div>'), expected);
-
-    t.equals(testDiscover.$navLinks, expected, 'The navLinks are whats passed ' +
-        'in');
-
-    Discover.prototype.getOtherLinks.restore();
+  t.test('should populate filterables and controls', function(t) {
+    var $root = $('<div />'),
+        $control1 = $('<a id="c1" data-controls-filter="aaa"></a>'),
+        $element1 = $('<div id="e1" data-in-filter="aaa"></a>'),
+        $control2 = $('<a id="c2" data-controls-filter="bbb"></a>'),
+        $element2 = $('<div id="e2" data-in-filter="bbb"></a>'),
+        discover;
+    $root.append($control1, $element2, $control2, $element1);
+    discover = new Discover($root);
+    t.equals(discover.$filterables[0].id, 'e2');
+    t.equals(discover.$filterables[1].id, 'e1');
+    t.equals(discover.$controls[0].id, 'c1');
+    t.equals(discover.$controls[1].id, 'c2');
     t.end();
   });
-  t.test('should set all the filters and selected to configured', function(t) {
-    var testDiscover,
-        $testEls,
-        expected,
-        expected1 = 'test1',
-        expected2 = 'test2';
-
-    $testEls = [
-      $('<div>').data('filter-type', expected1),
-      $('<div>').data('filter-type', expected2)];
-
-    testDiscover = new Discover($('<div></div>'), $($testEls));
-    expected = [expected1, expected2];
-
-    t.deepEquals(testDiscover.filters, expected, 'Filters set to the data of ' +
-      'elements passed in');
-    // Defaults to the first
-    t.equal(testDiscover.selected, expected1, 'Sets the selected to the first ' +
-      'filter');
-    //  Including when a bad id is passed
-    testDiscover = new Discover($('<div></div>'), $($testEls), {
-      selected: 'non-exist'});
-    t.equal(testDiscover.selected, expected1,
-            'Sets the selected to the first filter');
-    // But can be configured otherwise
-    testDiscover = new Discover($('<div></div>'), $($testEls), {
-      selected: expected2});
-    t.equal(testDiscover.selected, expected2,
-            'Sets the selected to the second filter');
-
-    t.end();
-  });
-  t.test('should set aria-selected to true on first link', function(t) {
-    var testDiscover,
-        $testNavs;
-
-    $testNavs = [
-      $('<a id="nav1"></a>'),
-      $('<a id="nav2"></a>')];
-    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
-    testDiscover = new Discover($('<div></div>'), $($testNavs));
-
-    t.equals($testNavs[0].attr('aria-selected'), 'true', 'Sets the aria ' +
-      'selected attribute of selected link to true');
-
-    Discover.prototype.getOtherLinks.restore();
+  t.test('correctly associates resets', function(t) {
+    var $root = $('<div />'),
+        $c1 = $('<a data-controls-filter="c1"></a>').appendTo($root),
+        $c2 = $('<a data-controls-filter="c2"></a>').appendTo($root),
+        $c3 = $('<a data-filter-reset="true" data-controls-filter="c3"></a>'
+                ).appendTo($root),
+        $c4 = $('<a data-controls-filter="c4"></a>').appendTo($root);
+    new Discover($root);
+    $c1.click();
+    t.equals($c1.attr('aria-selected'), 'true');
+    t.equals($c2.attr('aria-selected'), 'false');
+    t.equals($c3.attr('aria-selected'), 'false');
+    t.equals($c4.attr('aria-selected'), 'false');
+    $c2.click();
+    t.equals($c1.attr('aria-selected'), 'true');
+    t.equals($c2.attr('aria-selected'), 'true');
+    t.equals($c3.attr('aria-selected'), 'false');
+    t.equals($c4.attr('aria-selected'), 'false');
+    $c3.click();
+    t.equals($c1.attr('aria-selected'), 'false');
+    t.equals($c2.attr('aria-selected'), 'false');
+    t.equals($c3.attr('aria-selected'), 'true');
+    t.equals($c4.attr('aria-selected'), 'false');
+    $c4.click();
+    t.equals($c1.attr('aria-selected'), 'false');
+    t.equals($c2.attr('aria-selected'), 'false');
+    t.equals($c3.attr('aria-selected'), 'true');
+    t.equals($c4.attr('aria-selected'), 'true');
     t.end();
   });
   t.end();
 });
 
-test('render', function(t) {
-  t.test('should hide all the items not matching selected', function(t) {
-    var testDiscover,
-        testF = 'tester',
-        ccfilterable = Discover.ccFilteredItem.replace('.', ''),
-        $testEl,
-        $testEls;
+test('state', function(t) {
+  t.test('should filter and unfilter', function(t) {
+    var $root = $('<div />'),
+        $e1 = $('<div data-in-filter="c1"></div>').appendTo($root),
+        $e2 = $('<div data-in-filter="c2"></div>').appendTo($root),
+        discover = new Discover($root);
 
-    $testEls = [
-      $('<div>').addClass(ccfilterable).attr('data-filter-type',
-        testF),
-      $('<div>').addClass(ccfilterable).attr('data-filter-type',
-        'dud'),
-      $('<div>').addClass(ccfilterable).attr('data-filter-type',
-        'dud')];
-    $testEl = $('<div>');
-    $testEl.append($testEls);
-    sinon.stub(Discover.prototype, 'getOtherLinks').returns($('<a></a><a></a>'));
-
-    testDiscover = new Discover($testEl, $($testEls));
-
-    testDiscover.render();
-
-    t.equal(testDiscover.$(Discover.ccFilteredItem).length, 3,
-        'All elements there');
-    t.equal(testDiscover.$(Discover.ccFilteredItem + ':not(.u-hide)').length, 1,
-        'One is visible');
-    t.equal(testDiscover.$(Discover.ccFilteredItem + '.u-hide').length, 2,
-        'Two are not visible');
-
-    Discover.prototype.getOtherLinks.restore();
+    discover.select('c1');
+    t.equals($e1.attr('aria-hidden'), 'false');
+    t.equals($e2.attr('aria-hidden'), 'true');
+    discover.select('c2');
+    t.equals($e1.attr('aria-hidden'), 'true');
+    t.equals($e2.attr('aria-hidden'), 'false');
+    discover.select('c3');
+    t.equals($e1.attr('aria-hidden'), 'true');
+    t.equals($e2.attr('aria-hidden'), 'true');
+    discover.back();
+    t.equals($e1.attr('aria-hidden'), 'true');
+    t.equals($e2.attr('aria-hidden'), 'false');
+    discover.back();
+    t.equals($e1.attr('aria-hidden'), 'false');
+    t.equals($e2.attr('aria-hidden'), 'true');
     t.end();
   });
   t.end();
