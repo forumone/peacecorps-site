@@ -1,10 +1,10 @@
 {% load sirtrevor %}
 <div class="content-block text-block">
   {% if shortened %}
-	{% if not read_more_link %}
-	  {{ text|add:" ..."|markdown }}
-	{% else %}
+	{% if more_url %}
 	  {{ text|add:" ..."|add:"([read more]("|add:more_url|add:"))"|markdown }}
+	{% else %}
+	  {{ text|add:" ..."|markdown }}
 	{% endif %}
   {% else %}
     {{ text|markdown }}

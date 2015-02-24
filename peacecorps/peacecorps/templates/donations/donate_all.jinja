@@ -195,7 +195,7 @@
         {{ campaign.name }}
       </a>
     </h3>
-    {{ campaign.abstract_html()|safe }}
+    {{ campaign.abstract_html(read_more_link=True)|safe }}
     <a class="button button--sm button--primary"
        href="{{ url("donate campaign", slug=campaign.slug) }}#amount-form">
       Give to this fund</a>
