@@ -16,127 +16,95 @@
       </a>
 </section>
 
-<nav class="js-discoverNav u-clearl banner banner--no_line banner--secondary">
-  <ul class="u-unmarked_list u-inline_list">
-    <li class="md-hide sm-hide">
-      <span class="t-title--3">Browse projects &amp; funds by: </span>
-    </li>
-    <li class="t-title--3 sub_nav__link--horizontal">
-      <a class="t--white" href="#issue" data-filter-type="issue">Issue</a>
-    </li>
-    <li class="t-title--3 sub_nav__link--horizontal">
-      <a class="t--white" href="#country" data-filter-type="country">Country</a>
-    </li>
-    <li class="t-title--3 sub_nav__link--horizontal">
-      <a class="t--white" href="#volunteer" data-filter-type="volunteer">Volunteer</a>
-    </li>
-  </ul>
-</nav>
-
 <article class="js-discoverApp discover">
-  <ul class="js-filterable u-unmarked_list u-clearfix" id="issue"
-      data-filter-type="issue">
-  {% for issue in issues %}
-    {% set issue_projects = projects_by_issue[issue.id] %}
-    <li id="page-issue-{{ issue.id }}">
-      <a href="#" aria-controls="collapsible-page-issue-{{ issue.id }}"
-          class="js-pageNav section section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix section__content--xsm t-link--no_underline
-          t-link--gray">
-        {{ render_link_header(issue.icon_color_url('grey'), issue.name,
-                              issue.name, issue_projects|length) }}
-      </a>
-    </li>
-    {% for campaign in issue.campaigns.all() %}
-    {% set img = issue_img(issue.icon_background.url,
-        issue.icon_color_url('white'), campaign.name) %}
-    <li   data-page-id="collapsible-page-issue-{{ issue.id }}"
-          class="js-page
-          section section--neutral_dark
-          u-clearfix
-          bordered
-          bordered--row
-          bordered--white">
-        {{ render_campaign(
+  <nav class="js-discoverNav u-clearl banner banner--no_line banner--secondary">
+    <ul class="u-unmarked_list u-inline_list">
+      <li class="md-hide sm-hide">
+        <span class="t-title--3">Browse projects &amp; funds by: </span>
+      </li>
+      <li class="t-title--3 sub_nav__link--horizontal">
+        <a class="t--white" href="#issue" data-controls-filter="issue"
+           data-filter-reset="true">Issue</a>
+      </li>
+      <li class="t-title--3 sub_nav__link--horizontal">
+        <a class="t--white" href="#country" data-controls-filter="country"
+           data-filter-reset="true">Country</a>
+      </li>
+      <li class="t-title--3 sub_nav__link--horizontal">
+        <a class="t--white" href="#volunteer" data-controls-filter="volunteer"
+           data-filter-reset="true">Volunteer</a>
+      </li>
+    </ul>
+  </nav>
+
+  <ul class="u-unmarked_list u-clearfix" id="issue"
+      data-in-filter="issue" >
+    {% for issue in issues %}
+      {% set issue_count = projects_by_issue[issue.id] %}
+      <li id="page-issue-{{ issue.id }}">
+        <a href="#" data-controls-filter="issue-{{issue.id}}""
+           class="section section--neutral_medium bordered bordered--row
+                  bordered--white u-clearfix section__content--xsm
+                  t-link--no_underline t-link--gray">
+          {{ render_link_header(issue.icon_color_url('grey'), issue.name,
+                                issue.name, issue_count) }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="u-unmarked_list u-clearfix" id="country"
+      data-in-filter="country">
+    {% for fund in country_funds %}
+      {# Must use "get" as they key is a variable #}
+      {% set project_count = projects_by_country.get(fund.country.code, 0) %}
+      <li id="page-country-{{ fund.country.code }}">
+        <a href="#" data-controls-filter="country-{{fund.country.code}}"
+           class="section section--neutral_medium bordered
+                  bordered--row bordered--white u-clearfix
+                  section__content--xsm t-link--no_underline t-link--gray">
+        {{ render_link_header(
+            static("peacecorps/img/countries/" + fund.country.code.lower()
+                   + ".svg"),
+            fund.country.name, fund.country.name, project_count)}}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="u-unmarked_list u-clearfix">
+    {% for issue in issues %}
+      {% for campaign in issue.campaigns.all() %}
+        {% set img = issue_img(issue.icon_background.url,
+                               issue.icon_color_url('white'), campaign.name) %}
+        <li data-in-filter="issue-{{issue.id}}"
+            class="section section--neutral_dark u-clearfix bordered
+                   bordered--row bordered--white">
+          {{ render_campaign(
             img,
             'issues',
             issue.name,
             campaign) }}
-    </li>
+        </li>
+      {% endfor %}
     {% endfor %}
-      {# TODO figure out projects rather the featured projects #}
-    {% for project in issue_projects %}
-      <li data-page-id="collapsible-page-issue-{{ issue.id }}"
-          class="js-page
-          section section--neutral_medium
-          u-clearfix
-          bordered
-          bordered--row
-          bordered--white">
-        {{ render_project_header(project, 'issue-' ~ issue.id) }}
-        {{ render_project(project, 'issue-' ~ issue.id) }}
+    {% for fund in country_funds %}
+      <li data-in-filter="country-{{fund.country.code}}"
+          class="section section--neutral_dark u-clearfix bordered
+                 bordered--row bordered--white">
+        {{ render_campaign(
+          country_map(fund.country.code),
+          'countries',
+          fund.country.name,
+          fund) }}
       </li>
     {% endfor %}
-  {% endfor %}
-  </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix" id="volunteer"
-      data-filter-type="volunteer">
-  {% for project in projects %}
-    <li class="
-          section section--neutral_medium section__content--xsm
-          u-clearfix
-          bordered
-          bordered--row
-          bordered--white">
-      {{ render_volunteer_project_header(project, 'volunteer') }}
-      {{ render_project(project, 'volunteer') }}
-    </li>
-  {% endfor %}
-  </ul>
-  <ul class="js-filterable u-unmarked_list u-clearfix" id="country"
-      data-filter-type="country">
-  {% for country in countries %}
-    {# Must use "get" as they key is a variable #}
-    {% set country_projects = projects_by_country.get(country.country.code,
-                                                      []) %}
-    <li id="page-country-{{ country.id }}">
-      <a href="#" aria-controls="collapsible-page-country-{{ country.id }}"
-          class="js-pageNav section section--neutral_medium bordered bordered--row
-          bordered--white u-clearfix section__content--xsm t-link--no_underline
-          t-link--gray">
-      {{ render_link_header(
-          static("peacecorps/img/countries/" + country.country.code.lower()
-                 + ".svg"),
-          country.country.name, country.country.name,
-          country_projects|length) }}
-      </a>
-    </li>
-    <li data-page-id="collapsible-page-country-{{ country.id }}"
-        class="js-page
-          section section--neutral_dark
-          u-clearfix
-          bordered
-          bordered--row
-          bordered--white">
-      {{ render_campaign(
-        country_map(country.country.code),
-        'countries',
-        country.country.name,
-        country) }}
-    </li>
-    {% for project in country_projects %}
-      <li data-page-id="collapsible-page-country-{{ country.id }}"
-          class="js-page
-          section section--neutral_medium
-          u-clearfix
-          bordered
-          bordered--row
-          bordered--white">
-        {{ render_project_header(project, 'country') }}
-        {{ render_project(project, 'country') }}
+    {% for project in projects %}
+      <li class="section section--neutral_medium section__content--xsm
+                 u-clearfix bordered bordered--row bordered--white"
+          data-in-filter="volunteer,{{project_filters.get(project.id)}}">
+        {{ render_project_header(project) }}
+        {{ render_project(project) }}
       </li>
     {% endfor %}
-  {% endfor %}
   </ul>
 </article>
 
@@ -203,16 +171,41 @@
 
 {%- endmacro %}
 
-{% macro render_project_header(project, ptype) -%}
+{% macro render_project_header(project) -%}
   <a aria-expanded="false" href="#"
-     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
+     aria-controls="collapsible-project-{{ project.id }}"
      class="js-collapsibleControls section section__content--xsm u-clearfix
      t-link--no_underline t-link--gray">
-    <header>
+    {# shown when issue or country is selected #}
+    <header data-in-filter="{{project_filters.get(project.id)}}">
         <div class="column--third" style="height: 1em;"></div>
         <h4 class="t-heading--4 t--gray--2 column--half t-nom">
           {{ project.title }}</h4>
     </header>
+    {# shown when volunteer is selected #}
+    <div data-in-filter="volunteer">
+      <aside class="column column--third enclose--sm">
+        <div class="mask mask--oval mask--gray-1 mask--bordered
+             u-clearfix u-pullr sm-hide"
+             style="width: 4em; height: 4em;">
+          {% if project.volunteerpicture %}
+            {{ volunteer_photo(project) }}
+          {% else %}
+            <img src="{{ static("peacecorps/img/countries/"
+                        + project.country.code.lower() + ".svg") }}"
+                 class="mask__content" style="width: 100%;" />
+          {% endif %}
+        </div>
+      </aside>
+      <header class="column column--half" style="height: 4em;">
+        <h3 class="t-heading--3 t--gray--2 u-v_center--block">
+          {{ project.volunteername }}<br>
+          <span class="t-heading--4 t--gray--2">
+            {{ project.title }}
+          </span>
+        </h3>
+      </header>
+    </div>
   </a>
 {%- endmacro %}
 
@@ -241,37 +234,9 @@
   </header>
 {%- endmacro %}
 
-{% macro render_volunteer_project_header(project, ptype) -%}
-  <a aria-expanded="false" href="#"
-     aria-controls="collapsible-{{ ptype }}-{{ project.id }}"
-     class="js-collapsibleControls t-link--no_underline t-link--gray">
-    <aside class="column column--third enclose--sm">
-      <div class="mask mask--oval mask--gray-1 mask--bordered
-           u-clearfix u-pullr sm-hide"
-           style="width: 4em; height: 4em;">
-        {% if project.volunteerpicture %}
-          {{ volunteer_photo(project) }}
-        {% else %}
-          <img src="{{ static("peacecorps/img/countries/"
-                      + project.country.code.lower() + ".svg") }}"
-               class="mask__content" style="width: 100%;" />
-        {% endif %}
-      </div>
-    </aside>
-    <header class="column column--half" style="height: 4em;">
-      <h3 class="t-heading--3 t--gray--2 u-v_center--block">
-        {{ project.volunteername }}<br>
-        <span class="t-heading--4 t--gray--2">
-          {{ project.title }}
-        </span>
-      </h3>
-    </header>
-  </a>
-{%- endmacro %}
-
-{% macro render_project(project, ptype) -%}
-  <article class="js-collapsibleItem js-hideForJSUsers u-clearfix drift_corner"
-        id="collapsible-{{ ptype }}-{{ project.id }}">
+{% macro render_project(project) -%}
+  <article class="js-collapsibleItem u-clearfix drift_corner"
+        id="collapsible-project-{{ project.id }}">
     <aside class="column column--third
                   section__content--sm
                   u-clearfix

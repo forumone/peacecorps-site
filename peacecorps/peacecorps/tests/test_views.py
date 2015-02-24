@@ -6,7 +6,7 @@ from django.db import connections, DEFAULT_DB_ALIAS
 from django.test import Client, TestCase, TransactionTestCase
 from django.test.utils import CaptureQueriesContext
 
-from peacecorps.models import Account, Campaign, Country, FAQ, Issue, Project
+from peacecorps.models import Account, Campaign, Country, FAQ, Project
 
 
 class DonationsTests(TestCase):
@@ -201,32 +201,6 @@ class DonationsTests(TestCase):
         self.assertTrue(response.index('AAA') > response.index('BBB'))
         acc_b.delete()
         acc_a.delete()
-
-    def test_project_multiple_funds(self):
-        """If a project is in multiple issues, it should appear multiple times
-        but have different ids"""
-        self.cmpn_acc.category = Account.PROJECT
-        self.cmpn_acc.save()
-        cmpn_acc2 = Account.objects.create(
-            name='CMPN2', code='CMPN2', category=Account.PROJECT)
-        cmpn2 = Campaign.objects.create(slug='cmpn2', account=cmpn_acc2)
-        iss1 = Issue.objects.get(name='Agriculture')
-        iss2 = Issue.objects.get(name='Community Growth')
-        iss1.campaigns.add(self.campaign)
-        iss2.campaigns.add(cmpn2)
-        self.project.campaigns.add(self.campaign, cmpn2)
-
-        response = self.client.get(reverse('donate projects funds'))
-        response = response.content.decode('utf-8')
-        self.assertEqual(2, response.count('Project Name Here</h4>'))
-        ident = 'collapsible-issue-%d-%d' % (iss1.id, self.project.id)
-        self.assertEqual(1, response.count('aria-controls="' + ident))
-        self.assertEqual(1, response.count('id="' + ident))
-        ident = 'collapsible-issue-%d-%d' % (iss2.id, self.project.id)
-        self.assertEqual(1, response.count('aria-controls="' + ident))
-        self.assertEqual(1, response.count('id="' + ident))
-
-        cmpn_acc2.delete()
 
 
 class DonatePagesTests(TestCase):
