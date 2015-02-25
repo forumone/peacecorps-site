@@ -24,7 +24,7 @@ def generate_agency_memo(data):
     memo = ''
     memo += '(' + data.get('comments', '').strip() + ')'
 
-    amount = humanize_cents(data['payment_amount'])
+    amount = humanize_cents(data['payment_amount'], commas=False)
     memo += '(%s,%s/)' % (data['project_code'], amount)
 
     memo += '(' + data.get('phone_number', '').strip() + ')'

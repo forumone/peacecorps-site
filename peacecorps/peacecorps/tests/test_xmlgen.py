@@ -116,6 +116,11 @@ class PayXMLGenerationTests(TestCase):
             "(yes)(no)(no)",
             memo)
 
+        # No commas should be present in the amount
+        memo = payxml.generate_agency_memo({
+            'payment_amount': 1234567, 'project_code': '14-54FF'})
+        self.assertEqual("()(14-54FF,$12345.67/)()(no)(no)(no)", memo)
+
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""
