@@ -1,5 +1,7 @@
 {% extends "donations/base.jinja" %}
 
+{% block og:description %}{{ project.abstract_html(read_more_link=False)|safe }}{% endblock og:description %}
+
 {% block content_class %}project{% endblock %}
 {% if project.featured_image %}
   {% set custom_top_image=project.featured_image.url %}

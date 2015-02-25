@@ -10,6 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=0">
     <meta name="viewport" content="width=device-width">
+    <meta property="og:title" content="{% if title %}{{ title }}{% else %}Peace Corps{% endif %}" />
+    <meta property="og:site_name" content="US Peace Corps" />
+    <meta property="og:url" content="https://beta.peacecorps.gov{{ request.path }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="{% block og:description %}Peace Corps Volunteers help build clinics in villages, put books in schools, and improve access to nutritious food. Give today and help support projects like these.{% endblock og:description %}" />
+    <meta property="og:image" content="{{ static('peacecorps/img/og_default.jpg') }}" />
+    
+    <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
     {% if MINIFIED %}
     <link rel="stylesheet" href="{{ static(
         "peacecorps/css/compiled/donation.min.css") }}" />

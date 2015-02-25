@@ -1,5 +1,8 @@
 {% extends "donations/base.jinja" %}
 
+{% block og:description %}{{ campaign.abstract_html(read_more_link=False)|safe }}{% endblock og:description %}
+
+
 {% block content_class %}fund-detail{% endblock %}
 {% if campaign.featured_image %}
   {% set custom_top_image=campaign.featured_image.url %}
