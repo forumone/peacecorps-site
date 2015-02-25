@@ -288,3 +288,7 @@
     campaign: 71
   model: peacecorps.sectormapping
   pk: Malaria Prevention
+- fields:
+    campaign: 66
+  model: peacecorps.sectormapping
+  pk: Health

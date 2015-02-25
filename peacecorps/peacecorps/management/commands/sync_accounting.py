@@ -36,7 +36,8 @@ def cents_from(text):
 
 class IssueCache(object):
     """Keeps track of all known issues, so that we do not need to hit the
-    database with each request."""
+    database with each request. "Issue" is a misnomer as this actually maps to
+    campaigns"""
 
     def __init__(self):
         self.issues = {m.accounting_name: m.campaign
@@ -75,7 +76,8 @@ def create_campaign(account, row, name, acc_type):
         country = Country.objects.filter(name__iexact=country_name).first()
         if not country:
             logging.getLogger('peacecorps.sync_accounting').warning(
-                "Country does not exist: %s", row['LOCATION'])
+                "%s: Country does not exist: %s",
+                row['PROJ_NO'], row['LOCATION'])
             return
 
     account.save()
@@ -95,12 +97,15 @@ def create_pcpp(account, row, issue_map):
     projects, which have goal amounts, etc."""
     country_name = row['LOCATION']
     country = Country.objects.filter(name__iexact=country_name).first()
-    issue = issue_map.find(row['SECTOR'])
-    if not country or not issue:
+    if not country:
         logging.getLogger('peacecorps.sync_accounting').warning(
-            "Either country or issue does not exist: %s, %s",
-            row['LOCATION'], row['SECTOR'])
-    else:
+            "%s: Country does not exist: %s", row['PROJ_NO'], row['LOCATION'])
+    issue = issue_map.find(row['SECTOR'])
+    if not issue and row['SECTOR'] != 'None':
+        logging.getLogger('peacecorps.sync_accounting').warning(
+            "%s: Sector does not exist: %s", row['PROJ_NO'], row['SECTOR'])
+
+    if country and (issue or row['SECTOR'] == 'None'):
         goal = cents_from(row['PROJ_REQ'])
         balance = cents_from(row['UNIDENT_BAL'])
         account.current = goal - balance
@@ -116,12 +121,17 @@ def create_pcpp(account, row, issue_map):
         sirtrevorobj = {"data": [{"type": "text", "data": {"text": summary}}]}
         description = json.dumps(sirtrevorobj)
 
-        project = Project.objects.create(
+        project = Project(
             title=row['PROJ_NAME1'], country=country, account=account,
-            overflow=issue.account, volunteername=volunteername,
-            volunteerhomestate=row['STATE'], description=description
+            volunteername=volunteername, volunteerhomestate=row['STATE'],
+            description=description
         )
-        project.campaigns.add(issue)
+        if issue:
+            project.overflow = issue.account
+            project.save()
+            project.campaigns.add(issue)
+        else:
+            project.save()
 
 
 def update_account(row, account):
