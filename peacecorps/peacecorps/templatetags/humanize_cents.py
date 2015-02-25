@@ -4,5 +4,8 @@ from django_jinja import library
 
 
 @library.global_function
-def humanize_cents(amount):
-    return "${:,.2f}".format(amount/100.0)
+def humanize_cents(amount, commas=True):
+    if commas:
+        return "${:,.2f}".format(amount/100.0)
+    else:
+        return "${:.2f}".format(amount/100.0)
