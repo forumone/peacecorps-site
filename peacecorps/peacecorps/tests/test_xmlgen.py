@@ -121,6 +121,13 @@ class PayXMLGenerationTests(TestCase):
             'payment_amount': 1234567, 'project_code': '14-54FF'})
         self.assertEqual("()(14-54FF,$12345.67/)()(no)(no)(no)", memo)
 
+        # New lines and other special characters get removed
+        memo = payxml.generate_agency_memo({
+            'comments': 'This\nHas\tSome\aSpecial\rChars\b',
+            'payment_amount': 1245, 'project_code': '111-222'})
+        self.assertEqual("(This Has Some Special Chars)(111-222,$12.45/)"
+                         "()(no)(no)(no)", memo)
+
     def test_generate_custom_fields(self):
         """The data dictionary should be serialized in the predictable way.
         Allow all fields to be optional"""

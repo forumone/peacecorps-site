@@ -22,7 +22,10 @@ def generate_agency_memo(data):
         (Contact info consent)(Bus Interest Conflict)(Contact Email Consent).
     """
     memo = ''
-    memo += '(' + data.get('comments', '').strip() + ')'
+    cleaned_comments = data.get('comments', '')
+    for char in "\a\b\f\n\r\t\v":
+        cleaned_comments = cleaned_comments.replace(char, " ")
+    memo += '(' + cleaned_comments.strip() + ')'
 
     amount = humanize_cents(data['payment_amount'], commas=False)
     memo += '(%s,%s/)' % (data['project_code'], amount)
