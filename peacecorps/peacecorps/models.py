@@ -57,12 +57,13 @@ class AbstractHTMLMixin(object):
     assumes that the object has a primary_url method (for the read-more
     link)."""
 
-    def abstract_html(self, read_more_link=False):
+    def abstract_plaintext(self, include_shortened=False):
         """If an explicit abstract is present, return it. Otherwise, return
-        the formatted first paragraph of the description"""
-        context = {'text': ''}
+        the first paragraph of the description"""
+        text = ''
+        shortened = False
         if self.abstract:
-            context['text'] = self.abstract
+            text = self.abstract
         elif self.description:
             for block in json.loads(self.description)['data']:
                 if block.get('type') == 'text':
@@ -71,13 +72,22 @@ class AbstractHTMLMixin(object):
                     if len(data['text']) > settings.ABSTRACT_LENGTH:
                         trimmed = data['text'][:settings.ABSTRACT_LENGTH]
                         trimmed = trimmed[:trimmed.rindex(' ')]
-                        context['text'] = trimmed
-                        context['shortened'] = True
-                        if read_more_link:
-                            context['more_url'] = self.primary_url()
+                        text = trimmed
+                        shortened = True
                     else:
-                        context['text'] = data['text']
+                        text = data['text']
                     break
+        if include_shortened:
+            return text, shortened
+        else:
+            return text
+
+    def abstract_html(self, read_more_link=False):
+        """Take the plaintext and run it through a sir trevor template"""
+        text, shortened = self.abstract_plaintext(include_shortened=True)
+        context = {'text': text, 'shortened': shortened}
+        if shortened and read_more_link:
+            context['more_url'] = self.primary_url()
         return django_render('donations/includes/abstract.html', context)
 
 

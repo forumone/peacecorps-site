@@ -1,6 +1,6 @@
 {% extends "donations/base.jinja" %}
 
-{% block og_description %}{{ campaign.abstract_html(read_more_link=False)|safe }}{% endblock %}
+{% block og_description %}{{ campaign.abstract_plaintext() }}{% endblock %}
 
 
 {% block content_class %}fund-detail{% endblock %}
