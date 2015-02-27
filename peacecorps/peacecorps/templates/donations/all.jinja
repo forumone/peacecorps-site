@@ -11,7 +11,7 @@
     The Peace Corps Partnership Program funds community-led projects around the world. Use the tool below to explore them, or give to the Global Fund now and we'll send your money where it's needed most.
   </h2>
 
-  <a href="/donate/fund/global/" class="button button--sm button--primary u-hv_center--block__content">
+  <a href="/donate/fund/global/" class="discover_button u-hv_center--block__content">
          Give to the Global Fund
       </a>
 </section>
@@ -43,9 +43,7 @@
       {% set issue_count = projects_by_issue[issue.id] %}
       <li id="page-issue-{{ issue.id }}">
         <a href="#" data-controls-filter="issue-{{issue.id}}""
-           class="section section--neutral_medium bordered bordered--row
-                  bordered--white u-clearfix section__content--xsm
-                  t-link--no_underline t-link--gray">
+           class="discover_page--link">
           {{ render_link_header(issue.icon_color_url('grey'), issue.name,
                                 issue.name, issue_count) }}
         </a>
@@ -59,9 +57,7 @@
       {% set project_count = projects_by_country.get(fund.country.code, 0) %}
       <li id="page-country-{{ fund.country.code }}">
         <a href="#" data-controls-filter="country-{{fund.country.code}}"
-           class="section section--neutral_medium bordered
-                  bordered--row bordered--white u-clearfix
-                  section__content--xsm t-link--no_underline t-link--gray">
+           class="discover_page--link">
         {{ render_link_header(
             static("peacecorps/img/countries/" + fund.country.code.lower()
                    + ".svg"),
@@ -76,8 +72,7 @@
         {% set img = issue_img(issue.icon_background.url,
                                issue.icon_color_url('white'), campaign.name) %}
         <li data-in-filter="issue-{{issue.id}}"
-            class="section section--neutral_dark u-clearfix bordered
-                   bordered--row bordered--white">
+            class="discover_fund">
           {{ render_campaign(
             img,
             'issues',
@@ -88,8 +83,7 @@
     {% endfor %}
     {% for fund in country_funds %}
       <li data-in-filter="country-{{fund.country.code}}"
-          class="section section--neutral_dark u-clearfix bordered
-                 bordered--row bordered--white">
+          class="discover_fund">
         {{ render_campaign(
           country_map(fund.country.code),
           'countries',
@@ -98,8 +92,7 @@
       </li>
     {% endfor %}
     {% for project in projects %}
-      <li class="section section--neutral_medium section__content--xsm
-                 u-clearfix bordered bordered--row bordered--white"
+      <li class="discover_proj"
           data-in-filter="volunteer,{{project_filters.get(project.id)}}">
         {{ render_project_header(project) }}
         {{ render_project(project) }}
@@ -123,32 +116,21 @@
 {% endblock %}
 
 {% macro country_map(code) -%}
-  <div class="mask mask--bordered mask--md mask--oval
-              mask--bordered mask--gray-1 u-h_center--block map">
+  <div class="discover--country_map">
     <img src="{{ static("peacecorps/img/countries/" + code.lower()
-                        + ".svg") }}"
-         class="mask__content mask__content--md" />
+                        + ".svg") }}" />
   </div>
 {%- endmacro %}
 
 {% macro issue_img(url, icon_color_url, alt) -%}
-  <div class="mask mask--oval mask--gray-1 mask--bordered u-hv_center--block"
-    style="width: 14em; height: 14em;
-           background-image: url('{{ url }}');
-           background-size: 100%;">
-    <img  class="u-hv_center--block__content"
-          style="width: 60%;"
-          src="{{ icon_color_url }}"
-          alt="{{ alt }}" />
+  <div class="discover_fund--issueimg"
+       style="background-image: url('{{ url }}');">
+    <img src="{{ icon_color_url }}" alt="{{ alt }}" />
   </div>
 {%- endmacro %}
 
 {% macro render_campaign(img, type, title, campaign) -%}
-  <aside class="column column--third
-      enclose enclose--flatten_r
-      discover__aside--lg
-      drift_corner
-      ">
+  <aside class="discover_fund--aside">
     <a href="#" class="js-pageBack t-single_nav drift_corner__tl">
       &lt; View all {{ type }}</a>
     <div class="u-pullr sm-no_pullr isolate section__content--sm">
@@ -164,7 +146,7 @@
       </a>
     </h3>
     {{ campaign.abstract_html(read_more_link=True)|safe }}
-    <a class="button button--sm button--primary"
+    <a class="discover_button"
        href="{{ url("donate campaign", slug=campaign.slug) }}#amount-form">
       Give to this fund</a>
   </article>
@@ -174,84 +156,57 @@
 {% macro render_project_header(project) -%}
   <a aria-expanded="false" href="#"
      aria-controls="collapsible-project-{{ project.id }}"
-     class="js-collapsibleControls section section__content--xsm u-clearfix
-     t-link--no_underline t-link--gray">
+     class="js-collapsibleControls discover_proj--hd_link">
     {# shown when issue or country is selected #}
-    <header data-in-filter="{{project_filters.get(project.id)}}">
-        <div class="column--third" style="height: 1em;"></div>
-        <h4 class="t-heading--4 t--gray--2 column--half t-nom">
-          {{ project.title }}</h4>
-    </header>
+    <h4 data-in-filter="{{project_filters.get(project.id)}}"
+        class="discover_proj--hd_min">{{ project.title }}</h4>
     {# shown when volunteer is selected #}
-    <div data-in-filter="volunteer">
-      <aside class="column column--third enclose--sm">
-        <div class="mask mask--oval mask--gray-1 mask--bordered
-             u-clearfix u-pullr sm-hide"
-             style="width: 4em; height: 4em;">
-          {% if project.volunteerpicture %}
-            {{ volunteer_photo(project) }}
-          {% else %}
-            <img src="{{ static("peacecorps/img/countries/"
-                        + project.country.code.lower() + ".svg") }}"
-                 class="mask__content" style="width: 100%;" />
-          {% endif %}
-        </div>
-      </aside>
-      <header class="column column--half" style="height: 4em;">
-        <h3 class="t-heading--3 t--gray--2 u-v_center--block">
-          {{ project.volunteername }} ({{project.volunteer_statename()}})<br>
-          <span class="t-heading--4 t--gray--2">
-            {{ project.title }}
-          </span>
-        </h3>
-      </header>
-    </div>
+    <aside class="column column--third enclose--sm"
+           data-in-filter="volunteer">
+      <div class="discover_proj--hd_mask">
+        {% if project.volunteerpicture %}
+          {{ volunteer_photo(project) }}
+        {% else %}
+          <img src="{{ static("peacecorps/img/countries/"
+                      + project.country.code.lower() + ".svg") }}"
+               class="mask__content" style="width: 100%;" />
+        {% endif %}
+      </div>
+    </aside>
+    <header class="column column--half" style="height: 4em;"
+            data-in-filter="volunteer">
+      <h3 class="t-heading--3 t--gray--2 u-v_center--block">
+        {{ project.volunteername }} ({{project.volunteer_statename()}})<br>
+        <span class="t-heading--4 t--gray--2">
+          {{ project.title }}
+        </span>
+      </h3>
+    </header>
   </a>
 {%- endmacro %}
 
 {% macro render_link_header(url, alt, name, count) -%}
-  <aside class="column column--third
-      enclose--sm
-      sm-hide">
-    <div class="mask mask--oval mask--gray-1 mask--bordered
-         u-clearfix  u-pullr u-hv_center--block"
-         style="width: 4em; height: 4em;">
-      <img
-        class="mask__content u-hv_center--block__content"
-        style="width: 90%;"
-        src="{{ url }}"
-        alt="{{ alt }}" />
-    </div>
+  <aside class="discover_page--aside">
+    <div><img src="{{ url }}" alt="{{ alt }}" /></div>
   </aside>
-  <header class="column column--half" style="height: 4em;">
-      <h4 class="t-heading--4 t--gray--2 u-v_center--block t-nom">
-        {% if count is defined %}
-        {{ name }} ({{count}})
-        {% else %}
-        {{ name }}
-        {% endif %}
-      </h4>
+  <header class="discover_page--hd">
+    <h4>
+      {{ name }}
+      {% if count is defined %}({{count}}){% endif %}
+    </h4>
   </header>
 {%- endmacro %}
 
 {% macro render_project(project) -%}
   <article class="js-collapsibleItem u-clearfix drift_corner"
         id="collapsible-project-{{ project.id }}">
-    <aside class="column column--third
-                  section__content--sm
-                  u-clearfix
-                  enclose enclose--flatten_r
-                  discover__aside">
-      <div class="clearfix">
-        <div class="mask mask--oval mask--gray-1 mask--bordered
-             u-clearfix u-h_center--block isolate--b"
-             style="width: 12em; height: 12em;">
+    <aside class="discover_proj--aside">
+        <div class="discover_proj--volpic">
           {{ volunteer_photo(project) }}
         </div>
         <div class="u-h_center--block">
           {{ country_map(project.country.code) }}
         </div>
-      </div>
     </aside>
     <section class="column--half section__content t--black">
       <h2>
@@ -260,50 +215,38 @@
           {{ project.title }}
         </a>
       </h2>
-      <p>
-        {{ project.abstract_html(read_more_link=True)|safe }}
-      </p>
+      {{ project.abstract_html(read_more_link=True)|safe }}
 
-      {# TODO make macro #}
-      <div class="rectangular_progress
-                  rectangular_progress--mini
-                  rectangular_progress--secondary">
+      {# All classes within are scoped inside discover_progress #}
+      <div class="discover_progress">
         {% set percent_raised = project.account.percent_raised() %}
-        <div class="rectangular_progress__bar">
-          <div class="rectangular_progress__filled"
-              style="width: {{ percent_raised }}%;">
+        <div class="bar">
+          <div class="fill" style="width: {{ percent_raised }}%;">
           </div>
         </div>
         <span style="left: {{ percent_raised }}%;"
-            class="rectangular_progress__line
-                  rectangular_progress__line--bottom">
+            class="fill_mark">
         </span>
-        <span class="rectangular_progress__point
-                     rectangular_progress__point--bottom
-                     t-title--4"
-            style="left: {{ percent_raised }}%;">
+        <span class="fill_text" style="left: {{ percent_raised }}%;">
           {{ humanize_cents(project.account.total_raised()) }}<br/>
           raised
         </span>
 
         {% if not project.account.funded() %}
-          <span class="rectangular_progress__point
-                       uo-align_r t-title--4" style="right: 0;">
+          <span class="goal_text">
              Goal<br />
              <strong class="t--secondary">{{ humanize_cents(project.account.total_cost()) }}</strong>
           </span>
-          <span style="right: 0;"
-              class="rectangular_progress__line
-                     rectangular_progress__line--neutral">
+          <span class="goal_mark">
           </span>
         {% endif %}
       </div>
       {% if project.account.funded() %}
-        <a class="button button--sm button--primary"
+        <a class="discover_button"
            href="{{ url("donate project", slug=project.slug) }}">
          Read more</a>
       {% else %}
-        <a class="button button--sm button--primary"
+        <a class="discover_button"
            href="{{ url("donate project", slug=project.slug) }}#amount-form">
          Give to the project</a>
       {% endif %}
