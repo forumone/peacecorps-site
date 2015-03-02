@@ -33,8 +33,8 @@ if MEMCACHED_URL:
 JINJA2_CONSTANTS['ANALYTICS_ID'] = 'UA-17096306-6'
 
 # Note that MEDIA_ROOT is not needed since we're using S3
-MEDIA_URL = '//{:s}.s3.amazonaws.com/'.format(os.environ.get('AWS_MEDIA_BUCKET_NAME', 'pc-media-dev'))
-STATIC_URL = '//{:s}.s3.amazonaws.com/'.format(os.environ.get('AWS_STATIC_BUCKET_NAME', 'pc-theme-dev'))
+MEDIA_URL = 'https://{:s}.s3.amazonaws.com/'.format(os.environ.get('AWS_MEDIA_BUCKET_NAME', 'pc-media-dev'))
+STATIC_URL = 'https://{:s}.s3.amazonaws.com/'.format(os.environ.get('AWS_STATIC_BUCKET_NAME', 'pc-theme-dev'))
 
 GNUPG_HOME = os.environ.get('GNUPG_HOME', '')
 GPG_RECIPIENTS = {
