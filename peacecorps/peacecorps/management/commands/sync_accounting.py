@@ -106,11 +106,7 @@ def create_pcpp(account, row, issue_map):
             "%s: Sector does not exist: %s", row['PROJ_NO'], row['SECTOR'])
 
     if country and (issue or row['SECTOR'] == 'None'):
-        goal = cents_from(row['PROJ_REQ'])
-        balance = cents_from(row['UNIDENT_BAL'])
-        account.current = goal - balance
-        account.goal = goal
-        account.community_contribution = cents_from(row['OVERS_PART'] or '0')
+        set_balances(row, account)
         account.save()
 
         volunteername = row['PCV_NAME']
@@ -134,15 +130,22 @@ def create_pcpp(account, row, issue_map):
             project.save()
 
 
+def set_balances(row, account):
+    goal = cents_from(row['PROJ_REQ'])
+    balance = cents_from(row['UNIDENT_BAL'])
+    account.current = goal - balance
+    account.goal = goal
+    account.community_contribution = cents_from(row['OVERS_PART'] or '0')
+    return account
+
+
 def update_account(row, account):
     """If an account already exists, synchronize the transactions and amount"""
     if row['LAST_UPDATED_FROM_PAYGOV']:
         updated_at = datetime_from(row['LAST_UPDATED_FROM_PAYGOV'])
         account.donations.filter(time__lte=updated_at).delete()
     if account.category == Account.PROJECT:
-        goal = cents_from(row['PROJ_REQ'])
-        balance = cents_from(row['UNIDENT_BAL'])
-        account.current = goal - balance
+        set_balances(row, account)
         account.save()
 
 

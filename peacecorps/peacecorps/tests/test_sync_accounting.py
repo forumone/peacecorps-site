@@ -65,7 +65,7 @@ class SyncAccountingTests(TestCase):
 
         # First test with an empty LAST_UPDATED value
         row = {'LAST_UPDATED_FROM_PAYGOV': '', 'PROJ_REQ': '444',
-               'UNIDENT_BAL': '110.7'}
+               'UNIDENT_BAL': '110.7', 'OVERS_PART': '50'}
         sync.update_account(row, acc222)
         # All donations should remain
         self.assertNotEqual(
@@ -76,7 +76,8 @@ class SyncAccountingTests(TestCase):
         self.assertEqual(33330, Account.objects.get(pk=acc222.pk).current)
 
         row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14T00:00:00',
-               'PROJ_REQ': '5,555.55', 'UNIDENT_BAL': '4,321.32'}
+               'PROJ_REQ': '5,555.55', 'UNIDENT_BAL': '4,321.32',
+               'OVERS_PART': '50'}
         sync.update_account(row, acc222)
         # before_donation should be deleted, but after_donation not
         self.assertEqual(
@@ -86,6 +87,29 @@ class SyncAccountingTests(TestCase):
 
         # amount donated to should also be updated
         self.assertEqual(123423, Account.objects.get(pk=acc222.pk).current)
+
+        # finally, verify that zero works
+        row = {'LAST_UPDATED_FROM_PAYGOV': '2009-12-14T00:00:00',
+               'PROJ_REQ': '5555.55', 'UNIDENT_BAL': '0', 'OVERS_PART': '50'}
+        sync.update_account(row, acc222)
+        self.assertEqual(555555, Account.objects.get(pk=acc222.pk).current)
+        acc222.delete()
+
+    def test_update_account_goal_community(self):
+        """The account current, goal, and community should be set, as they can
+        change with each pull from the financial system."""
+        acc222 = Account.objects.create(
+            name='Account222', code='111-222', category=Account.PROJECT,
+            current=4500, goal=10000, community_contribution=5000)
+
+        row = {'LAST_UPDATED_FROM_PAYGOV': '', 'PROJ_REQ': '90.00',
+               'UNIDENT_BAL': '10', 'OVERS_PART': '25.75'}
+        sync.update_account(row, acc222)
+        latest = Account.objects.get(pk=acc222.pk)
+        self.assertEqual(9000, latest.goal)
+        self.assertEqual(8000, latest.current)
+        self.assertEqual(2575, latest.community_contribution)
+        acc222.delete()
 
     def test_create_pcpp(self):
         """Use fake data to generate a new pcpp"""
