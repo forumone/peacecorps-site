@@ -4,18 +4,10 @@
 /*
  * Breakpoint
  */
-/* Neat 1.7.0
- * http://neat.bourbon.io
- * Copyright 2012-2014 thoughtbot, inc.
- * MIT License */
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
+*, *::after, *::before {
   box-sizing: inherit; }
 
 /*
@@ -596,8 +588,8 @@ p + p {
 .banner--sitewide_notification {
   padding-left: 1em;
   padding-right: 1em;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em; }
+  padding-top: 0.1em;
+  padding-bottom: 0.3em; }
 
 .banner--align_bottom {
   position: absolute;
