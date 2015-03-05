@@ -153,8 +153,9 @@ SIRTREVOR_UPLOAD_PATH = "attachments/"
 SIRTREVOR_BLOCK_TYPES = ['Text', 'Image508']
 
 # Used when generating tweets/emails
-SHARE_SUBJECT = "Peacecorps Donation"
-SHARE_TEMPLATE = "I just donated to a great cause! %s"
+SHARE_SUBJECT = "Donate to the Peace Corps"
+SHARE_TEMPLATE = "Peace Corps Volunteers work at the grassroots level toward sustainable change that lives on long after their service ends. They make a difference every day all across the globe and so can you. Check out donate.peacecorps.gov to learn more and give."
+SHARE_TWEET = "Every day, @PeaceCorps Volunteers make a difference across the globe and so can you. Give now."
 
 # Used to color issue icons
 SVG_COLORS = {

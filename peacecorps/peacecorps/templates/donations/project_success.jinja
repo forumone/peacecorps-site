@@ -1,7 +1,7 @@
 {% extends "donations/base.jinja" %}
 {% from "donations/includes/macros.jinja" import volunteer_photo %}
 
-{% block og_description %}{{ project.abstract_html(read_more_link=False)|safe }}{% endblock %}
+{% block og_description %}{{ project.abstract_plaintext() }}{% endblock %}
 
 {% block content_class %}thankyou{% endblock %}
 {% if project.featured_image %}
@@ -28,7 +28,7 @@
               >Facebook</a></li>
       <li class="main_nav__link">
         <a target="_blank"
-              href="//twitter.com/intent/tweet?text={{share_text|urlencode}}"
+              href="//twitter.com/intent/tweet?text={{share_tweet|urlencode}}"
               >Twitter</a></li>
       <li class="main_nav__link">
         <a target="_blank"

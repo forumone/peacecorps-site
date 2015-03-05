@@ -38,6 +38,12 @@
   @include media($sm) {
     padding-top: 20%;
   }
+  @include media($sm) {
+    @include font-size($leading-sm);
+  }
+  @include media($md) {
+    @include font-size($leading-md);
+  }
 }
 
 .bubble--neutral_dark {
@@ -80,6 +86,12 @@
 
 .bubble_form--small {
   @include font-size($leading-lg);
+  @include media($sm) {
+    @include font-size($leading-sm);
+  }
+  @include media($md) {
+    @include font-size($leading-md);
+  }
 }
 .bubble_form--x-large {
   @include font-size($leading-xlg);

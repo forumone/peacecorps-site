@@ -767,6 +767,14 @@ p + p {
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .bubble__content {
       padding-top: 20%; } }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .bubble__content {
+      font-size: 13px;
+      font-size: 1.3rem; } }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .bubble__content {
+      font-size: 16px;
+      font-size: 1.6rem; } }
 
 .bubble--neutral_dark {
   background-color: #E5E1D4; }
@@ -800,6 +808,14 @@ p + p {
 .bubble_form--small {
   font-size: 18px;
   font-size: 1.8rem; }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .bubble_form--small {
+      font-size: 13px;
+      font-size: 1.3rem; } }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .bubble_form--small {
+      font-size: 16px;
+      font-size: 1.6rem; } }
 
 .bubble_form--x-large {
   font-size: 20px;
