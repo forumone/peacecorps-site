@@ -280,7 +280,7 @@ p + p {
   margin: 10px 0;
   margin: 1rem 0; }
 
-.t-title--4, .discover_progress .fill_text, .discover_progress .goal_text {
+.t-title--4, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
@@ -379,7 +379,7 @@ p + p {
 .t-link--no_underline, .discover_proj--hd_link, .discover_page--link {
   text-decoration: none; }
 
-.t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .discover_progress .fill_text a, .discover_progress .goal_text a, .t-title--5 a {
+.t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .discover_progress .dp__fill-text a, .discover_progress .dp__goal-text a, .t-title--5 a {
   text-decoration: none; }
 
 .t-nom, .discover_proj--hd_min, .discover_page--hd h4 {
@@ -440,7 +440,7 @@ p + p {
   .u-block--at_sm {
     display: block; } }
 
-.u-clearfix:after, .full_banner:after, .form__field:after, .discover_proj:after, .discover_proj--hd_link:after, .discover_proj--hd_mask:after, .discover_proj--aside:after, .discover_proj--volpic:after, .discover_fund:after, .discover_page--link:after, .discover_page--aside div:after {
+.u-clearfix:after, .full_banner:after, .form__field:after, .discover_proj:after, .discover_proj--hd_link:after, .discover_proj--hd_mask:after, .discover_proj--aside:after, .discover_proj--volpic:after, .discover_fund:after, .discover_page--link:after, .discover_page--aside .dp-a__wrap:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -456,9 +456,9 @@ p + p {
   position: absolute;
   top: -9999px; }
 
-.u-hv_center--block, .mask, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside div, .rectangular_progress, .discover_progress {
+.u-hv_center--block, .mask, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside .dp-a__wrap, .rectangular_progress, .discover_progress {
   position: relative; }
-  .u-hv_center--block .u-hv_center--block__content, .mask .u-hv_center--block__content, .discover_proj--hd_mask .u-hv_center--block__content, .discover_proj--volpic .u-hv_center--block__content, .discover--country_map .u-hv_center--block__content, .discover_fund--issueimg .u-hv_center--block__content, .discover_page--aside div .u-hv_center--block__content, .rectangular_progress .u-hv_center--block__content, .discover_progress .u-hv_center--block__content, .u-hv_center--block .mask__content, .mask .mask__content, .discover_proj--hd_mask .mask__content, .discover_proj--volpic .mask__content, .discover--country_map .mask__content, .discover_fund--issueimg .mask__content, .discover_page--aside div .mask__content, .rectangular_progress .mask__content, .discover_progress .mask__content, .discover--country_map img, .u-hv_center--block .discover_page--aside img, .discover_page--aside .u-hv_center--block img, .mask .discover_page--aside img, .discover_page--aside .mask img, .discover_proj--hd_mask .discover_page--aside img, .discover_page--aside .discover_proj--hd_mask img, .discover_proj--volpic .discover_page--aside img, .discover_page--aside .discover_proj--volpic img, .discover_page--aside div img, .rectangular_progress .discover_page--aside img, .discover_page--aside .rectangular_progress img, .discover_progress .discover_page--aside img, .discover_page--aside .discover_progress img, .u-hv_center--block .mask__content--md, .mask .mask__content--md, .discover_proj--hd_mask .mask__content--md, .discover_proj--volpic .mask__content--md, .discover--country_map .mask__content--md, .discover_fund--issueimg .mask__content--md, .discover_page--aside div .mask__content--md, .rectangular_progress .mask__content--md, .discover_progress .mask__content--md, .u-hv_center--block .rectangular_progress__bar, .mask .rectangular_progress__bar, .discover_proj--hd_mask .rectangular_progress__bar, .discover_proj--volpic .rectangular_progress__bar, .discover--country_map .rectangular_progress__bar, .discover_fund--issueimg .rectangular_progress__bar, .discover_page--aside div .rectangular_progress__bar, .rectangular_progress .rectangular_progress__bar, .discover_progress .rectangular_progress__bar, .discover_progress .bar, .discover_fund--issueimg img {
+  .u-hv_center--block .u-hv_center--block__content, .mask .u-hv_center--block__content, .discover_proj--hd_mask .u-hv_center--block__content, .discover_proj--volpic .u-hv_center--block__content, .discover--country_map .u-hv_center--block__content, .discover_fund--issueimg .u-hv_center--block__content, .discover_page--aside .dp-a__wrap .u-hv_center--block__content, .rectangular_progress .u-hv_center--block__content, .discover_progress .u-hv_center--block__content, .u-hv_center--block .mask__content, .mask .mask__content, .discover_proj--hd_mask .mask__content, .discover_proj--volpic .mask__content, .discover--country_map .mask__content, .discover_fund--issueimg .mask__content, .discover_page--aside .dp-a__wrap .mask__content, .rectangular_progress .mask__content, .discover_progress .mask__content, .discover--country_map img, .u-hv_center--block .discover_page--aside img, .discover_page--aside .u-hv_center--block img, .mask .discover_page--aside img, .discover_page--aside .mask img, .discover_proj--hd_mask .discover_page--aside img, .discover_page--aside .discover_proj--hd_mask img, .discover_proj--volpic .discover_page--aside img, .discover_page--aside .discover_proj--volpic img, .discover_page--aside .dp-a__wrap img, .rectangular_progress .discover_page--aside img, .discover_page--aside .rectangular_progress img, .discover_progress .discover_page--aside img, .discover_page--aside .discover_progress img, .u-hv_center--block .mask__content--md, .mask .mask__content--md, .discover_proj--hd_mask .mask__content--md, .discover_proj--volpic .mask__content--md, .discover--country_map .mask__content--md, .discover_fund--issueimg .mask__content--md, .discover_page--aside .dp-a__wrap .mask__content--md, .rectangular_progress .mask__content--md, .discover_progress .mask__content--md, .u-hv_center--block .rectangular_progress__bar, .mask .rectangular_progress__bar, .discover_proj--hd_mask .rectangular_progress__bar, .discover_proj--volpic .rectangular_progress__bar, .discover--country_map .rectangular_progress__bar, .discover_fund--issueimg .rectangular_progress__bar, .discover_page--aside .dp-a__wrap .rectangular_progress__bar, .rectangular_progress .rectangular_progress__bar, .discover_progress .rectangular_progress__bar, .discover_progress .dp__bar, .discover_fund--issueimg img {
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -505,7 +505,7 @@ p + p {
 .u-pull {
   float: left; }
 
-.u-pullr, .discover_proj--hd_mask, .discover_page--aside div {
+.u-pullr, .discover_proj--hd_mask, .discover_page--aside .dp-a__wrap {
   float: right; }
 
 /*
@@ -1549,7 +1549,7 @@ p + p {
 /*
  * Z-Index
  */
-.mask, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside div {
+.mask, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside .dp-a__wrap {
   overflow: hidden;
   width: 8em;
   height: 8em; }
@@ -1584,13 +1584,13 @@ p + p {
   transform: translate(-70%, -70%);
   width: 100%; }
 
-.mask--oval, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside div {
+.mask--oval, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside .dp-a__wrap {
   border-radius: 50%; }
 
-.mask--bordered, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside div {
+.mask--bordered, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside .dp-a__wrap {
   border: 0.25em solid #E5E1D4; }
 
-.mask--gray-1, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside div {
+.mask--gray-1, .discover_proj--hd_mask, .discover_proj--volpic, .discover--country_map, .discover_fund--issueimg, .discover_page--aside .dp-a__wrap {
   border-color: #aaa698; }
 
 /*
@@ -1649,16 +1649,16 @@ p + p {
   text-align: left;
   width: 100%; }
 
-.rectangular_progress__bar, .discover_progress .bar {
+.rectangular_progress__bar, .discover_progress .dp__bar {
   background-color: #E5E1D4;
   height: 2em;
   width: 100%; }
 
-.rectangular_progress__filled, .discover_progress .fill {
+.rectangular_progress__filled, .discover_progress .dp__fill {
   background-color: #A12122;
   height: 100%; }
 
-.rectangular_progress__point, .discover_progress .fill_text, .discover_progress .goal_text {
+.rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
   display: inline-block;
   margin: 0;
   margin-left: -20%;
@@ -1667,12 +1667,12 @@ p + p {
   top: 15%;
   width: 40%; }
   @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .rectangular_progress__point, .discover_progress .fill_text, .discover_progress .goal_text {
+    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
       font-size: 85%;
       margin-left: -30%;
       width: 60%; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .rectangular_progress__point, .discover_progress .fill_text, .discover_progress .goal_text {
+    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
       font-size: 80%;
       margin-left: -30%;
       width: 60%;
@@ -1685,17 +1685,17 @@ p + p {
 .rectangular_progress__point--right {
   text-align: right; }
 
-.rectangular_progress__point--bottom, .discover_progress .fill_text {
+.rectangular_progress__point--bottom, .discover_progress .dp__fill-text {
   bottom: 17%;
   top: auto; }
   @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .rectangular_progress__point--bottom, .discover_progress .fill_text {
+    .rectangular_progress__point--bottom, .discover_progress .dp__fill-text {
       bottom: 17%; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .rectangular_progress__point--bottom, .discover_progress .fill_text {
+    .rectangular_progress__point--bottom, .discover_progress .dp__fill-text {
       bottom: 17%; } }
 
-.rectangular_progress__line, .discover_progress .fill_mark, .discover_progress .goal_mark {
+.rectangular_progress__line, .discover_progress .dp__fill-mark, .discover_progress .dp__goal-mark {
   background-color: #087A7E;
   display: block;
   height: 0.7em;
@@ -1704,16 +1704,16 @@ p + p {
   top: 34.5%;
   width: 2px; }
 
-.rectangular_progress__line--bottom, .discover_progress .fill_mark {
+.rectangular_progress__line--bottom, .discover_progress .dp__fill-mark {
   bottom: 33.8%;
   top: auto; }
 
-.rectangular_progress__line--neutral, .discover_progress .goal_mark {
+.rectangular_progress__line--neutral, .discover_progress .dp__goal-mark {
   background-color: #E5E1D4; }
 
 .rectangular_progress--secondary, .discover_progress {
   color: #67655D; }
-  .rectangular_progress--secondary .rectangular_progress__filled, .discover_progress .rectangular_progress__filled, .discover_progress .fill {
+  .rectangular_progress--secondary .rectangular_progress__filled, .discover_progress .rectangular_progress__filled, .discover_progress .dp__fill {
     background-color: #087A7E; }
 
 /*
@@ -2210,7 +2210,7 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
       margin-bottom: -2em;
       padding-top: 1.5em; } }
 
-.discover_page--aside div {
+.discover_page--aside .dp-a__wrap {
   width: 4em;
   height: 4em; }
 .discover_page--aside img {
@@ -2225,18 +2225,18 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .discover_progress {
       width: 100%; } }
-  .discover_progress .fill_mark {
+  .discover_progress .dp__fill-mark {
     height: 0.5em;
     bottom: 27.5%;
     top: auto; }
-  .discover_progress .fill_text {
+  .discover_progress .dp__fill-text {
     top: auto;
     bottom: 12%; }
-  .discover_progress .goal_mark {
+  .discover_progress .dp__goal-mark {
     height: 0.5em;
     top: 28.5%;
     right: 0; }
-  .discover_progress .goal_text {
+  .discover_progress .dp__goal-text {
     top: 12%;
     right: 0; }
 
@@ -2353,7 +2353,7 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
  * Override Utils
  *
  */
-.uo-align_r.uo-align_r, .discover_progress .goal_text {
+.uo-align_r.uo-align_r, .discover_progress .dp__goal-text {
   text-align: right; }
 
 .uo-align_l.uo-align_l {

@@ -152,7 +152,7 @@
   @extend .enclose--sm;
   @extend .sm-hide;
 
-  div {
+  .dp-a__wrap {
     @extend .mask;
     @extend .mask--oval;
     @extend .mask--gray-1;
@@ -202,13 +202,13 @@
     width: 100%;
   }
 
-  .bar {
+  .dp__bar {
     @extend .rectangular_progress__bar;
   }
-  .fill {
+  .dp__fill {
     @extend .rectangular_progress__filled;
   }
-  .fill_mark {
+  .dp__fill-mark {
     @extend .rectangular_progress__line;
     @extend .rectangular_progress__line--bottom;
 
@@ -216,7 +216,7 @@
     bottom: 27.5%;
     top: auto;
   }
-  .fill_text {
+  .dp__fill-text {
     @extend .rectangular_progress__point;
     @extend .rectangular_progress__point--bottom;
     @extend .t-title--4;
@@ -224,7 +224,7 @@
     top: auto;
     bottom: 12%;
   }
-  .goal_mark {
+  .dp__goal-mark {
     @extend .rectangular_progress__line;
     @extend .rectangular_progress__line--neutral;
 
@@ -232,7 +232,7 @@
     top: 28.5%;
     right: 0;
   }
-  .goal_text {
+  .dp__goal-text {
     @extend .rectangular_progress__point;
     @extend .uo-align_r;
     @extend .t-title--4;

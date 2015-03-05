@@ -187,7 +187,7 @@
 
 {% macro render_link_header(url, alt, name, count) -%}
   <aside class="discover_page--aside">
-    <div><img src="{{ url }}" alt="{{ alt }}" /></div>
+    <div class="dp-a__wrap"><img src="{{ url }}" alt="{{ alt }}" /></div>
   </aside>
   <header class="discover_page--hd">
     <h4>
@@ -217,27 +217,26 @@
       </h2>
       {{ project.abstract_html(read_more_link=True)|safe }}
 
-      {# All classes within are scoped inside discover_progress #}
       <div class="discover_progress">
         {% set percent_raised = project.account.percent_raised() %}
-        <div class="bar">
-          <div class="fill" style="width: {{ percent_raised }}%;">
+        <div class="dp__bar">
+          <div class="dp__fill" style="width: {{ percent_raised }}%;">
           </div>
         </div>
         <span style="left: {{ percent_raised }}%;"
-            class="fill_mark">
+            class="dp__fill-mark">
         </span>
-        <span class="fill_text" style="left: {{ percent_raised }}%;">
+        <span class="dp__fill-text" style="left: {{ percent_raised }}%;">
           {{ humanize_cents(project.account.total_raised()) }}<br/>
           raised
         </span>
 
         {% if not project.account.funded() %}
-          <span class="goal_text">
+          <span class="dp__goal-text">
              Goal<br />
              <strong class="t--secondary">{{ humanize_cents(project.account.total_cost()) }}</strong>
           </span>
-          <span class="goal_mark">
+          <span class="dp__goal-mark">
           </span>
         {% endif %}
       </div>
