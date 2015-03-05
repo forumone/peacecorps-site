@@ -314,6 +314,8 @@ class FeaturedCampaign(models.Model):
 class FeaturedProjectFrontPage(models.Model):
     project = models.ForeignKey('Project', to_field='account',
                                 limit_choices_to={'published': True})
+    image = models.ForeignKey(
+        'Media', help_text='Image shown on the landing page. Roughly 525x320')
 
     class Meta:
         verbose_name = 'Featured Project'
