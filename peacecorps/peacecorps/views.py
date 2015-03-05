@@ -100,10 +100,8 @@ def donation_payment(request, account, project=None, campaign=None):
 
 def donate_landing(request):
     """First page for the donations section"""
-    featuredprojects = list(map(
-        lambda fp: fp.project,
-        FeaturedProjectFrontPage.objects.select_related(
-            'project__featured_image')))
+    featuredprojects = FeaturedProjectFrontPage.objects.select_related(
+        'project', 'image')
     projects = Project.published_objects.select_related('country', 'account')
 
     featuredcampaign = FeaturedCampaign.objects.filter(pk=1).first()
