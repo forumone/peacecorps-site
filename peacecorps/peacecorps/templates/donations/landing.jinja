@@ -75,11 +75,12 @@
   <section class="section__content section__content--lg
       full_banner full_banner--neutral">
     <h1 id="featured" class="t-title--1">Featured Projects</h1>
-    {% for project in featuredprojects %}
+    {% for featured in featuredprojects %}
+      {% set project=featured.project %}
       <article class="section__box section--white u-clearfix">
         <div class="column nested_column--lg_greater_half
             u-clearfix u-hv_center--block">
-          <img src="{{ project.featured_image.url }}"
+          <img src="{{ featured.image.url }}"
             style="width: 100%; height: auto" />
           <a href="{{ url("donate project", slug=project.slug) }}"
                class="button button--sm button--primary

@@ -2213,16 +2213,16 @@
 - fields: {code: IRN, name: Iran}
   model: peacecorps.country
   pk: 192
-- fields: {project: 14-684-020}
+- fields: {project: 14-684-020, image: 8}
   model: peacecorps.featuredprojectfrontpage
   pk: 4
-- fields: {project: 15-527-002}
+- fields: {project: 15-527-002, image: 9}
   model: peacecorps.featuredprojectfrontpage
   pk: 5
-- fields: {project: 14-524-007}
+- fields: {project: 14-524-007, image: 10}
   model: peacecorps.featuredprojectfrontpage
   pk: 6
-- fields: {project: 14-693-016}
+- fields: {project: 14-693-016, image: 11}
   model: peacecorps.featuredprojectfrontpage
   pk: 7
 - fields: {caption: 'Water buffalo pulling a plow in Indonesia. Photo by wikipedia
