@@ -596,8 +596,8 @@ p + p {
 .banner--sitewide_notification {
   padding-left: 1em;
   padding-right: 1em;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em; }
+  padding-top: 0.1em;
+  padding-bottom: 0.3em; }
 
 .banner--align_bottom {
   position: absolute;
