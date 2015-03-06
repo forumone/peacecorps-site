@@ -255,7 +255,7 @@ class DonatePagesTests(TestCase):
         project = Project.objects.get(slug='brick-oven-bakery')
         response = self.client.get(reverse('donate project',
                                            kwargs={'slug': project.slug}))
-        self.assertContains(response, 'button')
+        self.assertContains(response, 'button--white')
 
         account = project.account
         old_amount, old_goal = account.current, account.goal
@@ -263,7 +263,7 @@ class DonatePagesTests(TestCase):
         account.save()
         response = self.client.get(reverse('donate project',
                                            kwargs={'slug': project.slug}))
-        self.assertNotContains(response, 'button')
+        self.assertNotContains(response, 'button--white')
         account.current, account.goal = old_amount, old_goal
         account.save()
 
