@@ -14,17 +14,230 @@
 // </div>
 //
 // Styleguide modules.discover
-.discover {
+.discover_proj {
+  @extend .section;
+  @extend .section--neutral_medium;
+  @extend .section__content--xsm;
+  @extend .u-clearfix;
+  @extend .bordered;
+  @extend .bordered--row;
+  @extend .bordered--white;
+}
 
-  .discover__aside {
-    padding-left: 10%;
+.discover_proj--hd_link {
+  @extend .section;
+  @extend .section__content--xsm;
+  @extend .u-clearfix;
+  @extend .t-link--no_underline;
+  @extend .t-link--gray;
+}
+
+.discover_proj--hd_min {
+  @extend .column--shift_third;
+  @extend .t-heading--4;
+  @extend .t--gray--2;
+  @extend .column--half;
+  @extend .t-nom;
+}
+
+.discover_proj--hd_mask {
+  @extend .mask;
+  @extend .mask--oval;
+  @extend .mask--gray-1;
+  @extend .mask--bordered;
+  @extend .u-clearfix;
+  @extend .u-pullr;
+  @extend .sm-hide;
+
+  width: 4em;
+  height: 4em;
+}
+
+.discover_proj--aside {
+  @extend .column;
+  @extend .column--third;
+  @extend .section__content--sm;
+  @extend .u-clearfix;
+  @extend .enclose;
+  @extend .enclose--flatten_r;
+
+  padding-left: 10%;
+}
+
+.discover_proj--volpic {
+  @extend .mask;
+  @extend .mask--oval;
+  @extend .mask--gray-1;
+  @extend .mask--bordered;
+  @extend .u-clearfix;
+  @extend .u-h_center--block;
+  @extend .isolate--b;
+
+  width: 12em;
+  height: 12em;
+}
+
+.discover--country_map {
+  @extend .mask;
+  @extend .mask--bordered;
+  @extend .mask--md;
+  @extend .mask--oval;
+  @extend .mask--bordered;
+  @extend .mask--gray-1;
+  @extend .u-h_center--block;
+  @extend .map;
+
+  img {
+    @extend .mask__content;
+    @extend .mask__content--md;
   }
-  .discover__aside--lg {
-    padding-left: 8%;
+}
 
-    @include media($sm) {
-      margin-bottom: -2em;
-      padding-top: 1.5em;
-    }
+.discover_fund {
+  @extend .section;
+  @extend .section--neutral_dark;
+  @extend .u-clearfix;
+  @extend .bordered;
+  @extend .bordered--row;
+  @extend .bordered--white;
+}
+.discover_fund--issueimg {
+  @extend .mask;
+  @extend .mask--oval;
+  @extend .mask--gray-1;
+  @extend .mask--bordered;
+  @extend .u-hv_center--block;
+
+  width: 14em;
+  height: 14em;
+  background-size: 100%;
+
+  img {
+    @extend .u-hv_center--block__content;
+
+    width: 60%;
+  }
+}
+.discover_fund--aside {
+  @extend .column;
+  @extend .column--third;
+  @extend .enclose;
+  @extend .enclose--flatten_r;
+  @extend .discover__aside--lg;
+  @extend .drift_corner;
+
+  padding-left: 8%;
+
+  @include media($sm) {
+    margin-bottom: -2em;
+    padding-top: 1.5em;
+  }
+}
+
+.discover_page--link {
+  @extend .section;
+  @extend .section--neutral_medium;
+  @extend .bordered;
+  @extend .bordered--row;
+  @extend .bordered--white;
+  @extend .u-clearfix;
+  @extend .section__content--xsm;
+  @extend .t-link--no_underline;
+  @extend .t-link--gray;
+}
+
+.discover_page--aside {
+  @extend .column;
+  @extend .column--third;
+  @extend .enclose--sm;
+  @extend .sm-hide;
+
+  .dp-a__wrap {
+    @extend .mask;
+    @extend .mask--oval;
+    @extend .mask--gray-1;
+    @extend .mask--bordered;
+    @extend .u-clearfix;
+    @extend .u-pullr;
+    @extend .u-hv_center--block;
+
+    width: 4em;
+    height: 4em;
+  }
+
+  img {
+    @extend .mask__content;
+    @extend .u-hv_center--block__content;
+
+    width: 90%;
+  }
+}
+.discover_page--hd {
+  @extend .column;
+  @extend .column--half;
+
+  height: 4em;
+
+  h4 {
+    @extend .t-heading--4;
+    @extend .t--gray--2;
+    @extend .u-v_center--block;
+    @extend .t-nom;
+  }
+}
+
+.discover_button {
+  @extend .button;
+  @extend .button--sm;
+  @extend .button--primary;
+}
+
+.discover_progress {
+  @extend .rectangular_progress;
+  @extend .rectangular_progress--secondary;
+  width: 70%;
+  height: 10em;
+
+  @include media($sm, $md) {
+    width: 100%;
+  }
+
+  .dp__bar {
+    @extend .rectangular_progress__bar;
+  }
+  .dp__fill {
+    @extend .rectangular_progress__filled;
+  }
+  .dp__fill-mark {
+    @extend .rectangular_progress__line;
+    @extend .rectangular_progress__line--bottom;
+
+    height: .5em;
+    bottom: 27.5%;
+    top: auto;
+  }
+  .dp__fill-text {
+    @extend .rectangular_progress__point;
+    @extend .rectangular_progress__point--bottom;
+    @extend .t-title--4;
+
+    top: auto;
+    bottom: 12%;
+  }
+  .dp__goal-mark {
+    @extend .rectangular_progress__line;
+    @extend .rectangular_progress__line--neutral;
+
+    height: .5em;
+    top: 28.5%;
+    right: 0;
+  }
+  .dp__goal-text {
+    @extend .rectangular_progress__point;
+    @extend .uo-align_r;
+    @extend .t-title--4;
+    
+    top: 12%;
+    right: 0;
   }
 }

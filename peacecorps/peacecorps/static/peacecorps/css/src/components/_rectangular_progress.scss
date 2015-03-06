@@ -12,30 +12,6 @@
   width: 100%;
 }
 
-.rectangular_progress--mini {
-  width: 70%;
-  height: 10em;
-
-  @include media($sm, $md) {
-    width: 100%;
-  }
-
-  .rectangular_progress__point {
-    top: 12%;
-  }
-  .rectangular_progress__point--bottom {
-    top: auto;
-    bottom: 12%;
-  }
-  .rectangular_progress__line {
-    height: .5em;
-    top: 28.5%;
-  }
-  .rectangular_progress__line--bottom {
-    bottom: 27.5%;
-    top: auto;
-  }
-}
 
 .rectangular_progress__bar {
   @extend .u-hv_center--block__content;
