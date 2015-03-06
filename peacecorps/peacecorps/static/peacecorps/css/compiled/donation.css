@@ -363,9 +363,9 @@ p + p {
   .t-link--gray:active, .main_nav__link :active {
     color: #cb2a2b; }
 
-.t-link--white {
+.t-link--white, .share .share__text {
   color: #ffffff; }
-  .t-link--white:active {
+  .t-link--white:active, .share .share__text:active {
     color: #f2f2f2; }
 
 .t-link--no_underline {
@@ -594,6 +594,9 @@ p + p {
 .banner--align_bottom {
   position: absolute;
   bottom: 10%; }
+
+.banner--top_panel {
+  z-index: 300; }
 
 /*
  * Global variables
@@ -2189,6 +2192,18 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   .article:last-child .text-block {
     margin-bottom: 0; }
 
+.beta_panel {
+  padding-left: .4em;
+  padding-right: .4em; }
+  .beta_panel .beta_panel__back_link {
+    padding-left: 0; }
+    .beta_panel .beta_panel__back_link * {
+      font-size: 10px;
+      font-size: 1rem; }
+  .beta_panel .beta_panel__explain {
+    font-size: 10px;
+    font-size: 1rem; }
+
 .discover .discover__aside {
   padding-left: 10%; }
 .discover .discover__aside--lg {
@@ -2254,6 +2269,107 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo__img img {
         vertical-align: top; } }
+
+.share {
+  z-index: 200; }
+  .share .share__box {
+    -webkit-transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ffffff;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 0;
+    height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .share .share__box {
+        width: 2.3em; } }
+    .share .share__box a {
+      color: #ffffff;
+      text-decoration: none; }
+    .share .share__box a:hover {
+      text-decoration: underline; }
+  .share.share--transparent .button, .share.share--transparent .share__box {
+    -webkit-transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: height 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: transparent; }
+  .share.share--transparent .button:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.14) inset; }
+  .share .button {
+    -webkit-transition: width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: width 0.65s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ffffff;
+    border-bottom: 0;
+    display: block;
+    font-weight: 100;
+    margin: 0;
+    min-height: 2.4em;
+    overflow: hidden;
+    padding: .1em 0 0;
+    width: 10em; }
+    .share .button:hover {
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.11) inset; }
+    .share .button .share__link_text {
+      font-size: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 2.75em; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .share .button {
+        width: 2.65em; }
+        .share .button:after {
+          -webkit-transition: opacity 0.2s linear 0.25s;
+          -moz-transition: opacity 0.2s linear 0.25s;
+          transition: opacity 0.2s linear 0.25s;
+          top: 7px;
+          background: url('../../img/i-share.svg') no-repeat;
+          content: ' ';
+          height: 3em;
+          width: 3em;
+          position: absolute;
+          left: 8px; }
+        .share .button .share__link_text {
+          -webkit-transition: opacity 0.2s linear 0.45s;
+          -moz-transition: opacity 0.2s linear 0.45s;
+          transition: opacity 0.2s linear 0.45s;
+          opacity: 0; } }
+  .share .share__text {
+    font-size: 13px;
+    font-size: 1.3rem;
+    display: block;
+    font-weight: 500;
+    text-transform: lowercase; }
+  .share .share__close {
+    display: inline-block;
+    margin-bottom: .4em;
+    text-decoration: none; }
+  .share .share__link:first-child {
+    margin-top: 1.5em; }
+  .share.is_active .button {
+    background: rgba(0, 0, 0, 0.8); }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .share.is_active .button {
+        width: 9.6em; }
+        .share.is_active .button:after {
+          opacity: 0; }
+        .share.is_active .button .share__link_text {
+          opacity: 1; } }
+  .share.is_active .share__box {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-width: 1px;
+    height: 24.4em; }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .share.is_active .share__box {
+        width: 8.3em; } }
 
 /*
  * Breakpoint specific classes, to do things, such as hide, at specific

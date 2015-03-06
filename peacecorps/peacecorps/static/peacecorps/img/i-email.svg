@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="53px" height="55px" viewBox="0 0 53 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 3 + envelope icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Share-Tool---Expanded" sketch:type="MSArtboardGroup" transform="translate(-277.000000, -285.000000)" fill="#FFFFFF">
+            <g id="SHARE-THIS-PAGE-2-+-Rectangle-38-+--2" sketch:type="MSLayerGroup" transform="translate(189.000000, 17.000000)">
+                <g id="social-icons---rollovers" transform="translate(32.000000, 56.000000)" sketch:type="MSShapeGroup">
+                    <g id="Fill-3-+-envelope-icon" transform="translate(55.000000, 212.000000)">
+                        <path d="M27.0261556,54.7435897 C41.400637,54.7435897 53.0537567,42.6427981 53.0537567,27.7136367 C53.0537567,12.7866807 41.400637,0.683683693 27.0261556,0.683683693 C12.6506123,0.683683693 0.998554387,12.7866807 0.998554387,27.7136367 C0.998554387,42.6427981 12.6506123,54.7435897 27.0261556,54.7435897" id="Fill-3" fill-opacity="0.5"></path>
+                        <g id="envelope-icon" transform="translate(11.500000, 17.000000)">
+                            <path d="M16.7757886,11.0784633 L29.8983659,0 L0.985321138,0 L14.1078984,11.0784633 C14.8807561,11.7307797 16.0024268,11.7310395 16.7757886,11.0784633" id="Fill-1"></path>
+                            <path d="M29.9046667,22.8700565 L17.6280366,12.0383559 L17.5739756,12.0839661 C16.3386382,13.1267627 14.5450488,13.1267627 13.3097114,12.0839661 L13.2968577,12.0731808 L1.0594187,22.8700565 L29.9046667,22.8700565" id="Fill-2"></path>
+                            <path d="M12.3062439,11.2368644 L0,0.847491525 L0,22.0945537 L12.3062439,11.2368644" id="Fill-3"></path>
+                            <path d="M30.8739837,22.0148983 L30.8739837,0.855677966 L18.6185244,11.2021695 L30.8739837,22.0148983" id="Fill-4"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+// Beta panel
+
+.beta_panel {
+  padding-left: .4em;
+  padding-right: .4em;
+
+  .beta_panel__back_link {
+    padding-left: 0;
+
+    * {
+      @include font-size(1.0);
+    }
+  }
+
+  .beta_panel__explain {
+    @include font-size(1.0);
+  }
+}

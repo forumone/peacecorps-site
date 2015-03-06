@@ -1,0 +1,142 @@
+// Share tool
+
+.share {
+  $background: rgba(0, 0, 0, 0.1);
+  $background_dark: rgba(0, 0, 0, 0.8);
+  $transition_time: .65s;
+  $sm_width: 2.65em;
+
+  z-index: $z_index-share_tool;
+
+  .share__box {
+    @include transition(
+      height $transition_time cubic-bezier(0.645, 0.045, 0.355, 1),
+      width $transition_time cubic-bezier(0.645, 0.045, 0.355, 1),
+      background  $transition_time cubic-bezier(0.645, 0.045, 0.355, 1));
+    background: $background;
+    border: 1px solid $white;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 0;
+    height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+
+    @include media($sm) {
+      width: 2.3em;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.share--transparent {
+    .button, .share__box {
+      @include transition(
+        height $transition_time cubic-bezier(0.645, 0.045, 0.355, 1),
+        width $transition_time cubic-bezier(0.645, 0.045, 0.355, 1),
+        background  $transition_time cubic-bezier(0.645, 0.045, 0.355, 1));
+      background: transparent;
+    }
+    .button:hover {
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.14) inset;
+    }
+  }
+
+  .button {
+    @include transition(
+      width $transition_time cubic-bezier(0.645, 0.045, 0.355, 1),
+      background  $transition_time cubic-bezier(0.645, 0.045, 0.355, 1));
+    background: $background;
+    border: 1px solid $white;
+    border-bottom: 0;
+    display: block;
+    font-weight: $weight-light;
+    margin: 0;
+    min-height: 2.4em;
+    overflow: hidden;
+    padding: .1em 0 0;
+    width: 10em;
+
+    &:hover {
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.11) inset;
+    }
+
+    .share__link_text {
+      @include font-size(1.0);
+      font-weight: $weight-medium;
+      line-height: 2.75em;
+    }
+
+    @include media($sm) {
+      width: $sm_width;
+
+      &:after {
+        @include transition(opacity 0.2s linear $transition_time - 0.4s);
+        top: 7px;
+        background: url('../../img/i-share.svg') no-repeat;
+        content: ' ';
+        height: 3em;
+        width: 3em;
+        position: absolute;
+        left: 8px;
+      }
+      .share__link_text {
+        @include transition(opacity 0.2s linear $transition_time - 0.2s);
+        opacity: 0;
+      }
+    }
+  }
+
+  .share__text {
+    @extend .t-link--white;
+    @include font-size(1.3);
+    display: block;
+    font-weight: $weight-medium;
+    text-transform: lowercase;
+  }
+
+  .share__close {
+    display: inline-block;
+    margin-bottom: .4em;
+    text-decoration: none;
+  }
+
+  .share__link:first-child {
+    margin-top: 1.5em;
+  }
+
+  &.is_active {
+
+    .button {
+      background: $background_dark;
+      @include media($sm) {
+        width: 9.6em;
+
+        &:after {
+          opacity: 0;
+        }
+        .share__link_text {
+          opacity: 1;
+        }
+      }
+    }
+    .share__box {
+      background: $background_dark;
+      border-bottom-width: 1px;
+      height: 24.4em;
+
+      @include media($sm) {
+        width: 8.3em;
+      }
+    }
+  }
+}
