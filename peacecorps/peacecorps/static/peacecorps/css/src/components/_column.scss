@@ -40,6 +40,13 @@ $cols: $grid-columns;
   }
 }
 
+.column--shift_third {
+  @include shift($cols / 3 of $cols); // 1 of 3 gives odd rounding
+  @include media($sm) {
+    @include shift(0);
+  }
+}
+
 .column--two_third {
   @include span-columns(round($cols * .66));
 
