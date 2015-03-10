@@ -551,6 +551,9 @@ p + p {
   border-top: .8em solid;
   padding: 1em 3em;
   width: 100%; }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .banner {
+      padding: 1em 1.25em; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
     .banner {
       padding: 1em; } }
@@ -1841,6 +1844,10 @@ p + p {
   border-left-style: solid;
   margin-left: 0.75em;
   padding-left: 0.75em; }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .separator--l {
+      margin-left: 0.5em;
+      padding-left: 0.5em; } }
 
 .separator--white {
   border-color: #ffffff; }
@@ -2268,6 +2275,9 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
   display: inline-block;
   margin-top: .45em;
   vertical-align: middle; }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .logo {
+      width: 78%; } }
   .logo .logo__text {
     font-size: 35px;
     font-size: 3.5rem;
@@ -2275,18 +2285,43 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     font-family: georgia,times,"times new roman",serif;
     font-weight: 100;
     vertical-align: middle; }
+    @media screen and (min-width: 500px) and (max-width: 899px)  {
+      .logo .logo__text {
+        font-size: 30px;
+        font-size: 3rem; } }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo .logo__text {
-        padding-top: .5em; } }
+        font-size: 30px;
+        font-size: 3rem;
+        margin-bottom: 0;
+        padding-top: .6em; } }
     .logo .logo__text a {
       text-decoration: none; }
   .logo .logo__suplementary {
     display: inline-block;
     font-weight: 100;
+    margin-top: .35em;
+    max-width: 26em;
     overflow: elipsis;
     padding-bottom: .4em;
-    padding-top: .4em;
-    vertical-align: baseline; }
+    padding-top: .4em; }
+    @media screen and (min-width: 500px) and (max-width: 899px)  {
+      .logo .logo__suplementary {
+        max-width: 38%; } }
+    @media screen and (min-width: 0px) and (max-width: 499px)  {
+      .logo .logo__suplementary {
+        display: block;
+        margin-bottom: 0;
+        max-width: 26em;
+        padding-top: 0; } }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .logo .t-title--2 {
+      font-size: 20px;
+      font-size: 2rem; } }
+  @media screen and (min-width: 0px) and (max-width: 499px)  {
+    .logo .t-title--2 {
+      font-size: 18px;
+      font-size: 1.8rem; } }
 
 .logo__img {
   border: 0;
@@ -2300,8 +2335,12 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     text-decoration: none;
     vertical-align: middle;
     width: 6em; }
+    @media screen and (min-width: 500px) and (max-width: 899px)  {
+      .logo__img img {
+        margin-right: .1em; } }
     @media screen and (min-width: 0px) and (max-width: 499px)  {
       .logo__img img {
+        margin-right: .1em;
         vertical-align: top; } }
 
 .share {

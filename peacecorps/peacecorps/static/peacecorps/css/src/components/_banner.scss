@@ -33,6 +33,9 @@
   padding: 1em 3em;
   width: 100%;
 
+  @include media($md) {
+    padding: 1em 1.25em;
+  }
   @include media($sm) {
     padding: 1em;
   }
