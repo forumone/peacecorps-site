@@ -5,13 +5,18 @@ from django_jinja import library
 
 @library.global_function
 def share_tweet():
-    return gettattr(settings, 'SHARE_TWEET', '')
+    return getattr(settings, 'SHARE_TWEET', '')
 
-def share_url(request):
-    return request.build_absolute_uri()
+@library.global_function
+def share_url(request, override=None):
+    if override is not None:
+        return request.build_absolute_uri()
+    return override
 
-def share_subject(request):
-    return gettattr(settings, 'SHARE_SUBJECT', '')
+@library.global_function
+def share_subject():
+    return getattr(settings, 'SHARE_SUBJECT', '')
 
-def share_text(request):
-    return gettattr(settings, 'SHARE_TEXT', '')
+@library.global_function
+def share_text():
+    return getattr(settings, 'SHARE_TEMPLATE', '')

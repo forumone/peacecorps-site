@@ -130,21 +130,21 @@
       <span class="share__link_text">share this page</span>
     </a>
     <div class="share__box">
-      <a href="//www.facebook.com/sharer/sharer.php?u={{ share_url | urlencode }}"
+      <a href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override) | urlencode }}"
         target="_blank"
         class="icon--img share__link"
         title="Share page on Facebook">
         <img src="{{ static('peacecorps/img/i-facebook.svg') }}" />
         <span class="share__text">Facebook</span>
       </a>
-      <a href="//twitter.com/intent/tweet?text={{ share_tweet | urlencode }}"
+      <a href="//twitter.com/intent/tweet?text={{ share_tweet() | urlencode }}"
         target="_blank"
         class="icon--img share__link"
         title="Share page on Twitter">
         <img src="{{ static('peacecorps/img/i-twitter.svg') }}" />
         <span class="share__text">Twitter</span>
       </a>
-      <a href="mailto:?subject={{ share_subject | urlencode }}&amp;body={{ share_text | urlencode }}"
+      <a href="mailto:?subject={{ share_subject() | urlencode }}&amp;body={{ share_text() | urlencode }}"
         class="icon--img share__link"
         title="Share through email">
         <img src="{{ static('peacecorps/img/i-email.svg') }}" />
