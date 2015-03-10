@@ -54,6 +54,11 @@
   border-left-style: solid;
   margin-left: 0.75em;
   padding-left: 0.75em;
+
+  @include media($md) {
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+  }
 }
 
 .separator--white {

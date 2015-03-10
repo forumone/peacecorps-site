@@ -18,26 +18,62 @@
   display: inline-block;
   margin-top: .45em;
   vertical-align: middle;
+
+  @include media($md) {
+    width: 78%;
+  }
+
   .logo__text {
     @include font-size(3.5);
+
     display: inline-block;
     font-family: georgia,times,"times new roman",serif;
     font-weight: 100;
     vertical-align: middle;
-    @include media($sm) {
-      padding-top: .5em;
+
+    @include media($md) {
+      @include font-size(3.0);
     }
+
+    @include media($sm) {
+      @include font-size(3.0);
+      margin-bottom: 0;
+      padding-top: .6em;
+    }
+
     a {
       text-decoration: none;
     }
   }
+
   .logo__suplementary {
     display: inline-block;
     font-weight: $weight-light;
+    margin-top: .35em;
+    max-width: 26em;
     overflow: elipsis;
     padding-bottom: .4em;
     padding-top: .4em;
-    vertical-align: baseline;
+
+    @include media($md) {
+      max-width: 38%;
+    }
+
+    @include media($sm) {
+      display: block;
+      margin-bottom: 0;
+      max-width: 26em;
+      padding-top: 0;
+    }
+  }
+
+  .t-title--2 {
+    @include media($md) {
+      @include font-size(2.0);
+    }
+    @include media($sm) {
+      @include font-size(1.8);
+    }
   }
 }
 
@@ -54,7 +90,13 @@
     text-decoration: none;
     vertical-align: middle;
     width: 6em;
+
+    @include media($md) {
+      margin-right: .1em;
+    }
+
     @include media($sm) {
+      margin-right: .1em;
       vertical-align: top;
     }
   }
