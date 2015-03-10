@@ -71,14 +71,15 @@
 <div class="top_image top_image--default wrapper">
 {% endif %}{% endif %}
   <header class="banner--dark_transparent banner--sitewide_notification
-                 u-clearfix drift_corner">
-    <a href="http://www.peacecorps.gov" class="t-single_nav t--white enclose">
+                 u-clearfix drift_corner banner--top_panel beta_panel">
+    <a href="http://www.peacecorps.gov" class="t-single_nav t--white enclose
+        beta_panel__back_link">
       <span class="t-title--4">
         <i class="fa fa-angle-left icon icon--text"></i>
         Back to Peacecorps.gov home
       </span>
     </a>
-    <span class="t-body--xsm">This site is in beta,
+    <span class="t-body--xsm beta_panel__explain">This site is in beta,
       <a href="#beta-info" class="t-link--white"
          aria-controls="beta-info">learn more</a></span>
     <section id="beta-info" class="js-collapsibleItem js-collapsibleNoHide"
@@ -123,6 +124,40 @@
     </div>
   </header>
   {% endblock %}
+  <div class="share share--transparent js-share drift_corner__tr"
+       style="top: 3.5em;">
+    <a href="#" class="button button--share js-shareOn">
+      <span class="share__link_text">share this page</span>
+    </a>
+    <div class="share__box">
+      <a href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override or None) | urlencode }}"
+        target="_blank"
+        class="icon--img share__link"
+        title="Share page on Facebook">
+        <img src="{{ static('peacecorps/img/i-facebook.svg') }}" />
+        <span class="share__text">Facebook</span>
+      </a>
+      <a href="//twitter.com/intent/tweet?text={{ share_tweet() | urlencode }}"
+        target="_blank"
+        class="icon--img share__link"
+        title="Share page on Twitter">
+        <img src="{{ static('peacecorps/img/i-twitter.svg') }}" />
+        <span class="share__text">Twitter</span>
+      </a>
+      <a href="mailto:?subject={{ share_subject() | urlencode }}&amp;body={{ share_text() | urlencode }}"
+        class="icon--img share__link"
+        title="Share through email">
+        <img src="{{ static('peacecorps/img/i-email.svg') }}" />
+        <span class="share__text">Email</span>
+      </a>
+      <a href="#"
+        class="share__close t-link--white">
+        <span class="share__text js-shareOff">Close
+          <img class="icon" src="{{ static('peacecorps/img/i_arrow_up.svg') }}" style="margin-left: 6px;" />
+        </span>
+      </a>
+    </div>
+  </div>
 </div>
 <div class="wrapper">
   {% block navigation %}{% endblock %}

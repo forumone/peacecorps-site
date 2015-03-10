@@ -33,7 +33,11 @@ $max_img_width: 1900px;
 $z_index-neg_1: -100;
 $z_index-neg_1: -200;
 $z_index-1: 100;
+$z_index-2: 200;
+$z_index-3: 300;
 
 $z_index-hide: $z_index-neg_1;
 $z_index-bg: $z_index-neg_1;
 $z_index-show: $z_index-1;
+$z-index-share-tool: $z_index-2;
+$z-index-beta-panel: $z_index-3;

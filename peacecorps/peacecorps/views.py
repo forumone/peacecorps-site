@@ -258,10 +258,7 @@ class AbstractReturn(DetailView):
         path += reverse("donate " +
                         self.get_context_object_name(context['object']),
                         kwargs={'slug': context['object'].slug})
-        context['share_url'] = path
-        context['share_text'] = settings.SHARE_TEMPLATE
-        context['share_subject'] = settings.SHARE_SUBJECT
-        context['share_tweet'] = settings.SHARE_TWEET
+        context['share_override'] = path
         context['title'] = 'Thank You'
         return context
 

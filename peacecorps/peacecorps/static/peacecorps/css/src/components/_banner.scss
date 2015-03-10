@@ -86,3 +86,7 @@
   position: absolute;
   bottom: 10%;
 }
+
+.banner--top_panel {
+  z-index: $z-index-beta-panel;
+}

@@ -9,6 +9,7 @@ var Landing = require('./landing');
 var form = require('./form');
 var jsusers = require('./jsusers');
 var showOnce = require('./showOnce');
+var toggle = require('./toggle');
 
 //  Note that we set up an event listener and call it immediately to check the
 //  initial state
@@ -50,6 +51,7 @@ var Init = {
 $().ready(function() {
   var $discoverApp = $('.js-discoverApp'),
       $form = $('.js-form'),
+      $share = $('.share'),
       $doc = $(document);
 
   // TODO I want to rebuild the Init class to remove this check at some point.
@@ -82,6 +84,10 @@ $().ready(function() {
 
   if ($form) {
     form.initForm($form);
+  }
+
+  if ($share) {
+    toggle.init($share, $share.find('.js-shareOn'), $share.find('.js-shareOff'));
   }
 
   jsusers.progEnhcJSUsers($doc);
