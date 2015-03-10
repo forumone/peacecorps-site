@@ -121,6 +121,7 @@ test('render', function(t) {
 
     $testEl = $('<div></div>');
     testCollapsible = new Collapsible($('<div></div>'), $testEl, {
+      startOpen: true,
       hideControls: true
     });
     testCollapsible.render();

@@ -22,7 +22,6 @@ Collapsible.prototype.init = function(root, $control, opts) {
   var self = this;
   this.id = this.$el.attr('id') || '';
   this.hidden = !(opts && opts.startOpen);
-  this.controlHidden = true;
   this.hideControls = (opts && opts.hideControls) || false;
   this.$control = $control;
   this.$closeButton = this.$(this.ccClose);
@@ -30,7 +29,6 @@ Collapsible.prototype.init = function(root, $control, opts) {
     this.$control.on('click', function(ev) {
       ev.preventDefault();
       self.hidden = false;
-      self.controlHidden = true;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
       self.render();
@@ -40,7 +38,6 @@ Collapsible.prototype.init = function(root, $control, opts) {
     this.$closeButton.on('click', function(ev) {
       ev.preventDefault();
       self.hidden = true;
-      self.controlHidden = false;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
       self.render();
@@ -64,7 +61,7 @@ Collapsible.prototype.render = function() {
   this.$control && this.$control.attr('aria-expanded', true);
   $('.js-collapsibleControls').attr('aria-hidden', false);
   if (this.hideControls) {
-    this.$control.attr('aria-hidden', this.controlHidden);
+    this.$control.attr('aria-hidden', !this.hidden);
   }
 };
 
