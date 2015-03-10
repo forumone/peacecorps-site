@@ -24,7 +24,7 @@
     <ul class="main_nav">
       <li class="main_nav__link">
         <a target="_blank"
-              href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override) | urlencode }}"
+              href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override or None) | urlencode }}"
               >Facebook</a></li>
       <li class="main_nav__link">
         <a target="_blank"

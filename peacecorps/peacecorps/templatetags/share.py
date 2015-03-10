@@ -9,7 +9,7 @@ def share_tweet():
 
 @library.global_function
 def share_url(request, override=None):
-    if override is not None:
+    if override is None:
         return request.build_absolute_uri()
     return override
 

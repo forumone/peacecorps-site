@@ -130,7 +130,7 @@
       <span class="share__link_text">share this page</span>
     </a>
     <div class="share__box">
-      <a href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override) | urlencode }}"
+      <a href="//www.facebook.com/sharer/sharer.php?u={{ share_url(request, override=share_override or None) | urlencode }}"
         target="_blank"
         class="icon--img share__link"
         title="Share page on Facebook">
