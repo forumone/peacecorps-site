@@ -60,7 +60,7 @@ class DonationsTests(TestCase):
         self.assertTrue('id_payment_type_0' in content)
         self.assertTrue('id_payment_type_1' in content)
         self.assertTrue('CreditCard' in content)
-        self.assertTrue('CreditACH' in content)
+        self.assertTrue('DirectDebit' in content)
 
     def test_check_project_max(self):
         """Shouldn't be able to donate more than a project's remaining"""
