@@ -11,7 +11,7 @@ class DonationPaymentForm(forms.Form):
 
     PAYMENT_TYPE_CHOICES = (
         ('CreditCard', 'Credit Card'),
-        ('CreditACH', 'ACH Bank Check'),
+        ('DirectDebit', 'ACH Bank Check'),
     )
 
     is_org = forms.BooleanField(

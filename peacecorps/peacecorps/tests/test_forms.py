@@ -41,7 +41,7 @@ class DonationPaymentTests(TestCase):
     def test_individual_ACH(self):
         """" Set the payment_type to ACH and check validation. """
         form_data = self.form_data()
-        form_data['payment_type'] = 'CreditACH'
+        form_data['payment_type'] = 'DirectDebit'
         form = DonationPaymentForm(data=form_data)
         self.assertTrue(form.is_valid())
 
