@@ -1531,6 +1531,13 @@ p + p {
     border-left: none; }
   .main_nav__link * {
     text-decoration: none; }
+  @media screen and (min-width: 500px) and (max-width: 899px)  {
+    .main_nav__link {
+      display: inline-block;
+      float: none;
+      margin-bottom: 1em;
+      padding: 0 2%;
+      width: inherit; } }
 
 /*
  * Mask

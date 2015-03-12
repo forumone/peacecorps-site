@@ -46,4 +46,12 @@
     @extend .t-link--gray;
     text-decoration: none;
   }
+
+  @include media($md) {
+    display: inline-block;
+    float: none;
+    margin-bottom: 1em;
+    padding: 0 2%;
+    width: inherit;
+  }
 }
