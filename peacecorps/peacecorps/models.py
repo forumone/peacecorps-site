@@ -314,9 +314,11 @@ class Country(models.Model):
 
 class FeaturedCampaign(models.Model):
     campaign = models.ForeignKey('Campaign', to_field='account',
-                                 limit_choices_to={'published': True})
+                                 limit_choices_to={'published': True},
+                                 help_text="The campaign to feature.")
     image = models.ForeignKey(
-        'Media', help_text='Image shown on the landing page. Roughly 1100x640')
+        'Media', help_text='Image shown on the landing page. 1100px \
+        wide by 475px tall.')
 
     class Meta:
         verbose_name = 'Featured Campaign'
@@ -364,15 +366,18 @@ class Media(models.Model):
     title = models.CharField(max_length=NAME_LENGTH)
     file = models.FileField()
     mediatype = models.CharField(
-        max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE)
+        max_length=3, choices=MEDIATYPE_CHOICES, default=IMAGE,
+        verbose_name="Media Type")
     caption = models.TextField(blank=True, null=True)
-    country = models.ForeignKey('Country', blank=True, null=True)
+    country = models.ForeignKey('Country', blank=True, null=True,
+        help_text="The country the photo was taken in.")
     description = models.TextField(
         help_text="Provide an image description for users with screenreaders. \
-        If the image has text, transcribe the text here. If it's a photo, \
-        briefly describe what it depicts. Do not use html formatting.")
+        If the image has text, transcribe the text here. If it's a image, \
+        briefly describe what it depicts. Do not use HTML formatting.")
     transcript = models.TextField(
-        help_text="Please transcribe audio for users with disabilities.",
+        help_text="If the media is a video or audio recording, transcribe it \
+        for users with disabilities.",
         blank=True, null=True)
 
     class Meta:
@@ -409,36 +414,54 @@ class Media(models.Model):
 
 
 class Project(models.Model, AbstractHTMLMixin):
-    title = models.CharField(max_length=NAME_LENGTH)
+    title = models.CharField(max_length=NAME_LENGTH,
+        help_text="The title of the project.")
     tagline = models.CharField(
-        max_length=240, help_text="a short description for subheadings.",
+        max_length=240, help_text="A short title, used as a subheading on the \
+        home page.",
         blank=True, null=True)
     slug = models.SlugField(max_length=NAME_LENGTH,
-                            help_text="for the project url.")
-    description = BraveSirTrevorField(help_text="the full description.")
-    country = models.ForeignKey('Country', related_name="projects")
+                            help_text="Automatically generated, use for the \
+                            project URL.")
+    description = BraveSirTrevorField(help_text="A rich text description \
+        of the project..")
+    country = models.ForeignKey('Country', related_name="projects",
+        help_text="The country the project is located in.")
     campaigns = models.ManyToManyField(
         'Campaign',
-        help_text="The campaigns to which this project belongs.",
+        help_text="The campaigns this project is related to.",
         blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media', null=True, blank=True,
-        help_text="A large landscape image for use in banners, headers, etc")
+        help_text="A large landscape image for use on the project page. \
+        Should be 1100px wide and 454px tall.")
     media = models.ManyToManyField(
         'Media', related_name="projects", blank=True, null=True)
-    account = models.ForeignKey('Account', unique=True)
+    account = models.ForeignKey('Account', unique=True,
+        help_text="The accounting code for the project.")
     overflow = models.ForeignKey(
         'Account', blank=True, null=True, related_name='overflow',
-        help_text="""Select another fund to which users will be directed to
-                    donate if the project is already funded.""")
-    volunteername = models.CharField(max_length=NAME_LENGTH)
+        help_text="The fund donors will be encourage to contribute to if the \
+        project is fully funded. If no fund is selected, the default is the \
+        project's sector fund.")
+    volunteername = models.CharField(max_length=NAME_LENGTH,
+        verbose_name="Volunteer Name",
+        help_text="The name of the PCV requesting funds for the project.")
     volunteerpicture = models.ForeignKey(
-        'Media', related_name="volunteer", blank=True, null=True)
-    volunteerhomestate = USPostalCodeField(blank=True, null=True)
-    abstract = models.TextField(blank=True, null=True)
+        'Media', related_name="volunteer", blank=True, null=True,
+        verbose_name="Volunteer Picture",
+        help_text="A picture of the PCV requesting funds for the project. \
+        Should be 175px by 175px.")
+    volunteerhomestate = USPostalCodeField(blank=True, null=True,
+        verbose_name="Volunteer Home State",
+        help_text="The home state of the Volunteer.")
+    abstract = models.TextField(blank=True, null=True,
+        help_text="A shorter description, used for quick views of the \
+        project.")
 
     # Unlike funds, projects start unpublished
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(default=False, help_text="If selected, \
+        the project will be visible to the public.")
 
     objects = models.Manager()
     published_objects = PublishedManager()
@@ -490,14 +513,18 @@ class Project(models.Model, AbstractHTMLMixin):
 class Issue(models.Model):
     """A categorization scheme. This could eventually house relationships with
     individual projects, but for now, just point to sector funds"""
-    name = models.CharField(max_length=NAME_LENGTH)
+    name = models.CharField(max_length=NAME_LENGTH,
+        help_text="The name of the issue.")
     icon = models.FileField(    # No need for any of the 'Media' fields
-        help_text="Icon commonly used to represent this issue",
+        help_text="An SVG file used to represent the issue.",
         upload_to='icons', validators=[svg.full_validation])
     icon_background = models.FileField(
-        help_text="Background used when a large icon is present")
+        help_text="The background image to use behind the SVG icon. Should be \
+        237px by 237px.")
     campaigns = models.ManyToManyField(
-        Campaign, limit_choices_to={'campaigntype': Campaign.SECTOR})
+        Campaign, limit_choices_to={'campaigntype': Campaign.SECTOR},
+        help_text="Sector funds to associate as being under this campaign.",
+        verbose_name="Sector Funds")
 
     def __str__(self):
         return self.name
@@ -579,14 +606,19 @@ class Vignette(models.Model):
 
 
 class FAQ(models.Model):
-    question = models.CharField(max_length=256)
-    answer = BraveSirTrevorField()
+    question = models.CharField(max_length=256, help_text="The question used \
+        as the prompt for the FAQ.")
+    answer = BraveSirTrevorField(help_text="The rich text answer to the \
+        question.")
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    slug = models.SlugField(max_length=50, help_text="anchor", blank=True,
+    slug = models.SlugField(max_length=50, help_text="The URL this \
+        should exist at.", blank=True,
                             null=True)
 
     class Meta(object):
         ordering = ('order', )
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQs"
 
     def __str__(self):
         return self.question
