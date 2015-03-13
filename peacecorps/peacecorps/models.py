@@ -119,18 +119,25 @@ class Account(models.Model):
         (PROJECT, 'Project'),
     )
 
-    name = models.CharField(max_length=NAME_LENGTH, unique=True)
-    code = models.CharField(max_length=25, primary_key=True)
+    name = models.CharField(max_length=NAME_LENGTH, unique=True,
+        help_text="The name of the project or fund.")
+    code = models.CharField(max_length=25, primary_key=True,
+        help_text="The accounting code for the project or fund.")
     current = models.IntegerField(
         default=0,
-        help_text="Amount from donations (excluding real-time), in cents")
+        help_text="Amount from donations (excluding real-time contributions), \
+        in cents.")
     goal = models.IntegerField(
         blank=True, null=True,
-        help_text="Donations goal (excluding community contribution)")
+        help_text="For PCPP projects, the funding goal, excluding community \
+        contribution.")
     # @todo does it make sense for this to default zero?
-    community_contribution = models.IntegerField(blank=True, null=True)
+    community_contribution = models.IntegerField(blank=True, null=True, 
+        help_text="For PCPP projects, the amount of community contributions, \
+        in cents.")
     category = models.CharField(
-        max_length=10, choices=CATEGORY_CHOICES)
+        max_length=10, choices=CATEGORY_CHOICES, help_text="The type of \
+        account.")
 
     objects = AccountManager()
 
@@ -218,34 +225,50 @@ class Campaign(models.Model, AbstractHTMLMixin):
         (OTHER, 'Other'),
     )
 
-    name = models.CharField(max_length=NAME_LENGTH)
-    account = models.ForeignKey('Account', unique=True)
+    name = models.CharField(max_length=NAME_LENGTH, 
+        help_text="The title for the associated campaign.")
+    account = models.ForeignKey('Account', unique=True, 
+        help_text="The accounting code for this campaign.")
     campaigntype = models.CharField(
-        max_length=10, choices=CAMPAIGNTYPE_CHOICES)
+        max_length=10, choices=CAMPAIGNTYPE_CHOICES,
+        help_text="The type of campaign.",
+        verbose_name="Campaign Type")
     icon = models.ForeignKey(
         'Media', null=True, blank=True, related_name="campaign-icons",
-        help_text="A small photo shown on listing pages")
+        help_text="Used for Memorial Funds. Typically a picture of the \
+        volunteer. Should be 120px tall and 120px wide, with the focus of the \
+        photo centered.",
+        verbose_name="Memorial Fund Volunteer Image")
     featured_image = models.ForeignKey(
         'Media', null=True, blank=True, related_name="campaign-headers",
-        help_text="A large landscape image for use in banners, headers, etc")
+        help_text="A large landscape image for use at the top of the campaign \
+        page. Should be 1100px wide and 454px tall.")
     tagline = models.CharField(
         max_length=140,
-        help_text="a short phrase for banners (140 characters)",
+        help_text="If the campaign is featured on the home page, this text is \
+        used as the description of the campaign.",
         blank=True, null=True)
     call = models.CharField(
-        max_length=50, help_text="call to action for buttons (50 characters)",
+        max_length=50, help_text="If the campaign is featured on the home \
+        page, this text is used in the button as a Call to Action.",
         blank=True, null=True)
     slug = models.SlugField(
-        help_text="Auto-generated. Used for the campaign page url.",
+        help_text="Auto-generated. Used for the campaign page URL.",
         max_length=NAME_LENGTH, unique=True)
-    description = BraveSirTrevorField(help_text="the full description.")
+    description = BraveSirTrevorField(help_text="A rich text description. \
+        of the campaign.")
     featuredprojects = models.ManyToManyField('Project', blank=True, null=True)
     country = models.ForeignKey(
-        'Country', related_name="campaign", blank=True, null=True, unique=True)
-    abstract = models.TextField(blank=True, null=True, max_length=256)
+        'Country', related_name="campaign", blank=True, null=True, unique=True,
+        help_text="If the campaign is related to a specific country, the ID \
+        of that country.")
+    abstract = models.TextField(blank=True, null=True, max_length=256,
+        help_text="A shorter description, used for quick views of the \
+        campaign.")
 
     # Unlike projects, funds start published
-    published = models.BooleanField(default=True)
+    published = models.BooleanField(default=True, help_text="If published, \
+        the project will be publicly visible on the site.")
 
     objects = models.Manager()
     published_objects = PublishedManager()
