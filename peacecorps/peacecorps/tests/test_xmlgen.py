@@ -129,10 +129,8 @@ class PayXMLGenerationTests(TestCase):
                          "()(no)(no)(no)", memo)
 
     def test_generate_custom_fields(self):
-        """The data dictionary should be serialized in the predictable way.
-        Allow all fields to be optional"""
+        """The data dictionary should be serialized in the predictable way."""
         data = donor_custom_fields()
-
         self.assertEqual(payxml.generate_custom_fields(data), {
             'custom_field_1': '(1112223333)(aaa@example.com)',
             'custom_field_2': '(stttt)',
@@ -142,6 +140,9 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_6': '(Memory)(no)(Good Jorb)',
             'custom_field_7': '(111 Somewhere)'
         })
+
+    def test_generate_custom_fields_optional(self):
+        """Allow all fields to be optional"""
         self.assertEqual(payxml.generate_custom_fields({}), {
             'custom_field_1': '()()',
             'custom_field_2': '()',
@@ -149,6 +150,19 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_4': '()',
             'custom_field_5': '()()()',
             'custom_field_6': '(Honor)(yes)()',
+            'custom_field_7': '()'
+        })
+
+    def test_generate_custom_fields_escape_chars(self):
+        """Handle escaped chars in dedication"""
+        data = {'card_dedication': "Here\nis\rAn\aalert"}
+        self.assertEqual(payxml.generate_custom_fields(data), {
+            'custom_field_1': '()()',
+            'custom_field_2': '()',
+            'custom_field_3': '()()()',
+            'custom_field_4': '()',
+            'custom_field_5': '()()()',
+            'custom_field_6': '(Honor)(yes)(Here is An alert)',
             'custom_field_7': '()'
         })
 

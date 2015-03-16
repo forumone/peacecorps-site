@@ -16,16 +16,21 @@ def add_subelements(parent, data, elements):
     return parent
 
 
+def strip_escape_chars(string):
+    """Replace escape chars with a space. Also strips whitespace"""
+    for char in "\a\b\f\n\r\t\v":
+        string = string.replace(char, " ")
+    return string.strip()
+
+
 def generate_agency_memo(data):
     """Build the memo field from selections on the form. Format should be
         (Donor Comment)(Project Number, Amount)(Donor Phone Number)
         (Contact info consent)(Bus Interest Conflict)(Contact Email Consent).
     """
     memo = ''
-    cleaned_comments = data.get('comments', '')
-    for char in "\a\b\f\n\r\t\v":
-        cleaned_comments = cleaned_comments.replace(char, " ")
-    memo += '(' + cleaned_comments.strip() + ')'
+    comments = strip_escape_chars(data.get('comments', ''))
+    memo += '(' + comments.strip() + ')'
 
     amount = humanize_cents(data['payment_amount'], commas=False)
     memo += '(%s,%s/)' % (data['project_code'], amount)
@@ -130,7 +135,8 @@ def generate_custom_fields(data):
         custom['custom_field_6'] += '(no)'
     else:
         custom['custom_field_6'] += '(yes)'
-    custom['custom_field_6'] += '(' + data.get('card_dedication', '') + ')'
+    dedication = strip_escape_chars(data.get('card_dedication', ''))
+    custom['custom_field_6'] += '(' + dedication + ')'
 
     custom['custom_field_7'] = '(' + data.get('dedication_address', '') + ')'
 
