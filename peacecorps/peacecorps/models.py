@@ -318,7 +318,7 @@ class FeaturedCampaign(models.Model):
                                  help_text="The campaign to feature.")
     image = models.ForeignKey(
         'Media', help_text='Image shown on the landing page. 1100px \
-        wide by 475px tall.')
+        wide by 589px tall.')
 
     class Meta:
         verbose_name = 'Featured Campaign'
@@ -426,10 +426,11 @@ class Project(models.Model, AbstractHTMLMixin):
     description = BraveSirTrevorField(help_text="A rich text description \
         of the project..")
     country = models.ForeignKey('Country', related_name="projects",
-        help_text="The country the project is located in.")
+        help_text="The country the project is located in. The project will \
+        appear in the Project Sorter under this country.")
     campaigns = models.ManyToManyField(
         'Campaign',
-        help_text="The campaigns this project is related to.",
+        help_text="The issues this project is associated with.",
         blank=True, null=True)
     featured_image = models.ForeignKey(
         'Media', null=True, blank=True,
@@ -442,8 +443,8 @@ class Project(models.Model, AbstractHTMLMixin):
     overflow = models.ForeignKey(
         'Account', blank=True, null=True, related_name='overflow',
         help_text="The fund donors will be encourage to contribute to if the \
-        project is fully funded. If no fund is selected, the default is the \
-        project's sector fund.")
+        project is fully funded. By default, this is the project's \
+        sector fund.")
     volunteername = models.CharField(max_length=NAME_LENGTH,
         verbose_name="Volunteer Name",
         help_text="The name of the PCV requesting funds for the project.")
@@ -457,7 +458,7 @@ class Project(models.Model, AbstractHTMLMixin):
         help_text="The home state of the Volunteer.")
     abstract = models.TextField(blank=True, null=True,
         help_text="A shorter description, used for quick views of the \
-        project.")
+        project.", max_length=256)
 
     # Unlike funds, projects start unpublished
     published = models.BooleanField(default=False, help_text="If selected, \
@@ -516,7 +517,8 @@ class Issue(models.Model):
     name = models.CharField(max_length=NAME_LENGTH,
         help_text="The name of the issue.")
     icon = models.FileField(    # No need for any of the 'Media' fields
-        help_text="An SVG file used to represent the issue.",
+        help_text="An SVG file used to represent the issue. The background \
+        should be transparent.",
         upload_to='icons', validators=[svg.full_validation])
     icon_background = models.FileField(
         help_text="The background image to use behind the SVG icon. Should be \
