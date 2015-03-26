@@ -49,12 +49,15 @@ def results(request):
         message = 'Invalid payment_amount'
     # Successful transaction
     else:
-        donation = Donation(
-            amount=int(float(request.POST.get('payment_amount'))*100))
-        donation.account_id = info.account_id
-        donation.save()
+        amount = int(float(request.POST.get('payment_amount'))*100)
+        # ACH transactions shouldn't create a donation entry, as that entry
+        # would be blown away the next morning
+        if request.POST.get('payment_type') != 'DirectDebit':
+            donation = Donation(amount=amount)
+            donation.account_id = info.account_id
+            donation.save()
         info.delete()
-        logger.info("Transaction success: %s cents to %s", donation.amount,
+        logger.info("Transaction success: %s cents to %s", amount,
                     info.account.code)
     return HttpResponse('response_message=' + message,
                         content_type='text/plain')

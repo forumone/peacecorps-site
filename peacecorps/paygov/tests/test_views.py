@@ -94,6 +94,7 @@ class ResultsTests(TestCase):
         """Verify mimetype and that donation is made when passed the right
         values. A message should also be logged"""
         successful = {'agency_tracking_id': 'TRACK',
+                      'payment_type': 'CreditCard',
                       'payment_status': 'Completed',
                       'payment_amount': '125.00'}
         with self.assertLogs('paygov.results') as logger:
@@ -111,6 +112,27 @@ class ResultsTests(TestCase):
         self.assertEqual(1, len(account.donations.all()))
         donation = account.donations.all()[0]
         self.assertEqual(donation.amount, 12500)
+        self.assertEqual(0, len(account.donorinfos.all()))
+
+    def test_ach_success(self):
+        """ACH transactions should not create the associated Donation entry"""
+        successful = {'agency_tracking_id': 'TRACK',
+                      'payment_type': 'DirectDebit',
+                      'payment_status': 'Completed',
+                      'payment_amount': '125.00'}
+        with self.assertLogs('paygov.results') as logger:
+            result = self.client.post(reverse('paygov:results'),
+                                      data=successful)
+            self.assertEqual(result.content, b'response_message=OK')
+            self.assertEqual(result['Content-Type'], 'text/plain')
+        self.assertEqual(1, len(logger.output))
+        self.assertTrue('Transaction success' in logger.output[0])
+        self.assertTrue('12500 cents' in logger.output[0])
+        self.assertTrue('FUNDFUND' in logger.output[0])
+
+        # avoiding the cache to verify the donor info's been deleted
+        account = Account.objects.get(pk=self.account.pk)
+        self.assertEqual(0, len(account.donations.all()))
         self.assertEqual(0, len(account.donorinfos.all()))
 
     def test_other_amount_formats(self):
