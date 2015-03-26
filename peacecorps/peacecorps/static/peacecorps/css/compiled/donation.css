@@ -519,7 +519,8 @@ p + p {
  */
 .bg_img--centered {
   background-position-y: 50%;
-  background-size: 100% auto; }
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
 
 .bg_img--banner {
   height: 18em; }
