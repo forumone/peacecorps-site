@@ -1,0 +1,11 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.bohemiancoding.com/sketch/ns" height="80" version="1.1" viewBox="-11 -14 80 80" width="80">
+    
+    <ns0:title>icon-health</ns0:title>
+    <ns0:desc>Created with Sketch.</ns0:desc>
+    <ns0:defs />
+    <ns0:g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1" ns1:type="MSPage">
+        <ns0:g fill="#67655D" id="icon-health" ns1:type="MSLayerGroup">
+            <ns0:path d="M29,51.1 C39,51.1 57.8,30.7 57.8,16.1 C57.8,1.5 40.4,-5.3 29,8.1 C17.7,-5.3 0.2,1.5 0.2,16.1 C0.3,30.7 19,51.1 29,51.1 L29,51.1 Z" id="Shape" ns1:type="MSShapeGroup" />
+        </ns0:g>
+    </ns0:g>
+</ns0:svg>

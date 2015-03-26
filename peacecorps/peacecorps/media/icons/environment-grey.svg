@@ -1,0 +1,12 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.bohemiancoding.com/sketch/ns" height="80" version="1.1" viewBox="-10 -4 80 80" width="80">
+    
+    <ns0:title>icon-environment</ns0:title>
+    <ns0:desc>Created with Sketch.</ns0:desc>
+    <ns0:defs />
+    <ns0:g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1" ns1:type="MSPage">
+        <ns0:g fill="#67655D" id="icon-environment" ns1:type="MSLayerGroup">
+            <ns0:path d="M30,0.5 C13.8,0.5 0.6,13.7 0.6,30 C0.6,43.1 9,54.1 21,58 L21,52.7 C12,49.1 5.6,40.3 5.6,30 C5.6,16.5 16.5,5.5 30,5.5 C43.5,5.5 54.4,16.5 54.4,30 C54.4,40.3 48,49.1 39,52.7 L39,58 C51,54.1 59.4,43.1 59.4,30 C59.4,13.8 46.2,0.5 30,0.5 L30,0.5 Z" id="Shape" ns1:type="MSShapeGroup" />
+            <ns0:path d="M42.9,29.4 C40.2,27.4 36,32 33,39.2 L33,26.3 C33,24.5 31.8,23 30,23 C28.2,23 27,24.5 27,26.3 L27,39.2 C24,32 19.8,27.4 17.1,29.4 C15.4,30.7 15.5,33 18,35.7 C20.5,38.5 23,43.2 23,48.8 L23,69.9 C23,71.3 24,73 25.4,73 L34.6,73 C36,73 37,71.4 37,69.9 L37,48.8 C37,43.2 39.5,38.4 42,35.7 C44.5,33 44.6,30.7 42.9,29.4 L42.9,29.4 Z" id="Shape" ns1:type="MSShapeGroup" />
+        </ns0:g>
+    </ns0:g>
+</ns0:svg>

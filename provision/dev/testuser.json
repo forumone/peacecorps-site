@@ -1,0 +1,20 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "is_active": true,
+        "user_permissions": [],
+        "date_joined": "2015-03-18T22:47:51.077Z",
+        "first_name": "",
+        "last_login": "2015-03-26T20:21:13.763Z",
+        "username": "testuser@peacecorps.gov",
+        "groups": [],
+        "is_superuser": true,
+        "is_staff": true,
+        "password": "pbkdf2_sha256$15000$ewRyKuY6EXef$8KTid4KFzJcKo5PBImSMLy4eGpt5oESdL9e1LI8B/bU=",
+        "last_name": "",
+        "email": ""
+    }
+}
+]

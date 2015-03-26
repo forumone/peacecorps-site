@@ -1,0 +1,11 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.bohemiancoding.com/sketch/ns" height="80" version="1.1" viewBox="-16 -8 80 80" width="80">
+    
+    <ns0:title>icon-water</ns0:title>
+    <ns0:desc>Created with Sketch.</ns0:desc>
+    <ns0:defs />
+    <ns0:g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1" ns1:type="MSPage">
+        <ns0:g fill="#FFF" id="icon-water" ns1:type="MSLayerGroup">
+            <ns0:path d="M24,0.5 C13.2,0.5 0.2,25.6 0.2,38.4 C0.2,52.2 11.6,63.3 24.5,63.3 C37.4,63.3 49,52.1 49,38.3 C48.9,25.1 34.8,0.5 24,0.5 L24,0.5 Z M9.5,42.6 C6.8,33.8 11.2,21.9 16.4,14.7 C19.2,10.8 21.9,13.2 19.5,19.5 C17.2,25.3 18.4,32.1 22.6,44.3 C25,51.3 13,53.8 9.5,42.6 L9.5,42.6 Z" id="Shape" ns1:type="MSShapeGroup" />
+        </ns0:g>
+    </ns0:g>
+</ns0:svg>
