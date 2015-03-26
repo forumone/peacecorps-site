@@ -57,7 +57,7 @@ target/
 # Application
 local_settings.py
 peacecorps/media
-!peacecorps/media/icons
+!peacecorps/media/icons/
 peacecorps/peacecorps/tests/gpg/random_seed
 peacecorps/peacecorps/scripts/svg
 
@@ -65,3 +65,6 @@ peacecorps/peacecorps/scripts/svg
 
 # Database
 *.sqlite3
+
+# Vagrant
+.vagrant

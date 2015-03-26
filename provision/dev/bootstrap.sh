@@ -29,6 +29,9 @@ pip install -r /vagrant/requirements-dev.txt
 cd /vagrant/peacecorps
 python manage.py migrate
 python manage.py loaddata countries issues global-general
+python manage.py loaddata /vagrant/provision/dev/testuser.json
+python manage.py sync_accounting /vagrant/provision/dev/fund_data.csv
+cat /vagrant/provision/dev/publish_cy15_projects.py | python manage.py shell
 echo 'cd /vagrant/peacecorps' >> ~/.bash_profile
 echo 'pyenv activate peacecorps' >> ~/.bash_profile
 EOF
