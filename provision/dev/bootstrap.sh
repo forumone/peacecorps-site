@@ -34,4 +34,9 @@ python manage.py sync_accounting /vagrant/provision/dev/fund_data.csv
 cat /vagrant/provision/dev/publish_cy15_projects.py | python manage.py shell
 echo 'cd /vagrant/peacecorps' >> ~/.bash_profile
 echo 'pyenv activate peacecorps' >> ~/.bash_profile
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs
+sudo apt-get install npm
+cd /vagrant/peacecorps/peacecorps/static/peacecorps
+npm install
 EOF
