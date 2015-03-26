@@ -42,5 +42,11 @@ $ vagrant ssh
 $ python manage.py makemigrations
 ```
 
+Or, to run tests:
+
+```bash
+$ python manage.py test --settings=peacecorps.settings.test
+```
+
 ### Front end development
 See [front end development](/peacecorps/peacecorps/static/peacecorps/README.md) 

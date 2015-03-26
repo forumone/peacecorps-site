@@ -65,7 +65,7 @@ LOGGING = {
     },
 }
 
-MEDIA_ROOT = '/vagrant/peacecorps/peacecorps/media/'
+MEDIA_ROOT = './peacecorps/media/'
 MEDIA_URL = '/media/'
 
 JINJA2_CONSTANTS['MINIFIED'] = False
