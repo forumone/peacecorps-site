@@ -27,7 +27,7 @@ $ vagrant ssh
 $ python manage.py runserver 0.0.0.0:8000
 ```
 
-You can then access the site from your web browser by going to http://localhost:8000
+You can then access the site from your web browser by going to http://192.168.19.61:8000
 
 The setup script also creates an initial superuser for you. You can access the Django admin page at http://localhost:8000/admin and the username and password are provided below:
 
