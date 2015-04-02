@@ -3,6 +3,10 @@ peacecorps-site
 
 A place to think and work on a new Peace Corps website.
 
+## User Documentation
+
+See the extended [User Documentation](http://peace-corps-cms.readthedocs.org/en/latest/) for more information.
+
 ## Setup
 
 This is a Django application that depends on Python 3. For easy of use, we've included a `Vagrantfile` that will get you up and running in a nice, easy to use development environment.
