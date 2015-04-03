@@ -1,0 +1,19 @@
+site_name: Peace Corps CMS
+theme: readthedocs
+
+pages:
+  - ['index.md', 'Introduction']
+  - ['user-guide/getting-started.md', 'User Guide', 'Getting Started']
+  - ['user-guide/user-management.md', 'User Guide', 'User Management']
+  - ['user-guide/pcpp.md', 'User Guide', 'PCPP Projects & Funds']
+  - ['user-guide/FAQs.md', 'User Guide', 'FAQs']
+  - ['user-guide/countries.md', 'User Guide', 'Countries & Maps']
+  - ['user-guide/media.md', 'User Guide', 'Media']
+  - ['developer-guide/getting-started.md', 'Developer Guide', 'Getting Started']
+  - ['developer-guide/local-environments.md', 'Developer Guide', 'Local Development']
+  - ['developer-guide/deployment.md', 'Developer Guide', 'Deployment']
+  - ['developer-guide/odyssey-connection.md', 'Developer Guide', 'Odyssey Connection']
+  - ['developer-guide/paygov-connection.md', 'Developer Guide', 'Pay.gov Connection']
+  - ['developer-guide/debugging-failures.md', 'Developer Guide', 'Debugging Failures']
+
+dev_addr: 0.0.0.0:8000

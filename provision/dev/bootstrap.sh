@@ -11,6 +11,14 @@ sudo apt-get install python-dev -y
 sudo apt-get install libbz2-dev -y
 sudo apt-get install libsqlite3-dev -y
 sudo apt-get install libreadline-dev -y
+sudo apt-get install -y build-essential
+
+curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+sudo apt-get install nodejs -y
+sudo apt-get install npm -y
+sudo npm install -g grunt-cli
+
+
 
 sudo su vagrant <<'EOF'
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
@@ -35,4 +43,7 @@ cat /vagrant/provision/dev/publish_cy15_projects.py | python manage.py shell
 echo 'cd /vagrant/peacecorps' >> ~/.bash_profile
 echo 'pyenv activate peacecorps' >> ~/.bash_profile
 cd /vagrant/peacecorps/peacecorps/static/peacecorps
+npm install
+rm -rf node_modules
+npm install
 EOF
