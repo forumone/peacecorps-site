@@ -12,6 +12,8 @@ The platform is currently deployed in Amazon Web Services in two identical envir
 
 This guide is designed to get you up and running with deploying the Peace Corps site on Amazon Web Services in a scalable, distributed architecture.
 
+For more information and resources, see the complete [code base](https://github.com/18f/peace-corps-infrastructure) for deployments and infrastructure.
+
 ## Architecture
 The infrastructure of beta.peacecorps.gov is split in to some basic units, noted below. Each of these is provisioned automatically by CloudFormation.
 

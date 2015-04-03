@@ -27,3 +27,6 @@ if os.environ.get('USE_PAYGOV', ''):
 ```
 
 Code and tests around paygov intergration can be found on [GitHub](https://github.com/18F/peacecorps-site/tree/master/peacecorps/paygov).
+
+## Debugging
+Check [debugging failures](debugging-failures.md) for resources on further debugging pay.gov failures.

@@ -14,5 +14,6 @@ pages:
   - ['developer-guide/deployment.md', 'Developer Guide', 'Deployment']
   - ['developer-guide/odyssey-connection.md', 'Developer Guide', 'Odyssey Connection']
   - ['developer-guide/paygov-connection.md', 'Developer Guide', 'Pay.gov Connection']
+  - ['developer-guide/debugging-failures.md', 'Developer Guide', 'Debugging Failures']
 
 dev_addr: 0.0.0.0:8000

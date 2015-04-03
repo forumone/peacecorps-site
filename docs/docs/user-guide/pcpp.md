@@ -38,6 +38,9 @@ Campaigns and Projects also may belong to an "Issue". An issue is a broad catego
 
 See [Creating or Editing Issues](https://github.com/18F/peacecorps-site/wiki/Creating-or-Editing-Issues) for more information on Issue management.
 
+### How Projects Relate to Issues
+Rather than directly associating a `Project` to an `Issue`, a number of Sector `Campaigns` are associated to an `Issue`, and then projects linked to that `Campaign` are associated with the `Issue` automatically.
+
 ### Creating or Editing Issues
 To create or edit an Issue, select `Issues` from the CMS main page. You can either click on a issue name, or click "Add Issue" in the upper right to add a new issue.
 ![Issues](images/issues.png)

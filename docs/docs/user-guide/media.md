@@ -52,7 +52,7 @@ Selecting `image` will create a new image block, to support inline images in tex
 
 Provide a **title**, **description**, and select **choose a file** to upload an image file from your computer. Images should be properly cropped and compressed. We use [ImageOptim](https://imageoptim.com/) for this.
 
-### Deleting Moving Blocks
+### Deleting and Moving Blocks
 You can move a block up or down in order by selecting the move icon, or delete it by selecting the trash can icon. Mouse over the block to highlight and show this menu.
 
 ![Move Block](images/move_block.png)
