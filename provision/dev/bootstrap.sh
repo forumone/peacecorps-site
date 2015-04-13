@@ -21,6 +21,7 @@ sudo npm install -g grunt-cli
 
 
 sudo su vagrant <<'EOF'
+export USE_HTTPS=True
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
