@@ -20,6 +20,6 @@ python-logstash
 django-admin-sortable2==0.3.3
 django-elasticache>=0.0.3
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
--e git+https+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages
+-e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages
 # Fixes an upstream bug. See https://github.com/mapmyfitness/django-gzipping-cache/pull/1
--e git+https+https://github.com/18f/django-gzipping-cache.git#egg=django-gzipping-cache
+-e git+https://github.com/18f/django-gzipping-cache.git#egg=django-gzipping-cache
