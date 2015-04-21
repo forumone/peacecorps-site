@@ -90,12 +90,12 @@
 
 .button--secondary {
   background-color: $white;
-  color: $primary_support;
+  color: $support;
 
   &.button--is_hovered {
     box-shadow: 0 1px 30px 0px rgba(0, 0, 0, 0.05) inset,
       0 -3px 4px 1px rgba(255, 255, 255, 0.01) inset;
-    color: darken($primary_support, 7.5%);
+    color: darken($support, 7.5%);
   }
 }
 
