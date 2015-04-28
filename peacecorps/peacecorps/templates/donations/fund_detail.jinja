@@ -1,6 +1,7 @@
 {% extends "donations/base.jinja" %}
 
 {% block og_description %}{{ campaign.abstract_plaintext() }}{% endblock %}
+{% block og_image %}{% if campaign.account.code == 'LGL-GEN' %}{{ static('peacecorps/img/og_lgl.jpg') }}{% else %}{{ super() }}{% endif %}{% endblock %}
 
 
 {% block content_class %}fund-detail{% endblock %}
