@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://beta.peacecorps.gov{{ request.path }}" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{% block og_description %}Peace Corps Volunteers help build clinics in villages, put books in schools, and improve access to nutritious food. Give today and help support projects like these.{% endblock %}" />
-    <meta property="og:image" content="{{ static('peacecorps/img/og_default.jpg') }}" />
+    <meta property="og:image" content="{% block og_image %}{{ static('peacecorps/img/og_default.jpg') }}{% endblock %}" />
 
     {% if MINIFIED %}
     <link rel="stylesheet" href="{{ static(
