@@ -2,6 +2,8 @@ from adminsortable.admin import SortableAdminMixin
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
+from tinymce.widgets import TinyMCE
+from tinymce.models import HTMLField
 
 from django.forms import TextInput
 from django.db.models import CharField
@@ -141,6 +143,11 @@ class VignetteAdmin(admin.ModelAdmin):
 class FAQAdmin(SortableAdminMixin, admin.ModelAdmin):
     pass
 
+class PayGovAlertAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        HTMLField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 10})},
+    }
+
 admin.site.register(models.Account, AccountAdmin)
 admin.site.register(models.Campaign, CampaignAdmin)
 admin.site.register(models.Country)
@@ -153,6 +160,7 @@ admin.site.register(models.Project, ProjectAdmin)
 # admin.site.register(models.Vignette, VignetteAdmin)
 admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.FAQ, FAQAdmin)
+admin.site.register(models.PayGovAlert, PayGovAlertAdmin)
 admin.site.unregister(User)
 admin.site.register(User, StrictUserAdmin)
 admin.site.login_form = LoggingAuthenticationForm

@@ -36,6 +36,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

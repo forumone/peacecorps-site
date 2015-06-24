@@ -1,5 +1,5 @@
 # @todo split this file up, perhaps into smaller apps?
-from datetime import timedelta
+from datetime import timedelta, datetime
 import json
 import tempfile
 import os
@@ -16,6 +16,7 @@ from localflavor.us.models import USPostalCodeField
 from localflavor.us.us_states import USPS_CHOICES
 from sirtrevor.fields import SirTrevorField
 from PIL import Image
+from tinymce.models import HTMLField
 
 from peacecorps.fields import GPGField, BraveSirTrevorField
 from peacecorps.util import svg
@@ -629,3 +630,20 @@ class FAQ(models.Model):
         if not self.slug:
             self.slug = slugify(self.question)[:50]
         super(FAQ, self).save(*args, **kwargs)
+
+class PayGovAlert(models.Model):
+    """Specifies the message & time window for the Pay.gov service alert"""
+    message = HTMLField(help_text="A message for the Pay.gov alert.")
+    start_date_time = models.DateTimeField()
+    end_date_time = models.DateTimeField()
+
+    def __str__(self):
+        return "Alert " + str(self.start_date_time.strftime("%m/%d/%y"))
+
+    @property
+    def is_active(self):
+        if (self.start_date_time <= timezone.now() <= self.end_date_time ):
+            return True
+        return False
+
+

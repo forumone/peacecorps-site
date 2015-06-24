@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
-    Issue, Project)
+    Issue, Project, PayGovAlert)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -69,6 +69,7 @@ def donation_payment(request, account, project=None, campaign=None):
         'agency_id': settings.PAY_GOV_AGENCY_ID,
         'app_name': settings.PAY_GOV_APP_NAME,
         'oci_servlet_url': settings.PAY_GOV_OCI_URL,
+        'pay_gov_alert': PayGovAlert.objects.latest('id')
     }
 
     if request.method == 'POST':

@@ -1,5 +1,9 @@
 {% extends "donations/checkout_base.jinja" %}
 
+{% if pay_gov_alert.is_active %}
+{% include "donations/includes/paygov-alert.jinja" %}
+{% endif %}
+
 {% block form_content %}
     <form action="" method="post" class="js-form section__content"
           data-ajax-url="{{ajax_url}}">
