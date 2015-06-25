@@ -10,11 +10,12 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.crypto import get_random_string
 from django.views.generic import DetailView, ListView
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 
 from peacecorps.forms import DonationAmountForm, DonationPaymentForm
 from peacecorps.models import (
     Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
-    Issue, Project)
+    Issue, Project, PayGovAlert)
 from peacecorps.payxml import convert_to_paygov
 
 
@@ -61,6 +62,11 @@ def donation_payment(request, account, project=None, campaign=None):
     # convert to cents
     payment_amount = int(form.cleaned_data['payment_amount'] * 100)
 
+    try:
+        pay_gov_alert = PayGovAlert.objects.latest('id')
+    except ObjectDoesNotExist:
+        pay_gov_alert = None;
+
     context = {
         'title': 'Giving Checkout',
         'payment_amount': payment_amount,
@@ -69,6 +75,7 @@ def donation_payment(request, account, project=None, campaign=None):
         'agency_id': settings.PAY_GOV_AGENCY_ID,
         'app_name': settings.PAY_GOV_APP_NAME,
         'oci_servlet_url': settings.PAY_GOV_OCI_URL,
+        'pay_gov_alert': pay_gov_alert,
     }
 
     if request.method == 'POST':

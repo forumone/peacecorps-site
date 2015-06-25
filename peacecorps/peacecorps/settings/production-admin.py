@@ -35,6 +35,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+}
+
 try:
     from .local_settings import *
 except ImportError:
