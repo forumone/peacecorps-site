@@ -490,7 +490,7 @@
 - fields: {code: SUR, name: Suriname}
   model: peacecorps.country
   pk: 164
-- fields: {code: CHE, name: Swaziland}
+- fields: {code: SWZ, name: Swaziland}
   model: peacecorps.country
   pk: 165
 - fields: {code: SWE, name: Sweden}
