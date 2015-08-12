@@ -164,8 +164,6 @@ def convert_to_paygov(data, account, callback_base):
     data['agency_tracking_id'] = tracking_id
     data['agency_memo'] = generate_agency_memo(data)
     data['form_id'] = settings.PAY_GOV_FORM_ID
-    # quick method of finding the donor's first name
-    donor_first = data.get('payer_name', '').split(' ')[0]
     # payer_name could be the individual or organization field
     data['payer_name'] = data.get('payer_name',
                                   data.get('organization_name', ''))
