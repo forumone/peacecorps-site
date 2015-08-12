@@ -143,18 +143,16 @@ def generate_custom_fields(data):
     return custom
 
 
-def redirect_urls(account, donor_name):
+def redirect_urls(account):
     """Success and return URLs are derived from the account. Also the
     donor's first name to the url"""
     if account.category == Account.PROJECT:
         project = account.project_set.first()
-        return (reverse('project success', kwargs={'slug': project.slug})
-                + '?' + urlencode({'donor_name': donor_name}),
+        return (reverse('project success', kwargs={'slug': project.slug}),
                 reverse('project failure', kwargs={'slug': project.slug}))
     else:
         campaign = account.campaign_set.first()
-        return (reverse('campaign success', kwargs={'slug': campaign.slug})
-                + '?' + urlencode({'donor_name': donor_name}),
+        return (reverse('campaign success', kwargs={'slug': campaign.slug}),
                 reverse('campaign failure', kwargs={'slug': campaign.slug}))
 
 
@@ -172,7 +170,7 @@ def convert_to_paygov(data, account, callback_base):
     data['payer_name'] = data.get('payer_name',
                                   data.get('organization_name', ''))
     data['success_url'], data['failure_url'] = (
-        callback_base + url for url in redirect_urls(account, donor_first))
+        callback_base + url for url in redirect_urls(account))
     data.update(generate_custom_fields(data))
     xml = generate_collection_request(data)
     return DonorInfo(agency_tracking_id=tracking_id, account=account,
