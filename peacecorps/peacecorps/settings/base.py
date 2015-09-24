@@ -111,8 +111,8 @@ CACHES = {
 
 # Not secret information -- it's in donation form
 PAY_GOV_AGENCY_ID = '1247'
-PAY_GOV_APP_NAME = 'DONORPAGES2'
-PAY_GOV_FORM_ID = 'DONORPAGES2'
+PAY_GOV_APP_NAME = 'DONORPAGES'
+PAY_GOV_FORM_ID = 'DONORPAGES'
 
 # The URL for the pay.gov payment service.
 PAY_GOV_OCI_URL = os.environ.get('PAY_GOV_OCI_URL', 'https://example.com/')
