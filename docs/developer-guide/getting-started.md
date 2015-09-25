@@ -1,6 +1,6 @@
 <h1>Getting Started</h1>
 
-Welcome to the new _beta.peacecorps.gov_ developer guide! This documentation is designed to get you up and running with a Django developer environment for the site.
+Welcome to the new _donate.peacecorps.gov_ developer guide! This documentation is designed to get you up and running with a Django developer environment for the site.
 
 In this section:
 

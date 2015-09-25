@@ -15,7 +15,7 @@ This guide is designed to get you up and running with deploying the Peace Corps 
 For more information and resources, see the complete [code base](https://github.com/18f/peace-corps-infrastructure) for deployments and infrastructure.
 
 ## Architecture
-The infrastructure of beta.peacecorps.gov is split in to some basic units, noted below. Each of these is provisioned automatically by CloudFormation.
+The infrastructure of donate.peacecorps.gov is split in to some basic units, noted below. Each of these is provisioned automatically by CloudFormation.
 
 ### VPC
 We use an Amazon Virtual Private Cloud to first create an isolated unit in AWS. Within this VPC, we have four _subnets_ - two Public subnets (for public resources, in different availibility zones) and two Private Subnets (for private resources, in different availibility zones).
@@ -69,7 +69,7 @@ You'll need to do a little bit of groundwork online as well:
 
 1. Create a Route53 Hosted Zone for the domain name you want to use.
 
-For this project, we deletegate the `NS` records for `beta.peacecorps.gov` to Route53. Keep the Hosted Zone ID Route 53 provides you handy as you'll need it later.
+For this project, we deletegate the `NS` records for `donate.peacecorps.gov` to Route53. Keep the Hosted Zone ID Route 53 provides you handy as you'll need it later.
 
 2. A Deploy Token from GitHub
 You'll need a GitHub deploy token to grab updates from Git.
@@ -77,7 +77,7 @@ You'll need a GitHub deploy token to grab updates from Git.
 3. Domain Names
 You'll need to know a few domain names you will want to use. In particular:
 
-- **DomainName**: the main domain for the application (eg. `beta.peacecorps.gov`). You'll need to manually create this in Route 53 and point an `ALIAS` to the `WebELB` after the stack is created.
+- **DomainName**: the main domain for the application (eg. `donate.peacecorps.gov`). You'll need to manually create this in Route 53 and point an `ALIAS` to the `WebELB` after the stack is created.
 - **PayGovDomainName**: the endpoint URL for pay.gov. You'll need to manually create this in Route 53 and point an `A` to the `NAT` Elastic IP address after the stack is created.
 - **AdminDomainName**: the URL for the admin panel. This will be automatically created by the stack.
 - **FileTransferDomainName**: the URL for the SFTP server. This will be automatically created by the stack.

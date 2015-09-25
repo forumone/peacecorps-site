@@ -9,7 +9,7 @@ In this section:
 The site connects to Peace Corps Odyssey through a SFTP (FTP over SSH) connection to provide accounting updates of PCPP projects and funds.
 
 ## Connection Steps
-Inside the VPC, a server (`filetransfer.beta.peacecorps.gov`) exists, which provides a jailed SFTP environment and contains a public key from Peace Corps for authentication.
+Inside the VPC, a server (`filetransfer.donate.peacecorps.gov`) exists, which provides a jailed SFTP environment and contains a public key from Peace Corps for authentication.
 
 1. Peace Corps generates an export file and logs in to the SFTP server using their private key, then places the file with a timestamped filename in the `incoming` directory.
 2. Every 17 minutes past the hour, a [cron job](https://github.com/18F/peace-corps-infrastructure/blob/master/packer/files/filetransfer/sync_accounting) runs that searches for the latest uploaded file and runs the `sync_accounting` management script in Django to update the database with the files.
