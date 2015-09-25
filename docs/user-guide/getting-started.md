@@ -1,6 +1,6 @@
 <h1>Getting Started</h1>
 
-Welcome to the new _beta.peacecorps.gov_ documentation guide! This site is designed to get you up and running using the beta.peacecorps.gov Content Management System (CMS).
+Welcome to the new _donate.peacecorps.gov_ documentation guide! This site is designed to get you up and running using the donate.peacecorps.gov Content Management System (CMS).
 
 In this section:
 
@@ -9,7 +9,7 @@ In this section:
 <hr>
 
 ## Logging In
-To log in to the CMS, go to [https://admin.beta.peacecorps.gov/admin/](https://admin.beta.peacecorps.gov/admin/). You'll be presented with a screen that looks like this:
+To log in to the CMS, go to [https://admin.donate.peacecorps.gov/admin/](https://admin.donate.peacecorps.gov/admin/). You'll be presented with a screen that looks like this:
 
 ![Login Screen](images/login-screen.png)
 

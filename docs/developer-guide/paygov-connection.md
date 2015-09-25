@@ -11,7 +11,7 @@ The site connects to Pay.gov through an interactive API that is limited to reque
 ## Connection Steps
 When a user initiates a transaction:
 
-1. They first provide some initial information (Name, Address, Amount to Contribute) on a form ([example](https://beta.peacecorps.gov/donate/fund/let-girls-learn/payment/?payment_amount=50)).
+1. They first provide some initial information (Name, Address, Amount to Contribute) on a form ([example](https://donate.peacecorps.gov/donate/fund/let-girls-learn/payment/?payment_amount=50)).
 2. Upon hitting `CONTINUE TO PAY.GOV`, Django issues a `POST` request to pay.gov with the submitted data and receives a unique `agency_tracking_id` to identify the transaction.
 3. Django then sends the user directly to pay.gov to finish the transaction. If the user has javascript enabled, this is invisible (they are redirected automatically after submitting the initial form). If the user does not have javascript enabled, they must click an additional button to be redirected.
 4. The user enters their payment information and confirms on pay.gov.

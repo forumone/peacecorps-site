@@ -4,7 +4,7 @@ In this section:
 [TOC]
 
 <hr>
-The site has a simple FAQ engine, which presently powers the [Donating FAQs](https://beta.peacecorps.gov/donate/faq/) page. To access it, go to the `Faqs` page from the CMS main page:
+The site has a simple FAQ engine, which presently powers the [Donating FAQs](https://donate.peacecorps.gov/donate/faq/) page. To access it, go to the `Faqs` page from the CMS main page:
 
 ![FAQs Page](images/faqs.png)
 
