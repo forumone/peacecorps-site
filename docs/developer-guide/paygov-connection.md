@@ -19,14 +19,14 @@ When a user initiates a transaction:
 5. pay.gov redirects the user back to Django, where Django displays either a SUCCESS or FAILURE message.
 
 ## Referenced Code
-On pay.gov servers, the environmental variable `USE_PAYGOV=True` enables pay.gov functionality in Django. This installes the `paygov` django app. In [production settings](https://github.com/18F/peacecorps-site/blob/master/peacecorps/peacecorps/settings/production.py#L44-L45):
+On pay.gov servers, the environmental variable `USE_PAYGOV=True` enables pay.gov functionality in Django. This installes the `paygov` django app. In [production settings](https://github.com/Threespot/peacecorps-site/blob/master/peacecorps/peacecorps/settings/production.py#L44-L45):
 
 ```
 if os.environ.get('USE_PAYGOV', ''):
     INSTALLED_APPS += ('paygov',)
 ```
 
-Code and tests around paygov intergration can be found on [GitHub](https://github.com/18F/peacecorps-site/tree/master/peacecorps/paygov).
+Code and tests around paygov intergration can be found on [GitHub](https://github.com/Threespot/peacecorps-site/tree/master/peacecorps/paygov).
 
 ## Debugging
 Check [debugging failures](debugging-failures.md) for resources on further debugging pay.gov failures.

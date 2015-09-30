@@ -9,7 +9,7 @@ In this section:
 ## Prerequisites
 
 - Install `Vagrant`, a tool used to manage virtual machines on your computer. You can download Vagrant from https://www.vagrantup.com/.
-- `Fork` and `clone` the `18F/peacecorps-site` repository locally on your computer. If you've forked the repository to a personal account (`janedoe`), you can accomplish this with the following `bash` command:
+- `Fork` and `clone` the `Threespot/peacecorps-site` repository locally on your computer. If you've forked the repository to a personal account (`janedoe`), you can accomplish this with the following `bash` command:
 
 ```bash
 $ git clone git@github.com:janedoe/peacecorps-site.git
@@ -22,7 +22,7 @@ In your command line, from the `peacecorps-site` directory, start vagrant:
 $ vagrant up
 ```
 
-This will start a virtual machine and provision the django site. If you'd prefer to do this on your own, you can see what happens in the [shell script](https://github.com/18F/peacecorps-site/blob/master/provision/dev/bootstrap.sh).
+This will start a virtual machine and provision the django site. If you'd prefer to do this on your own, you can see what happens in the [shell script](https://github.com/Threespot/peacecorps-site/blob/master/provision/dev/bootstrap.sh).
 
 Once the initalization has finished, ssh in to the machine and start up Django's runserver:
 
@@ -53,7 +53,7 @@ $ python manage.py test --settings=peacecorps.settings.test
 ```
 
 ## CSS and Javascript Development
-The project uses [SASS](http://sass-lang.com/) to compile SCSS to CSS, and [Grunt](http://gruntjs.com/) to build static dependencies. Static files are located in the `peacecorps/peacecorps/static/peacecorps` folder ([quicklink](https://github.com/18F/peacecorps-site/tree/master/peacecorps/peacecorps/static/peacecorps) to GitHub). When editing `CSS` and `JS`, it is important to make all edits in the requisite `css/src/` or  `js/src/` folders to ensure changes are not overwritten.
+The project uses [SASS](http://sass-lang.com/) to compile SCSS to CSS, and [Grunt](http://gruntjs.com/) to build static dependencies. Static files are located in the `peacecorps/peacecorps/static/peacecorps` folder ([quicklink](https://github.com/Threespot/peacecorps-site/tree/master/peacecorps/peacecorps/static/peacecorps) to GitHub). When editing `CSS` and `JS`, it is important to make all edits in the requisite `css/src/` or  `js/src/` folders to ensure changes are not overwritten.
 
 ### Running Grunt
 In order to compile all static assets, you can run the following commands:
@@ -71,4 +71,4 @@ $ grunt build-watch
 ```
 
 ## Styleguide
-Grunt also automatically generates a [Styleguide](https://rawgit.com/18F/peacecorps-site/master/peacecorps/peacecorps/static/peacecorps/resources/styleguide/section-base.html) from all static assets.
+Grunt also automatically generates a [Styleguide](https://rawgit.com/Threespot/peacecorps-site/master/peacecorps/peacecorps/static/peacecorps/resources/styleguide/section-base.html) from all static assets.

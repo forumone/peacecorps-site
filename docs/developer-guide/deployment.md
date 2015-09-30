@@ -12,7 +12,7 @@ The platform is currently deployed in Amazon Web Services in two identical envir
 
 This guide is designed to get you up and running with deploying the Peace Corps site on Amazon Web Services in a scalable, distributed architecture.
 
-For more information and resources, see the complete [code base](https://github.com/18f/peace-corps-infrastructure) for deployments and infrastructure.
+For more information and resources, see the complete [code base](https://github.com/Threespot/peace-corps-infrastructure) for deployments and infrastructure.
 
 ## Architecture
 The infrastructure of donate.peacecorps.gov is split in to some basic units, noted below. Each of these is provisioned automatically by CloudFormation.
@@ -168,7 +168,7 @@ Make sure you note the AMI IDs generated from each as you'll need them later.
 The admin domain name you created above
 
 **Client ID**
-For 18F purposes, the client ID. Peace Corps is `PC-20140812-20190811-01`.
+For Threespot purposes, the client ID. Peace Corps is `PC-20140812-20190811-01`.
 
 **DBPassword**
 Enter a password for RDS.
@@ -180,6 +180,6 @@ The key you used in `openssl` for the secrets uploaded to S3.
 The domain name you created above
 
 **ReleaseTag**
-The release tag from https://github.com/18F/peacecorps-site/releases to deploy.
+The release tag from https://github.com/Threespot/peacecorps-site/releases to deploy.
 
 Hit deploy and you should be good to go after 10-20 minutes!

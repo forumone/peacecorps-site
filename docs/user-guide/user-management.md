@@ -24,12 +24,12 @@ To create a new user, click "Add User +" in the upper right hand corner of the U
 Enter the following information:
 
 - **Username**: The user's email address
-- **Password**: The initial password for the user (must follow the standard [Password Requirements](https://github.com/18F/peacecorps-site/wiki/Getting-Started#password-requirements))
+- **Password**: The initial password for the user (must follow the standard [Password Requirements](https://github.com/Threespot/peacecorps-site/wiki/Getting-Started#password-requirements))
 - **Password confirmation**: The same password as above, for verification
 
 If you need help generating a password, we recommend using https://lastpass.com/generatepassword.php to make one.
 
-**Important Note**: You should never send a user their password via email. Instead, we recommend using a service like https://fugacious.18f.us/ to generate a temporary "secret message" that can contain the password, and emailing them a link to the message.
+**Important Note**: You should never send a user their password via email. Instead, we recommend using a service like Fugacious to generate a temporary "secret message" that can contain the password, and emailing them a link to the message.
 
 Click **Save**, and you'll be brought to a screen asking for additional information.
 
@@ -45,9 +45,9 @@ To change a user password, click on their email address from the Users page to g
 
 ![Change Password text](images/change_password.png)
 
-The new password for the user must follow the standard [Password Requirements](https://github.com/18F/peacecorps-site/wiki/Getting-Started#password-requirements). If you need help generating a password, we recommend using https://lastpass.com/generatepassword.php to make one.
+The new password for the user must follow the standard [Password Requirements](https://github.com/Threespot/peacecorps-site/wiki/Getting-Started#password-requirements). If you need help generating a password, we recommend using https://lastpass.com/generatepassword.php to make one.
 
-**Important Note**: You should never send a user their password via email. Instead, we recommend using a service like https://fugacious.18f.us/ to generate a temporary "secret message" that can contain the password, and emailing them a link to the message.
+**Important Note**: You should never send a user their password via email. Instead, we recommend using a service like Fugacious to generate a temporary "secret message" that can contain the password, and emailing them a link to the message.
 
 ### Deleting a User
 To delete a user, click on their email address from the Users page to get to the "Change User" page. From there, scroll to the bottom of the page, where you'll see a "Delete" link.
