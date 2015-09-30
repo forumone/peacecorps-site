@@ -42,4 +42,4 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 Thus, if the current release is `1.4.6`, the above mentioned font bug fix would increment the version to `1.4.7`, and the search feature enhancement would increment the version to `1.5.0`. This can continue indefinitely (eg. `1.241.888` is a valid version). A change that introduces backwards incompatible changes would reset the major version (eg. `2.0.0`).
 
 ## A note on Tests
-Test creation and coverage is an important part of the development process. We use [CircleCI](https://circleci.com/gh/18F/peacecorps-site) and an extensive Django and Javascript test suite to ensure appropriate code behavior. New Pull Requests should always include full test coverage.
+Test creation and coverage is an important part of the development process. We use [CircleCI](https://circleci.com/gh/Threespot/peacecorps-site) and an extensive Django and Javascript test suite to ensure appropriate code behavior. New Pull Requests should always include full test coverage.
