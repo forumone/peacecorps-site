@@ -5,7 +5,7 @@ A place to think and work on a new Peace Corps website.
 
 ## User Documentation
 
-See the extended [User Documentation](http://peace-corps-cms.readthedocs.org/en/latest/) for more information.
+See the extended [User Documentation](http://peace-corps-donations-portal.readthedocs.org/) for more information.
 
 ## Setup
 
