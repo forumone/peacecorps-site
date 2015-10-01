@@ -2,4 +2,4 @@
 
 All developer resources for the Peace Corps site.
 
-- [styleguide] (https://rawgit.com/18F/peacecorps-site/master/peacecorps/peacecorps/static/peacecorps/resources/styleguide/section-base.html)
+- [styleguide] (https://rawgit.com/Threespot/peacecorps-site/master/peacecorps/peacecorps/static/peacecorps/resources/styleguide/section-base.html)

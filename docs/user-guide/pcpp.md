@@ -36,7 +36,7 @@ Campaigns and Projects also may belong to an "Issue". An issue is a broad catego
 
 ![Issue Sorter](images/issue_sorter.png)
 
-See [Creating or Editing Issues](https://github.com/18F/peacecorps-site/wiki/Creating-or-Editing-Issues) for more information on Issue management.
+See [Creating or Editing Issues](https://github.com/Threespot/peacecorps-site/wiki/Creating-or-Editing-Issues) for more information on Issue management.
 
 ### How Projects Relate to Issues
 Rather than directly associating a `Project` to an `Issue`, a number of Sector `Campaigns` are associated to an `Issue`, and then projects linked to that `Campaign` are associated with the `Issue` automatically.

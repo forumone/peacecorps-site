@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:18F/peacecorps-site.git"
+    "url": "git@github.com:Threespot/peacecorps-site.git"
   },
-  "author": "18f",
+  "author": "Threespot",
   "license": "CC0 1.0",
   "bugs": {
-    "url": "https://github.com/18F/peacecorps-site/issues"
+    "url": "https://github.com/Threespot/peacecorps-site/issues"
   },
-  "homepage": "https://github.com/18F/peacecorps-site",
+  "homepage": "https://github.com/Threespot/peacecorps-site",
   "engines": {
     "node": ">= 0.10.0"
   },

@@ -5,18 +5,18 @@ In this section:
 
 <hr>
 
-The site pulls its knowledge of countries from an initial [fixture](https://github.com/18F/peacecorps-site/blob/master/peacecorps/peacecorps/fixtures/countries.yaml) that is a current representation of [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1) as of March 27th, 2015.
+The site pulls its knowledge of countries from an initial [fixture](https://github.com/Threespot/peacecorps-site/blob/master/peacecorps/peacecorps/fixtures/countries.yaml) that is a current representation of [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1) as of March 27th, 2015.
 
 ## Adding a New Country
 In the event a new country is added to ISO 3166-1, three changes should happen:
 
-1. A developer should edit the [fixture](https://github.com/18F/peacecorps-site/blob/master/peacecorps/peacecorps/fixtures/countries.yaml)
+1. A developer should edit the [fixture](https://github.com/Threespot/peacecorps-site/blob/master/peacecorps/peacecorps/fixtures/countries.yaml)
 2. In the admin panel, go to `Countries > Add Country +` and create a new country with the ISO 3166-1 Code and Name.
-3. A developer should use the [Cron Map script](https://github.com/18F/peacecorps-site/tree/master/peacecorps/peacecorps/scripts) to generate a new set of map files. For more information, see [Generating Maps](#generating-maps).
+3. A developer should use the [Cron Map script](https://github.com/Threespot/peacecorps-site/tree/master/peacecorps/peacecorps/scripts) to generate a new set of map files. For more information, see [Generating Maps](#generating-maps).
 
 ### Generating Maps
 
-For detailed information, see [the GitHub repository](https://github.com/18F/peacecorps-site/blob/master/peacecorps/peacecorps/scripts/README.md).
+For detailed information, see [the GitHub repository](https://github.com/Threespot/peacecorps-site/blob/master/peacecorps/peacecorps/scripts/README.md).
 
 Wikipedia [provides](http://en.wikipedia.org/wiki/File:BlankMap-World6.svg) a
 beautiful SVG map of the world, complete with well-labeled country boundaries.
