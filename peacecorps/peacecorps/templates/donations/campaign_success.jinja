@@ -57,4 +57,37 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  dataLayer.push({
+       'event': 'eventTracker', 'eventCat': 'Donation',
+'eventAct':'{{ campaign.name }}', 'eventLbl': '1',
+'eventVal':0,
+       'ecommerce': {
+       'currencyCode': 'USD',
+          'purchase': {
+       'actionField': {
+          'id': '{{ campaign.account }}',
+          'affiliation': 'Peace Corps Donations', 
+          'revenue': '1',
+          'tax':'0',
+          'shipping': '0',
+          'coupon': ''
+          },
+          'products': [
+              {
+                'name': '{{ campaign.name }}',
+                'id': '{{ campaign.account }}', 
+                'price': '1',
+                'brand': '',
+                'category': 'Donation',
+                'variant': '',
+                'quantity': 1,
+                'coupon': ''
+              },
+          ]
+      } 
+    }
+  });
+</script>
 {% endblock %}

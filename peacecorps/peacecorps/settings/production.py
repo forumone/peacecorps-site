@@ -30,7 +30,7 @@ if MEMCACHED_URL:
     CACHES['midterm']['BACKEND'] = _backend
     CACHES['midterm']['LOCATION'] = MEMCACHED_URL
 
-JINJA2_CONSTANTS['ANALYTICS_ID'] = 'UA-17096306-6'
+JINJA2_CONSTANTS['ANALYTICS_ID'] = 'GTM-PDX8KJ'
 
 # Note that MEDIA_ROOT is not needed since we're using S3
 MEDIA_URL = 'https://{:s}.s3.amazonaws.com/'.format(os.environ.get('AWS_MEDIA_BUCKET_NAME', 'pc-media-dev'))
