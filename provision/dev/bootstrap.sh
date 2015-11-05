@@ -6,6 +6,10 @@ sudo apt-get install git -y
 
 sudo apt-get install libevent-dev -y
 sudo apt-get install libpq-dev -y
+sudo apt-get install libtiff4-dev -y
+sudo apt-get install libjpeg8-dev -y
+sudo apt-get install zlib1g-dev -y
+sudo apt-get install libmemcached-dev -y
 sudo apt-get install python-virtualenv -y
 sudo apt-get install python-dev -y
 sudo apt-get install libbz2-dev -y
