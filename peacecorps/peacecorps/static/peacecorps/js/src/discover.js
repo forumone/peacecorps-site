@@ -32,7 +32,7 @@ var Discover = function($root) {
   });
   
   window.onpopstate = function (event) {
-    console.log('window.onpopstate', event);
+    //console.log('window.onpopstate', event);
     self.initFromHashConfig(event.state);
   };
   
@@ -44,7 +44,7 @@ var Discover = function($root) {
 
 Discover.prototype.initFromHashConfig = function (config) {
   
-  console.log('initFromHashConfig', config);
+  //console.log('initFromHashConfig', config);
   if (!config) {
     return;
   }
@@ -58,9 +58,9 @@ Discover.prototype.initFromHashConfig = function (config) {
   if ( config.params['project'] ) {
     this.currentProject = config.params['project'];
   }
-  console.log('  this.state', this.state);
-  console.log('  _.last(this.state)', _.last(this.state));
-  console.log('  this.currentProject', this.currentProject);
+  //console.log('  this.state', this.state);
+  //console.log('  _.last(this.state)', _.last(this.state));
+  //console.log('  this.currentProject', this.currentProject);
   this._filter( _.last(this.state) );
   this.highlightSelected();
   if ( this.currentProject ) {
@@ -97,7 +97,7 @@ Discover.prototype.updateHash = function() {
       subSection = false,
       project = false;
   
-      console.log('updateHash', appState);
+      //console.log('updateHash', appState);
   
   section = appState.shift() || 'issue';
   subSection = appState.shift() || false;
@@ -122,15 +122,15 @@ Discover.prototype.updateHash = function() {
 
 // Make an entry in History
 Discover.prototype.updateHistory = function() {
-  console.log("updateHistory");
+  //console.log('updateHistory');
   window.history.pushState(this.parseHash());
-  console.log(window.history.state);
+  //console.log(window.history.state);
 };
 
 /* Select a filter. Reset will reset the filter history */
 Discover.prototype.select = function(filter, reset) {
   
-  console.log('select:'  + filter);
+  //console.log('select:'  + filter);
   
   if (reset) {
     this.state = [filter];
@@ -179,7 +179,7 @@ Discover.prototype.highlightSelected = function() {
 Discover.prototype._filter = function(filterName) {
   var escaped = filterName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
       regex = new RegExp('(,|^)' + escaped + '(,|$)');
-  console.log('_filter', escaped, regex);
+  //console.log('_filter', escaped, regex);
   this.$filterables.each(function() {
     var $this = $(this);
     $this.attr('aria-hidden', !regex.test($this.attr('data-in-filter')));

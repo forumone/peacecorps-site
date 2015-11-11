@@ -66,9 +66,9 @@ $().ready(function() {
   new UpdatePercent($('.js-fundingBar'));
 
   var discover = null,
-      hash = window.location.hash.substr(1) || 'issue',
+      //hash = window.location.hash.substr(1) || 'issue',
       project = false;
-  console.log('hash: ' + hash);
+  //console.log('hash: ' + hash);
   if ($discoverApp.length > 0) {
     discover = new Discover($discoverApp);
     project = discover.parseHash().params['project'];
@@ -85,12 +85,12 @@ $().ready(function() {
     });
 
     if (discover) {
-      $this.on('collapsible:open', function(event, data){
-        console.log('collapsible:open', event, data);
+      $this.on('collapsible:open', function(event){
+        //console.log('collapsible:open', event);
         discover.selectProject(event.item.id);
       });
-      $this.on('collapsible:close', function(event, data){
-        console.log('collapsible:close', event, data);
+      $this.on('collapsible:close', function(event){
+        //console.log('collapsible:close', event);
         discover.deselectProject(event.item.id);
       });
     }
