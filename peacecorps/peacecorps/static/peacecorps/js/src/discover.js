@@ -24,6 +24,7 @@ var Discover = function($root) {
         filter = $this.attr('data-controls-filter');
     ev.preventDefault();
     self.select(filter, $this.data('filter-reset'));
+    self.updateHistory();
   });
   this.$('.js-pageBack').click(function(ev) {
     ev.preventDefault();
@@ -32,12 +33,21 @@ var Discover = function($root) {
   
   window.onpopstate = function (event) {
     console.log('window.onpopstate', event);
+    self.initFromHashConfig(event.state);
   };
   
   // Parse that hash
   var config = this.parseHash();
   
-  console.log('config', config);
+  this.initFromHashConfig(config);
+};
+
+Discover.prototype.initFromHashConfig = function (config) {
+  
+  console.log('initFromHashConfig', config);
+  if (!config) {
+    return;
+  }
   
   if ( config.section ) {
     this.state = [ config.section ];
@@ -56,6 +66,7 @@ var Discover = function($root) {
   if ( this.currentProject ) {
     this.selectProject(this.currentProject);
   }
+  
 };
 
 Discover.prototype.parseHash = function() {
@@ -105,7 +116,15 @@ Discover.prototype.updateHash = function() {
     hash += '?' + params.join('&');
   }
   
-  window.location.hash = hash;
+  //window.location.hash = hash;
+  window.history.replaceState(this.parseHash(), '', '#' + hash);
+};
+
+// Make an entry in History
+Discover.prototype.updateHistory = function() {
+  console.log("updateHistory");
+  window.history.pushState(this.parseHash());
+  console.log(window.history.state);
 };
 
 /* Select a filter. Reset will reset the filter history */
