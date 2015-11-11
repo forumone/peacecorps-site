@@ -60,15 +60,18 @@ var Discover = function($root) {
 
 Discover.prototype.parseHash = function() {
   
-  var hash, hashParts = [], section = '', rawParams= [], keyValue = [], params = {};
+  var hash, hashParts = [], section = 'issue', rawParams= [], keyValue = [], params = {};
   
   hash = window.location.hash.substr(1);
   hashParts = hash.split('?');
-  section = hashParts.shift();
-  rawParams = hashParts.pop().split('&');
-  for (var i = 0; i < rawParams.length; i++) {
-    keyValue = rawParams[i].split('=');
-    params[keyValue.shift()] = keyValue.shift();
+  section = hashParts.shift() || section;
+  // anything left? parse. those. params.
+  if (hashParts.length > 0) {
+    rawParams = hashParts.pop().split('&');
+    for (var i = 0; i < rawParams.length; i++) {
+      keyValue = rawParams[i].split('=');
+      params[keyValue.shift()] = keyValue.shift();
+    }
   }
   
   return {section: section, params: params};
