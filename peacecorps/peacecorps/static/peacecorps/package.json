@@ -4,6 +4,9 @@
   "description": "The frontend CSS and JS dependencies for the peacecorps site.",
   "main": "Gruntfile.js",
   "scripts": {
+    "build": "grunt build",
+    "build-watch": "grunt build-watch",
+    "grunt": "grunt",
     "test": "grunt test"
   },
   "repository": {

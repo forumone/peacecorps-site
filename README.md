@@ -31,7 +31,14 @@ $ vagrant ssh
 $ python manage.py runserver 0.0.0.0:8000
 ```
 
-You can then access the site from your web browser by going to http://192.168.19.61:8000
+To enable other users on your network to view in-progress work, the network configuration for Vagrant has been update to:
+```
+config.vm.network "public_network", type: "dhcp"
+```
+
+This sets up a bridged mode (you will be asked to select a network device to bridge).
+
+When you `vagrant ssh` you can see what IP address your VM obtained from DHCP.
 
 The setup script also creates an initial superuser for you. You can access the Django admin page at http://localhost:8000/admin and the username and password are provided below:
 
