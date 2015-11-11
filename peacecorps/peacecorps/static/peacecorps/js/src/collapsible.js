@@ -30,6 +30,11 @@ Collapsible.prototype.init = function(root, $control, opts) {
       self.hidden = false;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
+      console.log('trigger collapsible:open');
+      self.$el.trigger({
+        type: 'collapsible:open',
+        item: self
+      });
       self.render();
     });
   }
@@ -39,6 +44,11 @@ Collapsible.prototype.init = function(root, $control, opts) {
       self.hidden = true;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
+      console.log('trigger collapsible:close');
+      self.$el.trigger({
+        type: 'collapsible:close',
+        item: self
+      });
       self.render();
     });
   }
