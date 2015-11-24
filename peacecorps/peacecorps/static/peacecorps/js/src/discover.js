@@ -34,8 +34,10 @@ var Discover = function($root) {
   this.hasPushState = !!window.history.pushState;
 
   window.onpopstate = function (event) {
-    //console.log('window.onpopstate', event);
+    //console.log('window.onpopstate', event, event.originalEvent);
+    self.currentProject = false;
     self.initFromHashConfig(event.state);
+    self.updateHash();
   };
 
   // Parse that hash
@@ -118,7 +120,7 @@ Discover.prototype.updateHash = function() {
 
   //window.location.hash = hash;
   if (this.hasPushState) {
-
+    //console.log('window.history.replaceState');
     window.history.replaceState(this.parseHash(), '', '#' + hash);
   }
 };
@@ -127,6 +129,7 @@ Discover.prototype.updateHash = function() {
 Discover.prototype.updateHistory = function() {
   //console.log('updateHistory');
   if (this.hasPushState) {
+    //console.log('window.history.pushState', this.parseHash());
     window.history.pushState(this.parseHash(), window.document.title);
   }
   //console.log(window.history.state);
@@ -158,14 +161,20 @@ Discover.prototype.back = function() {
 };
 
 /* Go back in the trail of selected filters */
-Discover.prototype.selectProject = function(itemId) {
+Discover.prototype.selectProject = function(itemId, updateHistoryFlag) {
   this.currentProject = itemId;
   this.updateHash();
+  if (updateHistoryFlag) {
+    this.updateHistory();
+  }
 };
 
-Discover.prototype.deselectProject = function() {
+Discover.prototype.deselectProject = function(itemId, updateHistoryFlag) {
   this.currentProject = false;
   this.updateHash();
+  if (updateHistoryFlag) {
+    this.updateHistory();
+  }
 };
 
 /* Highlight the trail of filters */

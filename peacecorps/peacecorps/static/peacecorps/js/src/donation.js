@@ -94,11 +94,11 @@ $().ready(function() {
     if (discover) {
       $this.on('collapsible:open', function(event){
         //console.log('collapsible:open', event);
-        discover.selectProject(event.item.id);
+        discover.selectProject(event.item.id, true);
       });
       $this.on('collapsible:close', function(event){
         //console.log('collapsible:close', event);
-        discover.deselectProject(event.item.id);
+        discover.deselectProject(event.item.id, true);
       });
     }
 
