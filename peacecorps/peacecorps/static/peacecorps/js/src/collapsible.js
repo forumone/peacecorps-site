@@ -30,7 +30,6 @@ Collapsible.prototype.init = function(root, $control, opts) {
       self.hidden = false;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
-      //console.log('trigger collapsible:open');
       self.$el.trigger({
         type: 'collapsible:open',
         item: self
@@ -44,7 +43,6 @@ Collapsible.prototype.init = function(root, $control, opts) {
       self.hidden = true;
       // TODO fix global access.
       self.hideMultiple($('body').find(self.ccCollapsible));
-      //console.log('trigger collapsible:close');
       self.$el.trigger({
         type: 'collapsible:close',
         item: self
@@ -68,7 +66,9 @@ Collapsible.prototype.hideMultiple = function($els) {
 Collapsible.prototype.render = function() {
   this.$el.attr('aria-hidden', this.hidden);
   this.$control && this.$control.attr('aria-expanded', true);
+
   $('.js-collapsibleControls').attr('aria-hidden', false);
+
   if (this.hideControls) {
     this.$control.attr('aria-hidden', !this.hidden);
   }

@@ -36,15 +36,15 @@ module.exports = function(grunt) {
     cssSrcDir: './css/src/',
     // Task configuration.
     clean: [
-      '<%= jsBuildDir %>',
-      '<%= cssBuildDir %>'
+      '<%= jsBuildDir %>/*',
+      '<%= cssBuildDir %>/*'
     ],
     uglify: {
       options: {
-        report: 'gzip',
-        sourceMap: true,
-        sourceMapIn: '<%= browserify.donation.dest %>.map',
-        sourceMapIncludeSources : true
+        report: 'gzip'
+        // sourceMap: true,
+        // sourceMapIn: '<%= browserify.donation.dest %>.map',
+        // sourceMapIncludeSources : true
       },
       dist: {
         src: '<%= browserify.donation.dest %>',
@@ -142,8 +142,9 @@ module.exports = function(grunt) {
         cmd: 'kss-node <%= cssSrcDir %> resources/styleguide/ --template <%= cssSrcDir %>donation-styleguide/'
       },
       cssmin: {
-        cmd: 'cleancss -o <%= cssBuildDir %>donation.min.css --source-map <%= cssBuildDir %>donation.css &&' +
-          'cleancss -o <%= cssBuildDir %>lib/font-awesome/font-awesome.min.css --source-map <%= cssBuildDir %>lib/font-awesome/font-awesome.css'
+        cmd: 'cleancss --source-map --output <%= cssBuildDir %>donation.min.css <%= cssBuildDir %>donation.css && ' + 'cleancss --source-map --output <%= cssBuildDir %>lib/font-awesome/font-awesome.min.css <%= cssBuildDir %>lib/font-awesome/font-awesome.css'
+        //cmd: 'cleancss -o <%= cssBuildDir %>donation.min.css --source-map <%= cssBuildDir %>donation.css &&' +
+        //  'cleancss -o <%= cssBuildDir %>lib/font-awesome/font-awesome.min.css --source-map <%= cssBuildDir %>lib/font-awesome/font-awesome.css'
       }
     },
     watch: {
@@ -181,7 +182,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['test', 'build']);
   grunt.registerTask('build', [
       'jshint',
-      'clean',
+      //'clean',
       'browserify:donation',
       'exorcise',
       'build-css',

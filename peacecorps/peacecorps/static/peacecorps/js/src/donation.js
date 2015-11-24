@@ -67,11 +67,15 @@ $().ready(function() {
 
   var discover = null,
       //hash = window.location.hash.substr(1) || 'issue',
-      project = false;
+      project = false,
+      discoverHashObj = {},
+      discoverSelectedCollapsible = false;
   //console.log('hash: ' + hash);
+
   if ($discoverApp.length > 0) {
     discover = new Discover($discoverApp);
-    project = discover.parseHash().params['project'];
+    discoverHashObj = discover.parseHash();
+    project = discoverHashObj.params['project'];
   }
   $('.js-collapsibleItem').each(function() {
     var collapsible,
@@ -83,20 +87,27 @@ $().ready(function() {
       hideControls: !($(this).hasClass('js-collapsibleNoHide')),
       startOpen: (!!discover && discover.currentProject === id)
     });
+    if (!!discover && discover.currentProject === id) {
+      discoverSelectedCollapsible = collapsible;
+    }
 
     if (discover) {
       $this.on('collapsible:open', function(event){
         //console.log('collapsible:open', event);
-        discover.selectProject(event.item.id);
+        discover.selectProject(event.item.id, true);
       });
       $this.on('collapsible:close', function(event){
         //console.log('collapsible:close', event);
-        discover.deselectProject(event.item.id);
+        discover.deselectProject(event.item.id, true);
       });
     }
 
     collapsible.render();
   });
+  if (discoverSelectedCollapsible) {
+    discoverSelectedCollapsible.hidden = false;
+    discoverSelectedCollapsible.render();
+  }
 
   if ($form) {
     form.initForm($form);
