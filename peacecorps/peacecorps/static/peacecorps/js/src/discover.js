@@ -30,25 +30,27 @@ var Discover = function($root) {
     ev.preventDefault();
     self.back();
   });
-  
+
+  this.hasPushState = !!window.history.pushState;
+
   window.onpopstate = function (event) {
     //console.log('window.onpopstate', event);
     self.initFromHashConfig(event.state);
   };
-  
+
   // Parse that hash
   var config = this.parseHash();
-  
+
   this.initFromHashConfig(config);
 };
 
 Discover.prototype.initFromHashConfig = function (config) {
-  
+
   //console.log('initFromHashConfig', config);
   if (!config) {
     return;
   }
-  
+
   if ( config.section ) {
     this.state = [ config.section ];
   }
@@ -58,21 +60,19 @@ Discover.prototype.initFromHashConfig = function (config) {
   if ( config.params['project'] ) {
     this.currentProject = config.params['project'];
   }
-  //console.log('  this.state', this.state);
-  //console.log('  _.last(this.state)', _.last(this.state));
-  //console.log('  this.currentProject', this.currentProject);
+
   this._filter( _.last(this.state) );
   this.highlightSelected();
   if ( this.currentProject ) {
     this.selectProject(this.currentProject);
   }
-  
+
 };
 
 Discover.prototype.parseHash = function() {
-  
+
   var hash, hashParts = [], section = 'issue', rawParams= [], keyValue = [], params = {};
-  
+
   hash = window.location.hash.substr(1);
   hashParts = hash.split('?');
   section = hashParts.shift() || section;
@@ -84,7 +84,7 @@ Discover.prototype.parseHash = function() {
       params[keyValue.shift()] = keyValue.shift();
     }
   }
-  
+
   return {section: section, params: params};
 };
 
@@ -96,13 +96,13 @@ Discover.prototype.updateHash = function() {
       section = false,
       subSection = false,
       project = false;
-  
+
       //console.log('updateHash', appState);
-  
+
   section = appState.shift() || 'issue';
   subSection = appState.shift() || false;
   project = this.currentProject || false;
-  
+
   if ( section ) {
     hash += section;
   }
@@ -115,23 +115,28 @@ Discover.prototype.updateHash = function() {
   if ( params.length > 0) {
     hash += '?' + params.join('&');
   }
-  
+
   //window.location.hash = hash;
-  window.history.replaceState(this.parseHash(), '', '#' + hash);
+  if (this.hasPushState) {
+
+    window.history.replaceState(this.parseHash(), '', '#' + hash);
+  }
 };
 
 // Make an entry in History
 Discover.prototype.updateHistory = function() {
   //console.log('updateHistory');
-  window.history.pushState(this.parseHash());
+  if (this.hasPushState) {
+    window.history.pushState(this.parseHash(), window.document.title);
+  }
   //console.log(window.history.state);
 };
 
 /* Select a filter. Reset will reset the filter history */
 Discover.prototype.select = function(filter, reset) {
-  
+
   //console.log('select:'  + filter);
-  
+
   if (reset) {
     this.state = [filter];
   } else {
@@ -187,4 +192,3 @@ Discover.prototype._filter = function(filterName) {
 };
 
 module.exports = Discover;
-
