@@ -27,31 +27,59 @@ Collapsible.prototype.init = function(root, $control, opts) {
   if (this.$control) {
     this.$control.on('click', function(ev) {
       ev.preventDefault();
-      self.hidden = false;
-      // TODO fix global access.
-      self.hideMultiple($('body').find(self.ccCollapsible));
-      self.$el.trigger({
-        type: 'collapsible:open',
-        item: self
-      });
-      self.render();
+      self.open();
+      // self.hidden = false;
+      // // TODO fix global access.
+      // self.hideMultiple($('body').find(self.ccCollapsible));
+      // self.$el.trigger({
+      //   type: 'collapsible:open',
+      //   item: self
+      // });
+      // self.render();
     });
   }
   if (this.$closeButton.length) {
     this.$closeButton.on('click', function(ev) {
       ev.preventDefault();
-      self.hidden = true;
-      // TODO fix global access.
-      self.hideMultiple($('body').find(self.ccCollapsible));
-      self.$el.trigger({
-        type: 'collapsible:close',
-        item: self
-      });
-      self.render();
+      self.close();
+      // self.hidden = true;
+      // // TODO fix global access.
+      // self.hideMultiple($('body').find(self.ccCollapsible));
+      // self.$el.trigger({
+      //   type: 'collapsible:close',
+      //   item: self
+      // });
+      // self.render();
     });
   }
 };
 
+Collapsible.prototype.open = function(silent) {
+  //console.log('collapsible.open');
+  this.hidden = false;
+  // TODO fix global access.
+  this.hideMultiple($('body').find(this.ccCollapsible));
+  if (!silent) {
+    this.$el.trigger({
+      type: 'collapsible:open',
+      item: this
+    });
+  }
+  this.render();
+};
+
+Collapsible.prototype.close = function(silent) {
+  this.hidden = true;
+  // TODO fix global access.
+  this.hideMultiple($('body').find(this.ccCollapsible));
+  if (!silent) {
+    this.$el.trigger({
+      type: 'collapsible:close',
+      item: this
+    });
+  }
+  this.render();
+};
 
 // TODO move to more general util
 Collapsible.prototype.hideMultiple = function($els) {
