@@ -12,6 +12,7 @@ var Discover = function($root) {
   this.$el = $root;
   this.state = [];
   this.currentProject = false;
+  this.projectCollapsiblesCache = {};
   // create shortcut to finding things within root.
   this.$ =  function(selector) {
     return this.$el.find(selector);
@@ -35,6 +36,13 @@ var Discover = function($root) {
 
   window.onpopstate = function (event) {
     //console.log('window.onpopstate', event, event.originalEvent);
+    if (self.currentProject) {
+      // if (self.projectCollapsiblesCache[self.currentProject]) {
+      //   self.projectCollapsiblesCache[self.currentProject].close(true);
+      // }
+      //console.log('self.projectCollapsiblesCache[' + self.currentProject + ']', self.projectCollapsiblesCache[self.currentProject]);
+      self.deselectProject(self.currentProject);
+    }
     self.currentProject = false;
     self.initFromHashConfig(event.state);
     self.updateHash();
@@ -49,6 +57,7 @@ var Discover = function($root) {
 Discover.prototype.initFromHashConfig = function (config) {
 
   //console.log('initFromHashConfig', config);
+
   if (!config) {
     return;
   }
@@ -61,12 +70,22 @@ Discover.prototype.initFromHashConfig = function (config) {
   }
   if ( config.params['project'] ) {
     this.currentProject = config.params['project'];
+    if (this.projectCollapsiblesCache[this.currentProject]) {
+      this.selectedCollapsible = this.projectCollapsiblesCache[this.currentProject];
+    }
   }
 
   this._filter( _.last(this.state) );
   this.highlightSelected();
+
+  //console.log('  initFromHashConfig this.currentProject', this.currentProject);
+
   if ( this.currentProject ) {
     this.selectProject(this.currentProject);
+    //console.log('  initFromHashConfig this.selectedCollapsible', this.selectedCollapsible);
+    if (this.selectedCollapsible) {
+      this.selectedCollapsible.open(true);
+    }
   }
 
 };
@@ -161,7 +180,11 @@ Discover.prototype.back = function() {
 };
 
 /* Go back in the trail of selected filters */
-Discover.prototype.selectProject = function(itemId, updateHistoryFlag) {
+Discover.prototype.selectProject = function(itemId, item, updateHistoryFlag) {
+  if (item) {
+    this.selectedCollapsible = item;
+    this.projectCollapsiblesCache[itemId] = item;
+  }
   this.currentProject = itemId;
   this.updateHash();
   if (updateHistoryFlag) {
@@ -169,7 +192,10 @@ Discover.prototype.selectProject = function(itemId, updateHistoryFlag) {
   }
 };
 
-Discover.prototype.deselectProject = function(itemId, updateHistoryFlag) {
+Discover.prototype.deselectProject = function(itemId, item, updateHistoryFlag) {
+  if (this.projectCollapsiblesCache[itemId]) {
+    this.projectCollapsiblesCache[itemId].close(true);
+  }
   this.currentProject = false;
   this.updateHash();
   if (updateHistoryFlag) {

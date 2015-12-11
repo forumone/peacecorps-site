@@ -94,19 +94,21 @@ $().ready(function() {
     if (discover) {
       $this.on('collapsible:open', function(event){
         //console.log('collapsible:open', event);
-        discover.selectProject(event.item.id, true);
+        discover.selectedCollapsible = event.item;
+        discover.selectProject(event.item.id, event.item, true);
       });
       $this.on('collapsible:close', function(event){
         //console.log('collapsible:close', event);
-        discover.deselectProject(event.item.id, true);
+        discover.deselectProject(event.item.id, event.item, true);
       });
     }
 
     collapsible.render();
   });
   if (discoverSelectedCollapsible) {
-    discoverSelectedCollapsible.hidden = false;
-    discoverSelectedCollapsible.render();
+    discover.selectedCollapsible = discoverSelectedCollapsible;
+    //discoverSelectedCollapsible.hidden = false;
+    //discoverSelectedCollapsible.render();
   }
 
   if ($form) {
