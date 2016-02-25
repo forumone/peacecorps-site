@@ -159,7 +159,7 @@
      class="js-collapsibleControls discover_proj--hd_link">
     {# shown when issue or country is selected #}
     <h4 data-in-filter="{{project_filters.get(project.id)}}"
-        class="discover_proj--hd_min">{{ project.title }}</h4>
+        class="discover_proj--hd_min">{{ project.title }} {% if project.account.funded() %} <br/><span style="font-size: 13px; color: #087A7E">&#10003; Funding Complete</span>{% endif %}</h4>
     {# shown when volunteer is selected #}
     <aside class="column column--third enclose--sm"
            data-in-filter="volunteer">
