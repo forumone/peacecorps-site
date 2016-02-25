@@ -166,6 +166,8 @@ def donate_projects_funds(request):
         'country',
         'volunteerpicture'
     ).order_by('volunteername')
+    # Sort projects by fully-funded/non-fully-funded
+    projects = sorted(projects, key= lambda t: t.account.funded())
     # Before we can build projects_by_issue, we need to know which funds are
     # associated with which issues
     issues_by_campaign = defaultdict(list)
