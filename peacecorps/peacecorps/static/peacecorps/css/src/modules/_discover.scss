@@ -216,6 +216,12 @@
     bottom: 27.5%;
     top: auto;
   }
+  .dp__fill-mark--top {
+    @extend .rectangular_progress__line;
+
+    height: .5em;
+    top: 27.5%;
+  }
   .dp__fill-text {
     @extend .rectangular_progress__point;
     @extend .rectangular_progress__point--bottom;
@@ -223,6 +229,13 @@
 
     top: auto;
     bottom: 12%;
+  }
+  .dp__fill-text--top {
+    @extend .rectangular_progress__point;
+    @extend .t-title--4;
+
+    top: 12%;
+    width: 50%;
   }
   .dp__goal-mark {
     @extend .rectangular_progress__line;

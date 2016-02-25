@@ -275,7 +275,7 @@ p + p {
   margin: 10px 0;
   margin: 1rem 0; }
 
-.t-title--4, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
+.t-title--4, .discover_progress .dp__fill-text, .discover_progress .dp__fill-text--top, .discover_progress .dp__goal-text {
   letter-spacing: .09em;
   text-transform: uppercase;
   font-family: 'Lato', 'Verdana', sans-serif;
@@ -374,7 +374,7 @@ p + p {
 .t-link--no_underline, .discover_proj--hd_link, .discover_page--link {
   text-decoration: none; }
 
-.t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .discover_progress .dp__fill-text a, .discover_progress .dp__goal-text a, .t-title--5 a {
+.t-title--1 a, .t-title--2 a, .t-title--3 a, .button--md a, .t-title--4 a, .discover_progress .dp__fill-text a, .discover_progress .dp__fill-text--top a, .discover_progress .dp__goal-text a, .t-title--5 a {
   text-decoration: none; }
 
 .t-nom, .discover_proj--hd_min, .discover_page--hd h4 {
@@ -1667,7 +1667,7 @@ p + p {
   background-color: #A12122;
   height: 100%; }
 
-.rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
+.rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__fill-text--top, .discover_progress .dp__goal-text {
   display: inline-block;
   margin: 0;
   margin-left: -20%;
@@ -1676,12 +1676,12 @@ p + p {
   top: 15%;
   width: 40%; }
   @media screen and (min-width: 500px) and (max-width: 899px)  {
-    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
+    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__fill-text--top, .discover_progress .dp__goal-text {
       font-size: 85%;
       margin-left: -30%;
       width: 60%; } }
   @media screen and (min-width: 0px) and (max-width: 499px)  {
-    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__goal-text {
+    .rectangular_progress__point, .discover_progress .dp__fill-text, .discover_progress .dp__fill-text--top, .discover_progress .dp__goal-text {
       font-size: 80%;
       margin-left: -30%;
       width: 60%;
@@ -1704,7 +1704,7 @@ p + p {
     .rectangular_progress__point--bottom, .discover_progress .dp__fill-text {
       bottom: 17%; } }
 
-.rectangular_progress__line, .discover_progress .dp__fill-mark, .discover_progress .dp__goal-mark {
+.rectangular_progress__line, .discover_progress .dp__fill-mark, .discover_progress .dp__fill-mark--top, .discover_progress .dp__goal-mark {
   background-color: #087A7E;
   display: block;
   height: .7em;
@@ -2254,9 +2254,15 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     height: .5em;
     bottom: 27.5%;
     top: auto; }
+  .discover_progress .dp__fill-mark--top {
+    height: .5em;
+    top: 27.5%; }
   .discover_progress .dp__fill-text {
     top: auto;
     bottom: 12%; }
+  .discover_progress .dp__fill-text--top {
+    top: 12%;
+    width: 50%; }
   .discover_progress .dp__goal-mark {
     height: .5em;
     top: 28.5%;
