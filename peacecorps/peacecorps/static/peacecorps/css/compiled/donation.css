@@ -2262,7 +2262,8 @@ h1 + .text-block, h2 + .text-block, h3 + .text-block, h4 + .text-block {
     bottom: 12%; }
   .discover_progress .dp__fill-text--top {
     top: 12%;
-    width: 50%; }
+    width: 45%;
+    font-size: 50%; }
   .discover_progress .dp__goal-mark {
     height: .5em;
     top: 28.5%;
