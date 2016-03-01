@@ -232,14 +232,16 @@
         </span>
 
         {% if not project.account.funded() %}
-          {% set percent_community = project.account.percent_community() %}
-          <span style="left: {{ percent_community }}%;"
-              class="dp__fill-mark--top">
-          </span>
-          <span class="dp__fill-text--top" style="left: {{ percent_community }}%;">
-            community contributions<br/>
-            {{ humanize_cents(project.account.community_contribution) }}
-          </span>
+          {% if project.account.community_contribution %}
+            {% set percent_community = project.account.percent_community() %}
+            <span style="left: {{ percent_community }}%;"
+                class="dp__fill-mark--top">
+            </span>
+            <span class="dp__fill-text--top" style="left: {{ percent_community }}%;">
+              community contributions<br/>
+              {{ humanize_cents(project.account.community_contribution) }}
+            </span>
+          {% endif %}
           <span class="dp__goal-text">
              Goal<br />
              <strong class="t--secondary">{{ humanize_cents(project.account.total_cost()) }}</strong>
