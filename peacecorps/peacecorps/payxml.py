@@ -96,7 +96,7 @@ def generate_collection_request(data):
     optional_fields = SubElement(collection_auth, 'OptionalFieldsGroup')
     custom_fields = [
         'custom_field_1', 'custom_field_2', 'custom_field_3', 'custom_field_4',
-        'custom_field_5', 'custom_field_6', 'custom_field_7']
+        'custom_field_5', 'custom_field_6', 'custom_field_7', 'custom_field_8']
     add_subelements(optional_fields, data, custom_fields)
     return root
 
@@ -110,7 +110,8 @@ def generate_custom_fields(data):
         Custom Field #4: Organization_Name
         Custom Field #5: Dedication_Name, Contact, Email
         Custom Field #6: Dedication_Type, Consent, Message
-        Custom Field #7: Dedication_Address"""
+        Custom Field #7: Dedication_Address
+        Custom Field #8: Email Confirmation Body Message"""
     custom = {}
     custom['custom_field_1'] = '(' + data.get('phone_number', '') + ')'
     custom['custom_field_1'] += '(' + data.get('email', '') + ')'
@@ -139,6 +140,8 @@ def generate_custom_fields(data):
     custom['custom_field_6'] += '(' + dedication + ')'
 
     custom['custom_field_7'] = '(' + data.get('dedication_address', '') + ')'
+
+    custom['custom_field_8'] = '(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)'
 
     return custom
 

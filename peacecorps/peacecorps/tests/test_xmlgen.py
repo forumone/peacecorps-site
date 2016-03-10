@@ -21,6 +21,7 @@ def donor_custom_fields():
 
 
 class PayXMLGenerationTests(TestCase):
+
     fixtures = ['countries.yaml']
 
     def test_xml(self):
@@ -85,6 +86,7 @@ class PayXMLGenerationTests(TestCase):
         optg += '<custom_field_5 value="(Bob)(Patty)(family@example.com)" />'
         optg += '<custom_field_6 value="(Memory)(no)(Good Jorb)" />'
         optg += '<custom_field_7 value="(111 Somewhere)" />'
+        optg += '<custom_field_8 value="(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)" />'
         optg += '</OptionalFieldsGroup>'
 
         self.assertEqual(optg, tostring(optional_fields).decode('utf-8'))
@@ -138,7 +140,8 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_4': '(Bob Jones)',
             'custom_field_5': '(Bob)(Patty)(family@example.com)',
             'custom_field_6': '(Memory)(no)(Good Jorb)',
-            'custom_field_7': '(111 Somewhere)'
+            'custom_field_7': '(111 Somewhere)',
+            'custom_field_8': '(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)'
         })
 
     def test_generate_custom_fields_optional(self):
@@ -150,7 +153,8 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_4': '()',
             'custom_field_5': '()()()',
             'custom_field_6': '(Honor)(yes)()',
-            'custom_field_7': '()'
+            'custom_field_7': '()',
+            'custom_field_8': '(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)'
         })
 
     def test_generate_custom_fields_escape_chars(self):
@@ -163,7 +167,8 @@ class PayXMLGenerationTests(TestCase):
             'custom_field_4': '()',
             'custom_field_5': '()()()',
             'custom_field_6': '(Honor)(yes)(Here is An alert)',
-            'custom_field_7': '()'
+            'custom_field_7': '()',
+            'custom_field_8': '(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)'
         })
 
     def test_generate_agency_tracking_id(self):
