@@ -141,7 +141,7 @@ def generate_custom_fields(data):
 
     custom['custom_field_7'] = '(' + data.get('dedication_address', '') + ')'
 
-    custom['custom_field_8'] = '(Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.)'
+    custom['custom_field_8'] = 'Thank you for your gift to the Peace Corps. Your tax-deductible donation provides crucial support as we build peace and friendship in the world. We\'ll stay in touch but you can also contact us at (202)692-2170 or donate@peacecorps.gov. Thank you again.'
 
     return custom
 
