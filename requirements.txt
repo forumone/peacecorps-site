@@ -10,6 +10,7 @@ Pillow
 pyyaml
 python-gnupg
 pytz
+djangorestframework
 
 # These should really be optional dependencies, but we can separate out a
 # requirements-production later

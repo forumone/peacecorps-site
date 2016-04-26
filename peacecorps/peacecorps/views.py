@@ -17,6 +17,8 @@ from peacecorps.models import (
     Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
     Issue, Project, PayGovAlert)
 from peacecorps.payxml import convert_to_paygov
+from peacecorps.serializers import ProjectSerializer
+from rest_framework.generics import ListAPIView
 
 
 def project_form(request, slug):
@@ -297,3 +299,29 @@ class FAQs(ListView):
 def four_oh_four(request):
     return render(request, '404.jinja', {'title': 'Page Not Found'},
                   status=404)
+
+class ProjectListAPI(ListAPIView):
+    """
+    List API view of projects
+    """
+    serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+
+        country = self.request.query_params.get('country', None)
+        funded = self.request.query_params.get('funded', None)
+
+        queryset = Project.published_objects.all()
+
+        if country:
+            queryset = queryset.filter(country__name__iexact=country)
+        if funded is not None:
+            if funded == "true":
+                queryset = filter(lambda x: x.account.funded(), queryset)
+            elif funded == "false":
+                queryset = filter(lambda x: not x.account.funded(), queryset)
+
+        # Sort by funding status
+        queryset = sorted(queryset, key=lambda k: k.account.funded())
+
+        return queryset
