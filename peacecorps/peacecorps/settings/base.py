@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'sirtrevor',
     'adminsortable',
     'overextends',
+    'rest_framework',
 )
 
 
@@ -161,4 +162,19 @@ SHARE_TWEET = "Every day, @PeaceCorps Volunteers make a difference across the gl
 SVG_COLORS = {
     'white': '#FFF',
     'grey': '#67655D'
+}
+
+# Django REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        #'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '15/second',
+        'user': None,
+    }
 }

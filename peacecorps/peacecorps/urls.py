@@ -62,6 +62,10 @@ urlpatterns = patterns(
         RedirectView.as_view(url=settings.STATIC_URL + "favicon.ico")),
 
     url(r'^api/', include(apipatterns, namespace='api')),
+
+    url(r'^donate/api/v1/projects/',
+        views.ProjectListAPI.as_view(),
+        name='projects api'),
 )
 
 
