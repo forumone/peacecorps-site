@@ -19,8 +19,8 @@ boto
 python-logstash
 # Version 0.5.0 breaks backwards compatibility
 django-admin-sortable2==0.3.3
-# Pin pylibmc to specifc version (1.5.0)
--e git+https://github.com/peacecorps/django-elasticache.git#egg=django-elasticache
+pylibmc==1.5.0
+django-elasticache>=0.0.3
 # @see http://code.larlet.fr/django-storages/issue/155/python-3-support
 -e git+https://github.com/coagulant/django-storages-py3.git@py3#egg=django-storages
 # Fixes an upstream bug. See https://github.com/mapmyfitness/django-gzipping-cache/pull/1
