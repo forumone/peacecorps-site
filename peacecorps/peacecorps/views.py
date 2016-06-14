@@ -17,7 +17,7 @@ from peacecorps.models import (
     Account, Campaign, FAQ, FeaturedCampaign, FeaturedProjectFrontPage,
     Issue, Project, PayGovAlert)
 from peacecorps.payxml import convert_to_paygov
-from peacecorps.serializers import ProjectSerializer
+from peacecorps.serializers import ProjectSerializer, CountryCampaignSerializer
 from rest_framework.generics import ListAPIView
 
 
@@ -325,3 +325,21 @@ class ProjectListAPI(ListAPIView):
         queryset = sorted(queryset, key=lambda k: k.account.funded())
 
         return queryset
+
+class CountryCampaignListAPI(ListAPIView):
+    """
+    List API view of country campaigns
+    """
+    serializer_class = CountryCampaignSerializer
+
+    def get_queryset(self):
+
+        country = self.request.query_params.get('country', None)
+
+        queryset = Campaign.published_objects.filter(campaigntype=Campaign.COUNTRY)
+
+        if country:
+            queryset = queryset.filter(country__name__iexact=country)
+
+        return queryset
+
