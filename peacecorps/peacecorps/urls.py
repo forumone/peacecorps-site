@@ -66,6 +66,10 @@ urlpatterns = patterns(
     url(r'^donate/api/v1/projects/',
         views.ProjectListAPI.as_view(),
         name='projects api'),
+
+    url(r'^donate/api/v1/campaigns/country',
+        views.CountryCampaignListAPI.as_view(),
+        name='campaigns api'),
 )
 
 
