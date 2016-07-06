@@ -20,6 +20,7 @@ def data(request):
     else:
         info = get_object_or_404(
             DonorInfo, pk=request.POST.get('agency_tracking_id'))
+        logger.debug(info.xml)
         return HttpResponse(info.xml, content_type='text/xml')
 
 

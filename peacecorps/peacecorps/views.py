@@ -343,3 +343,7 @@ class CountryCampaignListAPI(ListAPIView):
 
         return queryset
 
+def paygov_callback_test(request):
+    return render(request, "donations/paygov_callback_test.html",)
+
+

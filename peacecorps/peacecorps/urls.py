@@ -70,6 +70,10 @@ urlpatterns = patterns(
     url(r'^donate/api/v1/campaigns/country',
         views.CountryCampaignListAPI.as_view(),
         name='campaigns api'),
+
+    url(r'^donate/paygov-callback-test/',
+        views.paygov_callback_test, name='donate paygovcallbacktest'),
+
 )
 
 
