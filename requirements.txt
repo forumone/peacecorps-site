@@ -6,7 +6,7 @@ django-overextends
 django-sirtrevor
 django-tinymce
 DjangoRestless
-Pillow
+Pillow==3.0.0
 pyyaml
 python-gnupg
 pytz
