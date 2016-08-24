@@ -1,6 +1,7 @@
 # Used as helpful in dev
 flake8
-django-debug-toolbar
+# Django Debug Toolbar follows Django versions closely, keep an eye on this requirement!
+django-debug-toolbar==1.4
 ipython
 PyYAML
 mkdocs
