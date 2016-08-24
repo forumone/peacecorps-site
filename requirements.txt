@@ -1,22 +1,22 @@
-defusedxml
+defusedxml==0.4.1
 Django>=1.7,<1.8
 django-jinja==1.0.4
-django-localflavor
-django-overextends
-django-sirtrevor
-django-tinymce
-DjangoRestless
+django-localflavor==1.2
+django-overextends==0.4.1
+django-sirtrevor==0.2.4
+django-tinymce==2.2.0
+DjangoRestless==0.0.10
 Pillow==3.0.0
-pyyaml
-python-gnupg
-pytz
-djangorestframework
+pyyaml==3.11
+python-gnupg==0.3.8
+pytz==2015.7
+djangorestframework<3.4
 
 # These should really be optional dependencies, but we can separate out a
 # requirements-production later
 psycopg2==2.5.3
-boto
-python-logstash
+boto==2.39.0
+python-logstash==0.4.6
 # Version 0.5.0 breaks backwards compatibility
 django-admin-sortable2==0.3.3
 pylibmc==1.5.0
