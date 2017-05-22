@@ -292,6 +292,11 @@ class Campaign(models.Model, AbstractHTMLMixin):
         else:
             return reverse('donate projects funds')
 
+    def get_description(self):
+        desc = json.loads(self.description)
+        desc_text = desc['data'][0]['data']['text'].encode('iso-8859-1')
+        return desc_text
+
 
 class SectorMapping(models.Model):
     """When importing data from the accounting software, a 'sector' field
@@ -510,6 +515,11 @@ class Project(models.Model, AbstractHTMLMixin):
             return reverse('donate project', kwargs={'slug': self.slug})
         else:
             return reverse('donate projects funds')
+
+    def get_description(self):
+        desc = json.loads(self.description)
+        desc_text = desc['data'][0]['data']['text'].encode('iso-8859-1').decode('utf-8')
+        return desc_text
 
 
 class Issue(models.Model):
