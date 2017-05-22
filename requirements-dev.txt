@@ -1,7 +1,7 @@
 # Used as helpful in dev
-flake8
+flake8==2.5.0
 # Django Debug Toolbar follows Django versions closely, keep an eye on this requirement!
 django-debug-toolbar==1.4
-ipython
-PyYAML
-mkdocs
+ipython==4.0.0
+PyYAML==3.11
+mkdocs==0.14.0
