@@ -9,6 +9,7 @@ from django.forms import TextInput
 from django.db.models import CharField
 
 from peacecorps import models
+from peacecorps.util.export import export_csv_action
 from .forms import (
     LoggingAuthenticationForm, StrictAdminPasswordChangeForm,
     StrictUserCreationForm)
@@ -51,6 +52,20 @@ class CampaignAdmin(admin.ModelAdmin):
     raw_id_fields = ['account', 'icon', 'country']
     # filter_horizontal = ['featuredprojects']
     exclude = ['featuredprojects']
+
+    download_display = [
+        ('name', 'Name'),
+        ('account', 'Account'),
+        ('get_description', 'Description'),
+    ]
+
+    actions = [
+        export_csv_action(
+            "Export selected items",
+            fields=download_display,
+            header=True
+        ),
+    ]
 
 
 class FeaturedProjectFrontPageAdmin(admin.ModelAdmin):
@@ -96,6 +111,20 @@ class ProjectAdmin(admin.ModelAdmin):
                      'volunteerpicture', 'featured_image']
     exclude = ['media']
     readonly_fields = ['funded_status']
+
+    download_display = [
+        ('title', 'Title'),
+        ('account', 'Account'),
+        ('get_description', 'Description'),
+    ]
+
+    actions = [
+        export_csv_action(
+            "Export selected items",
+            fields=download_display,
+            header=True
+        ),
+    ]
 
     def funded_status(self, obj):
         if obj.account.funded():
